@@ -33,7 +33,7 @@ jobs:
 
       - name: Install webpack dependencies
         working-directory: webpack
-        run: npm ci
+        run: yarn install
 
       - name: Generate Markdown
         run: npm run generate-md
