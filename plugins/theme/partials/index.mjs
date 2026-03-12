@@ -41,7 +41,7 @@ export default (ctx) => ({
       const title = `${'#'.repeat(options.headingLevel + 1)} Example${exampleTags.length > 1 ? ` ${index + 1}` : ''}`;
       const body = ctx.helpers.getCommentParts(tag.content);
 
-      return body ? ['', title, '', body] : [];
+      return body ? [title, body] : [];
     });
 
     return [
