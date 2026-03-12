@@ -36,6 +36,14 @@ export default (ctx) => ({
       ? model.comment
       : model.comment || model.parent?.comment;
 
+    const exampleTags = comment?.getTags('@example') ?? [];
+    const exampleSections = exampleTags.flatMap((tag, index) => {
+      const title = `${'#'.repeat(options.headingLevel + 1)} Example${exampleTags.length > 1 ? ` ${index + 1}` : ''}`;
+      const body = ctx.helpers.getCommentParts(tag.content);
+
+      return body ? ['', title, '', body] : [];
+    });
+
     return [
       model.typeParameters?.length &&
         ctx.partials.typeParametersList(model.typeParameters, {
@@ -55,6 +63,7 @@ export default (ctx) => ({
         ctx.partials.comment(comment, {
           headingLevel: options.headingLevel,
         }),
+      ...exampleSections,
     ]
       .filter((x) => (typeof x === 'string' ? x : Boolean(x)))
       .join('\n');
