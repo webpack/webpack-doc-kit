@@ -10,7 +10,7 @@ export default {
   web: {
     title: "webpack",
     imports: {
-      "#config/Logo": resolve(__dirname, "plugins/theme/ui/WebpackLogo.jsx"),
+      "#config/Logo": resolve(__dirname, "ui/WebpackLogo.jsx"),
     },
   },
 };
