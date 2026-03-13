@@ -1,7 +1,7 @@
 {
   "scripts": {
     "generate-docs": "node generate-md.mjs",
-    "build-html": "doc-kit generate -t web -i ./pages/v5.x/**/*.md --type-map ./pages/v5.x/type-map.json -o out",
+    "build-html": "doc-kit generate --config-file ./doc-kit.config.mjs -t web -i ./pages/v5.x/**/*.md --type-map ./pages/v5.x/type-map.json -o out",
     "build": "npm run generate-docs && npm run build-html",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
