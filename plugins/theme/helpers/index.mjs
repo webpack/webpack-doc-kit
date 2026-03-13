@@ -21,7 +21,7 @@ export default (ctx) => ({
       : "";
 
     const descPart = comment
-      ? ` ${ctx.helpers.getCommentParts(comment.summary ?? comment.content)}`
+      ? ` ${ctx.helpers.getCommentParts(comment.summary ?? comment.content)}${ctx.helpers.renderExamples(comment)}`
       : "";
 
     return `*${namePart}${typePart}${descPart}`;
@@ -63,5 +63,17 @@ export default (ctx) => ({
     }
 
     return null;
+  },
+
+  renderExamples(comment) {
+    if (!comment || !comment.blockTags) return "";
+    const examples = comment.blockTags.filter((tag) => tag.tag === "@example");
+    if (!examples.length) return "";
+    return (
+      "\n\n" +
+      examples
+        .map((tag) => ctx.helpers.getCommentParts(tag.content).trim())
+        .join("\n\n")
+    );
   },
 });
