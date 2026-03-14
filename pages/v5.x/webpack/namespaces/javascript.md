@@ -873,9 +873,3 @@ Walking iterates the statements and expressions and processes them
 
 * `plugins` {object[]}
 * Returns: {JavascriptParser}
-
-***
-
-## `JavascriptModulesPlugin`
-
-Re-exports [JavascriptModulesPlugin](../../globals.md#javascriptmodulesplugin)
