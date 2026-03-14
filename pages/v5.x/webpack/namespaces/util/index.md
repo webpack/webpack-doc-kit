@@ -76,21 +76,21 @@
 
 * Returns: {SetIterator}
 
-#### `serialize(__namedParameters)`
+#### `serialize(context)`
 
-* `__namedParameters` {ObjectSerializerContext}
+* `context` {ObjectSerializerContext}
 * Returns: {void}
 
 #### `values()`
 
 * Returns: {SetIterator}
 
-#### Static method: `deserialize(__namedParameters)`
+#### Static method: `deserialize(context)`
 
 ###### T
 
 `T`
-* `__namedParameters` {ObjectDeserializerContext}
+* `context` {ObjectDeserializerContext}
 * Returns: {LazySet}
 
 ***

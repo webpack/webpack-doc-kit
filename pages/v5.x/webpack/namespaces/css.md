@@ -31,9 +31,9 @@ Apply the plugin
 * `compilation` {Compilation}
 * Returns: {CssModule[]}
 
-#### `renderChunk(__namedParameters, hooks)`
+#### `renderChunk(plugin, hooks)`
 
-* `__namedParameters` {RenderContextCssModulesPlugin}
+* `plugin` {RenderContextCssModulesPlugin}
 * `hooks` {CompilationHooksCssModulesPlugin}
 * Returns: {Source}
 

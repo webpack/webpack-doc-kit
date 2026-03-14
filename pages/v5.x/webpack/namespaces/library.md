@@ -10,12 +10,12 @@
 
 ### Constructors
 
-#### `new AbstractLibraryPlugin(__namedParameters)`
+#### `new AbstractLibraryPlugin(options)`
 
 ###### T
 
 `T`
-* `__namedParameters` {AbstractLibraryPluginOptions}
+* `options` {AbstractLibraryPluginOptions}
 * Returns: {AbstractLibraryPlugin}
 
 ### Properties

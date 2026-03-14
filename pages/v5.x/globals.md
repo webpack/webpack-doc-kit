@@ -77,9 +77,9 @@ This is used for when a Module has a AsyncDependencyBlock tie (for code-splittin
 
 Removes all dependencies and blocks
 
-#### `deserialize(__namedParameters)`
+#### `deserialize(context)`
 
-* `__namedParameters` {ObjectDeserializerContext}
+* `context` {ObjectDeserializerContext}
 * Returns: {void}
 
 #### `getRootBlock()`
@@ -91,9 +91,9 @@ Removes all dependencies and blocks
 * `dependency` {Dependency}
 * Returns: {void}
 
-#### `serialize(__namedParameters)`
+#### `serialize(context)`
 
-* `__namedParameters` {ObjectSerializerContext}
+* `context` {ObjectSerializerContext}
 * Returns: {void}
 
 #### `updateHash(hash, context)`
@@ -1425,9 +1425,9 @@ If `module` is passed, `loc` and `request` must also be passed.
 * `callback` {object}
 * Returns: {void}
 
-#### `addModuleTree(__namedParameters, callback)`
+#### `addModuleTree(options, callback)`
 
-* `__namedParameters` {object}
+* `options` {object}
 * `callback` {object}
 * Returns: {void}
 
@@ -1637,9 +1637,9 @@ Fetches a module from a compilation by its identifier
 
 * Returns: {Error[]}
 
-#### `handleModuleCreation(__namedParameters, callback)`
+#### `handleModuleCreation(options, callback)`
 
-* `__namedParameters` {HandleModuleCreationOptions}
+* `options` {HandleModuleCreationOptions}
 * `callback` {object}
 * Returns: {void}
 
@@ -1660,9 +1660,9 @@ Fetches a module from a compilation by its identifier
 * `module` {Module}
 * Returns: {void}
 
-#### `processRuntimeRequirements([__namedParameters])`
+#### `processRuntimeRequirements([options])`
 
-* `__namedParameters` {object}
+* `options` {object}
 * Returns: {void}
 
 #### `rebuildModule(module, callback)`
@@ -1895,10 +1895,10 @@ Schema validation function with optional pre-compiled check
 
 ### Methods
 
-#### `createModuleReference(module, __namedParameters)`
+#### `createModuleReference(module, partial)`
 
 * `module` {Module}
-* `__namedParameters` {Partial}
+* `partial` {Partial}
 * Returns: {string}
 
 #### `getRawExport(exportName)`
@@ -2100,9 +2100,9 @@ Apply the plugin
 * `context` {string}
 * Returns: {Module}
 
-#### `deserialize(__namedParameters)`
+#### `deserialize(context)`
 
-* `__namedParameters` {ObjectDeserializerContext}
+* `context` {ObjectDeserializerContext}
 * Returns: {void}
 
 #### `getCondition(moduleGraph)`
@@ -2167,9 +2167,9 @@ Returns list of exports referenced by this dependency
 
 Returns warnings
 
-#### `serialize(__namedParameters)`
+#### `serialize(context)`
 
-* `__namedParameters` {ObjectSerializerContext}
+* `context` {ObjectSerializerContext}
 * Returns: {void}
 
 #### `setLoc(startLine, startColumn, endLine, endColumn)`
@@ -2830,9 +2830,9 @@ removes all warnings and errors
 * `context` {CodeGenerationContext}
 * Returns: {CodeGenerationResult}
 
-#### `deserialize(__namedParameters)`
+#### `deserialize(context)`
 
-* `__namedParameters` {ObjectDeserializerContext}
+* `context` {ObjectDeserializerContext}
 * Returns: {void}
 
 #### `getChunks()`
@@ -3010,9 +3010,9 @@ Use needBuild instead
 
 restore unsafe cache data
 
-#### `serialize(__namedParameters)`
+#### `serialize(context)`
 
-* `__namedParameters` {ObjectSerializerContext}
+* `context` {ObjectSerializerContext}
 * Returns: {void}
 
 #### `size([type])`
@@ -3093,10 +3093,10 @@ Apply the plugin
 
 ### Methods
 
-#### `generate(module, __namedParameters)`
+#### `generate(module, context)`
 
 * `module` {NormalModule}
-* `__namedParameters` {GenerateContext}
+* `context` {GenerateContext}
 * Returns: {Source}
 
 #### `getConcatenationBailoutReason(module, context)`
@@ -3116,10 +3116,10 @@ Apply the plugin
 * `module` {NormalModule}
 * Returns: {ReadonlySet}
 
-#### `updateHash(hash, __namedParameters)`
+#### `updateHash(hash, generator)`
 
 * `hash` {Hash}
-* `__namedParameters` {UpdateHashContextGenerator}
+* `generator` {UpdateHashContextGenerator}
 * Returns: {void}
 
 #### Static method: `byType(map)`
@@ -3825,9 +3825,9 @@ removes all warnings and errors
 * `context` {CodeGenerationContext}
 * Returns: {CodeGenerationResult}
 
-#### `deserialize(__namedParameters)`
+#### `deserialize(context)`
 
-* `__namedParameters` {ObjectDeserializerContext}
+* `context` {ObjectDeserializerContext}
 * Returns: {void}
 
 #### `getChunks()`
@@ -3997,9 +3997,9 @@ Use needBuild instead
 * `dependency` {Dependency}
 * Returns: {void}
 
-#### `serialize(__namedParameters)`
+#### `serialize(context)`
 
-* `__namedParameters` {ObjectSerializerContext}
+* `context` {ObjectSerializerContext}
 * Returns: {void}
 
 #### `size([type])`
@@ -4637,9 +4637,9 @@ Apply the plugin
 
 ### Constructors
 
-#### `new NormalModule(__namedParameters)`
+#### `new NormalModule(data)`
 
-* `__namedParameters` {NormalModuleCreateData}
+* `data` {NormalModuleCreateData}
 * Returns: {NormalModule}
 
 ### Properties
@@ -4804,9 +4804,9 @@ removes all warnings and errors
 * `associatedObjectForCache` {object}
 * Returns: {Source}
 
-#### `deserialize(__namedParameters)`
+#### `deserialize(context)`
 
-* `__namedParameters` {ObjectDeserializerContext}
+* `context` {ObjectDeserializerContext}
 * Returns: {void}
 
 #### `getChunks()`
@@ -4999,9 +4999,9 @@ Use needBuild instead
 
 restore unsafe cache data
 
-#### `serialize(__namedParameters)`
+#### `serialize(context)`
 
-* `__namedParameters` {ObjectSerializerContext}
+* `context` {ObjectSerializerContext}
 * Returns: {void}
 
 #### `shouldPreventParsing(noParseRule, request)`
@@ -5472,9 +5472,9 @@ removes all warnings and errors
 * `context` {CodeGenerationContext}
 * Returns: {CodeGenerationResult}
 
-#### `deserialize(__namedParameters)`
+#### `deserialize(context)`
 
-* `__namedParameters` {ObjectDeserializerContext}
+* `context` {ObjectDeserializerContext}
 * Returns: {void}
 
 #### `generate()`
@@ -5652,9 +5652,9 @@ Use needBuild instead
 * `dependency` {Dependency}
 * Returns: {void}
 
-#### `serialize(__namedParameters)`
+#### `serialize(context)`
 
-* `__namedParameters` {ObjectSerializerContext}
+* `context` {ObjectSerializerContext}
 * Returns: {void}
 
 #### `shouldIsolate()`
@@ -5981,14 +5981,14 @@ not capture any frames.
 
 ### Methods
 
-#### `deserialize(__namedParameters)`
+#### `deserialize(context)`
 
-* `__namedParameters` {ObjectDeserializerContext}
+* `context` {ObjectDeserializerContext}
 * Returns: {void}
 
-#### `serialize(__namedParameters)`
+#### `serialize(context)`
 
-* `__namedParameters` {ObjectSerializerContext}
+* `context` {ObjectSerializerContext}
 * Returns: {void}
 
 #### Static method: `captureStackTrace(targetObject[, constructorOpt])`

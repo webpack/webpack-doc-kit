@@ -43,9 +43,9 @@
 * `context` {string}
 * Returns: {Module}
 
-#### `deserialize(__namedParameters)`
+#### `deserialize(context)`
 
-* `__namedParameters` {ObjectDeserializerContext}
+* `context` {ObjectDeserializerContext}
 * Returns: {void}
 
 #### `getCondition(moduleGraph)`
@@ -110,9 +110,9 @@ Returns list of exports referenced by this dependency
 
 Returns warnings
 
-#### `serialize(__namedParameters)`
+#### `serialize(context)`
 
-* `__namedParameters` {ObjectSerializerContext}
+* `context` {ObjectSerializerContext}
 * Returns: {void}
 
 #### `setLoc(startLine, startColumn, endLine, endColumn)`
@@ -187,9 +187,9 @@ Update the hash
 * `context` {string}
 * Returns: {Module}
 
-#### `deserialize(__namedParameters)`
+#### `deserialize(context)`
 
-* `__namedParameters` {ObjectDeserializerContext}
+* `context` {ObjectDeserializerContext}
 * Returns: {void}
 
 #### `getCondition(moduleGraph)`
@@ -215,10 +215,10 @@ Returns errors
 
 Returns the exported names
 
-#### `getImportStatement(update, __namedParameters)`
+#### `getImportStatement(update, context)`
 
 * `update` {boolean}
-* `__namedParameters` {DependencyTemplateContext}
+* `context` {DependencyTemplateContext}
 * Returns: {string|string}
 
 #### `getImportVar(moduleGraph)`
@@ -238,9 +238,9 @@ Returns the exported names
 * `moduleGraph` {ModuleGraph}
 * Returns: {ConnectionState}
 
-#### `getModuleExports(__namedParameters)`
+#### `getModuleExports(context)`
 
-* `__namedParameters` {DependencyTemplateContext}
+* `context` {DependencyTemplateContext}
 * Returns: {string}
 
 #### `getNumberOfIdOccurrences()`
@@ -277,9 +277,9 @@ Returns list of exports referenced by this dependency
 
 Returns warnings
 
-#### `serialize(__namedParameters)`
+#### `serialize(context)`
 
-* `__namedParameters` {ObjectSerializerContext}
+* `context` {ObjectSerializerContext}
 * Returns: {void}
 
 #### `setLoc(startLine, startColumn, endLine, endColumn)`
@@ -352,9 +352,9 @@ Update the hash
 * `context` {string}
 * Returns: {Module}
 
-#### `deserialize(__namedParameters)`
+#### `deserialize(context)`
 
-* `__namedParameters` {ObjectDeserializerContext}
+* `context` {ObjectDeserializerContext}
 * Returns: {void}
 
 #### `getCondition(moduleGraph)`
@@ -419,9 +419,9 @@ Returns list of exports referenced by this dependency
 
 Returns warnings
 
-#### `serialize(__namedParameters)`
+#### `serialize(context)`
 
-* `__namedParameters` {ObjectSerializerContext}
+* `context` {ObjectSerializerContext}
 * Returns: {void}
 
 #### `setLoc(startLine, startColumn, endLine, endColumn)`
@@ -488,9 +488,9 @@ Update the hash
 * `context` {string}
 * Returns: {Module}
 
-#### `deserialize(__namedParameters)`
+#### `deserialize(context)`
 
-* `__namedParameters` {ObjectDeserializerContext}
+* `context` {ObjectDeserializerContext}
 * Returns: {void}
 
 #### `getCondition(moduleGraph)`
@@ -555,9 +555,9 @@ Returns list of exports referenced by this dependency
 
 Returns warnings
 
-#### `serialize(__namedParameters)`
+#### `serialize(context)`
 
-* `__namedParameters` {ObjectSerializerContext}
+* `context` {ObjectSerializerContext}
 * Returns: {void}
 
 #### `setLoc(startLine, startColumn, endLine, endColumn)`

@@ -24,7 +24,7 @@
 
 * `module` {string|Module}
 * `options` {object}
-* `__namedParameters` {object}
+* `options` {object}
 * Returns: {string}
 
 ***

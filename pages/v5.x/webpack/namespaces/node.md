@@ -91,9 +91,9 @@ Apply the plugin
 
 ### Constructors
 
-#### `new ReadFileCompileAsyncWasmPlugin([__namedParameters])`
+#### `new ReadFileCompileAsyncWasmPlugin([options])`
 
-* `__namedParameters` {ReadFileCompileAsyncWasmPluginOptions}
+* `options` {ReadFileCompileAsyncWasmPluginOptions}
 * Returns: {ReadFileCompileAsyncWasmPlugin}
 
 ### Methods

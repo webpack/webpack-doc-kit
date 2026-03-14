@@ -156,9 +156,9 @@ removes all warnings and errors
 * `context` {CodeGenerationContext}
 * Returns: {CodeGenerationResult}
 
-#### `deserialize(__namedParameters)`
+#### `deserialize(context)`
 
-* `__namedParameters` {ObjectDeserializerContext}
+* `context` {ObjectDeserializerContext}
 * Returns: {void}
 
 #### `generate()`
@@ -336,9 +336,9 @@ Use needBuild instead
 * `dependency` {Dependency}
 * Returns: {void}
 
-#### `serialize(__namedParameters)`
+#### `serialize(context)`
 
-* `__namedParameters` {ObjectSerializerContext}
+* `context` {ObjectSerializerContext}
 * Returns: {void}
 
 #### `shouldIsolate()`
@@ -591,9 +591,9 @@ removes all warnings and errors
 * `context` {CodeGenerationContext}
 * Returns: {CodeGenerationResult}
 
-#### `deserialize(__namedParameters)`
+#### `deserialize(context)`
 
-* `__namedParameters` {ObjectDeserializerContext}
+* `context` {ObjectDeserializerContext}
 * Returns: {void}
 
 #### `generate()`
@@ -771,9 +771,9 @@ Use needBuild instead
 * `dependency` {Dependency}
 * Returns: {void}
 
-#### `serialize(__namedParameters)`
+#### `serialize(context)`
 
-* `__namedParameters` {ObjectSerializerContext}
+* `context` {ObjectSerializerContext}
 * Returns: {void}
 
 #### `shouldIsolate()`

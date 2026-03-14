@@ -148,9 +148,9 @@ Apply the plugin
 
 ### Constructors
 
-#### `new RealContentHashPlugin(__namedParameters)`
+#### `new RealContentHashPlugin(options)`
 
-* `__namedParameters` {RealContentHashPluginOptions}
+* `options` {RealContentHashPluginOptions}
 * Returns: {RealContentHashPlugin}
 
 ### Methods

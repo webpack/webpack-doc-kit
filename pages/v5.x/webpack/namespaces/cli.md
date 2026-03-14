@@ -4,7 +4,7 @@
 
 > **createColors**: {object}
 
-* `__namedParameters` {ColorsOptions}
+* `options` {ColorsOptions}
 * Returns: {Colors}
 
 ***

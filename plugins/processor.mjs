@@ -27,6 +27,20 @@ export function load(app) {
       .forEach((namespace) =>
         context.project.mergeReflections(namespace, namespace.parent),
       );
+
+    // Rename __0, __1 etc. parameters to meaningful names based on their type
+    context.project
+      .getReflectionsByKind(ReflectionKind.Parameter)
+      .filter((param) => param.name === "__namedParameters")
+      .forEach((param) => {
+        const typeName = param.type?.name ?? "";
+        const match = typeName.match(/([A-Z][a-z]+)$/);
+        if (match) {
+          param.name = match[1].toLowerCase();
+        } else {
+          param.name = "options";
+        }
+      });
   });
 
   app.renderer.on(Renderer.EVENT_END, (context) => {
