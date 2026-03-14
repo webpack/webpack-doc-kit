@@ -1,6 +1,23 @@
 import { Converter, ReflectionKind, Renderer } from "typedoc";
 import { writeFileSync } from "node:fs";
 import { join } from "node:path";
+
+/**
+ * Cleans and formats the TypeDoc URL for web compatibility.
+ * @param {string} url - The raw URL from TypeDoc router.
+ * @returns {string} The cleaned URL with single hash and .html extension.
+ */
+function cleanTypeDocUrl(url) {
+  let cleanedUrl = url.replace(/\.md($|#)/, ".html$1");
+
+  if (cleanedUrl.includes("#")) {
+    const [basePath, ...hashParts] = cleanedUrl.split("#");
+    cleanedUrl = `${basePath}#${hashParts[hashParts.length - 1]}`;
+  }
+
+  return cleanedUrl;
+}
+
 /**
  * @param {import('typedoc-plugin-markdown').MarkdownApplication} app
  */
@@ -44,7 +61,7 @@ export function load(app) {
         })
         .map((reference) => [
           reference.getFullName(),
-          app.renderer.router.getFullUrl(reference).replace(".md", ".html"),
+          cleanTypeDocUrl(app.renderer.router.getFullUrl(reference)),
         ]),
     );
 
