@@ -1,43 +1,45 @@
-import { ReflectionKind } from "typedoc";
-import * as typePartials from "./types.mjs";
+import { ReflectionKind } from 'typedoc';
+import * as typePartials from './types.mjs';
 
 const KIND_PREFIX = {
-  [ReflectionKind.Class]: "Class",
-  [ReflectionKind.Interface]: "Interface",
-  [ReflectionKind.Enum]: "Enum",
-  [ReflectionKind.TypeAlias]: "Type",
-  [ReflectionKind.Namespace]: "Namespace",
-  [ReflectionKind.Accessor]: "Accessor",
+  [ReflectionKind.Class]: 'Class',
+  [ReflectionKind.Interface]: 'Interface',
+  [ReflectionKind.Enum]: 'Enum',
+  [ReflectionKind.TypeAlias]: 'Type',
+  [ReflectionKind.Namespace]: 'Namespace',
+  [ReflectionKind.Accessor]: 'Accessor',
 };
 
 const STATIC_PREFIX = {
-  [ReflectionKind.Method]: "Static method",
+  [ReflectionKind.Method]: 'Static method',
 };
 
 const formatParams = (params = []) =>
   params
-    .map((param, index) => {
-      if (param.flags?.isOptional) {
-        return index === 0 ? `[${param.name}]` : `[, ${param.name}]`;
-      }
+    .map(({ name, flags }, i) =>
+      flags?.isOptional
+        ? i
+          ? `[, ${name}]`
+          : `[${name}]`
+        : i
+          ? `, ${name}`
+          : name
+    )
+    .join('');
 
-      return index === 0 ? param.name : `, ${param.name}`;
-    })
-    .join("");
-
-export const getMemberPrefix = (model) => {
+export const getMemberPrefix = model => {
   const prefix = model.flags?.isStatic
     ? STATIC_PREFIX[model.kind]
     : KIND_PREFIX[model.kind];
 
-  return prefix ? `${prefix}: ` : "";
+  return prefix ? `${prefix}: ` : '';
 };
 
 /**
  * @param {import('typedoc-plugin-markdown').MarkdownThemeContext} ctx
  * @returns {import('typedoc-plugin-markdown').MarkdownThemeContext['partials']}
  */
-export default (ctx) => ({
+export default ctx => ({
   ...ctx.partials,
   ...typePartials,
 
@@ -50,7 +52,7 @@ export default (ctx) => ({
 
     return [
       stability,
-      stability && "",
+      stability && '',
       model.typeParameters?.length &&
         ctx.partials.typeParametersList(model.typeParameters, {
           headingLevel: options.headingLevel,
@@ -60,28 +62,23 @@ export default (ctx) => ({
           headingLevel: options.headingLevel,
         }),
       ctx.helpers.typedListItem({
-        label: "Returns",
-        type: model.type ?? "void",
-        comment: model.comment?.getTag("@returns"),
+        label: 'Returns',
+        type: model.type ?? 'void',
+        comment: model.comment?.getTag('@returns'),
       }),
-      "",
+      '',
       comment &&
         ctx.partials.comment(comment, {
           headingLevel: options.headingLevel,
           showTags: false,
         }),
-      ctx.helpers.renderExamples(comment, options.headingLevel),
+      ctx.helpers.examples(comment, options),
     ]
-      .filter((x) => typeof x === "string" || Boolean(x))
-      .join("\n");
+      .filter(x => typeof x === 'string' || Boolean(x))
+      .join('\n');
   },
 
   memberTitle(model) {
-    if (model.kind === ReflectionKind.Constructor) {
-      const params = model.signatures?.[0]?.parameters ?? [];
-      return `\`new ${model.parent.name}(${formatParams(params)})\``;
-    }
-
     const prefix = getMemberPrefix(model);
     const params = model.signatures?.[0]?.parameters;
 
@@ -89,25 +86,24 @@ export default (ctx) => ({
       return `${prefix}\`${model.name}\``;
     }
 
-    const paramsString = formatParams(params);
-
-    return `${prefix}\`${model.name}(${paramsString})\``;
+    return `${prefix}\`${model.name}(${formatParams(params)})\``;
   },
 
   constructor(model, options) {
     const md = [];
-    model.signatures?.forEach((signature) => {
+    const heading = '#'.repeat(options.headingLevel);
+
+    model.signatures?.forEach(signature => {
       const paramsString = formatParams(signature.parameters ?? []);
 
-      const heading = "#".repeat(options.headingLevel);
       md.push(`${heading} \`new ${model.parent.name}(${paramsString})\``);
       md.push(
         ctx.partials.signature(signature, {
           headingLevel: options.headingLevel + 1,
-        }),
+        })
       );
     });
-    return md.join("\n\n");
+    return md.join('\n\n');
   },
 
   parametersList: ctx.helpers.typedList,

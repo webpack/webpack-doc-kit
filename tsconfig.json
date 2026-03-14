@@ -1,7 +1,7 @@
 {
   "include": [
     "./webpack/lib/**/*",
-    "./webpack/declarations/lib/**/*",
+    "./webpack/declarations/**/*",
     "./webpack/types.d.ts"
   ],
   "exclude": ["node_modules"],
