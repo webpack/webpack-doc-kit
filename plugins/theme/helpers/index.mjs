@@ -69,7 +69,7 @@ export default (ctx) => ({
    * Renders `@example` tags from a comment as Markdown.
    * Pass `headingLevel` to prepend a heading (block context);
    * omit it for inline use (e.g. inside a list item).
-   * Always returns a string — never `null`.
+   * Always returns a string never `null`.
    *
    * @param {import("typedoc").Comment | import("typedoc").CommentTag | null | undefined} comment
    * @param {number} [headingLevel]
@@ -83,17 +83,15 @@ export default (ctx) => ({
     const bodies = examples
       .map((tag) => {
         const body = ctx.helpers.getCommentParts(tag.content).trim();
-        if (!body) return null; // skip empty @example tags
+        if (!body) return null; 
 
         if (headingLevel != null) {
-          // Block context (signature / comment partial) → add heading
           const prefix = "#".repeat(headingLevel + 1);
           const suffix =
             examples.length > 1 ? ` ${examples.indexOf(tag) + 1}` : "";
           return `${prefix} Example${suffix}\n\n${body}`;
         }
 
-        // Inline context (typedListItem) → no heading, just body
         return body;
       })
       .filter(Boolean);
