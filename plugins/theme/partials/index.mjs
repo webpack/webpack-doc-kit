@@ -62,26 +62,14 @@ export default (ctx) => ({
   },
 
   memberTitle(model) {
+    const params = model.signatures?.[0]?.parameters ?? [];
     if (model.kind === ReflectionKind.Constructor) {
-      return ctx.helpers.buildConstructorTitle(model);
+      const className = model.parent?.name ?? model.name;
+      return ctx.helpers.signatureTitle(`new ${className}`, params);
     }
-
     const prefix = getMemberPrefix(model);
-    const params = model.signatures?.[0]?.parameters;
-    if (!params) {
-      return `${prefix}\`${model.name}\``;
-    }
-    const paramsString = params
-      .map((param, index) => {
-        const paramName = param.name;
-        if (param.flags?.isOptional) {
-          return index === 0 ? `[${paramName}]` : `[, ${paramName}]`;
-        } else {
-          return index === 0 ? paramName : `, ${paramName}`;
-        }
-      })
-      .join("");
-    return `${prefix}\`${model.name}(${paramsString})\``;
+    if (!params.length) return `${prefix}\`${model.name}\``;
+    return `${prefix}${ctx.helpers.signatureTitle(model.name, params)}`;
   },
 
   memberContainer: (model, options) => {

@@ -14,6 +14,9 @@ export class DocKitTheme extends MarkdownTheme {
 export class DocKitThemeContext extends MarkdownThemeContext {
   helpers = helpers(this);
   partials = partials(this);
+  templates = {
+    ...this.templates,
+  };
 }
 
 /** @param {import('typedoc').Application} app */
