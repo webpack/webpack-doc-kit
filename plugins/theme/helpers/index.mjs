@@ -31,6 +31,22 @@ export default (ctx) => ({
     return entries.map(ctx.helpers.typedListItem).join("\n");
   },
 
+  renderExamples(comment, headingLevel) {
+    const examples =
+      comment?.blockTags?.filter((t) => t.tag === "@example") ?? [];
+    if (!examples.length) return null;
+
+    const prefix = "#".repeat(headingLevel + 1);
+    return examples
+      .map((tag, index) => {
+        const heading = `${prefix} Example${examples.length > 1 ? ` ${index + 1}` : ""}`;
+        const body = ctx.helpers.getCommentParts(tag.content).trim();
+        return body ? `${heading}\n\n${body}` : null;
+      })
+      .filter(Boolean)
+      .join("\n\n");
+  },
+
   stabilityBlockquote(comment) {
     if (!comment) return null;
 

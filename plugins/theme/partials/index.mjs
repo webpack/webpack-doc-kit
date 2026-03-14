@@ -60,6 +60,7 @@ export default (ctx) => ({
           headingLevel: options.headingLevel,
           showTags: false,
         }),
+      ctx.helpers.renderExamples(comment, options.headingLevel),
     ]
       .filter((x) => typeof x === "string" || Boolean(x))
       .join("\n");
