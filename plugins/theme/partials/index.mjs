@@ -48,6 +48,8 @@ export default (ctx) => ({
 
     const stability = ctx.helpers.stabilityBlockquote(comment);
 
+    const isConstructor = model.kind === ReflectionKind.Constructor;
+
     return [
       stability,
       stability && "",
@@ -59,11 +61,13 @@ export default (ctx) => ({
         ctx.partials.parametersList(model.parameters, {
           headingLevel: options.headingLevel,
         }),
-      ctx.helpers.typedListItem({
-        label: "Returns",
-        type: model.type ?? "void",
-        comment: model.comment?.getTag("@returns"),
-      }),
+      // Skip @returns for constructors
+      !isConstructor &&
+        ctx.helpers.typedListItem({
+          label: "Returns",
+          type: model.type ?? "void",
+          comment: model.comment?.getTag("@returns"),
+        }),
       "",
       comment &&
         ctx.partials.comment(comment, {
