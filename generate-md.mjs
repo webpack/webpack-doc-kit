@@ -28,6 +28,9 @@ const app = await Application.bootstrapWithPlugins({
 
 const project = await app.convert();
 
-if (project) {
-  await app.generateOutputs(project);
+if (!project) {
+  app.logger.error("TypeDoc failed to convert the project. See errors above.");
+  process.exit(1);
 }
+
+await app.generateOutputs(project);
