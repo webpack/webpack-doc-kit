@@ -22,8 +22,8 @@
 ###### T
 
 `T`
-* `iterable` {Iterable}
-* Returns: {LazySet}
+* `iterable` {Iterable<T>}
+* Returns: {LazySet<T>}
 
 ### Properties
 
@@ -33,17 +33,17 @@
 
 #### `[iterator]()`
 
-* Returns: {SetIterator}
+* Returns: {SetIterator<T>}
 
 #### `add(item)`
 
 * `item` {T}
-* Returns: {LazySet}
+* Returns: {LazySet<T>}
 
 #### `addAll(iterable)`
 
-* `iterable` {LazySet|Iterable}
-* Returns: {LazySet}
+* `iterable` {LazySet<T>|Iterable<T, any, any>}
+* Returns: {LazySet<T>}
 
 #### `clear()`
 
@@ -56,7 +56,7 @@
 
 #### `entries()`
 
-* Returns: {SetIterator}
+* Returns: {SetIterator<Tuple<T, T>>}
 
 #### `forEach(callbackFn, thisArg)`
 
@@ -74,7 +74,7 @@
 
 #### `keys()`
 
-* Returns: {SetIterator}
+* Returns: {SetIterator<T>}
 
 #### `serialize(__namedParameters)`
 
@@ -83,7 +83,7 @@
 
 #### `values()`
 
-* Returns: {SetIterator}
+* Returns: {SetIterator<T>}
 
 #### Static method: `deserialize(__namedParameters)`
 
@@ -91,7 +91,7 @@
 
 `T`
 * `__namedParameters` {ObjectDeserializerContext}
-* Returns: {LazySet}
+* Returns: {LazySet<T>}
 
 ***
 
@@ -123,5 +123,5 @@
 
 ## `compileBooleanMatcher(map)`
 
-* `map` {Record}
+* `map` {Record<string|number, boolean>}
 * Returns: {boolean|object}

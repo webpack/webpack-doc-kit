@@ -190,7 +190,7 @@
 
 #### `new OriginalSource(value, name)`
 
-* `value` {string|Buffer}
+* `value` {string|Buffer<ArrayBufferLike>}
 * `name` {string}
 * Returns: {OriginalSource}
 
@@ -248,7 +248,7 @@
 #### `new PrefixSource(prefix, source)`
 
 * `prefix` {string}
-* `source` {string|Buffer|Source}
+* `source` {string|Buffer<ArrayBufferLike>|Source}
 * Returns: {PrefixSource}
 
 ### Methods
@@ -308,7 +308,7 @@
 
 #### `new RawSource(value[, convertToString])`
 
-* `value` {string|Buffer}
+* `value` {string|Buffer<ArrayBufferLike>}
 * `convertToString` {boolean}
 * Returns: {RawSource}
 
@@ -544,11 +544,11 @@
 
 #### `new SourceMapSource(value, name[, sourceMap][, originalSource][, innerSourceMap][, removeOriginalSource])`
 
-* `value` {string|Buffer}
+* `value` {string|Buffer<ArrayBufferLike>}
 * `name` {string}
-* `sourceMap` {string|Buffer|RawSourceMap}
-* `originalSource` {string|Buffer}
-* `innerSourceMap` {string|Buffer|RawSourceMap}
+* `sourceMap` {string|Buffer<ArrayBufferLike>|RawSourceMap}
+* `originalSource` {string|Buffer<ArrayBufferLike>}
+* `innerSourceMap` {string|Buffer<ArrayBufferLike>|RawSourceMap}
 * `removeOriginalSource` {boolean}
 * Returns: {SourceMapSource}
 
@@ -560,7 +560,7 @@
 
 #### `getArgsAsBuffers()`
 
-* Returns: {Buffer|string|Buffer|Buffer|Buffer|boolean}
+* Returns: {Tuple<Buffer<ArrayBufferLike>, string, Buffer<ArrayBufferLike>, Buffer<ArrayBufferLike>, Buffer<ArrayBufferLike>, boolean>}
 
 #### `map([options])`
 

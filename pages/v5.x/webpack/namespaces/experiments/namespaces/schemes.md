@@ -31,7 +31,7 @@ Apply the plugin
 #### `new VirtualUrlPlugin(modules[, schemeOrOptions])`
 
 * `modules` {VirtualModules}
-* `schemeOrOptions` {string|Omit}
+* `schemeOrOptions` {string|Omit<VirtualUrlOptions, "modules">}
 * Returns: {VirtualUrlPlugin}
 
 ### Properties

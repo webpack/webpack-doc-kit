@@ -10,7 +10,7 @@
 
 #### `new ModuleChunkLoadingRuntimeModule(runtimeRequirements)`
 
-* `runtimeRequirements` {ReadonlySet}
+* `runtimeRequirements` {ReadonlySet<string>}
 * Returns: {ModuleChunkLoadingRuntimeModule}
 
 ### Properties
@@ -20,7 +20,7 @@
 * `buildMeta` {BuildMeta}
 * `chunk` {Chunk}
 * `chunkGraph` {ChunkGraph}
-* `chunksIterable` {Iterable}
+* `chunksIterable` {Iterable<Chunk>}
 * `codeGenerationDependencies` {Dependency[]}
 * `compilation` {Compilation}
 * `context` {string}
@@ -54,7 +54,7 @@
 * `stage` {number}
 * `type` {string}
 * `used` {any}
-* `usedExports` {boolean|SortableSet}
+* `usedExports` {boolean|SortableSet<string>}
 * `useSimpleSourceMap` {boolean}
 * `useSourceMap` {boolean}
 * `warnings` {any}
@@ -75,10 +75,10 @@ This is used for when a Module has a AsyncDependencyBlock tie (for code-splittin
 
 #### `addCacheDependencies(fileDependencies, contextDependencies, missingDependencies, buildDependencies)`
 
-* `fileDependencies` {LazySet}
-* `contextDependencies` {LazySet}
-* `missingDependencies` {LazySet}
-* `buildDependencies` {LazySet}
+* `fileDependencies` {LazySet<string>}
+* `contextDependencies` {LazySet<string>}
+* `missingDependencies` {LazySet<string>}
+* `buildDependencies` {LazySet<string>}
 * Returns: {void}
 
 #### `addChunk(chunk)`
@@ -176,7 +176,7 @@ removes all warnings and errors
 
 #### `getErrors()`
 
-* Returns: {Iterable}
+* Returns: {Iterable<WebpackError, any, any>}
 
 #### `getExportsType(moduleGraph[, strict])`
 
@@ -211,7 +211,7 @@ removes all warnings and errors
 
 #### `getSourceBasicTypes()`
 
-* Returns: {ReadonlySet}
+* Returns: {ReadonlySet<string>}
 
 Basic source types are high-level categories like javascript, css, webassembly, etc.
 We only have built-in knowledge about the javascript basic type here; other basic types may be
@@ -221,7 +221,7 @@ from getSourceTypes(), but their generated output is still JavaScript, i.e. thei
 
 #### `getSourceTypes()`
 
-* Returns: {ReadonlySet}
+* Returns: {ReadonlySet<string>}
 
 #### `getUnsafeCacheData()`
 
@@ -232,7 +232,7 @@ This data will be passed to restoreFromUnsafeCache later.
 
 #### `getWarnings()`
 
-* Returns: {Iterable}
+* Returns: {Iterable<WebpackError, any, any>}
 
 #### `hasChunkCondition()`
 
@@ -311,8 +311,8 @@ This data will be passed to restoreFromUnsafeCache later.
 
 > Stability: 0 - Deprecated
 
-* `fileTimestamps` {Map}
-* `contextTimestamps` {Map}
+* `fileTimestamps` {Map<string, number>}
+* `contextTimestamps` {Map<string, number>}
 * Returns: {boolean}
 
 Use needBuild instead
@@ -386,6 +386,6 @@ and properties.
 > Stability: 0 - Deprecated
 
 * `module` {Module}
-* Returns: {ReadonlySet}
+* Returns: {ReadonlySet<string>}
 
 In webpack 6, call getSourceBasicTypes() directly on the module instance instead of using this static method.

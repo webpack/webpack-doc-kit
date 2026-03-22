@@ -12,7 +12,7 @@
 
 ## `compareChunks`
 
-> **compareChunks**: {ParameterizedComparator}
+> **compareChunks**: {ParameterizedComparator<ChunkGraph, Chunk>}
 
 ***
 
@@ -31,7 +31,7 @@
 > **compareChunksNatural**: {object}
 
 * `chunkGraph` {ChunkGraph}
-* Returns: {Comparator}
+* Returns: {Comparator<Chunk>}
 
 ***
 
@@ -52,8 +52,8 @@
 #### T
 
 `T`
-* `elementComparator` {Comparator}
-* Returns: {Comparator}
+* `elementComparator` {Comparator<T>}
+* Returns: {Comparator<Iterable<T>>}
 
 ***
 
@@ -69,13 +69,13 @@
 
 ## `compareModulesByFullName`
 
-> **compareModulesByFullName**: {ParameterizedComparator}
+> **compareModulesByFullName**: {ParameterizedComparator<Compiler, Module>}
 
 ***
 
 ## `compareModulesById`
 
-> **compareModulesById**: {ParameterizedComparator}
+> **compareModulesById**: {ParameterizedComparator<ChunkGraph, Module>}
 
 ***
 
@@ -91,19 +91,19 @@
 
 ## `compareModulesByIdOrIdentifier`
 
-> **compareModulesByIdOrIdentifier**: {ParameterizedComparator}
+> **compareModulesByIdOrIdentifier**: {ParameterizedComparator<ChunkGraph, Module>}
 
 ***
 
 ## `compareModulesByPostOrderIndexOrIdentifier`
 
-> **compareModulesByPostOrderIndexOrIdentifier**: {ParameterizedComparator}
+> **compareModulesByPostOrderIndexOrIdentifier**: {ParameterizedComparator<ModuleGraph, Module>}
 
 ***
 
 ## `compareModulesByPreOrderIndexOrIdentifier`
 
-> **compareModulesByPreOrderIndexOrIdentifier**: {ParameterizedComparator}
+> **compareModulesByPreOrderIndexOrIdentifier**: {ParameterizedComparator<ModuleGraph, Module>}
 
 ***
 
@@ -128,9 +128,9 @@
 #### R
 
 `R`
-* `getter` {Selector}
-* `comparator` {Comparator}
-* Returns: {Comparator}
+* `getter` {Selector<T, R>}
+* `comparator` {Comparator<R>}
+* Returns: {Comparator<T>}
 
 ***
 
@@ -161,10 +161,10 @@
 #### T
 
 `T`
-* `c1` {Comparator}
-* `c2` {Comparator}
-* `cRest` {Comparator[]}
-* Returns: {Comparator}
+* `c1` {Comparator<T>}
+* `c2` {Comparator<T>}
+* `cRest` {Comparator<T>[]}
+* Returns: {Comparator<T>}
 
 ***
 
@@ -175,8 +175,8 @@
 #### T
 
 `T`
-* `iterable` {Iterable}
-* Returns: {Comparator}
+* `iterable` {Iterable<T>}
+* Returns: {Comparator<T>}
 
 ***
 
@@ -185,6 +185,6 @@
 > **sortWithSourceOrder**: {object}
 
 * `dependencies` {Dependency[]}
-* `dependencySourceOrderMap` {WeakMap}
+* `dependencySourceOrderMap` {WeakMap<Dependency, DependencySourceOrder>}
 * `onDependencyReSort` {object}
 * Returns: {void}

@@ -1,12 +1,17 @@
-const union = arr => (arr?.length ? arr.map(resolve).join('|') : 'unknown');
+const union = (arr, sep = '|') =>
+  arr?.length ? arr.map(resolve).join(sep) : 'unknown';
 
 const resolve = type => {
   if (!type) return 'unknown';
 
   switch (type.type) {
     case 'intrinsic':
-    case 'reference':
-      return type.name;
+    case 'reference': {
+      const args = type.typeArguments?.length
+        ? `<${type.typeArguments.map(resolve).join(', ')}>`
+        : '';
+      return type.name + args;
+    }
 
     case 'literal':
       return typeof type.value === 'string'
@@ -17,7 +22,7 @@ const resolve = type => {
       return resolve(type.elementType) + '[]';
 
     case 'tuple':
-      return union(type.elements);
+      return `Tuple<${union(type.elements, ', ')}>`;
 
     case 'union':
     case 'intersection':

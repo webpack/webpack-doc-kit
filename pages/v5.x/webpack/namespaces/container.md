@@ -87,5 +87,5 @@ Get the compilation hooks associated with this plugin.
 
 `T`
 * `scope` {string}
-* `options` {ContainerOptionsFormat}
-* Returns: {Record}
+* `options` {ContainerOptionsFormat<T>}
+* Returns: {Record<string, string|string[]|T>}

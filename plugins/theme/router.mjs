@@ -1,4 +1,4 @@
-import createNodeSlugger from '@node-core/doc-kit/src/utils/parser/slugger.mjs';
+import createNodeSlugger from '@node-core/doc-kit/src/generators/metadata/utils/slugger.mjs';
 import { ModuleRouter } from 'typedoc-plugin-markdown';
 
 const sluggers = new Map([]);

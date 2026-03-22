@@ -7,6 +7,13 @@ export default {
   global: {
     // Point GitHub links to the webpack repository instead of nodejs/node
     repository: 'webpack/webpack',
+
+    // Input & Output
+    input: ['./pages/v5.x/**/*.md'],
+    output: 'out',
+  },
+  metadata: {
+    typeMap: './pages/v5.x/type-map.json',
   },
   web: {
     // Use "webpack" as the product name in navbar and sidebar labels

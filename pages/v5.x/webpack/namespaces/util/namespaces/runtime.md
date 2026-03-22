@@ -23,8 +23,8 @@
 ###### R
 
 `R` = {T}
-* `clone` {RuntimeSpecMap}
-* Returns: {RuntimeSpecMap}
+* `clone` {RuntimeSpecMap<T, R>}
+* Returns: {RuntimeSpecMap<T, R>}
 
 ### Properties
 
@@ -71,7 +71,7 @@
 
 #### `values()`
 
-* Returns: {IterableIterator}
+* Returns: {IterableIterator<R>}
 
 ***
 
@@ -81,7 +81,7 @@
 
 #### `new RuntimeSpecSet([iterable])`
 
-* `iterable` {Iterable}
+* `iterable` {Iterable<RuntimeSpec>}
 * Returns: {RuntimeSpecSet}
 
 ### Properties
@@ -92,7 +92,7 @@
 
 #### `[iterator]()`
 
-* Returns: {IterableIterator}
+* Returns: {IterableIterator<RuntimeSpec>}
 
 #### `add(runtime)`
 
@@ -122,7 +122,7 @@
 
 * `runtime` {RuntimeSpec}
 * `filter` {object}
-* Returns: {undefined|string|boolean|SortableSet}
+* Returns: {undefined|string|boolean|SortableSet<string>}
 
 ***
 
@@ -201,10 +201,10 @@
 
 > **mergeRuntimeConditionNonFalse**: {object}
 
-* `a` {undefined|string|true|SortableSet}
-* `b` {undefined|string|true|SortableSet}
+* `a` {undefined|string|true|SortableSet<string>}
+* `b` {undefined|string|true|SortableSet<string>}
 * `runtime` {RuntimeSpec}
-* Returns: {undefined|string|true|SortableSet}
+* Returns: {undefined|string|true|SortableSet<string>}
 
 ***
 
