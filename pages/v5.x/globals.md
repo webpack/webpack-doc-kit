@@ -6649,6 +6649,7 @@ Specify options for each parser.
 * `filename` {string}
 * `hash` {string}
 * `hashWithLength` {object}
+* `local` {string}
 * `module` {Module|ModulePathData}
 * `noChunkHash` {boolean}
 * `prepareId` {object}
