@@ -1,6 +1,6 @@
 # webpack-doc-kit
 
-Automated TypeScript API documentation generator for [webpack](https://github.com/webpack/webpack). Extracts type definitions from webpack's `types.d.ts` and produces Markdown and HTML documentation, deployed to GitHub Pages.
+Automated TypeScript API documentation generator for webpack that extracts type definitions from types.d.ts and generates structured Markdown and HTML documentation, which is automatically deployed to GitHub Pages.
 
 ## How It Works
 
@@ -47,7 +47,11 @@ This ensures documentation stays in sync with upstream webpack without manual in
 
 ## Contributing
 
-When making changes to documentation generation (plugins, `generate-md.mjs`, `tsconfig.json`), ensure the docs can still be generated successfully. CI will verify this on every pull request.
+1. Any changes to documentation generation (e.g., plugins, generate-md.mjs, tsconfig.json) must not break the build process.
+2. Ensure that documentation can still be generated successfully after modifications.
+3. The CI pipeline automatically validates documentation generation on every pull request.
+4. Pull requests will fail if the documentation build process is broken.
+5. Contributors should test changes locally before submitting a PR to avoid CI failures.
 
 ## License
 
