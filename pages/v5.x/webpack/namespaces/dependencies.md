@@ -11,7 +11,7 @@
 #### `new ConstDependency(expression, range[, runtimeRequirements])`
 
 * `expression` {string}
-* `range` {number|number|number}
+* `range` {number|Tuple<number, number>}
 * `runtimeRequirements` {string[]}
 * Returns: {ConstDependency}
 
@@ -23,8 +23,8 @@
 * `loc` {DependencyLocation}
 * `module` {any}
 * `optional` {boolean}
-* `range` {number|number|number}
-* `runtimeRequirements` {Set}
+* `range` {number|Tuple<number, number>}
+* `runtimeRequirements` {Set<string>}
 * `type` {string}
 * `weak` {boolean}
 * `EXPORTS_OBJECT_REFERENCED` {string[][]}
@@ -163,7 +163,7 @@ Update the hash
 * `module` {any}
 * `optional` {boolean}
 * `phase` {ImportPhaseType}
-* `range` {number|number}
+* `range` {Tuple<number, number>}
 * `request` {string}
 * `sourceOrder` {number}
 * `type` {string}
@@ -219,7 +219,7 @@ Returns the exported names
 
 * `update` {boolean}
 * `__namedParameters` {DependencyTemplateContext}
-* Returns: {string|string}
+* Returns: {Tuple<string, string>}
 
 #### `getImportVar(moduleGraph)`
 
@@ -330,7 +330,7 @@ Update the hash
 * `loc` {DependencyLocation}
 * `module` {any}
 * `optional` {boolean}
-* `range` {number|number}
+* `range` {Tuple<number, number>}
 * `request` {string}
 * `sourceOrder` {number}
 * `type` {string}

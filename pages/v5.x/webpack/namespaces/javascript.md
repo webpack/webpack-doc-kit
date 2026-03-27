@@ -53,14 +53,14 @@ Apply the plugin
 ### Properties
 
 * `comments` {CommentJavascriptParser[]}
-* `currentTagData` {Record|TopLevelSymbol|HarmonySettings|ImportSettings|CommonJsImportSettings|CompatibilitySettings|HarmonySpecifierGuards}
-* `destructuringAssignmentProperties` {WeakMap}
-* `hooks` {Readonly}
+* `currentTagData` {Record<string, any>|TopLevelSymbol|HarmonySettings|ImportSettings|CommonJsImportSettings|CompatibilitySettings|HarmonySpecifierGuards}
+* `destructuringAssignmentProperties` {WeakMap<Expression, Set<DestructuringAssignmentProperty>>}
+* `hooks` {Readonly<object>}
 * `magicCommentContext` {Context}
 * `options` {object}
-* `prevStatement` {Identifier|ClassDeclaration|MaybeNamedClassDeclaration|ClassExpression|SimpleLiteral|RegExpLiteral|BigIntLiteral|ArrayExpression|ArrowFunctionExpression|AssignmentExpression|AwaitExpression|BinaryExpression|SimpleCallExpression|NewExpression|ChainExpression|ConditionalExpression|FunctionExpression|ImportExpression|LogicalExpression|MemberExpression|MetaProperty|ObjectExpression|SequenceExpression|TaggedTemplateExpression|TemplateLiteral|ThisExpression|UnaryExpression|UpdateExpression|YieldExpression|FunctionDeclaration|MaybeNamedFunctionDeclaration|ImportDeclaration|ExportNamedDeclaration|ExportDefaultDeclaration|ExportAllDeclaration|ExpressionStatement|BlockStatement|StaticBlock|EmptyStatement|DebuggerStatement|WithStatement|ReturnStatement|LabeledStatement|BreakStatement|ContinueStatement|IfStatement|SwitchStatement|ThrowStatement|TryStatement|WhileStatement|DoWhileStatement|ForStatement|ForInStatement|ForOfStatement|VariableDeclaration}
+* `prevStatement` {ClassDeclaration|MaybeNamedClassDeclaration|ClassExpression|Identifier|SimpleLiteral|RegExpLiteral|BigIntLiteral|ArrayExpression|ArrowFunctionExpression|AssignmentExpression|AwaitExpression|BinaryExpression|SimpleCallExpression|NewExpression|ChainExpression|ConditionalExpression|FunctionExpression|ImportExpression|LogicalExpression|MemberExpression|MetaProperty|ObjectExpression|SequenceExpression|TaggedTemplateExpression|TemplateLiteral|ThisExpression|UnaryExpression|UpdateExpression|YieldExpression|FunctionDeclaration|MaybeNamedFunctionDeclaration|ImportDeclaration|ExportNamedDeclaration|ExportDefaultDeclaration|ExportAllDeclaration|ExpressionStatement|BlockStatement|StaticBlock|EmptyStatement|DebuggerStatement|WithStatement|ReturnStatement|LabeledStatement|BreakStatement|ContinueStatement|IfStatement|SwitchStatement|ThrowStatement|TryStatement|WhileStatement|DoWhileStatement|ForStatement|ForInStatement|ForOfStatement|VariableDeclaration}
 * `scope` {ScopeInfo}
-* `semicolons` {Set}
+* `semicolons` {Set<number>}
 * `sourceType` {"module"|"auto"|"script"}
 * `state` {JavascriptParserState}
 * `statementPath` {StatementPathItem[]}
@@ -69,7 +69,7 @@ Apply the plugin
 * `ALLOWED_MEMBER_TYPES_EXPRESSION` {2}
 * `getImportAttributes` {object}
 * `VariableInfo` {VariableInfo}
-* `VariableInfoFlags` {Readonly}
+* `VariableInfoFlags` {Readonly<object>}
 
 ### Methods
 
@@ -119,9 +119,9 @@ Block pre walking iterates the scope for block variable declarations
 ###### R
 
 `R`
-* `hookMap` {HookMap}
-* `expr` {Identifier|ClassExpression|SimpleLiteral|RegExpLiteral|BigIntLiteral|ArrayExpression|ArrowFunctionExpression|AssignmentExpression|AwaitExpression|BinaryExpression|SimpleCallExpression|NewExpression|ChainExpression|ConditionalExpression|FunctionExpression|ImportExpression|LogicalExpression|MemberExpression|MetaProperty|ObjectExpression|SequenceExpression|TaggedTemplateExpression|TemplateLiteral|ThisExpression|UnaryExpression|UpdateExpression|YieldExpression|Super}
-* `args` {AsArray}
+* `hookMap` {HookMap<SyncBailHook<T, R, UnsetAdditionalOptions>>}
+* `expr` {ClassExpression|Identifier|SimpleLiteral|RegExpLiteral|BigIntLiteral|ArrayExpression|ArrowFunctionExpression|AssignmentExpression|AwaitExpression|BinaryExpression|SimpleCallExpression|NewExpression|ChainExpression|ConditionalExpression|FunctionExpression|ImportExpression|LogicalExpression|MemberExpression|MetaProperty|ObjectExpression|SequenceExpression|TaggedTemplateExpression|TemplateLiteral|ThisExpression|UnaryExpression|UpdateExpression|YieldExpression|Super}
+* `args` {AsArray<T>}
 * Returns: {R}
 
 #### `callHooksForExpressionWithFallback(hookMap, expr, fallback, defined, args)`
@@ -133,11 +133,11 @@ Block pre walking iterates the scope for block variable declarations
 ###### R
 
 `R`
-* `hookMap` {HookMap}
-* `expr` {Identifier|ClassExpression|SimpleLiteral|RegExpLiteral|BigIntLiteral|ArrayExpression|ArrowFunctionExpression|AssignmentExpression|AwaitExpression|BinaryExpression|SimpleCallExpression|NewExpression|ChainExpression|ConditionalExpression|FunctionExpression|ImportExpression|LogicalExpression|MemberExpression|MetaProperty|ObjectExpression|SequenceExpression|TaggedTemplateExpression|TemplateLiteral|ThisExpression|UnaryExpression|UpdateExpression|YieldExpression|Super}
+* `hookMap` {HookMap<SyncBailHook<T, R, UnsetAdditionalOptions>>}
+* `expr` {ClassExpression|Identifier|SimpleLiteral|RegExpLiteral|BigIntLiteral|ArrayExpression|ArrowFunctionExpression|AssignmentExpression|AwaitExpression|BinaryExpression|SimpleCallExpression|NewExpression|ChainExpression|ConditionalExpression|FunctionExpression|ImportExpression|LogicalExpression|MemberExpression|MetaProperty|ObjectExpression|SequenceExpression|TaggedTemplateExpression|TemplateLiteral|ThisExpression|UnaryExpression|UpdateExpression|YieldExpression|Super}
 * `fallback` {object}
 * `defined` {object}
-* `args` {AsArray}
+* `args` {AsArray<T>}
 * Returns: {R}
 
 #### `callHooksForInfo(hookMap, info, args)`
@@ -149,9 +149,9 @@ Block pre walking iterates the scope for block variable declarations
 ###### R
 
 `R`
-* `hookMap` {HookMap}
+* `hookMap` {HookMap<SyncBailHook<T, R, UnsetAdditionalOptions>>}
 * `info` {ExportedVariableInfo}
-* `args` {AsArray}
+* `args` {AsArray<T>}
 * Returns: {R}
 
 #### `callHooksForInfoWithFallback(hookMap, info, fallback, defined, args)`
@@ -163,11 +163,11 @@ Block pre walking iterates the scope for block variable declarations
 ###### R
 
 `R`
-* `hookMap` {HookMap}
+* `hookMap` {HookMap<SyncBailHook<T, R, UnsetAdditionalOptions>>}
 * `info` {ExportedVariableInfo}
 * `fallback` {object}
 * `defined` {object}
-* `args` {AsArray}
+* `args` {AsArray<T>}
 * Returns: {R}
 
 #### `callHooksForName(hookMap, name, args)`
@@ -179,9 +179,9 @@ Block pre walking iterates the scope for block variable declarations
 ###### R
 
 `R`
-* `hookMap` {HookMap}
+* `hookMap` {HookMap<SyncBailHook<T, R, UnsetAdditionalOptions>>}
 * `name` {string}
-* `args` {AsArray}
+* `args` {AsArray<T>}
 * Returns: {R}
 
 #### `callHooksForNameWithFallback(hookMap, name, fallback, defined, args)`
@@ -193,11 +193,11 @@ Block pre walking iterates the scope for block variable declarations
 ###### R
 
 `R`
-* `hookMap` {HookMap}
+* `hookMap` {HookMap<SyncBailHook<T, R, UnsetAdditionalOptions>>}
 * `name` {string}
 * `fallback` {object}
 * `defined` {object}
-* `args` {AsArray}
+* `args` {AsArray<T>}
 * Returns: {R}
 
 #### `defineVariable(name)`
@@ -208,7 +208,7 @@ Block pre walking iterates the scope for block variable declarations
 #### `destructuringAssignmentPropertiesFor(node)`
 
 * `node` {Expression}
-* Returns: {Set}
+* Returns: {Set<DestructuringAssignmentProperty>}
 
 #### `detectMode(statements)`
 
@@ -237,7 +237,7 @@ Block pre walking iterates the scope for block variable declarations
 
 * `pattern` {Pattern}
 * `expression` {Expression}
-* Returns: {Identifier|ClassExpression|SimpleLiteral|RegExpLiteral|BigIntLiteral|ArrayExpression|ArrowFunctionExpression|AssignmentExpression|AwaitExpression|BinaryExpression|SimpleCallExpression|NewExpression|ChainExpression|ConditionalExpression|FunctionExpression|ImportExpression|LogicalExpression|MemberExpression|MetaProperty|ObjectExpression|SequenceExpression|TaggedTemplateExpression|TemplateLiteral|ThisExpression|UnaryExpression|UpdateExpression|YieldExpression}
+* Returns: {ClassExpression|Identifier|SimpleLiteral|RegExpLiteral|BigIntLiteral|ArrayExpression|ArrowFunctionExpression|AssignmentExpression|AwaitExpression|BinaryExpression|SimpleCallExpression|NewExpression|ChainExpression|ConditionalExpression|FunctionExpression|ImportExpression|LogicalExpression|MemberExpression|MetaProperty|ObjectExpression|SequenceExpression|TaggedTemplateExpression|TemplateLiteral|ThisExpression|UnaryExpression|UpdateExpression|YieldExpression}
 
 #### `enterIdentifier(pattern, onIdent)`
 
@@ -253,13 +253,13 @@ Block pre walking iterates the scope for block variable declarations
 
 #### `enterPattern(pattern, onIdent)`
 
-* `pattern` {Identifier|Property|MemberExpression|ObjectPattern|ArrayPattern|RestElement|AssignmentPattern}
+* `pattern` {Property|Identifier|MemberExpression|ObjectPattern|ArrayPattern|RestElement|AssignmentPattern}
 * `onIdent` {object}
 * Returns: {void}
 
 #### `enterPatterns(patterns, onIdent)`
 
-* `patterns` {string|Identifier|Property|MemberExpression|ObjectPattern|ArrayPattern|RestElement|AssignmentPattern[]}
+* `patterns` {string|Property|Identifier|MemberExpression|ObjectPattern|ArrayPattern|RestElement|AssignmentPattern[]}
 * `onIdent` {object}
 * Returns: {void}
 
@@ -281,17 +281,17 @@ Block pre walking iterates the scope for block variable declarations
 
 #### `evaluateExpression(expression)`
 
-* `expression` {Identifier|ClassExpression|SimpleLiteral|RegExpLiteral|BigIntLiteral|ArrayExpression|ArrowFunctionExpression|AssignmentExpression|AwaitExpression|BinaryExpression|SimpleCallExpression|NewExpression|ChainExpression|ConditionalExpression|FunctionExpression|ImportExpression|LogicalExpression|MemberExpression|MetaProperty|ObjectExpression|SequenceExpression|TaggedTemplateExpression|TemplateLiteral|ThisExpression|UnaryExpression|UpdateExpression|YieldExpression|PrivateIdentifier|SpreadElement|Super}
+* `expression` {ClassExpression|Identifier|SimpleLiteral|RegExpLiteral|BigIntLiteral|ArrayExpression|ArrowFunctionExpression|AssignmentExpression|AwaitExpression|BinaryExpression|SimpleCallExpression|NewExpression|ChainExpression|ConditionalExpression|FunctionExpression|ImportExpression|LogicalExpression|MemberExpression|MetaProperty|ObjectExpression|SequenceExpression|TaggedTemplateExpression|TemplateLiteral|ThisExpression|UnaryExpression|UpdateExpression|YieldExpression|PrivateIdentifier|SpreadElement|Super}
 * Returns: {BasicEvaluatedExpression}
 
 #### `extractMemberExpressionChain(expression)`
 
-* `expression` {Identifier|ClassExpression|SimpleLiteral|RegExpLiteral|BigIntLiteral|ArrayExpression|ArrowFunctionExpression|AssignmentExpression|AwaitExpression|BinaryExpression|SimpleCallExpression|NewExpression|ChainExpression|ConditionalExpression|FunctionExpression|ImportExpression|LogicalExpression|MemberExpression|MetaProperty|ObjectExpression|SequenceExpression|TaggedTemplateExpression|TemplateLiteral|ThisExpression|UnaryExpression|UpdateExpression|YieldExpression|Super}
+* `expression` {ClassExpression|Identifier|SimpleLiteral|RegExpLiteral|BigIntLiteral|ArrayExpression|ArrowFunctionExpression|AssignmentExpression|AwaitExpression|BinaryExpression|SimpleCallExpression|NewExpression|ChainExpression|ConditionalExpression|FunctionExpression|ImportExpression|LogicalExpression|MemberExpression|MetaProperty|ObjectExpression|SequenceExpression|TaggedTemplateExpression|TemplateLiteral|ThisExpression|UnaryExpression|UpdateExpression|YieldExpression|Super}
 * Returns: {object}
 
 #### `getComments(range)`
 
-* `range` {number|number}
+* `range` {Tuple<number, number>}
 * Returns: {CommentJavascriptParser[]}
 
 #### `getFreeInfoFromVariable(varName)`
@@ -301,7 +301,7 @@ Block pre walking iterates the scope for block variable declarations
 
 #### `getMemberExpressionInfo(expression, allowedTypes)`
 
-* `expression` {Identifier|ClassExpression|SimpleLiteral|RegExpLiteral|BigIntLiteral|ArrayExpression|ArrowFunctionExpression|AssignmentExpression|AwaitExpression|BinaryExpression|SimpleCallExpression|NewExpression|ChainExpression|ConditionalExpression|FunctionExpression|ImportExpression|LogicalExpression|MemberExpression|MetaProperty|ObjectExpression|SequenceExpression|TaggedTemplateExpression|TemplateLiteral|ThisExpression|UnaryExpression|UpdateExpression|YieldExpression|Super}
+* `expression` {ClassExpression|Identifier|SimpleLiteral|RegExpLiteral|BigIntLiteral|ArrayExpression|ArrowFunctionExpression|AssignmentExpression|AwaitExpression|BinaryExpression|SimpleCallExpression|NewExpression|ChainExpression|ConditionalExpression|FunctionExpression|ImportExpression|LogicalExpression|MemberExpression|MetaProperty|ObjectExpression|SequenceExpression|TaggedTemplateExpression|TemplateLiteral|ThisExpression|UnaryExpression|UpdateExpression|YieldExpression|Super}
 * `allowedTypes` {number}
 * Returns: {CallExpressionInfo|ExpressionExpressionInfo}
 
@@ -317,14 +317,14 @@ Block pre walking iterates the scope for block variable declarations
 
 #### `getRenameIdentifier(expr)`
 
-* `expr` {Identifier|ClassExpression|SimpleLiteral|RegExpLiteral|BigIntLiteral|ArrayExpression|ArrowFunctionExpression|AssignmentExpression|AwaitExpression|BinaryExpression|SimpleCallExpression|NewExpression|ChainExpression|ConditionalExpression|FunctionExpression|ImportExpression|LogicalExpression|MemberExpression|MetaProperty|ObjectExpression|SequenceExpression|TaggedTemplateExpression|TemplateLiteral|ThisExpression|UnaryExpression|UpdateExpression|YieldExpression|SpreadElement}
+* `expr` {ClassExpression|Identifier|SimpleLiteral|RegExpLiteral|BigIntLiteral|ArrayExpression|ArrowFunctionExpression|AssignmentExpression|AwaitExpression|BinaryExpression|SimpleCallExpression|NewExpression|ChainExpression|ConditionalExpression|FunctionExpression|ImportExpression|LogicalExpression|MemberExpression|MetaProperty|ObjectExpression|SequenceExpression|TaggedTemplateExpression|TemplateLiteral|ThisExpression|UnaryExpression|UpdateExpression|YieldExpression|SpreadElement}
 * Returns: {string|VariableInfo}
 
 #### `getTagData(name, tag)`
 
 * `name` {string}
 * `tag` {symbol}
-* Returns: {Record|TopLevelSymbol|HarmonySettings|ImportSettings|CommonJsImportSettings|CompatibilitySettings|HarmonySpecifierGuards}
+* Returns: {Record<string, any>|TopLevelSymbol|HarmonySettings|ImportSettings|CommonJsImportSettings|CompatibilitySettings|HarmonySpecifierGuards}
 
 #### `getVariableInfo(name)`
 
@@ -355,7 +355,7 @@ Block pre walking iterates the scope for block variable declarations
 
 > Stability: 0 - Deprecated
 
-* `params` {string|Identifier|Property|MemberExpression|ObjectPattern|ArrayPattern|RestElement|AssignmentPattern[]}
+* `params` {string|Property|Identifier|MemberExpression|ObjectPattern|ArrayPattern|RestElement|AssignmentPattern[]}
 * `fn` {object}
 * Returns: {void}
 
@@ -366,7 +366,7 @@ Block pre walking iterates the scope for block variable declarations
 
 #### `isPure(expr, commentsStartPos)`
 
-* `expr` {Identifier|ClassDeclaration|MaybeNamedClassDeclaration|ClassExpression|SimpleLiteral|RegExpLiteral|BigIntLiteral|ArrayExpression|ArrowFunctionExpression|AssignmentExpression|AwaitExpression|BinaryExpression|SimpleCallExpression|NewExpression|ChainExpression|ConditionalExpression|FunctionExpression|ImportExpression|LogicalExpression|MemberExpression|MetaProperty|ObjectExpression|SequenceExpression|TaggedTemplateExpression|TemplateLiteral|ThisExpression|UnaryExpression|UpdateExpression|YieldExpression|FunctionDeclaration|MaybeNamedFunctionDeclaration|PrivateIdentifier|VariableDeclaration}
+* `expr` {ClassDeclaration|MaybeNamedClassDeclaration|ClassExpression|Identifier|SimpleLiteral|RegExpLiteral|BigIntLiteral|ArrayExpression|ArrowFunctionExpression|AssignmentExpression|AwaitExpression|BinaryExpression|SimpleCallExpression|NewExpression|ChainExpression|ConditionalExpression|FunctionExpression|ImportExpression|LogicalExpression|MemberExpression|MetaProperty|ObjectExpression|SequenceExpression|TaggedTemplateExpression|TemplateLiteral|ThisExpression|UnaryExpression|UpdateExpression|YieldExpression|FunctionDeclaration|MaybeNamedFunctionDeclaration|PrivateIdentifier|VariableDeclaration}
 * `commentsStartPos` {number}
 * Returns: {boolean}
 
@@ -404,7 +404,7 @@ Module pre walking iterates the scope for import entries
 
 #### `parse(source, state)`
 
-* `source` {string|Buffer|PreparsedAst}
+* `source` {string|Buffer<ArrayBufferLike>|PreparsedAst}
 * `state` {ParserState}
 * Returns: {ParserState}
 
@@ -415,7 +415,7 @@ Module pre walking iterates the scope for import entries
 
 #### `parseCommentOptions(range)`
 
-* `range` {number|number}
+* `range` {Tuple<number, number>}
 * Returns: {object}
 
 #### `parseString(expression)`
@@ -537,7 +537,7 @@ Pre walking iterates the scope for variable declarations
 
 * `name` {string}
 * `tag` {symbol}
-* `data` {Record|TopLevelSymbol|HarmonySettings|ImportSettings|CommonJsImportSettings|CompatibilitySettings|HarmonySpecifierGuards}
+* `data` {Record<string, any>|TopLevelSymbol|HarmonySettings|ImportSettings|CommonJsImportSettings|CompatibilitySettings|HarmonySpecifierGuards}
 * `flags` {0|1|2|4}
 * Returns: {void}
 
@@ -643,12 +643,12 @@ Pre walking iterates the scope for variable declarations
 
 #### `walkExpression(expression)`
 
-* `expression` {Identifier|ClassExpression|SimpleLiteral|RegExpLiteral|BigIntLiteral|ArrayExpression|ArrowFunctionExpression|AssignmentExpression|AwaitExpression|BinaryExpression|SimpleCallExpression|NewExpression|ChainExpression|ConditionalExpression|FunctionExpression|ImportExpression|LogicalExpression|MemberExpression|MetaProperty|ObjectExpression|SequenceExpression|TaggedTemplateExpression|TemplateLiteral|ThisExpression|UnaryExpression|UpdateExpression|YieldExpression|PrivateIdentifier|SpreadElement|Super}
+* `expression` {ClassExpression|Identifier|SimpleLiteral|RegExpLiteral|BigIntLiteral|ArrayExpression|ArrowFunctionExpression|AssignmentExpression|AwaitExpression|BinaryExpression|SimpleCallExpression|NewExpression|ChainExpression|ConditionalExpression|FunctionExpression|ImportExpression|LogicalExpression|MemberExpression|MetaProperty|ObjectExpression|SequenceExpression|TaggedTemplateExpression|TemplateLiteral|ThisExpression|UnaryExpression|UpdateExpression|YieldExpression|PrivateIdentifier|SpreadElement|Super}
 * Returns: {void}
 
 #### `walkExpressions(expressions)`
 
-* `expressions` {Identifier|ClassExpression|SimpleLiteral|RegExpLiteral|BigIntLiteral|ArrayExpression|ArrowFunctionExpression|AssignmentExpression|AwaitExpression|BinaryExpression|SimpleCallExpression|NewExpression|ChainExpression|ConditionalExpression|FunctionExpression|ImportExpression|LogicalExpression|MemberExpression|MetaProperty|ObjectExpression|SequenceExpression|TaggedTemplateExpression|TemplateLiteral|ThisExpression|UnaryExpression|UpdateExpression|YieldExpression|SpreadElement[]}
+* `expressions` {ClassExpression|Identifier|SimpleLiteral|RegExpLiteral|BigIntLiteral|ArrayExpression|ArrowFunctionExpression|AssignmentExpression|AwaitExpression|BinaryExpression|SimpleCallExpression|NewExpression|ChainExpression|ConditionalExpression|FunctionExpression|ImportExpression|LogicalExpression|MemberExpression|MetaProperty|ObjectExpression|SequenceExpression|TaggedTemplateExpression|TemplateLiteral|ThisExpression|UnaryExpression|UpdateExpression|YieldExpression|SpreadElement[]}
 * Returns: {void}
 
 #### `walkExpressionStatement(statement)`
@@ -873,9 +873,3 @@ Walking iterates the statements and expressions and processes them
 
 * `plugins` {object[]}
 * Returns: {JavascriptParser}
-
-***
-
-## `JavascriptModulesPlugin`
-
-Re-exports [JavascriptModulesPlugin](../../globals.md#javascriptmodulesplugin)

@@ -1,29 +1,29 @@
-import { Application } from "typedoc";
-import webpack from "./webpack/package.json" with { type: "json" };
-import { major } from "semver";
+import { Application } from 'typedoc';
+import webpack from './webpack/package.json' with { type: 'json' };
+import { major } from 'semver';
 
 const app = await Application.bootstrapWithPlugins({
-  entryPoints: ["./webpack/types.d.ts"],
+  entryPoints: ['./webpack/types.d.ts'],
   out: `pages/v${major(webpack.version)}.x`,
 
   // Plugins
   plugin: [
-    "typedoc-plugin-markdown",
-    "./plugins/processor.mjs",
-    "./plugins/theme/index.mjs",
+    'typedoc-plugin-markdown',
+    './plugins/processor.mjs',
+    './plugins/theme/index.mjs',
   ],
-  theme: "doc-kit",
+  theme: 'doc-kit',
+  router: 'doc-kit',
 
   // Formatting
   hideGroupHeadings: true,
   hideBreadcrumbs: true,
   hidePageHeader: true,
   disableSources: true,
+  propertiesFormat: 'table',
 
-  router: "module",
-  entryFileName: "index",
-
-  tsconfig: "tsconfig.json",
+  entryFileName: 'index',
+  tsconfig: 'tsconfig.json',
 });
 
 const project = await app.convert();

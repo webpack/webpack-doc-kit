@@ -1,57 +1,62 @@
-const union = (arr) => (arr?.length ? arr.map(resolve).join("|") : "unknown");
+const union = (arr, sep = '|') =>
+  arr?.length ? arr.map(resolve).join(sep) : 'unknown';
 
-const resolve = (type) => {
-  if (!type) return "unknown";
+const resolve = type => {
+  if (!type) return 'unknown';
 
   switch (type.type) {
-    case "intrinsic":
-    case "reference":
-      return type.name;
+    case 'intrinsic':
+    case 'reference': {
+      const args = type.typeArguments?.length
+        ? `<${type.typeArguments.map(resolve).join(', ')}>`
+        : '';
+      return type.name + args;
+    }
 
-    case "literal":
-      return typeof type.value === "string"
+    case 'literal':
+      return typeof type.value === 'string'
         ? JSON.stringify(type.value)
         : String(type.value);
 
-    case "array":
-      return resolve(type.elementType) + "[]";
+    case 'array':
+      return resolve(type.elementType) + '[]';
 
-    case "tuple":
-      return union(type.elements);
+    case 'tuple':
+      return `Tuple<${union(type.elements, ', ')}>`;
 
-    case "union":
-    case "intersection":
+    case 'union':
+    case 'intersection':
       return union(type.types);
 
-    case "optional":
-    case "indexedAccess":
+    case 'optional':
+    case 'indexedAccess':
       return resolve(type.elementType ?? type.objectType);
 
-    case "query":
+    case 'query':
       return resolve(type.queryType);
 
-    case "typeOperator":
+    case 'typeOperator':
       return resolve(type.target);
 
-    case "conditional":
+    case 'conditional':
       return `${resolve(type.trueType)}|${resolve(type.falseType)}`;
 
-    case "named-tuple-member":
+    case 'named-tuple-member':
       return resolve(type.element);
 
-    case "reflection":
-      return "object";
+    case 'reflection':
+      return 'object';
 
-    case "inferred":
-    case "unknown":
-      return "unknown";
+    case 'inferred':
+    case 'unknown':
+      return 'unknown';
 
     default:
-      return type.name ?? "unknown";
+      return type.name ?? 'unknown';
   }
 };
 
-export const someType = (model) => `{${resolve(model)}}`;
+export const someType = model => `{${resolve(model)}}`;
 
 export const arrayType = someType,
   conditionalType = someType,
@@ -70,5 +75,5 @@ export const arrayType = someType,
   unionType = someType,
   unknownType = someType;
 
-export const declarationType = () => "{object}";
-export const functionType = () => "{Function}";
+export const declarationType = () => '{object}';
+export const functionType = () => '{Function}';

@@ -16,7 +16,7 @@
 
 `T`
 * `__namedParameters` {AbstractLibraryPluginOptions}
-* Returns: {AbstractLibraryPlugin}
+* Returns: {AbstractLibraryPlugin<T>}
 
 ### Properties
 
@@ -36,21 +36,21 @@ Apply the plugin
 * `chunk` {Chunk}
 * `hash` {Hash}
 * `chunkHashContext` {ChunkHashContext}
-* `libraryContext` {LibraryContext}
+* `libraryContext` {LibraryContext<T>}
 * Returns: {void}
 
 #### `embedInRuntimeBailout(module, renderContext, libraryContext)`
 
 * `module` {Module}
 * `renderContext` {RenderContextJavascriptModulesPlugin}
-* `libraryContext` {LibraryContext}
+* `libraryContext` {LibraryContext<T>}
 * Returns: {string}
 
 #### `finishEntryModule(module, entryName, libraryContext)`
 
 * `module` {Module}
 * `entryName` {string}
-* `libraryContext` {LibraryContext}
+* `libraryContext` {LibraryContext<T>}
 * Returns: {void}
 
 #### `parseOptions(library)`
@@ -62,7 +62,7 @@ Apply the plugin
 
 * `source` {Source}
 * `renderContext` {RenderContextJavascriptModulesPlugin}
-* `libraryContext` {LibraryContext}
+* `libraryContext` {LibraryContext<T>}
 * Returns: {Source}
 
 #### `renderModuleContent(source, module, renderContext, libraryContext)`
@@ -70,7 +70,7 @@ Apply the plugin
 * `source` {Source}
 * `module` {Module}
 * `renderContext` {ModuleRenderContext}
-* `libraryContext` {Omit}
+* `libraryContext` {Omit<LibraryContext<T>, "options">}
 * Returns: {Source}
 
 #### `renderStartup(source, module, renderContext, libraryContext)`
@@ -78,20 +78,20 @@ Apply the plugin
 * `source` {Source}
 * `module` {Module}
 * `renderContext` {StartupRenderContext}
-* `libraryContext` {LibraryContext}
+* `libraryContext` {LibraryContext<T>}
 * Returns: {Source}
 
 #### `runtimeRequirements(chunk, set, libraryContext)`
 
 * `chunk` {Chunk}
-* `set` {Set}
-* `libraryContext` {LibraryContext}
+* `set` {Set<string>}
+* `libraryContext` {LibraryContext<T>}
 * Returns: {void}
 
 #### `strictRuntimeBailout(renderContext, libraryContext)`
 
 * `renderContext` {RenderContextJavascriptModulesPlugin}
-* `libraryContext` {LibraryContext}
+* `libraryContext` {LibraryContext<T>}
 * Returns: {string}
 
 ***

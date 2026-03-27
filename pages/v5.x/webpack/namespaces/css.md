@@ -20,7 +20,7 @@ Apply the plugin
 #### `getModulesInOrder(chunk, modules, compilation)`
 
 * `chunk` {Chunk}
-* `modules` {Iterable}
+* `modules` {Iterable<Module, any, any>}
 * `compilation` {Compilation}
 * Returns: {Module[]}
 

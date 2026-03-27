@@ -60,7 +60,7 @@
 > **getDependencyUsedByExportsCondition**: {object}
 
 * `dependency` {Dependency}
-* `usedByExports` {undefined|boolean|Set}
+* `usedByExports` {undefined|boolean|Set<string>}
 * `moduleGraph` {ModuleGraph}
 * Returns: {null|false|object}
 
@@ -89,7 +89,7 @@
 > **isDependencyUsedByExports**: {object}
 
 * `dependency` {Dependency}
-* `usedByExports` {undefined|boolean|Set}
+* `usedByExports` {undefined|boolean|Set<string>}
 * `moduleGraph` {ModuleGraph}
 * `runtime` {RuntimeSpec}
 * Returns: {boolean}

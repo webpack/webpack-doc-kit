@@ -215,7 +215,7 @@ Apply the plugin
 
 * `moduleName` {string}
 * `flagValue` {SideEffectsFlagValue}
-* `cache` {Map}
+* `cache` {Map<string, RegExp>}
 * Returns: {boolean}
 
 ***

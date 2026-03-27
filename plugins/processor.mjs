@@ -21,6 +21,11 @@ export function load(app) {
         }
       });
 
+    // Remove re-exports
+    context.project
+      .getReflectionsByKind(ReflectionKind.Reference)
+      .forEach((ref) => context.project.removeReflection(ref));
+
     // Merge `export=` namespaces into their parent
     context.project
       .getReflectionsByKind(ReflectionKind.Namespace)
@@ -30,30 +35,17 @@ export function load(app) {
       );
   });
 
-  app.renderer.on(Renderer.EVENT_END, (context) => {
+  app.renderer.on(Renderer.EVENT_END, () => {
     const typeMap = Object.fromEntries(
-      context.project
-        .getReflectionsByKind(ReflectionKind.All)
-        .filter((ref) => {
-          // Drop internal TypeDoc artifacts
-          if (ref.name === "export=" || ref.name === "__type") return false;
-          // Drop Reference kind — duplicates of real types
-          if (ref.kind === ReflectionKind.Reference) return false;
-          // Must have a routable page
-          if (!app.renderer.router.hasUrl(ref)) return false;
-          return true;
-        })
-        .map((reference) => [
-          reference.getFullName(),
-          app.renderer.router.getFullUrl(reference).replace(".md", ".html"),
-        ]),
+      app.renderer.router.getLinkTargets().map((target) => [
+        target.getFullName(),
+        app.renderer.router.getAnchoredURL(target),
+      ]),
     );
 
     const typeMapPath = join(app.options.getValue("out"), "type-map.json");
     if (Object.keys(typeMap).length === 0) {
-      app.logger.warn(
-        "TypeDoc processor: generated typeMap is empty. Check your entry points and routable URLs.",
-      );
+      app.logger.warn("TypeDoc processor: generated typeMap is empty.");
     }
 
     const tmpPath = `${typeMapPath}.tmp`;

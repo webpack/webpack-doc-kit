@@ -2,7 +2,7 @@
 
 ## `buffersSerializer`
 
-> `const` **buffersSerializer**: {Serializer}
+> `const` **buffersSerializer**: {Serializer<any, any, any>}
 
 ***
 
@@ -23,7 +23,7 @@
 `C`
 * `fs` {IntermediateFileSystem}
 * `hashFunction` {HashFunction}
-* Returns: {Serializer}
+* Returns: {Serializer<D, S, C>}
 
 ***
 
