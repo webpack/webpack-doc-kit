@@ -1,6 +1,7 @@
 import { Converter, ReflectionKind, Renderer } from "typedoc";
-import { writeFileSync } from "node:fs";
+import { renameSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
+
 /**
  * @param {import('typedoc-plugin-markdown').MarkdownApplication} app
  */
@@ -48,9 +49,21 @@ export function load(app) {
         ]),
     );
 
-    writeFileSync(
-      join(app.options.getValue("out"), "type-map.json"),
-      JSON.stringify(typeMap, null, 2),
-    );
+    const typeMapPath = join(app.options.getValue("out"), "type-map.json");
+    if (Object.keys(typeMap).length === 0) {
+      app.logger.warn(
+        "TypeDoc processor: generated typeMap is empty. Check your entry points and routable URLs.",
+      );
+    }
+
+    const tmpPath = `${typeMapPath}.tmp`;
+    try {
+      writeFileSync(tmpPath, JSON.stringify(typeMap, null, 2));
+      renameSync(tmpPath, typeMapPath);
+    } catch (e) {
+      app.logger.error(
+        `TypeDoc processor: Failed to write atomic type-map.json: ${e.message}`,
+      );
+    }
   });
 }
