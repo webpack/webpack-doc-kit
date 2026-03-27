@@ -49,6 +49,18 @@ This ensures documentation stays in sync with upstream webpack without manual in
 
 When making changes to documentation generation (plugins, `generate-md.mjs`, `tsconfig.json`), ensure the docs can still be generated successfully. CI will verify this on every pull request.
 
+To get started locally:
+
+1. Clone the repository
+2. Run `npm install` to install dependencies
+3. Run `npm run generate-docs` to generate documentation
+4. Run `npm run build` to build the full HTML output
+
+## Prerequisites
+
+- Node.js v18+
+- npm
+
 ## License
 
-See the [webpack project](https://github.com/webpack/webpack) for license details.
+This project follows the same license as the [webpack project](https://github.com/webpack/webpack). Please refer to their repository for full license details.

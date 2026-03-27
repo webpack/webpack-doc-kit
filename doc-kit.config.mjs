@@ -8,7 +8,7 @@ export default {
     // Point GitHub links to the webpack repository instead of nodejs/node
     repository: 'webpack/webpack',
 
-    // Input & Output
+    // Glob pattern for markdown source files; output folder for generated docs
     input: ['./pages/v5.x/**/*.md'],
     output: 'out',
   },
