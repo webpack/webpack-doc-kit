@@ -8,6 +8,7 @@ Automated TypeScript API documentation generator for [webpack](https://github.co
 2. Custom plugins process the output (namespace merging, type mapping, themed rendering)
 3. **@node-core/doc-kit** converts Markdown to HTML
 4. GitHub Actions deploys the result to GitHub Pages
+   **Note:** This tool is specifically designed for webpack's TypeScript type definitions and may not work with other projects out of the box.
 
 ### Webpack Version Tracking
 
