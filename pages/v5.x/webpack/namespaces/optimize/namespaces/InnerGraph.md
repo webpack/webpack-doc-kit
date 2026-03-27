@@ -1,13 +1,18 @@
 # InnerGraph
 
-## Class: `TopLevelSymbol`
+## 
+### Class: `TopLevelSymbol`
 
 ### Constructors
 
 #### `new TopLevelSymbol(name)`
 
+---
+### TopLevelSymbol
+
 * `name` {string}
-* Returns: {TopLevelSymbol}
+
+* ###Returns: {TopLevelSymbol}
 
 ### Properties
 
@@ -15,126 +20,187 @@
 
 ***
 
-## `addUsage`
+## 
+### `addUsage`
 
 > **addUsage**: {object}
+
+---
+### __type
 
 * `state` {ParserState}
 * `symbol` {null|TopLevelSymbol}
 * `usage` {Usage}
-* Returns: {void}
+
+* ###Returns: {void}
 
 ***
 
-## `addVariableUsage`
+## 
+### `addVariableUsage`
 
 > **addVariableUsage**: {object}
+
+---
+### __type
 
 * `parser` {JavascriptParser}
 * `name` {string}
 * `usage` {Usage}
-* Returns: {void}
+
+* ###Returns: {void}
 
 ***
 
-## `bailout`
+## 
+### `bailout`
 
 > **bailout**: {object}
 
+---
+### __type
+
 * `parserState` {ParserState}
-* Returns: {void}
+
+* ###Returns: {void}
 
 ***
 
-## `enable`
+## 
+### `enable`
 
 > **enable**: {object}
 
+---
+### __type
+
 * `parserState` {ParserState}
-* Returns: {void}
+
+* ###Returns: {void}
 
 ***
 
-## `getDependencyUsedByExportsCondition`
+## 
+### `getDependencyUsedByExportsCondition`
 
 > **getDependencyUsedByExportsCondition**: {object}
+
+---
+### __type
 
 * `dependency` {Dependency}
 * `usedByExports` {undefined|boolean|Set<string>}
 * `moduleGraph` {ModuleGraph}
-* Returns: {null|false|object}
+
+* ###Returns: {null|false|object}
 
 ***
 
-## `getTopLevelSymbol`
+## 
+### `getTopLevelSymbol`
 
 > **getTopLevelSymbol**: {object}
 
+---
+### __type
+
 * `state` {ParserState}
-* Returns: {void|TopLevelSymbol}
+
+* ###Returns: {void|TopLevelSymbol}
 
 ***
 
-## `inferDependencyUsage`
+## 
+### `inferDependencyUsage`
 
 > **inferDependencyUsage**: {object}
 
+---
+### __type
+
 * `state` {ParserState}
-* Returns: {void}
+
+* ###Returns: {void}
 
 ***
 
-## `isDependencyUsedByExports`
+## 
+### `isDependencyUsedByExports`
 
 > **isDependencyUsedByExports**: {object}
+
+---
+### __type
 
 * `dependency` {Dependency}
 * `usedByExports` {undefined|boolean|Set<string>}
 * `moduleGraph` {ModuleGraph}
 * `runtime` {RuntimeSpec}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 ***
 
-## `isEnabled`
+## 
+### `isEnabled`
 
 > **isEnabled**: {object}
 
+---
+### __type
+
 * `parserState` {ParserState}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 ***
 
-## `onUsage`
+## 
+### `onUsage`
 
 > **onUsage**: {object}
 
+---
+### __type
+
 * `state` {ParserState}
 * `onUsageCallback` {object}
-* Returns: {void}
+
+* ###Returns: {void}
 
 ***
 
-## `setTopLevelSymbol`
+## 
+### `setTopLevelSymbol`
 
 > **setTopLevelSymbol**: {object}
 
+---
+### __type
+
 * `state` {ParserState}
 * `symbol` {TopLevelSymbol}
-* Returns: {void}
+
+* ###Returns: {void}
 
 ***
 
-## `tagTopLevelSymbol`
+## 
+### `tagTopLevelSymbol`
 
 > **tagTopLevelSymbol**: {object}
 
+---
+### __type
+
 * `parser` {JavascriptParser}
 * `name` {string}
-* Returns: {undefined|TopLevelSymbol}
+
+* ###Returns: {undefined|TopLevelSymbol}
 
 ***
 
-## `topLevelSymbolTag`
+## 
+### `topLevelSymbolTag`
 
 > `const` **topLevelSymbolTag**: {symbol}

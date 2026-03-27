@@ -1,6 +1,7 @@
 # runtime
 
-## Class: `RuntimeSpecMap`
+## 
+### Class: `RuntimeSpecMap`
 
 ### Type Parameters
 
@@ -16,6 +17,9 @@
 
 #### `new RuntimeSpecMap([clone])`
 
+---
+### RuntimeSpecMap
+
 ###### T
 
 `T`
@@ -23,8 +27,10 @@
 ###### R
 
 `R` = {T}
+
 * `clone` {RuntimeSpecMap<T, R>}
-* Returns: {RuntimeSpecMap<T, R>}
+
+* ###Returns: {RuntimeSpecMap<T, R>}
 
 ### Properties
 
@@ -34,55 +40,90 @@
 
 #### `delete(runtime)`
 
+---
+### delete
+
 * `runtime` {RuntimeSpec}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `get(runtime)`
 
+---
+### get
+
 * `runtime` {RuntimeSpec}
-* Returns: {R}
+
+* ###Returns: {R}
 
 #### `has(runtime)`
 
+---
+### has
+
 * `runtime` {RuntimeSpec}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `keys()`
 
-* Returns: {RuntimeSpec[]}
+---
+### keys
+
+* ###Returns: {RuntimeSpec[]}
 
 #### `provide(runtime, computer)`
 
+---
+### provide
+
 * `runtime` {RuntimeSpec}
 * `computer` {object}
-* Returns: {R}
+
+* ###Returns: {R}
 
 #### `set(runtime, value)`
 
+---
+### set
+
 * `runtime` {RuntimeSpec}
 * `value` {R}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `update(runtime, fn)`
 
+---
+### update
+
 * `runtime` {RuntimeSpec}
 * `fn` {object}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `values()`
 
-* Returns: {IterableIterator<R>}
+---
+### values
+
+* ###Returns: {IterableIterator<R>}
 
 ***
 
-## Class: `RuntimeSpecSet`
+## 
+### Class: `RuntimeSpecSet`
 
 ### Constructors
 
 #### `new RuntimeSpecSet([iterable])`
 
+---
+### RuntimeSpecSet
+
 * `iterable` {Iterable<RuntimeSpec>}
-* Returns: {RuntimeSpecSet}
+
+* ###Returns: {RuntimeSpecSet}
 
 ### Properties
 
@@ -92,175 +133,266 @@
 
 #### `[iterator]()`
 
-* Returns: {IterableIterator<RuntimeSpec>}
+---
+### [iterator]
+
+* ###Returns: {IterableIterator<RuntimeSpec>}
 
 #### `add(runtime)`
 
+---
+### add
+
 * `runtime` {RuntimeSpec}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `has(runtime)`
 
+---
+### has
+
 * `runtime` {RuntimeSpec}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 ***
 
-## `compareRuntime`
+## 
+### `compareRuntime`
 
 > **compareRuntime**: {object}
 
+---
+### __type
+
 * `a` {RuntimeSpec}
 * `b` {RuntimeSpec}
-* Returns: {0|1|-1}
+
+* ###Returns: {0|1|-1}
 
 ***
 
-## `filterRuntime`
+## 
+### `filterRuntime`
 
 > **filterRuntime**: {object}
 
+---
+### __type
+
 * `runtime` {RuntimeSpec}
 * `filter` {object}
-* Returns: {undefined|string|boolean|SortableSet<string>}
+
+* ###Returns: {undefined|string|boolean|SortableSet<string>}
 
 ***
 
-## `forEachRuntime`
+## 
+### `forEachRuntime`
 
 > **forEachRuntime**: {object}
+
+---
+### __type
 
 * `runtime` {RuntimeSpec}
 * `fn` {object}
 * `deterministicOrder` {boolean}
-* Returns: {void}
+
+* ###Returns: {void}
 
 ***
 
-## `getEntryRuntime`
+## 
+### `getEntryRuntime`
 
 > **getEntryRuntime**: {object}
+
+---
+### __type
 
 * `compilation` {Compilation}
 * `name` {string}
 * `options` {EntryOptions}
-* Returns: {RuntimeSpec}
+
+* ###Returns: {RuntimeSpec}
 
 ***
 
-## `getRuntimeKey`
+## 
+### `getRuntimeKey`
 
 > **getRuntimeKey**: {object}
 
+---
+### __type
+
 * `runtime` {RuntimeSpec}
-* Returns: {string}
+
+* ###Returns: {string}
 
 ***
 
-## `intersectRuntime`
+## 
+### `intersectRuntime`
 
 > **intersectRuntime**: {object}
 
+---
+### __type
+
 * `a` {RuntimeSpec}
 * `b` {RuntimeSpec}
-* Returns: {RuntimeSpec}
+
+* ###Returns: {RuntimeSpec}
 
 ***
 
-## `keyToRuntime`
+## 
+### `keyToRuntime`
 
 > **keyToRuntime**: {object}
 
+---
+### __type
+
 * `key` {string}
-* Returns: {RuntimeSpec}
+
+* ###Returns: {RuntimeSpec}
 
 ***
 
-## `mergeRuntime`
+## 
+### `mergeRuntime`
 
 > **mergeRuntime**: {object}
 
+---
+### __type
+
 * `a` {RuntimeSpec}
 * `b` {RuntimeSpec}
-* Returns: {RuntimeSpec}
+
+* ###Returns: {RuntimeSpec}
 
 ***
 
-## `mergeRuntimeCondition`
+## 
+### `mergeRuntimeCondition`
 
 > **mergeRuntimeCondition**: {object}
+
+---
+### __type
 
 * `a` {RuntimeCondition}
 * `b` {RuntimeCondition}
 * `runtime` {RuntimeSpec}
-* Returns: {RuntimeCondition}
+
+* ###Returns: {RuntimeCondition}
 
 ***
 
-## `mergeRuntimeConditionNonFalse`
+## 
+### `mergeRuntimeConditionNonFalse`
 
 > **mergeRuntimeConditionNonFalse**: {object}
+
+---
+### __type
 
 * `a` {undefined|string|true|SortableSet<string>}
 * `b` {undefined|string|true|SortableSet<string>}
 * `runtime` {RuntimeSpec}
-* Returns: {undefined|string|true|SortableSet<string>}
+
+* ###Returns: {undefined|string|true|SortableSet<string>}
 
 ***
 
-## `mergeRuntimeOwned`
+## 
+### `mergeRuntimeOwned`
 
 > **mergeRuntimeOwned**: {object}
 
+---
+### __type
+
 * `a` {RuntimeSpec}
 * `b` {RuntimeSpec}
-* Returns: {RuntimeSpec}
+
+* ###Returns: {RuntimeSpec}
 
 ***
 
-## `runtimeConditionToString`
+## 
+### `runtimeConditionToString`
 
 > **runtimeConditionToString**: {object}
 
+---
+### __type
+
 * `runtimeCondition` {RuntimeCondition}
-* Returns: {string}
+
+* ###Returns: {string}
 
 ***
 
-## `runtimeEqual`
+## 
+### `runtimeEqual`
 
 > **runtimeEqual**: {object}
 
+---
+### __type
+
 * `a` {RuntimeSpec}
 * `b` {RuntimeSpec}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 ***
 
-## `runtimeToString`
+## 
+### `runtimeToString`
 
 > **runtimeToString**: {object}
 
+---
+### __type
+
 * `runtime` {RuntimeSpec}
-* Returns: {string}
+
+* ###Returns: {string}
 
 ***
 
-## `subtractRuntime`
+## 
+### `subtractRuntime`
 
 > **subtractRuntime**: {object}
 
+---
+### __type
+
 * `a` {RuntimeSpec}
 * `b` {RuntimeSpec}
-* Returns: {RuntimeSpec}
+
+* ###Returns: {RuntimeSpec}
 
 ***
 
-## `subtractRuntimeCondition`
+## 
+### `subtractRuntimeCondition`
 
 > **subtractRuntimeCondition**: {object}
+
+---
+### __type
 
 * `a` {RuntimeCondition}
 * `b` {RuntimeCondition}
 * `runtime` {RuntimeSpec}
-* Returns: {RuntimeCondition}
+
+* ###Returns: {RuntimeCondition}

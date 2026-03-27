@@ -1,125 +1,176 @@
 # comparators
 
-## `compareChunkGroupsByIndex`
+## 
+### `compareChunkGroupsByIndex`
 
 > **compareChunkGroupsByIndex**: {object}
 
+---
+### __type
+
 * `a` {ChunkGroup}
 * `b` {ChunkGroup}
-* Returns: {0|1|-1}
+
+* ###Returns: {0|1|-1}
 
 ***
 
-## `compareChunks`
+## 
+### `compareChunks`
 
 > **compareChunks**: {ParameterizedComparator<ChunkGraph, Chunk>}
 
 ***
 
-## `compareChunksById`
+## 
+### `compareChunksById`
 
 > **compareChunksById**: {object}
 
+---
+### __type
+
 * `a` {Chunk}
 * `b` {Chunk}
-* Returns: {0|1|-1}
+
+* ###Returns: {0|1|-1}
 
 ***
 
-## `compareChunksNatural`
+## 
+### `compareChunksNatural`
 
 > **compareChunksNatural**: {object}
 
+---
+### __type
+
 * `chunkGraph` {ChunkGraph}
-* Returns: {Comparator<Chunk>}
+
+* ###Returns: {Comparator<Chunk>}
 
 ***
 
-## `compareIds`
+## 
+### `compareIds`
 
 > **compareIds**: {object}
 
+---
+### __type
+
 * `a` {string|number}
 * `b` {string|number}
-* Returns: {0|1|-1}
+
+* ###Returns: {0|1|-1}
 
 ***
 
-## `compareIterables`
+## 
+### `compareIterables`
 
 > **compareIterables**: {object}
+
+---
+### __type
 
 #### T
 
 `T`
+
 * `elementComparator` {Comparator<T>}
-* Returns: {Comparator<Iterable<T>>}
+
+* ###Returns: {Comparator<Iterable<T>>}
 
 ***
 
-## `compareLocations`
+## 
+### `compareLocations`
 
 > **compareLocations**: {object}
 
+---
+### __type
+
 * `a` {DependencyLocation}
 * `b` {DependencyLocation}
-* Returns: {0|1|-1}
+
+* ###Returns: {0|1|-1}
 
 ***
 
-## `compareModulesByFullName`
+## 
+### `compareModulesByFullName`
 
 > **compareModulesByFullName**: {ParameterizedComparator<Compiler, Module>}
 
 ***
 
-## `compareModulesById`
+## 
+### `compareModulesById`
 
 > **compareModulesById**: {ParameterizedComparator<ChunkGraph, Module>}
 
 ***
 
-## `compareModulesByIdentifier`
+## 
+### `compareModulesByIdentifier`
 
 > **compareModulesByIdentifier**: {object}
 
+---
+### __type
+
 * `a` {Module}
 * `b` {Module}
-* Returns: {0|1|-1}
+
+* ###Returns: {0|1|-1}
 
 ***
 
-## `compareModulesByIdOrIdentifier`
+## 
+### `compareModulesByIdOrIdentifier`
 
 > **compareModulesByIdOrIdentifier**: {ParameterizedComparator<ChunkGraph, Module>}
 
 ***
 
-## `compareModulesByPostOrderIndexOrIdentifier`
+## 
+### `compareModulesByPostOrderIndexOrIdentifier`
 
 > **compareModulesByPostOrderIndexOrIdentifier**: {ParameterizedComparator<ModuleGraph, Module>}
 
 ***
 
-## `compareModulesByPreOrderIndexOrIdentifier`
+## 
+### `compareModulesByPreOrderIndexOrIdentifier`
 
 > **compareModulesByPreOrderIndexOrIdentifier**: {ParameterizedComparator<ModuleGraph, Module>}
 
 ***
 
-## `compareNumbers`
+## 
+### `compareNumbers`
 
 > **compareNumbers**: {object}
 
+---
+### __type
+
 * `a` {number}
 * `b` {number}
-* Returns: {0|1|-1}
+
+* ###Returns: {0|1|-1}
 
 ***
 
-## `compareSelect`
+## 
+### `compareSelect`
 
 > **compareSelect**: {object}
+
+---
+### __type
 
 #### T
 
@@ -128,63 +179,92 @@
 #### R
 
 `R`
+
 * `getter` {Selector<T, R>}
 * `comparator` {Comparator<R>}
-* Returns: {Comparator<T>}
+
+* ###Returns: {Comparator<T>}
 
 ***
 
-## `compareStrings`
+## 
+### `compareStrings`
 
 > **compareStrings**: {object}
 
+---
+### __type
+
 * `a` {string}
 * `b` {string}
-* Returns: {0|1|-1}
+
+* ###Returns: {0|1|-1}
 
 ***
 
-## `compareStringsNumeric`
+## 
+### `compareStringsNumeric`
 
 > **compareStringsNumeric**: {object}
 
+---
+### __type
+
 * `a` {string}
 * `b` {string}
-* Returns: {0|1|-1}
+
+* ###Returns: {0|1|-1}
 
 ***
 
-## `concatComparators`
+## 
+### `concatComparators`
 
 > **concatComparators**: {object}
 
+---
+### __type
+
 #### T
 
 `T`
+
 * `c1` {Comparator<T>}
 * `c2` {Comparator<T>}
 * `cRest` {Comparator<T>[]}
-* Returns: {Comparator<T>}
+
+* ###Returns: {Comparator<T>}
 
 ***
 
-## `keepOriginalOrder`
+## 
+### `keepOriginalOrder`
 
 > **keepOriginalOrder**: {object}
+
+---
+### __type
 
 #### T
 
 `T`
+
 * `iterable` {Iterable<T>}
-* Returns: {Comparator<T>}
+
+* ###Returns: {Comparator<T>}
 
 ***
 
-## `sortWithSourceOrder`
+## 
+### `sortWithSourceOrder`
 
 > **sortWithSourceOrder**: {object}
+
+---
+### __type
 
 * `dependencies` {Dependency[]}
 * `dependencySourceOrderMap` {WeakMap<Dependency, DependencySourceOrder>}
 * `onDependencyReSort` {object}
-* Returns: {void}
+
+* ###Returns: {void}

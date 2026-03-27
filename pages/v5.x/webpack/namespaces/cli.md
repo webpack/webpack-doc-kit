@@ -1,36 +1,55 @@
 # cli
 
-## `createColors`
+## 
+### `createColors`
 
 > **createColors**: {object}
 
+---
+### __type
+
 * `__namedParameters` {ColorsOptions}
-* Returns: {Colors}
+
+* ###Returns: {Colors}
 
 ***
 
-## `getArguments`
+## 
+### `getArguments`
 
 > **getArguments**: {object}
 
+---
+### __type
+
 * `schema` {JSONSchema4|object|JSONSchema6|object|JSONSchema7|object}
-* Returns: {Flags}
+
+* ###Returns: {Flags}
 
 ***
 
-## `isColorSupported`
+## 
+### `isColorSupported`
 
 > **isColorSupported**: {object}
 
-* Returns: {boolean}
+---
+### __type
+
+* ###Returns: {boolean}
 
 ***
 
-## `processArguments`
+## 
+### `processArguments`
 
 > **processArguments**: {object}
+
+---
+### __type
 
 * `args` {Flags}
 * `config` {ObjectConfiguration}
 * `values` {Values}
-* Returns: {null|Problem[]}
+
+* ###Returns: {null|Problem[]}

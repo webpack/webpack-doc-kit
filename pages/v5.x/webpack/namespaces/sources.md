@@ -1,6 +1,7 @@
 # sources
 
-## Class: `CachedSource`
+## 
+### Class: `CachedSource`
 
 ### Extends
 
@@ -10,62 +11,101 @@
 
 #### `new CachedSource(source[, cachedData])`
 
+---
+### CachedSource
+
 * `source` {Source|object}
 * `cachedData` {CachedData}
-* Returns: {CachedSource}
+
+* ###Returns: {CachedSource}
 
 ### Methods
 
 #### `buffer()`
 
-* Returns: {Buffer}
+---
+### buffer
+
+* ###Returns: {Buffer}
 
 #### `getCachedData()`
 
-* Returns: {CachedData}
+---
+### getCachedData
+
+* ###Returns: {CachedData}
 
 #### `map([options])`
 
+---
+### map
+
 * `options` {MapOptions}
-* Returns: {RawSourceMap}
+
+* ###Returns: {RawSourceMap}
 
 #### `original()`
 
-* Returns: {Source}
+---
+### original
+
+* ###Returns: {Source}
 
 #### `originalLazy()`
 
-* Returns: {Source|object}
+---
+### originalLazy
+
+* ###Returns: {Source|object}
 
 #### `size()`
 
-* Returns: {number}
+---
+### size
+
+* ###Returns: {number}
 
 #### `source()`
 
-* Returns: {SourceValue}
+---
+### source
+
+* ###Returns: {SourceValue}
 
 #### `sourceAndMap([options])`
 
+---
+### sourceAndMap
+
 * `options` {MapOptions}
-* Returns: {SourceAndMap}
+
+* ###Returns: {SourceAndMap}
 
 #### `streamChunks(options, onChunk, onSource, onName)`
+
+---
+### streamChunks
 
 * `options` {StreamChunksOptions}
 * `onChunk` {object}
 * `onSource` {object}
 * `onName` {object}
-* Returns: {GeneratedSourceInfo}
+
+* ###Returns: {GeneratedSourceInfo}
 
 #### `updateHash(hash)`
 
+---
+### updateHash
+
 * `hash` {HashLike}
-* Returns: {void}
+
+* ###Returns: {void}
 
 ***
 
-## Class: `CompatSource`
+## 
+### Class: `CompatSource`
 
 ### Extends
 
@@ -75,46 +115,76 @@
 
 #### `new CompatSource(sourceLike)`
 
+---
+### CompatSource
+
 * `sourceLike` {SourceLike}
-* Returns: {CompatSource}
+
+* ###Returns: {CompatSource}
 
 ### Methods
 
 #### `buffer()`
 
-* Returns: {Buffer}
+---
+### buffer
+
+* ###Returns: {Buffer}
 
 #### `map([options])`
 
+---
+### map
+
 * `options` {MapOptions}
-* Returns: {RawSourceMap}
+
+* ###Returns: {RawSourceMap}
 
 #### `size()`
 
-* Returns: {number}
+---
+### size
+
+* ###Returns: {number}
 
 #### `source()`
 
-* Returns: {SourceValue}
+---
+### source
+
+* ###Returns: {SourceValue}
 
 #### `sourceAndMap([options])`
 
+---
+### sourceAndMap
+
 * `options` {MapOptions}
-* Returns: {SourceAndMap}
+
+* ###Returns: {SourceAndMap}
 
 #### `updateHash(hash)`
 
+---
+### updateHash
+
 * `hash` {HashLike}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### Static method: `from(sourceLike)`
 
+---
+### from
+
 * `sourceLike` {SourceLike}
-* Returns: {Source}
+
+* ###Returns: {Source}
 
 ***
 
-## Class: `ConcatSource`
+## 
+### Class: `ConcatSource`
 
 ### Extends
 
@@ -124,63 +194,104 @@
 
 #### `new ConcatSource(args)`
 
+---
+### ConcatSource
+
 * `args` {ConcatSourceChild[]}
-* Returns: {ConcatSource}
+
+* ###Returns: {ConcatSource}
 
 ### Methods
 
 #### `add(item)`
 
+---
+### add
+
 * `item` {ConcatSourceChild}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `addAllSkipOptimizing(items)`
 
+---
+### addAllSkipOptimizing
+
 * `items` {ConcatSourceChild[]}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `buffer()`
 
-* Returns: {Buffer}
+---
+### buffer
+
+* ###Returns: {Buffer}
 
 #### `getChildren()`
 
-* Returns: {Source[]}
+---
+### getChildren
+
+* ###Returns: {Source[]}
 
 #### `map([options])`
 
+---
+### map
+
 * `options` {MapOptions}
-* Returns: {RawSourceMap}
+
+* ###Returns: {RawSourceMap}
 
 #### `size()`
 
-* Returns: {number}
+---
+### size
+
+* ###Returns: {number}
 
 #### `source()`
 
-* Returns: {SourceValue}
+---
+### source
+
+* ###Returns: {SourceValue}
 
 #### `sourceAndMap([options])`
 
+---
+### sourceAndMap
+
 * `options` {MapOptions}
-* Returns: {SourceAndMap}
+
+* ###Returns: {SourceAndMap}
 
 #### `streamChunks(options, onChunk, onSource, onName)`
+
+---
+### streamChunks
 
 * `options` {StreamChunksOptions}
 * `onChunk` {object}
 * `onSource` {object}
 * `onName` {object}
-* Returns: {GeneratedSourceInfo}
+
+* ###Returns: {GeneratedSourceInfo}
 
 #### `updateHash(hash)`
 
+---
+### updateHash
+
 * `hash` {HashLike}
-* Returns: {void}
+
+* ###Returns: {void}
 
 ***
 
-## Class: `OriginalSource`
+## 
+### Class: `OriginalSource`
 
 ### Extends
 
@@ -190,54 +301,87 @@
 
 #### `new OriginalSource(value, name)`
 
+---
+### OriginalSource
+
 * `value` {string|Buffer<ArrayBufferLike>}
 * `name` {string}
-* Returns: {OriginalSource}
+
+* ###Returns: {OriginalSource}
 
 ### Methods
 
 #### `buffer()`
 
-* Returns: {Buffer}
+---
+### buffer
+
+* ###Returns: {Buffer}
 
 #### `getName()`
 
-* Returns: {string}
+---
+### getName
+
+* ###Returns: {string}
 
 #### `map([options])`
 
+---
+### map
+
 * `options` {MapOptions}
-* Returns: {RawSourceMap}
+
+* ###Returns: {RawSourceMap}
 
 #### `size()`
 
-* Returns: {number}
+---
+### size
+
+* ###Returns: {number}
 
 #### `source()`
 
-* Returns: {SourceValue}
+---
+### source
+
+* ###Returns: {SourceValue}
 
 #### `sourceAndMap([options])`
 
+---
+### sourceAndMap
+
 * `options` {MapOptions}
-* Returns: {SourceAndMap}
+
+* ###Returns: {SourceAndMap}
 
 #### `streamChunks(options, onChunk, onSource, _onName)`
+
+---
+### streamChunks
 
 * `options` {StreamChunksOptions}
 * `onChunk` {object}
 * `onSource` {object}
 * `_onName` {object}
-* Returns: {GeneratedSourceInfo}
+
+* ###Returns: {GeneratedSourceInfo}
 
 #### `updateHash(hash)`
 
+---
+### updateHash
+
 * `hash` {HashLike}
-* Returns: {void}
+
+* ###Returns: {void}
 
 ***
 
-## Class: `PrefixSource`
+## 
+### Class: `PrefixSource`
 
 ### Extends
 
@@ -247,58 +391,94 @@
 
 #### `new PrefixSource(prefix, source)`
 
+---
+### PrefixSource
+
 * `prefix` {string}
 * `source` {string|Buffer<ArrayBufferLike>|Source}
-* Returns: {PrefixSource}
+
+* ###Returns: {PrefixSource}
 
 ### Methods
 
 #### `buffer()`
 
-* Returns: {Buffer}
+---
+### buffer
+
+* ###Returns: {Buffer}
 
 #### `getPrefix()`
 
-* Returns: {string}
+---
+### getPrefix
+
+* ###Returns: {string}
 
 #### `map([options])`
 
+---
+### map
+
 * `options` {MapOptions}
-* Returns: {RawSourceMap}
+
+* ###Returns: {RawSourceMap}
 
 #### `original()`
 
-* Returns: {Source}
+---
+### original
+
+* ###Returns: {Source}
 
 #### `size()`
 
-* Returns: {number}
+---
+### size
+
+* ###Returns: {number}
 
 #### `source()`
 
-* Returns: {SourceValue}
+---
+### source
+
+* ###Returns: {SourceValue}
 
 #### `sourceAndMap([options])`
 
+---
+### sourceAndMap
+
 * `options` {MapOptions}
-* Returns: {SourceAndMap}
+
+* ###Returns: {SourceAndMap}
 
 #### `streamChunks(options, onChunk, onSource, onName)`
+
+---
+### streamChunks
 
 * `options` {StreamChunksOptions}
 * `onChunk` {object}
 * `onSource` {object}
 * `onName` {object}
-* Returns: {GeneratedSourceInfo}
+
+* ###Returns: {GeneratedSourceInfo}
 
 #### `updateHash(hash)`
 
+---
+### updateHash
+
 * `hash` {HashLike}
-* Returns: {void}
+
+* ###Returns: {void}
 
 ***
 
-## Class: `RawSource`
+## 
+### Class: `RawSource`
 
 ### Extends
 
@@ -308,54 +488,87 @@
 
 #### `new RawSource(value[, convertToString])`
 
+---
+### RawSource
+
 * `value` {string|Buffer<ArrayBufferLike>}
 * `convertToString` {boolean}
-* Returns: {RawSource}
+
+* ###Returns: {RawSource}
 
 ### Methods
 
 #### `buffer()`
 
-* Returns: {Buffer}
+---
+### buffer
+
+* ###Returns: {Buffer}
 
 #### `isBuffer()`
 
-* Returns: {boolean}
+---
+### isBuffer
+
+* ###Returns: {boolean}
 
 #### `map([options])`
 
+---
+### map
+
 * `options` {MapOptions}
-* Returns: {RawSourceMap}
+
+* ###Returns: {RawSourceMap}
 
 #### `size()`
 
-* Returns: {number}
+---
+### size
+
+* ###Returns: {number}
 
 #### `source()`
 
-* Returns: {SourceValue}
+---
+### source
+
+* ###Returns: {SourceValue}
 
 #### `sourceAndMap([options])`
 
+---
+### sourceAndMap
+
 * `options` {MapOptions}
-* Returns: {SourceAndMap}
+
+* ###Returns: {SourceAndMap}
 
 #### `streamChunks(options, onChunk, onSource, onName)`
+
+---
+### streamChunks
 
 * `options` {StreamChunksOptions}
 * `onChunk` {object}
 * `onSource` {object}
 * `onName` {object}
-* Returns: {GeneratedSourceInfo}
+
+* ###Returns: {GeneratedSourceInfo}
 
 #### `updateHash(hash)`
 
+---
+### updateHash
+
 * `hash` {HashLike}
-* Returns: {void}
+
+* ###Returns: {void}
 
 ***
 
-## Class: `ReplaceSource`
+## 
+### Class: `ReplaceSource`
 
 ### Extends
 
@@ -365,9 +578,13 @@
 
 #### `new ReplaceSource(source[, name])`
 
+---
+### ReplaceSource
+
 * `source` {Source}
 * `name` {string}
-* Returns: {ReplaceSource}
+
+* ###Returns: {ReplaceSource}
 
 ### Properties
 
@@ -377,69 +594,112 @@
 
 #### `buffer()`
 
-* Returns: {Buffer}
+---
+### buffer
+
+* ###Returns: {Buffer}
 
 #### `getName()`
 
-* Returns: {string}
+---
+### getName
+
+* ###Returns: {string}
 
 #### `getReplacements()`
 
-* Returns: {Replacement[]}
+---
+### getReplacements
+
+* ###Returns: {Replacement[]}
 
 #### `insert(pos, newValue[, name])`
+
+---
+### insert
 
 * `pos` {number}
 * `newValue` {string}
 * `name` {string}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `map([options])`
 
+---
+### map
+
 * `options` {MapOptions}
-* Returns: {RawSourceMap}
+
+* ###Returns: {RawSourceMap}
 
 #### `original()`
 
-* Returns: {Source}
+---
+### original
+
+* ###Returns: {Source}
 
 #### `replace(start, end, newValue[, name])`
+
+---
+### replace
 
 * `start` {number}
 * `end` {number}
 * `newValue` {string}
 * `name` {string}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `size()`
 
-* Returns: {number}
+---
+### size
+
+* ###Returns: {number}
 
 #### `source()`
 
-* Returns: {SourceValue}
+---
+### source
+
+* ###Returns: {SourceValue}
 
 #### `sourceAndMap([options])`
 
+---
+### sourceAndMap
+
 * `options` {MapOptions}
-* Returns: {SourceAndMap}
+
+* ###Returns: {SourceAndMap}
 
 #### `streamChunks(options, onChunk, onSource, onName)`
+
+---
+### streamChunks
 
 * `options` {StreamChunksOptions}
 * `onChunk` {object}
 * `onSource` {object}
 * `onName` {object}
-* Returns: {GeneratedSourceInfo}
+
+* ###Returns: {GeneratedSourceInfo}
 
 #### `updateHash(hash)`
 
+---
+### updateHash
+
 * `hash` {HashLike}
-* Returns: {void}
+
+* ###Returns: {void}
 
 ***
 
-## Class: `SizeOnlySource`
+## 
+### Class: `SizeOnlySource`
 
 ### Extends
 
@@ -449,41 +709,67 @@
 
 #### `new SizeOnlySource(size)`
 
+---
+### SizeOnlySource
+
 * `size` {number}
-* Returns: {SizeOnlySource}
+
+* ###Returns: {SizeOnlySource}
 
 ### Methods
 
 #### `buffer()`
 
-* Returns: {Buffer}
+---
+### buffer
+
+* ###Returns: {Buffer}
 
 #### `map([options])`
 
+---
+### map
+
 * `options` {MapOptions}
-* Returns: {RawSourceMap}
+
+* ###Returns: {RawSourceMap}
 
 #### `size()`
 
-* Returns: {number}
+---
+### size
+
+* ###Returns: {number}
 
 #### `source()`
 
-* Returns: {SourceValue}
+---
+### source
+
+* ###Returns: {SourceValue}
 
 #### `sourceAndMap([options])`
 
+---
+### sourceAndMap
+
 * `options` {MapOptions}
-* Returns: {SourceAndMap}
+
+* ###Returns: {SourceAndMap}
 
 #### `updateHash(hash)`
 
+---
+### updateHash
+
 * `hash` {HashLike}
-* Returns: {void}
+
+* ###Returns: {void}
 
 ***
 
-## Class: `Source`
+## 
+### Class: `Source`
 
 ### Extended by
 
@@ -501,40 +787,65 @@
 
 #### `new Source()`
 
-* Returns: {Source}
+---
+### Source
+
+* ###Returns: {Source}
 
 ### Methods
 
 #### `buffer()`
 
-* Returns: {Buffer}
+---
+### buffer
+
+* ###Returns: {Buffer}
 
 #### `map([options])`
 
+---
+### map
+
 * `options` {MapOptions}
-* Returns: {RawSourceMap}
+
+* ###Returns: {RawSourceMap}
 
 #### `size()`
 
-* Returns: {number}
+---
+### size
+
+* ###Returns: {number}
 
 #### `source()`
 
-* Returns: {SourceValue}
+---
+### source
+
+* ###Returns: {SourceValue}
 
 #### `sourceAndMap([options])`
 
+---
+### sourceAndMap
+
 * `options` {MapOptions}
-* Returns: {SourceAndMap}
+
+* ###Returns: {SourceAndMap}
 
 #### `updateHash(hash)`
 
+---
+### updateHash
+
 * `hash` {HashLike}
-* Returns: {void}
+
+* ###Returns: {void}
 
 ***
 
-## Class: `SourceMapSource`
+## 
+### Class: `SourceMapSource`
 
 ### Extends
 
@@ -544,51 +855,83 @@
 
 #### `new SourceMapSource(value, name[, sourceMap][, originalSource][, innerSourceMap][, removeOriginalSource])`
 
+---
+### SourceMapSource
+
 * `value` {string|Buffer<ArrayBufferLike>}
 * `name` {string}
 * `sourceMap` {string|Buffer<ArrayBufferLike>|RawSourceMap}
 * `originalSource` {string|Buffer<ArrayBufferLike>}
 * `innerSourceMap` {string|Buffer<ArrayBufferLike>|RawSourceMap}
 * `removeOriginalSource` {boolean}
-* Returns: {SourceMapSource}
+
+* ###Returns: {SourceMapSource}
 
 ### Methods
 
 #### `buffer()`
 
-* Returns: {Buffer}
+---
+### buffer
+
+* ###Returns: {Buffer}
 
 #### `getArgsAsBuffers()`
 
-* Returns: {Tuple<Buffer<ArrayBufferLike>, string, Buffer<ArrayBufferLike>, Buffer<ArrayBufferLike>, Buffer<ArrayBufferLike>, boolean>}
+---
+### getArgsAsBuffers
+
+* ###Returns: {Tuple<Buffer<ArrayBufferLike>, string, Buffer<ArrayBufferLike>, Buffer<ArrayBufferLike>, Buffer<ArrayBufferLike>, boolean>}
 
 #### `map([options])`
 
+---
+### map
+
 * `options` {MapOptions}
-* Returns: {RawSourceMap}
+
+* ###Returns: {RawSourceMap}
 
 #### `size()`
 
-* Returns: {number}
+---
+### size
+
+* ###Returns: {number}
 
 #### `source()`
 
-* Returns: {SourceValue}
+---
+### source
+
+* ###Returns: {SourceValue}
 
 #### `sourceAndMap([options])`
 
+---
+### sourceAndMap
+
 * `options` {MapOptions}
-* Returns: {SourceAndMap}
+
+* ###Returns: {SourceAndMap}
 
 #### `streamChunks(options, onChunk, onSource, onName)`
+
+---
+### streamChunks
 
 * `options` {StreamChunksOptions}
 * `onChunk` {object}
 * `onSource` {object}
 * `onName` {object}
-* Returns: {GeneratedSourceInfo}
+
+* ###Returns: {GeneratedSourceInfo}
 
 #### `updateHash(hash)`
 
+---
+### updateHash
+
 * `hash` {HashLike}
-* Returns: {void}
+
+* ###Returns: {void}

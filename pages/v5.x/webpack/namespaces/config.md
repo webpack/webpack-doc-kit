@@ -1,18 +1,28 @@
 # config
 
-## `applyWebpackOptionsDefaults`
+## 
+### `applyWebpackOptionsDefaults`
 
 > `const` **applyWebpackOptionsDefaults**: {object}
 
+---
+### __type
+
 * `options` {WebpackOptionsNormalized}
 * `compilerIndex` {number}
-* Returns: {ResolvedOptions}
+
+* ###Returns: {ResolvedOptions}
 
 ***
 
-## `getNormalizedWebpackOptions`
+## 
+### `getNormalizedWebpackOptions`
 
 > `const` **getNormalizedWebpackOptions**: {object}
 
+---
+### __type
+
 * `config` {Configuration}
-* Returns: {WebpackOptionsNormalized}
+
+* ###Returns: {WebpackOptionsNormalized}

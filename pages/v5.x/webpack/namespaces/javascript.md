@@ -1,13 +1,18 @@
 # javascript
 
-## Class: `EnableChunkLoadingPlugin`
+## 
+### Class: `EnableChunkLoadingPlugin`
 
 ### Constructors
 
 #### `new EnableChunkLoadingPlugin(type)`
 
+---
+### EnableChunkLoadingPlugin
+
 * `type` {string}
-* Returns: {EnableChunkLoadingPlugin}
+
+* ###Returns: {EnableChunkLoadingPlugin}
 
 ### Properties
 
@@ -17,26 +22,39 @@
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Apply the plugin
 
 #### Static method: `checkEnabled(compiler, type)`
 
+---
+### checkEnabled
+
 * `compiler` {Compiler}
 * `type` {string}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### Static method: `setEnabled(compiler, type)`
 
+---
+### setEnabled
+
 * `compiler` {Compiler}
 * `type` {string}
-* Returns: {void}
+
+* ###Returns: {void}
 
 ***
 
-## Class: `JavascriptParser`
+## 
+### Class: `JavascriptParser`
 
 ### Extends
 
@@ -46,9 +64,13 @@ Apply the plugin
 
 #### `new JavascriptParser([sourceType][, options])`
 
+---
+### JavascriptParser
+
 * `sourceType` {"module"|"auto"|"script"}
 * `options` {object}
-* Returns: {JavascriptParser}
+
+* ###Returns: {JavascriptParser}
 
 ### Properties
 
@@ -75,43 +97,74 @@ Apply the plugin
 
 #### `blockPreWalkClassDeclaration(statement)`
 
+---
+### blockPreWalkClassDeclaration
+
 * `statement` {ClassDeclaration|MaybeNamedClassDeclaration}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `blockPreWalkExportDefaultDeclaration(statement)`
 
+---
+### blockPreWalkExportDefaultDeclaration
+
 * `statement` {ExportDefaultDeclaration}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `blockPreWalkExportNamedDeclaration(statement)`
 
+---
+### blockPreWalkExportNamedDeclaration
+
 * `statement` {ExportNamedDeclaration}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `blockPreWalkExpressionStatement(statement)`
 
+---
+### blockPreWalkExpressionStatement
+
 * `statement` {ExpressionStatement}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `blockPreWalkStatement(statement)`
 
+---
+### blockPreWalkStatement
+
 * `statement` {ClassDeclaration|MaybeNamedClassDeclaration|FunctionDeclaration|MaybeNamedFunctionDeclaration|ImportDeclaration|ExportNamedDeclaration|ExportDefaultDeclaration|ExportAllDeclaration|ExpressionStatement|BlockStatement|StaticBlock|EmptyStatement|DebuggerStatement|WithStatement|ReturnStatement|LabeledStatement|BreakStatement|ContinueStatement|IfStatement|SwitchStatement|ThrowStatement|TryStatement|WhileStatement|DoWhileStatement|ForStatement|ForInStatement|ForOfStatement|VariableDeclaration}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `blockPreWalkStatements(statements)`
 
+---
+### blockPreWalkStatements
+
 * `statements` {ClassDeclaration|FunctionDeclaration|ImportDeclaration|ExportNamedDeclaration|ExportDefaultDeclaration|ExportAllDeclaration|ExpressionStatement|BlockStatement|StaticBlock|EmptyStatement|DebuggerStatement|WithStatement|ReturnStatement|LabeledStatement|BreakStatement|ContinueStatement|IfStatement|SwitchStatement|ThrowStatement|TryStatement|WhileStatement|DoWhileStatement|ForStatement|ForInStatement|ForOfStatement|VariableDeclaration[]}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Block pre walking iterates the scope for block variable declarations
 
 #### `blockPreWalkVariableDeclaration(statement)`
 
+---
+### blockPreWalkVariableDeclaration
+
 * `statement` {VariableDeclaration}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `callHooksForExpression(hookMap, expr, args)`
 
+---
+### callHooksForExpression
+
 ###### T
 
 `T`
@@ -119,13 +172,18 @@ Block pre walking iterates the scope for block variable declarations
 ###### R
 
 `R`
+
 * `hookMap` {HookMap<SyncBailHook<T, R, UnsetAdditionalOptions>>}
 * `expr` {ClassExpression|Identifier|SimpleLiteral|RegExpLiteral|BigIntLiteral|ArrayExpression|ArrowFunctionExpression|AssignmentExpression|AwaitExpression|BinaryExpression|SimpleCallExpression|NewExpression|ChainExpression|ConditionalExpression|FunctionExpression|ImportExpression|LogicalExpression|MemberExpression|MetaProperty|ObjectExpression|SequenceExpression|TaggedTemplateExpression|TemplateLiteral|ThisExpression|UnaryExpression|UpdateExpression|YieldExpression|Super}
 * `args` {AsArray<T>}
-* Returns: {R}
+
+* ###Returns: {R}
 
 #### `callHooksForExpressionWithFallback(hookMap, expr, fallback, defined, args)`
 
+---
+### callHooksForExpressionWithFallback
+
 ###### T
 
 `T`
@@ -133,15 +191,20 @@ Block pre walking iterates the scope for block variable declarations
 ###### R
 
 `R`
+
 * `hookMap` {HookMap<SyncBailHook<T, R, UnsetAdditionalOptions>>}
 * `expr` {ClassExpression|Identifier|SimpleLiteral|RegExpLiteral|BigIntLiteral|ArrayExpression|ArrowFunctionExpression|AssignmentExpression|AwaitExpression|BinaryExpression|SimpleCallExpression|NewExpression|ChainExpression|ConditionalExpression|FunctionExpression|ImportExpression|LogicalExpression|MemberExpression|MetaProperty|ObjectExpression|SequenceExpression|TaggedTemplateExpression|TemplateLiteral|ThisExpression|UnaryExpression|UpdateExpression|YieldExpression|Super}
 * `fallback` {object}
 * `defined` {object}
 * `args` {AsArray<T>}
-* Returns: {R}
+
+* ###Returns: {R}
 
 #### `callHooksForInfo(hookMap, info, args)`
 
+---
+### callHooksForInfo
+
 ###### T
 
 `T`
@@ -149,13 +212,18 @@ Block pre walking iterates the scope for block variable declarations
 ###### R
 
 `R`
+
 * `hookMap` {HookMap<SyncBailHook<T, R, UnsetAdditionalOptions>>}
 * `info` {ExportedVariableInfo}
 * `args` {AsArray<T>}
-* Returns: {R}
+
+* ###Returns: {R}
 
 #### `callHooksForInfoWithFallback(hookMap, info, fallback, defined, args)`
 
+---
+### callHooksForInfoWithFallback
+
 ###### T
 
 `T`
@@ -163,15 +231,20 @@ Block pre walking iterates the scope for block variable declarations
 ###### R
 
 `R`
+
 * `hookMap` {HookMap<SyncBailHook<T, R, UnsetAdditionalOptions>>}
 * `info` {ExportedVariableInfo}
 * `fallback` {object}
 * `defined` {object}
 * `args` {AsArray<T>}
-* Returns: {R}
+
+* ###Returns: {R}
 
 #### `callHooksForName(hookMap, name, args)`
 
+---
+### callHooksForName
+
 ###### T
 
 `T`
@@ -179,12 +252,17 @@ Block pre walking iterates the scope for block variable declarations
 ###### R
 
 `R`
+
 * `hookMap` {HookMap<SyncBailHook<T, R, UnsetAdditionalOptions>>}
 * `name` {string}
 * `args` {AsArray<T>}
-* Returns: {R}
+
+* ###Returns: {R}
 
 #### `callHooksForNameWithFallback(hookMap, name, fallback, defined, args)`
+
+---
+### callHooksForNameWithFallback
 
 ###### T
 
@@ -193,550 +271,953 @@ Block pre walking iterates the scope for block variable declarations
 ###### R
 
 `R`
+
 * `hookMap` {HookMap<SyncBailHook<T, R, UnsetAdditionalOptions>>}
 * `name` {string}
 * `fallback` {object}
 * `defined` {object}
 * `args` {AsArray<T>}
-* Returns: {R}
+
+* ###Returns: {R}
 
 #### `defineVariable(name)`
 
+---
+### defineVariable
+
 * `name` {string}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `destructuringAssignmentPropertiesFor(node)`
 
+---
+### destructuringAssignmentPropertiesFor
+
 * `node` {Expression}
-* Returns: {Set<DestructuringAssignmentProperty>}
+
+* ###Returns: {Set<DestructuringAssignmentProperty>}
 
 #### `detectMode(statements)`
 
+---
+### detectMode
+
 * `statements` {ClassDeclaration|FunctionDeclaration|ImportDeclaration|ExportNamedDeclaration|ExportDefaultDeclaration|ExportAllDeclaration|ExpressionStatement|BlockStatement|StaticBlock|EmptyStatement|DebuggerStatement|WithStatement|ReturnStatement|LabeledStatement|BreakStatement|ContinueStatement|IfStatement|SwitchStatement|ThrowStatement|TryStatement|WhileStatement|DoWhileStatement|ForStatement|ForInStatement|ForOfStatement|VariableDeclaration|Directive[]}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `enterArrayPattern(pattern, onIdent)`
 
+---
+### enterArrayPattern
+
 * `pattern` {ArrayPattern}
 * `onIdent` {object}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `enterAssignmentPattern(pattern, onIdent)`
 
+---
+### enterAssignmentPattern
+
 * `pattern` {AssignmentPattern}
 * `onIdent` {object}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `enterDeclaration(declaration, onIdent)`
 
+---
+### enterDeclaration
+
 * `declaration` {Declaration}
 * `onIdent` {object}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `enterDestructuringAssignment(pattern, expression)`
 
+---
+### enterDestructuringAssignment
+
 * `pattern` {Pattern}
 * `expression` {Expression}
-* Returns: {ClassExpression|Identifier|SimpleLiteral|RegExpLiteral|BigIntLiteral|ArrayExpression|ArrowFunctionExpression|AssignmentExpression|AwaitExpression|BinaryExpression|SimpleCallExpression|NewExpression|ChainExpression|ConditionalExpression|FunctionExpression|ImportExpression|LogicalExpression|MemberExpression|MetaProperty|ObjectExpression|SequenceExpression|TaggedTemplateExpression|TemplateLiteral|ThisExpression|UnaryExpression|UpdateExpression|YieldExpression}
+
+* ###Returns: {ClassExpression|Identifier|SimpleLiteral|RegExpLiteral|BigIntLiteral|ArrayExpression|ArrowFunctionExpression|AssignmentExpression|AwaitExpression|BinaryExpression|SimpleCallExpression|NewExpression|ChainExpression|ConditionalExpression|FunctionExpression|ImportExpression|LogicalExpression|MemberExpression|MetaProperty|ObjectExpression|SequenceExpression|TaggedTemplateExpression|TemplateLiteral|ThisExpression|UnaryExpression|UpdateExpression|YieldExpression}
 
 #### `enterIdentifier(pattern, onIdent)`
 
+---
+### enterIdentifier
+
 * `pattern` {Identifier}
 * `onIdent` {object}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `enterObjectPattern(pattern, onIdent)`
 
+---
+### enterObjectPattern
+
 * `pattern` {ObjectPattern}
 * `onIdent` {object}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `enterPattern(pattern, onIdent)`
 
+---
+### enterPattern
+
 * `pattern` {Property|Identifier|MemberExpression|ObjectPattern|ArrayPattern|RestElement|AssignmentPattern}
 * `onIdent` {object}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `enterPatterns(patterns, onIdent)`
 
+---
+### enterPatterns
+
 * `patterns` {string|Property|Identifier|MemberExpression|ObjectPattern|ArrayPattern|RestElement|AssignmentPattern[]}
 * `onIdent` {object}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `enterRestElement(pattern, onIdent)`
 
+---
+### enterRestElement
+
 * `pattern` {RestElement}
 * `onIdent` {object}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `evaluate(source)`
 
+---
+### evaluate
+
 * `source` {string}
-* Returns: {BasicEvaluatedExpression}
+
+* ###Returns: {BasicEvaluatedExpression}
 
 #### `evaluatedVariable(tagInfo)`
 
+---
+### evaluatedVariable
+
 * `tagInfo` {TagInfo}
-* Returns: {VariableInfo}
+
+* ###Returns: {VariableInfo}
 
 #### `evaluateExpression(expression)`
 
+---
+### evaluateExpression
+
 * `expression` {ClassExpression|Identifier|SimpleLiteral|RegExpLiteral|BigIntLiteral|ArrayExpression|ArrowFunctionExpression|AssignmentExpression|AwaitExpression|BinaryExpression|SimpleCallExpression|NewExpression|ChainExpression|ConditionalExpression|FunctionExpression|ImportExpression|LogicalExpression|MemberExpression|MetaProperty|ObjectExpression|SequenceExpression|TaggedTemplateExpression|TemplateLiteral|ThisExpression|UnaryExpression|UpdateExpression|YieldExpression|PrivateIdentifier|SpreadElement|Super}
-* Returns: {BasicEvaluatedExpression}
+
+* ###Returns: {BasicEvaluatedExpression}
 
 #### `extractMemberExpressionChain(expression)`
 
+---
+### extractMemberExpressionChain
+
 * `expression` {ClassExpression|Identifier|SimpleLiteral|RegExpLiteral|BigIntLiteral|ArrayExpression|ArrowFunctionExpression|AssignmentExpression|AwaitExpression|BinaryExpression|SimpleCallExpression|NewExpression|ChainExpression|ConditionalExpression|FunctionExpression|ImportExpression|LogicalExpression|MemberExpression|MetaProperty|ObjectExpression|SequenceExpression|TaggedTemplateExpression|TemplateLiteral|ThisExpression|UnaryExpression|UpdateExpression|YieldExpression|Super}
-* Returns: {object}
+
+* ###Returns: {object}
 
 #### `getComments(range)`
 
+---
+### getComments
+
 * `range` {Tuple<number, number>}
-* Returns: {CommentJavascriptParser[]}
+
+* ###Returns: {CommentJavascriptParser[]}
 
 #### `getFreeInfoFromVariable(varName)`
 
+---
+### getFreeInfoFromVariable
+
 * `varName` {string}
-* Returns: {object}
+
+* ###Returns: {object}
 
 #### `getMemberExpressionInfo(expression, allowedTypes)`
 
+---
+### getMemberExpressionInfo
+
 * `expression` {ClassExpression|Identifier|SimpleLiteral|RegExpLiteral|BigIntLiteral|ArrayExpression|ArrowFunctionExpression|AssignmentExpression|AwaitExpression|BinaryExpression|SimpleCallExpression|NewExpression|ChainExpression|ConditionalExpression|FunctionExpression|ImportExpression|LogicalExpression|MemberExpression|MetaProperty|ObjectExpression|SequenceExpression|TaggedTemplateExpression|TemplateLiteral|ThisExpression|UnaryExpression|UpdateExpression|YieldExpression|Super}
 * `allowedTypes` {number}
-* Returns: {CallExpressionInfo|ExpressionExpressionInfo}
+
+* ###Returns: {CallExpressionInfo|ExpressionExpressionInfo}
 
 #### `getNameForExpression(expression)`
 
+---
+### getNameForExpression
+
 * `expression` {Expression}
-* Returns: {object}
+
+* ###Returns: {object}
 
 #### `getNameInfoFromVariable(varName)`
 
+---
+### getNameInfoFromVariable
+
 * `varName` {string}
-* Returns: {object}
+
+* ###Returns: {object}
 
 #### `getRenameIdentifier(expr)`
 
+---
+### getRenameIdentifier
+
 * `expr` {ClassExpression|Identifier|SimpleLiteral|RegExpLiteral|BigIntLiteral|ArrayExpression|ArrowFunctionExpression|AssignmentExpression|AwaitExpression|BinaryExpression|SimpleCallExpression|NewExpression|ChainExpression|ConditionalExpression|FunctionExpression|ImportExpression|LogicalExpression|MemberExpression|MetaProperty|ObjectExpression|SequenceExpression|TaggedTemplateExpression|TemplateLiteral|ThisExpression|UnaryExpression|UpdateExpression|YieldExpression|SpreadElement}
-* Returns: {string|VariableInfo}
+
+* ###Returns: {string|VariableInfo}
 
 #### `getTagData(name, tag)`
 
+---
+### getTagData
+
 * `name` {string}
 * `tag` {symbol}
-* Returns: {Record<string, any>|TopLevelSymbol|HarmonySettings|ImportSettings|CommonJsImportSettings|CompatibilitySettings|HarmonySpecifierGuards}
+
+* ###Returns: {Record<string, any>|TopLevelSymbol|HarmonySettings|ImportSettings|CommonJsImportSettings|CompatibilitySettings|HarmonySpecifierGuards}
 
 #### `getVariableInfo(name)`
 
+---
+### getVariableInfo
+
 * `name` {string}
-* Returns: {ExportedVariableInfo}
+
+* ###Returns: {ExportedVariableInfo}
 
 #### `inBlockScope(fn[, inExecutedPath])`
 
+---
+### inBlockScope
+
 * `fn` {object}
 * `inExecutedPath` {boolean}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `inClassScope(hasThis, params, fn)`
+
+---
+### inClassScope
 
 * `hasThis` {boolean}
 * `params` {Identifier[]}
 * `fn` {object}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `inFunctionScope(hasThis, params, fn)`
+
+---
+### inFunctionScope
 
 * `hasThis` {boolean}
 * `params` {string|Identifier|MemberExpression|ObjectPattern|ArrayPattern|RestElement|AssignmentPattern[]}
 * `fn` {object}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `inScope(params, fn)`
+
+---
+### inScope
 
 > Stability: 0 - Deprecated
 
 * `params` {string|Property|Identifier|MemberExpression|ObjectPattern|ArrayPattern|RestElement|AssignmentPattern[]}
 * `fn` {object}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `isAsiPosition(pos)`
 
+---
+### isAsiPosition
+
 * `pos` {number}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `isPure(expr, commentsStartPos)`
 
+---
+### isPure
+
 * `expr` {ClassDeclaration|MaybeNamedClassDeclaration|ClassExpression|Identifier|SimpleLiteral|RegExpLiteral|BigIntLiteral|ArrayExpression|ArrowFunctionExpression|AssignmentExpression|AwaitExpression|BinaryExpression|SimpleCallExpression|NewExpression|ChainExpression|ConditionalExpression|FunctionExpression|ImportExpression|LogicalExpression|MemberExpression|MetaProperty|ObjectExpression|SequenceExpression|TaggedTemplateExpression|TemplateLiteral|ThisExpression|UnaryExpression|UpdateExpression|YieldExpression|FunctionDeclaration|MaybeNamedFunctionDeclaration|PrivateIdentifier|VariableDeclaration}
 * `commentsStartPos` {number}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `isStatementLevelExpression(expr)`
 
+---
+### isStatementLevelExpression
+
 * `expr` {Expression}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `isVariableDefined(name)`
 
+---
+### isVariableDefined
+
 * `name` {string}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `modulePreWalkExportAllDeclaration(statement)`
 
+---
+### modulePreWalkExportAllDeclaration
+
 * `statement` {ExportAllDeclaration}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `modulePreWalkExportNamedDeclaration(statement)`
 
+---
+### modulePreWalkExportNamedDeclaration
+
 * `statement` {ExportNamedDeclaration}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `modulePreWalkImportDeclaration(statement)`
 
+---
+### modulePreWalkImportDeclaration
+
 * `statement` {ImportDeclaration}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `modulePreWalkStatements(statements)`
 
+---
+### modulePreWalkStatements
+
 * `statements` {ClassDeclaration|FunctionDeclaration|ImportDeclaration|ExportNamedDeclaration|ExportDefaultDeclaration|ExportAllDeclaration|ExpressionStatement|BlockStatement|StaticBlock|EmptyStatement|DebuggerStatement|WithStatement|ReturnStatement|LabeledStatement|BreakStatement|ContinueStatement|IfStatement|SwitchStatement|ThrowStatement|TryStatement|WhileStatement|DoWhileStatement|ForStatement|ForInStatement|ForOfStatement|VariableDeclaration[]}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Module pre walking iterates the scope for import entries
 
 #### `parse(source, state)`
 
+---
+### parse
+
 * `source` {string|Buffer<ArrayBufferLike>|PreparsedAst}
 * `state` {ParserState}
-* Returns: {ParserState}
+
+* ###Returns: {ParserState}
 
 #### `parseCalculatedString(expression)`
 
+---
+### parseCalculatedString
+
 * `expression` {Expression}
-* Returns: {CalculatedStringResult}
+
+* ###Returns: {CalculatedStringResult}
 
 #### `parseCommentOptions(range)`
 
+---
+### parseCommentOptions
+
 * `range` {Tuple<number, number>}
-* Returns: {object}
+
+* ###Returns: {object}
 
 #### `parseString(expression)`
 
+---
+### parseString
+
 * `expression` {Expression}
-* Returns: {string}
+
+* ###Returns: {string}
 
 #### `preWalkAssignmentExpression(expression)`
 
+---
+### preWalkAssignmentExpression
+
 * `expression` {AssignmentExpression}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `preWalkBlockStatement(statement)`
 
+---
+### preWalkBlockStatement
+
 * `statement` {BlockStatement}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `preWalkCatchClause(catchClause)`
 
+---
+### preWalkCatchClause
+
 * `catchClause` {CatchClause}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `preWalkDoWhileStatement(statement)`
 
+---
+### preWalkDoWhileStatement
+
 * `statement` {DoWhileStatement}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `preWalkForInStatement(statement)`
 
+---
+### preWalkForInStatement
+
 * `statement` {ForInStatement}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `preWalkForOfStatement(statement)`
 
+---
+### preWalkForOfStatement
+
 * `statement` {ForOfStatement}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `preWalkForStatement(statement)`
 
+---
+### preWalkForStatement
+
 * `statement` {ForStatement}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `preWalkFunctionDeclaration(statement)`
 
+---
+### preWalkFunctionDeclaration
+
 * `statement` {FunctionDeclaration|MaybeNamedFunctionDeclaration}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `preWalkIfStatement(statement)`
 
+---
+### preWalkIfStatement
+
 * `statement` {IfStatement}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `preWalkLabeledStatement(statement)`
 
+---
+### preWalkLabeledStatement
+
 * `statement` {LabeledStatement}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `preWalkStatement(statement)`
 
+---
+### preWalkStatement
+
 * `statement` {ClassDeclaration|MaybeNamedClassDeclaration|FunctionDeclaration|MaybeNamedFunctionDeclaration|ImportDeclaration|ExportNamedDeclaration|ExportDefaultDeclaration|ExportAllDeclaration|ExpressionStatement|BlockStatement|StaticBlock|EmptyStatement|DebuggerStatement|WithStatement|ReturnStatement|LabeledStatement|BreakStatement|ContinueStatement|IfStatement|SwitchStatement|ThrowStatement|TryStatement|WhileStatement|DoWhileStatement|ForStatement|ForInStatement|ForOfStatement|VariableDeclaration}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Walking iterates the statements and expressions and processes them
 
 #### `preWalkStatements(statements)`
 
+---
+### preWalkStatements
+
 * `statements` {ClassDeclaration|FunctionDeclaration|ImportDeclaration|ExportNamedDeclaration|ExportDefaultDeclaration|ExportAllDeclaration|ExpressionStatement|BlockStatement|StaticBlock|EmptyStatement|DebuggerStatement|WithStatement|ReturnStatement|LabeledStatement|BreakStatement|ContinueStatement|IfStatement|SwitchStatement|ThrowStatement|TryStatement|WhileStatement|DoWhileStatement|ForStatement|ForInStatement|ForOfStatement|VariableDeclaration[]}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Pre walking iterates the scope for variable declarations
 
 #### `preWalkSwitchCases(switchCases)`
 
+---
+### preWalkSwitchCases
+
 * `switchCases` {SwitchCase[]}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `preWalkSwitchStatement(statement)`
 
+---
+### preWalkSwitchStatement
+
 * `statement` {SwitchStatement}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `preWalkTryStatement(statement)`
 
+---
+### preWalkTryStatement
+
 * `statement` {TryStatement}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `preWalkVariableDeclaration(statement)`
 
+---
+### preWalkVariableDeclaration
+
 * `statement` {VariableDeclaration}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `preWalkVariableDeclarator(declarator)`
 
+---
+### preWalkVariableDeclarator
+
 * `declarator` {VariableDeclarator}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `preWalkWhileStatement(statement)`
 
+---
+### preWalkWhileStatement
+
 * `statement` {WhileStatement}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `preWalkWithStatement(statement)`
 
+---
+### preWalkWithStatement
+
 * `statement` {WithStatement}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `setAsiPosition(pos)`
 
+---
+### setAsiPosition
+
 * `pos` {number}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `setVariable(name, variableInfo)`
 
+---
+### setVariable
+
 * `name` {string}
 * `variableInfo` {ExportedVariableInfo}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `tagVariable(name, tag[, data][, flags])`
+
+---
+### tagVariable
 
 * `name` {string}
 * `tag` {symbol}
 * `data` {Record<string, any>|TopLevelSymbol|HarmonySettings|ImportSettings|CommonJsImportSettings|CompatibilitySettings|HarmonySpecifierGuards}
 * `flags` {0|1|2|4}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `undefineVariable(name)`
 
+---
+### undefineVariable
+
 * `name` {string}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `unsetAsiPosition(pos)`
 
+---
+### unsetAsiPosition
+
 * `pos` {number}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `walkArrayExpression(expression)`
 
+---
+### walkArrayExpression
+
 * `expression` {ArrayExpression}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `walkArrayPattern(pattern)`
 
+---
+### walkArrayPattern
+
 * `pattern` {ArrayPattern}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `walkArrowFunctionExpression(expression)`
 
+---
+### walkArrowFunctionExpression
+
 * `expression` {ArrowFunctionExpression}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `walkAssignmentExpression(expression)`
 
+---
+### walkAssignmentExpression
+
 * `expression` {AssignmentExpression}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `walkAssignmentPattern(pattern)`
 
+---
+### walkAssignmentPattern
+
 * `pattern` {AssignmentPattern}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `walkAwaitExpression(expression)`
 
+---
+### walkAwaitExpression
+
 * `expression` {AwaitExpression}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `walkBinaryExpression(expression)`
 
+---
+### walkBinaryExpression
+
 * `expression` {BinaryExpression}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `walkBlockStatement(statement)`
 
+---
+### walkBlockStatement
+
 * `statement` {BlockStatement|StaticBlock}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `walkCallExpression(expression)`
 
+---
+### walkCallExpression
+
 * `expression` {CallExpression}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `walkCatchClause(catchClause)`
 
+---
+### walkCatchClause
+
 * `catchClause` {CatchClause}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `walkChainExpression(expression)`
 
+---
+### walkChainExpression
+
 * `expression` {ChainExpression}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `walkClass(classy)`
 
+---
+### walkClass
+
 * `classy` {ClassDeclaration|MaybeNamedClassDeclaration|ClassExpression}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `walkClassDeclaration(statement)`
 
+---
+### walkClassDeclaration
+
 * `statement` {ClassDeclaration|MaybeNamedClassDeclaration}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `walkClassExpression(expression)`
 
+---
+### walkClassExpression
+
 * `expression` {ClassExpression}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `walkConditionalExpression(expression)`
 
+---
+### walkConditionalExpression
+
 * `expression` {ConditionalExpression}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `walkDoWhileStatement(statement)`
 
+---
+### walkDoWhileStatement
+
 * `statement` {DoWhileStatement}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `walkExportDefaultDeclaration(statement)`
 
+---
+### walkExportDefaultDeclaration
+
 * `statement` {ExportDefaultDeclaration}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `walkExportNamedDeclaration(statement)`
 
+---
+### walkExportNamedDeclaration
+
 * `statement` {ExportNamedDeclaration}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `walkExpression(expression)`
 
+---
+### walkExpression
+
 * `expression` {ClassExpression|Identifier|SimpleLiteral|RegExpLiteral|BigIntLiteral|ArrayExpression|ArrowFunctionExpression|AssignmentExpression|AwaitExpression|BinaryExpression|SimpleCallExpression|NewExpression|ChainExpression|ConditionalExpression|FunctionExpression|ImportExpression|LogicalExpression|MemberExpression|MetaProperty|ObjectExpression|SequenceExpression|TaggedTemplateExpression|TemplateLiteral|ThisExpression|UnaryExpression|UpdateExpression|YieldExpression|PrivateIdentifier|SpreadElement|Super}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `walkExpressions(expressions)`
 
+---
+### walkExpressions
+
 * `expressions` {ClassExpression|Identifier|SimpleLiteral|RegExpLiteral|BigIntLiteral|ArrayExpression|ArrowFunctionExpression|AssignmentExpression|AwaitExpression|BinaryExpression|SimpleCallExpression|NewExpression|ChainExpression|ConditionalExpression|FunctionExpression|ImportExpression|LogicalExpression|MemberExpression|MetaProperty|ObjectExpression|SequenceExpression|TaggedTemplateExpression|TemplateLiteral|ThisExpression|UnaryExpression|UpdateExpression|YieldExpression|SpreadElement[]}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `walkExpressionStatement(statement)`
 
+---
+### walkExpressionStatement
+
 * `statement` {ExpressionStatement}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `walkForInStatement(statement)`
 
+---
+### walkForInStatement
+
 * `statement` {ForInStatement}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `walkForOfStatement(statement)`
 
+---
+### walkForOfStatement
+
 * `statement` {ForOfStatement}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `walkForStatement(statement)`
 
+---
+### walkForStatement
+
 * `statement` {ForStatement}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `walkFunctionDeclaration(statement)`
 
+---
+### walkFunctionDeclaration
+
 * `statement` {FunctionDeclaration|MaybeNamedFunctionDeclaration}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `walkFunctionExpression(expression)`
 
+---
+### walkFunctionExpression
+
 * `expression` {FunctionExpression}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `walkIdentifier(expression)`
 
+---
+### walkIdentifier
+
 * `expression` {Identifier}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `walkIfStatement(statement)`
 
+---
+### walkIfStatement
+
 * `statement` {IfStatement}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `walkImportExpression(expression)`
 
+---
+### walkImportExpression
+
 * `expression` {ImportExpressionJavascriptParser}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `walkLabeledStatement(statement)`
 
+---
+### walkLabeledStatement
+
 * `statement` {LabeledStatement}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `walkLeftRightExpression(expression)`
 
+---
+### walkLeftRightExpression
+
 * `expression` {BinaryExpression|LogicalExpression}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `walkLogicalExpression(expression)`
 
+---
+### walkLogicalExpression
+
 * `expression` {LogicalExpression}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `walkMemberExpression(expression)`
 
+---
+### walkMemberExpression
+
 * `expression` {MemberExpression}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `walkMemberExpressionWithExpressionName(expression, name, rootInfo, members, onUnhandled)`
+
+---
+### walkMemberExpressionWithExpressionName
 
 ###### R
 
 `R`
+
 * `expression` {MemberExpression}
 * `name` {string}
 * `rootInfo` {string|VariableInfo}
 * `members` {string[]}
 * `onUnhandled` {object}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `walkMetaProperty(metaProperty)`
 
+---
+### walkMetaProperty
+
 * `metaProperty` {MetaProperty}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `walkNestedStatement(statement)`
 
+---
+### walkNestedStatement
+
 * `statement` {Statement}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Walks a statements that is nested within a parent statement
 and can potentially be a non-block statement.
@@ -744,132 +1225,236 @@ This enforces the nested statement to never be in ASI position.
 
 #### `walkNewExpression(expression)`
 
+---
+### walkNewExpression
+
 * `expression` {NewExpression}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `walkObjectExpression(expression)`
 
+---
+### walkObjectExpression
+
 * `expression` {ObjectExpression}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `walkObjectPattern(pattern)`
 
+---
+### walkObjectPattern
+
 * `pattern` {ObjectPattern}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `walkPattern(pattern)`
 
+---
+### walkPattern
+
 * `pattern` {Pattern}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `walkProperty(prop)`
 
+---
+### walkProperty
+
 * `prop` {Property|SpreadElement}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `walkRestElement(pattern)`
 
+---
+### walkRestElement
+
 * `pattern` {RestElement}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `walkReturnStatement(statement)`
 
+---
+### walkReturnStatement
+
 * `statement` {ReturnStatement}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `walkSequenceExpression(expression)`
 
+---
+### walkSequenceExpression
+
 * `expression` {SequenceExpression}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `walkSpreadElement(expression)`
 
+---
+### walkSpreadElement
+
 * `expression` {SpreadElement}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `walkStatement(statement)`
 
+---
+### walkStatement
+
 * `statement` {ClassDeclaration|MaybeNamedClassDeclaration|FunctionDeclaration|MaybeNamedFunctionDeclaration|ImportDeclaration|ExportNamedDeclaration|ExportDefaultDeclaration|ExportAllDeclaration|ExpressionStatement|BlockStatement|StaticBlock|EmptyStatement|DebuggerStatement|WithStatement|ReturnStatement|LabeledStatement|BreakStatement|ContinueStatement|IfStatement|SwitchStatement|ThrowStatement|TryStatement|WhileStatement|DoWhileStatement|ForStatement|ForInStatement|ForOfStatement|VariableDeclaration}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `walkStatements(statements)`
 
+---
+### walkStatements
+
 * `statements` {ClassDeclaration|FunctionDeclaration|ImportDeclaration|ExportNamedDeclaration|ExportDefaultDeclaration|ExportAllDeclaration|ExpressionStatement|BlockStatement|StaticBlock|EmptyStatement|DebuggerStatement|WithStatement|ReturnStatement|LabeledStatement|BreakStatement|ContinueStatement|IfStatement|SwitchStatement|ThrowStatement|TryStatement|WhileStatement|DoWhileStatement|ForStatement|ForInStatement|ForOfStatement|VariableDeclaration[]}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Walking iterates the statements and expressions and processes them
 
 #### `walkSwitchCases(switchCases)`
 
+---
+### walkSwitchCases
+
 * `switchCases` {SwitchCase[]}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `walkSwitchStatement(statement)`
 
+---
+### walkSwitchStatement
+
 * `statement` {SwitchStatement}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `walkTaggedTemplateExpression(expression)`
 
+---
+### walkTaggedTemplateExpression
+
 * `expression` {TaggedTemplateExpression}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `walkTemplateLiteral(expression)`
 
+---
+### walkTemplateLiteral
+
 * `expression` {TemplateLiteral}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `walkTerminatingStatement(statement)`
 
+---
+### walkTerminatingStatement
+
 * `statement` {ReturnStatement|ThrowStatement}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `walkThisExpression(expression)`
 
+---
+### walkThisExpression
+
 * `expression` {ThisExpression}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `walkThrowStatement(statement)`
 
+---
+### walkThrowStatement
+
 * `statement` {ThrowStatement}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `walkTryStatement(statement)`
 
+---
+### walkTryStatement
+
 * `statement` {TryStatement}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `walkUnaryExpression(expression)`
 
+---
+### walkUnaryExpression
+
 * `expression` {UnaryExpression}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `walkUpdateExpression(expression)`
 
+---
+### walkUpdateExpression
+
 * `expression` {UpdateExpression}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `walkVariableDeclaration(statement)`
 
+---
+### walkVariableDeclaration
+
 * `statement` {VariableDeclaration}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `walkWhileStatement(statement)`
 
+---
+### walkWhileStatement
+
 * `statement` {WhileStatement}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `walkWithStatement(statement)`
 
+---
+### walkWithStatement
+
 * `statement` {WithStatement}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `walkYieldExpression(expression)`
 
+---
+### walkYieldExpression
+
 * `expression` {YieldExpression}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### Static method: `extend(plugins)`
 
+---
+### extend
+
 * `plugins` {object[]}
-* Returns: {JavascriptParser}
+
+* ###Returns: {JavascriptParser}

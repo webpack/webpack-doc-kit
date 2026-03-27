@@ -1,13 +1,18 @@
 # node
 
-## Class: `NodeEnvironmentPlugin`
+## 
+### Class: `NodeEnvironmentPlugin`
 
 ### Constructors
 
 #### `new NodeEnvironmentPlugin(options)`
 
+---
+### NodeEnvironmentPlugin
+
 * `options` {NodeEnvironmentPluginOptions}
-* Returns: {NodeEnvironmentPlugin}
+
+* ###Returns: {NodeEnvironmentPlugin}
 
 ### Properties
 
@@ -17,40 +22,57 @@
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Apply the plugin
 
 ***
 
-## Class: `NodeSourcePlugin`
+## 
+### Class: `NodeSourcePlugin`
 
 ### Constructors
 
 #### `new NodeSourcePlugin()`
 
-* Returns: {NodeSourcePlugin}
+---
+### NodeSourcePlugin
+
+* ###Returns: {NodeSourcePlugin}
 
 ### Methods
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Apply the plugin
 
 ***
 
-## Class: `NodeTargetPlugin`
+## 
+### Class: `NodeTargetPlugin`
 
 ### Constructors
 
 #### `new NodeTargetPlugin([type])`
 
+---
+### NodeTargetPlugin
+
 * `type` {ExternalsType}
-* Returns: {NodeTargetPlugin}
+
+* ###Returns: {NodeTargetPlugin}
 
 ### Properties
 
@@ -60,61 +82,88 @@ Apply the plugin
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Apply the plugin
 
 ***
 
-## Class: `NodeTemplatePlugin`
+## 
+### Class: `NodeTemplatePlugin`
 
 ### Constructors
 
 #### `new NodeTemplatePlugin([options])`
 
+---
+### NodeTemplatePlugin
+
 * `options` {NodeTemplatePluginOptions}
-* Returns: {NodeTemplatePlugin}
+
+* ###Returns: {NodeTemplatePlugin}
 
 ### Methods
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Apply the plugin
 
 ***
 
-## Class: `ReadFileCompileAsyncWasmPlugin`
+## 
+### Class: `ReadFileCompileAsyncWasmPlugin`
 
 ### Constructors
 
 #### `new ReadFileCompileAsyncWasmPlugin([__namedParameters])`
 
+---
+### ReadFileCompileAsyncWasmPlugin
+
 * `__namedParameters` {ReadFileCompileAsyncWasmPluginOptions}
-* Returns: {ReadFileCompileAsyncWasmPlugin}
+
+* ###Returns: {ReadFileCompileAsyncWasmPlugin}
 
 ### Methods
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Apply the plugin
 
 ***
 
-## Class: `ReadFileCompileWasmPlugin`
+## 
+### Class: `ReadFileCompileWasmPlugin`
 
 ### Constructors
 
 #### `new ReadFileCompileWasmPlugin([options])`
 
+---
+### ReadFileCompileWasmPlugin
+
 * `options` {ReadFileCompileWasmPluginOptions}
-* Returns: {ReadFileCompileWasmPlugin}
+
+* ###Returns: {ReadFileCompileWasmPlugin}
 
 ### Properties
 
@@ -124,7 +173,11 @@ Apply the plugin
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Apply the plugin

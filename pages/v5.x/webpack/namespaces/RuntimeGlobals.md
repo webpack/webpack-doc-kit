@@ -1,497 +1,580 @@
 # RuntimeGlobals
 
-## `amdDefine`
+## 
+### `amdDefine`
 
 > **amdDefine**: {"__webpack_require__.amdD"}
 
 ***
 
-## `amdOptions`
+## 
+### `amdOptions`
 
 > **amdOptions**: {"__webpack_require__.amdO"}
 
 ***
 
-## `asyncModule`
+## 
+### `asyncModule`
 
 > **asyncModule**: {"__webpack_require__.a"}
 
 ***
 
-## `asyncModuleDoneSymbol`
+## 
+### `asyncModuleDoneSymbol`
 
 > **asyncModuleDoneSymbol**: {"__webpack_require__.aD"}
 
 ***
 
-## `asyncModuleExportSymbol`
+## 
+### `asyncModuleExportSymbol`
 
 > **asyncModuleExportSymbol**: {"__webpack_require__.aE"}
 
 ***
 
-## `baseURI`
+## 
+### `baseURI`
 
 > **baseURI**: {"__webpack_require__.b"}
 
 ***
 
-## `chunkCallback`
+## 
+### `chunkCallback`
 
 > **chunkCallback**: {"webpackChunk"}
 
 ***
 
-## `chunkName`
+## 
+### `chunkName`
 
 > **chunkName**: {"__webpack_require__.cn"}
 
 ***
 
-## `compatGetDefaultExport`
+## 
+### `compatGetDefaultExport`
 
 > **compatGetDefaultExport**: {"__webpack_require__.n"}
 
 ***
 
-## `createFakeNamespaceObject`
+## 
+### `createFakeNamespaceObject`
 
 > **createFakeNamespaceObject**: {"__webpack_require__.t"}
 
 ***
 
-## `createScript`
+## 
+### `createScript`
 
 > **createScript**: {"__webpack_require__.ts"}
 
 ***
 
-## `createScriptUrl`
+## 
+### `createScriptUrl`
 
 > **createScriptUrl**: {"__webpack_require__.tu"}
 
 ***
 
-## `cssInjectStyle`
+## 
+### `cssInjectStyle`
 
 > **cssInjectStyle**: {"__webpack_require__.is"}
 
 ***
 
-## `cssMergeStyleSheets`
+## 
+### `cssMergeStyleSheets`
 
 > **cssMergeStyleSheets**: {"__webpack_require__.mcs"}
 
 ***
 
-## `currentRemoteGetScope`
+## 
+### `currentRemoteGetScope`
 
 > **currentRemoteGetScope**: {"__webpack_require__.R"}
 
 ***
 
-## `deferredModuleAsyncTransitiveDependencies`
+## 
+### `deferredModuleAsyncTransitiveDependencies`
 
 > **deferredModuleAsyncTransitiveDependencies**: {"__webpack_require__.zT"}
 
 ***
 
-## `deferredModuleAsyncTransitiveDependenciesSymbol`
+## 
+### `deferredModuleAsyncTransitiveDependenciesSymbol`
 
 > **deferredModuleAsyncTransitiveDependenciesSymbol**: {"__webpack_require__.zS"}
 
 ***
 
-## `definePropertyGetters`
+## 
+### `definePropertyGetters`
 
 > **definePropertyGetters**: {"__webpack_require__.d"}
 
 ***
 
-## `ensureChunk`
+## 
+### `ensureChunk`
 
 > **ensureChunk**: {"__webpack_require__.e"}
 
 ***
 
-## `ensureChunkHandlers`
+## 
+### `ensureChunkHandlers`
 
 > **ensureChunkHandlers**: {"__webpack_require__.f"}
 
 ***
 
-## `ensureChunkIncludeEntries`
+## 
+### `ensureChunkIncludeEntries`
 
 > **ensureChunkIncludeEntries**: {"__webpack_require__.f (include entries)"}
 
 ***
 
-## `entryModuleId`
+## 
+### `entryModuleId`
 
 > **entryModuleId**: {"__webpack_require__.s"}
 
 ***
 
-## `esmId`
+## 
+### `esmId`
 
 > **esmId**: {"__webpack_esm_id__"}
 
 ***
 
-## `esmIds`
+## 
+### `esmIds`
 
 > **esmIds**: {"__webpack_esm_ids__"}
 
 ***
 
-## `esmModules`
+## 
+### `esmModules`
 
 > **esmModules**: {"__webpack_esm_modules__"}
 
 ***
 
-## `esmRuntime`
+## 
+### `esmRuntime`
 
 > **esmRuntime**: {"__webpack_esm_runtime__"}
 
 ***
 
-## `exports`
+## 
+### `exports`
 
 > **exports**: {"__webpack_exports__"}
 
 ***
 
-## `externalInstallChunk`
+## 
+### `externalInstallChunk`
 
 > **externalInstallChunk**: {"__webpack_require__.C"}
 
 ***
 
-## `getChunkCssFilename`
+## 
+### `getChunkCssFilename`
 
 > **getChunkCssFilename**: {"__webpack_require__.k"}
 
 ***
 
-## `getChunkScriptFilename`
+## 
+### `getChunkScriptFilename`
 
 > **getChunkScriptFilename**: {"__webpack_require__.u"}
 
 ***
 
-## `getChunkUpdateCssFilename`
+## 
+### `getChunkUpdateCssFilename`
 
 > **getChunkUpdateCssFilename**: {"__webpack_require__.hk"}
 
 ***
 
-## `getChunkUpdateScriptFilename`
+## 
+### `getChunkUpdateScriptFilename`
 
 > **getChunkUpdateScriptFilename**: {"__webpack_require__.hu"}
 
 ***
 
-## `getFullHash`
+## 
+### `getFullHash`
 
 > **getFullHash**: {"__webpack_require__.h"}
 
 ***
 
-## `getTrustedTypesPolicy`
+## 
+### `getTrustedTypesPolicy`
 
 > **getTrustedTypesPolicy**: {"__webpack_require__.tt"}
 
 ***
 
-## `getUpdateManifestFilename`
+## 
+### `getUpdateManifestFilename`
 
 > **getUpdateManifestFilename**: {"__webpack_require__.hmrF"}
 
 ***
 
-## `global`
+## 
+### `global`
 
 > **global**: {"__webpack_require__.g"}
 
 ***
 
-## `harmonyModuleDecorator`
+## 
+### `harmonyModuleDecorator`
 
 > **harmonyModuleDecorator**: {"__webpack_require__.hmd"}
 
 ***
 
-## `hasCssModules`
+## 
+### `hasCssModules`
 
 > **hasCssModules**: {"has css modules"}
 
 ***
 
-## `hasFetchPriority`
+## 
+### `hasFetchPriority`
 
 > **hasFetchPriority**: {"has fetch priority"}
 
 ***
 
-## `hasOwnProperty`
+## 
+### `hasOwnProperty`
 
 > **hasOwnProperty**: {"__webpack_require__.o"}
 
 ***
 
-## `hmrDownloadManifest`
+## 
+### `hmrDownloadManifest`
 
 > **hmrDownloadManifest**: {"__webpack_require__.hmrM"}
 
 ***
 
-## `hmrDownloadUpdateHandlers`
+## 
+### `hmrDownloadUpdateHandlers`
 
 > **hmrDownloadUpdateHandlers**: {"__webpack_require__.hmrC"}
 
 ***
 
-## `hmrInvalidateModuleHandlers`
+## 
+### `hmrInvalidateModuleHandlers`
 
 > **hmrInvalidateModuleHandlers**: {"__webpack_require__.hmrI"}
 
 ***
 
-## `hmrModuleData`
+## 
+### `hmrModuleData`
 
 > **hmrModuleData**: {"__webpack_require__.hmrD"}
 
 ***
 
-## `hmrRuntimeStatePrefix`
+## 
+### `hmrRuntimeStatePrefix`
 
 > **hmrRuntimeStatePrefix**: {"__webpack_require__.hmrS"}
 
 ***
 
-## `initializeSharing`
+## 
+### `initializeSharing`
 
 > **initializeSharing**: {"__webpack_require__.I"}
 
 ***
 
-## `instantiateWasm`
+## 
+### `instantiateWasm`
 
 > **instantiateWasm**: {"__webpack_require__.v"}
 
 ***
 
-## `interceptModuleExecution`
+## 
+### `interceptModuleExecution`
 
 > **interceptModuleExecution**: {"__webpack_require__.i"}
 
 ***
 
-## `loadScript`
+## 
+### `loadScript`
 
 > **loadScript**: {"__webpack_require__.l"}
 
 ***
 
-## `makeDeferredNamespaceObject`
+## 
+### `makeDeferredNamespaceObject`
 
 > **makeDeferredNamespaceObject**: {"__webpack_require__.z"}
 
 ***
 
-## `makeNamespaceObject`
+## 
+### `makeNamespaceObject`
 
 > **makeNamespaceObject**: {"__webpack_require__.r"}
 
 ***
 
-## `makeOptimizedDeferredNamespaceObject`
+## 
+### `makeOptimizedDeferredNamespaceObject`
 
 > **makeOptimizedDeferredNamespaceObject**: {"__webpack_require__.zO"}
 
 ***
 
-## `module`
+## 
+### `module`
 
 > **module**: {"module"}
 
 ***
 
-## `moduleCache`
+## 
+### `moduleCache`
 
 > **moduleCache**: {"__webpack_require__.c"}
 
 ***
 
-## `moduleFactories`
+## 
+### `moduleFactories`
 
 > **moduleFactories**: {"__webpack_require__.m"}
 
 ***
 
-## `moduleFactoriesAddOnly`
+## 
+### `moduleFactoriesAddOnly`
 
 > **moduleFactoriesAddOnly**: {"__webpack_require__.m (add only)"}
 
 ***
 
-## `moduleId`
+## 
+### `moduleId`
 
 > **moduleId**: {"module.id"}
 
 ***
 
-## `moduleLoaded`
+## 
+### `moduleLoaded`
 
 > **moduleLoaded**: {"module.loaded"}
 
 ***
 
-## `nodeModuleDecorator`
+## 
+### `nodeModuleDecorator`
 
 > **nodeModuleDecorator**: {"__webpack_require__.nmd"}
 
 ***
 
-## `onChunksLoaded`
+## 
+### `onChunksLoaded`
 
 > **onChunksLoaded**: {"__webpack_require__.O"}
 
 ***
 
-## `prefetchChunk`
+## 
+### `prefetchChunk`
 
 > **prefetchChunk**: {"__webpack_require__.E"}
 
 ***
 
-## `prefetchChunkHandlers`
+## 
+### `prefetchChunkHandlers`
 
 > **prefetchChunkHandlers**: {"__webpack_require__.F"}
 
 ***
 
-## `preloadChunk`
+## 
+### `preloadChunk`
 
 > **preloadChunk**: {"__webpack_require__.G"}
 
 ***
 
-## `preloadChunkHandlers`
+## 
+### `preloadChunkHandlers`
 
 > **preloadChunkHandlers**: {"__webpack_require__.H"}
 
 ***
 
-## `publicPath`
+## 
+### `publicPath`
 
 > **publicPath**: {"__webpack_require__.p"}
 
 ***
 
-## `relativeUrl`
+## 
+### `relativeUrl`
 
 > **relativeUrl**: {"__webpack_require__.U"}
 
 ***
 
-## `require`
+## 
+### `require`
 
 > **require**: {"__webpack_require__"}
 
 ***
 
-## `requireScope`
+## 
+### `requireScope`
 
 > **requireScope**: {"__webpack_require__.*"}
 
 ***
 
-## `returnExportsFromRuntime`
+## 
+### `returnExportsFromRuntime`
 
 > **returnExportsFromRuntime**: {"return-exports-from-runtime"}
 
 ***
 
-## `runtimeId`
+## 
+### `runtimeId`
 
 > **runtimeId**: {"__webpack_require__.j"}
 
 ***
 
-## `scriptNonce`
+## 
+### `scriptNonce`
 
 > **scriptNonce**: {"__webpack_require__.nc"}
 
 ***
 
-## `shareScopeMap`
+## 
+### `shareScopeMap`
 
 > **shareScopeMap**: {"__webpack_require__.S"}
 
 ***
 
-## `startup`
+## 
+### `startup`
 
 > **startup**: {"__webpack_require__.x"}
 
 ***
 
-## `startupEntrypoint`
+## 
+### `startupEntrypoint`
 
 > **startupEntrypoint**: {"__webpack_require__.X"}
 
 ***
 
-## `startupNoDefault`
+## 
+### `startupNoDefault`
 
 > **startupNoDefault**: {"__webpack_require__.x (no default handler)"}
 
 ***
 
-## `startupOnlyAfter`
+## 
+### `startupOnlyAfter`
 
 > **startupOnlyAfter**: {"__webpack_require__.x (only after)"}
 
 ***
 
-## `startupOnlyBefore`
+## 
+### `startupOnlyBefore`
 
 > **startupOnlyBefore**: {"__webpack_require__.x (only before)"}
 
 ***
 
-## `system`
+## 
+### `system`
 
 > **system**: {"__webpack_require__.System"}
 
 ***
 
-## `systemContext`
+## 
+### `systemContext`
 
 > **systemContext**: {"__webpack_require__.y"}
 
 ***
 
-## `thisAsExports`
+## 
+### `thisAsExports`
 
 > **thisAsExports**: {"top-level-this-exports"}
 
 ***
 
-## `toBinary`
+## 
+### `toBinary`
 
 > **toBinary**: {"__webpack_require__.tb"}
 
 ***
 
-## `uncaughtErrorHandler`
+## 
+### `uncaughtErrorHandler`
 
 > **uncaughtErrorHandler**: {"__webpack_require__.oe"}
 
 ***
 
-## `wasmInstances`
+## 
+### `wasmInstances`
 
 > **wasmInstances**: {"__webpack_require__.w"}

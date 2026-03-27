@@ -1,19 +1,28 @@
 # electron
 
-## Class: `ElectronTargetPlugin`
+## 
+### Class: `ElectronTargetPlugin`
 
 ### Constructors
 
 #### `new ElectronTargetPlugin([context])`
 
+---
+### ElectronTargetPlugin
+
 * `context` {"main"|"preload"|"renderer"}
-* Returns: {ElectronTargetPlugin}
+
+* ###Returns: {ElectronTargetPlugin}
 
 ### Methods
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Apply the plugin

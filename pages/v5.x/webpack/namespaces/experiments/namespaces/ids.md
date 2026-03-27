@@ -1,13 +1,18 @@
 # ids
 
-## Class: `SyncModuleIdsPlugin`
+## 
+### Class: `SyncModuleIdsPlugin`
 
 ### Constructors
 
 #### `new SyncModuleIdsPlugin(options)`
 
+---
+### SyncModuleIdsPlugin
+
 * `options` {SyncModuleIdsPluginOptions}
-* Returns: {SyncModuleIdsPlugin}
+
+* ###Returns: {SyncModuleIdsPlugin}
 
 ### Properties
 
@@ -17,7 +22,11 @@
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Apply the plugin

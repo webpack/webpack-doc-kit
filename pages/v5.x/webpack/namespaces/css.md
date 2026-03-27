@@ -1,62 +1,98 @@
 # css
 
-## Class: `CssModulesPlugin`
+## 
+### Class: `CssModulesPlugin`
 
 ### Constructors
 
 #### `new CssModulesPlugin()`
 
-* Returns: {CssModulesPlugin}
+---
+### CssModulesPlugin
+
+* ###Returns: {CssModulesPlugin}
 
 ### Methods
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Apply the plugin
 
 #### `getModulesInOrder(chunk, modules, compilation)`
 
+---
+### getModulesInOrder
+
 * `chunk` {Chunk}
 * `modules` {Iterable<Module, any, any>}
 * `compilation` {Compilation}
-* Returns: {Module[]}
+
+* ###Returns: {Module[]}
 
 #### `getOrderedChunkCssModules(chunk, chunkGraph, compilation)`
 
+---
+### getOrderedChunkCssModules
+
 * `chunk` {Chunk}
 * `chunkGraph` {ChunkGraph}
 * `compilation` {Compilation}
-* Returns: {CssModule[]}
+
+* ###Returns: {CssModule[]}
 
 #### `renderChunk(__namedParameters, hooks)`
 
+---
+### renderChunk
+
 * `__namedParameters` {RenderContextCssModulesPlugin}
 * `hooks` {CompilationHooksCssModulesPlugin}
-* Returns: {Source}
+
+* ###Returns: {Source}
 
 #### Static method: `chunkHasCss(chunk, chunkGraph)`
 
+---
+### chunkHasCss
+
 * `chunk` {Chunk}
 * `chunkGraph` {ChunkGraph}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### Static method: `getChunkFilenameTemplate(chunk, outputOptions)`
 
+---
+### getChunkFilenameTemplate
+
 * `chunk` {Chunk}
 * `outputOptions` {OutputNormalizedWithDefaults}
-* Returns: {TemplatePath}
+
+* ###Returns: {TemplatePath}
 
 #### Static method: `getCompilationHooks(compilation)`
 
+---
+### getCompilationHooks
+
 * `compilation` {Compilation}
-* Returns: {CompilationHooksCssModulesPlugin}
+
+* ###Returns: {CompilationHooksCssModulesPlugin}
 
 #### Static method: `renderModule(module, renderContext, hooks)`
+
+---
+### renderModule
 
 * `module` {CssModule}
 * `renderContext` {ChunkRenderContextCssModulesPlugin}
 * `hooks` {CompilationHooksCssModulesPlugin}
-* Returns: {Source}
+
+* ###Returns: {Source}

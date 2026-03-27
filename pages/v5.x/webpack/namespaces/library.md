@@ -1,6 +1,7 @@
 # library
 
-## Class: `AbstractLibraryPlugin`
+## 
+### Class: `AbstractLibraryPlugin`
 
 ### Type Parameters
 
@@ -12,11 +13,16 @@
 
 #### `new AbstractLibraryPlugin(__namedParameters)`
 
+---
+### AbstractLibraryPlugin
+
 ###### T
 
 `T`
+
 * `__namedParameters` {AbstractLibraryPluginOptions}
-* Returns: {AbstractLibraryPlugin<T>}
+
+* ###Returns: {AbstractLibraryPlugin<T>}
 
 ### Properties
 
@@ -26,85 +32,130 @@
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Apply the plugin
 
 #### `chunkHash(chunk, hash, chunkHashContext, libraryContext)`
 
+---
+### chunkHash
+
 * `chunk` {Chunk}
 * `hash` {Hash}
 * `chunkHashContext` {ChunkHashContext}
 * `libraryContext` {LibraryContext<T>}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `embedInRuntimeBailout(module, renderContext, libraryContext)`
+
+---
+### embedInRuntimeBailout
 
 * `module` {Module}
 * `renderContext` {RenderContextJavascriptModulesPlugin}
 * `libraryContext` {LibraryContext<T>}
-* Returns: {string}
+
+* ###Returns: {string}
 
 #### `finishEntryModule(module, entryName, libraryContext)`
+
+---
+### finishEntryModule
 
 * `module` {Module}
 * `entryName` {string}
 * `libraryContext` {LibraryContext<T>}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `parseOptions(library)`
 
+---
+### parseOptions
+
 * `library` {LibraryOptions}
-* Returns: {T}
+
+* ###Returns: {T}
 
 #### `render(source, renderContext, libraryContext)`
+
+---
+### render
 
 * `source` {Source}
 * `renderContext` {RenderContextJavascriptModulesPlugin}
 * `libraryContext` {LibraryContext<T>}
-* Returns: {Source}
+
+* ###Returns: {Source}
 
 #### `renderModuleContent(source, module, renderContext, libraryContext)`
+
+---
+### renderModuleContent
 
 * `source` {Source}
 * `module` {Module}
 * `renderContext` {ModuleRenderContext}
 * `libraryContext` {Omit<LibraryContext<T>, "options">}
-* Returns: {Source}
+
+* ###Returns: {Source}
 
 #### `renderStartup(source, module, renderContext, libraryContext)`
+
+---
+### renderStartup
 
 * `source` {Source}
 * `module` {Module}
 * `renderContext` {StartupRenderContext}
 * `libraryContext` {LibraryContext<T>}
-* Returns: {Source}
+
+* ###Returns: {Source}
 
 #### `runtimeRequirements(chunk, set, libraryContext)`
+
+---
+### runtimeRequirements
 
 * `chunk` {Chunk}
 * `set` {Set<string>}
 * `libraryContext` {LibraryContext<T>}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `strictRuntimeBailout(renderContext, libraryContext)`
 
+---
+### strictRuntimeBailout
+
 * `renderContext` {RenderContextJavascriptModulesPlugin}
 * `libraryContext` {LibraryContext<T>}
-* Returns: {string}
+
+* ###Returns: {string}
 
 ***
 
-## Class: `EnableLibraryPlugin`
+## 
+### Class: `EnableLibraryPlugin`
 
 ### Constructors
 
 #### `new EnableLibraryPlugin(type[, options])`
 
+---
+### EnableLibraryPlugin
+
 * `type` {string}
 * `options` {EnableLibraryPluginOptions}
-* Returns: {EnableLibraryPlugin}
+
+* ###Returns: {EnableLibraryPlugin}
 
 ### Properties
 
@@ -115,19 +166,31 @@ Apply the plugin
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Apply the plugin
 
 #### Static method: `checkEnabled(compiler, type)`
 
+---
+### checkEnabled
+
 * `compiler` {Compiler}
 * `type` {string}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### Static method: `setEnabled(compiler, type)`
 
+---
+### setEnabled
+
 * `compiler` {Compiler}
 * `type` {string}
-* Returns: {void}
+
+* ###Returns: {void}

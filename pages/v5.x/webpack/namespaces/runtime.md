@@ -1,6 +1,7 @@
 # runtime
 
-## Class: `GetChunkFilenameRuntimeModule`
+## 
+### Class: `GetChunkFilenameRuntimeModule`
 
 ### Extends
 
@@ -10,12 +11,16 @@
 
 #### `new GetChunkFilenameRuntimeModule(contentType, name, global, getFilenameForChunk, allChunks)`
 
+---
+### GetChunkFilenameRuntimeModule
+
 * `contentType` {string}
 * `name` {string}
 * `global` {string}
 * `getFilenameForChunk` {object}
 * `allChunks` {boolean}
-* Returns: {GetChunkFilenameRuntimeModule}
+
+* ###Returns: {GetChunkFilenameRuntimeModule}
 
 ### Properties
 
@@ -75,151 +80,251 @@
 
 #### `addBlock(block)`
 
+---
+### addBlock
+
 * `block` {AsyncDependenciesBlock}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Adds a DependencyBlock to DependencyBlock relationship.
 This is used for when a Module has a AsyncDependencyBlock tie (for code-splitting)
 
 #### `addCacheDependencies(fileDependencies, contextDependencies, missingDependencies, buildDependencies)`
 
+---
+### addCacheDependencies
+
 * `fileDependencies` {LazySet<string>}
 * `contextDependencies` {LazySet<string>}
 * `missingDependencies` {LazySet<string>}
 * `buildDependencies` {LazySet<string>}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `addChunk(chunk)`
 
+---
+### addChunk
+
 * `chunk` {Chunk}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `addCodeGenerationDependency(codeGenerationDependency)`
 
+---
+### addCodeGenerationDependency
+
 * `codeGenerationDependency` {Dependency}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `addDependency(dependency)`
 
+---
+### addDependency
+
 * `dependency` {Dependency}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `addError(error)`
 
+---
+### addError
+
 * `error` {WebpackError}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `addPresentationalDependency(presentationalDependency)`
 
+---
+### addPresentationalDependency
+
 * `presentationalDependency` {Dependency}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `addWarning(warning)`
 
+---
+### addWarning
+
 * `warning` {WebpackError}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `attach(compilation, chunk[, chunkGraph])`
+
+---
+### attach
 
 * `compilation` {Compilation}
 * `chunk` {Chunk}
 * `chunkGraph` {ChunkGraph}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `build(options, compilation, resolver, fs, callback)`
+
+---
+### build
 
 * `options` {WebpackOptionsNormalizedWithDefaults}
 * `compilation` {Compilation}
 * `resolver` {ResolverWithOptions}
 * `fs` {InputFileSystem}
 * `callback` {object}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `chunkCondition(chunk, compilation)`
 
+---
+### chunkCondition
+
 * `chunk` {Chunk}
 * `compilation` {Compilation}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `cleanupForCache()`
 
-* Returns: {void}
+---
+### cleanupForCache
+
+* ###Returns: {void}
 
 Assuming this module is in the cache. Remove internal references to allow freeing some memory.
 
 #### `clearDependenciesAndBlocks()`
 
-* Returns: {void}
+---
+### clearDependenciesAndBlocks
+
+* ###Returns: {void}
 
 Removes all dependencies and blocks
 
 #### `clearWarningsAndErrors()`
 
-* Returns: {void}
+---
+### clearWarningsAndErrors
+
+* ###Returns: {void}
 
 removes all warnings and errors
 
 #### `codeGeneration(context)`
 
+---
+### codeGeneration
+
 * `context` {CodeGenerationContext}
-* Returns: {CodeGenerationResult}
+
+* ###Returns: {CodeGenerationResult}
 
 #### `deserialize(__namedParameters)`
 
+---
+### deserialize
+
 * `__namedParameters` {ObjectDeserializerContext}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `generate()`
 
-* Returns: {string}
+---
+### generate
+
+* ###Returns: {string}
 
 #### `getChunks()`
 
-* Returns: {Chunk[]}
+---
+### getChunks
+
+* ###Returns: {Chunk[]}
 
 #### `getConcatenationBailoutReason(context)`
 
+---
+### getConcatenationBailoutReason
+
 * `context` {ConcatenationBailoutReasonContext}
-* Returns: {string}
+
+* ###Returns: {string}
 
 #### `getErrors()`
 
-* Returns: {Iterable<WebpackError, any, any>}
+---
+### getErrors
+
+* ###Returns: {Iterable<WebpackError, any, any>}
 
 #### `getExportsType(moduleGraph[, strict])`
 
+---
+### getExportsType
+
 * `moduleGraph` {ModuleGraph}
 * `strict` {boolean}
-* Returns: {ExportsType}
+
+* ###Returns: {ExportsType}
 
 #### `getGeneratedCode()`
 
-* Returns: {string}
+---
+### getGeneratedCode
+
+* ###Returns: {string}
 
 #### `getNumberOfChunks()`
 
-* Returns: {number}
+---
+### getNumberOfChunks
+
+* ###Returns: {number}
 
 #### `getNumberOfErrors()`
 
-* Returns: {number}
+---
+### getNumberOfErrors
+
+* ###Returns: {number}
 
 #### `getNumberOfWarnings()`
 
-* Returns: {number}
+---
+### getNumberOfWarnings
+
+* ###Returns: {number}
 
 #### `getRootBlock()`
 
-* Returns: {DependenciesBlock}
+---
+### getRootBlock
+
+* ###Returns: {DependenciesBlock}
 
 #### `getSideEffectsConnectionState(moduleGraph)`
 
+---
+### getSideEffectsConnectionState
+
 * `moduleGraph` {ModuleGraph}
-* Returns: {ConnectionState}
+
+* ###Returns: {ConnectionState}
 
 #### `getSourceBasicTypes()`
 
-* Returns: {ReadonlySet<string>}
+---
+### getSourceBasicTypes
+
+* ###Returns: {ReadonlySet<string>}
 
 Basic source types are high-level categories like javascript, css, webassembly, etc.
 We only have built-in knowledge about the javascript basic type here; other basic types may be
@@ -229,150 +334,248 @@ from getSourceTypes(), but their generated output is still JavaScript, i.e. thei
 
 #### `getSourceTypes()`
 
-* Returns: {ReadonlySet<string>}
+---
+### getSourceTypes
+
+* ###Returns: {ReadonlySet<string>}
 
 #### `getUnsafeCacheData()`
 
-* Returns: {UnsafeCacheData}
+---
+### getUnsafeCacheData
+
+* ###Returns: {UnsafeCacheData}
 
 Module should be unsafe cached. Get data that's needed for that.
 This data will be passed to restoreFromUnsafeCache later.
 
 #### `getWarnings()`
 
-* Returns: {Iterable<WebpackError, any, any>}
+---
+### getWarnings
+
+* ###Returns: {Iterable<WebpackError, any, any>}
 
 #### `hasChunkCondition()`
 
-* Returns: {boolean}
+---
+### hasChunkCondition
+
+* ###Returns: {boolean}
 
 #### `hasReasonForChunk(chunk, moduleGraph, chunkGraph)`
+
+---
+### hasReasonForChunk
 
 * `chunk` {Chunk}
 * `moduleGraph` {ModuleGraph}
 * `chunkGraph` {ChunkGraph}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `hasReasons(moduleGraph, runtime)`
 
+---
+### hasReasons
+
 * `moduleGraph` {ModuleGraph}
 * `runtime` {RuntimeSpec}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `identifier()`
 
-* Returns: {string}
+---
+### identifier
+
+* ###Returns: {string}
 
 #### `invalidateBuild()`
 
-* Returns: {void}
+---
+### invalidateBuild
+
+* ###Returns: {void}
 
 #### `isAccessibleInChunk(chunkGraph, chunk[, ignoreChunk])`
+
+---
+### isAccessibleInChunk
 
 * `chunkGraph` {ChunkGraph}
 * `chunk` {Chunk}
 * `ignoreChunk` {Chunk}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `isAccessibleInChunkGroup(chunkGraph, chunkGroup[, ignoreChunk])`
+
+---
+### isAccessibleInChunkGroup
 
 * `chunkGraph` {ChunkGraph}
 * `chunkGroup` {ChunkGroup}
 * `ignoreChunk` {Chunk}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `isEntryModule()`
 
-* Returns: {boolean}
+---
+### isEntryModule
+
+* ###Returns: {boolean}
 
 #### `isInChunk(chunk)`
 
+---
+### isInChunk
+
 * `chunk` {Chunk}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `isOptional(moduleGraph)`
 
+---
+### isOptional
+
 * `moduleGraph` {ModuleGraph}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `isProvided(exportName)`
 
+---
+### isProvided
+
 * `exportName` {string}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `libIdent(options)`
 
+---
+### libIdent
+
 * `options` {LibIdentOptions}
-* Returns: {string}
+
+* ###Returns: {string}
 
 #### `nameForCondition()`
 
-* Returns: {string}
+---
+### nameForCondition
+
+* ###Returns: {string}
 
 #### `needBuild(context, callback)`
 
+---
+### needBuild
+
 * `context` {NeedBuildContext}
 * `callback` {object}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `needRebuild(fileTimestamps, contextTimestamps)`
+
+---
+### needRebuild
 
 > Stability: 0 - Deprecated
 
 * `fileTimestamps` {Map<string, number>}
 * `contextTimestamps` {Map<string, number>}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 Use needBuild instead
 
 #### `originalSource()`
 
-* Returns: {Source}
+---
+### originalSource
+
+* ###Returns: {Source}
 
 #### `readableIdentifier(requestShortener)`
 
+---
+### readableIdentifier
+
 * `requestShortener` {RequestShortener}
-* Returns: {string}
+
+* ###Returns: {string}
 
 #### `removeChunk(chunk)`
 
+---
+### removeChunk
+
 * `chunk` {Chunk}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `removeDependency(dependency)`
 
+---
+### removeDependency
+
 * `dependency` {Dependency}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `serialize(__namedParameters)`
 
+---
+### serialize
+
 * `__namedParameters` {ObjectSerializerContext}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `shouldIsolate()`
 
-* Returns: {boolean}
+---
+### shouldIsolate
+
+* ###Returns: {boolean}
 
 #### `size([type])`
 
+---
+### size
+
 * `type` {string}
-* Returns: {number}
+
+* ###Returns: {number}
 
 #### `source(dependencyTemplates, runtimeTemplate[, type])`
+
+---
+### source
 
 > Stability: 0 - Deprecated
 
 * `dependencyTemplates` {DependencyTemplates}
 * `runtimeTemplate` {RuntimeTemplate}
 * `type` {string}
-* Returns: {Source}
+
+* ###Returns: {Source}
 
 Use codeGeneration() instead
 
 #### `updateCacheModule(module)`
 
+---
+### updateCacheModule
+
 * `module` {Module}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Assuming this module is in the cache. Update the (cached) module with
 the fresh module from the factory. Usually updates internal references
@@ -380,22 +583,31 @@ and properties.
 
 #### `updateHash(hash, context)`
 
+---
+### updateHash
+
 * `hash` {Hash}
 * `context` {UpdateHashContextDependency}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### Static method: `getSourceBasicTypes(module)`
+
+---
+### getSourceBasicTypes
 
 > Stability: 0 - Deprecated
 
 * `module` {Module}
-* Returns: {ReadonlySet<string>}
+
+* ###Returns: {ReadonlySet<string>}
 
 In webpack 6, call getSourceBasicTypes() directly on the module instance instead of using this static method.
 
 ***
 
-## Class: `LoadScriptRuntimeModule`
+## 
+### Class: `LoadScriptRuntimeModule`
 
 ### Extends
 
@@ -405,9 +617,13 @@ In webpack 6, call getSourceBasicTypes() directly on the module instance instead
 
 #### `new LoadScriptRuntimeModule([withCreateScriptUrl][, withFetchPriority])`
 
+---
+### LoadScriptRuntimeModule
+
 * `withCreateScriptUrl` {boolean}
 * `withFetchPriority` {boolean}
-* Returns: {LoadScriptRuntimeModule}
+
+* ###Returns: {LoadScriptRuntimeModule}
 
 ### Properties
 
@@ -463,151 +679,251 @@ In webpack 6, call getSourceBasicTypes() directly on the module instance instead
 
 #### `addBlock(block)`
 
+---
+### addBlock
+
 * `block` {AsyncDependenciesBlock}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Adds a DependencyBlock to DependencyBlock relationship.
 This is used for when a Module has a AsyncDependencyBlock tie (for code-splitting)
 
 #### `addCacheDependencies(fileDependencies, contextDependencies, missingDependencies, buildDependencies)`
 
+---
+### addCacheDependencies
+
 * `fileDependencies` {LazySet<string>}
 * `contextDependencies` {LazySet<string>}
 * `missingDependencies` {LazySet<string>}
 * `buildDependencies` {LazySet<string>}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `addChunk(chunk)`
 
+---
+### addChunk
+
 * `chunk` {Chunk}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `addCodeGenerationDependency(codeGenerationDependency)`
 
+---
+### addCodeGenerationDependency
+
 * `codeGenerationDependency` {Dependency}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `addDependency(dependency)`
 
+---
+### addDependency
+
 * `dependency` {Dependency}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `addError(error)`
 
+---
+### addError
+
 * `error` {WebpackError}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `addPresentationalDependency(presentationalDependency)`
 
+---
+### addPresentationalDependency
+
 * `presentationalDependency` {Dependency}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `addWarning(warning)`
 
+---
+### addWarning
+
 * `warning` {WebpackError}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `attach(compilation, chunk[, chunkGraph])`
+
+---
+### attach
 
 * `compilation` {Compilation}
 * `chunk` {Chunk}
 * `chunkGraph` {ChunkGraph}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `build(options, compilation, resolver, fs, callback)`
+
+---
+### build
 
 * `options` {WebpackOptionsNormalizedWithDefaults}
 * `compilation` {Compilation}
 * `resolver` {ResolverWithOptions}
 * `fs` {InputFileSystem}
 * `callback` {object}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `chunkCondition(chunk, compilation)`
 
+---
+### chunkCondition
+
 * `chunk` {Chunk}
 * `compilation` {Compilation}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `cleanupForCache()`
 
-* Returns: {void}
+---
+### cleanupForCache
+
+* ###Returns: {void}
 
 Assuming this module is in the cache. Remove internal references to allow freeing some memory.
 
 #### `clearDependenciesAndBlocks()`
 
-* Returns: {void}
+---
+### clearDependenciesAndBlocks
+
+* ###Returns: {void}
 
 Removes all dependencies and blocks
 
 #### `clearWarningsAndErrors()`
 
-* Returns: {void}
+---
+### clearWarningsAndErrors
+
+* ###Returns: {void}
 
 removes all warnings and errors
 
 #### `codeGeneration(context)`
 
+---
+### codeGeneration
+
 * `context` {CodeGenerationContext}
-* Returns: {CodeGenerationResult}
+
+* ###Returns: {CodeGenerationResult}
 
 #### `deserialize(__namedParameters)`
 
+---
+### deserialize
+
 * `__namedParameters` {ObjectDeserializerContext}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `generate()`
 
-* Returns: {string}
+---
+### generate
+
+* ###Returns: {string}
 
 #### `getChunks()`
 
-* Returns: {Chunk[]}
+---
+### getChunks
+
+* ###Returns: {Chunk[]}
 
 #### `getConcatenationBailoutReason(context)`
 
+---
+### getConcatenationBailoutReason
+
 * `context` {ConcatenationBailoutReasonContext}
-* Returns: {string}
+
+* ###Returns: {string}
 
 #### `getErrors()`
 
-* Returns: {Iterable<WebpackError, any, any>}
+---
+### getErrors
+
+* ###Returns: {Iterable<WebpackError, any, any>}
 
 #### `getExportsType(moduleGraph[, strict])`
 
+---
+### getExportsType
+
 * `moduleGraph` {ModuleGraph}
 * `strict` {boolean}
-* Returns: {ExportsType}
+
+* ###Returns: {ExportsType}
 
 #### `getGeneratedCode()`
 
-* Returns: {string}
+---
+### getGeneratedCode
+
+* ###Returns: {string}
 
 #### `getNumberOfChunks()`
 
-* Returns: {number}
+---
+### getNumberOfChunks
+
+* ###Returns: {number}
 
 #### `getNumberOfErrors()`
 
-* Returns: {number}
+---
+### getNumberOfErrors
+
+* ###Returns: {number}
 
 #### `getNumberOfWarnings()`
 
-* Returns: {number}
+---
+### getNumberOfWarnings
+
+* ###Returns: {number}
 
 #### `getRootBlock()`
 
-* Returns: {DependenciesBlock}
+---
+### getRootBlock
+
+* ###Returns: {DependenciesBlock}
 
 #### `getSideEffectsConnectionState(moduleGraph)`
 
+---
+### getSideEffectsConnectionState
+
 * `moduleGraph` {ModuleGraph}
-* Returns: {ConnectionState}
+
+* ###Returns: {ConnectionState}
 
 #### `getSourceBasicTypes()`
 
-* Returns: {ReadonlySet<string>}
+---
+### getSourceBasicTypes
+
+* ###Returns: {ReadonlySet<string>}
 
 Basic source types are high-level categories like javascript, css, webassembly, etc.
 We only have built-in knowledge about the javascript basic type here; other basic types may be
@@ -617,150 +933,248 @@ from getSourceTypes(), but their generated output is still JavaScript, i.e. thei
 
 #### `getSourceTypes()`
 
-* Returns: {ReadonlySet<string>}
+---
+### getSourceTypes
+
+* ###Returns: {ReadonlySet<string>}
 
 #### `getUnsafeCacheData()`
 
-* Returns: {UnsafeCacheData}
+---
+### getUnsafeCacheData
+
+* ###Returns: {UnsafeCacheData}
 
 Module should be unsafe cached. Get data that's needed for that.
 This data will be passed to restoreFromUnsafeCache later.
 
 #### `getWarnings()`
 
-* Returns: {Iterable<WebpackError, any, any>}
+---
+### getWarnings
+
+* ###Returns: {Iterable<WebpackError, any, any>}
 
 #### `hasChunkCondition()`
 
-* Returns: {boolean}
+---
+### hasChunkCondition
+
+* ###Returns: {boolean}
 
 #### `hasReasonForChunk(chunk, moduleGraph, chunkGraph)`
+
+---
+### hasReasonForChunk
 
 * `chunk` {Chunk}
 * `moduleGraph` {ModuleGraph}
 * `chunkGraph` {ChunkGraph}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `hasReasons(moduleGraph, runtime)`
 
+---
+### hasReasons
+
 * `moduleGraph` {ModuleGraph}
 * `runtime` {RuntimeSpec}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `identifier()`
 
-* Returns: {string}
+---
+### identifier
+
+* ###Returns: {string}
 
 #### `invalidateBuild()`
 
-* Returns: {void}
+---
+### invalidateBuild
+
+* ###Returns: {void}
 
 #### `isAccessibleInChunk(chunkGraph, chunk[, ignoreChunk])`
+
+---
+### isAccessibleInChunk
 
 * `chunkGraph` {ChunkGraph}
 * `chunk` {Chunk}
 * `ignoreChunk` {Chunk}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `isAccessibleInChunkGroup(chunkGraph, chunkGroup[, ignoreChunk])`
+
+---
+### isAccessibleInChunkGroup
 
 * `chunkGraph` {ChunkGraph}
 * `chunkGroup` {ChunkGroup}
 * `ignoreChunk` {Chunk}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `isEntryModule()`
 
-* Returns: {boolean}
+---
+### isEntryModule
+
+* ###Returns: {boolean}
 
 #### `isInChunk(chunk)`
 
+---
+### isInChunk
+
 * `chunk` {Chunk}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `isOptional(moduleGraph)`
 
+---
+### isOptional
+
 * `moduleGraph` {ModuleGraph}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `isProvided(exportName)`
 
+---
+### isProvided
+
 * `exportName` {string}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `libIdent(options)`
 
+---
+### libIdent
+
 * `options` {LibIdentOptions}
-* Returns: {string}
+
+* ###Returns: {string}
 
 #### `nameForCondition()`
 
-* Returns: {string}
+---
+### nameForCondition
+
+* ###Returns: {string}
 
 #### `needBuild(context, callback)`
 
+---
+### needBuild
+
 * `context` {NeedBuildContext}
 * `callback` {object}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `needRebuild(fileTimestamps, contextTimestamps)`
+
+---
+### needRebuild
 
 > Stability: 0 - Deprecated
 
 * `fileTimestamps` {Map<string, number>}
 * `contextTimestamps` {Map<string, number>}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 Use needBuild instead
 
 #### `originalSource()`
 
-* Returns: {Source}
+---
+### originalSource
+
+* ###Returns: {Source}
 
 #### `readableIdentifier(requestShortener)`
 
+---
+### readableIdentifier
+
 * `requestShortener` {RequestShortener}
-* Returns: {string}
+
+* ###Returns: {string}
 
 #### `removeChunk(chunk)`
 
+---
+### removeChunk
+
 * `chunk` {Chunk}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `removeDependency(dependency)`
 
+---
+### removeDependency
+
 * `dependency` {Dependency}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `serialize(__namedParameters)`
 
+---
+### serialize
+
 * `__namedParameters` {ObjectSerializerContext}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `shouldIsolate()`
 
-* Returns: {boolean}
+---
+### shouldIsolate
+
+* ###Returns: {boolean}
 
 #### `size([type])`
 
+---
+### size
+
 * `type` {string}
-* Returns: {number}
+
+* ###Returns: {number}
 
 #### `source(dependencyTemplates, runtimeTemplate[, type])`
+
+---
+### source
 
 > Stability: 0 - Deprecated
 
 * `dependencyTemplates` {DependencyTemplates}
 * `runtimeTemplate` {RuntimeTemplate}
 * `type` {string}
-* Returns: {Source}
+
+* ###Returns: {Source}
 
 Use codeGeneration() instead
 
 #### `updateCacheModule(module)`
 
+---
+### updateCacheModule
+
 * `module` {Module}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Assuming this module is in the cache. Update the (cached) module with
 the fresh module from the factory. Usually updates internal references
@@ -768,20 +1182,32 @@ and properties.
 
 #### `updateHash(hash, context)`
 
+---
+### updateHash
+
 * `hash` {Hash}
 * `context` {UpdateHashContextDependency}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### Static method: `getCompilationHooks(compilation)`
 
+---
+### getCompilationHooks
+
 * `compilation` {Compilation}
-* Returns: {LoadScriptCompilationHooks}
+
+* ###Returns: {LoadScriptCompilationHooks}
 
 #### Static method: `getSourceBasicTypes(module)`
+
+---
+### getSourceBasicTypes
 
 > Stability: 0 - Deprecated
 
 * `module` {Module}
-* Returns: {ReadonlySet<string>}
+
+* ###Returns: {ReadonlySet<string>}
 
 In webpack 6, call getSourceBasicTypes() directly on the module instance instead of using this static method.

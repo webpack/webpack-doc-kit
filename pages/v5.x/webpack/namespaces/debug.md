@@ -1,13 +1,18 @@
 # debug
 
-## Class: `ProfilingPlugin`
+## 
+### Class: `ProfilingPlugin`
 
 ### Constructors
 
 #### `new ProfilingPlugin([options])`
 
+---
+### ProfilingPlugin
+
 * `options` {ProfilingPluginOptions}
-* Returns: {ProfilingPlugin}
+
+* ###Returns: {ProfilingPlugin}
 
 ### Properties
 
@@ -18,7 +23,11 @@
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Apply the plugin

@@ -1,176 +1,219 @@
 # ModuleFilenameHelpers
 
-## `ABSOLUTE_RESOURCE_PATH`
+## 
+### `ABSOLUTE_RESOURCE_PATH`
 
 > **ABSOLUTE\_RESOURCE\_PATH**: {string}
 
 ***
 
-## `ALL_LOADERS`
+## 
+### `ALL_LOADERS`
 
 > **ALL\_LOADERS**: {string}
 
 ***
 
-## `ALL_LOADERS_RESOURCE`
+## 
+### `ALL_LOADERS_RESOURCE`
 
 > **ALL\_LOADERS\_RESOURCE**: {string}
 
 ***
 
-## `createFilename`
+## 
+### `createFilename`
 
 > **createFilename**: {object}
+
+---
+### __type
 
 * `module` {string|Module}
 * `options` {object}
 * `__namedParameters` {object}
-* Returns: {string}
+
+* ###Returns: {string}
 
 ***
 
-## `HASH`
+## 
+### `HASH`
 
 > **HASH**: {string}
 
 ***
 
-## `ID`
+## 
+### `ID`
 
 > **ID**: {string}
 
 ***
 
-## `LOADERS`
+## 
+### `LOADERS`
 
 > **LOADERS**: {string}
 
 ***
 
-## `LOADERS_RESOURCE`
+## 
+### `LOADERS_RESOURCE`
 
 > **LOADERS\_RESOURCE**: {string}
 
 ***
 
-## `matchObject`
+## 
+### `matchObject`
 
 > **matchObject**: {object}
 
+---
+### __type
+
 * `obj` {MatchObject}
 * `str` {string}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 ***
 
-## `matchPart`
+## 
+### `matchPart`
 
 > **matchPart**: {object}
 
+---
+### __type
+
 * `str` {string}
 * `test` {Matcher}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 ***
 
-## `NAMESPACE`
+## 
+### `NAMESPACE`
 
 > **NAMESPACE**: {string}
 
 ***
 
-## `QUERY`
+## 
+### `QUERY`
 
 > **QUERY**: {string}
 
 ***
 
-## `REGEXP_ABSOLUTE_RESOURCE_PATH`
+## 
+### `REGEXP_ABSOLUTE_RESOURCE_PATH`
 
 > **REGEXP\_ABSOLUTE\_RESOURCE\_PATH**: {RegExp}
 
 ***
 
-## `REGEXP_ALL_LOADERS`
+## 
+### `REGEXP_ALL_LOADERS`
 
 > **REGEXP\_ALL\_LOADERS**: {RegExp}
 
 ***
 
-## `REGEXP_ALL_LOADERS_RESOURCE`
+## 
+### `REGEXP_ALL_LOADERS_RESOURCE`
 
 > **REGEXP\_ALL\_LOADERS\_RESOURCE**: {RegExp}
 
 ***
 
-## `REGEXP_HASH`
+## 
+### `REGEXP_HASH`
 
 > **REGEXP\_HASH**: {RegExp}
 
 ***
 
-## `REGEXP_ID`
+## 
+### `REGEXP_ID`
 
 > **REGEXP\_ID**: {RegExp}
 
 ***
 
-## `REGEXP_LOADERS`
+## 
+### `REGEXP_LOADERS`
 
 > **REGEXP\_LOADERS**: {RegExp}
 
 ***
 
-## `REGEXP_LOADERS_RESOURCE`
+## 
+### `REGEXP_LOADERS_RESOURCE`
 
 > **REGEXP\_LOADERS\_RESOURCE**: {RegExp}
 
 ***
 
-## `REGEXP_NAMESPACE`
+## 
+### `REGEXP_NAMESPACE`
 
 > **REGEXP\_NAMESPACE**: {RegExp}
 
 ***
 
-## `REGEXP_QUERY`
+## 
+### `REGEXP_QUERY`
 
 > **REGEXP\_QUERY**: {RegExp}
 
 ***
 
-## `REGEXP_RESOURCE`
+## 
+### `REGEXP_RESOURCE`
 
 > **REGEXP\_RESOURCE**: {RegExp}
 
 ***
 
-## `REGEXP_RESOURCE_PATH`
+## 
+### `REGEXP_RESOURCE_PATH`
 
 > **REGEXP\_RESOURCE\_PATH**: {RegExp}
 
 ***
 
-## `replaceDuplicates`
+## 
+### `replaceDuplicates`
 
 > **replaceDuplicates**: {object}
+
+---
+### __type
 
 #### T
 
 `T`
+
 * `array` {T[]}
 * `fn` {object}
 * `comparator` {object}
-* Returns: {T[]}
+
+* ###Returns: {T[]}
 
 ***
 
-## `RESOURCE`
+## 
+### `RESOURCE`
 
 > **RESOURCE**: {string}
 
 ***
 
-## `RESOURCE_PATH`
+## 
+### `RESOURCE_PATH`
 
 > **RESOURCE\_PATH**: {string}

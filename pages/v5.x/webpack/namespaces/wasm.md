@@ -1,13 +1,18 @@
 # wasm
 
-## Class: `AsyncWebAssemblyModulesPlugin`
+## 
+### Class: `AsyncWebAssemblyModulesPlugin`
 
 ### Constructors
 
 #### `new AsyncWebAssemblyModulesPlugin(options)`
 
+---
+### AsyncWebAssemblyModulesPlugin
+
 * `options` {AsyncWebAssemblyModulesPluginOptions}
-* Returns: {AsyncWebAssemblyModulesPlugin}
+
+* ###Returns: {AsyncWebAssemblyModulesPlugin}
 
 ### Properties
 
@@ -17,33 +22,50 @@
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Apply the plugin
 
 #### `renderModule(module, renderContext, hooks)`
 
+---
+### renderModule
+
 * `module` {Module}
 * `renderContext` {WebAssemblyRenderContext}
 * `hooks` {CompilationHooksAsyncWebAssemblyModulesPlugin}
-* Returns: {Source}
+
+* ###Returns: {Source}
 
 #### Static method: `getCompilationHooks(compilation)`
 
+---
+### getCompilationHooks
+
 * `compilation` {Compilation}
-* Returns: {CompilationHooksAsyncWebAssemblyModulesPlugin}
+
+* ###Returns: {CompilationHooksAsyncWebAssemblyModulesPlugin}
 
 ***
 
-## Class: `EnableWasmLoadingPlugin`
+## 
+### Class: `EnableWasmLoadingPlugin`
 
 ### Constructors
 
 #### `new EnableWasmLoadingPlugin(type)`
 
+---
+### EnableWasmLoadingPlugin
+
 * `type` {string}
-* Returns: {EnableWasmLoadingPlugin}
+
+* ###Returns: {EnableWasmLoadingPlugin}
 
 ### Properties
 
@@ -53,19 +75,31 @@ Apply the plugin
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Apply the plugin
 
 #### Static method: `checkEnabled(compiler, type)`
 
+---
+### checkEnabled
+
 * `compiler` {Compiler}
 * `type` {string}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### Static method: `setEnabled(compiler, type)`
 
+---
+### setEnabled
+
 * `compiler` {Compiler}
 * `type` {string}
-* Returns: {void}
+
+* ###Returns: {void}

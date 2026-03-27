@@ -7,7 +7,8 @@
 - [runtime](namespaces/runtime.md)
 - [serialization](namespaces/serialization.md)
 
-## Class: `LazySet`
+## 
+### Class: `LazySet`
 
 ### Type Parameters
 
@@ -19,11 +20,16 @@
 
 #### `new LazySet([iterable])`
 
+---
+### LazySet
+
 ###### T
 
 `T`
+
 * `iterable` {Iterable<T>}
-* Returns: {LazySet<T>}
+
+* ###Returns: {LazySet<T>}
 
 ### Properties
 
@@ -33,71 +39,120 @@
 
 #### `[iterator]()`
 
-* Returns: {SetIterator<T>}
+---
+### [iterator]
+
+* ###Returns: {SetIterator<T>}
 
 #### `add(item)`
 
+---
+### add
+
 * `item` {T}
-* Returns: {LazySet<T>}
+
+* ###Returns: {LazySet<T>}
 
 #### `addAll(iterable)`
 
+---
+### addAll
+
 * `iterable` {LazySet<T>|Iterable<T, any, any>}
-* Returns: {LazySet<T>}
+
+* ###Returns: {LazySet<T>}
 
 #### `clear()`
 
-* Returns: {void}
+---
+### clear
+
+* ###Returns: {void}
 
 #### `delete(value)`
 
+---
+### delete
+
 * `value` {T}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `entries()`
 
-* Returns: {SetIterator<Tuple<T, T>>}
+---
+### entries
+
+* ###Returns: {SetIterator<Tuple<T, T>>}
 
 #### `forEach(callbackFn, thisArg)`
+
+---
+### forEach
 
 ###### K
 
 `K`
+
 * `callbackFn` {object}
 * `thisArg` {K}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `has(item)`
 
+---
+### has
+
 * `item` {T}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `keys()`
 
-* Returns: {SetIterator<T>}
+---
+### keys
+
+* ###Returns: {SetIterator<T>}
 
 #### `serialize(__namedParameters)`
 
+---
+### serialize
+
 * `__namedParameters` {ObjectSerializerContext}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `values()`
 
-* Returns: {SetIterator<T>}
+---
+### values
+
+* ###Returns: {SetIterator<T>}
 
 #### Static method: `deserialize(__namedParameters)`
+
+---
+### deserialize
 
 ###### T
 
 `T`
+
 * `__namedParameters` {ObjectDeserializerContext}
-* Returns: {LazySet<T>}
+
+* ###Returns: {LazySet<T>}
 
 ***
 
-## `cleverMerge`
+## 
+### `cleverMerge`
 
 > `const` **cleverMerge**: {object}
+
+---
+### __type
 
 #### T
 
@@ -106,22 +161,33 @@
 #### O
 
 `O`
+
 * `first` {null|T}
 * `second` {null|O}
-* Returns: {T|O|T|O}
+
+* ###Returns: {T|O|T|O}
 
 ***
 
-## `createHash`
+## 
+### `createHash`
 
 > `const` **createHash**: {object}
 
+---
+### __type
+
 * `algorithm` {HashFunction}
-* Returns: {Hash}
+
+* ###Returns: {Hash}
 
 ***
 
 ## `compileBooleanMatcher(map)`
 
+---
+### compileBooleanMatcher
+
 * `map` {Record<string|number, boolean>}
-* Returns: {boolean|object}
+
+* ###Returns: {boolean|object}

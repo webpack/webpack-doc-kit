@@ -1,18 +1,26 @@
 # cache
 
-## Class: `MemoryCachePlugin`
+## 
+### Class: `MemoryCachePlugin`
 
 ### Constructors
 
 #### `new MemoryCachePlugin()`
 
-* Returns: {MemoryCachePlugin}
+---
+### MemoryCachePlugin
+
+* ###Returns: {MemoryCachePlugin}
 
 ### Methods
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Apply the plugin

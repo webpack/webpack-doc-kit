@@ -1,13 +1,18 @@
 # sharing
 
-## Class: `ConsumeSharedPlugin`
+## 
+### Class: `ConsumeSharedPlugin`
 
 ### Constructors
 
 #### `new ConsumeSharedPlugin(options)`
 
+---
+### ConsumeSharedPlugin
+
 * `options` {ConsumeSharedPluginOptions}
-* Returns: {ConsumeSharedPlugin}
+
+* ###Returns: {ConsumeSharedPlugin}
 
 ### Properties
 
@@ -17,21 +22,30 @@
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Apply the plugin
 
 ***
 
-## Class: `ProvideSharedPlugin`
+## 
+### Class: `ProvideSharedPlugin`
 
 ### Constructors
 
 #### `new ProvideSharedPlugin(options)`
 
+---
+### ProvideSharedPlugin
+
 * `options` {ProvideSharedPluginOptions}
-* Returns: {ProvideSharedPlugin}
+
+* ###Returns: {ProvideSharedPlugin}
 
 ### Properties
 
@@ -41,40 +55,59 @@ Apply the plugin
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Apply the plugin
 
 ***
 
-## Class: `SharePlugin`
+## 
+### Class: `SharePlugin`
 
 ### Constructors
 
 #### `new SharePlugin(options)`
 
+---
+### SharePlugin
+
 * `options` {SharePluginOptions}
-* Returns: {SharePlugin}
+
+* ###Returns: {SharePlugin}
 
 ### Methods
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Apply the plugin
 
 ***
 
-## `scope`
+## 
+### `scope`
 
 > `const` **scope**: {object}
+
+---
+### __type
 
 #### T
 
 `T`
+
 * `scope` {string}
 * `options` {ContainerOptionsFormat<T>}
-* Returns: {Record<string, string|string[]|T>}
+
+* ###Returns: {Record<string, string|string[]|T>}

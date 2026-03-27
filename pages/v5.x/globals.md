@@ -29,7 +29,8 @@
 - [web](webpack/namespaces/web.md)
 - [webworker](webpack/namespaces/webworker.md)
 
-## Class: `AsyncDependenciesBlock`
+## 
+### Class: `AsyncDependenciesBlock`
 
 ### Extends
 
@@ -39,10 +40,14 @@
 
 #### `new AsyncDependenciesBlock(groupOptions[, loc][, request])`
 
+---
+### AsyncDependenciesBlock
+
 * `groupOptions` {string|GroupOptionsAsyncDependenciesBlock}
 * `loc` {SyntheticDependencyLocation|RealDependencyLocation}
 * `request` {string}
-* Returns: {AsyncDependenciesBlock}
+
+* ###Returns: {AsyncDependenciesBlock}
 
 ### Properties
 
@@ -60,77 +65,120 @@
 
 #### `addBlock(block)`
 
+---
+### addBlock
+
 * `block` {AsyncDependenciesBlock}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Adds a DependencyBlock to DependencyBlock relationship.
 This is used for when a Module has a AsyncDependencyBlock tie (for code-splitting)
 
 #### `addDependency(dependency)`
 
+---
+### addDependency
+
 * `dependency` {Dependency}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `clearDependenciesAndBlocks()`
 
-* Returns: {void}
+---
+### clearDependenciesAndBlocks
+
+* ###Returns: {void}
 
 Removes all dependencies and blocks
 
 #### `deserialize(__namedParameters)`
 
+---
+### deserialize
+
 * `__namedParameters` {ObjectDeserializerContext}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `getRootBlock()`
 
-* Returns: {DependenciesBlock}
+---
+### getRootBlock
+
+* ###Returns: {DependenciesBlock}
 
 #### `removeDependency(dependency)`
 
+---
+### removeDependency
+
 * `dependency` {Dependency}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `serialize(__namedParameters)`
 
+---
+### serialize
+
 * `__namedParameters` {ObjectSerializerContext}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `updateHash(hash, context)`
 
+---
+### updateHash
+
 * `hash` {Hash}
 * `context` {UpdateHashContextDependency}
-* Returns: {void}
+
+* ###Returns: {void}
 
 ***
 
-## Class: `AutomaticPrefetchPlugin`
+## 
+### Class: `AutomaticPrefetchPlugin`
 
 ### Constructors
 
 #### `new AutomaticPrefetchPlugin()`
 
-* Returns: {AutomaticPrefetchPlugin}
+---
+### AutomaticPrefetchPlugin
+
+* ###Returns: {AutomaticPrefetchPlugin}
 
 ### Methods
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Apply the plugin
 
 ***
 
-## Class: `BannerPlugin`
+## 
+### Class: `BannerPlugin`
 
 ### Constructors
 
 #### `new BannerPlugin(options)`
 
+---
+### BannerPlugin
+
 * `options` {BannerPluginArgument}
-* Returns: {BannerPlugin}
+
+* ###Returns: {BannerPlugin}
 
 ### Properties
 
@@ -141,20 +189,28 @@ Apply the plugin
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Apply the plugin
 
 ***
 
-## Class: `Cache`
+## 
+### Class: `Cache`
 
 ### Constructors
 
 #### `new Cache()`
 
-* Returns: {CacheClass}
+---
+### Cache
+
+* ###Returns: {CacheClass}
 
 ### Properties
 
@@ -168,50 +224,76 @@ Apply the plugin
 
 #### `beginIdle()`
 
-* Returns: {void}
+---
+### beginIdle
+
+* ###Returns: {void}
 
 #### `endIdle(callback)`
 
+---
+### endIdle
+
 * `callback` {CallbackCacheCache<void>}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `get(identifier, etag, callback)`
 
+---
+### get
+
 ###### T
 
 `T`
+
 * `identifier` {string}
 * `etag` {Etag}
 * `callback` {CallbackCacheCache<T>}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `shutdown(callback)`
 
+---
+### shutdown
+
 * `callback` {CallbackCacheCache<void>}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `store(identifier, etag, data, callback)`
+
+---
+### store
 
 ###### T
 
 `T`
+
 * `identifier` {string}
 * `etag` {Etag}
 * `data` {T}
 * `callback` {CallbackCacheCache<void>}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `storeBuildDependencies(dependencies, callback)`
 
+---
+### storeBuildDependencies
+
 * `dependencies` {Iterable<string>}
 * `callback` {CallbackCacheCache<void>}
-* Returns: {void}
+
+* ###Returns: {void}
 
 After this method has succeeded the cache can only be restored when build dependencies are
 
 ***
 
-## Class: `Chunk`
+## 
+### Class: `Chunk`
 
 ### Extended by
 
@@ -221,9 +303,13 @@ After this method has succeeded the cache can only be restored when build depend
 
 #### `new Chunk([name][, backCompat])`
 
+---
+### Chunk
+
 * `name` {string}
 * `backCompat` {boolean}
-* Returns: {Chunk}
+
+* ###Returns: {Chunk}
 
 ### Properties
 
@@ -252,201 +338,341 @@ After this method has succeeded the cache can only be restored when build depend
 
 #### `addGroup(chunkGroup)`
 
+---
+### addGroup
+
 * `chunkGroup` {ChunkGroup}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `addModule(module)`
 
+---
+### addModule
+
 * `module` {Module}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `canBeInitial()`
 
-* Returns: {boolean}
+---
+### canBeInitial
+
+* ###Returns: {boolean}
 
 #### `canBeIntegrated(otherChunk)`
 
+---
+### canBeIntegrated
+
 * `otherChunk` {Chunk}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `compareTo(otherChunk)`
 
+---
+### compareTo
+
 * `otherChunk` {Chunk}
-* Returns: {-1|0|1}
+
+* ###Returns: {-1|0|1}
 
 #### `containsModule(module)`
 
+---
+### containsModule
+
 * `module` {Module}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `disconnectFromGroups()`
 
-* Returns: {void}
+---
+### disconnectFromGroups
+
+* ###Returns: {void}
 
 #### `getAllAsyncChunks()`
 
-* Returns: {Set<Chunk>}
+---
+### getAllAsyncChunks
+
+* ###Returns: {Set<Chunk>}
 
 #### `getAllInitialChunks()`
 
-* Returns: {Set<Chunk>}
+---
+### getAllInitialChunks
+
+* ###Returns: {Set<Chunk>}
 
 #### `getAllReferencedAsyncEntrypoints()`
 
-* Returns: {Set<Entrypoint>}
+---
+### getAllReferencedAsyncEntrypoints
+
+* ###Returns: {Set<Entrypoint>}
 
 #### `getAllReferencedChunks()`
 
-* Returns: {Set<Chunk>}
+---
+### getAllReferencedChunks
+
+* ###Returns: {Set<Chunk>}
 
 #### `getChildIdsByOrders(chunkGraph[, filterFn])`
 
+---
+### getChildIdsByOrders
+
 * `chunkGraph` {ChunkGraph}
 * `filterFn` {object}
-* Returns: {Record<string, ChunkId[]>}
+
+* ###Returns: {Record<string, ChunkId[]>}
 
 #### `getChildIdsByOrdersMap(chunkGraph[, includeDirectChildren][, filterFn])`
+
+---
+### getChildIdsByOrdersMap
 
 * `chunkGraph` {ChunkGraph}
 * `includeDirectChildren` {boolean}
 * `filterFn` {object}
-* Returns: {ChunkChildIdsByOrdersMapByData}
+
+* ###Returns: {ChunkChildIdsByOrdersMapByData}
 
 #### `getChildrenOfTypeInOrder(chunkGraph, type)`
 
+---
+### getChildrenOfTypeInOrder
+
 * `chunkGraph` {ChunkGraph}
 * `type` {string}
-* Returns: {ChunkChildOfTypeInOrder[]}
+
+* ###Returns: {ChunkChildOfTypeInOrder[]}
 
 #### `getChunkMaps(realHash)`
+
+---
+### getChunkMaps
 
 > Stability: 0 - Deprecated
 
 * `realHash` {boolean}
-* Returns: {ChunkMaps}
+
+* ###Returns: {ChunkMaps}
 
 #### `getChunkModuleMaps(filterFn)`
 
+---
+### getChunkModuleMaps
+
 * `filterFn` {object}
-* Returns: {ChunkModuleMaps}
+
+* ###Returns: {ChunkModuleMaps}
 
 #### `getEntryOptions()`
 
-* Returns: {EntryOptions}
+---
+### getEntryOptions
+
+* ###Returns: {EntryOptions}
 
 #### `getModules()`
 
-* Returns: {Module[]}
+---
+### getModules
+
+* ###Returns: {Module[]}
 
 #### `getNumberOfGroups()`
 
-* Returns: {number}
+---
+### getNumberOfGroups
+
+* ###Returns: {number}
 
 #### `getNumberOfModules()`
 
-* Returns: {number}
+---
+### getNumberOfModules
+
+* ###Returns: {number}
 
 #### `hasAsyncChunks()`
 
-* Returns: {boolean}
+---
+### hasAsyncChunks
+
+* ###Returns: {boolean}
 
 #### `hasChildByOrder(chunkGraph, type[, includeDirectChildren][, filterFn])`
+
+---
+### hasChildByOrder
 
 * `chunkGraph` {ChunkGraph}
 * `type` {string}
 * `includeDirectChildren` {boolean}
 * `filterFn` {object}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `hasEntryModule()`
 
-* Returns: {boolean}
+---
+### hasEntryModule
+
+* ###Returns: {boolean}
 
 #### `hasModuleInGraph(filterFn[, filterChunkFn])`
 
+---
+### hasModuleInGraph
+
 * `filterFn` {object}
 * `filterChunkFn` {object}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `hasRuntime()`
 
-* Returns: {boolean}
+---
+### hasRuntime
+
+* ###Returns: {boolean}
 
 #### `integrate(otherChunk)`
 
+---
+### integrate
+
 * `otherChunk` {Chunk}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `integratedSize(otherChunk, options)`
 
+---
+### integratedSize
+
 * `otherChunk` {Chunk}
 * `options` {ChunkSizeOptions}
-* Returns: {number}
+
+* ###Returns: {number}
 
 #### `isEmpty()`
 
-* Returns: {boolean}
+---
+### isEmpty
+
+* ###Returns: {boolean}
 
 #### `isInGroup(chunkGroup)`
 
+---
+### isInGroup
+
 * `chunkGroup` {ChunkGroup}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `isOnlyInitial()`
 
-* Returns: {boolean}
+---
+### isOnlyInitial
+
+* ###Returns: {boolean}
 
 #### `modulesSize()`
 
-* Returns: {number}
+---
+### modulesSize
+
+* ###Returns: {number}
 
 #### `moveModule(module, otherChunk)`
 
+---
+### moveModule
+
 * `module` {Module}
 * `otherChunk` {Chunk}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `remove()`
 
-* Returns: {void}
+---
+### remove
+
+* ###Returns: {void}
 
 #### `removeGroup(chunkGroup)`
 
+---
+### removeGroup
+
 * `chunkGroup` {ChunkGroup}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `removeModule(module)`
 
+---
+### removeModule
+
 * `module` {Module}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `size([options])`
 
+---
+### size
+
 * `options` {ChunkSizeOptions}
-* Returns: {number}
+
+* ###Returns: {number}
 
 #### `split(newChunk)`
 
+---
+### split
+
 * `newChunk` {Chunk}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `updateHash(hash, chunkGraph)`
 
+---
+### updateHash
+
 * `hash` {Hash}
 * `chunkGraph` {ChunkGraph}
-* Returns: {void}
+
+* ###Returns: {void}
 
 ***
 
-## Class: `ChunkGraph`
+## 
+### Class: `ChunkGraph`
 
 ### Constructors
 
 #### `new ChunkGraph(moduleGraph[, hashFunction])`
 
+---
+### ChunkGraph
+
 * `moduleGraph` {ModuleGraph}
 * `hashFunction` {HashFunction}
-* Returns: {ChunkGraph}
+
+* ###Returns: {ChunkGraph}
 
 ### Properties
 
@@ -456,514 +682,859 @@ After this method has succeeded the cache can only be restored when build depend
 
 #### `addChunkRuntimeRequirements(chunk, items)`
 
+---
+### addChunkRuntimeRequirements
+
 * `chunk` {Chunk}
 * `items` {Set<string>}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `addDependentHashModuleToChunk(chunk, module)`
 
+---
+### addDependentHashModuleToChunk
+
 * `chunk` {Chunk}
 * `module` {RuntimeModule}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `addFullHashModuleToChunk(chunk, module)`
 
+---
+### addFullHashModuleToChunk
+
 * `chunk` {Chunk}
 * `module` {RuntimeModule}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `addModuleRuntimeRequirements(module, runtime, items[, transferOwnership])`
+
+---
+### addModuleRuntimeRequirements
 
 * `module` {Module}
 * `runtime` {RuntimeSpec}
 * `items` {Set<string>}
 * `transferOwnership` {boolean}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `addTreeRuntimeRequirements(chunk, items)`
 
+---
+### addTreeRuntimeRequirements
+
 * `chunk` {Chunk}
 * `items` {Iterable<string>}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `attachDependentHashModules(chunk, modules)`
 
+---
+### attachDependentHashModules
+
 * `chunk` {Chunk}
 * `modules` {Iterable<RuntimeModule>}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `attachFullHashModules(chunk, modules)`
 
+---
+### attachFullHashModules
+
 * `chunk` {Chunk}
 * `modules` {Iterable<RuntimeModule>}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `attachModules(chunk, modules)`
 
+---
+### attachModules
+
 * `chunk` {Chunk}
 * `modules` {Iterable<Module>}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `attachRuntimeModules(chunk, modules)`
 
+---
+### attachRuntimeModules
+
 * `chunk` {Chunk}
 * `modules` {Iterable<RuntimeModule>}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `canChunksBeIntegrated(chunkA, chunkB)`
 
+---
+### canChunksBeIntegrated
+
 * `chunkA` {Chunk}
 * `chunkB` {Chunk}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `compareChunks(chunkA, chunkB)`
 
+---
+### compareChunks
+
 * `chunkA` {Chunk}
 * `chunkB` {Chunk}
-* Returns: {-1|0|1}
+
+* ###Returns: {-1|0|1}
 
 #### `connectBlockAndChunkGroup(depBlock, chunkGroup)`
 
+---
+### connectBlockAndChunkGroup
+
 * `depBlock` {AsyncDependenciesBlock}
 * `chunkGroup` {ChunkGroup}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `connectChunkAndEntryModule(chunk, module, entrypoint)`
+
+---
+### connectChunkAndEntryModule
 
 * `chunk` {Chunk}
 * `module` {Module}
 * `entrypoint` {Entrypoint}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `connectChunkAndModule(chunk, module)`
 
+---
+### connectChunkAndModule
+
 * `chunk` {Chunk}
 * `module` {Module}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `connectChunkAndRuntimeModule(chunk, module)`
 
+---
+### connectChunkAndRuntimeModule
+
 * `chunk` {Chunk}
 * `module` {RuntimeModule}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `disconnectChunk(chunk)`
 
+---
+### disconnectChunk
+
 * `chunk` {Chunk}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `disconnectChunkAndEntryModule(chunk, module)`
 
+---
+### disconnectChunkAndEntryModule
+
 * `chunk` {Chunk}
 * `module` {Module}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `disconnectChunkAndModule(chunk, module)`
 
+---
+### disconnectChunkAndModule
+
 * `chunk` {Chunk}
 * `module` {Module}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `disconnectChunkAndRuntimeModule(chunk, module)`
 
+---
+### disconnectChunkAndRuntimeModule
+
 * `chunk` {Chunk}
 * `module` {RuntimeModule}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `disconnectChunkGroup(chunkGroup)`
 
+---
+### disconnectChunkGroup
+
 * `chunkGroup` {ChunkGroup}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `disconnectEntries(chunk)`
 
+---
+### disconnectEntries
+
 * `chunk` {Chunk}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `disconnectEntryModule(module)`
 
+---
+### disconnectEntryModule
+
 * `module` {Module}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `getBlockChunkGroup(depBlock)`
 
+---
+### getBlockChunkGroup
+
 * `depBlock` {AsyncDependenciesBlock}
-* Returns: {ChunkGroup}
+
+* ###Returns: {ChunkGroup}
 
 #### `getChunkConditionMap(chunk, filterFn)`
 
+---
+### getChunkConditionMap
+
 * `chunk` {Chunk}
 * `filterFn` {object}
-* Returns: {ChunkConditionMap}
+
+* ###Returns: {ChunkConditionMap}
 
 #### `getChunkDependentHashModulesIterable(chunk)`
 
+---
+### getChunkDependentHashModulesIterable
+
 * `chunk` {Chunk}
-* Returns: {Iterable<RuntimeModule, any, any>}
+
+* ###Returns: {Iterable<RuntimeModule, any, any>}
 
 #### `getChunkEntryDependentChunksIterable(chunk)`
 
+---
+### getChunkEntryDependentChunksIterable
+
 * `chunk` {Chunk}
-* Returns: {Iterable<Chunk>}
+
+* ###Returns: {Iterable<Chunk>}
 
 #### `getChunkEntryModulesIterable(chunk)`
 
+---
+### getChunkEntryModulesIterable
+
 * `chunk` {Chunk}
-* Returns: {Iterable<Module>}
+
+* ###Returns: {Iterable<Module>}
 
 #### `getChunkEntryModulesWithChunkGroupIterable(chunk)`
 
+---
+### getChunkEntryModulesWithChunkGroupIterable
+
 * `chunk` {Chunk}
-* Returns: {Iterable<Tuple<Module, Entrypoint>>}
+
+* ###Returns: {Iterable<Tuple<Module, Entrypoint>>}
 
 #### `getChunkFullHashModulesIterable(chunk)`
 
+---
+### getChunkFullHashModulesIterable
+
 * `chunk` {Chunk}
-* Returns: {Iterable<RuntimeModule, any, any>}
+
+* ###Returns: {Iterable<RuntimeModule, any, any>}
 
 #### `getChunkFullHashModulesSet(chunk)`
 
+---
+### getChunkFullHashModulesSet
+
 * `chunk` {Chunk}
-* Returns: {ReadonlySet<RuntimeModule>}
+
+* ###Returns: {ReadonlySet<RuntimeModule>}
 
 #### `getChunkModuleIdMap(chunk, filterFn[, includeAllChunks])`
+
+---
+### getChunkModuleIdMap
 
 * `chunk` {Chunk}
 * `filterFn` {object}
 * `includeAllChunks` {boolean}
-* Returns: {ChunkModuleIdMapEs5Alias_2}
+
+* ###Returns: {ChunkModuleIdMapEs5Alias_2}
 
 #### `getChunkModuleRenderedHashMap(chunk, filterFn[, hashLength][, includeAllChunks])`
+
+---
+### getChunkModuleRenderedHashMap
 
 * `chunk` {Chunk}
 * `filterFn` {object}
 * `hashLength` {number}
 * `includeAllChunks` {boolean}
-* Returns: {ChunkModuleHashMap}
+
+* ###Returns: {ChunkModuleHashMap}
 
 #### `getChunkModules(chunk)`
 
+---
+### getChunkModules
+
 * `chunk` {Chunk}
-* Returns: {Module[]}
+
+* ###Returns: {Module[]}
 
 #### `getChunkModulesIterable(chunk)`
 
+---
+### getChunkModulesIterable
+
 * `chunk` {Chunk}
-* Returns: {Iterable<Module>}
+
+* ###Returns: {Iterable<Module>}
 
 #### `getChunkModulesIterableBySourceType(chunk, sourceType)`
 
+---
+### getChunkModulesIterableBySourceType
+
 * `chunk` {Chunk}
 * `sourceType` {string}
-* Returns: {Iterable<Module, any, any>}
+
+* ###Returns: {Iterable<Module, any, any>}
 
 #### `getChunkModuleSourceTypes(chunk, module)`
 
+---
+### getChunkModuleSourceTypes
+
 * `chunk` {Chunk}
 * `module` {Module}
-* Returns: {ReadonlySet<string>}
+
+* ###Returns: {ReadonlySet<string>}
 
 #### `getChunkModulesSize(chunk)`
 
+---
+### getChunkModulesSize
+
 * `chunk` {Chunk}
-* Returns: {number}
+
+* ###Returns: {number}
 
 #### `getChunkModulesSizes(chunk)`
 
+---
+### getChunkModulesSizes
+
 * `chunk` {Chunk}
-* Returns: {Record<string, number>}
+
+* ###Returns: {Record<string, number>}
 
 #### `getChunkRootModules(chunk)`
 
+---
+### getChunkRootModules
+
 * `chunk` {Chunk}
-* Returns: {Module[]}
+
+* ###Returns: {Module[]}
 
 #### `getChunkRuntimeModulesInOrder(chunk)`
 
+---
+### getChunkRuntimeModulesInOrder
+
 * `chunk` {Chunk}
-* Returns: {RuntimeModule[]}
+
+* ###Returns: {RuntimeModule[]}
 
 #### `getChunkRuntimeModulesIterable(chunk)`
 
+---
+### getChunkRuntimeModulesIterable
+
 * `chunk` {Chunk}
-* Returns: {Iterable<RuntimeModule>}
+
+* ###Returns: {Iterable<RuntimeModule>}
 
 #### `getChunkRuntimeRequirements(chunk)`
 
+---
+### getChunkRuntimeRequirements
+
 * `chunk` {Chunk}
-* Returns: {ReadonlySet<string>}
+
+* ###Returns: {ReadonlySet<string>}
 
 #### `getChunkSize(chunk[, options])`
 
+---
+### getChunkSize
+
 * `chunk` {Chunk}
 * `options` {ChunkSizeOptions}
-* Returns: {number}
+
+* ###Returns: {number}
 
 #### `getIntegratedChunksSize(chunkA, chunkB[, options])`
+
+---
+### getIntegratedChunksSize
 
 * `chunkA` {Chunk}
 * `chunkB` {Chunk}
 * `options` {ChunkSizeOptions}
-* Returns: {number}
+
+* ###Returns: {number}
 
 #### `getModuleChunks(module)`
 
+---
+### getModuleChunks
+
 * `module` {Module}
-* Returns: {Chunk[]}
+
+* ###Returns: {Chunk[]}
 
 #### `getModuleChunksIterable(module)`
 
+---
+### getModuleChunksIterable
+
 * `module` {Module}
-* Returns: {Iterable<Chunk>}
+
+* ###Returns: {Iterable<Chunk>}
 
 #### `getModuleGraphHash(module, runtime[, withConnections])`
 
+---
+### getModuleGraphHash
+
 * `module` {Module}
 * `runtime` {RuntimeSpec}
 * `withConnections` {boolean}
-* Returns: {string}
+
+* ###Returns: {string}
 
 #### `getModuleGraphHashBigInt(module, runtime[, withConnections])`
 
+---
+### getModuleGraphHashBigInt
+
 * `module` {Module}
 * `runtime` {RuntimeSpec}
 * `withConnections` {boolean}
-* Returns: {bigint}
+
+* ###Returns: {bigint}
 
 #### `getModuleHash(module, runtime)`
 
+---
+### getModuleHash
+
 * `module` {Module}
 * `runtime` {RuntimeSpec}
-* Returns: {string}
+
+* ###Returns: {string}
 
 #### `getModuleId(module)`
 
+---
+### getModuleId
+
 * `module` {Module}
-* Returns: {string|number}
+
+* ###Returns: {string|number}
 
 #### `getModuleRuntimeRequirements(module, runtime)`
 
+---
+### getModuleRuntimeRequirements
+
 * `module` {Module}
 * `runtime` {RuntimeSpec}
-* Returns: {ReadonlySet<string>}
+
+* ###Returns: {ReadonlySet<string>}
 
 #### `getModuleRuntimes(module)`
 
+---
+### getModuleRuntimes
+
 * `module` {Module}
-* Returns: {RuntimeSpecSet}
+
+* ###Returns: {RuntimeSpecSet}
 
 #### `getModuleSourceTypes(module)`
 
+---
+### getModuleSourceTypes
+
 * `module` {Module}
-* Returns: {ReadonlySet<string>}
+
+* ###Returns: {ReadonlySet<string>}
 
 #### `getNumberOfChunkFullHashModules(chunk)`
 
+---
+### getNumberOfChunkFullHashModules
+
 * `chunk` {Chunk}
-* Returns: {number}
+
+* ###Returns: {number}
 
 #### `getNumberOfChunkModules(chunk)`
 
+---
+### getNumberOfChunkModules
+
 * `chunk` {Chunk}
-* Returns: {number}
+
+* ###Returns: {number}
 
 #### `getNumberOfEntryModules(chunk)`
 
+---
+### getNumberOfEntryModules
+
 * `chunk` {Chunk}
-* Returns: {number}
+
+* ###Returns: {number}
 
 #### `getNumberOfModuleChunks(module)`
 
+---
+### getNumberOfModuleChunks
+
 * `module` {Module}
-* Returns: {number}
+
+* ###Returns: {number}
 
 #### `getNumberOfRuntimeModules(chunk)`
 
+---
+### getNumberOfRuntimeModules
+
 * `chunk` {Chunk}
-* Returns: {number}
+
+* ###Returns: {number}
 
 #### `getOrderedChunkModules(chunk, comparator)`
 
+---
+### getOrderedChunkModules
+
 * `chunk` {Chunk}
 * `comparator` {object}
-* Returns: {Module[]}
+
+* ###Returns: {Module[]}
 
 #### `getOrderedChunkModulesIterable(chunk, comparator)`
 
+---
+### getOrderedChunkModulesIterable
+
 * `chunk` {Chunk}
 * `comparator` {object}
-* Returns: {Iterable<Module>}
+
+* ###Returns: {Iterable<Module>}
 
 #### `getOrderedChunkModulesIterableBySourceType(chunk, sourceType, comparator)`
+
+---
+### getOrderedChunkModulesIterableBySourceType
 
 * `chunk` {Chunk}
 * `sourceType` {string}
 * `comparator` {object}
-* Returns: {Iterable<Module, any, any>}
+
+* ###Returns: {Iterable<Module, any, any>}
 
 #### `getOrderedModuleChunksIterable(module, sortFn)`
 
+---
+### getOrderedModuleChunksIterable
+
 * `module` {Module}
 * `sortFn` {object}
-* Returns: {Iterable<Chunk>}
+
+* ###Returns: {Iterable<Chunk>}
 
 #### `getRenderedModuleHash(module, runtime)`
 
+---
+### getRenderedModuleHash
+
 * `module` {Module}
 * `runtime` {RuntimeSpec}
-* Returns: {string}
+
+* ###Returns: {string}
 
 #### `getRuntimeChunkDependentChunksIterable(chunk)`
 
+---
+### getRuntimeChunkDependentChunksIterable
+
 * `chunk` {Chunk}
-* Returns: {Iterable<Chunk>}
+
+* ###Returns: {Iterable<Chunk>}
 
 #### `getRuntimeId(runtime)`
 
+---
+### getRuntimeId
+
 * `runtime` {string}
-* Returns: {RuntimeId}
+
+* ###Returns: {RuntimeId}
 
 #### `getTreeRuntimeRequirements(chunk)`
 
+---
+### getTreeRuntimeRequirements
+
 * `chunk` {Chunk}
-* Returns: {ReadonlySet<string>}
+
+* ###Returns: {ReadonlySet<string>}
 
 #### `hasChunkEntryDependentChunks(chunk)`
 
+---
+### hasChunkEntryDependentChunks
+
 * `chunk` {Chunk}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `hasModuleHashes(module, runtime)`
 
+---
+### hasModuleHashes
+
 * `module` {Module}
 * `runtime` {RuntimeSpec}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `hasModuleInGraph(chunk, filterFn[, filterChunkFn])`
+
+---
+### hasModuleInGraph
 
 * `chunk` {Chunk}
 * `filterFn` {object}
 * `filterChunkFn` {object}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `integrateChunks(chunkA, chunkB)`
 
+---
+### integrateChunks
+
 * `chunkA` {Chunk}
 * `chunkB` {Chunk}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `isEntryModule(module)`
 
+---
+### isEntryModule
+
 * `module` {Module}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `isEntryModuleInChunk(module, chunk)`
 
+---
+### isEntryModuleInChunk
+
 * `module` {Module}
 * `chunk` {Chunk}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `isModuleInChunk(module, chunk)`
 
+---
+### isModuleInChunk
+
 * `module` {Module}
 * `chunk` {Chunk}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `isModuleInChunkGroup(module, chunkGroup)`
 
+---
+### isModuleInChunkGroup
+
 * `module` {Module}
 * `chunkGroup` {ChunkGroup}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `replaceModule(oldModule, newModule)`
 
+---
+### replaceModule
+
 * `oldModule` {Module}
 * `newModule` {Module}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `setChunkModuleSourceTypes(chunk, module, sourceTypes)`
+
+---
+### setChunkModuleSourceTypes
 
 * `chunk` {Chunk}
 * `module` {Module}
 * `sourceTypes` {ReadonlySet<string>}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `setModuleHashes(module, runtime, hash, renderedHash)`
+
+---
+### setModuleHashes
 
 * `module` {Module}
 * `runtime` {RuntimeSpec}
 * `hash` {string}
 * `renderedHash` {string}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `setModuleId(module, id)`
 
+---
+### setModuleId
+
 * `module` {Module}
 * `id` {ModuleId}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `setRuntimeId(runtime, id)`
 
+---
+### setRuntimeId
+
 * `runtime` {string}
 * `id` {RuntimeId}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `upgradeDependentToFullHashModules(chunk)`
 
+---
+### upgradeDependentToFullHashModules
+
 * `chunk` {Chunk}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### Static method: `clearChunkGraphForChunk(chunk)`
 
+---
+### clearChunkGraphForChunk
+
 > Stability: 0 - Deprecated
 
 * `chunk` {Chunk}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### Static method: `clearChunkGraphForModule(module)`
 
+---
+### clearChunkGraphForModule
+
 > Stability: 0 - Deprecated
 
 * `module` {Module}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### Static method: `getChunkGraphForChunk(chunk, deprecateMessage, deprecationCode)`
 
+---
+### getChunkGraphForChunk
+
 > Stability: 0 - Deprecated
 
 * `chunk` {Chunk}
 * `deprecateMessage` {string}
 * `deprecationCode` {string}
-* Returns: {ChunkGraph}
+
+* ###Returns: {ChunkGraph}
 
 #### Static method: `getChunkGraphForModule(module, deprecateMessage, deprecationCode)`
 
+---
+### getChunkGraphForModule
+
 > Stability: 0 - Deprecated
 
 * `module` {Module}
 * `deprecateMessage` {string}
 * `deprecationCode` {string}
-* Returns: {ChunkGraph}
+
+* ###Returns: {ChunkGraph}
 
 #### Static method: `setChunkGraphForChunk(chunk, chunkGraph)`
+
+---
+### setChunkGraphForChunk
 
 > Stability: 0 - Deprecated
 
 * `chunk` {Chunk}
 * `chunkGraph` {ChunkGraph}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### Static method: `setChunkGraphForModule(module, chunkGraph)`
+
+---
+### setChunkGraphForModule
 
 > Stability: 0 - Deprecated
 
 * `module` {Module}
 * `chunkGraph` {ChunkGraph}
-* Returns: {void}
+
+* ###Returns: {void}
 
 ***
 
-## Class: `ChunkGroup`
+## 
+### Class: `ChunkGroup`
 
 ### Extended by
 
@@ -973,7 +1544,10 @@ After this method has succeeded the cache can only be restored when build depend
 
 #### `new ChunkGroup()`
 
-* Returns: {ChunkGroup}
+---
+### ChunkGroup
+
+* ###Returns: {ChunkGroup}
 
 ### Properties
 
@@ -997,190 +1571,312 @@ sets a new name for current ChunkGroup
 
 #### `addAsyncEntrypoint(entrypoint)`
 
+---
+### addAsyncEntrypoint
+
 * `entrypoint` {Entrypoint}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `addBlock(block)`
 
+---
+### addBlock
+
 * `block` {AsyncDependenciesBlock}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `addChild(group)`
 
+---
+### addChild
+
 * `group` {ChunkGroup}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `addOptions(options)`
 
+---
+### addOptions
+
 * `options` {ChunkGroupOptions}
-* Returns: {void}
+
+* ###Returns: {void}
 
 when a new chunk is added to a chunkGroup, addingOptions will occur.
 
 #### `addOrigin(module, loc, request)`
 
+---
+### addOrigin
+
 * `module` {Module}
 * `loc` {DependencyLocation}
 * `request` {string}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `addParent(parentChunk)`
 
+---
+### addParent
+
 * `parentChunk` {ChunkGroup}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `checkConstraints()`
 
-* Returns: {void}
+---
+### checkConstraints
+
+* ###Returns: {void}
 
 #### `compareTo(chunkGraph, otherGroup)`
 
+---
+### compareTo
+
 * `chunkGraph` {ChunkGraph}
 * `otherGroup` {ChunkGroup}
-* Returns: {-1|0|1}
+
+* ###Returns: {-1|0|1}
 
 Sorting predicate which allows current ChunkGroup to be compared against another.
 Sorting values are based off of number of chunks in ChunkGroup.
 
 #### `getBlocks()`
 
-* Returns: {AsyncDependenciesBlock[]}
+---
+### getBlocks
+
+* ###Returns: {AsyncDependenciesBlock[]}
 
 #### `getChildren()`
 
-* Returns: {ChunkGroup[]}
+---
+### getChildren
+
+* ###Returns: {ChunkGroup[]}
 
 #### `getChildrenByOrders(moduleGraph, chunkGraph)`
 
+---
+### getChildrenByOrders
+
 * `moduleGraph` {ModuleGraph}
 * `chunkGraph` {ChunkGraph}
-* Returns: {Record<string, ChunkGroup[]>}
+
+* ###Returns: {Record<string, ChunkGroup[]>}
 
 #### `getFiles()`
 
-* Returns: {string[]}
+---
+### getFiles
+
+* ###Returns: {string[]}
 
 #### `getModulePostOrderIndex(module)`
 
+---
+### getModulePostOrderIndex
+
 * `module` {Module}
-* Returns: {number}
+
+* ###Returns: {number}
 
 Gets the bottom-up index of a module in this ChunkGroup
 
 #### `getModulePreOrderIndex(module)`
 
+---
+### getModulePreOrderIndex
+
 * `module` {Module}
-* Returns: {number}
+
+* ###Returns: {number}
 
 Gets the top-down index of a module in this ChunkGroup
 
 #### `getNumberOfBlocks()`
 
-* Returns: {number}
+---
+### getNumberOfBlocks
+
+* ###Returns: {number}
 
 #### `getNumberOfChildren()`
 
-* Returns: {number}
+---
+### getNumberOfChildren
+
+* ###Returns: {number}
 
 #### `getNumberOfParents()`
 
-* Returns: {number}
+---
+### getNumberOfParents
+
+* ###Returns: {number}
 
 #### `getParents()`
 
-* Returns: {ChunkGroup[]}
+---
+### getParents
+
+* ###Returns: {ChunkGroup[]}
 
 #### `hasBlock(block)`
 
+---
+### hasBlock
+
 * `block` {AsyncDependenciesBlock}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `hasParent(parent)`
 
+---
+### hasParent
+
 * `parent` {ChunkGroup}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `insertChunk(chunk, before)`
 
+---
+### insertChunk
+
 * `chunk` {Chunk}
 * `before` {Chunk}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 inserts a chunk before another existing chunk in group
 
 #### `isInitial()`
 
-* Returns: {boolean}
+---
+### isInitial
+
+* ###Returns: {boolean}
 
 #### `pushChunk(chunk)`
 
+---
+### pushChunk
+
 * `chunk` {Chunk}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 add a chunk into ChunkGroup. Is pushed on or prepended
 
 #### `remove()`
 
-* Returns: {void}
+---
+### remove
+
+* ###Returns: {void}
 
 #### `removeChild(group)`
 
+---
+### removeChild
+
 * `group` {ChunkGroup}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `removeChunk(chunk)`
 
+---
+### removeChunk
+
 * `chunk` {Chunk}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `removeParent(chunkGroup)`
 
+---
+### removeParent
+
 * `chunkGroup` {ChunkGroup}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `replaceChunk(oldChunk, newChunk)`
 
+---
+### replaceChunk
+
 * `oldChunk` {Chunk}
 * `newChunk` {Chunk}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `setModulePostOrderIndex(module, index)`
 
+---
+### setModulePostOrderIndex
+
 * `module` {Module}
 * `index` {number}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Sets the bottom-up index of a module in this ChunkGroup
 
 #### `setModulePreOrderIndex(module, index)`
 
+---
+### setModulePreOrderIndex
+
 * `module` {Module}
 * `index` {number}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Sets the top-down index of a module in this ChunkGroup
 
 #### `sortItems()`
 
-* Returns: {void}
+---
+### sortItems
+
+* ###Returns: {void}
 
 #### `unshiftChunk(chunk)`
 
+---
+### unshiftChunk
+
 * `chunk` {Chunk}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 Performs an unshift of a specific chunk
 
 ***
 
-## Class: `CleanPlugin`
+## 
+### Class: `CleanPlugin`
 
 ### Constructors
 
 #### `new CleanPlugin([options])`
 
+---
+### CleanPlugin
+
 * `options` {CleanOptions}
-* Returns: {CleanPlugin}
+
+* ###Returns: {CleanPlugin}
 
 ### Properties
 
@@ -1190,25 +1886,37 @@ Performs an unshift of a specific chunk
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Apply the plugin
 
 #### Static method: `getCompilationHooks(compilation)`
 
+---
+### getCompilationHooks
+
 * `compilation` {Compilation}
-* Returns: {CleanPluginCompilationHooks}
+
+* ###Returns: {CleanPluginCompilationHooks}
 
 ***
 
-## Class: `CodeGenerationResults`
+## 
+### Class: `CodeGenerationResults`
 
 ### Constructors
 
 #### `new CodeGenerationResults()`
 
-* Returns: {CodeGenerationResults}
+---
+### CodeGenerationResults
+
+* ###Returns: {CodeGenerationResults}
 
 ### Properties
 
@@ -1218,60 +1926,93 @@ Apply the plugin
 
 #### `add(module, runtime, result)`
 
+---
+### add
+
 * `module` {Module}
 * `runtime` {RuntimeSpec}
 * `result` {CodeGenerationResult}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `get(module, runtime)`
 
+---
+### get
+
 * `module` {Module}
 * `runtime` {RuntimeSpec}
-* Returns: {CodeGenerationResult}
+
+* ###Returns: {CodeGenerationResult}
 
 #### `getData(module, runtime, key)`
+
+---
+### getData
 
 * `module` {Module}
 * `runtime` {RuntimeSpec}
 * `key` {string}
-* Returns: {any}
+
+* ###Returns: {any}
 
 #### `getHash(module, runtime)`
 
+---
+### getHash
+
 * `module` {Module}
 * `runtime` {RuntimeSpec}
-* Returns: {string}
+
+* ###Returns: {string}
 
 #### `getRuntimeRequirements(module, runtime)`
 
+---
+### getRuntimeRequirements
+
 * `module` {Module}
 * `runtime` {RuntimeSpec}
-* Returns: {ReadonlySet<string>}
+
+* ###Returns: {ReadonlySet<string>}
 
 #### `getSource(module, runtime, sourceType)`
+
+---
+### getSource
 
 * `module` {Module}
 * `runtime` {RuntimeSpec}
 * `sourceType` {string}
-* Returns: {Source}
+
+* ###Returns: {Source}
 
 #### `has(module, runtime)`
 
+---
+### has
+
 * `module` {Module}
 * `runtime` {RuntimeSpec}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 ***
 
-## Class: `Compilation`
+## 
+### Class: `Compilation`
 
 ### Constructors
 
 #### `new Compilation(compiler, params)`
 
+---
+### Compilation
+
 * `compiler` {Compiler}
 * `params` {CompilationParams}
-* Returns: {Compilation}
+
+* ###Returns: {Compilation}
 
 Creates an instance of Compilation.
 
@@ -1372,115 +2113,180 @@ e. g. creating an assets manifest of Service Workers.
 
 #### `addAsyncEntrypoint(options, module, loc, request)`
 
+---
+### addAsyncEntrypoint
+
 * `options` {EntryOptions}
 * `module` {Module}
 * `loc` {DependencyLocation}
 * `request` {string}
-* Returns: {Entrypoint}
+
+* ###Returns: {Entrypoint}
 
 #### `addChunk([name])`
 
+---
+### addChunk
+
 * `name` {string}
-* Returns: {Chunk}
+
+* ###Returns: {Chunk}
 
 This method first looks to see if a name is provided for a new chunk,
 and first looks to see if any named chunks already exist and reuse that chunk instead.
 
 #### `addChunkInGroup(groupOptions[, module][, loc][, request])`
 
+---
+### addChunkInGroup
+
 * `groupOptions` {string|ChunkGroupOptions}
 * `module` {Module}
 * `loc` {SyntheticDependencyLocation|RealDependencyLocation}
 * `request` {string}
-* Returns: {ChunkGroup}
+
+* ###Returns: {ChunkGroup}
 
 If `module` is passed, `loc` and `request` must also be passed.
 
 #### `addEntry(context, entry, optionsOrName, callback)`
 
+---
+### addEntry
+
 * `context` {string}
 * `entry` {Dependency}
 * `optionsOrName` {string|EntryOptions}
 * `callback` {object}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `addInclude(context, dependency, options, callback)`
+
+---
+### addInclude
 
 * `context` {string}
 * `dependency` {Dependency}
 * `options` {EntryOptions}
 * `callback` {object}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `addModule(module, callback)`
 
+---
+### addModule
+
 * `module` {Module}
 * `callback` {object}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `addModuleChain(context, dependency, callback)`
+
+---
+### addModuleChain
 
 * `context` {string}
 * `dependency` {Dependency}
 * `callback` {object}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `addModuleTree(__namedParameters, callback)`
 
+---
+### addModuleTree
+
 * `__namedParameters` {object}
 * `callback` {object}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `addRuntimeModule(chunk, module[, chunkGraph])`
+
+---
+### addRuntimeModule
 
 * `chunk` {Chunk}
 * `module` {RuntimeModule}
 * `chunkGraph` {ChunkGraph}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `assignDepth(module)`
+
+---
+### assignDepth
 
 > Stability: 0 - Deprecated
 
 * `module` {Module}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `assignDepths(modules)`
 
+---
+### assignDepths
+
 * `modules` {Set<Module>}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `assignRuntimeIds()`
 
-* Returns: {void}
+---
+### assignRuntimeIds
+
+* ###Returns: {void}
 
 #### `buildModule(module, callback)`
 
+---
+### buildModule
+
 * `module` {Module}
 * `callback` {object}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Schedules a build of the module object
 
 #### `checkConstraints()`
 
-* Returns: {void}
+---
+### checkConstraints
+
+* ###Returns: {void}
 
 #### `clearAssets()`
 
-* Returns: {void}
+---
+### clearAssets
+
+* ###Returns: {void}
 
 #### `codeGeneration(callback)`
 
+---
+### codeGeneration
+
 * `callback` {object}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `createChildCompiler(name[, outputOptions][, plugins])`
+
+---
+### createChildCompiler
 
 * `name` {string}
 * `outputOptions` {Partial<OutputNormalized>}
 * `plugins` {false|""|0|object|WebpackPluginInstance[]}
-* Returns: {Compiler}
+
+* ###Returns: {Compiler}
 
 This function allows you to run another instance of webpack inside of webpack however as
 a child with different settings and configurations (if desired) applied. It copies all hooks, plugins
@@ -1488,248 +2294,415 @@ from parent (or top level compiler) and creates a child Compilation
 
 #### `createChunkAssets(callback)`
 
+---
+### createChunkAssets
+
 * `callback` {object}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `createHash()`
 
-* Returns: {CodeGenerationJob[]}
+---
+### createHash
+
+* ###Returns: {CodeGenerationJob[]}
 
 #### `createModuleAssets()`
 
-* Returns: {void}
+---
+### createModuleAssets
+
+* ###Returns: {void}
 
 #### `createModuleHashes()`
 
-* Returns: {void}
+---
+### createModuleHashes
+
+* ###Returns: {void}
 
 #### `createStatsFactory(options)`
 
+---
+### createStatsFactory
+
 * `options` {NormalizedStatsOptions}
-* Returns: {StatsFactory}
+
+* ###Returns: {StatsFactory}
 
 #### `createStatsOptions([optionsOrPreset][, context])`
 
+---
+### createStatsOptions
+
 * `optionsOrPreset` {string|boolean|StatsOptions}
 * `context` {CreateStatsOptionsContext}
-* Returns: {NormalizedStatsOptions}
+
+* ###Returns: {NormalizedStatsOptions}
 
 #### `createStatsPrinter(options)`
 
+---
+### createStatsPrinter
+
 * `options` {NormalizedStatsOptions}
-* Returns: {StatsPrinter}
+
+* ###Returns: {StatsPrinter}
 
 #### `deleteAsset(file)`
 
+---
+### deleteAsset
+
 * `file` {string}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `emitAsset(file, source[, assetInfo])`
+
+---
+### emitAsset
 
 * `file` {string}
 * `source` {Source}
 * `assetInfo` {AssetInfo}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `executeModule(module, options, callback)`
+
+---
+### executeModule
 
 * `module` {Module}
 * `options` {ExecuteModuleOptions}
 * `callback` {object}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `factorizeModule(options, callback)`
 
 ##### Call Signature
 
+---
+### factorizeModule
+
 * `options` {FactorizeModuleOptions|object}
 * `callback` {object}
-* Returns: {void}
+
+* ###Returns: {void}
 
 ##### Call Signature
 
+---
+### factorizeModule
+
 * `options` {FactorizeModuleOptions|object}
 * `callback` {object}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `findModule(identifier)`
 
+---
+### findModule
+
 * `identifier` {string}
-* Returns: {Module}
+
+* ###Returns: {Module}
 
 Attempts to search for a module by its identifier
 
 #### `finish(callback)`
 
+---
+### finish
+
 * `callback` {object}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `getAsset(name)`
 
+---
+### getAsset
+
 * `name` {string}
-* Returns: {Readonly<Asset>}
+
+* ###Returns: {Readonly<Asset>}
 
 #### `getAssetPath(filename, data)`
 
+---
+### getAssetPath
+
 * `filename` {TemplatePath}
 * `data` {PathData}
-* Returns: {string}
+
+* ###Returns: {string}
 
 #### `getAssetPathWithInfo(filename, data)`
 
+---
+### getAssetPathWithInfo
+
 * `filename` {TemplatePath}
 * `data` {PathData}
-* Returns: {InterpolatedPathAndAssetInfo}
+
+* ###Returns: {InterpolatedPathAndAssetInfo}
 
 #### `getAssets()`
 
-* Returns: {Readonly<Asset>[]}
+---
+### getAssets
+
+* ###Returns: {Readonly<Asset>[]}
 
 #### `getCache(name)`
 
+---
+### getCache
+
 * `name` {string}
-* Returns: {CacheFacade}
+
+* ###Returns: {CacheFacade}
 
 #### `getDependencyReferencedExports(dependency, runtime)`
 
+---
+### getDependencyReferencedExports
+
 * `dependency` {Dependency}
 * `runtime` {RuntimeSpec}
-* Returns: {string[]|ReferencedExport[]}
+
+* ###Returns: {string[]|ReferencedExport[]}
 
 #### `getErrors()`
 
-* Returns: {Error[]}
+---
+### getErrors
+
+* ###Returns: {Error[]}
 
 #### `getLogger(name)`
 
+---
+### getLogger
+
 * `name` {string|object}
-* Returns: {WebpackLogger}
+
+* ###Returns: {WebpackLogger}
 
 #### `getModule(module)`
 
+---
+### getModule
+
 * `module` {Module}
-* Returns: {Module}
+
+* ###Returns: {Module}
 
 Fetches a module from a compilation by its identifier
 
 #### `getPath(filename[, data])`
 
+---
+### getPath
+
 * `filename` {TemplatePath}
 * `data` {PathData}
-* Returns: {string}
+
+* ###Returns: {string}
 
 #### `getPathWithInfo(filename[, data])`
 
+---
+### getPathWithInfo
+
 * `filename` {TemplatePath}
 * `data` {PathData}
-* Returns: {InterpolatedPathAndAssetInfo}
+
+* ###Returns: {InterpolatedPathAndAssetInfo}
 
 #### `getRenderManifest(options)`
 
+---
+### getRenderManifest
+
 * `options` {RenderManifestOptions}
-* Returns: {RenderManifestEntry[]}
+
+* ###Returns: {RenderManifestEntry[]}
 
 #### `getStats()`
 
-* Returns: {Stats}
+---
+### getStats
+
+* ###Returns: {Stats}
 
 #### `getWarnings()`
 
-* Returns: {Error[]}
+---
+### getWarnings
+
+* ###Returns: {Error[]}
 
 #### `handleModuleCreation(__namedParameters, callback)`
 
+---
+### handleModuleCreation
+
 * `__namedParameters` {HandleModuleCreationOptions}
 * `callback` {object}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `patchChunksAfterReasonRemoval(module, chunk)`
 
+---
+### patchChunksAfterReasonRemoval
+
 * `module` {Module}
 * `chunk` {Chunk}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `processModuleDependencies(module, callback)`
 
+---
+### processModuleDependencies
+
 * `module` {Module}
 * `callback` {object}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `processModuleDependenciesNonRecursive(module)`
 
+---
+### processModuleDependenciesNonRecursive
+
 * `module` {Module}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `processRuntimeRequirements([__namedParameters])`
 
+---
+### processRuntimeRequirements
+
 * `__namedParameters` {object}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `rebuildModule(module, callback)`
 
+---
+### rebuildModule
+
 * `module` {Module}
 * `callback` {object}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `removeChunkFromDependencies(block, chunk)`
 
+---
+### removeChunkFromDependencies
+
 * `block` {DependenciesBlock}
 * `chunk` {Chunk}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `removeReasonsOfDependencyBlock(module, block)`
 
+---
+### removeReasonsOfDependencyBlock
+
 * `module` {Module}
 * `block` {DependenciesBlockLike}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `renameAsset(file, newFile)`
 
+---
+### renameAsset
+
 * `file` {string}
 * `newFile` {string}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `reportDependencyErrorsAndWarnings(module, blocks)`
 
+---
+### reportDependencyErrorsAndWarnings
+
 * `module` {Module}
 * `blocks` {DependenciesBlock[]}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `seal(callback)`
 
+---
+### seal
+
 * `callback` {object}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `sortItemsWithChunkIds()`
 
-* Returns: {void}
+---
+### sortItemsWithChunkIds
+
+* ###Returns: {void}
 
 #### `summarizeDependencies()`
 
-* Returns: {void}
+---
+### summarizeDependencies
+
+* ###Returns: {void}
 
 #### `unseal()`
 
-* Returns: {void}
+---
+### unseal
+
+* ###Returns: {void}
 
 #### `updateAsset(file, newSourceOrFunction[, assetInfoUpdateOrFunction])`
+
+---
+### updateAsset
 
 * `file` {string}
 * `newSourceOrFunction` {Source|object}
 * `assetInfoUpdateOrFunction` {AssetInfo|object}
-* Returns: {void}
+
+* ###Returns: {void}
 
 ***
 
-## Class: `Compiler`
+## 
+### Class: `Compiler`
 
 ### Constructors
 
 #### `new Compiler(context[, options])`
 
+---
+### Compiler
+
 * `context` {string}
 * `options` {WebpackOptionsNormalized}
-* Returns: {Compiler}
+
+* ###Returns: {Compiler}
 
 ### Properties
 
@@ -1772,120 +2745,197 @@ Fetches a module from a compilation by its identifier
 
 #### `close(callback)`
 
+---
+### close
+
 * `callback` {object}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `compile(callback)`
 
+---
+### compile
+
 * `callback` {CallbackWebpackFunction_2<Compilation, void>}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `createChildCompiler(compilation, compilerName, compilerIndex[, outputOptions][, plugins])`
+
+---
+### createChildCompiler
 
 * `compilation` {Compilation}
 * `compilerName` {string}
 * `compilerIndex` {number}
 * `outputOptions` {Partial<OutputNormalized>}
 * `plugins` {false|""|0|WebpackPluginInstance|object[]}
-* Returns: {Compiler}
+
+* ###Returns: {Compiler}
 
 #### `createCompilation(params)`
 
+---
+### createCompilation
+
 * `params` {CompilationParams}
-* Returns: {Compilation}
+
+* ###Returns: {Compilation}
 
 #### `createContextModuleFactory()`
 
-* Returns: {ContextModuleFactory}
+---
+### createContextModuleFactory
+
+* ###Returns: {ContextModuleFactory}
 
 #### `createNormalModuleFactory()`
 
-* Returns: {NormalModuleFactory}
+---
+### createNormalModuleFactory
+
+* ###Returns: {NormalModuleFactory}
 
 #### `emitAssets(compilation, callback)`
 
+---
+### emitAssets
+
 * `compilation` {Compilation}
 * `callback` {object}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `emitRecords(callback)`
 
+---
+### emitRecords
+
 * `callback` {object}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `getCache(name)`
 
+---
+### getCache
+
 * `name` {string}
-* Returns: {CacheFacade}
+
+* ###Returns: {CacheFacade}
 
 #### `getInfrastructureLogger(name)`
 
+---
+### getInfrastructureLogger
+
 * `name` {string|object}
-* Returns: {WebpackLogger}
+
+* ###Returns: {WebpackLogger}
 
 #### `isChild()`
 
-* Returns: {boolean}
+---
+### isChild
+
+* ###Returns: {boolean}
 
 #### `newCompilation(params)`
 
+---
+### newCompilation
+
 * `params` {CompilationParams}
-* Returns: {Compilation}
+
+* ###Returns: {Compilation}
 
 #### `newCompilationParams()`
 
-* Returns: {object}
+---
+### newCompilationParams
+
+* ###Returns: {object}
 
 #### `purgeInputFileSystem()`
 
-* Returns: {void}
+---
+### purgeInputFileSystem
+
+* ###Returns: {void}
 
 #### `readRecords(callback)`
 
+---
+### readRecords
+
 * `callback` {object}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `run(callback)`
 
+---
+### run
+
 * `callback` {CallbackWebpackFunction_2<Stats, void>}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `runAsChild(callback)`
 
+---
+### runAsChild
+
 * `callback` {object}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `validate(schema, value[, options][, check])`
+
+---
+### validate
 
 ###### T
 
 `T` *extends* {object|object[]} = {object}
+
 * `schema` {JSONSchema4|ExtendedSchema|JSONSchema6|ExtendedSchema|JSONSchema7|ExtendedSchema|object}
 * `value` {T}
 * `options` {ValidationErrorConfiguration}
 * `check` {object}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Schema validation function with optional pre-compiled check
 
 #### `watch(watchOptions, handler)`
 
+---
+### watch
+
 * `watchOptions` {WatchOptions}
 * `handler` {CallbackWebpackFunction_2<Stats, void>}
-* Returns: {Watching}
+
+* ###Returns: {Watching}
 
 ***
 
-## Class: `ConcatenationScope`
+## 
+### Class: `ConcatenationScope`
 
 ### Constructors
 
 #### `new ConcatenationScope(modulesMap, currentModule, usedNames)`
 
+---
+### ConcatenationScope
+
 * `modulesMap` {ModuleInfo[]|Map<Module, ModuleInfo>}
 * `currentModule` {ConcatenatedModuleInfo}
 * `usedNames` {Set<string>}
-* Returns: {ConcatenationScope}
+
+* ###Returns: {ConcatenationScope}
 
 ### Properties
 
@@ -1897,63 +2947,104 @@ Schema validation function with optional pre-compiled check
 
 #### `createModuleReference(module, __namedParameters)`
 
+---
+### createModuleReference
+
 * `module` {Module}
 * `__namedParameters` {Partial<ModuleReferenceOptions>}
-* Returns: {string}
+
+* ###Returns: {string}
 
 #### `getRawExport(exportName)`
 
+---
+### getRawExport
+
 * `exportName` {string}
-* Returns: {string}
+
+* ###Returns: {string}
 
 #### `isModuleInScope(module)`
 
+---
+### isModuleInScope
+
 * `module` {Module}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `registerExport(exportName, symbol)`
 
+---
+### registerExport
+
 * `exportName` {string}
 * `symbol` {string}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `registerNamespaceExport(symbol)`
 
+---
+### registerNamespaceExport
+
 * `symbol` {string}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `registerRawExport(exportName, expression)`
 
+---
+### registerRawExport
+
 * `exportName` {string}
 * `expression` {string}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `setRawExportMap(exportName, expression)`
 
+---
+### setRawExportMap
+
 * `exportName` {string}
 * `expression` {string}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### Static method: `isModuleReference(name)`
 
+---
+### isModuleReference
+
 * `name` {string}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### Static method: `matchModuleReference(name)`
 
+---
+### matchModuleReference
+
 * `name` {string}
-* Returns: {ModuleReferenceOptions|object}
+
+* ###Returns: {ModuleReferenceOptions|object}
 
 ***
 
-## Class: `ContextExclusionPlugin`
+## 
+### Class: `ContextExclusionPlugin`
 
 ### Constructors
 
 #### `new ContextExclusionPlugin(negativeMatcher)`
 
+---
+### ContextExclusionPlugin
+
 * `negativeMatcher` {RegExp}
-* Returns: {ContextExclusionPlugin}
+
+* ###Returns: {ContextExclusionPlugin}
 
 ### Properties
 
@@ -1963,24 +3054,33 @@ Schema validation function with optional pre-compiled check
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Apply the plugin
 
 ***
 
-## Class: `ContextReplacementPlugin`
+## 
+### Class: `ContextReplacementPlugin`
 
 ### Constructors
 
 #### `new ContextReplacementPlugin(resourceRegExp[, newContentResource][, newContentRecursive][, newContentRegExp])`
 
+---
+### ContextReplacementPlugin
+
 * `resourceRegExp` {RegExp}
 * `newContentResource` {string|boolean|RegExp|object}
 * `newContentRecursive` {boolean|RegExp|NewContentCreateContextMap}
 * `newContentRegExp` {RegExp}
-* Returns: {ContextReplacementPlugin}
+
+* ###Returns: {ContextReplacementPlugin}
 
 ### Properties
 
@@ -1995,21 +3095,30 @@ Apply the plugin
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Apply the plugin
 
 ***
 
-## Class: `DefinePlugin`
+## 
+### Class: `DefinePlugin`
 
 ### Constructors
 
 #### `new DefinePlugin(definitions)`
 
+---
+### DefinePlugin
+
 * `definitions` {Definitions}
-* Returns: {DefinePlugin}
+
+* ###Returns: {DefinePlugin}
 
 Create a new define plugin
 
@@ -2021,32 +3130,49 @@ Create a new define plugin
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Apply the plugin
 
 #### Static method: `getCompilationHooks(compilation)`
 
+---
+### getCompilationHooks
+
 * `compilation` {Compilation}
-* Returns: {DefinePluginHooks}
+
+* ###Returns: {DefinePluginHooks}
 
 #### Static method: `runtimeValue(fn[, options])`
 
+---
+### runtimeValue
+
 * `fn` {object}
 * `options` {true|string[]|RuntimeValueOptions}
-* Returns: {RuntimeValue}
+
+* ###Returns: {RuntimeValue}
 
 ***
 
-## Class: `DelegatedPlugin`
+## 
+### Class: `DelegatedPlugin`
 
 ### Constructors
 
 #### `new DelegatedPlugin(options)`
 
+---
+### DelegatedPlugin
+
 * `options` {Options}
-* Returns: {DelegatedPlugin}
+
+* ###Returns: {DelegatedPlugin}
 
 ### Properties
 
@@ -2056,14 +3182,19 @@ Apply the plugin
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Apply the plugin
 
 ***
 
-## Class: `Dependency`
+## 
+### Class: `Dependency`
 
 ### Extended by
 
@@ -2074,7 +3205,10 @@ Apply the plugin
 
 #### `new Dependency()`
 
-* Returns: {Dependency}
+---
+### Dependency
+
+* ###Returns: {Dependency}
 
 ### Properties
 
@@ -2093,116 +3227,185 @@ Apply the plugin
 
 #### `couldAffectReferencingModule()`
 
-* Returns: {boolean|TRANSITIVE}
+---
+### couldAffectReferencingModule
+
+* ###Returns: {boolean|TRANSITIVE}
 
 #### `createIgnoredModule(context)`
 
+---
+### createIgnoredModule
+
 * `context` {string}
-* Returns: {Module}
+
+* ###Returns: {Module}
 
 #### `deserialize(__namedParameters)`
 
+---
+### deserialize
+
 * `__namedParameters` {ObjectDeserializerContext}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `getCondition(moduleGraph)`
 
+---
+### getCondition
+
 * `moduleGraph` {ModuleGraph}
-* Returns: {false|object}
+
+* ###Returns: {false|object}
 
 #### `getContext()`
 
-* Returns: {string}
+---
+### getContext
+
+* ###Returns: {string}
 
 #### `getErrors(moduleGraph)`
 
+---
+### getErrors
+
 * `moduleGraph` {ModuleGraph}
-* Returns: {WebpackError[]}
+
+* ###Returns: {WebpackError[]}
 
 Returns errors
 
 #### `getExports(moduleGraph)`
 
+---
+### getExports
+
 * `moduleGraph` {ModuleGraph}
-* Returns: {ExportsSpec}
+
+* ###Returns: {ExportsSpec}
 
 Returns the exported names
 
 #### `getModuleEvaluationSideEffectsState(moduleGraph)`
 
+---
+### getModuleEvaluationSideEffectsState
+
 * `moduleGraph` {ModuleGraph}
-* Returns: {ConnectionState}
+
+* ###Returns: {ConnectionState}
 
 #### `getNumberOfIdOccurrences()`
 
-* Returns: {number}
+---
+### getNumberOfIdOccurrences
+
+* ###Returns: {number}
 
 implement this method to allow the occurrence order plugin to count correctly
 
 #### `getReference(moduleGraph)`
 
+---
+### getReference
+
 > Stability: 0 - Deprecated
 
 * `moduleGraph` {ModuleGraph}
-* Returns: {never}
+
+* ###Returns: {never}
 
 Returns the referenced module and export
 
 #### `getReferencedExports(moduleGraph, runtime)`
 
+---
+### getReferencedExports
+
 * `moduleGraph` {ModuleGraph}
 * `runtime` {RuntimeSpec}
-* Returns: {string[]|ReferencedExport[]}
+
+* ###Returns: {string[]|ReferencedExport[]}
 
 Returns list of exports referenced by this dependency
 
 #### `getResourceIdentifier()`
 
-* Returns: {string}
+---
+### getResourceIdentifier
+
+* ###Returns: {string}
 
 #### `getWarnings(moduleGraph)`
 
+---
+### getWarnings
+
 * `moduleGraph` {ModuleGraph}
-* Returns: {WebpackError[]}
+
+* ###Returns: {WebpackError[]}
 
 Returns warnings
 
 #### `serialize(__namedParameters)`
 
+---
+### serialize
+
 * `__namedParameters` {ObjectSerializerContext}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `setLoc(startLine, startColumn, endLine, endColumn)`
+
+---
+### setLoc
 
 * `startLine` {number}
 * `startColumn` {number}
 * `endLine` {number}
 * `endColumn` {number}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `updateHash(hash, context)`
 
+---
+### updateHash
+
 * `hash` {Hash}
 * `context` {UpdateHashContextDependency}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Update the hash
 
 #### Static method: `isLowPriorityDependency(dependency)`
 
+---
+### isLowPriorityDependency
+
 * `dependency` {Dependency}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 ***
 
-## Class: `DllPlugin`
+## 
+### Class: `DllPlugin`
 
 ### Constructors
 
 #### `new DllPlugin(options)`
 
+---
+### DllPlugin
+
 * `options` {DllPluginOptions}
-* Returns: {DllPlugin}
+
+* ###Returns: {DllPlugin}
 
 ### Properties
 
@@ -2212,21 +3415,30 @@ Update the hash
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Apply the plugin
 
 ***
 
-## Class: `DllReferencePlugin`
+## 
+### Class: `DllReferencePlugin`
 
 ### Constructors
 
 #### `new DllReferencePlugin(options)`
 
+---
+### DllReferencePlugin
+
 * `options` {DllReferencePluginOptions}
-* Returns: {DllReferencePlugin}
+
+* ###Returns: {DllReferencePlugin}
 
 ### Properties
 
@@ -2236,21 +3448,30 @@ Apply the plugin
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Apply the plugin
 
 ***
 
-## Class: `DotenvPlugin`
+## 
+### Class: `DotenvPlugin`
 
 ### Constructors
 
 #### `new DotenvPlugin([options])`
 
+---
+### DotenvPlugin
+
 * `options` {DotenvPluginOptions}
-* Returns: {DotenvPlugin}
+
+* ###Returns: {DotenvPlugin}
 
 ### Properties
 
@@ -2260,20 +3481,29 @@ Apply the plugin
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 ***
 
-## Class: `DynamicEntryPlugin`
+## 
+### Class: `DynamicEntryPlugin`
 
 ### Constructors
 
 #### `new DynamicEntryPlugin(context, entry)`
 
+---
+### DynamicEntryPlugin
+
 * `context` {string}
 * `entry` {object}
-* Returns: {DynamicEntryPlugin}
+
+* ###Returns: {DynamicEntryPlugin}
 
 ### Properties
 
@@ -2284,54 +3514,79 @@ Apply the plugin
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Apply the plugin
 
 ***
 
-## Class: `EntryOptionPlugin`
+## 
+### Class: `EntryOptionPlugin`
 
 ### Constructors
 
 #### `new EntryOptionPlugin()`
 
-* Returns: {EntryOptionPlugin}
+---
+### EntryOptionPlugin
+
+* ###Returns: {EntryOptionPlugin}
 
 ### Methods
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### Static method: `applyEntryOption(compiler, context, entry)`
+
+---
+### applyEntryOption
 
 * `compiler` {Compiler}
 * `context` {string}
 * `entry` {EntryNormalized}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### Static method: `entryDescriptionToOptions(compiler, name, desc)`
+
+---
+### entryDescriptionToOptions
 
 * `compiler` {Compiler}
 * `name` {string}
 * `desc` {EntryDescriptionNormalized}
-* Returns: {EntryOptions}
+
+* ###Returns: {EntryOptions}
 
 ***
 
-## Class: `EntryPlugin`
+## 
+### Class: `EntryPlugin`
 
 ### Constructors
 
 #### `new EntryPlugin(context, entry[, options])`
 
+---
+### EntryPlugin
+
 * `context` {string}
 * `entry` {string}
 * `options` {string|EntryOptions}
-* Returns: {EntryPlugin}
+
+* ###Returns: {EntryPlugin}
 
 An entry plugin which will handle creation of the EntryDependency
 
@@ -2345,20 +3600,29 @@ An entry plugin which will handle creation of the EntryDependency
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Apply the plugin
 
 #### Static method: `createDependency(entry, options)`
 
+---
+### createDependency
+
 * `entry` {string}
 * `options` {string|EntryOptions}
-* Returns: {EntryDependency}
+
+* ###Returns: {EntryDependency}
 
 ***
 
-## Class: `Entrypoint`
+## 
+### Class: `Entrypoint`
 
 ### Extends
 
@@ -2368,7 +3632,10 @@ Apply the plugin
 
 #### `new Entrypoint()`
 
-* Returns: {Entrypoint}
+---
+### Entrypoint
+
+* ###Returns: {Entrypoint}
 
 ### Properties
 
@@ -2392,227 +3659,371 @@ sets a new name for current ChunkGroup
 
 #### `addAsyncEntrypoint(entrypoint)`
 
+---
+### addAsyncEntrypoint
+
 * `entrypoint` {Entrypoint}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `addBlock(block)`
 
+---
+### addBlock
+
 * `block` {AsyncDependenciesBlock}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `addChild(group)`
 
+---
+### addChild
+
 * `group` {ChunkGroup}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `addDependOn(entrypoint)`
 
+---
+### addDependOn
+
 * `entrypoint` {Entrypoint}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `addOptions(options)`
 
+---
+### addOptions
+
 * `options` {ChunkGroupOptions}
-* Returns: {void}
+
+* ###Returns: {void}
 
 when a new chunk is added to a chunkGroup, addingOptions will occur.
 
 #### `addOrigin(module, loc, request)`
 
+---
+### addOrigin
+
 * `module` {Module}
 * `loc` {DependencyLocation}
 * `request` {string}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `addParent(parentChunk)`
 
+---
+### addParent
+
 * `parentChunk` {ChunkGroup}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `checkConstraints()`
 
-* Returns: {void}
+---
+### checkConstraints
+
+* ###Returns: {void}
 
 #### `compareTo(chunkGraph, otherGroup)`
 
+---
+### compareTo
+
 * `chunkGraph` {ChunkGraph}
 * `otherGroup` {ChunkGroup}
-* Returns: {-1|0|1}
+
+* ###Returns: {-1|0|1}
 
 Sorting predicate which allows current ChunkGroup to be compared against another.
 Sorting values are based off of number of chunks in ChunkGroup.
 
 #### `dependOn(entrypoint)`
 
+---
+### dependOn
+
 * `entrypoint` {Entrypoint}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `getBlocks()`
 
-* Returns: {AsyncDependenciesBlock[]}
+---
+### getBlocks
+
+* ###Returns: {AsyncDependenciesBlock[]}
 
 #### `getChildren()`
 
-* Returns: {ChunkGroup[]}
+---
+### getChildren
+
+* ###Returns: {ChunkGroup[]}
 
 #### `getChildrenByOrders(moduleGraph, chunkGraph)`
 
+---
+### getChildrenByOrders
+
 * `moduleGraph` {ModuleGraph}
 * `chunkGraph` {ChunkGraph}
-* Returns: {Record<string, ChunkGroup[]>}
+
+* ###Returns: {Record<string, ChunkGroup[]>}
 
 #### `getEntrypointChunk()`
 
-* Returns: {Chunk}
+---
+### getEntrypointChunk
+
+* ###Returns: {Chunk}
 
 Returns the chunk which contains the entrypoint modules
 (or at least the execution of them)
 
 #### `getFiles()`
 
-* Returns: {string[]}
+---
+### getFiles
+
+* ###Returns: {string[]}
 
 #### `getModulePostOrderIndex(module)`
 
+---
+### getModulePostOrderIndex
+
 * `module` {Module}
-* Returns: {number}
+
+* ###Returns: {number}
 
 Gets the bottom-up index of a module in this ChunkGroup
 
 #### `getModulePreOrderIndex(module)`
 
+---
+### getModulePreOrderIndex
+
 * `module` {Module}
-* Returns: {number}
+
+* ###Returns: {number}
 
 Gets the top-down index of a module in this ChunkGroup
 
 #### `getNumberOfBlocks()`
 
-* Returns: {number}
+---
+### getNumberOfBlocks
+
+* ###Returns: {number}
 
 #### `getNumberOfChildren()`
 
-* Returns: {number}
+---
+### getNumberOfChildren
+
+* ###Returns: {number}
 
 #### `getNumberOfParents()`
 
-* Returns: {number}
+---
+### getNumberOfParents
+
+* ###Returns: {number}
 
 #### `getParents()`
 
-* Returns: {ChunkGroup[]}
+---
+### getParents
+
+* ###Returns: {ChunkGroup[]}
 
 #### `getRuntimeChunk()`
 
-* Returns: {Chunk}
+---
+### getRuntimeChunk
+
+* ###Returns: {Chunk}
 
 Fetches the chunk reference containing the webpack bootstrap code
 
 #### `hasBlock(block)`
 
+---
+### hasBlock
+
 * `block` {AsyncDependenciesBlock}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `hasParent(parent)`
 
+---
+### hasParent
+
 * `parent` {ChunkGroup}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `insertChunk(chunk, before)`
 
+---
+### insertChunk
+
 * `chunk` {Chunk}
 * `before` {Chunk}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 inserts a chunk before another existing chunk in group
 
 #### `isInitial()`
 
-* Returns: {boolean}
+---
+### isInitial
+
+* ###Returns: {boolean}
 
 #### `pushChunk(chunk)`
 
+---
+### pushChunk
+
 * `chunk` {Chunk}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 add a chunk into ChunkGroup. Is pushed on or prepended
 
 #### `remove()`
 
-* Returns: {void}
+---
+### remove
+
+* ###Returns: {void}
 
 #### `removeChild(group)`
 
+---
+### removeChild
+
 * `group` {ChunkGroup}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `removeChunk(chunk)`
 
+---
+### removeChunk
+
 * `chunk` {Chunk}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `removeParent(chunkGroup)`
 
+---
+### removeParent
+
 * `chunkGroup` {ChunkGroup}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `replaceChunk(oldChunk, newChunk)`
 
+---
+### replaceChunk
+
 * `oldChunk` {Chunk}
 * `newChunk` {Chunk}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `setEntrypointChunk(chunk)`
 
+---
+### setEntrypointChunk
+
 * `chunk` {Chunk}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Sets the chunk with the entrypoint modules for an entrypoint.
 
 #### `setModulePostOrderIndex(module, index)`
 
+---
+### setModulePostOrderIndex
+
 * `module` {Module}
 * `index` {number}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Sets the bottom-up index of a module in this ChunkGroup
 
 #### `setModulePreOrderIndex(module, index)`
 
+---
+### setModulePreOrderIndex
+
 * `module` {Module}
 * `index` {number}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Sets the top-down index of a module in this ChunkGroup
 
 #### `setRuntimeChunk(chunk)`
 
+---
+### setRuntimeChunk
+
 * `chunk` {Chunk}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Sets the runtimeChunk for an entrypoint.
 
 #### `sortItems()`
 
-* Returns: {void}
+---
+### sortItems
+
+* ###Returns: {void}
 
 #### `unshiftChunk(chunk)`
 
+---
+### unshiftChunk
+
 * `chunk` {Chunk}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 Performs an unshift of a specific chunk
 
 ***
 
-## Class: `EnvironmentPlugin`
+## 
+### Class: `EnvironmentPlugin`
 
 ### Constructors
 
 #### `new EnvironmentPlugin(keys)`
 
+---
+### EnvironmentPlugin
+
 * `keys` {string|string[]|Record<string, any>[]}
-* Returns: {EnvironmentPlugin}
+
+* ###Returns: {EnvironmentPlugin}
 
 ### Properties
 
@@ -2623,21 +4034,30 @@ Performs an unshift of a specific chunk
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Apply the plugin
 
 ***
 
-## Class: `EvalDevToolModulePlugin`
+## 
+### Class: `EvalDevToolModulePlugin`
 
 ### Constructors
 
 #### `new EvalDevToolModulePlugin([options])`
 
+---
+### EvalDevToolModulePlugin
+
 * `options` {EvalDevToolModulePluginOptions}
-* Returns: {EvalDevToolModulePlugin}
+
+* ###Returns: {EvalDevToolModulePlugin}
 
 ### Properties
 
@@ -2649,21 +4069,30 @@ Apply the plugin
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Apply the plugin
 
 ***
 
-## Class: `EvalSourceMapDevToolPlugin`
+## 
+### Class: `EvalSourceMapDevToolPlugin`
 
 ### Constructors
 
 #### `new EvalSourceMapDevToolPlugin([inputOptions])`
 
+---
+### EvalSourceMapDevToolPlugin
+
 * `inputOptions` {string|SourceMapDevToolPluginOptions}
-* Returns: {EvalSourceMapDevToolPlugin}
+
+* ###Returns: {EvalSourceMapDevToolPlugin}
 
 ### Properties
 
@@ -2676,14 +4105,19 @@ Apply the plugin
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Apply the plugin
 
 ***
 
-## Class: `ExternalModule`
+## 
+### Class: `ExternalModule`
 
 ### Extends
 
@@ -2693,11 +4127,15 @@ Apply the plugin
 
 #### `new ExternalModule(request, type, userRequest[, dependencyMeta])`
 
+---
+### ExternalModule
+
 * `request` {ExternalModuleRequest}
 * `type` {ExternalsType}
 * `userRequest` {string}
 * `dependencyMeta` {ImportDependencyMeta|CssImportDependencyMeta|AssetDependencyMeta}
-* Returns: {ExternalModule}
+
+* ###Returns: {ExternalModule}
 
 ### Properties
 
@@ -2748,136 +4186,226 @@ Apply the plugin
 
 #### `addBlock(block)`
 
+---
+### addBlock
+
 * `block` {AsyncDependenciesBlock}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Adds a DependencyBlock to DependencyBlock relationship.
 This is used for when a Module has a AsyncDependencyBlock tie (for code-splitting)
 
 #### `addCacheDependencies(fileDependencies, contextDependencies, missingDependencies, buildDependencies)`
 
+---
+### addCacheDependencies
+
 * `fileDependencies` {LazySet<string>}
 * `contextDependencies` {LazySet<string>}
 * `missingDependencies` {LazySet<string>}
 * `buildDependencies` {LazySet<string>}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `addChunk(chunk)`
 
+---
+### addChunk
+
 * `chunk` {Chunk}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `addCodeGenerationDependency(codeGenerationDependency)`
 
+---
+### addCodeGenerationDependency
+
 * `codeGenerationDependency` {Dependency}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `addDependency(dependency)`
 
+---
+### addDependency
+
 * `dependency` {Dependency}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `addError(error)`
 
+---
+### addError
+
 * `error` {WebpackError}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `addPresentationalDependency(presentationalDependency)`
 
+---
+### addPresentationalDependency
+
 * `presentationalDependency` {Dependency}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `addWarning(warning)`
 
+---
+### addWarning
+
 * `warning` {WebpackError}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `build(options, compilation, resolver, fs, callback)`
+
+---
+### build
 
 * `options` {WebpackOptionsNormalizedWithDefaults}
 * `compilation` {Compilation}
 * `resolver` {ResolverWithOptions}
 * `fs` {InputFileSystem}
 * `callback` {object}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `chunkCondition(chunk, compilation)`
 
+---
+### chunkCondition
+
 * `chunk` {Chunk}
 * `compilation` {Compilation}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `cleanupForCache()`
 
-* Returns: {void}
+---
+### cleanupForCache
+
+* ###Returns: {void}
 
 Assuming this module is in the cache. Remove internal references to allow freeing some memory.
 
 #### `clearDependenciesAndBlocks()`
 
-* Returns: {void}
+---
+### clearDependenciesAndBlocks
+
+* ###Returns: {void}
 
 Removes all dependencies and blocks
 
 #### `clearWarningsAndErrors()`
 
-* Returns: {void}
+---
+### clearWarningsAndErrors
+
+* ###Returns: {void}
 
 removes all warnings and errors
 
 #### `codeGeneration(context)`
 
+---
+### codeGeneration
+
 * `context` {CodeGenerationContext}
-* Returns: {CodeGenerationResult}
+
+* ###Returns: {CodeGenerationResult}
 
 #### `deserialize(__namedParameters)`
 
+---
+### deserialize
+
 * `__namedParameters` {ObjectDeserializerContext}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `getChunks()`
 
-* Returns: {Chunk[]}
+---
+### getChunks
+
+* ###Returns: {Chunk[]}
 
 #### `getConcatenationBailoutReason(context)`
 
+---
+### getConcatenationBailoutReason
+
 * `context` {ConcatenationBailoutReasonContext}
-* Returns: {string}
+
+* ###Returns: {string}
 
 #### `getErrors()`
 
-* Returns: {Iterable<WebpackError, any, any>}
+---
+### getErrors
+
+* ###Returns: {Iterable<WebpackError, any, any>}
 
 #### `getExportsType(moduleGraph[, strict])`
 
+---
+### getExportsType
+
 * `moduleGraph` {ModuleGraph}
 * `strict` {boolean}
-* Returns: {ExportsType}
+
+* ###Returns: {ExportsType}
 
 #### `getNumberOfChunks()`
 
-* Returns: {number}
+---
+### getNumberOfChunks
+
+* ###Returns: {number}
 
 #### `getNumberOfErrors()`
 
-* Returns: {number}
+---
+### getNumberOfErrors
+
+* ###Returns: {number}
 
 #### `getNumberOfWarnings()`
 
-* Returns: {number}
+---
+### getNumberOfWarnings
+
+* ###Returns: {number}
 
 #### `getRootBlock()`
 
-* Returns: {DependenciesBlock}
+---
+### getRootBlock
+
+* ###Returns: {DependenciesBlock}
 
 #### `getSideEffectsConnectionState(moduleGraph)`
 
+---
+### getSideEffectsConnectionState
+
 * `moduleGraph` {ModuleGraph}
-* Returns: {ConnectionState}
+
+* ###Returns: {ConnectionState}
 
 #### `getSourceBasicTypes()`
 
-* Returns: {ReadonlySet<string>}
+---
+### getSourceBasicTypes
+
+* ###Returns: {ReadonlySet<string>}
 
 Basic source types are high-level categories like javascript, css, webassembly, etc.
 We only have built-in knowledge about the javascript basic type here; other basic types may be
@@ -2887,154 +4415,253 @@ from getSourceTypes(), but their generated output is still JavaScript, i.e. thei
 
 #### `getSourceTypes()`
 
-* Returns: {ReadonlySet<string>}
+---
+### getSourceTypes
+
+* ###Returns: {ReadonlySet<string>}
 
 #### `getUnsafeCacheData()`
 
-* Returns: {UnsafeCacheData}
+---
+### getUnsafeCacheData
+
+* ###Returns: {UnsafeCacheData}
 
 Module should be unsafe cached. Get data that's needed for that.
 This data will be passed to restoreFromUnsafeCache later.
 
 #### `getWarnings()`
 
-* Returns: {Iterable<WebpackError, any, any>}
+---
+### getWarnings
+
+* ###Returns: {Iterable<WebpackError, any, any>}
 
 #### `hasChunkCondition()`
 
-* Returns: {boolean}
+---
+### hasChunkCondition
+
+* ###Returns: {boolean}
 
 #### `hasReasonForChunk(chunk, moduleGraph, chunkGraph)`
+
+---
+### hasReasonForChunk
 
 * `chunk` {Chunk}
 * `moduleGraph` {ModuleGraph}
 * `chunkGraph` {ChunkGraph}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `hasReasons(moduleGraph, runtime)`
 
+---
+### hasReasons
+
 * `moduleGraph` {ModuleGraph}
 * `runtime` {RuntimeSpec}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `identifier()`
 
-* Returns: {string}
+---
+### identifier
+
+* ###Returns: {string}
 
 #### `invalidateBuild()`
 
-* Returns: {void}
+---
+### invalidateBuild
+
+* ###Returns: {void}
 
 #### `isAccessibleInChunk(chunkGraph, chunk[, ignoreChunk])`
+
+---
+### isAccessibleInChunk
 
 * `chunkGraph` {ChunkGraph}
 * `chunk` {Chunk}
 * `ignoreChunk` {Chunk}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `isAccessibleInChunkGroup(chunkGraph, chunkGroup[, ignoreChunk])`
+
+---
+### isAccessibleInChunkGroup
 
 * `chunkGraph` {ChunkGraph}
 * `chunkGroup` {ChunkGroup}
 * `ignoreChunk` {Chunk}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `isEntryModule()`
 
-* Returns: {boolean}
+---
+### isEntryModule
+
+* ###Returns: {boolean}
 
 #### `isInChunk(chunk)`
 
+---
+### isInChunk
+
 * `chunk` {Chunk}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `isOptional(moduleGraph)`
 
+---
+### isOptional
+
 * `moduleGraph` {ModuleGraph}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `isProvided(exportName)`
 
+---
+### isProvided
+
 * `exportName` {string}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `libIdent(options)`
 
+---
+### libIdent
+
 * `options` {LibIdentOptions}
-* Returns: {string}
+
+* ###Returns: {string}
 
 #### `nameForCondition()`
 
-* Returns: {string}
+---
+### nameForCondition
+
+* ###Returns: {string}
 
 #### `needBuild(context, callback)`
 
+---
+### needBuild
+
 * `context` {NeedBuildContext}
 * `callback` {object}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `needRebuild(fileTimestamps, contextTimestamps)`
+
+---
+### needRebuild
 
 > Stability: 0 - Deprecated
 
 * `fileTimestamps` {Map<string, number>}
 * `contextTimestamps` {Map<string, number>}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 Use needBuild instead
 
 #### `originalSource()`
 
-* Returns: {Source}
+---
+### originalSource
+
+* ###Returns: {Source}
 
 #### `readableIdentifier(requestShortener)`
 
+---
+### readableIdentifier
+
 * `requestShortener` {RequestShortener}
-* Returns: {string}
+
+* ###Returns: {string}
 
 #### `removeChunk(chunk)`
 
+---
+### removeChunk
+
 * `chunk` {Chunk}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `removeDependency(dependency)`
 
+---
+### removeDependency
+
 * `dependency` {Dependency}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `restoreFromUnsafeCache(unsafeCacheData, normalModuleFactory)`
 
+---
+### restoreFromUnsafeCache
+
 * `unsafeCacheData` {UnsafeCacheData}
 * `normalModuleFactory` {NormalModuleFactory}
-* Returns: {void}
+
+* ###Returns: {void}
 
 restore unsafe cache data
 
 #### `serialize(__namedParameters)`
 
+---
+### serialize
+
 * `__namedParameters` {ObjectSerializerContext}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `size([type])`
 
+---
+### size
+
 * `type` {string}
-* Returns: {number}
+
+* ###Returns: {number}
 
 #### `source(dependencyTemplates, runtimeTemplate[, type])`
+
+---
+### source
 
 > Stability: 0 - Deprecated
 
 * `dependencyTemplates` {DependencyTemplates}
 * `runtimeTemplate` {RuntimeTemplate}
 * `type` {string}
-* Returns: {Source}
+
+* ###Returns: {Source}
 
 Use codeGeneration() instead
 
 #### `updateCacheModule(module)`
 
+---
+### updateCacheModule
+
 * `module` {Module}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Assuming this module is in the cache. Update the (cached) module with
 the fresh module from the factory. Usually updates internal references
@@ -3042,35 +4669,52 @@ and properties.
 
 #### `updateHash(hash, context)`
 
+---
+### updateHash
+
 * `hash` {Hash}
 * `context` {UpdateHashContextDependency}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### Static method: `getCompilationHooks(compilation)`
 
+---
+### getCompilationHooks
+
 * `compilation` {Compilation}
-* Returns: {ExternalModuleHooks}
+
+* ###Returns: {ExternalModuleHooks}
 
 #### Static method: `getSourceBasicTypes(module)`
+
+---
+### getSourceBasicTypes
 
 > Stability: 0 - Deprecated
 
 * `module` {Module}
-* Returns: {ReadonlySet<string>}
+
+* ###Returns: {ReadonlySet<string>}
 
 In webpack 6, call getSourceBasicTypes() directly on the module instance instead of using this static method.
 
 ***
 
-## Class: `ExternalsPlugin`
+## 
+### Class: `ExternalsPlugin`
 
 ### Constructors
 
 #### `new ExternalsPlugin(type, externals)`
 
+---
+### ExternalsPlugin
+
 * `type` {"asset"|"module"|"css-import"|"css-url"|"global"|"import"|"commonjs"|"jsonp"|"promise"|"this"|"var"|"assign"|"window"|"self"|"commonjs2"|"commonjs-module"|"commonjs-static"|"amd"|"amd-require"|"umd"|"umd2"|"system"|"module-import"|"script"|"node-commonjs"|object}
 * `externals` {Externals}
-* Returns: {ExternalsPlugin}
+
+* ###Returns: {ExternalsPlugin}
 
 ### Properties
 
@@ -3081,84 +4725,129 @@ In webpack 6, call getSourceBasicTypes() directly on the module instance instead
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Apply the plugin
 
 ***
 
-## Class: `Generator`
+## 
+### Class: `Generator`
 
 ### Constructors
 
 #### `new Generator()`
 
-* Returns: {Generator}
+---
+### Generator
+
+* ###Returns: {Generator}
 
 ### Methods
 
 #### `generate(module, __namedParameters)`
 
+---
+### generate
+
 * `module` {NormalModule}
 * `__namedParameters` {GenerateContext}
-* Returns: {Source}
+
+* ###Returns: {Source}
 
 #### `getConcatenationBailoutReason(module, context)`
 
+---
+### getConcatenationBailoutReason
+
 * `module` {NormalModule}
 * `context` {ConcatenationBailoutReasonContext}
-* Returns: {string}
+
+* ###Returns: {string}
 
 #### `getSize(module[, type])`
 
+---
+### getSize
+
 * `module` {NormalModule}
 * `type` {string}
-* Returns: {number}
+
+* ###Returns: {number}
 
 #### `getTypes(module)`
 
+---
+### getTypes
+
 * `module` {NormalModule}
-* Returns: {ReadonlySet<string>}
+
+* ###Returns: {ReadonlySet<string>}
 
 #### `updateHash(hash, __namedParameters)`
 
+---
+### updateHash
+
 * `hash` {Hash}
 * `__namedParameters` {UpdateHashContextGenerator}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### Static method: `byType(map)`
 
+---
+### byType
+
 * `map` {object}
-* Returns: {ByTypeGenerator}
+
+* ###Returns: {ByTypeGenerator}
 
 ***
 
-## Class: `HotModuleReplacementPlugin`
+## 
+### Class: `HotModuleReplacementPlugin`
 
 ### Constructors
 
 #### `new HotModuleReplacementPlugin()`
 
-* Returns: {HotModuleReplacementPlugin}
+---
+### HotModuleReplacementPlugin
+
+* ###Returns: {HotModuleReplacementPlugin}
 
 ### Methods
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Apply the plugin
 
 #### Static method: `getParserHooks(parser)`
 
+---
+### getParserHooks
+
 * `parser` {JavascriptParser}
-* Returns: {HMRJavascriptParserHooks}
+
+* ###Returns: {HMRJavascriptParserHooks}
 
 ***
 
-## Class: `HotUpdateChunk`
+## 
+### Class: `HotUpdateChunk`
 
 ### Extends
 
@@ -3168,7 +4857,10 @@ Apply the plugin
 
 #### `new HotUpdateChunk()`
 
-* Returns: {HotUpdateChunk}
+---
+### HotUpdateChunk
+
+* ###Returns: {HotUpdateChunk}
 
 ### Properties
 
@@ -3197,200 +4889,340 @@ Apply the plugin
 
 #### `addGroup(chunkGroup)`
 
+---
+### addGroup
+
 * `chunkGroup` {ChunkGroup}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `addModule(module)`
 
+---
+### addModule
+
 * `module` {Module}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `canBeInitial()`
 
-* Returns: {boolean}
+---
+### canBeInitial
+
+* ###Returns: {boolean}
 
 #### `canBeIntegrated(otherChunk)`
 
+---
+### canBeIntegrated
+
 * `otherChunk` {Chunk}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `compareTo(otherChunk)`
 
+---
+### compareTo
+
 * `otherChunk` {Chunk}
-* Returns: {-1|0|1}
+
+* ###Returns: {-1|0|1}
 
 #### `containsModule(module)`
 
+---
+### containsModule
+
 * `module` {Module}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `disconnectFromGroups()`
 
-* Returns: {void}
+---
+### disconnectFromGroups
+
+* ###Returns: {void}
 
 #### `getAllAsyncChunks()`
 
-* Returns: {Set<Chunk>}
+---
+### getAllAsyncChunks
+
+* ###Returns: {Set<Chunk>}
 
 #### `getAllInitialChunks()`
 
-* Returns: {Set<Chunk>}
+---
+### getAllInitialChunks
+
+* ###Returns: {Set<Chunk>}
 
 #### `getAllReferencedAsyncEntrypoints()`
 
-* Returns: {Set<Entrypoint>}
+---
+### getAllReferencedAsyncEntrypoints
+
+* ###Returns: {Set<Entrypoint>}
 
 #### `getAllReferencedChunks()`
 
-* Returns: {Set<Chunk>}
+---
+### getAllReferencedChunks
+
+* ###Returns: {Set<Chunk>}
 
 #### `getChildIdsByOrders(chunkGraph[, filterFn])`
 
+---
+### getChildIdsByOrders
+
 * `chunkGraph` {ChunkGraph}
 * `filterFn` {object}
-* Returns: {Record<string, ChunkId[]>}
+
+* ###Returns: {Record<string, ChunkId[]>}
 
 #### `getChildIdsByOrdersMap(chunkGraph[, includeDirectChildren][, filterFn])`
+
+---
+### getChildIdsByOrdersMap
 
 * `chunkGraph` {ChunkGraph}
 * `includeDirectChildren` {boolean}
 * `filterFn` {object}
-* Returns: {ChunkChildIdsByOrdersMapByData}
+
+* ###Returns: {ChunkChildIdsByOrdersMapByData}
 
 #### `getChildrenOfTypeInOrder(chunkGraph, type)`
 
+---
+### getChildrenOfTypeInOrder
+
 * `chunkGraph` {ChunkGraph}
 * `type` {string}
-* Returns: {ChunkChildOfTypeInOrder[]}
+
+* ###Returns: {ChunkChildOfTypeInOrder[]}
 
 #### `getChunkMaps(realHash)`
+
+---
+### getChunkMaps
 
 > Stability: 0 - Deprecated
 
 * `realHash` {boolean}
-* Returns: {ChunkMaps}
+
+* ###Returns: {ChunkMaps}
 
 #### `getChunkModuleMaps(filterFn)`
 
+---
+### getChunkModuleMaps
+
 * `filterFn` {object}
-* Returns: {ChunkModuleMaps}
+
+* ###Returns: {ChunkModuleMaps}
 
 #### `getEntryOptions()`
 
-* Returns: {EntryOptions}
+---
+### getEntryOptions
+
+* ###Returns: {EntryOptions}
 
 #### `getModules()`
 
-* Returns: {Module[]}
+---
+### getModules
+
+* ###Returns: {Module[]}
 
 #### `getNumberOfGroups()`
 
-* Returns: {number}
+---
+### getNumberOfGroups
+
+* ###Returns: {number}
 
 #### `getNumberOfModules()`
 
-* Returns: {number}
+---
+### getNumberOfModules
+
+* ###Returns: {number}
 
 #### `hasAsyncChunks()`
 
-* Returns: {boolean}
+---
+### hasAsyncChunks
+
+* ###Returns: {boolean}
 
 #### `hasChildByOrder(chunkGraph, type[, includeDirectChildren][, filterFn])`
+
+---
+### hasChildByOrder
 
 * `chunkGraph` {ChunkGraph}
 * `type` {string}
 * `includeDirectChildren` {boolean}
 * `filterFn` {object}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `hasEntryModule()`
 
-* Returns: {boolean}
+---
+### hasEntryModule
+
+* ###Returns: {boolean}
 
 #### `hasModuleInGraph(filterFn[, filterChunkFn])`
 
+---
+### hasModuleInGraph
+
 * `filterFn` {object}
 * `filterChunkFn` {object}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `hasRuntime()`
 
-* Returns: {boolean}
+---
+### hasRuntime
+
+* ###Returns: {boolean}
 
 #### `integrate(otherChunk)`
 
+---
+### integrate
+
 * `otherChunk` {Chunk}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `integratedSize(otherChunk, options)`
 
+---
+### integratedSize
+
 * `otherChunk` {Chunk}
 * `options` {ChunkSizeOptions}
-* Returns: {number}
+
+* ###Returns: {number}
 
 #### `isEmpty()`
 
-* Returns: {boolean}
+---
+### isEmpty
+
+* ###Returns: {boolean}
 
 #### `isInGroup(chunkGroup)`
 
+---
+### isInGroup
+
 * `chunkGroup` {ChunkGroup}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `isOnlyInitial()`
 
-* Returns: {boolean}
+---
+### isOnlyInitial
+
+* ###Returns: {boolean}
 
 #### `modulesSize()`
 
-* Returns: {number}
+---
+### modulesSize
+
+* ###Returns: {number}
 
 #### `moveModule(module, otherChunk)`
 
+---
+### moveModule
+
 * `module` {Module}
 * `otherChunk` {Chunk}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `remove()`
 
-* Returns: {void}
+---
+### remove
+
+* ###Returns: {void}
 
 #### `removeGroup(chunkGroup)`
 
+---
+### removeGroup
+
 * `chunkGroup` {ChunkGroup}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `removeModule(module)`
 
+---
+### removeModule
+
 * `module` {Module}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `size([options])`
 
+---
+### size
+
 * `options` {ChunkSizeOptions}
-* Returns: {number}
+
+* ###Returns: {number}
 
 #### `split(newChunk)`
 
+---
+### split
+
 * `newChunk` {Chunk}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `updateHash(hash, chunkGraph)`
 
+---
+### updateHash
+
 * `hash` {Hash}
 * `chunkGraph` {ChunkGraph}
-* Returns: {void}
+
+* ###Returns: {void}
 
 ***
 
-## Class: `IgnorePlugin`
+## 
+### Class: `IgnorePlugin`
 
 ### Constructors
 
 #### `new IgnorePlugin(options)`
 
+---
+### IgnorePlugin
+
 * `options` {IgnorePluginOptions}
-* Returns: {IgnorePlugin}
+
+* ###Returns: {IgnorePlugin}
 
 ### Properties
 
@@ -3400,21 +5232,30 @@ Apply the plugin
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Apply the plugin
 
 #### `checkIgnore(resolveData)`
 
+---
+### checkIgnore
+
 * `resolveData` {BeforeContextResolveData|ResolveData}
-* Returns: {false}
+
+* ###Returns: {false}
 
 Note that if "contextRegExp" is given, both the "resourceRegExp" and "contextRegExp" have to match.
 
 ***
 
-## Class: `InitFragment`
+## 
+### Class: `InitFragment`
 
 ### Type Parameters
 
@@ -3426,15 +5267,20 @@ Note that if "contextRegExp" is given, both the "resourceRegExp" and "contextReg
 
 #### `new InitFragment(content, stage, position[, key][, endContent])`
 
+---
+### InitFragment
+
 ###### GenerateContext
 
 `GenerateContext`
+
 * `content` {string|Source}
 * `stage` {number}
 * `position` {number}
 * `key` {string}
 * `endContent` {string|Source}
-* Returns: {InitFragment<GenerateContext>}
+
+* ###Returns: {InitFragment<GenerateContext>}
 
 ### Properties
 
@@ -3455,44 +5301,70 @@ Note that if "contextRegExp" is given, both the "resourceRegExp" and "contextReg
 
 #### `deserialize(context)`
 
+---
+### deserialize
+
 * `context` {ObjectDeserializerContext}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `getContent(context)`
 
+---
+### getContent
+
 * `context` {GenerateContext}
-* Returns: {string|Source}
+
+* ###Returns: {string|Source}
 
 #### `getEndContent(context)`
 
+---
+### getEndContent
+
 * `context` {GenerateContext}
-* Returns: {string|Source}
+
+* ###Returns: {string|Source}
 
 #### `serialize(context)`
 
+---
+### serialize
+
 * `context` {ObjectSerializerContext}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### Static method: `addToSource(source, initFragments, context)`
+
+---
+### addToSource
 
 ###### Context
 
 `Context`
+
 * `source` {Source}
 * `initFragments` {MaybeMergeableInitFragment<Context>[]}
 * `context` {Context}
-* Returns: {Source}
+
+* ###Returns: {Source}
 
 ***
 
-## Class: `JavascriptModulesPlugin`
+## 
+### Class: `JavascriptModulesPlugin`
 
 ### Constructors
 
 #### `new JavascriptModulesPlugin([options])`
 
+---
+### JavascriptModulesPlugin
+
 * `options` {object}
-* Returns: {JavascriptModulesPlugin}
+
+* ###Returns: {JavascriptModulesPlugin}
 
 ### Properties
 
@@ -3503,71 +5375,112 @@ Note that if "contextRegExp" is given, both the "resourceRegExp" and "contextReg
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Apply the plugin
 
 #### `renderBootstrap(renderContext, hooks)`
 
+---
+### renderBootstrap
+
 * `renderContext` {RenderBootstrapContext}
 * `hooks` {CompilationHooksJavascriptModulesPlugin}
-* Returns: {Bootstrap}
+
+* ###Returns: {Bootstrap}
 
 #### `renderChunk(renderContext, hooks)`
 
+---
+### renderChunk
+
 * `renderContext` {RenderContextJavascriptModulesPlugin}
 * `hooks` {CompilationHooksJavascriptModulesPlugin}
-* Returns: {Source}
+
+* ###Returns: {Source}
 
 #### `renderMain(renderContext, hooks, compilation)`
+
+---
+### renderMain
 
 * `renderContext` {MainRenderContext}
 * `hooks` {CompilationHooksJavascriptModulesPlugin}
 * `compilation` {Compilation}
-* Returns: {Source}
+
+* ###Returns: {Source}
 
 #### `renderModule(module, renderContext, hooks)`
+
+---
+### renderModule
 
 * `module` {Module}
 * `renderContext` {ModuleRenderContext}
 * `hooks` {CompilationHooksJavascriptModulesPlugin}
-* Returns: {Source}
+
+* ###Returns: {Source}
 
 #### `renderRequire(renderContext, hooks)`
 
+---
+### renderRequire
+
 * `renderContext` {RenderBootstrapContext}
 * `hooks` {CompilationHooksJavascriptModulesPlugin}
-* Returns: {string}
+
+* ###Returns: {string}
 
 #### `updateHashWithBootstrap(hash, renderContext, hooks)`
+
+---
+### updateHashWithBootstrap
 
 * `hash` {Hash}
 * `renderContext` {RenderBootstrapContext}
 * `hooks` {CompilationHooksJavascriptModulesPlugin}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### Static method: `getChunkFilenameTemplate(chunk, outputOptions)`
 
+---
+### getChunkFilenameTemplate
+
 * `chunk` {Chunk}
 * `outputOptions` {OutputNormalizedWithDefaults}
-* Returns: {TemplatePath}
+
+* ###Returns: {TemplatePath}
 
 #### Static method: `getCompilationHooks(compilation)`
 
+---
+### getCompilationHooks
+
 * `compilation` {Compilation}
-* Returns: {CompilationHooksJavascriptModulesPlugin}
+
+* ###Returns: {CompilationHooksJavascriptModulesPlugin}
 
 ***
 
-## Class: `LibManifestPlugin`
+## 
+### Class: `LibManifestPlugin`
 
 ### Constructors
 
 #### `new LibManifestPlugin(options)`
 
+---
+### LibManifestPlugin
+
 * `options` {LibManifestPluginOptions}
-* Returns: {LibManifestPlugin}
+
+* ###Returns: {LibManifestPlugin}
 
 ### Properties
 
@@ -3577,25 +5490,34 @@ Apply the plugin
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Apply the plugin
 
 ***
 
-## Class: `LibraryTemplatePlugin`
+## 
+### Class: `LibraryTemplatePlugin`
 
 ### Constructors
 
 #### `new LibraryTemplatePlugin(name, target, umdNamedDefine, auxiliaryComment, exportProperty)`
+
+---
+### LibraryTemplatePlugin
 
 * `name` {LibraryName}
 * `target` {string}
 * `umdNamedDefine` {boolean}
 * `auxiliaryComment` {AuxiliaryComment}
 * `exportProperty` {LibraryExport}
-* Returns: {LibraryTemplatePlugin}
+
+* ###Returns: {LibraryTemplatePlugin}
 
 ### Properties
 
@@ -3605,21 +5527,30 @@ Apply the plugin
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Apply the plugin
 
 ***
 
-## Class: `LoaderOptionsPlugin`
+## 
+### Class: `LoaderOptionsPlugin`
 
 ### Constructors
 
 #### `new LoaderOptionsPlugin([options])`
 
+---
+### LoaderOptionsPlugin
+
 * `options` {LoaderOptionsPluginOptions|MatchObject}
-* Returns: {LoaderOptionsPlugin}
+
+* ###Returns: {LoaderOptionsPlugin}
 
 ### Properties
 
@@ -3629,21 +5560,30 @@ Apply the plugin
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Apply the plugin
 
 ***
 
-## Class: `LoaderTargetPlugin`
+## 
+### Class: `LoaderTargetPlugin`
 
 ### Constructors
 
 #### `new LoaderTargetPlugin(target)`
 
+---
+### LoaderTargetPlugin
+
 * `target` {string}
-* Returns: {LoaderTargetPlugin}
+
+* ###Returns: {LoaderTargetPlugin}
 
 ### Properties
 
@@ -3653,21 +5593,30 @@ Apply the plugin
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Apply the plugin
 
 ***
 
-## Class: `ManifestPlugin`
+## 
+### Class: `ManifestPlugin`
 
 ### Constructors
 
 #### `new ManifestPlugin([options])`
 
+---
+### ManifestPlugin
+
 * `options` {ManifestPluginOptions}
-* Returns: {ManifestPlugin}
+
+* ###Returns: {ManifestPlugin}
 
 ### Properties
 
@@ -3677,14 +5626,19 @@ Apply the plugin
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Apply the plugin
 
 ***
 
-## Class: `Module`
+## 
+### Class: `Module`
 
 ### Extends
 
@@ -3700,10 +5654,14 @@ Apply the plugin
 
 #### `new Module(type[, context][, layer])`
 
+---
+### Module
+
 * `type` {string}
 * `context` {string}
 * `layer` {string}
-* Returns: {Module}
+
+* ###Returns: {Module}
 
 ### Properties
 
@@ -3748,136 +5706,226 @@ Apply the plugin
 
 #### `addBlock(block)`
 
+---
+### addBlock
+
 * `block` {AsyncDependenciesBlock}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Adds a DependencyBlock to DependencyBlock relationship.
 This is used for when a Module has a AsyncDependencyBlock tie (for code-splitting)
 
 #### `addCacheDependencies(fileDependencies, contextDependencies, missingDependencies, buildDependencies)`
 
+---
+### addCacheDependencies
+
 * `fileDependencies` {LazySet<string>}
 * `contextDependencies` {LazySet<string>}
 * `missingDependencies` {LazySet<string>}
 * `buildDependencies` {LazySet<string>}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `addChunk(chunk)`
 
+---
+### addChunk
+
 * `chunk` {Chunk}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `addCodeGenerationDependency(codeGenerationDependency)`
 
+---
+### addCodeGenerationDependency
+
 * `codeGenerationDependency` {Dependency}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `addDependency(dependency)`
 
+---
+### addDependency
+
 * `dependency` {Dependency}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `addError(error)`
 
+---
+### addError
+
 * `error` {WebpackError}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `addPresentationalDependency(presentationalDependency)`
 
+---
+### addPresentationalDependency
+
 * `presentationalDependency` {Dependency}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `addWarning(warning)`
 
+---
+### addWarning
+
 * `warning` {WebpackError}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `build(options, compilation, resolver, fs, callback)`
+
+---
+### build
 
 * `options` {WebpackOptionsNormalizedWithDefaults}
 * `compilation` {Compilation}
 * `resolver` {ResolverWithOptions}
 * `fs` {InputFileSystem}
 * `callback` {object}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `chunkCondition(chunk, compilation)`
 
+---
+### chunkCondition
+
 * `chunk` {Chunk}
 * `compilation` {Compilation}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `cleanupForCache()`
 
-* Returns: {void}
+---
+### cleanupForCache
+
+* ###Returns: {void}
 
 Assuming this module is in the cache. Remove internal references to allow freeing some memory.
 
 #### `clearDependenciesAndBlocks()`
 
-* Returns: {void}
+---
+### clearDependenciesAndBlocks
+
+* ###Returns: {void}
 
 Removes all dependencies and blocks
 
 #### `clearWarningsAndErrors()`
 
-* Returns: {void}
+---
+### clearWarningsAndErrors
+
+* ###Returns: {void}
 
 removes all warnings and errors
 
 #### `codeGeneration(context)`
 
+---
+### codeGeneration
+
 * `context` {CodeGenerationContext}
-* Returns: {CodeGenerationResult}
+
+* ###Returns: {CodeGenerationResult}
 
 #### `deserialize(__namedParameters)`
 
+---
+### deserialize
+
 * `__namedParameters` {ObjectDeserializerContext}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `getChunks()`
 
-* Returns: {Chunk[]}
+---
+### getChunks
+
+* ###Returns: {Chunk[]}
 
 #### `getConcatenationBailoutReason(context)`
 
+---
+### getConcatenationBailoutReason
+
 * `context` {ConcatenationBailoutReasonContext}
-* Returns: {string}
+
+* ###Returns: {string}
 
 #### `getErrors()`
 
-* Returns: {Iterable<WebpackError, any, any>}
+---
+### getErrors
+
+* ###Returns: {Iterable<WebpackError, any, any>}
 
 #### `getExportsType(moduleGraph[, strict])`
 
+---
+### getExportsType
+
 * `moduleGraph` {ModuleGraph}
 * `strict` {boolean}
-* Returns: {ExportsType}
+
+* ###Returns: {ExportsType}
 
 #### `getNumberOfChunks()`
 
-* Returns: {number}
+---
+### getNumberOfChunks
+
+* ###Returns: {number}
 
 #### `getNumberOfErrors()`
 
-* Returns: {number}
+---
+### getNumberOfErrors
+
+* ###Returns: {number}
 
 #### `getNumberOfWarnings()`
 
-* Returns: {number}
+---
+### getNumberOfWarnings
+
+* ###Returns: {number}
 
 #### `getRootBlock()`
 
-* Returns: {DependenciesBlock}
+---
+### getRootBlock
+
+* ###Returns: {DependenciesBlock}
 
 #### `getSideEffectsConnectionState(moduleGraph)`
 
+---
+### getSideEffectsConnectionState
+
 * `moduleGraph` {ModuleGraph}
-* Returns: {ConnectionState}
+
+* ###Returns: {ConnectionState}
 
 #### `getSourceBasicTypes()`
 
-* Returns: {ReadonlySet<string>}
+---
+### getSourceBasicTypes
+
+* ###Returns: {ReadonlySet<string>}
 
 Basic source types are high-level categories like javascript, css, webassembly, etc.
 We only have built-in knowledge about the javascript basic type here; other basic types may be
@@ -3887,146 +5935,241 @@ from getSourceTypes(), but their generated output is still JavaScript, i.e. thei
 
 #### `getSourceTypes()`
 
-* Returns: {ReadonlySet<string>}
+---
+### getSourceTypes
+
+* ###Returns: {ReadonlySet<string>}
 
 #### `getUnsafeCacheData()`
 
-* Returns: {UnsafeCacheData}
+---
+### getUnsafeCacheData
+
+* ###Returns: {UnsafeCacheData}
 
 Module should be unsafe cached. Get data that's needed for that.
 This data will be passed to restoreFromUnsafeCache later.
 
 #### `getWarnings()`
 
-* Returns: {Iterable<WebpackError, any, any>}
+---
+### getWarnings
+
+* ###Returns: {Iterable<WebpackError, any, any>}
 
 #### `hasChunkCondition()`
 
-* Returns: {boolean}
+---
+### hasChunkCondition
+
+* ###Returns: {boolean}
 
 #### `hasReasonForChunk(chunk, moduleGraph, chunkGraph)`
+
+---
+### hasReasonForChunk
 
 * `chunk` {Chunk}
 * `moduleGraph` {ModuleGraph}
 * `chunkGraph` {ChunkGraph}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `hasReasons(moduleGraph, runtime)`
 
+---
+### hasReasons
+
 * `moduleGraph` {ModuleGraph}
 * `runtime` {RuntimeSpec}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `identifier()`
 
-* Returns: {string}
+---
+### identifier
+
+* ###Returns: {string}
 
 #### `invalidateBuild()`
 
-* Returns: {void}
+---
+### invalidateBuild
+
+* ###Returns: {void}
 
 #### `isAccessibleInChunk(chunkGraph, chunk[, ignoreChunk])`
+
+---
+### isAccessibleInChunk
 
 * `chunkGraph` {ChunkGraph}
 * `chunk` {Chunk}
 * `ignoreChunk` {Chunk}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `isAccessibleInChunkGroup(chunkGraph, chunkGroup[, ignoreChunk])`
+
+---
+### isAccessibleInChunkGroup
 
 * `chunkGraph` {ChunkGraph}
 * `chunkGroup` {ChunkGroup}
 * `ignoreChunk` {Chunk}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `isEntryModule()`
 
-* Returns: {boolean}
+---
+### isEntryModule
+
+* ###Returns: {boolean}
 
 #### `isInChunk(chunk)`
 
+---
+### isInChunk
+
 * `chunk` {Chunk}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `isOptional(moduleGraph)`
 
+---
+### isOptional
+
 * `moduleGraph` {ModuleGraph}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `isProvided(exportName)`
 
+---
+### isProvided
+
 * `exportName` {string}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `libIdent(options)`
 
+---
+### libIdent
+
 * `options` {LibIdentOptions}
-* Returns: {string}
+
+* ###Returns: {string}
 
 #### `nameForCondition()`
 
-* Returns: {string}
+---
+### nameForCondition
+
+* ###Returns: {string}
 
 #### `needBuild(context, callback)`
 
+---
+### needBuild
+
 * `context` {NeedBuildContext}
 * `callback` {object}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `needRebuild(fileTimestamps, contextTimestamps)`
+
+---
+### needRebuild
 
 > Stability: 0 - Deprecated
 
 * `fileTimestamps` {Map<string, number>}
 * `contextTimestamps` {Map<string, number>}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 Use needBuild instead
 
 #### `originalSource()`
 
-* Returns: {Source}
+---
+### originalSource
+
+* ###Returns: {Source}
 
 #### `readableIdentifier(requestShortener)`
 
+---
+### readableIdentifier
+
 * `requestShortener` {RequestShortener}
-* Returns: {string}
+
+* ###Returns: {string}
 
 #### `removeChunk(chunk)`
 
+---
+### removeChunk
+
 * `chunk` {Chunk}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `removeDependency(dependency)`
 
+---
+### removeDependency
+
 * `dependency` {Dependency}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `serialize(__namedParameters)`
 
+---
+### serialize
+
 * `__namedParameters` {ObjectSerializerContext}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `size([type])`
 
+---
+### size
+
 * `type` {string}
-* Returns: {number}
+
+* ###Returns: {number}
 
 #### `source(dependencyTemplates, runtimeTemplate[, type])`
+
+---
+### source
 
 > Stability: 0 - Deprecated
 
 * `dependencyTemplates` {DependencyTemplates}
 * `runtimeTemplate` {RuntimeTemplate}
 * `type` {string}
-* Returns: {Source}
+
+* ###Returns: {Source}
 
 Use codeGeneration() instead
 
 #### `updateCacheModule(module)`
 
+---
+### updateCacheModule
+
 * `module` {Module}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Assuming this module is in the cache. Update the (cached) module with
 the fresh module from the factory. Usually updates internal references
@@ -4034,46 +6177,66 @@ and properties.
 
 #### `updateHash(hash, context)`
 
+---
+### updateHash
+
 * `hash` {Hash}
 * `context` {UpdateHashContextDependency}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### Static method: `getSourceBasicTypes(module)`
+
+---
+### getSourceBasicTypes
 
 > Stability: 0 - Deprecated
 
 * `module` {Module}
-* Returns: {ReadonlySet<string>}
+
+* ###Returns: {ReadonlySet<string>}
 
 In webpack 6, call getSourceBasicTypes() directly on the module instance instead of using this static method.
 
 ***
 
-## Class: `ModuleFactory`
+## 
+### Class: `ModuleFactory`
 
 ### Constructors
 
 #### `new ModuleFactory()`
 
-* Returns: {ModuleFactory}
+---
+### ModuleFactory
+
+* ###Returns: {ModuleFactory}
 
 ### Methods
 
 #### `create(data, callback)`
 
+---
+### create
+
 * `data` {ModuleFactoryCreateData}
 * `callback` {object}
-* Returns: {void}
+
+* ###Returns: {void}
 
 ***
 
-## Class: `ModuleGraph`
+## 
+### Class: `ModuleGraph`
 
 ### Constructors
 
 #### `new ModuleGraph()`
 
-* Returns: {ModuleGraph}
+---
+### ModuleGraph
+
+* ###Returns: {ModuleGraph}
 
 ### Properties
 
@@ -4083,17 +6246,28 @@ In webpack 6, call getSourceBasicTypes() directly on the module instance instead
 
 #### `addExplanation(dependency, explanation)`
 
+---
+### addExplanation
+
 * `dependency` {Dependency}
 * `explanation` {string}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `addExtraReason(module, explanation)`
 
+---
+### addExtraReason
+
 * `module` {Module}
 * `explanation` {string}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `cached(fn, args)`
+
+---
+### cached
 
 ###### T
 
@@ -4102,24 +6276,37 @@ In webpack 6, call getSourceBasicTypes() directly on the module instance instead
 ###### R
 
 `R`
+
 * `fn` {object}
 * `args` {T}
-* Returns: {R}
+
+* ###Returns: {R}
 
 #### `cloneModuleAttributes(sourceModule, targetModule)`
 
+---
+### cloneModuleAttributes
+
 * `sourceModule` {Module}
 * `targetModule` {Module}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `copyOutgoingModuleConnections(oldModule, newModule, filterConnection)`
+
+---
+### copyOutgoingModuleConnections
 
 * `oldModule` {Module}
 * `newModule` {Module}
 * `filterConnection` {object}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `dependencyCacheProvide(dependency, args)`
+
+---
+### dependencyCacheProvide
 
 ###### D
 
@@ -4132,317 +6319,536 @@ In webpack 6, call getSourceBasicTypes() directly on the module instance instead
 ###### R
 
 `R`
+
 * `dependency` {D}
 * `args` {Tuple<ARGS, unknown>}
-* Returns: {R}
+
+* ###Returns: {R}
 
 #### `finishUpdateParent()`
 
-* Returns: {void}
+---
+### finishUpdateParent
+
+* ###Returns: {void}
 
 #### `freeze([cacheStage])`
 
+---
+### freeze
+
 * `cacheStage` {string}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `getConnection(dependency)`
 
+---
+### getConnection
+
 * `dependency` {Dependency}
-* Returns: {ModuleGraphConnection}
+
+* ###Returns: {ModuleGraphConnection}
 
 #### `getDepth(module)`
 
+---
+### getDepth
+
 * `module` {Module}
-* Returns: {number}
+
+* ###Returns: {number}
 
 #### `getExportInfo(module, exportName)`
 
+---
+### getExportInfo
+
 * `module` {Module}
 * `exportName` {string}
-* Returns: {ExportInfo}
+
+* ###Returns: {ExportInfo}
 
 #### `getExportsInfo(module)`
 
+---
+### getExportsInfo
+
 * `module` {Module}
-* Returns: {ExportsInfo}
+
+* ###Returns: {ExportsInfo}
 
 #### `getIncomingConnections(module)`
 
+---
+### getIncomingConnections
+
 * `module` {Module}
-* Returns: {Iterable<ModuleGraphConnection>}
+
+* ###Returns: {Iterable<ModuleGraphConnection>}
 
 #### `getIncomingConnectionsByOriginModule(module)`
 
+---
+### getIncomingConnectionsByOriginModule
+
 * `module` {Module}
-* Returns: {ReadonlyMap<Module, ModuleGraphConnection[]>}
+
+* ###Returns: {ReadonlyMap<Module, ModuleGraphConnection[]>}
 
 #### `getIssuer(module)`
 
+---
+### getIssuer
+
 * `module` {Module}
-* Returns: {Module}
+
+* ###Returns: {Module}
 
 #### `getMeta(thing)`
 
+---
+### getMeta
+
 * `thing` {object}
-* Returns: {Meta}
+
+* ###Returns: {Meta}
 
 #### `getMetaIfExisting(thing)`
 
+---
+### getMetaIfExisting
+
 * `thing` {object}
-* Returns: {Meta}
+
+* ###Returns: {Meta}
 
 #### `getModule(dependency)`
 
+---
+### getModule
+
 * `dependency` {Dependency}
-* Returns: {Module}
+
+* ###Returns: {Module}
 
 #### `getOptimizationBailout(module)`
 
+---
+### getOptimizationBailout
+
 * `module` {Module}
-* Returns: {string|object[]}
+
+* ###Returns: {string|object[]}
 
 #### `getOrigin(dependency)`
 
+---
+### getOrigin
+
 * `dependency` {Dependency}
-* Returns: {Module}
+
+* ###Returns: {Module}
 
 #### `getOutgoingConnections(module)`
 
+---
+### getOutgoingConnections
+
 * `module` {Module}
-* Returns: {Iterable<ModuleGraphConnection>}
+
+* ###Returns: {Iterable<ModuleGraphConnection>}
 
 #### `getOutgoingConnectionsByModule(module)`
 
+---
+### getOutgoingConnectionsByModule
+
 * `module` {Module}
-* Returns: {ReadonlyMap<Module, ModuleGraphConnection[]>}
+
+* ###Returns: {ReadonlyMap<Module, ModuleGraphConnection[]>}
 
 #### `getParentBlock(dependency)`
 
+---
+### getParentBlock
+
 * `dependency` {Dependency}
-* Returns: {DependenciesBlock}
+
+* ###Returns: {DependenciesBlock}
 
 #### `getParentBlockIndex(dependency)`
 
+---
+### getParentBlockIndex
+
 * `dependency` {Dependency}
-* Returns: {number}
+
+* ###Returns: {number}
 
 #### `getParentModule(dependency)`
 
+---
+### getParentModule
+
 * `dependency` {Dependency}
-* Returns: {Module}
+
+* ###Returns: {Module}
 
 #### `getPostOrderIndex(module)`
 
+---
+### getPostOrderIndex
+
 * `module` {Module}
-* Returns: {number}
+
+* ###Returns: {number}
 
 #### `getPreOrderIndex(module)`
 
+---
+### getPreOrderIndex
+
 * `module` {Module}
-* Returns: {number}
+
+* ###Returns: {number}
 
 #### `getProfile(module)`
 
+---
+### getProfile
+
 * `module` {Module}
-* Returns: {ModuleProfile}
+
+* ###Returns: {ModuleProfile}
 
 #### `getProvidedExports(module)`
 
+---
+### getProvidedExports
+
 * `module` {Module}
-* Returns: {true|string[]}
+
+* ###Returns: {true|string[]}
 
 #### `getReadOnlyExportInfo(module, exportName)`
 
+---
+### getReadOnlyExportInfo
+
 * `module` {Module}
 * `exportName` {string}
-* Returns: {ExportInfo}
+
+* ###Returns: {ExportInfo}
 
 #### `getResolvedModule(dependency)`
 
+---
+### getResolvedModule
+
 * `dependency` {Dependency}
-* Returns: {Module}
+
+* ###Returns: {Module}
 
 #### `getResolvedOrigin(dependency)`
 
+---
+### getResolvedOrigin
+
 * `dependency` {Dependency}
-* Returns: {Module}
+
+* ###Returns: {Module}
 
 #### `getUsedExports(module, runtime)`
 
+---
+### getUsedExports
+
 * `module` {Module}
 * `runtime` {RuntimeSpec}
-* Returns: {boolean|SortableSet<string>}
+
+* ###Returns: {boolean|SortableSet<string>}
 
 #### `isAsync(module)`
 
+---
+### isAsync
+
 * `module` {Module}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `isDeferred(module)`
 
+---
+### isDeferred
+
 * `module` {Module}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `isExportProvided(module, exportName)`
 
+---
+### isExportProvided
+
 * `module` {Module}
 * `exportName` {string|string[]}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `moveModuleConnections(oldModule, newModule, filterConnection)`
+
+---
+### moveModuleConnections
 
 * `oldModule` {Module}
 * `newModule` {Module}
 * `filterConnection` {object}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `removeAllModuleAttributes()`
 
-* Returns: {void}
+---
+### removeAllModuleAttributes
+
+* ###Returns: {void}
 
 #### `removeConnection(dependency)`
 
+---
+### removeConnection
+
 * `dependency` {Dependency}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `removeModuleAttributes(module)`
 
+---
+### removeModuleAttributes
+
 * `module` {Module}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `setAsync(module)`
 
+---
+### setAsync
+
 * `module` {Module}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `setDepth(module, depth)`
 
+---
+### setDepth
+
 * `module` {Module}
 * `depth` {number}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `setDepthIfLower(module, depth)`
 
+---
+### setDepthIfLower
+
 * `module` {Module}
 * `depth` {number}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `setIssuer(module, issuer)`
 
+---
+### setIssuer
+
 * `module` {Module}
 * `issuer` {Module}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `setIssuerIfUnset(module, issuer)`
 
+---
+### setIssuerIfUnset
+
 * `module` {Module}
 * `issuer` {Module}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `setModuleMemCaches(moduleMemCaches)`
 
+---
+### setModuleMemCaches
+
 * `moduleMemCaches` {Map<Module, WeakTupleMap<any[], any>>}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `setParentDependenciesBlockIndex(dependency, index)`
 
+---
+### setParentDependenciesBlockIndex
+
 * `dependency` {Dependency}
 * `index` {number}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `setParents(dependency, block, module[, indexInBlock])`
+
+---
+### setParents
 
 * `dependency` {Dependency}
 * `block` {DependenciesBlock}
 * `module` {Module}
 * `indexInBlock` {number}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `setPostOrderIndex(module, index)`
 
+---
+### setPostOrderIndex
+
 * `module` {Module}
 * `index` {number}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `setPostOrderIndexIfUnset(module, index)`
 
+---
+### setPostOrderIndexIfUnset
+
 * `module` {Module}
 * `index` {number}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `setPreOrderIndex(module, index)`
 
+---
+### setPreOrderIndex
+
 * `module` {Module}
 * `index` {number}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `setPreOrderIndexIfUnset(module, index)`
 
+---
+### setPreOrderIndexIfUnset
+
 * `module` {Module}
 * `index` {number}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `setProfile(module[, profile])`
 
+---
+### setProfile
+
 * `module` {Module}
 * `profile` {ModuleProfile}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `setResolvedModule(originModule, dependency, module)`
+
+---
+### setResolvedModule
 
 * `originModule` {Module}
 * `dependency` {Dependency}
 * `module` {Module}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `unfreeze()`
 
-* Returns: {void}
+---
+### unfreeze
+
+* ###Returns: {void}
 
 #### `updateModule(dependency, module)`
 
+---
+### updateModule
+
 * `dependency` {Dependency}
 * `module` {Module}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `updateParent(dependency[, connection][, parentModule])`
+
+---
+### updateParent
 
 * `dependency` {Dependency}
 * `connection` {ModuleGraphConnection}
 * `parentModule` {Module}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### Static method: `clearModuleGraphForModule(module)`
+
+---
+### clearModuleGraphForModule
 
 > Stability: 0 - Deprecated
 
 * `module` {Module}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### Static method: `getModuleGraphForModule(module, deprecateMessage, deprecationCode)`
+
+---
+### getModuleGraphForModule
 
 > Stability: 0 - Deprecated
 
 * `module` {Module}
 * `deprecateMessage` {string}
 * `deprecationCode` {string}
-* Returns: {ModuleGraph}
+
+* ###Returns: {ModuleGraph}
 
 #### Static method: `setModuleGraphForModule(module, moduleGraph)`
+
+---
+### setModuleGraphForModule
 
 > Stability: 0 - Deprecated
 
 * `module` {Module}
 * `moduleGraph` {ModuleGraph}
-* Returns: {void}
+
+* ###Returns: {void}
 
 ***
 
-## Class: `ModuleGraphConnection`
+## 
+### Class: `ModuleGraphConnection`
 
 ### Constructors
 
 #### `new ModuleGraphConnection(originModule, dependency, module[, explanation][, weak][, condition])`
+
+---
+### ModuleGraphConnection
 
 * `originModule` {Module}
 * `dependency` {Dependency}
@@ -4450,7 +6856,8 @@ In webpack 6, call getSourceBasicTypes() directly on the module instance instead
 * `explanation` {string}
 * `weak` {boolean}
 * `condition` {false|object}
-* Returns: {ModuleGraphConnection}
+
+* ###Returns: {ModuleGraphConnection}
 
 ### Properties
 
@@ -4472,49 +6879,81 @@ In webpack 6, call getSourceBasicTypes() directly on the module instance instead
 
 #### `addCondition(condition)`
 
+---
+### addCondition
+
 * `condition` {object}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `addExplanation(explanation)`
 
+---
+### addExplanation
+
 * `explanation` {string}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `clone()`
 
-* Returns: {ModuleGraphConnection}
+---
+### clone
+
+* ###Returns: {ModuleGraphConnection}
 
 #### `getActiveState(runtime)`
 
+---
+### getActiveState
+
 * `runtime` {RuntimeSpec}
-* Returns: {ConnectionState}
+
+* ###Returns: {ConnectionState}
 
 #### `isActive(runtime)`
 
+---
+### isActive
+
 * `runtime` {RuntimeSpec}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `isTargetActive(runtime)`
 
+---
+### isTargetActive
+
 * `runtime` {RuntimeSpec}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `setActive(value)`
 
+---
+### setActive
+
 * `value` {boolean}
-* Returns: {void}
+
+* ###Returns: {void}
 
 ***
 
-## Class: `MultiCompiler`
+## 
+### Class: `MultiCompiler`
 
 ### Constructors
 
 #### `new MultiCompiler(compilers, options)`
 
+---
+### MultiCompiler
+
 * `compilers` {Compiler[]|Record<string, Compiler>}
 * `options` {MultiCompilerOptions}
-* Returns: {MultiCompiler}
+
+* ###Returns: {MultiCompiler}
 
 ### Properties
 
@@ -4533,60 +6972,95 @@ In webpack 6, call getSourceBasicTypes() directly on the module instance instead
 
 #### `close(callback)`
 
+---
+### close
+
 * `callback` {object}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `getInfrastructureLogger(name)`
 
+---
+### getInfrastructureLogger
+
 * `name` {string|object}
-* Returns: {WebpackLogger}
+
+* ###Returns: {WebpackLogger}
 
 #### `purgeInputFileSystem()`
 
-* Returns: {void}
+---
+### purgeInputFileSystem
+
+* ###Returns: {void}
 
 #### `run(callback)`
 
+---
+### run
+
 * `callback` {CallbackWebpackFunction_2<MultiStats, void>}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `runWithDependencies(compilers, fn, callback)`
+
+---
+### runWithDependencies
 
 > Stability: 0 - Deprecated
 
 * `compilers` {Compiler[]}
 * `fn` {object}
 * `callback` {CallbackWebpackFunction_2<Stats[], void>}
-* Returns: {void}
+
+* ###Returns: {void}
 
 This method should have been private
 
 #### `setDependencies(compiler, dependencies)`
 
+---
+### setDependencies
+
 * `compiler` {Compiler}
 * `dependencies` {string[]}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `validateDependencies(callback)`
 
+---
+### validateDependencies
+
 * `callback` {CallbackWebpackFunction_2<MultiStats, void>}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `watch(watchOptions, handler)`
 
+---
+### watch
+
 * `watchOptions` {WatchOptions|WatchOptions[]}
 * `handler` {CallbackWebpackFunction_2<MultiStats, void>}
-* Returns: {MultiWatching}
+
+* ###Returns: {MultiWatching}
 
 ***
 
-## Class: `MultiStats`
+## 
+### Class: `MultiStats`
 
 ### Constructors
 
 #### `new MultiStats()`
 
-* Returns: {MultiStats}
+---
+### MultiStats
+
+* ###Returns: {MultiStats}
 
 ### Properties
 
@@ -4597,44 +7071,67 @@ This method should have been private
 
 #### `hasErrors()`
 
-* Returns: {boolean}
+---
+### hasErrors
+
+* ###Returns: {boolean}
 
 #### `hasWarnings()`
 
-* Returns: {boolean}
+---
+### hasWarnings
+
+* ###Returns: {boolean}
 
 #### `toJson([options])`
 
+---
+### toJson
+
 * `options` {boolean|"verbose"|"none"|"summary"|"errors-only"|"errors-warnings"|"minimal"|"normal"|"detailed"|StatsOptions}
-* Returns: {StatsCompilation}
+
+* ###Returns: {StatsCompilation}
 
 #### `toString([options])`
 
+---
+### toString
+
 * `options` {boolean|"verbose"|"none"|"summary"|"errors-only"|"errors-warnings"|"minimal"|"normal"|"detailed"|StatsOptions}
-* Returns: {string}
+
+* ###Returns: {string}
 
 ***
 
-## Class: `NoEmitOnErrorsPlugin`
+## 
+### Class: `NoEmitOnErrorsPlugin`
 
 ### Constructors
 
 #### `new NoEmitOnErrorsPlugin()`
 
-* Returns: {NoEmitOnErrorsPlugin}
+---
+### NoEmitOnErrorsPlugin
+
+* ###Returns: {NoEmitOnErrorsPlugin}
 
 ### Methods
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Apply the plugin
 
 ***
 
-## Class: `NormalModule`
+## 
+### Class: `NormalModule`
 
 ### Extends
 
@@ -4644,8 +7141,12 @@ Apply the plugin
 
 #### `new NormalModule(__namedParameters)`
 
+---
+### NormalModule
+
 * `__namedParameters` {NormalModuleCreateData}
-* Returns: {NormalModule}
+
+* ###Returns: {NormalModule}
 
 ### Properties
 
@@ -4704,169 +7205,278 @@ Apply the plugin
 
 #### `addBlock(block)`
 
+---
+### addBlock
+
 * `block` {AsyncDependenciesBlock}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Adds a DependencyBlock to DependencyBlock relationship.
 This is used for when a Module has a AsyncDependencyBlock tie (for code-splitting)
 
 #### `addCacheDependencies(fileDependencies, contextDependencies, missingDependencies, buildDependencies)`
 
+---
+### addCacheDependencies
+
 * `fileDependencies` {LazySet<string>}
 * `contextDependencies` {LazySet<string>}
 * `missingDependencies` {LazySet<string>}
 * `buildDependencies` {LazySet<string>}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `addChunk(chunk)`
 
+---
+### addChunk
+
 * `chunk` {Chunk}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `addCodeGenerationDependency(codeGenerationDependency)`
 
+---
+### addCodeGenerationDependency
+
 * `codeGenerationDependency` {Dependency}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `addDependency(dependency)`
 
+---
+### addDependency
+
 * `dependency` {Dependency}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `addError(error)`
 
+---
+### addError
+
 * `error` {WebpackError}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `addPresentationalDependency(presentationalDependency)`
 
+---
+### addPresentationalDependency
+
 * `presentationalDependency` {Dependency}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `addWarning(warning)`
 
+---
+### addWarning
+
 * `warning` {WebpackError}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `applyNoParseRule(rule, content)`
 
+---
+### applyNoParseRule
+
 * `rule` {string|RegExp|object}
 * `content` {string}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `build(options, compilation, resolver, fs, callback)`
+
+---
+### build
 
 * `options` {WebpackOptionsNormalizedWithDefaults}
 * `compilation` {Compilation}
 * `resolver` {ResolverWithOptions}
 * `fs` {InputFileSystem}
 * `callback` {object}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `chunkCondition(chunk, compilation)`
 
+---
+### chunkCondition
+
 * `chunk` {Chunk}
 * `compilation` {Compilation}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `cleanupForCache()`
 
-* Returns: {void}
+---
+### cleanupForCache
+
+* ###Returns: {void}
 
 Assuming this module is in the cache. Remove internal references to allow freeing some memory.
 
 #### `clearDependenciesAndBlocks()`
 
-* Returns: {void}
+---
+### clearDependenciesAndBlocks
+
+* ###Returns: {void}
 
 Removes all dependencies and blocks
 
 #### `clearWarningsAndErrors()`
 
-* Returns: {void}
+---
+### clearWarningsAndErrors
+
+* ###Returns: {void}
 
 removes all warnings and errors
 
 #### `codeGeneration(context)`
 
+---
+### codeGeneration
+
 * `context` {CodeGenerationContext}
-* Returns: {CodeGenerationResult}
+
+* ###Returns: {CodeGenerationResult}
 
 #### `createSource(context, content[, sourceMap][, associatedObjectForCache])`
+
+---
+### createSource
 
 * `context` {string}
 * `content` {string|Buffer<ArrayBufferLike>}
 * `sourceMap` {string|RawSourceMap}
 * `associatedObjectForCache` {object}
-* Returns: {Source}
+
+* ###Returns: {Source}
 
 #### `createSourceForAsset(context, name, content[, sourceMap][, associatedObjectForCache])`
+
+---
+### createSourceForAsset
 
 * `context` {string}
 * `name` {string}
 * `content` {string|Buffer<ArrayBufferLike>}
 * `sourceMap` {string|RawSourceMap}
 * `associatedObjectForCache` {object}
-* Returns: {Source}
+
+* ###Returns: {Source}
 
 #### `deserialize(__namedParameters)`
 
+---
+### deserialize
+
 * `__namedParameters` {ObjectDeserializerContext}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `getChunks()`
 
-* Returns: {Chunk[]}
+---
+### getChunks
+
+* ###Returns: {Chunk[]}
 
 #### `getConcatenationBailoutReason(context)`
 
+---
+### getConcatenationBailoutReason
+
 * `context` {ConcatenationBailoutReasonContext}
-* Returns: {string}
+
+* ###Returns: {string}
 
 #### `getCurrentLoader(loaderContext[, index])`
 
+---
+### getCurrentLoader
+
 * `loaderContext` {AnyLoaderContext}
 * `index` {number}
-* Returns: {LoaderItem}
+
+* ###Returns: {LoaderItem}
 
 #### `getErrors()`
 
-* Returns: {Iterable<WebpackError, any, any>}
+---
+### getErrors
+
+* ###Returns: {Iterable<WebpackError, any, any>}
 
 #### `getExportsType(moduleGraph[, strict])`
 
+---
+### getExportsType
+
 * `moduleGraph` {ModuleGraph}
 * `strict` {boolean}
-* Returns: {ExportsType}
+
+* ###Returns: {ExportsType}
 
 #### `getNumberOfChunks()`
 
-* Returns: {number}
+---
+### getNumberOfChunks
+
+* ###Returns: {number}
 
 #### `getNumberOfErrors()`
 
-* Returns: {number}
+---
+### getNumberOfErrors
+
+* ###Returns: {number}
 
 #### `getNumberOfWarnings()`
 
-* Returns: {number}
+---
+### getNumberOfWarnings
+
+* ###Returns: {number}
 
 #### `getResource()`
 
-* Returns: {string}
+---
+### getResource
+
+* ###Returns: {string}
 
 #### `getRootBlock()`
 
-* Returns: {DependenciesBlock}
+---
+### getRootBlock
+
+* ###Returns: {DependenciesBlock}
 
 #### `getSideEffectsConnectionState(moduleGraph)`
 
+---
+### getSideEffectsConnectionState
+
 * `moduleGraph` {ModuleGraph}
-* Returns: {ConnectionState}
+
+* ###Returns: {ConnectionState}
 
 #### `getSourceBasicTypes()`
 
-* Returns: {ReadonlySet<string>}
+---
+### getSourceBasicTypes
+
+* ###Returns: {ReadonlySet<string>}
 
 Basic source types are high-level categories like javascript, css, webassembly, etc.
 We only have built-in knowledge about the javascript basic type here; other basic types may be
@@ -4876,165 +7486,272 @@ from getSourceTypes(), but their generated output is still JavaScript, i.e. thei
 
 #### `getSourceTypes()`
 
-* Returns: {ReadonlySet<string>}
+---
+### getSourceTypes
+
+* ###Returns: {ReadonlySet<string>}
 
 #### `getUnsafeCacheData()`
 
-* Returns: {UnsafeCacheData}
+---
+### getUnsafeCacheData
+
+* ###Returns: {UnsafeCacheData}
 
 Module should be unsafe cached. Get data that's needed for that.
 This data will be passed to restoreFromUnsafeCache later.
 
 #### `getWarnings()`
 
-* Returns: {Iterable<WebpackError, any, any>}
+---
+### getWarnings
+
+* ###Returns: {Iterable<WebpackError, any, any>}
 
 #### `hasChunkCondition()`
 
-* Returns: {boolean}
+---
+### hasChunkCondition
+
+* ###Returns: {boolean}
 
 #### `hasReasonForChunk(chunk, moduleGraph, chunkGraph)`
+
+---
+### hasReasonForChunk
 
 * `chunk` {Chunk}
 * `moduleGraph` {ModuleGraph}
 * `chunkGraph` {ChunkGraph}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `hasReasons(moduleGraph, runtime)`
 
+---
+### hasReasons
+
 * `moduleGraph` {ModuleGraph}
 * `runtime` {RuntimeSpec}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `identifier()`
 
-* Returns: {string}
+---
+### identifier
+
+* ###Returns: {string}
 
 #### `invalidateBuild()`
 
-* Returns: {void}
+---
+### invalidateBuild
+
+* ###Returns: {void}
 
 #### `isAccessibleInChunk(chunkGraph, chunk[, ignoreChunk])`
+
+---
+### isAccessibleInChunk
 
 * `chunkGraph` {ChunkGraph}
 * `chunk` {Chunk}
 * `ignoreChunk` {Chunk}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `isAccessibleInChunkGroup(chunkGraph, chunkGroup[, ignoreChunk])`
+
+---
+### isAccessibleInChunkGroup
 
 * `chunkGraph` {ChunkGraph}
 * `chunkGroup` {ChunkGroup}
 * `ignoreChunk` {Chunk}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `isEntryModule()`
 
-* Returns: {boolean}
+---
+### isEntryModule
+
+* ###Returns: {boolean}
 
 #### `isInChunk(chunk)`
 
+---
+### isInChunk
+
 * `chunk` {Chunk}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `isOptional(moduleGraph)`
 
+---
+### isOptional
+
 * `moduleGraph` {ModuleGraph}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `isProvided(exportName)`
 
+---
+### isProvided
+
 * `exportName` {string}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `libIdent(options)`
 
+---
+### libIdent
+
 * `options` {LibIdentOptions}
-* Returns: {string}
+
+* ###Returns: {string}
 
 #### `markModuleAsErrored(error)`
 
+---
+### markModuleAsErrored
+
 * `error` {WebpackError}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `nameForCondition()`
 
-* Returns: {string}
+---
+### nameForCondition
+
+* ###Returns: {string}
 
 #### `needBuild(context, callback)`
 
+---
+### needBuild
+
 * `context` {NeedBuildContext}
 * `callback` {object}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `needRebuild(fileTimestamps, contextTimestamps)`
+
+---
+### needRebuild
 
 > Stability: 0 - Deprecated
 
 * `fileTimestamps` {Map<string, number>}
 * `contextTimestamps` {Map<string, number>}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 Use needBuild instead
 
 #### `originalSource()`
 
-* Returns: {Source}
+---
+### originalSource
+
+* ###Returns: {Source}
 
 #### `readableIdentifier(requestShortener)`
 
+---
+### readableIdentifier
+
 * `requestShortener` {RequestShortener}
-* Returns: {string}
+
+* ###Returns: {string}
 
 #### `removeChunk(chunk)`
 
+---
+### removeChunk
+
 * `chunk` {Chunk}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `removeDependency(dependency)`
 
+---
+### removeDependency
+
 * `dependency` {Dependency}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `restoreFromUnsafeCache(unsafeCacheData, normalModuleFactory)`
 
+---
+### restoreFromUnsafeCache
+
 * `unsafeCacheData` {UnsafeCacheData}
 * `normalModuleFactory` {NormalModuleFactory}
-* Returns: {void}
+
+* ###Returns: {void}
 
 restore unsafe cache data
 
 #### `serialize(__namedParameters)`
 
+---
+### serialize
+
 * `__namedParameters` {ObjectSerializerContext}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `shouldPreventParsing(noParseRule, request)`
 
+---
+### shouldPreventParsing
+
 * `noParseRule` {string|RegExp|object|string|RegExp|object[]}
 * `request` {string}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `size([type])`
 
+---
+### size
+
 * `type` {string}
-* Returns: {number}
+
+* ###Returns: {number}
 
 #### `source(dependencyTemplates, runtimeTemplate[, type])`
+
+---
+### source
 
 > Stability: 0 - Deprecated
 
 * `dependencyTemplates` {DependencyTemplates}
 * `runtimeTemplate` {RuntimeTemplate}
 * `type` {string}
-* Returns: {Source}
+
+* ###Returns: {Source}
 
 Use codeGeneration() instead
 
 #### `updateCacheModule(module)`
 
+---
+### updateCacheModule
+
 * `module` {Module}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Assuming this module is in the cache. Update the (cached) module with
 the fresh module from the factory. Usually updates internal references
@@ -5042,40 +7759,61 @@ and properties.
 
 #### `updateHash(hash, context)`
 
+---
+### updateHash
+
 * `hash` {Hash}
 * `context` {UpdateHashContextDependency}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### Static method: `deserialize(context)`
 
+---
+### deserialize
+
 * `context` {ObjectDeserializerContext}
-* Returns: {NormalModule}
+
+* ###Returns: {NormalModule}
 
 #### Static method: `getCompilationHooks(compilation)`
 
+---
+### getCompilationHooks
+
 * `compilation` {Compilation}
-* Returns: {NormalModuleCompilationHooks}
+
+* ###Returns: {NormalModuleCompilationHooks}
 
 #### Static method: `getSourceBasicTypes(module)`
+
+---
+### getSourceBasicTypes
 
 > Stability: 0 - Deprecated
 
 * `module` {Module}
-* Returns: {ReadonlySet<string>}
+
+* ###Returns: {ReadonlySet<string>}
 
 In webpack 6, call getSourceBasicTypes() directly on the module instance instead of using this static method.
 
 ***
 
-## Class: `NormalModuleReplacementPlugin`
+## 
+### Class: `NormalModuleReplacementPlugin`
 
 ### Constructors
 
 #### `new NormalModuleReplacementPlugin(resourceRegExp, newResource)`
 
+---
+### NormalModuleReplacementPlugin
+
 * `resourceRegExp` {RegExp}
 * `newResource` {string|object}
-* Returns: {NormalModuleReplacementPlugin}
+
+* ###Returns: {NormalModuleReplacementPlugin}
 
 Create an instance of the plugin
 
@@ -5088,14 +7826,19 @@ Create an instance of the plugin
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Apply the plugin
 
 ***
 
-## Class: `Parser`
+## 
+### Class: `Parser`
 
 ### Extended by
 
@@ -5105,26 +7848,38 @@ Apply the plugin
 
 #### `new Parser()`
 
-* Returns: {ParserClass}
+---
+### Parser
+
+* ###Returns: {ParserClass}
 
 ### Methods
 
 #### `parse(source, state)`
 
+---
+### parse
+
 * `source` {string|Buffer<ArrayBufferLike>|PreparsedAst}
 * `state` {ParserState}
-* Returns: {ParserState}
+
+* ###Returns: {ParserState}
 
 ***
 
-## Class: `PlatformPlugin`
+## 
+### Class: `PlatformPlugin`
 
 ### Constructors
 
 #### `new PlatformPlugin(platform)`
 
+---
+### PlatformPlugin
+
 * `platform` {Partial<PlatformTargetProperties>}
-* Returns: {PlatformPlugin}
+
+* ###Returns: {PlatformPlugin}
 
 ### Properties
 
@@ -5134,22 +7889,31 @@ Apply the plugin
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Apply the plugin
 
 ***
 
-## Class: `PrefetchPlugin`
+## 
+### Class: `PrefetchPlugin`
 
 ### Constructors
 
 #### `new PrefetchPlugin(context[, request])`
 
+---
+### PrefetchPlugin
+
 * `context` {string}
 * `request` {string}
-* Returns: {PrefetchPlugin}
+
+* ###Returns: {PrefetchPlugin}
 
 ### Properties
 
@@ -5160,21 +7924,30 @@ Apply the plugin
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Apply the plugin
 
 ***
 
-## Class: `ProgressPlugin`
+## 
+### Class: `ProgressPlugin`
 
 ### Constructors
 
 #### `new ProgressPlugin([options])`
 
+---
+### ProgressPlugin
+
 * `options` {ProgressPluginArgument}
-* Returns: {ProgressPlugin}
+
+* ###Returns: {ProgressPlugin}
 
 ### Properties
 
@@ -5195,24 +7968,37 @@ Apply the plugin
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler|MultiCompiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### Static method: `getReporter(compiler)`
 
+---
+### getReporter
+
 * `compiler` {Compiler}
-* Returns: {object}
+
+* ###Returns: {object}
 
 ***
 
-## Class: `ProvidePlugin`
+## 
+### Class: `ProvidePlugin`
 
 ### Constructors
 
 #### `new ProvidePlugin(definitions)`
 
+---
+### ProvidePlugin
+
 * `definitions` {Record<string, string|string[]>}
-* Returns: {ProvidePlugin}
+
+* ###Returns: {ProvidePlugin}
 
 ### Properties
 
@@ -5222,20 +8008,28 @@ Apply the plugin
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Apply the plugin
 
 ***
 
-## Class: `Resolver`
+## 
+### Class: `Resolver`
 
 ### Constructors
 
 #### `new Resolver()`
 
-* Returns: {Resolver}
+---
+### Resolver
+
+* ###Returns: {Resolver}
 
 ### Properties
 
@@ -5247,73 +8041,118 @@ Apply the plugin
 
 #### `doResolve(hook, request, message, resolveContext, callback)`
 
+---
+### doResolve
+
 * `hook` {AsyncSeriesBailHook<Tuple<ResolveRequest, ResolveContext>, ResolveRequest>}
 * `request` {ResolveRequest}
 * `message` {string}
 * `resolveContext` {ResolveContext}
 * `callback` {object}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `ensureHook(name)`
 
+---
+### ensureHook
+
 * `name` {string|AsyncSeriesBailHook<Tuple<ResolveRequest, ResolveContext>, ResolveRequest, UnsetAdditionalOptions>}
-* Returns: {AsyncSeriesBailHook<Tuple<ResolveRequest, ResolveContext>, ResolveRequest>}
+
+* ###Returns: {AsyncSeriesBailHook<Tuple<ResolveRequest, ResolveContext>, ResolveRequest>}
 
 #### `getHook(name)`
 
+---
+### getHook
+
 * `name` {string|AsyncSeriesBailHook<Tuple<ResolveRequest, ResolveContext>, ResolveRequest, UnsetAdditionalOptions>}
-* Returns: {AsyncSeriesBailHook<Tuple<ResolveRequest, ResolveContext>, ResolveRequest>}
+
+* ###Returns: {AsyncSeriesBailHook<Tuple<ResolveRequest, ResolveContext>, ResolveRequest>}
 
 #### `isDirectory(path)`
 
+---
+### isDirectory
+
 * `path` {string}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `isModule(path)`
 
+---
+### isModule
+
 * `path` {string}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `isPrivate(path)`
 
+---
+### isPrivate
+
 * `path` {string}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `join(path, request)`
 
+---
+### join
+
 * `path` {string}
 * `request` {string}
-* Returns: {string}
+
+* ###Returns: {string}
 
 #### `normalize(path)`
 
+---
+### normalize
+
 * `path` {string}
-* Returns: {string}
+
+* ###Returns: {string}
 
 #### `parse(identifier)`
 
+---
+### parse
+
 * `identifier` {string}
-* Returns: {ParsedIdentifier}
+
+* ###Returns: {ParsedIdentifier}
 
 #### `resolve(context, path, request, resolveContext, callback)`
+
+---
+### resolve
 
 * `context` {ContextTypes}
 * `path` {string}
 * `request` {string}
 * `resolveContext` {ResolveContext}
 * `callback` {object}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `resolveSync(context, path, request)`
+
+---
+### resolveSync
 
 * `context` {ContextTypes}
 * `path` {string}
 * `request` {string}
-* Returns: {string|false}
+
+* ###Returns: {string|false}
 
 ***
 
-## Class: `RuntimeModule`
+## 
+### Class: `RuntimeModule`
 
 ### Extends
 
@@ -5330,9 +8169,13 @@ Apply the plugin
 
 #### `new RuntimeModule(name[, stage])`
 
+---
+### RuntimeModule
+
 * `name` {string}
 * `stage` {number}
-* Returns: {RuntimeModule}
+
+* ###Returns: {RuntimeModule}
 
 ### Properties
 
@@ -5388,151 +8231,251 @@ Apply the plugin
 
 #### `addBlock(block)`
 
+---
+### addBlock
+
 * `block` {AsyncDependenciesBlock}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Adds a DependencyBlock to DependencyBlock relationship.
 This is used for when a Module has a AsyncDependencyBlock tie (for code-splitting)
 
 #### `addCacheDependencies(fileDependencies, contextDependencies, missingDependencies, buildDependencies)`
 
+---
+### addCacheDependencies
+
 * `fileDependencies` {LazySet<string>}
 * `contextDependencies` {LazySet<string>}
 * `missingDependencies` {LazySet<string>}
 * `buildDependencies` {LazySet<string>}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `addChunk(chunk)`
 
+---
+### addChunk
+
 * `chunk` {Chunk}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `addCodeGenerationDependency(codeGenerationDependency)`
 
+---
+### addCodeGenerationDependency
+
 * `codeGenerationDependency` {Dependency}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `addDependency(dependency)`
 
+---
+### addDependency
+
 * `dependency` {Dependency}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `addError(error)`
 
+---
+### addError
+
 * `error` {WebpackError}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `addPresentationalDependency(presentationalDependency)`
 
+---
+### addPresentationalDependency
+
 * `presentationalDependency` {Dependency}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `addWarning(warning)`
 
+---
+### addWarning
+
 * `warning` {WebpackError}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `attach(compilation, chunk[, chunkGraph])`
+
+---
+### attach
 
 * `compilation` {Compilation}
 * `chunk` {Chunk}
 * `chunkGraph` {ChunkGraph}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `build(options, compilation, resolver, fs, callback)`
+
+---
+### build
 
 * `options` {WebpackOptionsNormalizedWithDefaults}
 * `compilation` {Compilation}
 * `resolver` {ResolverWithOptions}
 * `fs` {InputFileSystem}
 * `callback` {object}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `chunkCondition(chunk, compilation)`
 
+---
+### chunkCondition
+
 * `chunk` {Chunk}
 * `compilation` {Compilation}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `cleanupForCache()`
 
-* Returns: {void}
+---
+### cleanupForCache
+
+* ###Returns: {void}
 
 Assuming this module is in the cache. Remove internal references to allow freeing some memory.
 
 #### `clearDependenciesAndBlocks()`
 
-* Returns: {void}
+---
+### clearDependenciesAndBlocks
+
+* ###Returns: {void}
 
 Removes all dependencies and blocks
 
 #### `clearWarningsAndErrors()`
 
-* Returns: {void}
+---
+### clearWarningsAndErrors
+
+* ###Returns: {void}
 
 removes all warnings and errors
 
 #### `codeGeneration(context)`
 
+---
+### codeGeneration
+
 * `context` {CodeGenerationContext}
-* Returns: {CodeGenerationResult}
+
+* ###Returns: {CodeGenerationResult}
 
 #### `deserialize(__namedParameters)`
 
+---
+### deserialize
+
 * `__namedParameters` {ObjectDeserializerContext}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `generate()`
 
-* Returns: {string}
+---
+### generate
+
+* ###Returns: {string}
 
 #### `getChunks()`
 
-* Returns: {Chunk[]}
+---
+### getChunks
+
+* ###Returns: {Chunk[]}
 
 #### `getConcatenationBailoutReason(context)`
 
+---
+### getConcatenationBailoutReason
+
 * `context` {ConcatenationBailoutReasonContext}
-* Returns: {string}
+
+* ###Returns: {string}
 
 #### `getErrors()`
 
-* Returns: {Iterable<WebpackError, any, any>}
+---
+### getErrors
+
+* ###Returns: {Iterable<WebpackError, any, any>}
 
 #### `getExportsType(moduleGraph[, strict])`
 
+---
+### getExportsType
+
 * `moduleGraph` {ModuleGraph}
 * `strict` {boolean}
-* Returns: {ExportsType}
+
+* ###Returns: {ExportsType}
 
 #### `getGeneratedCode()`
 
-* Returns: {string}
+---
+### getGeneratedCode
+
+* ###Returns: {string}
 
 #### `getNumberOfChunks()`
 
-* Returns: {number}
+---
+### getNumberOfChunks
+
+* ###Returns: {number}
 
 #### `getNumberOfErrors()`
 
-* Returns: {number}
+---
+### getNumberOfErrors
+
+* ###Returns: {number}
 
 #### `getNumberOfWarnings()`
 
-* Returns: {number}
+---
+### getNumberOfWarnings
+
+* ###Returns: {number}
 
 #### `getRootBlock()`
 
-* Returns: {DependenciesBlock}
+---
+### getRootBlock
+
+* ###Returns: {DependenciesBlock}
 
 #### `getSideEffectsConnectionState(moduleGraph)`
 
+---
+### getSideEffectsConnectionState
+
 * `moduleGraph` {ModuleGraph}
-* Returns: {ConnectionState}
+
+* ###Returns: {ConnectionState}
 
 #### `getSourceBasicTypes()`
 
-* Returns: {ReadonlySet<string>}
+---
+### getSourceBasicTypes
+
+* ###Returns: {ReadonlySet<string>}
 
 Basic source types are high-level categories like javascript, css, webassembly, etc.
 We only have built-in knowledge about the javascript basic type here; other basic types may be
@@ -5542,150 +8485,248 @@ from getSourceTypes(), but their generated output is still JavaScript, i.e. thei
 
 #### `getSourceTypes()`
 
-* Returns: {ReadonlySet<string>}
+---
+### getSourceTypes
+
+* ###Returns: {ReadonlySet<string>}
 
 #### `getUnsafeCacheData()`
 
-* Returns: {UnsafeCacheData}
+---
+### getUnsafeCacheData
+
+* ###Returns: {UnsafeCacheData}
 
 Module should be unsafe cached. Get data that's needed for that.
 This data will be passed to restoreFromUnsafeCache later.
 
 #### `getWarnings()`
 
-* Returns: {Iterable<WebpackError, any, any>}
+---
+### getWarnings
+
+* ###Returns: {Iterable<WebpackError, any, any>}
 
 #### `hasChunkCondition()`
 
-* Returns: {boolean}
+---
+### hasChunkCondition
+
+* ###Returns: {boolean}
 
 #### `hasReasonForChunk(chunk, moduleGraph, chunkGraph)`
+
+---
+### hasReasonForChunk
 
 * `chunk` {Chunk}
 * `moduleGraph` {ModuleGraph}
 * `chunkGraph` {ChunkGraph}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `hasReasons(moduleGraph, runtime)`
 
+---
+### hasReasons
+
 * `moduleGraph` {ModuleGraph}
 * `runtime` {RuntimeSpec}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `identifier()`
 
-* Returns: {string}
+---
+### identifier
+
+* ###Returns: {string}
 
 #### `invalidateBuild()`
 
-* Returns: {void}
+---
+### invalidateBuild
+
+* ###Returns: {void}
 
 #### `isAccessibleInChunk(chunkGraph, chunk[, ignoreChunk])`
+
+---
+### isAccessibleInChunk
 
 * `chunkGraph` {ChunkGraph}
 * `chunk` {Chunk}
 * `ignoreChunk` {Chunk}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `isAccessibleInChunkGroup(chunkGraph, chunkGroup[, ignoreChunk])`
+
+---
+### isAccessibleInChunkGroup
 
 * `chunkGraph` {ChunkGraph}
 * `chunkGroup` {ChunkGroup}
 * `ignoreChunk` {Chunk}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `isEntryModule()`
 
-* Returns: {boolean}
+---
+### isEntryModule
+
+* ###Returns: {boolean}
 
 #### `isInChunk(chunk)`
 
+---
+### isInChunk
+
 * `chunk` {Chunk}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `isOptional(moduleGraph)`
 
+---
+### isOptional
+
 * `moduleGraph` {ModuleGraph}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `isProvided(exportName)`
 
+---
+### isProvided
+
 * `exportName` {string}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 #### `libIdent(options)`
 
+---
+### libIdent
+
 * `options` {LibIdentOptions}
-* Returns: {string}
+
+* ###Returns: {string}
 
 #### `nameForCondition()`
 
-* Returns: {string}
+---
+### nameForCondition
+
+* ###Returns: {string}
 
 #### `needBuild(context, callback)`
 
+---
+### needBuild
+
 * `context` {NeedBuildContext}
 * `callback` {object}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `needRebuild(fileTimestamps, contextTimestamps)`
+
+---
+### needRebuild
 
 > Stability: 0 - Deprecated
 
 * `fileTimestamps` {Map<string, number>}
 * `contextTimestamps` {Map<string, number>}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 Use needBuild instead
 
 #### `originalSource()`
 
-* Returns: {Source}
+---
+### originalSource
+
+* ###Returns: {Source}
 
 #### `readableIdentifier(requestShortener)`
 
+---
+### readableIdentifier
+
 * `requestShortener` {RequestShortener}
-* Returns: {string}
+
+* ###Returns: {string}
 
 #### `removeChunk(chunk)`
 
+---
+### removeChunk
+
 * `chunk` {Chunk}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `removeDependency(dependency)`
 
+---
+### removeDependency
+
 * `dependency` {Dependency}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `serialize(__namedParameters)`
 
+---
+### serialize
+
 * `__namedParameters` {ObjectSerializerContext}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `shouldIsolate()`
 
-* Returns: {boolean}
+---
+### shouldIsolate
+
+* ###Returns: {boolean}
 
 #### `size([type])`
 
+---
+### size
+
 * `type` {string}
-* Returns: {number}
+
+* ###Returns: {number}
 
 #### `source(dependencyTemplates, runtimeTemplate[, type])`
+
+---
+### source
 
 > Stability: 0 - Deprecated
 
 * `dependencyTemplates` {DependencyTemplates}
 * `runtimeTemplate` {RuntimeTemplate}
 * `type` {string}
-* Returns: {Source}
+
+* ###Returns: {Source}
 
 Use codeGeneration() instead
 
 #### `updateCacheModule(module)`
 
+---
+### updateCacheModule
+
 * `module` {Module}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Assuming this module is in the cache. Update the (cached) module with
 the fresh module from the factory. Usually updates internal references
@@ -5693,29 +8734,42 @@ and properties.
 
 #### `updateHash(hash, context)`
 
+---
+### updateHash
+
 * `hash` {Hash}
 * `context` {UpdateHashContextDependency}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### Static method: `getSourceBasicTypes(module)`
+
+---
+### getSourceBasicTypes
 
 > Stability: 0 - Deprecated
 
 * `module` {Module}
-* Returns: {ReadonlySet<string>}
+
+* ###Returns: {ReadonlySet<string>}
 
 In webpack 6, call getSourceBasicTypes() directly on the module instance instead of using this static method.
 
 ***
 
-## Class: `SourceMapDevToolPlugin`
+## 
+### Class: `SourceMapDevToolPlugin`
 
 ### Constructors
 
 #### `new SourceMapDevToolPlugin([options])`
 
+---
+### SourceMapDevToolPlugin
+
 * `options` {SourceMapDevToolPluginOptions}
-* Returns: {SourceMapDevToolPlugin}
+
+* ###Returns: {SourceMapDevToolPlugin}
 
 ### Properties
 
@@ -5730,21 +8784,30 @@ In webpack 6, call getSourceBasicTypes() directly on the module instance instead
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Apply the plugin
 
 ***
 
-## Class: `Stats`
+## 
+### Class: `Stats`
 
 ### Constructors
 
 #### `new Stats(compilation)`
 
+---
+### Stats
+
 * `compilation` {Compilation}
-* Returns: {Stats}
+
+* ###Returns: {Stats}
 
 ### Properties
 
@@ -5757,31 +8820,49 @@ Apply the plugin
 
 #### `hasErrors()`
 
-* Returns: {boolean}
+---
+### hasErrors
+
+* ###Returns: {boolean}
 
 #### `hasWarnings()`
 
-* Returns: {boolean}
+---
+### hasWarnings
+
+* ###Returns: {boolean}
 
 #### `toJson([options])`
 
+---
+### toJson
+
 * `options` {boolean|"verbose"|"none"|"summary"|"errors-only"|"errors-warnings"|"minimal"|"normal"|"detailed"|StatsOptions}
-* Returns: {StatsCompilation}
+
+* ###Returns: {StatsCompilation}
 
 #### `toString([options])`
 
+---
+### toString
+
 * `options` {boolean|"verbose"|"none"|"summary"|"errors-only"|"errors-warnings"|"minimal"|"normal"|"detailed"|StatsOptions}
-* Returns: {string}
+
+* ###Returns: {string}
 
 ***
 
-## Class: `Template`
+## 
+### Class: `Template`
 
 ### Constructors
 
 #### `new Template()`
 
-* Returns: {Template}
+---
+### Template
+
+* ###Returns: {Template}
 
 ### Properties
 
@@ -5792,90 +8873,151 @@ Apply the plugin
 
 #### Static method: `asString(str)`
 
+---
+### asString
+
 * `str` {string|string[]}
-* Returns: {string}
+
+* ###Returns: {string}
 
 #### Static method: `getFunctionContent(fn)`
 
+---
+### getFunctionContent
+
 * `fn` {Stringable}
-* Returns: {string}
+
+* ###Returns: {string}
 
 #### Static method: `getModulesArrayBounds(modules)`
 
+---
+### getModulesArrayBounds
+
 * `modules` {WithId[]}
-* Returns: {false|Tuple<number, number>}
+
+* ###Returns: {false|Tuple<number, number>}
 
 #### Static method: `indent(s)`
 
+---
+### indent
+
 * `s` {string|string[]}
-* Returns: {string}
+
+* ###Returns: {string}
 
 #### Static method: `numberToIdentifier(n)`
 
+---
+### numberToIdentifier
+
 * `n` {number}
-* Returns: {string}
+
+* ###Returns: {string}
 
 #### Static method: `numberToIdentifierContinuation(n)`
 
+---
+### numberToIdentifierContinuation
+
 * `n` {number}
-* Returns: {string}
+
+* ###Returns: {string}
 
 #### Static method: `prefix(s, prefix)`
 
+---
+### prefix
+
 * `s` {string|string[]}
 * `prefix` {string}
-* Returns: {string}
+
+* ###Returns: {string}
 
 #### Static method: `renderChunkModules(renderContext, modules, renderModule[, prefix])`
+
+---
+### renderChunkModules
 
 * `renderContext` {ChunkRenderContextJavascriptModulesPlugin}
 * `modules` {Module[]}
 * `renderModule` {object}
 * `prefix` {string}
-* Returns: {Source}
+
+* ###Returns: {Source}
 
 #### Static method: `renderChunkRuntimeModules(runtimeModules, renderContext)`
 
+---
+### renderChunkRuntimeModules
+
 * `runtimeModules` {RuntimeModule[]}
 * `renderContext` {RenderContextJavascriptModulesPlugin}
-* Returns: {Source}
+
+* ###Returns: {Source}
 
 #### Static method: `renderRuntimeModules(runtimeModules, renderContext)`
 
+---
+### renderRuntimeModules
+
 * `runtimeModules` {RuntimeModule[]}
 * `renderContext` {RenderContextJavascriptModulesPlugin|object}
-* Returns: {Source}
+
+* ###Returns: {Source}
 
 #### Static method: `toComment(str)`
 
+---
+### toComment
+
 * `str` {string}
-* Returns: {string}
+
+* ###Returns: {string}
 
 #### Static method: `toIdentifier(str)`
 
+---
+### toIdentifier
+
 * `str` {string}
-* Returns: {string}
+
+* ###Returns: {string}
 
 #### Static method: `toNormalComment(str)`
 
+---
+### toNormalComment
+
 * `str` {string}
-* Returns: {string}
+
+* ###Returns: {string}
 
 #### Static method: `toPath(str)`
 
+---
+### toPath
+
 * `str` {string}
-* Returns: {string}
+
+* ###Returns: {string}
 
 ***
 
-## Class: `WatchIgnorePlugin`
+## 
+### Class: `WatchIgnorePlugin`
 
 ### Constructors
 
 #### `new WatchIgnorePlugin(options)`
 
+---
+### WatchIgnorePlugin
+
 * `options` {WatchIgnorePluginOptions}
-* Returns: {WatchIgnorePlugin}
+
+* ###Returns: {WatchIgnorePlugin}
 
 ### Properties
 
@@ -5885,20 +9027,28 @@ Apply the plugin
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Apply the plugin
 
 ***
 
-## Class: `Watching`
+## 
+### Class: `Watching`
 
 ### Constructors
 
 #### `new Watching()`
 
-* Returns: {Watching}
+---
+### Watching
+
+* ###Returns: {Watching}
 
 ### Properties
 
@@ -5920,32 +9070,51 @@ Apply the plugin
 
 #### `close(callback)`
 
+---
+### close
+
 * `callback` {object}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `invalidate([callback])`
 
+---
+### invalidate
+
 * `callback` {object}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `resume()`
 
-* Returns: {void}
+---
+### resume
+
+* ###Returns: {void}
 
 #### `suspend()`
 
-* Returns: {void}
+---
+### suspend
+
+* ###Returns: {void}
 
 #### `watch(files, dirs, missing)`
+
+---
+### watch
 
 * `files` {Iterable<string>}
 * `dirs` {Iterable<string>}
 * `missing` {Iterable<string>}
-* Returns: {void}
+
+* ###Returns: {void}
 
 ***
 
-## Class: `WebpackError`
+## 
+### Class: `WebpackError`
 
 ### Extends
 
@@ -5959,9 +9128,13 @@ Apply the plugin
 
 #### `new WebpackError([message][, options])`
 
+---
+### WebpackError
+
 * `message` {string}
 * `options` {object}
-* Returns: {WebpackError}
+
+* ###Returns: {WebpackError}
 
 Creates an instance of WebpackError.
 
@@ -5988,19 +9161,31 @@ not capture any frames.
 
 #### `deserialize(__namedParameters)`
 
+---
+### deserialize
+
 * `__namedParameters` {ObjectDeserializerContext}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `serialize(__namedParameters)`
 
+---
+### serialize
+
 * `__namedParameters` {ObjectSerializerContext}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### Static method: `captureStackTrace(targetObject[, constructorOpt])`
 
+---
+### captureStackTrace
+
 * `targetObject` {object}
 * `constructorOpt` {Function}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Creates a `.stack` property on `targetObject`, which when accessed returns
 a string representing the location in the code at which
@@ -6039,13 +9224,18 @@ a();
 
 #### Static method: `prepareStackTrace(err, stackTraces)`
 
+---
+### prepareStackTrace
+
 * `err` {Error}
 * `stackTraces` {CallSite[]}
-* Returns: {any}
+
+* ###Returns: {any}
 
 ***
 
-## Class: `WebpackOptionsApply`
+## 
+### Class: `WebpackOptionsApply`
 
 ### Extends
 
@@ -6055,37 +9245,53 @@ a();
 
 #### `new WebpackOptionsApply()`
 
-* Returns: {WebpackOptionsApply}
+---
+### WebpackOptionsApply
+
+* ###Returns: {WebpackOptionsApply}
 
 ### Methods
 
 #### `process(options, compiler[, interception])`
 
+---
+### process
+
 * `options` {WebpackOptionsNormalizedWithDefaults}
 * `compiler` {Compiler}
 * `interception` {WebpackOptionsInterception}
-* Returns: {WebpackOptionsNormalizedWithDefaults}
+
+* ###Returns: {WebpackOptionsNormalizedWithDefaults}
 
 ***
 
-## Class: `WebpackOptionsDefaulter`
+## 
+### Class: `WebpackOptionsDefaulter`
 
 ### Constructors
 
 #### `new WebpackOptionsDefaulter()`
 
-* Returns: {WebpackOptionsDefaulter}
+---
+### WebpackOptionsDefaulter
+
+* ###Returns: {WebpackOptionsDefaulter}
 
 ### Methods
 
 #### `process(options)`
 
+---
+### process
+
 * `options` {Configuration}
-* Returns: {WebpackOptionsNormalized}
+
+* ###Returns: {WebpackOptionsNormalized}
 
 ***
 
-## Class: `WebpackOptionsValidationError`
+## 
+### Class: `WebpackOptionsValidationError`
 
 ### Extends
 
@@ -6095,10 +9301,14 @@ a();
 
 #### `new WebpackOptionsValidationError(errors, schema[, configuration])`
 
+---
+### WebpackOptionsValidationError
+
 * `errors` {SchemaUtilErrorObject[]} array of error objects
 * `schema` {Schema} schema
 * `configuration` {ValidationErrorConfiguration} configuration
-* Returns: {ValidationError}
+
+* ###Returns: {ValidationError}
 
 ### Properties
 
@@ -6124,44 +9334,72 @@ not capture any frames.
 
 #### `formatSchema(schema[, logic][, prevSchemas])`
 
+---
+### formatSchema
+
 * `schema` {Schema} schema
 * `logic` {boolean} logic
 * `prevSchemas` {object[]} prev schemas
-* Returns: {string} formatted schema
+
+* ###Returns: {string} formatted schema
 
 #### `formatValidationError(error)`
 
+---
+### formatValidationError
+
 * `error` {SchemaUtilErrorObject} error object
-* Returns: {string} formatted error object
+
+* ###Returns: {string} formatted error object
 
 #### `formatValidationErrors(errors)`
 
+---
+### formatValidationErrors
+
 * `errors` {SchemaUtilErrorObject[]} errors
-* Returns: {string} formatted errors
+
+* ###Returns: {string} formatted errors
 
 #### `getSchemaPart(path)`
 
+---
+### getSchemaPart
+
 * `path` {string} path
-* Returns: {Schema} schema
+
+* ###Returns: {Schema} schema
 
 #### `getSchemaPartDescription([schemaPart])`
 
+---
+### getSchemaPartDescription
+
 * `schemaPart` {Schema} schema part
-* Returns: {string} schema part description
+
+* ###Returns: {string} schema part description
 
 #### `getSchemaPartText([schemaPart][, additionalPath][, needDot][, logic])`
+
+---
+### getSchemaPartText
 
 * `schemaPart` {Schema} schema part
 * `additionalPath` {boolean|string[]} additional path
 * `needDot` {boolean} true when need dot
 * `logic` {boolean} logic
-* Returns: {string} schema part text
+
+* ###Returns: {string} schema part text
 
 #### Static method: `captureStackTrace(targetObject[, constructorOpt])`
 
+---
+### captureStackTrace
+
 * `targetObject` {object}
 * `constructorOpt` {Function}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Creates a `.stack` property on `targetObject`, which when accessed returns
 a string representing the location in the code at which
@@ -6209,13 +9447,18 @@ a();
 
 #### Static method: `prepareStackTrace(err, stackTraces)`
 
+---
+### prepareStackTrace
+
 * `err` {Error}
 * `stackTraces` {CallSite[]}
-* Returns: {any}
+
+* ###Returns: {any}
 
 ***
 
-## Interface: `Argument`
+## 
+### Interface: `Argument`
 
 ### Properties
 
@@ -6226,7 +9469,8 @@ a();
 
 ***
 
-## Interface: `Asset`
+## 
+### Interface: `Asset`
 
 ### Properties
 
@@ -6236,7 +9480,8 @@ a();
 
 ***
 
-## Interface: `AssetEmittedInfo`
+## 
+### Interface: `AssetEmittedInfo`
 
 ### Properties
 
@@ -6248,7 +9493,8 @@ a();
 
 ***
 
-## Interface: `Colors`
+## 
+### Interface: `Colors`
 
 ### Properties
 
@@ -6296,7 +9542,8 @@ a();
 
 ***
 
-## Interface: `ColorsOptions`
+## 
+### Interface: `ColorsOptions`
 
 ### Properties
 
@@ -6304,7 +9551,8 @@ a();
 
 ***
 
-## Interface: `Configuration`
+## 
+### Interface: `Configuration`
 
 Options object as provided by the user.
 
@@ -6350,7 +9598,8 @@ Options object as provided by the user.
 
 ***
 
-## Interface: `EntryObject`
+## 
+### Interface: `EntryObject`
 
 Multiple entry bundles are created. The key is the entry name. The value can be a string, an array or an entry description object.
 
@@ -6360,7 +9609,8 @@ Multiple entry bundles are created. The key is the entry name. The value can be 
 
 ***
 
-## Interface: `ExternalItemFunctionData`
+## 
+### Interface: `ExternalItemFunctionData`
 
 ### Properties
 
@@ -6372,7 +9622,8 @@ Multiple entry bundles are created. The key is the entry name. The value can be 
 
 ***
 
-## Interface: `ExternalItemObjectKnown`
+## 
+### Interface: `ExternalItemObjectKnown`
 
 If an dependency matches exactly a property of the object, the property value is used as dependency.
 
@@ -6382,7 +9633,8 @@ If an dependency matches exactly a property of the object, the property value is
 
 ***
 
-## Interface: `ExternalItemObjectUnknown`
+## 
+### Interface: `ExternalItemObjectUnknown`
 
 If an dependency matches exactly a property of the object, the property value is used as dependency.
 
@@ -6392,7 +9644,8 @@ If an dependency matches exactly a property of the object, the property value is
 
 ***
 
-## Interface: `FileCacheOptions`
+## 
+### Interface: `FileCacheOptions`
 
 Options object for persistent file-based caching.
 
@@ -6421,7 +9674,8 @@ Options object for persistent file-based caching.
 
 ***
 
-## Interface: `GeneratorOptionsByModuleTypeKnown`
+## 
+### Interface: `GeneratorOptionsByModuleTypeKnown`
 
 Specify options for each generator.
 
@@ -6444,7 +9698,8 @@ Specify options for each generator.
 
 ***
 
-## Interface: `InputFileSystem`
+## 
+### Interface: `InputFileSystem`
 
 ### Properties
 
@@ -6469,7 +9724,8 @@ Specify options for each generator.
 
 ***
 
-## Interface: `LibraryOptions`
+## 
+### Interface: `LibraryOptions`
 
 Options for library.
 
@@ -6496,15 +9752,20 @@ Options for library.
 
 `ContextAdditions` = {object}
 
+---
+### LoaderDefinitionFunction
+
 * `this` {NormalModuleLoaderContext<OptionsType>|LoaderRunnerLoaderContext<OptionsType>|LoaderPluginLoaderContext|HotModuleReplacementPluginLoaderContext|ContextAdditions}
 * `content` {string}
 * `sourceMap` {string|RawSourceMap}
 * `additionalData` {AdditionalData}
-* Returns: {string|void|Buffer<ArrayBufferLike>|Promise<string|Buffer<ArrayBufferLike>>}
+
+* ###Returns: {string|void|Buffer<ArrayBufferLike>|Promise<string|Buffer<ArrayBufferLike>>}
 
 ***
 
-## Interface: `LoaderModule`
+## 
+### Interface: `LoaderModule`
 
 ### Type Parameters
 
@@ -6524,7 +9785,8 @@ Options for library.
 
 ***
 
-## Interface: `MemoryCacheOptions`
+## 
+### Interface: `MemoryCacheOptions`
 
 Options object for in-memory caching.
 
@@ -6536,7 +9798,8 @@ Options object for in-memory caching.
 
 ***
 
-## Interface: `ModuleOptions`
+## 
+### Interface: `ModuleOptions`
 
 Options affecting the normal modules (`NormalModuleFactory`).
 
@@ -6564,7 +9827,8 @@ Options affecting the normal modules (`NormalModuleFactory`).
 
 ***
 
-## Interface: `MultiCompilerOptions`
+## 
+### Interface: `MultiCompilerOptions`
 
 ### Properties
 
@@ -6572,7 +9836,8 @@ Options affecting the normal modules (`NormalModuleFactory`).
 
 ***
 
-## Interface: `ObjectDeserializerContext`
+## 
+### Interface: `ObjectDeserializerContext`
 
 ### Properties
 
@@ -6581,7 +9846,8 @@ Options affecting the normal modules (`NormalModuleFactory`).
 
 ***
 
-## Interface: `ObjectSerializerContext`
+## 
+### Interface: `ObjectSerializerContext`
 
 ### Properties
 
@@ -6594,7 +9860,8 @@ Options affecting the normal modules (`NormalModuleFactory`).
 
 ***
 
-## Interface: `OutputFileSystem`
+## 
+### Interface: `OutputFileSystem`
 
 ### Properties
 
@@ -6613,7 +9880,8 @@ Options affecting the normal modules (`NormalModuleFactory`).
 
 ***
 
-## Interface: `ParserOptionsByModuleTypeKnown`
+## 
+### Interface: `ParserOptionsByModuleTypeKnown`
 
 Specify options for each parser.
 
@@ -6636,7 +9904,8 @@ Specify options for each parser.
 
 ***
 
-## Interface: `PathData`
+## 
+### Interface: `PathData`
 
 ### Properties
 
@@ -6649,6 +9918,7 @@ Specify options for each parser.
 * `filename` {string}
 * `hash` {string}
 * `hashWithLength` {object}
+* `local` {string}
 * `module` {Module|ModulePathData}
 * `noChunkHash` {boolean}
 * `prepareId` {object}
@@ -6670,15 +9940,20 @@ Specify options for each parser.
 
 `ContextAdditions` = {object}
 
+---
+### PitchLoaderDefinitionFunction
+
 * `this` {NormalModuleLoaderContext<OptionsType>|LoaderRunnerLoaderContext<OptionsType>|LoaderPluginLoaderContext|HotModuleReplacementPluginLoaderContext|ContextAdditions}
 * `remainingRequest` {string}
 * `previousRequest` {string}
 * `data` {object}
-* Returns: {string|void|Buffer<ArrayBufferLike>|Promise<string|Buffer<ArrayBufferLike>>}
+
+* ###Returns: {string|void|Buffer<ArrayBufferLike>|Promise<string|Buffer<ArrayBufferLike>>}
 
 ***
 
-## Interface: `Problem`
+## 
+### Interface: `Problem`
 
 ### Properties
 
@@ -6703,15 +9978,20 @@ Specify options for each parser.
 
 `ContextAdditions` = {object}
 
+---
+### RawLoaderDefinitionFunction
+
 * `this` {NormalModuleLoaderContext<OptionsType>|LoaderRunnerLoaderContext<OptionsType>|LoaderPluginLoaderContext|HotModuleReplacementPluginLoaderContext|ContextAdditions}
 * `content` {Buffer}
 * `sourceMap` {string|RawSourceMap}
 * `additionalData` {AdditionalData}
-* Returns: {string|void|Buffer<ArrayBufferLike>|Promise<string|Buffer<ArrayBufferLike>>}
+
+* ###Returns: {string|void|Buffer<ArrayBufferLike>|Promise<string|Buffer<ArrayBufferLike>>}
 
 ***
 
-## Interface: `RenderManifestOptions`
+## 
+### Interface: `RenderManifestOptions`
 
 ### Properties
 
@@ -6728,7 +10008,8 @@ Specify options for each parser.
 
 ***
 
-## Interface: `ResolveData`
+## 
+### Interface: `ResolveData`
 
 ### Properties
 
@@ -6748,7 +10029,8 @@ Specify options for each parser.
 
 ***
 
-## Interface: `ResolveOptions`
+## 
+### Interface: `ResolveOptions`
 
 Options object for resolving requests.
 
@@ -6786,7 +10068,8 @@ Options object for resolving requests.
 
 ***
 
-## Interface: `RuleSetRule`
+## 
+### Interface: `RuleSetRule`
 
 A rule description with conditions and effects for modules.
 
@@ -6824,7 +10107,8 @@ A rule description with conditions and effects for modules.
 
 ***
 
-## Interface: `StatsOptions`
+## 
+### Interface: `StatsOptions`
 
 Stats options object.
 
@@ -6912,7 +10196,8 @@ Stats options object.
 
 ***
 
-## Interface: `WebpackOptionsNormalized`
+## 
+### Interface: `WebpackOptionsNormalized`
 
 Normalized webpack options object.
 
@@ -6957,7 +10242,8 @@ Normalized webpack options object.
 
 ***
 
-## Interface: `WebpackPluginInstance`
+## 
+### Interface: `WebpackPluginInstance`
 
 Plugin instance.
 
@@ -6971,25 +10257,29 @@ Plugin instance.
 
 ***
 
-## Type: `AssetInfo`
+## 
+### Type: `AssetInfo`
 
 > **AssetInfo** = {KnownAssetInfo|Record<string, any>}
 
 ***
 
-## Type: `Entry`
+## 
+### Type: `Entry`
 
 > **Entry** = {string|object|EntryObject|string[]}
 
 ***
 
-## Type: `EntryNormalized`
+## 
+### Type: `EntryNormalized`
 
 > **EntryNormalized** = {object|EntryStaticNormalized}
 
 ***
 
-## Type: `EntryOptions`
+## 
+### Type: `EntryOptions`
 
 > **EntryOptions** = {object|Omit<EntryDescriptionNormalized, "import">}
 
@@ -6999,80 +10289,110 @@ Plugin instance.
 
 ***
 
-## Type: `ExternalItem`
+## 
+### Type: `ExternalItem`
 
 > **ExternalItem** = {string|RegExp|ExternalItemObjectKnown|ExternalItemObjectUnknown|object|object}
 
 ***
 
-## Type: `ExternalItemFunction`
+## 
+### Type: `ExternalItemFunction`
 
 > **ExternalItemFunction** = {object|object}
 
 ***
 
-## Type: `ExternalItemFunctionCallback`
+## 
+### Type: `ExternalItemFunctionCallback`
 
 > **ExternalItemFunctionCallback** = {object}
 
+---
+### __type
+
 * `data` {ExternalItemFunctionData}
 * `callback` {object}
-* Returns: {void}
+
+* ###Returns: {void}
 
 ***
 
-## Type: `ExternalItemFunctionDataGetResolve`
+## 
+### Type: `ExternalItemFunctionDataGetResolve`
 
 > **ExternalItemFunctionDataGetResolve** = {object}
 
+---
+### __type
+
 * `options` {ResolveOptions}
-* Returns: {object|object}
+
+* ###Returns: {object|object}
 
 ***
 
-## Type: `ExternalItemFunctionDataGetResolveCallbackResult`
+## 
+### Type: `ExternalItemFunctionDataGetResolveCallbackResult`
 
 > **ExternalItemFunctionDataGetResolveCallbackResult** = {object}
+
+---
+### __type
 
 * `context` {string}
 * `request` {string}
 * `callback` {object}
-* Returns: {void}
+
+* ###Returns: {void}
 
 ***
 
-## Type: `ExternalItemFunctionDataGetResolveResult`
+## 
+### Type: `ExternalItemFunctionDataGetResolveResult`
 
 > **ExternalItemFunctionDataGetResolveResult** = {object}
 
+---
+### __type
+
 * `context` {string}
 * `request` {string}
-* Returns: {Promise<string>}
+
+* ###Returns: {Promise<string>}
 
 ***
 
-## Type: `ExternalItemFunctionPromise`
+## 
+### Type: `ExternalItemFunctionPromise`
 
 > **ExternalItemFunctionPromise** = {object}
 
+---
+### __type
+
 * `data` {ExternalItemFunctionData}
-* Returns: {Promise<ExternalItemValue>}
+
+* ###Returns: {Promise<ExternalItemValue>}
 
 ***
 
-## Type: `ExternalItemValue`
+## 
+### Type: `ExternalItemValue`
 
 > **ExternalItemValue** = {string|boolean|string[]|object}
 
 ***
 
-## Type: `Externals`
+## 
+### Type: `Externals`
 
 > **Externals** = {string|RegExp|ExternalItemObjectKnown|ExternalItemObjectUnknown|object|object|ExternalItem[]}
 
 ***
 
-## Type: `LoaderContext`
+## 
+### Type: `LoaderContext`
 
 > **LoaderContext**\<`OptionsType`\> = {NormalModuleLoaderContext<OptionsType>|LoaderRunnerLoaderContext<OptionsType>|LoaderPluginLoaderContext|HotModuleReplacementPluginLoaderContext}
 
@@ -7084,7 +10404,8 @@ Plugin instance.
 
 ***
 
-## Type: `LoaderDefinition`
+## 
+### Type: `LoaderDefinition`
 
 > **LoaderDefinition**\<`OptionsType`, `ContextAdditions`\> = {LoaderDefinitionFunction<OptionsType, ContextAdditions>|object}
 
@@ -7105,19 +10426,22 @@ Plugin instance.
 
 ***
 
-## Type: `MultiConfiguration`
+## 
+### Type: `MultiConfiguration`
 
 > **MultiConfiguration** = {ReadonlyArray<Configuration>|MultiCompilerOptions}
 
 ***
 
-## Type: `ParserState`
+## 
+### Type: `ParserState`
 
 > **ParserState** = {ParserStateBase|Record<string, any>}
 
 ***
 
-## Type: `RawLoaderDefinition`
+## 
+### Type: `RawLoaderDefinition`
 
 > **RawLoaderDefinition**\<`OptionsType`, `ContextAdditions`\> = {RawLoaderDefinitionFunction<OptionsType, ContextAdditions>|object}
 
@@ -7138,13 +10462,15 @@ Plugin instance.
 
 ***
 
-## Type: `RenderManifestEntry`
+## 
+### Type: `RenderManifestEntry`
 
 > **RenderManifestEntry** = {RenderManifestEntryTemplated|RenderManifestEntryStatic}
 
 ***
 
-## Type: `ResolvePluginInstance`
+## 
+### Type: `ResolvePluginInstance`
 
 > **ResolvePluginInstance** = {object|object}
 
@@ -7168,19 +10494,22 @@ Plugin instance.
 
 ***
 
-## Type: `RuleSetCondition`
+## 
+### Type: `RuleSetCondition`
 
 > **RuleSetCondition** = {string|RegExp|object|RuleSetLogicalConditions|RuleSetCondition[]}
 
 ***
 
-## Type: `RuleSetConditionAbsolute`
+## 
+### Type: `RuleSetConditionAbsolute`
 
 > **RuleSetConditionAbsolute** = {string|RegExp|object|RuleSetLogicalConditionsAbsolute|RuleSetConditionAbsolute[]}
 
 ***
 
-## Type: `RuleSetUse`
+## 
+### Type: `RuleSetUse`
 
 > **RuleSetUse** = {string|undefined|null|string|false|0|RuleSetUseFunction|object[]|RuleSetUseFunction|object}
 
@@ -7208,16 +10537,22 @@ Plugin instance.
 
 ***
 
-## Type: `RuleSetUseFunction`
+## 
+### Type: `RuleSetUseFunction`
 
 > **RuleSetUseFunction** = {object}
 
+---
+### __type
+
 * `data` {EffectData}
-* Returns: {string|RuleSetUseFunction|object|undefined|null|string|false|0|RuleSetUseFunction|object[]}
+
+* ###Returns: {string|RuleSetUseFunction|object|undefined|null|string|false|0|RuleSetUseFunction|object[]}
 
 ***
 
-## Type: `RuleSetUseItem`
+## 
+### Type: `RuleSetUseItem`
 
 > **RuleSetUseItem** = {string|RuleSetUseFunction|object}
 
@@ -7241,139 +10576,172 @@ Plugin instance.
 
 ***
 
-## Type: `StatsAsset`
+## 
+### Type: `StatsAsset`
 
 > **StatsAsset** = {KnownStatsAsset|Record<string, any>}
 
 ***
 
-## Type: `StatsChunk`
+## 
+### Type: `StatsChunk`
 
 > **StatsChunk** = {KnownStatsChunk|Record<string, any>}
 
 ***
 
-## Type: `StatsChunkGroup`
+## 
+### Type: `StatsChunkGroup`
 
 > **StatsChunkGroup** = {KnownStatsChunkGroup|Record<string, any>}
 
 ***
 
-## Type: `StatsChunkOrigin`
+## 
+### Type: `StatsChunkOrigin`
 
 > **StatsChunkOrigin** = {KnownStatsChunkOrigin|Record<string, any>}
 
 ***
 
-## Type: `StatsCompilation`
+## 
+### Type: `StatsCompilation`
 
 > **StatsCompilation** = {KnownStatsCompilation|Record<string, any>}
 
 ***
 
-## Type: `StatsError`
+## 
+### Type: `StatsError`
 
 > **StatsError** = {KnownStatsError|Record<string, any>}
 
 ***
 
-## Type: `StatsLogging`
+## 
+### Type: `StatsLogging`
 
 > **StatsLogging** = {KnownStatsLogging|Record<string, any>}
 
 ***
 
-## Type: `StatsLoggingEntry`
+## 
+### Type: `StatsLoggingEntry`
 
 > **StatsLoggingEntry** = {KnownStatsLoggingEntry|Record<string, any>}
 
 ***
 
-## Type: `StatsModule`
+## 
+### Type: `StatsModule`
 
 > **StatsModule** = {KnownStatsModule|Record<string, any>}
 
 ***
 
-## Type: `StatsModuleIssuer`
+## 
+### Type: `StatsModuleIssuer`
 
 > **StatsModuleIssuer** = {KnownStatsModuleIssuer|Record<string, any>}
 
 ***
 
-## Type: `StatsModuleReason`
+## 
+### Type: `StatsModuleReason`
 
 > **StatsModuleReason** = {KnownStatsModuleReason|Record<string, any>}
 
 ***
 
-## Type: `StatsModuleTraceDependency`
+## 
+### Type: `StatsModuleTraceDependency`
 
 > **StatsModuleTraceDependency** = {KnownStatsModuleTraceDependency|Record<string, any>}
 
 ***
 
-## Type: `StatsModuleTraceItem`
+## 
+### Type: `StatsModuleTraceItem`
 
 > **StatsModuleTraceItem** = {KnownStatsModuleTraceItem|Record<string, any>}
 
 ***
 
-## Type: `StatsProfile`
+## 
+### Type: `StatsProfile`
 
 > **StatsProfile** = {KnownStatsProfile|Record<string, any>}
 
 ***
 
-## Type: `TemplatePath`
+## 
+### Type: `TemplatePath`
 
 > **TemplatePath** = {string|object}
 
 ***
 
-## Type: `WebpackPluginFunction`
+## 
+### Type: `WebpackPluginFunction`
 
 > **WebpackPluginFunction** = {object}
 
+---
+### __type
+
 * `this` {Compiler}
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 ***
 
-## `UsageState`
+## 
+### `UsageState`
 
 > `const` **UsageState**: {Readonly<object>}
 
 ***
 
-## `validate`
+## 
+### `validate`
 
 > `const` **validate**: {object}
 
+---
+### __type
+
 * `configuration` {Configuration|MultiConfiguration}
-* Returns: {void}
+
+* ###Returns: {void}
 
 ***
 
-## `validateSchema`
+## 
+### `validateSchema`
 
 > `const` **validateSchema**: {object}
+
+---
+### __type
 
 * `schema` {Parameters<validateFunction>}
 * `options` {Parameters<validateFunction>}
 * `validationConfiguration` {ValidationErrorConfiguration}
-* Returns: {void}
+
+* ###Returns: {void}
 
 ***
 
-## `version`
+## 
+### `version`
 
 > `const` **version**: {string}
 
 ***
 
-## `webpack`
+## 
+### `webpack`
 
 > `const` **webpack**: {_functionWebpack}
 
@@ -7383,22 +10751,38 @@ Plugin instance.
 
 ### Call Signature
 
+---
+### export=
+
 * `options` {Configuration}
 * `callback` {CallbackWebpackFunction_2<Stats, void>}
-* Returns: {Compiler}
+
+* ###Returns: {Compiler}
 
 ### Call Signature
+
+---
+### export=
 
 * `options` {Configuration}
-* Returns: {Compiler}
+
+* ###Returns: {Compiler}
 
 ### Call Signature
+
+---
+### export=
 
 * `options` {MultiConfiguration}
 * `callback` {CallbackWebpackFunction_2<MultiStats, void>}
-* Returns: {MultiCompiler}
+
+* ###Returns: {MultiCompiler}
 
 ### Call Signature
 
+---
+### export=
+
 * `options` {MultiConfiguration}
-* Returns: {MultiCompiler}
+
+* ###Returns: {MultiCompiler}

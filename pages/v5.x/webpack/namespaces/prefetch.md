@@ -1,16 +1,24 @@
 # prefetch
 
-## Class: `ChunkPrefetchPreloadPlugin`
+## 
+### Class: `ChunkPrefetchPreloadPlugin`
 
 ### Constructors
 
 #### `new ChunkPrefetchPreloadPlugin()`
 
-* Returns: {ChunkPrefetchPreloadPlugin}
+---
+### ChunkPrefetchPreloadPlugin
+
+* ###Returns: {ChunkPrefetchPreloadPlugin}
 
 ### Methods
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}

@@ -51,6 +51,7 @@ export default ctx => ({
     const stability = ctx.helpers.stabilityBlockquote(comment);
 
     return [
+      model.name ? `\n---\n### ${model.name}\n` : '',
       stability,
       stability && '',
       model.typeParameters?.length &&
@@ -62,7 +63,7 @@ export default ctx => ({
           headingLevel: options.headingLevel,
         }),
       ctx.helpers.typedListItem({
-        label: 'Returns',
+        label: '###Returns',
         type: model.type ?? 'void',
         comment: model.comment?.getTag('@returns'),
       }),
@@ -75,7 +76,7 @@ export default ctx => ({
       ctx.helpers.examples(comment, options),
     ]
       .filter(x => typeof x === 'string' || Boolean(x))
-      .join('\n');
+      .join('\n\n');
   },
 
   memberTitle(model) {
@@ -83,7 +84,7 @@ export default ctx => ({
     const params = model.signatures?.[0]?.parameters;
 
     if (!params) {
-      return `${prefix}\`${model.name}\``;
+      return `\n### ${prefix}\`${model.name}\`\n`;
     }
 
     return `${prefix}\`${model.name}(${formatParams(params)})\``;

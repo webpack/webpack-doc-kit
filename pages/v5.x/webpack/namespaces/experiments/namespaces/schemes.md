@@ -1,13 +1,18 @@
 # schemes
 
-## Class: `HttpUriPlugin`
+## 
+### Class: `HttpUriPlugin`
 
 ### Constructors
 
 #### `new HttpUriPlugin(options)`
 
+---
+### HttpUriPlugin
+
 * `options` {HttpUriOptions}
-* Returns: {HttpUriPlugin}
+
+* ###Returns: {HttpUriPlugin}
 
 ### Properties
 
@@ -17,22 +22,31 @@
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Apply the plugin
 
 ***
 
-## Class: `VirtualUrlPlugin`
+## 
+### Class: `VirtualUrlPlugin`
 
 ### Constructors
 
 #### `new VirtualUrlPlugin(modules[, schemeOrOptions])`
 
+---
+### VirtualUrlPlugin
+
 * `modules` {VirtualModules}
 * `schemeOrOptions` {string|Omit<VirtualUrlOptions, "modules">}
-* Returns: {VirtualUrlPlugin}
+
+* ###Returns: {VirtualUrlPlugin}
 
 ### Properties
 
@@ -46,19 +60,31 @@ Apply the plugin
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Apply the plugin
 
 #### `findVirtualModuleConfigById(id)`
 
+---
+### findVirtualModuleConfigById
+
 * `id` {string}
-* Returns: {VirtualModule}
+
+* ###Returns: {VirtualModule}
 
 #### `getCacheVersion(version)`
 
+---
+### getCacheVersion
+
 * `version` {string|true|object}
-* Returns: {string}
+
+* ###Returns: {string}
 
 Get the cache version for a given version value

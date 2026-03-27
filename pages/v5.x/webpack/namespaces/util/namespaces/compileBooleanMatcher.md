@@ -1,18 +1,28 @@
 # compileBooleanMatcher
 
-## `fromLists`
+## 
+### `fromLists`
 
 > **fromLists**: {object}
 
+---
+### __type
+
 * `positiveItems` {string[]}
 * `negativeItems` {string[]}
-* Returns: {object}
+
+* ###Returns: {object}
 
 ***
 
-## `itemsToRegexp`
+## 
+### `itemsToRegexp`
 
 > **itemsToRegexp**: {object}
 
+---
+### __type
+
 * `itemsArr` {string[]}
-* Returns: {string}
+
+* ###Returns: {string}

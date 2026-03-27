@@ -1,13 +1,18 @@
 # ids
 
-## Class: `ChunkModuleIdRangePlugin`
+## 
+### Class: `ChunkModuleIdRangePlugin`
 
 ### Constructors
 
 #### `new ChunkModuleIdRangePlugin(options)`
 
+---
+### ChunkModuleIdRangePlugin
+
 * `options` {ChunkModuleIdRangePluginOptions}
-* Returns: {ChunkModuleIdRangePlugin}
+
+* ###Returns: {ChunkModuleIdRangePlugin}
 
 ### Properties
 
@@ -17,21 +22,30 @@
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Apply the plugin
 
 ***
 
-## Class: `DeterministicChunkIdsPlugin`
+## 
+### Class: `DeterministicChunkIdsPlugin`
 
 ### Constructors
 
 #### `new DeterministicChunkIdsPlugin([options])`
 
+---
+### DeterministicChunkIdsPlugin
+
 * `options` {DeterministicChunkIdsPluginOptions}
-* Returns: {DeterministicChunkIdsPlugin}
+
+* ###Returns: {DeterministicChunkIdsPlugin}
 
 ### Properties
 
@@ -41,21 +55,30 @@ Apply the plugin
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Apply the plugin
 
 ***
 
-## Class: `DeterministicModuleIdsPlugin`
+## 
+### Class: `DeterministicModuleIdsPlugin`
 
 ### Constructors
 
 #### `new DeterministicModuleIdsPlugin([options])`
 
+---
+### DeterministicModuleIdsPlugin
+
 * `options` {DeterministicModuleIdsPluginOptions}
-* Returns: {DeterministicModuleIdsPlugin}
+
+* ###Returns: {DeterministicModuleIdsPlugin}
 
 ### Properties
 
@@ -65,21 +88,30 @@ Apply the plugin
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Apply the plugin
 
 ***
 
-## Class: `HashedModuleIdsPlugin`
+## 
+### Class: `HashedModuleIdsPlugin`
 
 ### Constructors
 
 #### `new HashedModuleIdsPlugin([options])`
 
+---
+### HashedModuleIdsPlugin
+
 * `options` {HashedModuleIdsPluginOptions}
-* Returns: {HashedModuleIdsPlugin}
+
+* ###Returns: {HashedModuleIdsPlugin}
 
 ### Properties
 
@@ -89,21 +121,30 @@ Apply the plugin
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Apply the plugin
 
 ***
 
-## Class: `NamedChunkIdsPlugin`
+## 
+### Class: `NamedChunkIdsPlugin`
 
 ### Constructors
 
 #### `new NamedChunkIdsPlugin([options])`
 
+---
+### NamedChunkIdsPlugin
+
 * `options` {NamedChunkIdsPluginOptions}
-* Returns: {NamedChunkIdsPlugin}
+
+* ###Returns: {NamedChunkIdsPlugin}
 
 ### Properties
 
@@ -113,21 +154,30 @@ Apply the plugin
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Apply the plugin
 
 ***
 
-## Class: `NamedModuleIdsPlugin`
+## 
+### Class: `NamedModuleIdsPlugin`
 
 ### Constructors
 
 #### `new NamedModuleIdsPlugin([options])`
 
+---
+### NamedModuleIdsPlugin
+
 * `options` {NamedModuleIdsPluginOptions}
-* Returns: {NamedModuleIdsPlugin}
+
+* ###Returns: {NamedModuleIdsPlugin}
 
 ### Properties
 
@@ -137,40 +187,57 @@ Apply the plugin
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Apply the plugin
 
 ***
 
-## Class: `NaturalModuleIdsPlugin`
+## 
+### Class: `NaturalModuleIdsPlugin`
 
 ### Constructors
 
 #### `new NaturalModuleIdsPlugin()`
 
-* Returns: {NaturalModuleIdsPlugin}
+---
+### NaturalModuleIdsPlugin
+
+* ###Returns: {NaturalModuleIdsPlugin}
 
 ### Methods
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Apply the plugin
 
 ***
 
-## Class: `OccurrenceChunkIdsPlugin`
+## 
+### Class: `OccurrenceChunkIdsPlugin`
 
 ### Constructors
 
 #### `new OccurrenceChunkIdsPlugin([options])`
 
+---
+### OccurrenceChunkIdsPlugin
+
 * `options` {OccurrenceChunkIdsPluginOptions}
-* Returns: {OccurrenceChunkIdsPlugin}
+
+* ###Returns: {OccurrenceChunkIdsPlugin}
 
 ### Properties
 
@@ -180,21 +247,30 @@ Apply the plugin
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Apply the plugin
 
 ***
 
-## Class: `OccurrenceModuleIdsPlugin`
+## 
+### Class: `OccurrenceModuleIdsPlugin`
 
 ### Constructors
 
 #### `new OccurrenceModuleIdsPlugin([options])`
 
+---
+### OccurrenceModuleIdsPlugin
+
 * `options` {OccurrenceModuleIdsPluginOptions}
-* Returns: {OccurrenceModuleIdsPlugin}
+
+* ###Returns: {OccurrenceModuleIdsPlugin}
 
 ### Properties
 
@@ -204,7 +280,11 @@ Apply the plugin
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Apply the plugin

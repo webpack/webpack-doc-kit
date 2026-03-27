@@ -1,6 +1,7 @@
 # dependencies
 
-## Class: `ConstDependency`
+## 
+### Class: `ConstDependency`
 
 ### Extends
 
@@ -10,10 +11,14 @@
 
 #### `new ConstDependency(expression, range[, runtimeRequirements])`
 
+---
+### ConstDependency
+
 * `expression` {string}
 * `range` {number|Tuple<number, number>}
 * `runtimeRequirements` {string[]}
-* Returns: {ConstDependency}
+
+* ###Returns: {ConstDependency}
 
 ### Properties
 
@@ -36,109 +41,174 @@
 
 #### `couldAffectReferencingModule()`
 
-* Returns: {boolean|TRANSITIVE}
+---
+### couldAffectReferencingModule
+
+* ###Returns: {boolean|TRANSITIVE}
 
 #### `createIgnoredModule(context)`
 
+---
+### createIgnoredModule
+
 * `context` {string}
-* Returns: {Module}
+
+* ###Returns: {Module}
 
 #### `deserialize(__namedParameters)`
 
+---
+### deserialize
+
 * `__namedParameters` {ObjectDeserializerContext}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `getCondition(moduleGraph)`
 
+---
+### getCondition
+
 * `moduleGraph` {ModuleGraph}
-* Returns: {false|object}
+
+* ###Returns: {false|object}
 
 #### `getContext()`
 
-* Returns: {string}
+---
+### getContext
+
+* ###Returns: {string}
 
 #### `getErrors(moduleGraph)`
 
+---
+### getErrors
+
 * `moduleGraph` {ModuleGraph}
-* Returns: {WebpackError[]}
+
+* ###Returns: {WebpackError[]}
 
 Returns errors
 
 #### `getExports(moduleGraph)`
 
+---
+### getExports
+
 * `moduleGraph` {ModuleGraph}
-* Returns: {ExportsSpec}
+
+* ###Returns: {ExportsSpec}
 
 Returns the exported names
 
 #### `getModuleEvaluationSideEffectsState(moduleGraph)`
 
+---
+### getModuleEvaluationSideEffectsState
+
 * `moduleGraph` {ModuleGraph}
-* Returns: {ConnectionState}
+
+* ###Returns: {ConnectionState}
 
 #### `getNumberOfIdOccurrences()`
 
-* Returns: {number}
+---
+### getNumberOfIdOccurrences
+
+* ###Returns: {number}
 
 implement this method to allow the occurrence order plugin to count correctly
 
 #### `getReference(moduleGraph)`
 
+---
+### getReference
+
 > Stability: 0 - Deprecated
 
 * `moduleGraph` {ModuleGraph}
-* Returns: {never}
+
+* ###Returns: {never}
 
 Returns the referenced module and export
 
 #### `getReferencedExports(moduleGraph, runtime)`
 
+---
+### getReferencedExports
+
 * `moduleGraph` {ModuleGraph}
 * `runtime` {RuntimeSpec}
-* Returns: {string[]|ReferencedExport[]}
+
+* ###Returns: {string[]|ReferencedExport[]}
 
 Returns list of exports referenced by this dependency
 
 #### `getResourceIdentifier()`
 
-* Returns: {string}
+---
+### getResourceIdentifier
+
+* ###Returns: {string}
 
 #### `getWarnings(moduleGraph)`
 
+---
+### getWarnings
+
 * `moduleGraph` {ModuleGraph}
-* Returns: {WebpackError[]}
+
+* ###Returns: {WebpackError[]}
 
 Returns warnings
 
 #### `serialize(__namedParameters)`
 
+---
+### serialize
+
 * `__namedParameters` {ObjectSerializerContext}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `setLoc(startLine, startColumn, endLine, endColumn)`
+
+---
+### setLoc
 
 * `startLine` {number}
 * `startColumn` {number}
 * `endLine` {number}
 * `endColumn` {number}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `updateHash(hash, context)`
 
+---
+### updateHash
+
 * `hash` {Hash}
 * `context` {UpdateHashContextDependency}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Update the hash
 
 #### Static method: `isLowPriorityDependency(dependency)`
 
+---
+### isLowPriorityDependency
+
 * `dependency` {Dependency}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 ***
 
-## Class: `HarmonyImportDependency`
+## 
+### Class: `HarmonyImportDependency`
 
 ### Extends
 
@@ -148,11 +218,15 @@ Update the hash
 
 #### `new HarmonyImportDependency(request, sourceOrder[, phase][, attributes])`
 
+---
+### HarmonyImportDependency
+
 * `request` {string}
 * `sourceOrder` {number}
 * `phase` {0|1|2}
 * `attributes` {ImportAttributes}
-* Returns: {HarmonyImportDependency}
+
+* ###Returns: {HarmonyImportDependency}
 
 ### Properties
 
@@ -180,132 +254,213 @@ Update the hash
 
 #### `couldAffectReferencingModule()`
 
-* Returns: {boolean|TRANSITIVE}
+---
+### couldAffectReferencingModule
+
+* ###Returns: {boolean|TRANSITIVE}
 
 #### `createIgnoredModule(context)`
 
+---
+### createIgnoredModule
+
 * `context` {string}
-* Returns: {Module}
+
+* ###Returns: {Module}
 
 #### `deserialize(__namedParameters)`
 
+---
+### deserialize
+
 * `__namedParameters` {ObjectDeserializerContext}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `getCondition(moduleGraph)`
 
+---
+### getCondition
+
 * `moduleGraph` {ModuleGraph}
-* Returns: {false|object}
+
+* ###Returns: {false|object}
 
 #### `getContext()`
 
-* Returns: {string}
+---
+### getContext
+
+* ###Returns: {string}
 
 #### `getErrors(moduleGraph)`
 
+---
+### getErrors
+
 * `moduleGraph` {ModuleGraph}
-* Returns: {WebpackError[]}
+
+* ###Returns: {WebpackError[]}
 
 Returns errors
 
 #### `getExports(moduleGraph)`
 
+---
+### getExports
+
 * `moduleGraph` {ModuleGraph}
-* Returns: {ExportsSpec}
+
+* ###Returns: {ExportsSpec}
 
 Returns the exported names
 
 #### `getImportStatement(update, __namedParameters)`
 
+---
+### getImportStatement
+
 * `update` {boolean}
 * `__namedParameters` {DependencyTemplateContext}
-* Returns: {Tuple<string, string>}
+
+* ###Returns: {Tuple<string, string>}
 
 #### `getImportVar(moduleGraph)`
 
+---
+### getImportVar
+
 * `moduleGraph` {ModuleGraph}
-* Returns: {string}
+
+* ###Returns: {string}
 
 #### `getLinkingErrors(moduleGraph, ids, additionalMessage)`
+
+---
+### getLinkingErrors
 
 * `moduleGraph` {ModuleGraph}
 * `ids` {string[]}
 * `additionalMessage` {string}
-* Returns: {WebpackError[]}
+
+* ###Returns: {WebpackError[]}
 
 #### `getModuleEvaluationSideEffectsState(moduleGraph)`
 
+---
+### getModuleEvaluationSideEffectsState
+
 * `moduleGraph` {ModuleGraph}
-* Returns: {ConnectionState}
+
+* ###Returns: {ConnectionState}
 
 #### `getModuleExports(__namedParameters)`
 
+---
+### getModuleExports
+
 * `__namedParameters` {DependencyTemplateContext}
-* Returns: {string}
+
+* ###Returns: {string}
 
 #### `getNumberOfIdOccurrences()`
 
-* Returns: {number}
+---
+### getNumberOfIdOccurrences
+
+* ###Returns: {number}
 
 implement this method to allow the occurrence order plugin to count correctly
 
 #### `getReference(moduleGraph)`
 
+---
+### getReference
+
 > Stability: 0 - Deprecated
 
 * `moduleGraph` {ModuleGraph}
-* Returns: {never}
+
+* ###Returns: {never}
 
 Returns the referenced module and export
 
 #### `getReferencedExports(moduleGraph, runtime)`
 
+---
+### getReferencedExports
+
 * `moduleGraph` {ModuleGraph}
 * `runtime` {RuntimeSpec}
-* Returns: {string[]|ReferencedExport[]}
+
+* ###Returns: {string[]|ReferencedExport[]}
 
 Returns list of exports referenced by this dependency
 
 #### `getResourceIdentifier()`
 
-* Returns: {string}
+---
+### getResourceIdentifier
+
+* ###Returns: {string}
 
 #### `getWarnings(moduleGraph)`
 
+---
+### getWarnings
+
 * `moduleGraph` {ModuleGraph}
-* Returns: {WebpackError[]}
+
+* ###Returns: {WebpackError[]}
 
 Returns warnings
 
 #### `serialize(__namedParameters)`
 
+---
+### serialize
+
 * `__namedParameters` {ObjectSerializerContext}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `setLoc(startLine, startColumn, endLine, endColumn)`
+
+---
+### setLoc
 
 * `startLine` {number}
 * `startColumn` {number}
 * `endLine` {number}
 * `endColumn` {number}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `updateHash(hash, context)`
 
+---
+### updateHash
+
 * `hash` {Hash}
 * `context` {UpdateHashContextDependency}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Update the hash
 
 #### Static method: `isLowPriorityDependency(dependency)`
 
+---
+### isLowPriorityDependency
+
 * `dependency` {Dependency}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 ***
 
-## Class: `ModuleDependency`
+## 
+### Class: `ModuleDependency`
 
 ### Extends
 
@@ -319,9 +474,13 @@ Update the hash
 
 #### `new ModuleDependency(request[, sourceOrder])`
 
+---
+### ModuleDependency
+
 * `request` {string}
 * `sourceOrder` {number}
-* Returns: {ModuleDependency}
+
+* ###Returns: {ModuleDependency}
 
 ### Properties
 
@@ -345,109 +504,174 @@ Update the hash
 
 #### `couldAffectReferencingModule()`
 
-* Returns: {boolean|TRANSITIVE}
+---
+### couldAffectReferencingModule
+
+* ###Returns: {boolean|TRANSITIVE}
 
 #### `createIgnoredModule(context)`
 
+---
+### createIgnoredModule
+
 * `context` {string}
-* Returns: {Module}
+
+* ###Returns: {Module}
 
 #### `deserialize(__namedParameters)`
 
+---
+### deserialize
+
 * `__namedParameters` {ObjectDeserializerContext}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `getCondition(moduleGraph)`
 
+---
+### getCondition
+
 * `moduleGraph` {ModuleGraph}
-* Returns: {false|object}
+
+* ###Returns: {false|object}
 
 #### `getContext()`
 
-* Returns: {string}
+---
+### getContext
+
+* ###Returns: {string}
 
 #### `getErrors(moduleGraph)`
 
+---
+### getErrors
+
 * `moduleGraph` {ModuleGraph}
-* Returns: {WebpackError[]}
+
+* ###Returns: {WebpackError[]}
 
 Returns errors
 
 #### `getExports(moduleGraph)`
 
+---
+### getExports
+
 * `moduleGraph` {ModuleGraph}
-* Returns: {ExportsSpec}
+
+* ###Returns: {ExportsSpec}
 
 Returns the exported names
 
 #### `getModuleEvaluationSideEffectsState(moduleGraph)`
 
+---
+### getModuleEvaluationSideEffectsState
+
 * `moduleGraph` {ModuleGraph}
-* Returns: {ConnectionState}
+
+* ###Returns: {ConnectionState}
 
 #### `getNumberOfIdOccurrences()`
 
-* Returns: {number}
+---
+### getNumberOfIdOccurrences
+
+* ###Returns: {number}
 
 implement this method to allow the occurrence order plugin to count correctly
 
 #### `getReference(moduleGraph)`
 
+---
+### getReference
+
 > Stability: 0 - Deprecated
 
 * `moduleGraph` {ModuleGraph}
-* Returns: {never}
+
+* ###Returns: {never}
 
 Returns the referenced module and export
 
 #### `getReferencedExports(moduleGraph, runtime)`
 
+---
+### getReferencedExports
+
 * `moduleGraph` {ModuleGraph}
 * `runtime` {RuntimeSpec}
-* Returns: {string[]|ReferencedExport[]}
+
+* ###Returns: {string[]|ReferencedExport[]}
 
 Returns list of exports referenced by this dependency
 
 #### `getResourceIdentifier()`
 
-* Returns: {string}
+---
+### getResourceIdentifier
+
+* ###Returns: {string}
 
 #### `getWarnings(moduleGraph)`
 
+---
+### getWarnings
+
 * `moduleGraph` {ModuleGraph}
-* Returns: {WebpackError[]}
+
+* ###Returns: {WebpackError[]}
 
 Returns warnings
 
 #### `serialize(__namedParameters)`
 
+---
+### serialize
+
 * `__namedParameters` {ObjectSerializerContext}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `setLoc(startLine, startColumn, endLine, endColumn)`
+
+---
+### setLoc
 
 * `startLine` {number}
 * `startColumn` {number}
 * `endLine` {number}
 * `endColumn` {number}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `updateHash(hash, context)`
 
+---
+### updateHash
+
 * `hash` {Hash}
 * `context` {UpdateHashContextDependency}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Update the hash
 
 #### Static method: `isLowPriorityDependency(dependency)`
 
+---
+### isLowPriorityDependency
+
 * `dependency` {Dependency}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 ***
 
-## Class: `NullDependency`
+## 
+### Class: `NullDependency`
 
 ### Extends
 
@@ -461,7 +685,10 @@ Update the hash
 
 #### `new NullDependency()`
 
-* Returns: {NullDependency}
+---
+### NullDependency
+
+* ###Returns: {NullDependency}
 
 ### Properties
 
@@ -481,102 +708,166 @@ Update the hash
 
 #### `couldAffectReferencingModule()`
 
-* Returns: {boolean|TRANSITIVE}
+---
+### couldAffectReferencingModule
+
+* ###Returns: {boolean|TRANSITIVE}
 
 #### `createIgnoredModule(context)`
 
+---
+### createIgnoredModule
+
 * `context` {string}
-* Returns: {Module}
+
+* ###Returns: {Module}
 
 #### `deserialize(__namedParameters)`
 
+---
+### deserialize
+
 * `__namedParameters` {ObjectDeserializerContext}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `getCondition(moduleGraph)`
 
+---
+### getCondition
+
 * `moduleGraph` {ModuleGraph}
-* Returns: {false|object}
+
+* ###Returns: {false|object}
 
 #### `getContext()`
 
-* Returns: {string}
+---
+### getContext
+
+* ###Returns: {string}
 
 #### `getErrors(moduleGraph)`
 
+---
+### getErrors
+
 * `moduleGraph` {ModuleGraph}
-* Returns: {WebpackError[]}
+
+* ###Returns: {WebpackError[]}
 
 Returns errors
 
 #### `getExports(moduleGraph)`
 
+---
+### getExports
+
 * `moduleGraph` {ModuleGraph}
-* Returns: {ExportsSpec}
+
+* ###Returns: {ExportsSpec}
 
 Returns the exported names
 
 #### `getModuleEvaluationSideEffectsState(moduleGraph)`
 
+---
+### getModuleEvaluationSideEffectsState
+
 * `moduleGraph` {ModuleGraph}
-* Returns: {ConnectionState}
+
+* ###Returns: {ConnectionState}
 
 #### `getNumberOfIdOccurrences()`
 
-* Returns: {number}
+---
+### getNumberOfIdOccurrences
+
+* ###Returns: {number}
 
 implement this method to allow the occurrence order plugin to count correctly
 
 #### `getReference(moduleGraph)`
 
+---
+### getReference
+
 > Stability: 0 - Deprecated
 
 * `moduleGraph` {ModuleGraph}
-* Returns: {never}
+
+* ###Returns: {never}
 
 Returns the referenced module and export
 
 #### `getReferencedExports(moduleGraph, runtime)`
 
+---
+### getReferencedExports
+
 * `moduleGraph` {ModuleGraph}
 * `runtime` {RuntimeSpec}
-* Returns: {string[]|ReferencedExport[]}
+
+* ###Returns: {string[]|ReferencedExport[]}
 
 Returns list of exports referenced by this dependency
 
 #### `getResourceIdentifier()`
 
-* Returns: {string}
+---
+### getResourceIdentifier
+
+* ###Returns: {string}
 
 #### `getWarnings(moduleGraph)`
 
+---
+### getWarnings
+
 * `moduleGraph` {ModuleGraph}
-* Returns: {WebpackError[]}
+
+* ###Returns: {WebpackError[]}
 
 Returns warnings
 
 #### `serialize(__namedParameters)`
 
+---
+### serialize
+
 * `__namedParameters` {ObjectSerializerContext}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `setLoc(startLine, startColumn, endLine, endColumn)`
+
+---
+### setLoc
 
 * `startLine` {number}
 * `startColumn` {number}
 * `endLine` {number}
 * `endColumn` {number}
-* Returns: {void}
+
+* ###Returns: {void}
 
 #### `updateHash(hash, context)`
 
+---
+### updateHash
+
 * `hash` {Hash}
 * `context` {UpdateHashContextDependency}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Update the hash
 
 #### Static method: `isLowPriorityDependency(dependency)`
 
+---
+### isLowPriorityDependency
+
 * `dependency` {Dependency}
-* Returns: {boolean}
+
+* ###Returns: {boolean}

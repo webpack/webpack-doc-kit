@@ -4,14 +4,19 @@
 
 - [InnerGraph](namespaces/InnerGraph.md)
 
-## Class: `AggressiveMergingPlugin`
+## 
+### Class: `AggressiveMergingPlugin`
 
 ### Constructors
 
 #### `new AggressiveMergingPlugin([options])`
 
+---
+### AggressiveMergingPlugin
+
 * `options` {AggressiveMergingPluginOptions}
-* Returns: {AggressiveMergingPlugin}
+
+* ###Returns: {AggressiveMergingPlugin}
 
 ### Properties
 
@@ -21,21 +26,30 @@
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Apply the plugin
 
 ***
 
-## Class: `AggressiveSplittingPlugin`
+## 
+### Class: `AggressiveSplittingPlugin`
 
 ### Constructors
 
 #### `new AggressiveSplittingPlugin([options])`
 
+---
+### AggressiveSplittingPlugin
+
 * `options` {AggressiveSplittingPluginOptions}
-* Returns: {AggressiveSplittingPlugin}
+
+* ###Returns: {AggressiveSplittingPlugin}
 
 ### Properties
 
@@ -45,26 +59,39 @@ Apply the plugin
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Apply the plugin
 
 #### Static method: `wasChunkRecorded(chunk)`
 
+---
+### wasChunkRecorded
+
 * `chunk` {Chunk}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 ***
 
-## Class: `LimitChunkCountPlugin`
+## 
+### Class: `LimitChunkCountPlugin`
 
 ### Constructors
 
 #### `new LimitChunkCountPlugin([options])`
 
+---
+### LimitChunkCountPlugin
+
 * `options` {LimitChunkCountPluginOptions}
-* Returns: {LimitChunkCountPlugin}
+
+* ###Returns: {LimitChunkCountPlugin}
 
 ### Properties
 
@@ -74,19 +101,28 @@ Apply the plugin
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 ***
 
-## Class: `MergeDuplicateChunksPlugin`
+## 
+### Class: `MergeDuplicateChunksPlugin`
 
 ### Constructors
 
 #### `new MergeDuplicateChunksPlugin([options])`
 
+---
+### MergeDuplicateChunksPlugin
+
 * `options` {MergeDuplicateChunksPluginOptions}
-* Returns: {MergeDuplicateChunksPlugin}
+
+* ###Returns: {MergeDuplicateChunksPlugin}
 
 ### Properties
 
@@ -96,19 +132,28 @@ Apply the plugin
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 ***
 
-## Class: `MinChunkSizePlugin`
+## 
+### Class: `MinChunkSizePlugin`
 
 ### Constructors
 
 #### `new MinChunkSizePlugin(options)`
 
+---
+### MinChunkSizePlugin
+
 * `options` {MinChunkSizePluginOptions}
-* Returns: {MinChunkSizePlugin}
+
+* ###Returns: {MinChunkSizePlugin}
 
 ### Properties
 
@@ -118,65 +163,95 @@ Apply the plugin
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Apply the plugin
 
 ***
 
-## Class: `ModuleConcatenationPlugin`
+## 
+### Class: `ModuleConcatenationPlugin`
 
 ### Constructors
 
 #### `new ModuleConcatenationPlugin()`
 
-* Returns: {ModuleConcatenationPlugin}
+---
+### ModuleConcatenationPlugin
+
+* ###Returns: {ModuleConcatenationPlugin}
 
 ### Methods
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Apply the plugin
 
 ***
 
-## Class: `RealContentHashPlugin`
+## 
+### Class: `RealContentHashPlugin`
 
 ### Constructors
 
 #### `new RealContentHashPlugin(__namedParameters)`
 
+---
+### RealContentHashPlugin
+
 * `__namedParameters` {RealContentHashPluginOptions}
-* Returns: {RealContentHashPlugin}
+
+* ###Returns: {RealContentHashPlugin}
 
 ### Methods
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Apply the plugin
 
 #### Static method: `getCompilationHooks(compilation)`
 
+---
+### getCompilationHooks
+
 * `compilation` {Compilation}
-* Returns: {CompilationHooksRealContentHashPlugin}
+
+* ###Returns: {CompilationHooksRealContentHashPlugin}
 
 ***
 
-## Class: `RuntimeChunkPlugin`
+## 
+### Class: `RuntimeChunkPlugin`
 
 ### Constructors
 
 #### `new RuntimeChunkPlugin([options])`
 
+---
+### RuntimeChunkPlugin
+
 * `options` {object}
-* Returns: {RuntimeChunkPlugin}
+
+* ###Returns: {RuntimeChunkPlugin}
 
 ### Properties
 
@@ -186,48 +261,70 @@ Apply the plugin
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Apply the plugin
 
 ***
 
-## Class: `SideEffectsFlagPlugin`
+## 
+### Class: `SideEffectsFlagPlugin`
 
 ### Constructors
 
 #### `new SideEffectsFlagPlugin([analyseSource])`
 
+---
+### SideEffectsFlagPlugin
+
 * `analyseSource` {boolean}
-* Returns: {SideEffectsFlagPlugin}
+
+* ###Returns: {SideEffectsFlagPlugin}
 
 ### Methods
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Apply the plugin
 
 #### Static method: `moduleHasSideEffects(moduleName, flagValue, cache)`
 
+---
+### moduleHasSideEffects
+
 * `moduleName` {string}
 * `flagValue` {SideEffectsFlagValue}
 * `cache` {Map<string, RegExp>}
-* Returns: {boolean}
+
+* ###Returns: {boolean}
 
 ***
 
-## Class: `SplitChunksPlugin`
+## 
+### Class: `SplitChunksPlugin`
 
 ### Constructors
 
 #### `new SplitChunksPlugin([options])`
 
+---
+### SplitChunksPlugin
+
 * `options` {OptimizationSplitChunksOptions}
-* Returns: {SplitChunksPlugin}
+
+* ###Returns: {SplitChunksPlugin}
 
 ### Properties
 
@@ -237,7 +334,11 @@ Apply the plugin
 
 #### `apply(compiler)`
 
+---
+### apply
+
 * `compiler` {Compiler}
-* Returns: {void}
+
+* ###Returns: {void}
 
 Apply the plugin
