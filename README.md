@@ -47,7 +47,9 @@ This ensures documentation stays in sync with upstream webpack without manual in
 
 ## Contributing
 
-When making changes to documentation generation (plugins, `generate-md.mjs`, `tsconfig.json`), ensure the docs can still be generated successfully. CI will verify this on every pull request.
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for local setup (including how to check out **webpack/webpack** next to this repo), commands that match CI, and notes for **Google Summer of Code** applicants targeting the webpack organization.
+
+In short: after changing generation code, run `npm run generate-docs` and keep `pages/` in sync when CI expects it; pull requests should pass lint, format checks, and the docs freshness check described in `.github/workflows/ci.yml`.
 
 ## License
 
