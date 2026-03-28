@@ -1,6 +1,6 @@
 # webpack-doc-kit
 
-Automated TypeScript API documentation generator for [webpack](https://github.com/webpack/webpack). Extracts type definitions from webpack's `types.d.ts` and produces Markdown and HTML documentation, deployed to GitHub Pages.
+Automated TypeScript API documentation generator for [webpack](https://github.com/webpack/webpack). Extracts type definitions from webpack's `types.d.ts` and generates Markdown and HTML documentation, which is then deployed to GitHub Pages.
 
 ## How It Works
 
