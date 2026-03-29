@@ -1,0 +1,29 @@
+/**
+ * Webpack brand theme overrides for @node-core/doc-kit.
+ *
+ * These CSS custom property overrides replace Node.js's green color palette
+ * with webpack's blue palette (#8ED6FB light, #1C78C0 dark).
+ *
+ * The --color-green-* variables are used by @node-core/ui-components for
+ * active navigation items, links, and interactive highlights. Overriding them
+ * here re-themes the entire site without modifying upstream components.
+ *
+ * @see https://webpack.js.org/branding
+ */
+
+:root {
+  /* webpack primary brand colors */
+  --color-webpack-primary: #1c78c0;
+  --color-webpack-light: #8ed6fb;
+
+  /* Override Node.js green palette with webpack blues */
+  --color-green-100: #e8f4fd;
+  --color-green-200: #c2e0f7;
+  --color-green-300: #8ed6fb;
+  --color-green-400: #5bbef5;
+  --color-green-500: #2ea3e8;
+  --color-green-600: #1c78c0;
+  --color-green-700: #155d96;
+  --color-green-800: #0e4370;
+  --color-green-900: #082d4d;
+}

@@ -1,3 +1,8 @@
+import { resolve, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+
 /**
  * Configuration for @node-core/doc-kit when generating webpack API docs.
  *
@@ -18,6 +23,13 @@ export default {
   web: {
     // Use "webpack" as the product name in navbar and sidebar labels
     title: 'webpack',
+
+    // Override the default Node.js theming components with webpack-specific
+    // ones. These aliases are resolved by the bundler at build time.
+    imports: {
+      '#theme/Logo': resolve(__dirname, './ui/WebpackLogo.jsx'),
+      '#theme/Footer': resolve(__dirname, './ui/WebpackFooter.jsx'),
+    },
   },
   'jsx-ast': {
     // Disable the "Edit this page" link — webpack API docs are generated from
