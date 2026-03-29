@@ -28,17 +28,15 @@ Apply the plugin
 
 ### Constructors
 
-#### `new VirtualUrlPlugin(modules[, schemeOrOptions])`
+#### `new VirtualUrlPlugin(modules[, scheme])`
 
 * `modules` {VirtualModules}
-* `schemeOrOptions` {string|Omit<VirtualUrlOptions, "modules">}
+* `scheme` {string}
 * Returns: {VirtualUrlPlugin}
 
 ### Properties
 
-* `context` {string}
 * `modules` {NormalizedModules}
-* `options` {VirtualUrlOptions}
 * `scheme` {string}
 * `DEFAULT_SCHEME` {string}
 
@@ -54,7 +52,7 @@ Apply the plugin
 #### `findVirtualModuleConfigById(id)`
 
 * `id` {string}
-* Returns: {VirtualModule}
+* Returns: {VirtualModuleConfig}
 
 #### `getCacheVersion(version)`
 

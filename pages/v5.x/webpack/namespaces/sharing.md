@@ -9,10 +9,6 @@
 * `options` {ConsumeSharedPluginOptions}
 * Returns: {ConsumeSharedPlugin}
 
-### Properties
-
-* `options` {ConsumeSharedPluginOptions}
-
 ### Methods
 
 #### `apply(compiler)`
@@ -32,10 +28,6 @@ Apply the plugin
 
 * `options` {ProvideSharedPluginOptions}
 * Returns: {ProvideSharedPlugin}
-
-### Properties
-
-* `options` {ProvideSharedPluginOptions}
 
 ### Methods
 

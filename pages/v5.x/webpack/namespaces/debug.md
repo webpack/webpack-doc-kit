@@ -11,7 +11,7 @@
 
 ### Properties
 
-* `options` {ProfilingPluginOptions}
+* `outputPath` {string}
 * `Profiler` {Profiler}
 
 ### Methods

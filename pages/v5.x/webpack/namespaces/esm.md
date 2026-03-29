@@ -35,7 +35,7 @@
 * `hasEqualsChunks` {any}
 * `hash` {string}
 * `hot` {boolean}
-* `id` {string|number} 
+* `id` {string|number}
 * `index` {number}
 * `index2` {number}
 * `issuer` {Module}
@@ -44,7 +44,7 @@
 * `moduleArgument` {string}
 * `name` {string}
 * `needId` {boolean}
-* `optimizationBailout` {string|object[]} 
+* `optimizationBailout` {string|object[]}
 * `optional` {boolean}
 * `parent` {DependenciesBlock}
 * `presentationalDependencies` {Dependency[]}
@@ -309,13 +309,9 @@ This data will be passed to restoreFromUnsafeCache later.
 
 #### `needRebuild(fileTimestamps, contextTimestamps)`
 
-> Stability: 0 - Deprecated
-
 * `fileTimestamps` {Map<string, number>}
 * `contextTimestamps` {Map<string, number>}
 * Returns: {boolean}
-
-Use needBuild instead
 
 #### `originalSource()`
 
@@ -352,14 +348,10 @@ Use needBuild instead
 
 #### `source(dependencyTemplates, runtimeTemplate[, type])`
 
-> Stability: 0 - Deprecated
-
 * `dependencyTemplates` {DependencyTemplates}
 * `runtimeTemplate` {RuntimeTemplate}
 * `type` {string}
 * Returns: {Source}
-
-Use codeGeneration() instead
 
 #### `updateCacheModule(module)`
 
@@ -380,12 +372,3 @@ and properties.
 
 * `compilation` {Compilation}
 * Returns: {JsonpCompilationPluginHooks}
-
-#### Static method: `getSourceBasicTypes(module)`
-
-> Stability: 0 - Deprecated
-
-* `module` {Module}
-* Returns: {ReadonlySet<string>}
-
-In webpack 6, call getSourceBasicTypes() directly on the module instance instead of using this static method.

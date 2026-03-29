@@ -9,10 +9,6 @@
 * `options` {ContainerPluginOptions}
 * Returns: {ContainerPlugin}
 
-### Properties
-
-* `options` {ContainerPluginOptions}
-
 ### Methods
 
 #### `apply(compiler)`
@@ -33,10 +29,6 @@ Apply the plugin
 * `options` {ContainerReferencePluginOptions}
 * Returns: {ContainerReferencePlugin}
 
-### Properties
-
-* `options` {ContainerReferencePluginOptions}
-
 ### Methods
 
 #### `apply(compiler)`
@@ -56,10 +48,6 @@ Apply the plugin
 
 * `options` {ModuleFederationPluginOptions}
 * Returns: {ModuleFederationPlugin}
-
-### Properties
-
-* `options` {ModuleFederationPluginOptions}
 
 ### Methods
 

@@ -232,7 +232,7 @@ After this method has succeeded the cache can only be restored when build depend
 * `contentHash` {Record<string, string>}
 * `cssFilenameTemplate` {string|object}
 * `debugId` {number}
-* `entryModule` {Module} 
+* `entryModule` {Module}
 * `extraAsync` {boolean}
 * `filenameTemplate` {string|object}
 * `files` {Set<string>}
@@ -319,8 +319,6 @@ After this method has succeeded the cache can only be restored when build depend
 * Returns: {ChunkChildOfTypeInOrder[]}
 
 #### `getChunkMaps(realHash)`
-
-> Stability: 0 - Deprecated
 
 * `realHash` {boolean}
 * Returns: {ChunkMaps}
@@ -915,21 +913,15 @@ After this method has succeeded the cache can only be restored when build depend
 
 #### Static method: `clearChunkGraphForChunk(chunk)`
 
-> Stability: 0 - Deprecated
-
 * `chunk` {Chunk}
 * Returns: {void}
 
 #### Static method: `clearChunkGraphForModule(module)`
 
-> Stability: 0 - Deprecated
-
 * `module` {Module}
 * Returns: {void}
 
 #### Static method: `getChunkGraphForChunk(chunk, deprecateMessage, deprecationCode)`
-
-> Stability: 0 - Deprecated
 
 * `chunk` {Chunk}
 * `deprecateMessage` {string}
@@ -938,8 +930,6 @@ After this method has succeeded the cache can only be restored when build depend
 
 #### Static method: `getChunkGraphForModule(module, deprecateMessage, deprecationCode)`
 
-> Stability: 0 - Deprecated
-
 * `module` {Module}
 * `deprecateMessage` {string}
 * `deprecationCode` {string}
@@ -947,15 +937,11 @@ After this method has succeeded the cache can only be restored when build depend
 
 #### Static method: `setChunkGraphForChunk(chunk, chunkGraph)`
 
-> Stability: 0 - Deprecated
-
 * `chunk` {Chunk}
 * `chunkGraph` {ChunkGraph}
 * Returns: {void}
 
 #### Static method: `setChunkGraphForModule(module, chunkGraph)`
-
-> Stability: 0 - Deprecated
 
 * `module` {Module}
 * `chunkGraph` {ChunkGraph}
@@ -1184,7 +1170,7 @@ Performs an unshift of a specific chunk
 
 ### Properties
 
-* `options` {CleanOptions}
+* `options` {CleanOptions&object}
 
 ### Methods
 
@@ -1296,7 +1282,7 @@ Creates an instance of Compilation.
 * `codeGeneratedModules` {WeakSet<Module>}
 * `codeGenerationResults` {CodeGenerationResults}
 * `comparedForEmitAssets` {Set<string>}
-* `compilationDependencies` {object} 
+* `compilationDependencies` {object}
 * `compiler` {Compiler}
 * `compilerPath` {string}
 * `contextDependencies` {LazySet<string>}
@@ -1440,8 +1426,6 @@ If `module` is passed, `loc` and `request` must also be passed.
 
 #### `assignDepth(module)`
 
-> Stability: 0 - Deprecated
-
 * `module` {Module}
 * Returns: {void}
 
@@ -1542,13 +1526,13 @@ from parent (or top level compiler) and creates a child Compilation
 
 ##### Call Signature
 
-* `options` {FactorizeModuleOptions|object}
+* `options` {FactorizeModuleOptions&object}
 * `callback` {object}
 * Returns: {void}
 
 ##### Call Signature
 
-* `options` {FactorizeModuleOptions|object}
+* `options` {FactorizeModuleOptions&object}
 * `callback` {object}
 * Returns: {void}
 
@@ -1855,19 +1839,6 @@ Fetches a module from a compilation by its identifier
 * `callback` {object}
 * Returns: {void}
 
-#### `validate(schema, value[, options][, check])`
-
-###### T
-
-`T` *extends* {object|object[]} = {object}
-* `schema` {JSONSchema4|ExtendedSchema|JSONSchema6|ExtendedSchema|JSONSchema7|ExtendedSchema|object}
-* `value` {T}
-* `options` {ValidationErrorConfiguration}
-* `check` {object}
-* Returns: {void}
-
-Schema validation function with optional pre-compiled check
-
 #### `watch(watchOptions, handler)`
 
 * `watchOptions` {WatchOptions}
@@ -1942,7 +1913,7 @@ Schema validation function with optional pre-compiled check
 #### Static method: `matchModuleReference(name)`
 
 * `name` {string}
-* Returns: {ModuleReferenceOptions|object}
+* Returns: {ModuleReferenceOptions&object}
 
 ***
 
@@ -2141,8 +2112,6 @@ implement this method to allow the occurrence order plugin to count correctly
 
 #### `getReference(moduleGraph)`
 
-> Stability: 0 - Deprecated
-
 * `moduleGraph` {ModuleGraph}
 * Returns: {never}
 
@@ -2206,7 +2175,7 @@ Update the hash
 
 ### Properties
 
-* `options` {DllPluginOptions}
+* `options` {object}
 
 ### Methods
 
@@ -2254,7 +2223,7 @@ Apply the plugin
 
 ### Properties
 
-* `options` {DotenvPluginOptions}
+* `options` {object}
 
 ### Methods
 
@@ -2718,7 +2687,7 @@ Apply the plugin
 * `hasEqualsChunks` {any}
 * `hash` {string}
 * `hot` {boolean}
-* `id` {string|number} 
+* `id` {string|number}
 * `index` {number}
 * `index2` {number}
 * `issuer` {Module}
@@ -2726,7 +2695,7 @@ Apply the plugin
 * `layer` {string}
 * `moduleArgument` {string}
 * `needId` {boolean}
-* `optimizationBailout` {string|object[]} 
+* `optimizationBailout` {string|object[]}
 * `optional` {boolean}
 * `parent` {DependenciesBlock}
 * `presentationalDependencies` {Dependency[]}
@@ -2975,13 +2944,9 @@ This data will be passed to restoreFromUnsafeCache later.
 
 #### `needRebuild(fileTimestamps, contextTimestamps)`
 
-> Stability: 0 - Deprecated
-
 * `fileTimestamps` {Map<string, number>}
 * `contextTimestamps` {Map<string, number>}
 * Returns: {boolean}
-
-Use needBuild instead
 
 #### `originalSource()`
 
@@ -3022,14 +2987,10 @@ restore unsafe cache data
 
 #### `source(dependencyTemplates, runtimeTemplate[, type])`
 
-> Stability: 0 - Deprecated
-
 * `dependencyTemplates` {DependencyTemplates}
 * `runtimeTemplate` {RuntimeTemplate}
 * `type` {string}
 * Returns: {Source}
-
-Use codeGeneration() instead
 
 #### `updateCacheModule(module)`
 
@@ -3046,20 +3007,6 @@ and properties.
 * `context` {UpdateHashContextDependency}
 * Returns: {void}
 
-#### Static method: `getCompilationHooks(compilation)`
-
-* `compilation` {Compilation}
-* Returns: {ExternalModuleHooks}
-
-#### Static method: `getSourceBasicTypes(module)`
-
-> Stability: 0 - Deprecated
-
-* `module` {Module}
-* Returns: {ReadonlySet<string>}
-
-In webpack 6, call getSourceBasicTypes() directly on the module instance instead of using this static method.
-
 ***
 
 ## Class: `ExternalsPlugin`
@@ -3068,14 +3015,14 @@ In webpack 6, call getSourceBasicTypes() directly on the module instance instead
 
 #### `new ExternalsPlugin(type, externals)`
 
-* `type` {"asset"|"module"|"css-import"|"css-url"|"global"|"import"|"commonjs"|"jsonp"|"promise"|"this"|"var"|"assign"|"window"|"self"|"commonjs2"|"commonjs-module"|"commonjs-static"|"amd"|"amd-require"|"umd"|"umd2"|"system"|"module-import"|"script"|"node-commonjs"|object}
+* `type` {"asset"|"module"|"css-import"|"css-url"|"global"|"import"|"promise"|"this"|"var"|"script"|"jsonp"|"system"|"commonjs"|"assign"|"amd"|"amd-require"|"umd"|"umd2"|"commonjs2"|"window"|"self"|"commonjs-static"|"commonjs-module"|"node-commonjs"|"module-import"|object}
 * `externals` {Externals}
 * Returns: {ExternalsPlugin}
 
 ### Properties
 
 * `externals` {Externals}
-* `type` {"asset"|"module"|"css-import"|"css-url"|"global"|"import"|"commonjs"|"jsonp"|"promise"|"this"|"var"|"assign"|"window"|"self"|"commonjs2"|"commonjs-module"|"commonjs-static"|"amd"|"amd-require"|"umd"|"umd2"|"system"|"module-import"|"script"|"node-commonjs"|object}
+* `type` {"asset"|"module"|"css-import"|"css-url"|"global"|"import"|"promise"|"this"|"var"|"script"|"jsonp"|"system"|"commonjs"|"assign"|"amd"|"amd-require"|"umd"|"umd2"|"commonjs2"|"window"|"self"|"commonjs-static"|"commonjs-module"|"node-commonjs"|"module-import"|object}
 
 ### Methods
 
@@ -3177,7 +3124,7 @@ Apply the plugin
 * `contentHash` {Record<string, string>}
 * `cssFilenameTemplate` {string|object}
 * `debugId` {number}
-* `entryModule` {Module} 
+* `entryModule` {Module}
 * `extraAsync` {boolean}
 * `filenameTemplate` {string|object}
 * `files` {Set<string>}
@@ -3264,8 +3211,6 @@ Apply the plugin
 * Returns: {ChunkChildOfTypeInOrder[]}
 
 #### `getChunkMaps(realHash)`
-
-> Stability: 0 - Deprecated
 
 * `realHash` {boolean}
 * Returns: {ChunkMaps}
@@ -3618,12 +3563,12 @@ Apply the plugin
 
 #### `new LoaderOptionsPlugin([options])`
 
-* `options` {LoaderOptionsPluginOptions|MatchObject}
+* `options` {LoaderOptionsPluginOptions&MatchObject}
 * Returns: {LoaderOptionsPlugin}
 
 ### Properties
 
-* `options` {LoaderOptionsPluginOptions|MatchObject}
+* `options` {LoaderOptionsPluginOptions&MatchObject}
 
 ### Methods
 
@@ -3664,14 +3609,14 @@ Apply the plugin
 
 ### Constructors
 
-#### `new ManifestPlugin([options])`
+#### `new ManifestPlugin(options)`
 
 * `options` {ManifestPluginOptions}
 * Returns: {ManifestPlugin}
 
 ### Properties
 
-* `options` {ManifestPluginOptions}
+* `options` {ManifestPluginOptions&Required<Omit<ManifestPluginOptions, "filter"|"generate">>}
 
 ### Methods
 
@@ -3722,7 +3667,7 @@ Apply the plugin
 * `hasEqualsChunks` {any}
 * `hash` {string}
 * `hot` {boolean}
-* `id` {string|number} 
+* `id` {string|number}
 * `index` {number}
 * `index2` {number}
 * `issuer` {Module}
@@ -3730,7 +3675,7 @@ Apply the plugin
 * `layer` {string}
 * `moduleArgument` {string}
 * `needId` {boolean}
-* `optimizationBailout` {string|object[]} 
+* `optimizationBailout` {string|object[]}
 * `optional` {boolean}
 * `parent` {DependenciesBlock}
 * `presentationalDependencies` {Dependency[]}
@@ -3975,13 +3920,9 @@ This data will be passed to restoreFromUnsafeCache later.
 
 #### `needRebuild(fileTimestamps, contextTimestamps)`
 
-> Stability: 0 - Deprecated
-
 * `fileTimestamps` {Map<string, number>}
 * `contextTimestamps` {Map<string, number>}
 * Returns: {boolean}
-
-Use needBuild instead
 
 #### `originalSource()`
 
@@ -4014,14 +3955,10 @@ Use needBuild instead
 
 #### `source(dependencyTemplates, runtimeTemplate[, type])`
 
-> Stability: 0 - Deprecated
-
 * `dependencyTemplates` {DependencyTemplates}
 * `runtimeTemplate` {RuntimeTemplate}
 * `type` {string}
 * Returns: {Source}
-
-Use codeGeneration() instead
 
 #### `updateCacheModule(module)`
 
@@ -4037,15 +3974,6 @@ and properties.
 * `hash` {Hash}
 * `context` {UpdateHashContextDependency}
 * Returns: {void}
-
-#### Static method: `getSourceBasicTypes(module)`
-
-> Stability: 0 - Deprecated
-
-* `module` {Module}
-* Returns: {ReadonlySet<string>}
-
-In webpack 6, call getSourceBasicTypes() directly on the module instance instead of using this static method.
 
 ***
 
@@ -4414,14 +4342,10 @@ In webpack 6, call getSourceBasicTypes() directly on the module instance instead
 
 #### Static method: `clearModuleGraphForModule(module)`
 
-> Stability: 0 - Deprecated
-
 * `module` {Module}
 * Returns: {void}
 
 #### Static method: `getModuleGraphForModule(module, deprecateMessage, deprecationCode)`
-
-> Stability: 0 - Deprecated
 
 * `module` {Module}
 * `deprecateMessage` {string}
@@ -4429,8 +4353,6 @@ In webpack 6, call getSourceBasicTypes() directly on the module instance instead
 * Returns: {ModuleGraph}
 
 #### Static method: `setModuleGraphForModule(module, moduleGraph)`
-
-> Stability: 0 - Deprecated
 
 * `module` {Module}
 * `moduleGraph` {ModuleGraph}
@@ -4523,7 +4445,7 @@ In webpack 6, call getSourceBasicTypes() directly on the module instance instead
 * `hooks` {Readonly<object>}
 * `inputFileSystem` {InputFileSystem}
 * `intermediateFileSystem` {IntermediateFileSystem}
-* `options` {WebpackOptionsNormalized[]|MultiCompilerOptions}
+* `options` {WebpackOptionsNormalized[]&MultiCompilerOptions}
 * `outputFileSystem` {OutputFileSystem}
 * `outputPath` {string}
 * `running` {boolean}
@@ -4552,14 +4474,10 @@ In webpack 6, call getSourceBasicTypes() directly on the module instance instead
 
 #### `runWithDependencies(compilers, fn, callback)`
 
-> Stability: 0 - Deprecated
-
 * `compilers` {Compiler[]}
 * `fn` {object}
 * `callback` {CallbackWebpackFunction_2<Stats[], void>}
 * Returns: {void}
-
-This method should have been private
 
 #### `setDependencies(compiler, dependencies)`
 
@@ -4605,12 +4523,12 @@ This method should have been private
 
 #### `toJson([options])`
 
-* `options` {boolean|"verbose"|"none"|"summary"|"errors-only"|"errors-warnings"|"minimal"|"normal"|"detailed"|StatsOptions}
+* `options` {boolean|"none"|"normal"|"verbose"|"detailed"|"minimal"|"errors-only"|"errors-warnings"|"summary"|StatsOptions}
 * Returns: {StatsCompilation}
 
 #### `toString([options])`
 
-* `options` {boolean|"verbose"|"none"|"summary"|"errors-only"|"errors-warnings"|"minimal"|"normal"|"detailed"|StatsOptions}
+* `options` {boolean|"none"|"normal"|"verbose"|"detailed"|"minimal"|"errors-only"|"errors-warnings"|"summary"|StatsOptions}
 * Returns: {string}
 
 ***
@@ -4669,7 +4587,7 @@ Apply the plugin
 * `hasEqualsChunks` {any}
 * `hash` {string}
 * `hot` {boolean}
-* `id` {string|number} 
+* `id` {string|number}
 * `index` {number}
 * `index2` {number}
 * `issuer` {Module}
@@ -4679,7 +4597,7 @@ Apply the plugin
 * `matchResource` {string}
 * `moduleArgument` {string}
 * `needId` {boolean}
-* `optimizationBailout` {string|object[]} 
+* `optimizationBailout` {string|object[]}
 * `optional` {boolean}
 * `parent` {DependenciesBlock}
 * `parser` {ParserClass}
@@ -4691,7 +4609,7 @@ Apply the plugin
 * `request` {string}
 * `resolveOptions` {ResolveOptions}
 * `resource` {string}
-* `resourceResolveData` {ResourceSchemeData|Partial<ResolveRequest>}
+* `resourceResolveData` {ResourceSchemeData&Partial<ResolveRequest>}
 * `type` {string}
 * `used` {any}
 * `usedExports` {boolean|SortableSet<string>}
@@ -4969,13 +4887,9 @@ This data will be passed to restoreFromUnsafeCache later.
 
 #### `needRebuild(fileTimestamps, contextTimestamps)`
 
-> Stability: 0 - Deprecated
-
 * `fileTimestamps` {Map<string, number>}
 * `contextTimestamps` {Map<string, number>}
 * Returns: {boolean}
-
-Use needBuild instead
 
 #### `originalSource()`
 
@@ -5022,14 +4936,10 @@ restore unsafe cache data
 
 #### `source(dependencyTemplates, runtimeTemplate[, type])`
 
-> Stability: 0 - Deprecated
-
 * `dependencyTemplates` {DependencyTemplates}
 * `runtimeTemplate` {RuntimeTemplate}
 * `type` {string}
 * Returns: {Source}
-
-Use codeGeneration() instead
 
 #### `updateCacheModule(module)`
 
@@ -5055,15 +4965,6 @@ and properties.
 
 * `compilation` {Compilation}
 * Returns: {NormalModuleCompilationHooks}
-
-#### Static method: `getSourceBasicTypes(module)`
-
-> Stability: 0 - Deprecated
-
-* `module` {Module}
-* Returns: {ReadonlySet<string>}
-
-In webpack 6, call getSourceBasicTypes() directly on the module instance instead of using this static method.
 
 ***
 
@@ -5181,15 +5082,14 @@ Apply the plugin
 * `dependenciesCount` {number}
 * `handler` {object}
 * `modulesCount` {number}
-* `options` {ProgressPluginOptions}
-* `percentBy` {"entries"|"modules"|"dependencies"}
+* `percentBy` {"entries"|"dependencies"|"modules"}
 * `profile` {boolean}
 * `showActiveModules` {boolean}
 * `showDependencies` {boolean}
 * `showEntries` {boolean}
 * `showModules` {boolean}
 * `createDefaultHandler` {object}
-* `defaultOptions` {Required<Omit<ProgressPluginOptions, "handler">>}
+* `defaultOptions` {object}
 
 ### Methods
 
@@ -5356,7 +5256,7 @@ Apply the plugin
 * `hasEqualsChunks` {any}
 * `hash` {string}
 * `hot` {boolean}
-* `id` {string|number} 
+* `id` {string|number}
 * `index` {number}
 * `index2` {number}
 * `issuer` {Module}
@@ -5365,7 +5265,7 @@ Apply the plugin
 * `moduleArgument` {string}
 * `name` {string}
 * `needId` {boolean}
-* `optimizationBailout` {string|object[]} 
+* `optimizationBailout` {string|object[]}
 * `optional` {boolean}
 * `parent` {DependenciesBlock}
 * `presentationalDependencies` {Dependency[]}
@@ -5630,13 +5530,9 @@ This data will be passed to restoreFromUnsafeCache later.
 
 #### `needRebuild(fileTimestamps, contextTimestamps)`
 
-> Stability: 0 - Deprecated
-
 * `fileTimestamps` {Map<string, number>}
 * `contextTimestamps` {Map<string, number>}
 * Returns: {boolean}
-
-Use needBuild instead
 
 #### `originalSource()`
 
@@ -5673,14 +5569,10 @@ Use needBuild instead
 
 #### `source(dependencyTemplates, runtimeTemplate[, type])`
 
-> Stability: 0 - Deprecated
-
 * `dependencyTemplates` {DependencyTemplates}
 * `runtimeTemplate` {RuntimeTemplate}
 * `type` {string}
 * Returns: {Source}
-
-Use codeGeneration() instead
 
 #### `updateCacheModule(module)`
 
@@ -5696,15 +5588,6 @@ and properties.
 * `hash` {Hash}
 * `context` {UpdateHashContextDependency}
 * Returns: {void}
-
-#### Static method: `getSourceBasicTypes(module)`
-
-> Stability: 0 - Deprecated
-
-* `module` {Module}
-* Returns: {ReadonlySet<string>}
-
-In webpack 6, call getSourceBasicTypes() directly on the module instance instead of using this static method.
 
 ***
 
@@ -5765,12 +5648,12 @@ Apply the plugin
 
 #### `toJson([options])`
 
-* `options` {boolean|"verbose"|"none"|"summary"|"errors-only"|"errors-warnings"|"minimal"|"normal"|"detailed"|StatsOptions}
+* `options` {boolean|"none"|"normal"|"verbose"|"detailed"|"minimal"|"errors-only"|"errors-warnings"|"summary"|StatsOptions}
 * Returns: {StatsCompilation}
 
 #### `toString([options])`
 
-* `options` {boolean|"verbose"|"none"|"summary"|"errors-only"|"errors-warnings"|"minimal"|"normal"|"detailed"|StatsOptions}
+* `options` {boolean|"none"|"normal"|"verbose"|"detailed"|"minimal"|"errors-only"|"errors-warnings"|"summary"|StatsOptions}
 * Returns: {string}
 
 ***
@@ -5843,7 +5726,7 @@ Apply the plugin
 #### Static method: `renderRuntimeModules(runtimeModules, renderContext)`
 
 * `runtimeModules` {RuntimeModule[]}
-* `renderContext` {RenderContextJavascriptModulesPlugin|object}
+* `renderContext` {RenderContextJavascriptModulesPlugin&object}
 * Returns: {Source}
 
 #### Static method: `toComment(str)`
@@ -5879,7 +5762,7 @@ Apply the plugin
 
 ### Properties
 
-* `options` {WatchIgnorePluginOptions}
+* `paths` {string|RegExp[]}
 
 ### Methods
 
@@ -5953,7 +5836,7 @@ Apply the plugin
 
 ### Indexable
 
-> \[`index`: {number}\]: {object}
+\[`index`: {number}\]: {object}
 
 ### Constructors
 
@@ -6320,9 +6203,9 @@ Options object as provided by the user.
 * `entry` {string|string[]|EntryObject|object} The entry point(s) of the compilation.
 * `experiments` {Experiments} Enables/Disables experiments (experimental features with relax SemVer compatibility).
 * `extends` {string|string[]} Extend configuration from another configuration (only works when using webpack-cli).
-* `externals` {string|RegExp|ExternalItemObjectKnown|ExternalItemObjectUnknown|object|object|ExternalItem[]} Specify dependencies that shouldn't be resolved by webpack, but should become dependencies of the resulting bundle. The kind of the dependency depends on `output.libraryTarget`.
+* `externals` {string|RegExp|ExternalItemObjectKnown&ExternalItemObjectUnknown|object|object|ExternalItem[]} Specify dependencies that shouldn't be resolved by webpack, but should become dependencies of the resulting bundle. The kind of the dependency depends on `output.libraryTarget`.
 * `externalsPresets` {ExternalsPresets} Enable presets of externals for specific targets.
-* `externalsType` {"asset"|"module"|"css-import"|"css-url"|"global"|"import"|"commonjs"|"jsonp"|"promise"|"this"|"var"|"assign"|"window"|"self"|"commonjs2"|"commonjs-module"|"commonjs-static"|"amd"|"amd-require"|"umd"|"umd2"|"system"|"module-import"|"script"|"node-commonjs"} Specifies the default type of externals ('amd*', 'umd*', 'system' and 'jsonp' depend on output.libraryTarget set to the same value).
+* `externalsType` {"asset"|"module"|"css-import"|"css-url"|"global"|"import"|"promise"|"this"|"var"|"script"|"jsonp"|"system"|"commonjs"|"assign"|"amd"|"amd-require"|"umd"|"umd2"|"commonjs2"|"window"|"self"|"commonjs-static"|"commonjs-module"|"node-commonjs"|"module-import"} Specifies the default type of externals ('amd*', 'umd*', 'system' and 'jsonp' depend on output.libraryTarget set to the same value).
 * `ignoreWarnings` {RegExp|object|object[]} Ignore specific warnings.
 * `infrastructureLogging` {InfrastructureLogging} Options for infrastructure level logging.
 * `loader` {Loader} Custom values available in the loader context.
@@ -6342,9 +6225,8 @@ Options object as provided by the user.
 * `resolve` {ResolveOptions} Options for the resolver.
 * `resolveLoader` {ResolveOptions} Options for the resolver when resolving loaders.
 * `snapshot` {SnapshotOptionsWebpackOptions} Options affecting how file system snapshots are created and validated.
-* `stats` {boolean|"verbose"|"none"|"summary"|"errors-only"|"errors-warnings"|"minimal"|"normal"|"detailed"|StatsOptions} Stats options object or preset name.
+* `stats` {boolean|"none"|"normal"|"verbose"|"detailed"|"minimal"|"errors-only"|"errors-warnings"|"summary"|StatsOptions} Stats options object or preset name.
 * `target` {string|false|string[]} Environment to build for. An array of environments to build for all of them when possible.
-* `validate` {boolean} Enable validation of webpack configuration. Defaults to true in development mode. In production mode, defaults to true unless futureDefaults is enabled, then defaults to false.
 * `watch` {boolean} Enter watch mode, which rebuilds on file change.
 * `watchOptions` {WatchOptions} Options for the watcher.
 
@@ -6356,7 +6238,7 @@ Multiple entry bundles are created. The key is the entry name. The value can be 
 
 ### Indexable
 
-> \[`index`: {string}\]: {string|string[]|EntryDescription}
+\[`index`: {string}\]: {string|string[]|EntryDescription}
 
 ***
 
@@ -6388,7 +6270,7 @@ If an dependency matches exactly a property of the object, the property value is
 
 ### Indexable
 
-> \[`index`: {string}\]: {ExternalItemValue}
+\[`index`: {string}\]: {ExternalItemValue}
 
 ***
 
@@ -6496,7 +6378,7 @@ Options for library.
 
 `ContextAdditions` = {object}
 
-* `this` {NormalModuleLoaderContext<OptionsType>|LoaderRunnerLoaderContext<OptionsType>|LoaderPluginLoaderContext|HotModuleReplacementPluginLoaderContext|ContextAdditions}
+* `this` {NormalModuleLoaderContext<OptionsType>&LoaderRunnerLoaderContext<OptionsType>&LoaderPluginLoaderContext&HotModuleReplacementPluginLoaderContext&ContextAdditions}
 * `content` {string}
 * `sourceMap` {string|RawSourceMap}
 * `additionalData` {AdditionalData}
@@ -6670,7 +6552,7 @@ Specify options for each parser.
 
 `ContextAdditions` = {object}
 
-* `this` {NormalModuleLoaderContext<OptionsType>|LoaderRunnerLoaderContext<OptionsType>|LoaderPluginLoaderContext|HotModuleReplacementPluginLoaderContext|ContextAdditions}
+* `this` {NormalModuleLoaderContext<OptionsType>&LoaderRunnerLoaderContext<OptionsType>&LoaderPluginLoaderContext&HotModuleReplacementPluginLoaderContext&ContextAdditions}
 * `remainingRequest` {string}
 * `previousRequest` {string}
 * `data` {object}
@@ -6703,7 +6585,7 @@ Specify options for each parser.
 
 `ContextAdditions` = {object}
 
-* `this` {NormalModuleLoaderContext<OptionsType>|LoaderRunnerLoaderContext<OptionsType>|LoaderPluginLoaderContext|HotModuleReplacementPluginLoaderContext|ContextAdditions}
+* `this` {NormalModuleLoaderContext<OptionsType>&LoaderRunnerLoaderContext<OptionsType>&LoaderPluginLoaderContext&HotModuleReplacementPluginLoaderContext&ContextAdditions}
 * `content` {Buffer}
 * `sourceMap` {string|RawSourceMap}
 * `additionalData` {AdditionalData}
@@ -6737,7 +6619,7 @@ Specify options for each parser.
 * `context` {string}
 * `contextDependencies` {LazySet<string>}
 * `contextInfo` {ModuleFactoryCreateDataContextInfo}
-* `createData` {Partial<NormalModuleCreateData|object>}
+* `createData` {Partial<NormalModuleCreateData&object>}
 * `dependencies` {ModuleDependency[]}
 * `dependencyType` {string}
 * `fileDependencies` {LazySet<string>}
@@ -6838,7 +6720,7 @@ Stats options object.
 * `cached` {boolean} Add information about cached (not built) modules (deprecated: use 'cachedModules' instead).
 * `cachedAssets` {boolean} Show cached assets (setting this to `false` only shows emitted files).
 * `cachedModules` {boolean} Add information about cached (not built) modules.
-* `children` {boolean|"verbose"|"none"|"summary"|"errors-only"|"errors-warnings"|"minimal"|"normal"|"detailed"|StatsOptions|StatsValue[]} Add children information.
+* `children` {boolean|"none"|"normal"|"verbose"|"detailed"|"minimal"|"errors-only"|"errors-warnings"|"summary"|StatsOptions|StatsValue[]} Add children information.
 * `chunkGroupAuxiliary` {boolean} Display auxiliary assets in chunk groups.
 * `chunkGroupChildren` {boolean} Display children of chunk groups.
 * `chunkGroupMaxAssets` {number} Limit of assets displayed in chunk groups.
@@ -6879,7 +6761,7 @@ Stats options object.
 * `groupReasonsByOrigin` {boolean} Group reasons by their origin module.
 * `hash` {boolean} Add the hash of the compilation.
 * `ids` {boolean} Add ids.
-* `logging` {boolean|"error"|"warn"|"info"|"log"|"verbose"|"none"} Add logging output.
+* `logging` {boolean|"error"|"warn"|"info"|"log"|"none"|"verbose"} Add logging output.
 * `loggingDebug` {string|boolean|RegExp|FilterItemTypes[]|object} Include debug logging of specified loggers (i. e. for plugins or loaders). Filters can be Strings, RegExps or Functions.
 * `loggingTrace` {boolean} Add stack traces to logging output.
 * `moduleAssets` {boolean} Add information about assets inside modules.
@@ -6930,7 +6812,7 @@ Normalized webpack options object.
 * `experiments` {ExperimentsNormalized} Enables/Disables experiments (experimental features with relax SemVer compatibility).
 * `externals` {Externals} Specify dependencies that shouldn't be resolved by webpack, but should become dependencies of the resulting bundle. The kind of the dependency depends on `output.libraryTarget`.
 * `externalsPresets` {ExternalsPresets} Enable presets of externals for specific targets.
-* `externalsType` {"asset"|"module"|"css-import"|"css-url"|"global"|"import"|"commonjs"|"jsonp"|"promise"|"this"|"var"|"assign"|"window"|"self"|"commonjs2"|"commonjs-module"|"commonjs-static"|"amd"|"amd-require"|"umd"|"umd2"|"system"|"module-import"|"script"|"node-commonjs"} Specifies the default type of externals ('amd*', 'umd*', 'system' and 'jsonp' depend on output.libraryTarget set to the same value).
+* `externalsType` {"asset"|"module"|"css-import"|"css-url"|"global"|"import"|"promise"|"this"|"var"|"script"|"jsonp"|"system"|"commonjs"|"assign"|"amd"|"amd-require"|"umd"|"umd2"|"commonjs2"|"window"|"self"|"commonjs-static"|"commonjs-module"|"node-commonjs"|"module-import"} Specifies the default type of externals ('amd*', 'umd*', 'system' and 'jsonp' depend on output.libraryTarget set to the same value).
 * `ignoreWarnings` {object[]} Ignore specific warnings.
 * `infrastructureLogging` {InfrastructureLogging} Options for infrastructure level logging.
 * `loader` {Loader} Custom values available in the loader context.
@@ -6951,7 +6833,6 @@ Normalized webpack options object.
 * `snapshot` {SnapshotOptionsWebpackOptions} Options affecting how file system snapshots are created and validated.
 * `stats` {StatsValue} Stats options object or preset name.
 * `target` {string|false|string[]} Environment to build for. An array of environments to build for all of them when possible.
-* `validate` {boolean} Enable validation of webpack configuration. Defaults to true in development mode. In production mode, defaults to true unless futureDefaults is enabled, then defaults to false.
 * `watch` {boolean} Enter watch mode, which rebuilds on file change.
 * `watchOptions` {WatchOptions} Options for the watcher.
 
@@ -6963,7 +6844,7 @@ Plugin instance.
 
 ### Indexable
 
-> \[`index`: {string}\]: {any}
+\[`index`: {string}\]: {any}
 
 ### Properties
 
@@ -6973,7 +6854,7 @@ Plugin instance.
 
 ## Type: `AssetInfo`
 
-> **AssetInfo** = {KnownAssetInfo|Record<string, any>}
+> **AssetInfo** = {KnownAssetInfo&Record<string, any>}
 
 ***
 
@@ -6991,7 +6872,7 @@ Plugin instance.
 
 ## Type: `EntryOptions`
 
-> **EntryOptions** = {object|Omit<EntryDescriptionNormalized, "import">}
+> **EntryOptions** = {object&Omit<EntryDescriptionNormalized, "import">}
 
 ### Type Declaration
 
@@ -7001,7 +6882,7 @@ Plugin instance.
 
 ## Type: `ExternalItem`
 
-> **ExternalItem** = {string|RegExp|ExternalItemObjectKnown|ExternalItemObjectUnknown|object|object}
+> **ExternalItem** = {string|RegExp|ExternalItemObjectKnown&ExternalItemObjectUnknown|object|object}
 
 ***
 
@@ -7068,13 +6949,13 @@ Plugin instance.
 
 ## Type: `Externals`
 
-> **Externals** = {string|RegExp|ExternalItemObjectKnown|ExternalItemObjectUnknown|object|object|ExternalItem[]}
+> **Externals** = {string|RegExp|ExternalItemObjectKnown&ExternalItemObjectUnknown|object|object|ExternalItem[]}
 
 ***
 
 ## Type: `LoaderContext`
 
-> **LoaderContext**\<`OptionsType`\> = {NormalModuleLoaderContext<OptionsType>|LoaderRunnerLoaderContext<OptionsType>|LoaderPluginLoaderContext|HotModuleReplacementPluginLoaderContext}
+> **LoaderContext**\<`OptionsType`\> = {NormalModuleLoaderContext<OptionsType>&LoaderRunnerLoaderContext<OptionsType>&LoaderPluginLoaderContext&HotModuleReplacementPluginLoaderContext}
 
 ### Type Parameters
 
@@ -7086,7 +6967,7 @@ Plugin instance.
 
 ## Type: `LoaderDefinition`
 
-> **LoaderDefinition**\<`OptionsType`, `ContextAdditions`\> = {LoaderDefinitionFunction<OptionsType, ContextAdditions>|object}
+> **LoaderDefinition**\<`OptionsType`, `ContextAdditions`\> = {LoaderDefinitionFunction<OptionsType, ContextAdditions>&object}
 
 ### Type Declaration
 
@@ -7107,19 +6988,19 @@ Plugin instance.
 
 ## Type: `MultiConfiguration`
 
-> **MultiConfiguration** = {ReadonlyArray<Configuration>|MultiCompilerOptions}
+> **MultiConfiguration** = {ReadonlyArray<Configuration>&MultiCompilerOptions}
 
 ***
 
 ## Type: `ParserState`
 
-> **ParserState** = {ParserStateBase|Record<string, any>}
+> **ParserState** = {ParserStateBase&Record<string, any>}
 
 ***
 
 ## Type: `RawLoaderDefinition`
 
-> **RawLoaderDefinition**\<`OptionsType`, `ContextAdditions`\> = {RawLoaderDefinitionFunction<OptionsType, ContextAdditions>|object}
+> **RawLoaderDefinition**\<`OptionsType`, `ContextAdditions`\> = {RawLoaderDefinitionFunction<OptionsType, ContextAdditions>&object}
 
 ### Type Declaration
 
@@ -7148,23 +7029,21 @@ Plugin instance.
 
 > **ResolvePluginInstance** = {object|object}
 
-### Union Members
-
-#### Type Literal
+### Type Declaration
 
 {object}
 
-#### Index Signature
+### Index Signature
 
 \[`index`: {string}\]: {any}
 
 * `apply` {object} The run point of the plugin, required method.
 
-***
-
-#### Function
-
 {object}
+
+* `this` {Resolver}
+* `arg1` {Resolver}
+* Returns: {void}
 
 ***
 
@@ -7184,21 +7063,13 @@ Plugin instance.
 
 > **RuleSetUse** = {string|undefined|null|string|false|0|RuleSetUseFunction|object[]|RuleSetUseFunction|object}
 
-### Union Members
+### Type Declaration
 
 {string}
 
-***
-
 {undefined|null|string|false|0|RuleSetUseFunction|object[]}
 
-***
-
 {RuleSetUseFunction}
-
-***
-
-#### Type Literal
 
 {object}
 
@@ -7221,17 +7092,11 @@ Plugin instance.
 
 > **RuleSetUseItem** = {string|RuleSetUseFunction|object}
 
-### Union Members
+### Type Declaration
 
 {string}
 
-***
-
 {RuleSetUseFunction}
-
-***
-
-#### Type Literal
 
 {object}
 
@@ -7243,85 +7108,85 @@ Plugin instance.
 
 ## Type: `StatsAsset`
 
-> **StatsAsset** = {KnownStatsAsset|Record<string, any>}
+> **StatsAsset** = {KnownStatsAsset&Record<string, any>}
 
 ***
 
 ## Type: `StatsChunk`
 
-> **StatsChunk** = {KnownStatsChunk|Record<string, any>}
+> **StatsChunk** = {KnownStatsChunk&Record<string, any>}
 
 ***
 
 ## Type: `StatsChunkGroup`
 
-> **StatsChunkGroup** = {KnownStatsChunkGroup|Record<string, any>}
+> **StatsChunkGroup** = {KnownStatsChunkGroup&Record<string, any>}
 
 ***
 
 ## Type: `StatsChunkOrigin`
 
-> **StatsChunkOrigin** = {KnownStatsChunkOrigin|Record<string, any>}
+> **StatsChunkOrigin** = {KnownStatsChunkOrigin&Record<string, any>}
 
 ***
 
 ## Type: `StatsCompilation`
 
-> **StatsCompilation** = {KnownStatsCompilation|Record<string, any>}
+> **StatsCompilation** = {KnownStatsCompilation&Record<string, any>}
 
 ***
 
 ## Type: `StatsError`
 
-> **StatsError** = {KnownStatsError|Record<string, any>}
+> **StatsError** = {KnownStatsError&Record<string, any>}
 
 ***
 
 ## Type: `StatsLogging`
 
-> **StatsLogging** = {KnownStatsLogging|Record<string, any>}
+> **StatsLogging** = {KnownStatsLogging&Record<string, any>}
 
 ***
 
 ## Type: `StatsLoggingEntry`
 
-> **StatsLoggingEntry** = {KnownStatsLoggingEntry|Record<string, any>}
+> **StatsLoggingEntry** = {KnownStatsLoggingEntry&Record<string, any>}
 
 ***
 
 ## Type: `StatsModule`
 
-> **StatsModule** = {KnownStatsModule|Record<string, any>}
+> **StatsModule** = {KnownStatsModule&Record<string, any>}
 
 ***
 
 ## Type: `StatsModuleIssuer`
 
-> **StatsModuleIssuer** = {KnownStatsModuleIssuer|Record<string, any>}
+> **StatsModuleIssuer** = {KnownStatsModuleIssuer&Record<string, any>}
 
 ***
 
 ## Type: `StatsModuleReason`
 
-> **StatsModuleReason** = {KnownStatsModuleReason|Record<string, any>}
+> **StatsModuleReason** = {KnownStatsModuleReason&Record<string, any>}
 
 ***
 
 ## Type: `StatsModuleTraceDependency`
 
-> **StatsModuleTraceDependency** = {KnownStatsModuleTraceDependency|Record<string, any>}
+> **StatsModuleTraceDependency** = {KnownStatsModuleTraceDependency&Record<string, any>}
 
 ***
 
 ## Type: `StatsModuleTraceItem`
 
-> **StatsModuleTraceItem** = {KnownStatsModuleTraceItem|Record<string, any>}
+> **StatsModuleTraceItem** = {KnownStatsModuleTraceItem&Record<string, any>}
 
 ***
 
 ## Type: `StatsProfile`
 
-> **StatsProfile** = {KnownStatsProfile|Record<string, any>}
+> **StatsProfile** = {KnownStatsProfile&Record<string, any>}
 
 ***
 
@@ -7360,8 +7225,8 @@ Plugin instance.
 
 > `const` **validateSchema**: {object}
 
-* `schema` {Parameters<validateFunction>}
-* `options` {Parameters<validateFunction>}
+* `schema` {Parameters<validateFunction>[0]}
+* `options` {Parameters<validateFunction>[1]}
 * `validationConfiguration` {ValidationErrorConfiguration}
 * Returns: {void}
 

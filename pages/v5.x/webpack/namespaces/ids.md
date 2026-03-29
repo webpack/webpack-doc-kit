@@ -83,7 +83,7 @@ Apply the plugin
 
 ### Properties
 
-* `options` {HashedModuleIdsPluginOptions}
+* `options` {Required<Omit<HashedModuleIdsPluginOptions, "context">>&object}
 
 ### Methods
 
