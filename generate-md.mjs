@@ -1,6 +1,21 @@
 import { Application } from 'typedoc';
-import webpack from './webpack/package.json' with { type: 'json' };
 import { major } from 'semver';
+import { existsSync, readFileSync } from 'node:fs';
+
+if (!existsSync('./webpack')) {
+  throw new Error('Webpack source not found. Run: npm run bootstrap:webpack');
+}
+
+if (
+  !existsSync('./webpack/package.json') ||
+  !existsSync('./webpack/types.d.ts')
+) {
+  throw new Error(
+    'Webpack source is incomplete. Run: npm run bootstrap:webpack'
+  );
+}
+
+const webpack = JSON.parse(readFileSync('./webpack/package.json', 'utf8'));
 
 const app = await Application.bootstrapWithPlugins({
   entryPoints: ['./webpack/types.d.ts'],

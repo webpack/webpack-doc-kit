@@ -37,13 +37,114 @@ This ensures documentation stays in sync with upstream webpack without manual in
 
 ## Scripts
 
-| Script                  | Description                          |
-| ----------------------- | ------------------------------------ |
-| `npm run generate-docs` | Generate Markdown from webpack types |
-| `npm run build-html`    | Convert Markdown to HTML             |
-| `npm run build`         | Generate docs + build HTML           |
-| `npm run lint`          | Run ESLint                           |
-| `npm run format:check`  | Check Prettier formatting            |
+| Script                      | Description                                                       |
+| --------------------------- | ----------------------------------------------------------------- |
+| `npm run generate-docs`     | Generate Markdown from webpack types                              |
+| `npm run build-html`        | Convert Markdown to HTML                                          |
+| `npm run build`             | Generate docs + build HTML                                        |
+| `npm run bootstrap:webpack` | Clone/update local webpack source at `HEAD_COMMIT`                |
+| `npm run docs:quickstart`   | Run bootstrap + markdown generation + HTML build with smart skips |
+| `npm run docs:doctor`       | Run quickstart pipeline in verbose mode                           |
+| `npm run lint`              | Run ESLint                                                        |
+| `npm run format:check`      | Check Prettier formatting                                         |
+
+## Local Quickstart
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Bootstrap local webpack source to the commit pinned in `HEAD_COMMIT`:
+
+```bash
+npm run bootstrap:webpack
+```
+
+Generate markdown docs:
+
+```bash
+npm run generate-docs
+```
+
+Build HTML output:
+
+```bash
+npm run build-html
+```
+
+Or run everything in one command:
+
+```bash
+npm run docs:quickstart
+```
+
+Useful flags for the quickstart runner:
+
+- `--force` reruns every step
+- `--verbose` prints detailed diagnostics
+- `--no-html` skips the HTML build
+
+Example:
+
+```bash
+node scripts/docs-pipeline.mjs --force --verbose
+```
+
+## Troubleshooting
+
+### Missing webpack folder
+
+If `npm run generate-docs` fails with "Webpack source not found", run:
+
+```bash
+npm run bootstrap:webpack
+```
+
+### Wrong webpack commit
+
+If local webpack is out of sync with `HEAD_COMMIT`, run:
+
+```bash
+npm run bootstrap:webpack
+```
+
+This updates `./webpack` and checks out the exact pinned commit.
+
+### Stale output
+
+If you need to regenerate everything regardless of skip checks:
+
+```bash
+node scripts/docs-pipeline.mjs --force
+```
+
+## Contributor Workflow
+
+1. Bootstrap webpack source:
+
+```bash
+npm run bootstrap:webpack
+```
+
+2. Regenerate markdown docs:
+
+```bash
+npm run generate-docs
+```
+
+3. Build HTML output:
+
+```bash
+npm run build-html
+```
+
+Output locations:
+
+- Markdown: `pages/vX.x/`
+- Type map: `pages/vX.x/type-map.json`
+- HTML site: `out/`
 
 ## Contributing
 
