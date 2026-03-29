@@ -10,7 +10,7 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "@node-core/doc-kit": "^1.2.0",
+    "@node-core/doc-kit": "^1.2.1",
     "semver": "^7.7.4",
     "typedoc": "^0.28.18",
     "typedoc-plugin-markdown": "^4.11.0",
