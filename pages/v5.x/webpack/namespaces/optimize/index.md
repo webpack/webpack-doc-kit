@@ -175,12 +175,12 @@ Apply the plugin
 
 #### `new RuntimeChunkPlugin([options])`
 
-* `options` {object}
+* `options` {{ name?: (entrypoint: { name: string }) => string }}
 * Returns: {RuntimeChunkPlugin}
 
 ### Properties
 
-* `options` {object}
+* `options` {{ name: string|(entrypoint: { name: string }) => string }}
 
 ### Methods
 

@@ -10,7 +10,7 @@
 
 #### `new CachedSource(source[, cachedData])`
 
-* `source` {Source|object}
+* `source` {Source|() => Source}
 * `cachedData` {CachedData}
 * Returns: {CachedSource}
 
@@ -35,7 +35,7 @@
 
 #### `originalLazy()`
 
-* Returns: {Source|object}
+* Returns: {Source|() => Source}
 
 #### `size()`
 
@@ -53,9 +53,9 @@
 #### `streamChunks(options, onChunk, onSource, onName)`
 
 * `options` {StreamChunksOptions}
-* `onChunk` {object}
-* `onSource` {object}
-* `onName` {object}
+* `onChunk` {(chunk: string, generatedLine: number, generatedColumn: number, sourceIndex: number, originalLine: number, originalColumn: number, nameIndex: number) => void}
+* `onSource` {(sourceIndex: number, source: string, sourceContent?: string) => void}
+* `onName` {(nameIndex: number, name: string) => void}
 * Returns: {GeneratedSourceInfo}
 
 #### `updateHash(hash)`
@@ -168,9 +168,9 @@
 #### `streamChunks(options, onChunk, onSource, onName)`
 
 * `options` {StreamChunksOptions}
-* `onChunk` {object}
-* `onSource` {object}
-* `onName` {object}
+* `onChunk` {(chunk: string, generatedLine: number, generatedColumn: number, sourceIndex: number, originalLine: number, originalColumn: number, nameIndex: number) => void}
+* `onSource` {(sourceIndex: number, source: string, sourceContent?: string) => void}
+* `onName` {(nameIndex: number, name: string) => void}
 * Returns: {GeneratedSourceInfo}
 
 #### `updateHash(hash)`
@@ -225,9 +225,9 @@
 #### `streamChunks(options, onChunk, onSource, _onName)`
 
 * `options` {StreamChunksOptions}
-* `onChunk` {object}
-* `onSource` {object}
-* `_onName` {object}
+* `onChunk` {(chunk: string, generatedLine: number, generatedColumn: number, sourceIndex: number, originalLine: number, originalColumn: number, nameIndex: number) => void}
+* `onSource` {(sourceIndex: number, source: string, sourceContent?: string) => void}
+* `_onName` {(nameIndex: number, name: string) => void}
 * Returns: {GeneratedSourceInfo}
 
 #### `updateHash(hash)`
@@ -286,9 +286,9 @@
 #### `streamChunks(options, onChunk, onSource, onName)`
 
 * `options` {StreamChunksOptions}
-* `onChunk` {object}
-* `onSource` {object}
-* `onName` {object}
+* `onChunk` {(chunk: string, generatedLine: number, generatedColumn: number, sourceIndex: number, originalLine: number, originalColumn: number, nameIndex: number) => void}
+* `onSource` {(sourceIndex: number, source: string, sourceContent?: string) => void}
+* `onName` {(nameIndex: number, name: string) => void}
 * Returns: {GeneratedSourceInfo}
 
 #### `updateHash(hash)`
@@ -343,9 +343,9 @@
 #### `streamChunks(options, onChunk, onSource, onName)`
 
 * `options` {StreamChunksOptions}
-* `onChunk` {object}
-* `onSource` {object}
-* `onName` {object}
+* `onChunk` {(chunk: string, generatedLine: number, generatedColumn: number, sourceIndex: number, originalLine: number, originalColumn: number, nameIndex: number) => void}
+* `onSource` {(sourceIndex: number, source: string, sourceContent?: string) => void}
+* `onName` {(nameIndex: number, name: string) => void}
 * Returns: {GeneratedSourceInfo}
 
 #### `updateHash(hash)`
@@ -427,9 +427,9 @@
 #### `streamChunks(options, onChunk, onSource, onName)`
 
 * `options` {StreamChunksOptions}
-* `onChunk` {object}
-* `onSource` {object}
-* `onName` {object}
+* `onChunk` {(chunk: string, generatedLine: number, generatedColumn: number, sourceIndex: number, originalLine: number, originalColumn: number, nameIndex: number) => void}
+* `onSource` {(sourceIndex: number, source: string, sourceContent?: string) => void}
+* `onName` {(nameIndex: number, name: string) => void}
 * Returns: {GeneratedSourceInfo}
 
 #### `updateHash(hash)`
@@ -583,9 +583,9 @@
 #### `streamChunks(options, onChunk, onSource, onName)`
 
 * `options` {StreamChunksOptions}
-* `onChunk` {object}
-* `onSource` {object}
-* `onName` {object}
+* `onChunk` {(chunk: string, generatedLine: number, generatedColumn: number, sourceIndex: number, originalLine: number, originalColumn: number, nameIndex: number) => void}
+* `onSource` {(sourceIndex: number, source: string, sourceContent?: string) => void}
+* `onName` {(nameIndex: number, name: string) => void}
 * Returns: {GeneratedSourceInfo}
 
 #### `updateHash(hash)`
