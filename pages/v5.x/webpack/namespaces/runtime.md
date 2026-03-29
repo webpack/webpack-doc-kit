@@ -13,7 +13,7 @@
 * `contentType` {string}
 * `name` {string}
 * `global` {string}
-* `getFilenameForChunk` {object}
+* `getFilenameForChunk` {(chunk: Chunk) => string|false|(pathData: PathData, assetInfo?: AssetInfo) => string}
 * `allChunks` {boolean}
 * Returns: {GetChunkFilenameRuntimeModule}
 
@@ -38,7 +38,7 @@
 * `exportsArgument` {string}
 * `factoryMeta` {FactoryMeta}
 * `fullHash` {boolean}
-* `getFilenameForChunk` {object}
+* `getFilenameForChunk` {(chunk: Chunk) => string|false|(pathData: PathData, assetInfo?: AssetInfo) => string}
 * `global` {string}
 * `hasEqualsChunks` {any}
 * `hash` {string}
@@ -52,7 +52,7 @@
 * `moduleArgument` {string}
 * `name` {string}
 * `needId` {boolean}
-* `optimizationBailout` {string|object[]} 
+* `optimizationBailout` {string|(requestShortener: RequestShortener) => string[]} 
 * `optional` {boolean}
 * `parent` {DependenciesBlock}
 * `presentationalDependencies` {Dependency[]}
@@ -132,7 +132,7 @@ This is used for when a Module has a AsyncDependencyBlock tie (for code-splittin
 * `compilation` {Compilation}
 * `resolver` {ResolverWithOptions}
 * `fs` {InputFileSystem}
-* `callback` {object}
+* `callback` {(err?: WebpackError) => void}
 * Returns: {void}
 
 #### `chunkCondition(chunk, compilation)`
@@ -312,7 +312,7 @@ This data will be passed to restoreFromUnsafeCache later.
 #### `needBuild(context, callback)`
 
 * `context` {NeedBuildContext}
-* `callback` {object}
+* `callback` {(err?: WebpackError, needBuild?: boolean) => void}
 * Returns: {void}
 
 #### `needRebuild(fileTimestamps, contextTimestamps)`
@@ -440,7 +440,7 @@ In webpack 6, call getSourceBasicTypes() directly on the module instance instead
 * `moduleArgument` {string}
 * `name` {string}
 * `needId` {boolean}
-* `optimizationBailout` {string|object[]} 
+* `optimizationBailout` {string|(requestShortener: RequestShortener) => string[]} 
 * `optional` {boolean}
 * `parent` {DependenciesBlock}
 * `presentationalDependencies` {Dependency[]}
@@ -520,7 +520,7 @@ This is used for when a Module has a AsyncDependencyBlock tie (for code-splittin
 * `compilation` {Compilation}
 * `resolver` {ResolverWithOptions}
 * `fs` {InputFileSystem}
-* `callback` {object}
+* `callback` {(err?: WebpackError) => void}
 * Returns: {void}
 
 #### `chunkCondition(chunk, compilation)`
@@ -700,7 +700,7 @@ This data will be passed to restoreFromUnsafeCache later.
 #### `needBuild(context, callback)`
 
 * `context` {NeedBuildContext}
-* `callback` {object}
+* `callback` {(err?: WebpackError, needBuild?: boolean) => void}
 * Returns: {void}
 
 #### `needRebuild(fileTimestamps, contextTimestamps)`

@@ -134,7 +134,7 @@ Apply the plugin
 
 ### Properties
 
-* `banner` {object}
+* `banner` {(data: { chunk: Chunk; filename: string; hash?: string }) => string}
 * `options` {BannerPluginOptions}
 
 ### Methods
@@ -158,7 +158,7 @@ Apply the plugin
 
 ### Properties
 
-* `hooks` {object}
+* `hooks` {{ beginIdle: SyncHook<Tuple<unknown>>; endIdle: AsyncParallelHook<Tuple<unknown>>; get: AsyncSeriesBailHook<Tuple<string, Etag, GotHandler<any>[]>, any>; shutdown: AsyncParallelHook<Tuple<unknown>>; store: AsyncParallelHook<Tuple<string, Etag, any>>; ... }}
 * `STAGE_DEFAULT` {number}
 * `STAGE_DISK` {number}
 * `STAGE_MEMORY` {number}
@@ -230,11 +230,11 @@ After this method has succeeded the cache can only be restored when build depend
 * `auxiliaryFiles` {Set<string>}
 * `chunkReason` {string}
 * `contentHash` {Record<string, string>}
-* `cssFilenameTemplate` {string|object}
+* `cssFilenameTemplate` {string|(pathData: PathData, assetInfo?: AssetInfo) => string}
 * `debugId` {number}
 * `entryModule` {Module} 
 * `extraAsync` {boolean}
-* `filenameTemplate` {string|object}
+* `filenameTemplate` {string|(pathData: PathData, assetInfo?: AssetInfo) => string}
 * `files` {Set<string>}
 * `groupsIterable` {SortableSet<ChunkGroup>}
 * `hash` {string}
@@ -302,14 +302,14 @@ After this method has succeeded the cache can only be restored when build depend
 #### `getChildIdsByOrders(chunkGraph[, filterFn])`
 
 * `chunkGraph` {ChunkGraph}
-* `filterFn` {object}
+* `filterFn` {(c: Chunk, chunkGraph: ChunkGraph) => boolean}
 * Returns: {Record<string, ChunkId[]>}
 
 #### `getChildIdsByOrdersMap(chunkGraph[, includeDirectChildren][, filterFn])`
 
 * `chunkGraph` {ChunkGraph}
 * `includeDirectChildren` {boolean}
-* `filterFn` {object}
+* `filterFn` {(c: Chunk, chunkGraph: ChunkGraph) => boolean}
 * Returns: {ChunkChildIdsByOrdersMapByData}
 
 #### `getChildrenOfTypeInOrder(chunkGraph, type)`
@@ -327,7 +327,7 @@ After this method has succeeded the cache can only be restored when build depend
 
 #### `getChunkModuleMaps(filterFn)`
 
-* `filterFn` {object}
+* `filterFn` {(m: Module) => boolean}
 * Returns: {ChunkModuleMaps}
 
 #### `getEntryOptions()`
@@ -355,7 +355,7 @@ After this method has succeeded the cache can only be restored when build depend
 * `chunkGraph` {ChunkGraph}
 * `type` {string}
 * `includeDirectChildren` {boolean}
-* `filterFn` {object}
+* `filterFn` {(c: Chunk, chunkGraph: ChunkGraph) => boolean}
 * Returns: {boolean}
 
 #### `hasEntryModule()`
@@ -364,8 +364,8 @@ After this method has succeeded the cache can only be restored when build depend
 
 #### `hasModuleInGraph(filterFn[, filterChunkFn])`
 
-* `filterFn` {object}
-* `filterChunkFn` {object}
+* `filterFn` {(m: Module) => boolean}
+* `filterChunkFn` {(c: Chunk, chunkGraph: ChunkGraph) => boolean}
 * Returns: {boolean}
 
 #### `hasRuntime()`
@@ -593,7 +593,7 @@ After this method has succeeded the cache can only be restored when build depend
 #### `getChunkConditionMap(chunk, filterFn)`
 
 * `chunk` {Chunk}
-* `filterFn` {object}
+* `filterFn` {(c: Chunk, chunkGraph: ChunkGraph) => boolean}
 * Returns: {ChunkConditionMap}
 
 #### `getChunkDependentHashModulesIterable(chunk)`
@@ -629,14 +629,14 @@ After this method has succeeded the cache can only be restored when build depend
 #### `getChunkModuleIdMap(chunk, filterFn[, includeAllChunks])`
 
 * `chunk` {Chunk}
-* `filterFn` {object}
+* `filterFn` {(m: Module) => boolean}
 * `includeAllChunks` {boolean}
 * Returns: {ChunkModuleIdMapEs5Alias_2}
 
 #### `getChunkModuleRenderedHashMap(chunk, filterFn[, hashLength][, includeAllChunks])`
 
 * `chunk` {Chunk}
-* `filterFn` {object}
+* `filterFn` {(m: Module) => boolean}
 * `hashLength` {number}
 * `includeAllChunks` {boolean}
 * Returns: {ChunkModuleHashMap}
@@ -785,26 +785,26 @@ After this method has succeeded the cache can only be restored when build depend
 #### `getOrderedChunkModules(chunk, comparator)`
 
 * `chunk` {Chunk}
-* `comparator` {object}
+* `comparator` {(a: Module, b: Module) => -1|0|1}
 * Returns: {Module[]}
 
 #### `getOrderedChunkModulesIterable(chunk, comparator)`
 
 * `chunk` {Chunk}
-* `comparator` {object}
+* `comparator` {(a: Module, b: Module) => -1|0|1}
 * Returns: {Iterable<Module>}
 
 #### `getOrderedChunkModulesIterableBySourceType(chunk, sourceType, comparator)`
 
 * `chunk` {Chunk}
 * `sourceType` {string}
-* `comparator` {object}
+* `comparator` {(a: Module, b: Module) => -1|0|1}
 * Returns: {Iterable<Module, any, any>}
 
 #### `getOrderedModuleChunksIterable(module, sortFn)`
 
 * `module` {Module}
-* `sortFn` {object}
+* `sortFn` {(a: Chunk, b: Chunk) => -1|0|1}
 * Returns: {Iterable<Chunk>}
 
 #### `getRenderedModuleHash(module, runtime)`
@@ -842,8 +842,8 @@ After this method has succeeded the cache can only be restored when build depend
 #### `hasModuleInGraph(chunk, filterFn[, filterChunkFn])`
 
 * `chunk` {Chunk}
-* `filterFn` {object}
-* `filterChunkFn` {object}
+* `filterFn` {(m: Module) => boolean}
+* `filterChunkFn` {(c: Chunk, chunkGraph: ChunkGraph) => boolean}
 * Returns: {boolean}
 
 #### `integrateChunks(chunkA, chunkB)`
@@ -982,8 +982,8 @@ After this method has succeeded the cache can only be restored when build depend
 * `childrenIterable` {SortableSet<ChunkGroup>}
 * `chunks` {Chunk[]}
 * `debugId` {string} get a uniqueId for ChunkGroup, made up of its member Chunk debugId's
-* `getModuleIndex` {object}
-* `getModuleIndex2` {object}
+* `getModuleIndex` {(module: Module) => number}
+* `getModuleIndex2` {(module: Module) => number}
 * `groupDebugId` {number}
 * `id` {string} get a unique id for ChunkGroup, made up of its member Chunk id's
 * `index` {number}
@@ -1296,7 +1296,7 @@ Creates an instance of Compilation.
 * `codeGeneratedModules` {WeakSet<Module>}
 * `codeGenerationResults` {CodeGenerationResults}
 * `comparedForEmitAssets` {Set<string>}
-* `compilationDependencies` {object} 
+* `compilationDependencies` {{ add: (item: string) => LazySet<string> }} 
 * `compiler` {Compiler}
 * `compilerPath` {string}
 * `contextDependencies` {LazySet<string>}
@@ -1316,7 +1316,7 @@ Needed to detect build cycles.
 * `fullHash` {string}
 * `globalEntry` {EntryData}
 * `hash` {string}
-* `hooks` {Readonly<object>}
+* `hooks` {Readonly<{ addEntry: SyncHook<Tuple<Dependency, EntryOptions>>; additionalAssets: FakeHook<Pick<AsyncSeriesHook<Tuple<unknown>>, "name"|"tap"|"tapAsync"|"tapPromise">>; additionalChunkAssets: FakeHook<Pick<AsyncSeriesHook<Tuple<Set<Chunk>>>, "name"|"tap"|"tapAsync"|"tapPromise">>; additionalChunkRuntimeRequirements: SyncHook<Tuple<Chunk, Set<string>, RuntimeRequirementsContext>>; additionalModuleRuntimeRequirements: SyncHook<Tuple<Module, Set<string>, RuntimeRequirementsContext>>; ... }>}
 * `inputFileSystem` {InputFileSystem}
 * `logger` {WebpackLogger}
 * `logging` {Map<string, LogEntry[]>}
@@ -1401,7 +1401,7 @@ If `module` is passed, `loc` and `request` must also be passed.
 * `context` {string}
 * `entry` {Dependency}
 * `optionsOrName` {string|EntryOptions}
-* `callback` {object}
+* `callback` {(err?: WebpackError, result?: Module) => void}
 * Returns: {void}
 
 #### `addInclude(context, dependency, options, callback)`
@@ -1409,26 +1409,26 @@ If `module` is passed, `loc` and `request` must also be passed.
 * `context` {string}
 * `dependency` {Dependency}
 * `options` {EntryOptions}
-* `callback` {object}
+* `callback` {(err?: WebpackError, result?: Module) => void}
 * Returns: {void}
 
 #### `addModule(module, callback)`
 
 * `module` {Module}
-* `callback` {object}
+* `callback` {(err?: WebpackError, result?: Module) => void}
 * Returns: {void}
 
 #### `addModuleChain(context, dependency, callback)`
 
 * `context` {string}
 * `dependency` {Dependency}
-* `callback` {object}
+* `callback` {(err?: WebpackError, result?: Module) => void}
 * Returns: {void}
 
 #### `addModuleTree(__namedParameters, callback)`
 
-* `__namedParameters` {object}
-* `callback` {object}
+* `__namedParameters` {{ context: string; contextInfo?: Partial<ModuleFactoryCreateDataContextInfo>; dependency: Dependency }}
+* `callback` {(err?: WebpackError, result?: Module) => void}
 * Returns: {void}
 
 #### `addRuntimeModule(chunk, module[, chunkGraph])`
@@ -1457,7 +1457,7 @@ If `module` is passed, `loc` and `request` must also be passed.
 #### `buildModule(module, callback)`
 
 * `module` {Module}
-* `callback` {object}
+* `callback` {(err?: WebpackError, result?: Module) => void}
 * Returns: {void}
 
 Schedules a build of the module object
@@ -1472,14 +1472,14 @@ Schedules a build of the module object
 
 #### `codeGeneration(callback)`
 
-* `callback` {object}
+* `callback` {(err?: WebpackError) => void}
 * Returns: {void}
 
 #### `createChildCompiler(name[, outputOptions][, plugins])`
 
 * `name` {string}
 * `outputOptions` {Partial<OutputNormalized>}
-* `plugins` {false|""|0|object|WebpackPluginInstance[]}
+* `plugins` {false|""|0|(this: Compiler, compiler: Compiler) => void|WebpackPluginInstance[]}
 * Returns: {Compiler}
 
 This function allows you to run another instance of webpack inside of webpack however as
@@ -1488,7 +1488,7 @@ from parent (or top level compiler) and creates a child Compilation
 
 #### `createChunkAssets(callback)`
 
-* `callback` {object}
+* `callback` {(err?: WebpackError) => void}
 * Returns: {void}
 
 #### `createHash()`
@@ -1535,21 +1535,21 @@ from parent (or top level compiler) and creates a child Compilation
 
 * `module` {Module}
 * `options` {ExecuteModuleOptions}
-* `callback` {object}
+* `callback` {(err?: WebpackError, result?: ExecuteModuleResult) => void}
 * Returns: {void}
 
 #### `factorizeModule(options, callback)`
 
 ##### Call Signature
 
-* `options` {FactorizeModuleOptions|object}
-* `callback` {object}
+* `options` {FactorizeModuleOptions|{ factoryResult?: false }}
+* `callback` {(err?: WebpackError, result?: Module) => void}
 * Returns: {void}
 
 ##### Call Signature
 
-* `options` {FactorizeModuleOptions|object}
-* `callback` {object}
+* `options` {FactorizeModuleOptions|{ factoryResult: true }}
+* `callback` {(err?: WebpackError, result?: ModuleFactoryResult) => void}
 * Returns: {void}
 
 #### `findModule(identifier)`
@@ -1561,7 +1561,7 @@ Attempts to search for a module by its identifier
 
 #### `finish(callback)`
 
-* `callback` {object}
+* `callback` {(err?: WebpackError) => void}
 * Returns: {void}
 
 #### `getAsset(name)`
@@ -1602,7 +1602,7 @@ Attempts to search for a module by its identifier
 
 #### `getLogger(name)`
 
-* `name` {string|object}
+* `name` {string|() => string}
 * Returns: {WebpackLogger}
 
 #### `getModule(module)`
@@ -1640,7 +1640,7 @@ Fetches a module from a compilation by its identifier
 #### `handleModuleCreation(__namedParameters, callback)`
 
 * `__namedParameters` {HandleModuleCreationOptions}
-* `callback` {object}
+* `callback` {(err?: WebpackError, result?: Module) => void}
 * Returns: {void}
 
 #### `patchChunksAfterReasonRemoval(module, chunk)`
@@ -1652,7 +1652,7 @@ Fetches a module from a compilation by its identifier
 #### `processModuleDependencies(module, callback)`
 
 * `module` {Module}
-* `callback` {object}
+* `callback` {(err?: WebpackError, result?: Module) => void}
 * Returns: {void}
 
 #### `processModuleDependenciesNonRecursive(module)`
@@ -1662,13 +1662,13 @@ Fetches a module from a compilation by its identifier
 
 #### `processRuntimeRequirements([__namedParameters])`
 
-* `__namedParameters` {object}
+* `__namedParameters` {{ chunkGraph?: ChunkGraph; chunkGraphEntries?: Iterable<Chunk>; chunks?: Iterable<Chunk>; codeGenerationResults?: CodeGenerationResults; modules?: Iterable<Module> }}
 * Returns: {void}
 
 #### `rebuildModule(module, callback)`
 
 * `module` {Module}
-* `callback` {object}
+* `callback` {(err?: WebpackError, result?: Module) => void}
 * Returns: {void}
 
 #### `removeChunkFromDependencies(block, chunk)`
@@ -1697,7 +1697,7 @@ Fetches a module from a compilation by its identifier
 
 #### `seal(callback)`
 
-* `callback` {object}
+* `callback` {(err?: WebpackError) => void}
 * Returns: {void}
 
 #### `sortItemsWithChunkIds()`
@@ -1715,8 +1715,8 @@ Fetches a module from a compilation by its identifier
 #### `updateAsset(file, newSourceOrFunction[, assetInfoUpdateOrFunction])`
 
 * `file` {string}
-* `newSourceOrFunction` {Source|object}
-* `assetInfoUpdateOrFunction` {AssetInfo|object}
+* `newSourceOrFunction` {Source|(source: Source) => Source}
+* `assetInfoUpdateOrFunction` {AssetInfo|(assetInfo?: AssetInfo) => AssetInfo}
 * Returns: {void}
 
 ***
@@ -1739,10 +1739,10 @@ Fetches a module from a compilation by its identifier
 * `contextTimestamps` {Map<string, "ignore"|EntryTypesIndex|OnlySafeTimeEntry|ExistenceOnlyTimeEntryTypesIndex>}
 * `fileTimestamps` {Map<string, "ignore"|EntryTypesIndex|OnlySafeTimeEntry|ExistenceOnlyTimeEntryTypesIndex>}
 * `fsStartTime` {number}
-* `hooks` {Readonly<object>}
+* `hooks` {Readonly<{ additionalPass: AsyncSeriesHook<Tuple<unknown>>; afterCompile: AsyncSeriesHook<Tuple<Compilation>>; afterDone: SyncHook<Tuple<Stats>>; afterEmit: AsyncSeriesHook<Tuple<Compilation>>; afterEnvironment: SyncHook<Tuple<unknown>>; ... }>}
 * `idle` {boolean}
 * `immutablePaths` {Set<string|RegExp>}
-* `infrastructureLogger` {object}
+* `infrastructureLogger` {(value: string, type: LogTypeEnum, args?: any[]) => void}
 * `inputFileSystem` {InputFileSystem}
 * `intermediateFileSystem` {IntermediateFileSystem}
 * `managedPaths` {Set<string|RegExp>}
@@ -1772,7 +1772,7 @@ Fetches a module from a compilation by its identifier
 
 #### `close(callback)`
 
-* `callback` {object}
+* `callback` {(err: Error, result?: void) => void}
 * Returns: {void}
 
 #### `compile(callback)`
@@ -1786,7 +1786,7 @@ Fetches a module from a compilation by its identifier
 * `compilerName` {string}
 * `compilerIndex` {number}
 * `outputOptions` {Partial<OutputNormalized>}
-* `plugins` {false|""|0|WebpackPluginInstance|object[]}
+* `plugins` {false|""|0|WebpackPluginInstance|(this: Compiler, compiler: Compiler) => void[]}
 * Returns: {Compiler}
 
 #### `createCompilation(params)`
@@ -1805,12 +1805,12 @@ Fetches a module from a compilation by its identifier
 #### `emitAssets(compilation, callback)`
 
 * `compilation` {Compilation}
-* `callback` {object}
+* `callback` {(err: Error, result?: void) => void}
 * Returns: {void}
 
 #### `emitRecords(callback)`
 
-* `callback` {object}
+* `callback` {(err: Error, result?: void) => void}
 * Returns: {void}
 
 #### `getCache(name)`
@@ -1820,7 +1820,7 @@ Fetches a module from a compilation by its identifier
 
 #### `getInfrastructureLogger(name)`
 
-* `name` {string|object}
+* `name` {string|() => string}
 * Returns: {WebpackLogger}
 
 #### `isChild()`
@@ -1834,7 +1834,7 @@ Fetches a module from a compilation by its identifier
 
 #### `newCompilationParams()`
 
-* Returns: {object}
+* Returns: {{ contextModuleFactory: ContextModuleFactory; normalModuleFactory: NormalModuleFactory }}
 
 #### `purgeInputFileSystem()`
 
@@ -1842,7 +1842,7 @@ Fetches a module from a compilation by its identifier
 
 #### `readRecords(callback)`
 
-* `callback` {object}
+* `callback` {(err: Error, result?: void) => void}
 * Returns: {void}
 
 #### `run(callback)`
@@ -1852,7 +1852,7 @@ Fetches a module from a compilation by its identifier
 
 #### `runAsChild(callback)`
 
-* `callback` {object}
+* `callback` {(err: Error, entries?: Chunk[], compilation?: Compilation) => void}
 * Returns: {void}
 
 #### `validate(schema, value[, options][, check])`
@@ -1860,10 +1860,10 @@ Fetches a module from a compilation by its identifier
 ###### T
 
 `T` *extends* {object|object[]} = {object}
-* `schema` {JSONSchema4|ExtendedSchema|JSONSchema6|ExtendedSchema|JSONSchema7|ExtendedSchema|object}
+* `schema` {JSONSchema4|ExtendedSchema|JSONSchema6|ExtendedSchema|JSONSchema7|ExtendedSchema|() => Schema}
 * `value` {T}
 * `options` {ValidationErrorConfiguration}
-* `check` {object}
+* `check` {(value: T) => boolean}
 * Returns: {void}
 
 Schema validation function with optional pre-compiled check
@@ -1942,7 +1942,7 @@ Schema validation function with optional pre-compiled check
 #### Static method: `matchModuleReference(name)`
 
 * `name` {string}
-* Returns: {ModuleReferenceOptions|object}
+* Returns: {ModuleReferenceOptions|{ index: number }}
 
 ***
 
@@ -1977,15 +1977,15 @@ Apply the plugin
 #### `new ContextReplacementPlugin(resourceRegExp[, newContentResource][, newContentRecursive][, newContentRegExp])`
 
 * `resourceRegExp` {RegExp}
-* `newContentResource` {string|boolean|RegExp|object}
+* `newContentResource` {string|boolean|RegExp|(context: BeforeContextResolveData|AfterContextResolveData) => void}
 * `newContentRecursive` {boolean|RegExp|NewContentCreateContextMap}
 * `newContentRegExp` {RegExp}
 * Returns: {ContextReplacementPlugin}
 
 ### Properties
 
-* `newContentCallback` {object}
-* `newContentCreateContextMap` {object}
+* `newContentCallback` {(context: BeforeContextResolveData|AfterContextResolveData) => void}
+* `newContentCreateContextMap` {(fs: InputFileSystem, callback: (err: Error, newContentRecursive: NewContentCreateContextMap) => void) => void}
 * `newContentRecursive` {boolean}
 * `newContentRegExp` {RegExp}
 * `newContentResource` {string}
@@ -2033,7 +2033,7 @@ Apply the plugin
 
 #### Static method: `runtimeValue(fn[, options])`
 
-* `fn` {object}
+* `fn` {(value: { key: string; module: NormalModule; version: ValueCacheVersion }) => CodeValuePrimitive}
 * `options` {true|string[]|RuntimeValueOptions}
 * Returns: {RuntimeValue}
 
@@ -2108,7 +2108,7 @@ Apply the plugin
 #### `getCondition(moduleGraph)`
 
 * `moduleGraph` {ModuleGraph}
-* Returns: {false|object}
+* Returns: {false|(moduleGraphConnection: ModuleGraphConnection, runtime: RuntimeSpec) => ConnectionState}
 
 #### `getContext()`
 
@@ -2272,13 +2272,13 @@ Apply the plugin
 #### `new DynamicEntryPlugin(context, entry)`
 
 * `context` {string}
-* `entry` {object}
+* `entry` {() => Promise<EntryStaticNormalized>}
 * Returns: {DynamicEntryPlugin}
 
 ### Properties
 
 * `context` {string}
-* `entry` {object}
+* `entry` {() => Promise<EntryStaticNormalized>}
 
 ### Methods
 
@@ -2377,8 +2377,8 @@ Apply the plugin
 * `childrenIterable` {SortableSet<ChunkGroup>}
 * `chunks` {Chunk[]}
 * `debugId` {string} get a uniqueId for ChunkGroup, made up of its member Chunk debugId's
-* `getModuleIndex` {object}
-* `getModuleIndex2` {object}
+* `getModuleIndex` {(module: Module) => number}
+* `getModuleIndex2` {(module: Module) => number}
 * `groupDebugId` {number}
 * `id` {string} get a unique id for ChunkGroup, made up of its member Chunk id's
 * `index` {number}
@@ -2726,7 +2726,7 @@ Apply the plugin
 * `layer` {string}
 * `moduleArgument` {string}
 * `needId` {boolean}
-* `optimizationBailout` {string|object[]} 
+* `optimizationBailout` {string|(requestShortener: RequestShortener) => string[]} 
 * `optional` {boolean}
 * `parent` {DependenciesBlock}
 * `presentationalDependencies` {Dependency[]}
@@ -2741,7 +2741,7 @@ Apply the plugin
 * `useSimpleSourceMap` {boolean}
 * `useSourceMap` {boolean}
 * `warnings` {any}
-* `getExternalModuleNodeCommonjsInitFragment` {object}
+* `getExternalModuleNodeCommonjsInitFragment` {(runtimeTemplate: RuntimeTemplate) => InitFragment<ChunkRenderContextJavascriptModulesPlugin>}
 * `ModuleExternalInitFragment` {ModuleExternalInitFragment}
 
 ### Methods
@@ -2798,7 +2798,7 @@ This is used for when a Module has a AsyncDependencyBlock tie (for code-splittin
 * `compilation` {Compilation}
 * `resolver` {ResolverWithOptions}
 * `fs` {InputFileSystem}
-* `callback` {object}
+* `callback` {(err?: WebpackError) => void}
 * Returns: {void}
 
 #### `chunkCondition(chunk, compilation)`
@@ -2970,7 +2970,7 @@ This data will be passed to restoreFromUnsafeCache later.
 #### `needBuild(context, callback)`
 
 * `context` {NeedBuildContext}
-* `callback` {object}
+* `callback` {(err?: WebpackError, needBuild?: boolean) => void}
 * Returns: {void}
 
 #### `needRebuild(fileTimestamps, contextTimestamps)`
@@ -3068,14 +3068,14 @@ In webpack 6, call getSourceBasicTypes() directly on the module instance instead
 
 #### `new ExternalsPlugin(type, externals)`
 
-* `type` {"asset"|"module"|"css-import"|"css-url"|"global"|"import"|"commonjs"|"jsonp"|"promise"|"this"|"var"|"assign"|"window"|"self"|"commonjs2"|"commonjs-module"|"commonjs-static"|"amd"|"amd-require"|"umd"|"umd2"|"system"|"module-import"|"script"|"node-commonjs"|object}
+* `type` {"asset"|"module"|"css-import"|"css-url"|"global"|"import"|"commonjs"|"jsonp"|"promise"|"this"|"var"|"assign"|"window"|"self"|"commonjs2"|"commonjs-module"|"commonjs-static"|"amd"|"amd-require"|"umd"|"umd2"|"system"|"module-import"|"script"|"node-commonjs"|(dependency: Dependency) => ExternalsType}
 * `externals` {Externals}
 * Returns: {ExternalsPlugin}
 
 ### Properties
 
 * `externals` {Externals}
-* `type` {"asset"|"module"|"css-import"|"css-url"|"global"|"import"|"commonjs"|"jsonp"|"promise"|"this"|"var"|"assign"|"window"|"self"|"commonjs2"|"commonjs-module"|"commonjs-static"|"amd"|"amd-require"|"umd"|"umd2"|"system"|"module-import"|"script"|"node-commonjs"|object}
+* `type` {"asset"|"module"|"css-import"|"css-url"|"global"|"import"|"commonjs"|"jsonp"|"promise"|"this"|"var"|"assign"|"window"|"self"|"commonjs2"|"commonjs-module"|"commonjs-static"|"amd"|"amd-require"|"umd"|"umd2"|"system"|"module-import"|"script"|"node-commonjs"|(dependency: Dependency) => ExternalsType}
 
 ### Methods
 
@@ -3129,7 +3129,7 @@ Apply the plugin
 
 #### Static method: `byType(map)`
 
-* `map` {object}
+* `map` {{ [index: string]: Generator }}
 * Returns: {ByTypeGenerator}
 
 ***
@@ -3175,11 +3175,11 @@ Apply the plugin
 * `auxiliaryFiles` {Set<string>}
 * `chunkReason` {string}
 * `contentHash` {Record<string, string>}
-* `cssFilenameTemplate` {string|object}
+* `cssFilenameTemplate` {string|(pathData: PathData, assetInfo?: AssetInfo) => string}
 * `debugId` {number}
 * `entryModule` {Module} 
 * `extraAsync` {boolean}
-* `filenameTemplate` {string|object}
+* `filenameTemplate` {string|(pathData: PathData, assetInfo?: AssetInfo) => string}
 * `files` {Set<string>}
 * `groupsIterable` {SortableSet<ChunkGroup>}
 * `hash` {string}
@@ -3247,14 +3247,14 @@ Apply the plugin
 #### `getChildIdsByOrders(chunkGraph[, filterFn])`
 
 * `chunkGraph` {ChunkGraph}
-* `filterFn` {object}
+* `filterFn` {(c: Chunk, chunkGraph: ChunkGraph) => boolean}
 * Returns: {Record<string, ChunkId[]>}
 
 #### `getChildIdsByOrdersMap(chunkGraph[, includeDirectChildren][, filterFn])`
 
 * `chunkGraph` {ChunkGraph}
 * `includeDirectChildren` {boolean}
-* `filterFn` {object}
+* `filterFn` {(c: Chunk, chunkGraph: ChunkGraph) => boolean}
 * Returns: {ChunkChildIdsByOrdersMapByData}
 
 #### `getChildrenOfTypeInOrder(chunkGraph, type)`
@@ -3272,7 +3272,7 @@ Apply the plugin
 
 #### `getChunkModuleMaps(filterFn)`
 
-* `filterFn` {object}
+* `filterFn` {(m: Module) => boolean}
 * Returns: {ChunkModuleMaps}
 
 #### `getEntryOptions()`
@@ -3300,7 +3300,7 @@ Apply the plugin
 * `chunkGraph` {ChunkGraph}
 * `type` {string}
 * `includeDirectChildren` {boolean}
-* `filterFn` {object}
+* `filterFn` {(c: Chunk, chunkGraph: ChunkGraph) => boolean}
 * Returns: {boolean}
 
 #### `hasEntryModule()`
@@ -3309,8 +3309,8 @@ Apply the plugin
 
 #### `hasModuleInGraph(filterFn[, filterChunkFn])`
 
-* `filterFn` {object}
-* `filterChunkFn` {object}
+* `filterFn` {(m: Module) => boolean}
+* `filterChunkFn` {(c: Chunk, chunkGraph: ChunkGraph) => boolean}
 * Returns: {boolean}
 
 #### `hasRuntime()`
@@ -3497,7 +3497,7 @@ Note that if "contextRegExp" is given, both the "resourceRegExp" and "contextReg
 ### Properties
 
 * `options` {object}
-* `chunkHasJs` {object}
+* `chunkHasJs` {(chunk: Chunk, chunkGraph: ChunkGraph) => boolean}
 
 ### Methods
 
@@ -3599,7 +3599,7 @@ Apply the plugin
 
 ### Properties
 
-* `library` {object}
+* `library` {{ auxiliaryComment: AuxiliaryComment; export: LibraryExport; name: LibraryName; type: string; umdNamedDefine: boolean }}
 
 ### Methods
 
@@ -3730,7 +3730,7 @@ Apply the plugin
 * `layer` {string}
 * `moduleArgument` {string}
 * `needId` {boolean}
-* `optimizationBailout` {string|object[]} 
+* `optimizationBailout` {string|(requestShortener: RequestShortener) => string[]} 
 * `optional` {boolean}
 * `parent` {DependenciesBlock}
 * `presentationalDependencies` {Dependency[]}
@@ -3798,7 +3798,7 @@ This is used for when a Module has a AsyncDependencyBlock tie (for code-splittin
 * `compilation` {Compilation}
 * `resolver` {ResolverWithOptions}
 * `fs` {InputFileSystem}
-* `callback` {object}
+* `callback` {(err?: WebpackError) => void}
 * Returns: {void}
 
 #### `chunkCondition(chunk, compilation)`
@@ -3970,7 +3970,7 @@ This data will be passed to restoreFromUnsafeCache later.
 #### `needBuild(context, callback)`
 
 * `context` {NeedBuildContext}
-* `callback` {object}
+* `callback` {(err?: WebpackError, needBuild?: boolean) => void}
 * Returns: {void}
 
 #### `needRebuild(fileTimestamps, contextTimestamps)`
@@ -4062,7 +4062,7 @@ In webpack 6, call getSourceBasicTypes() directly on the module instance instead
 #### `create(data, callback)`
 
 * `data` {ModuleFactoryCreateData}
-* `callback` {object}
+* `callback` {(err?: Error, result?: ModuleFactoryResult) => void}
 * Returns: {void}
 
 ***
@@ -4102,7 +4102,7 @@ In webpack 6, call getSourceBasicTypes() directly on the module instance instead
 ###### R
 
 `R`
-* `fn` {object}
+* `fn` {(moduleGraph: ModuleGraph, ...args: T) => R}
 * `args` {T}
 * Returns: {R}
 
@@ -4116,7 +4116,7 @@ In webpack 6, call getSourceBasicTypes() directly on the module instance instead
 
 * `oldModule` {Module}
 * `newModule` {Module}
-* `filterConnection` {object}
+* `filterConnection` {(moduleGraphConnection: ModuleGraphConnection) => boolean}
 * Returns: {void}
 
 #### `dependencyCacheProvide(dependency, args)`
@@ -4199,7 +4199,7 @@ In webpack 6, call getSourceBasicTypes() directly on the module instance instead
 #### `getOptimizationBailout(module)`
 
 * `module` {Module}
-* Returns: {string|object[]}
+* Returns: {string|(requestShortener: RequestShortener) => string[]}
 
 #### `getOrigin(dependency)`
 
@@ -4293,7 +4293,7 @@ In webpack 6, call getSourceBasicTypes() directly on the module instance instead
 
 * `oldModule` {Module}
 * `newModule` {Module}
-* `filterConnection` {object}
+* `filterConnection` {(moduleGraphConnection: ModuleGraphConnection) => boolean}
 * Returns: {void}
 
 #### `removeAllModuleAttributes()`
@@ -4449,12 +4449,12 @@ In webpack 6, call getSourceBasicTypes() directly on the module instance instead
 * `module` {Module}
 * `explanation` {string}
 * `weak` {boolean}
-* `condition` {false|object}
+* `condition` {false|(moduleGraphConnection: ModuleGraphConnection, runtime: RuntimeSpec) => ConnectionState}
 * Returns: {ModuleGraphConnection}
 
 ### Properties
 
-* `condition` {false|object}
+* `condition` {false|(moduleGraphConnection: ModuleGraphConnection, runtime: RuntimeSpec) => ConnectionState}
 * `conditional` {boolean}
 * `dependency` {Dependency}
 * `explanation` {string}
@@ -4464,7 +4464,7 @@ In webpack 6, call getSourceBasicTypes() directly on the module instance instead
 * `resolvedModule` {Module}
 * `resolvedOriginModule` {Module}
 * `weak` {boolean}
-* `addConnectionStates` {object}
+* `addConnectionStates` {(a: ConnectionState, b: ConnectionState) => ConnectionState}
 * `CIRCULAR_CONNECTION` {CIRCULAR_CONNECTION}
 * `TRANSITIVE_ONLY` {TRANSITIVE_ONLY}
 
@@ -4472,7 +4472,7 @@ In webpack 6, call getSourceBasicTypes() directly on the module instance instead
 
 #### `addCondition(condition)`
 
-* `condition` {object}
+* `condition` {(moduleGraphConnection: ModuleGraphConnection, runtime: RuntimeSpec) => ConnectionState}
 * Returns: {void}
 
 #### `addExplanation(explanation)`
@@ -4520,7 +4520,7 @@ In webpack 6, call getSourceBasicTypes() directly on the module instance instead
 
 * `compilers` {Compiler[]}
 * `dependencies` {WeakMap<Compiler, string[]>}
-* `hooks` {Readonly<object>}
+* `hooks` {Readonly<{ done: SyncHook<Tuple<MultiStats>>; infrastructureLog: MultiHook<SyncBailHook<Tuple<string, string, undefined|any[]>, true|void>>; invalid: MultiHook<SyncHook<Tuple<null|string, number>>>; run: MultiHook<AsyncSeriesHook<Tuple<Compiler>>>; watchClose: SyncHook<Tuple<unknown>>; ... }>}
 * `inputFileSystem` {InputFileSystem}
 * `intermediateFileSystem` {IntermediateFileSystem}
 * `options` {WebpackOptionsNormalized[]|MultiCompilerOptions}
@@ -4533,12 +4533,12 @@ In webpack 6, call getSourceBasicTypes() directly on the module instance instead
 
 #### `close(callback)`
 
-* `callback` {object}
+* `callback` {(err: Error, result?: void) => void}
 * Returns: {void}
 
 #### `getInfrastructureLogger(name)`
 
-* `name` {string|object}
+* `name` {string|() => string}
 * Returns: {WebpackLogger}
 
 #### `purgeInputFileSystem()`
@@ -4555,7 +4555,7 @@ In webpack 6, call getSourceBasicTypes() directly on the module instance instead
 > Stability: 0 - Deprecated
 
 * `compilers` {Compiler[]}
-* `fn` {object}
+* `fn` {(compiler: Compiler, callback: CallbackWebpackFunction_2<MultiStats, void>) => void}
 * `callback` {CallbackWebpackFunction_2<Stats[], void>}
 * Returns: {void}
 
@@ -4679,7 +4679,7 @@ Apply the plugin
 * `matchResource` {string}
 * `moduleArgument` {string}
 * `needId` {boolean}
-* `optimizationBailout` {string|object[]} 
+* `optimizationBailout` {string|(requestShortener: RequestShortener) => string[]} 
 * `optional` {boolean}
 * `parent` {DependenciesBlock}
 * `parser` {ParserClass}
@@ -4750,7 +4750,7 @@ This is used for when a Module has a AsyncDependencyBlock tie (for code-splittin
 
 #### `applyNoParseRule(rule, content)`
 
-* `rule` {string|RegExp|object}
+* `rule` {string|RegExp|(content: string) => boolean}
 * `content` {string}
 * Returns: {boolean}
 
@@ -4760,7 +4760,7 @@ This is used for when a Module has a AsyncDependencyBlock tie (for code-splittin
 * `compilation` {Compilation}
 * `resolver` {ResolverWithOptions}
 * `fs` {InputFileSystem}
-* `callback` {object}
+* `callback` {(err?: WebpackError) => void}
 * Returns: {void}
 
 #### `chunkCondition(chunk, compilation)`
@@ -4964,7 +4964,7 @@ This data will be passed to restoreFromUnsafeCache later.
 #### `needBuild(context, callback)`
 
 * `context` {NeedBuildContext}
-* `callback` {object}
+* `callback` {(err?: WebpackError, needBuild?: boolean) => void}
 * Returns: {void}
 
 #### `needRebuild(fileTimestamps, contextTimestamps)`
@@ -5011,7 +5011,7 @@ restore unsafe cache data
 
 #### `shouldPreventParsing(noParseRule, request)`
 
-* `noParseRule` {string|RegExp|object|string|RegExp|object[]}
+* `noParseRule` {string|RegExp|(content: string) => boolean|string|RegExp|(content: string) => boolean[]}
 * `request` {string}
 * Returns: {boolean}
 
@@ -5074,14 +5074,14 @@ In webpack 6, call getSourceBasicTypes() directly on the module instance instead
 #### `new NormalModuleReplacementPlugin(resourceRegExp, newResource)`
 
 * `resourceRegExp` {RegExp}
-* `newResource` {string|object}
+* `newResource` {string|(resolveData: ResolveData) => void}
 * Returns: {NormalModuleReplacementPlugin}
 
 Create an instance of the plugin
 
 ### Properties
 
-* `newResource` {string|object}
+* `newResource` {string|(resolveData: ResolveData) => void}
 * `resourceRegExp` {RegExp}
 
 ### Methods
@@ -5179,7 +5179,7 @@ Apply the plugin
 ### Properties
 
 * `dependenciesCount` {number}
-* `handler` {object}
+* `handler` {(percentage: number, msg: string, ...args: string[]) => void}
 * `modulesCount` {number}
 * `options` {ProgressPluginOptions}
 * `percentBy` {"entries"|"modules"|"dependencies"}
@@ -5188,7 +5188,7 @@ Apply the plugin
 * `showDependencies` {boolean}
 * `showEntries` {boolean}
 * `showModules` {boolean}
-* `createDefaultHandler` {object}
+* `createDefaultHandler` {(profile: boolean, logger: WebpackLogger) => (percentage: number, msg: string, ...args: string[]) => void}
 * `defaultOptions` {Required<Omit<ProgressPluginOptions, "handler">>}
 
 ### Methods
@@ -5201,7 +5201,7 @@ Apply the plugin
 #### Static method: `getReporter(compiler)`
 
 * `compiler` {Compiler}
-* Returns: {object}
+* Returns: {(p: number, ...args: string[]) => void}
 
 ***
 
@@ -5251,7 +5251,7 @@ Apply the plugin
 * `request` {ResolveRequest}
 * `message` {string}
 * `resolveContext` {ResolveContext}
-* `callback` {object}
+* `callback` {(err?: Error, result?: ResolveRequest) => void}
 * Returns: {void}
 
 #### `ensureHook(name)`
@@ -5301,7 +5301,7 @@ Apply the plugin
 * `path` {string}
 * `request` {string}
 * `resolveContext` {ResolveContext}
-* `callback` {object}
+* `callback` {(err: ErrorWithDetail, res?: string|false, req?: ResolveRequest) => void}
 * Returns: {void}
 
 #### `resolveSync(context, path, request)`
@@ -5365,7 +5365,7 @@ Apply the plugin
 * `moduleArgument` {string}
 * `name` {string}
 * `needId` {boolean}
-* `optimizationBailout` {string|object[]} 
+* `optimizationBailout` {string|(requestShortener: RequestShortener) => string[]} 
 * `optional` {boolean}
 * `parent` {DependenciesBlock}
 * `presentationalDependencies` {Dependency[]}
@@ -5445,7 +5445,7 @@ This is used for when a Module has a AsyncDependencyBlock tie (for code-splittin
 * `compilation` {Compilation}
 * `resolver` {ResolverWithOptions}
 * `fs` {InputFileSystem}
-* `callback` {object}
+* `callback` {(err?: WebpackError) => void}
 * Returns: {void}
 
 #### `chunkCondition(chunk, compilation)`
@@ -5625,7 +5625,7 @@ This data will be passed to restoreFromUnsafeCache later.
 #### `needBuild(context, callback)`
 
 * `context` {NeedBuildContext}
-* `callback` {object}
+* `callback` {(err?: WebpackError, needBuild?: boolean) => void}
 * Returns: {void}
 
 #### `needRebuild(fileTimestamps, contextTimestamps)`
@@ -5724,7 +5724,7 @@ In webpack 6, call getSourceBasicTypes() directly on the module instance instead
 * `namespace` {string}
 * `options` {SourceMapDevToolPluginOptions}
 * `sourceMapFilename` {string|false}
-* `sourceMappingURLComment` {string|false|object}
+* `sourceMappingURLComment` {string|false|(pathData: PathData, assetInfo?: AssetInfo) => string}
 
 ### Methods
 
@@ -5830,7 +5830,7 @@ Apply the plugin
 
 * `renderContext` {ChunkRenderContextJavascriptModulesPlugin}
 * `modules` {Module[]}
-* `renderModule` {object}
+* `renderModule` {(module: Module, renderInArray?: boolean) => Source}
 * `prefix` {string}
 * Returns: {Source}
 
@@ -5843,7 +5843,7 @@ Apply the plugin
 #### Static method: `renderRuntimeModules(runtimeModules, renderContext)`
 
 * `runtimeModules` {RuntimeModule[]}
-* `renderContext` {RenderContextJavascriptModulesPlugin|object}
+* `renderContext` {RenderContextJavascriptModulesPlugin|{ codeGenerationResults?: CodeGenerationResults }}
 * Returns: {Source}
 
 #### Static method: `toComment(str)`
@@ -5903,7 +5903,7 @@ Apply the plugin
 ### Properties
 
 * `blocked` {boolean}
-* `callbacks` {object[]}
+* `callbacks` {(err: Error, result?: void) => void[]}
 * `closed` {boolean}
 * `compiler` {Compiler}
 * `handler` {CallbackWebpackFunction_2<Stats, void>}
@@ -5920,12 +5920,12 @@ Apply the plugin
 
 #### `close(callback)`
 
-* `callback` {object}
+* `callback` {(err: Error, result?: void) => void}
 * Returns: {void}
 
 #### `invalidate([callback])`
 
-* `callback` {object}
+* `callback` {(err: Error, result?: void) => void}
 * Returns: {void}
 
 #### `resume()`
@@ -5953,14 +5953,14 @@ Apply the plugin
 
 ### Indexable
 
-> \[`index`: {number}\]: {object}
+> \[`index`: {number}\]: {() => string}
 
 ### Constructors
 
 #### `new WebpackError([message][, options])`
 
 * `message` {string}
-* `options` {object}
+* `options` {{ cause?: unknown }}
 * Returns: {WebpackError}
 
 Creates an instance of WebpackError.
@@ -6252,47 +6252,47 @@ a();
 
 ### Properties
 
-* `bgBlack` {object}
-* `bgBlackBright` {object}
-* `bgBlue` {object}
-* `bgBlueBright` {object}
-* `bgCyan` {object}
-* `bgCyanBright` {object}
-* `bgGreen` {object}
-* `bgGreenBright` {object}
-* `bgMagenta` {object}
-* `bgMagentaBright` {object}
-* `bgRed` {object}
-* `bgRedBright` {object}
-* `bgWhite` {object}
-* `bgWhiteBright` {object}
-* `bgYellow` {object}
-* `bgYellowBright` {object}
-* `black` {object}
-* `blackBright` {object}
-* `blue` {object}
-* `blueBright` {object}
-* `bold` {object}
-* `cyan` {object}
-* `cyanBright` {object}
-* `dim` {object}
-* `gray` {object}
-* `green` {object}
-* `greenBright` {object}
-* `hidden` {object}
-* `inverse` {object}
-* `italic` {object}
-* `magenta` {object}
-* `magentaBright` {object}
-* `red` {object}
-* `redBright` {object}
-* `reset` {object}
-* `strikethrough` {object}
-* `underline` {object}
-* `white` {object}
-* `whiteBright` {object}
-* `yellow` {object}
-* `yellowBright` {object}
+* `bgBlack` {(value?: any) => string}
+* `bgBlackBright` {(value?: any) => string}
+* `bgBlue` {(value?: any) => string}
+* `bgBlueBright` {(value?: any) => string}
+* `bgCyan` {(value?: any) => string}
+* `bgCyanBright` {(value?: any) => string}
+* `bgGreen` {(value?: any) => string}
+* `bgGreenBright` {(value?: any) => string}
+* `bgMagenta` {(value?: any) => string}
+* `bgMagentaBright` {(value?: any) => string}
+* `bgRed` {(value?: any) => string}
+* `bgRedBright` {(value?: any) => string}
+* `bgWhite` {(value?: any) => string}
+* `bgWhiteBright` {(value?: any) => string}
+* `bgYellow` {(value?: any) => string}
+* `bgYellowBright` {(value?: any) => string}
+* `black` {(value?: any) => string}
+* `blackBright` {(value?: any) => string}
+* `blue` {(value?: any) => string}
+* `blueBright` {(value?: any) => string}
+* `bold` {(value?: any) => string}
+* `cyan` {(value?: any) => string}
+* `cyanBright` {(value?: any) => string}
+* `dim` {(value?: any) => string}
+* `gray` {(value?: any) => string}
+* `green` {(value?: any) => string}
+* `greenBright` {(value?: any) => string}
+* `hidden` {(value?: any) => string}
+* `inverse` {(value?: any) => string}
+* `italic` {(value?: any) => string}
+* `magenta` {(value?: any) => string}
+* `magentaBright` {(value?: any) => string}
+* `red` {(value?: any) => string}
+* `redBright` {(value?: any) => string}
+* `reset` {(value?: any) => string}
+* `strikethrough` {(value?: any) => string}
+* `underline` {(value?: any) => string}
+* `white` {(value?: any) => string}
+* `whiteBright` {(value?: any) => string}
+* `yellow` {(value?: any) => string}
+* `yellowBright` {(value?: any) => string}
 
 ***
 
@@ -6310,20 +6310,20 @@ Options object as provided by the user.
 
 ### Properties
 
-* `amd` {false|object} Set the value of `require.amd` and `define.amd`. Or disable AMD support.
+* `amd` {false|{ [index: string]: any }} Set the value of `require.amd` and `define.amd`. Or disable AMD support.
 * `bail` {boolean} Report the first error as a hard error instead of tolerating it.
 * `cache` {boolean|FileCacheOptions|MemoryCacheOptions} Cache generated modules and chunks to improve performance for multiple incremental builds.
 * `context` {string} The base directory (absolute path!) for resolving the `entry` option. If `output.pathinfo` is set, the included pathinfo is shortened to this directory.
 * `dependencies` {string[]} References to other configurations to depend on.
-* `devtool` {string|false|object[]} A developer tool to enhance debugging (false | eval | [inline-|hidden-|eval-][nosources-][cheap-[module-]]source-map).
+* `devtool` {string|false|{ type: "css"|"javascript"|"all"; use: RawDevTool }[]} A developer tool to enhance debugging (false | eval | [inline-|hidden-|eval-][nosources-][cheap-[module-]]source-map).
 * `dotenv` {boolean|DotenvPluginOptions} Enable and configure the Dotenv plugin to load environment variables from .env files.
-* `entry` {string|string[]|EntryObject|object} The entry point(s) of the compilation.
+* `entry` {string|string[]|EntryObject|() => string|string[]|EntryObject|Promise<EntryStatic>} The entry point(s) of the compilation.
 * `experiments` {Experiments} Enables/Disables experiments (experimental features with relax SemVer compatibility).
 * `extends` {string|string[]} Extend configuration from another configuration (only works when using webpack-cli).
-* `externals` {string|RegExp|ExternalItemObjectKnown|ExternalItemObjectUnknown|object|object|ExternalItem[]} Specify dependencies that shouldn't be resolved by webpack, but should become dependencies of the resulting bundle. The kind of the dependency depends on `output.libraryTarget`.
+* `externals` {string|RegExp|ExternalItemObjectKnown|ExternalItemObjectUnknown|(data: ExternalItemFunctionData, callback: (err?: Error, result?: string|boolean|string[]|{ [index: string]: any }) => void) => void|(data: ExternalItemFunctionData) => Promise<ExternalItemValue>|ExternalItem[]} Specify dependencies that shouldn't be resolved by webpack, but should become dependencies of the resulting bundle. The kind of the dependency depends on `output.libraryTarget`.
 * `externalsPresets` {ExternalsPresets} Enable presets of externals for specific targets.
 * `externalsType` {"asset"|"module"|"css-import"|"css-url"|"global"|"import"|"commonjs"|"jsonp"|"promise"|"this"|"var"|"assign"|"window"|"self"|"commonjs2"|"commonjs-module"|"commonjs-static"|"amd"|"amd-require"|"umd"|"umd2"|"system"|"module-import"|"script"|"node-commonjs"} Specifies the default type of externals ('amd*', 'umd*', 'system' and 'jsonp' depend on output.libraryTarget set to the same value).
-* `ignoreWarnings` {RegExp|object|object[]} Ignore specific warnings.
+* `ignoreWarnings` {RegExp|{ file?: RegExp; message?: RegExp; module?: RegExp }|(warning: Error, compilation: Compilation) => boolean[]} Ignore specific warnings.
 * `infrastructureLogging` {InfrastructureLogging} Options for infrastructure level logging.
 * `loader` {Loader} Custom values available in the loader context.
 * `mode` {"development"|"none"|"production"} Enable production optimizations or development hints.
@@ -6334,7 +6334,7 @@ Options object as provided by the user.
 * `output` {Output} Options affecting the output of the compilation. `output` options tell webpack how to write the compiled files to disk.
 * `parallelism` {number} The number of parallel processed modules in the compilation.
 * `performance` {false|PerformanceOptions} Configuration for web performance recommendations.
-* `plugins` {false|""|0|WebpackPluginInstance|object[]} Add additional plugins to the compiler.
+* `plugins` {false|""|0|WebpackPluginInstance|(this: Compiler, compiler: Compiler) => void[]} Add additional plugins to the compiler.
 * `profile` {boolean} Capture timing information for each module.
 * `recordsInputPath` {string|false} Store compiler state to a json file.
 * `recordsOutputPath` {string|false} Load compiler state from a json file.
@@ -6367,7 +6367,7 @@ Multiple entry bundles are created. The key is the entry name. The value can be 
 * `context` {string} the directory in which the request is placed
 * `contextInfo` {ModuleFactoryCreateDataContextInfo} contextual information
 * `dependencyType` {string} the category of the referencing dependency
-* `getResolve` {object} get a resolve function with the current resolver options
+* `getResolve` {(options?: ResolveOptions) => (context: string, request: string, callback: (err?: Error, result?: string|false, resolveRequest?: ResolveRequest) => void) => void|(context: string, request: string) => Promise<string>} get a resolve function with the current resolver options
 * `request` {string} the request as written by the user in the require/import expression/statement
 
 ***
@@ -6378,7 +6378,7 @@ If an dependency matches exactly a property of the object, the property value is
 
 ### Properties
 
-* `byLayer` {object|object} Specify externals depending on the layer.
+* `byLayer` {{ [index: string]: ExternalItem }|(layer: string) => ExternalItem} Specify externals depending on the layer.
 
 ***
 
@@ -6399,7 +6399,7 @@ Options object for persistent file-based caching.
 ### Properties
 
 * `allowCollectingMemory` {boolean} Allows to collect unused memory allocated during deserialization. This requires copying data into smaller buffers and has a performance cost.
-* `buildDependencies` {object} Dependencies the build depends on (in multiple categories, default categories: 'defaultWebpack').
+* `buildDependencies` {{ [index: string]: string[] }} Dependencies the build depends on (in multiple categories, default categories: 'defaultWebpack').
 * `cacheDirectory` {string} Base directory for the cache (defaults to node_modules/.cache/webpack).
 * `cacheLocation` {string} Locations for the cache (defaults to cacheDirectory / name).
 * `compression` {false|"gzip"|"brotli"} Compression type used for the cache files.
@@ -6448,22 +6448,22 @@ Specify options for each generator.
 
 ### Properties
 
-* `dirname` {object}
-* `join` {object}
+* `dirname` {(dirname: string) => string}
+* `join` {(path1: string, path2: string) => string}
 * `lstat` {LStatFs}
 * `lstatSync` {LStatSync}
-* `purge` {object}
+* `purge` {(value?: string|string[]|Set<string>) => void}
 * `readdir` {ReaddirFs}
 * `readdirSync` {ReaddirSync}
 * `readFile` {ReadFileFs}
 * `readFileSync` {ReadFileSync}
-* `readJson` {object}
-* `readJsonSync` {object}
+* `readJson` {(pathOrFileDescriptor: PathOrFileDescriptorFs, callback: (err: Error|ErrnoException, result?: JsonObjectFs) => void) => void}
+* `readJsonSync` {(pathOrFileDescriptor: PathOrFileDescriptorFs) => JsonObjectFs}
 * `readlink` {ReadlinkFs}
 * `readlinkSync` {ReadlinkSync}
 * `realpath` {RealPathFs}
 * `realpathSync` {RealPathSync}
-* `relative` {object}
+* `relative` {(from: string, to: string) => string}
 * `stat` {StatFs}
 * `statSync` {StatSync}
 
@@ -6490,11 +6490,11 @@ Options for library.
 
 #### OptionsType
 
-`OptionsType` = {object}
+`OptionsType` = {Object}
 
 #### ContextAdditions
 
-`ContextAdditions` = {object}
+`ContextAdditions` = {Object}
 
 * `this` {NormalModuleLoaderContext<OptionsType>|LoaderRunnerLoaderContext<OptionsType>|LoaderPluginLoaderContext|HotModuleReplacementPluginLoaderContext|ContextAdditions}
 * `content` {string}
@@ -6510,11 +6510,11 @@ Options for library.
 
 #### OptionsType
 
-`OptionsType` = {object}
+`OptionsType` = {Object}
 
 #### ContextAdditions
 
-`ContextAdditions` = {object}
+`ContextAdditions` = {Object}
 
 ### Properties
 
@@ -6548,7 +6548,7 @@ Options affecting the normal modules (`NormalModuleFactory`).
 * `exprContextRegExp` {boolean|RegExp} Sets the default regular expression for full dynamic dependencies. Deprecated: This option has moved to 'module.parser.javascript.exprContextRegExp'.
 * `exprContextRequest` {string} Set the default request for full dynamic dependencies. Deprecated: This option has moved to 'module.parser.javascript.exprContextRequest'.
 * `generator` {GeneratorOptionsByModuleType} Specify options for each generator.
-* `noParse` {string|RegExp|object|string|RegExp|object[]} Don't parse files matching. It's matched against the full resolved request.
+* `noParse` {string|RegExp|(content: string) => boolean|string|RegExp|(content: string) => boolean[]} Don't parse files matching. It's matched against the full resolved request.
 * `parser` {ParserOptionsByModuleType} Specify options for each parser.
 * `rules` {false|""|0|"..."|RuleSetRule[]} An array of rules applied for modules.
 * `strictExportPresence` {boolean} Emit errors instead of warnings when imported names don't exist in imported module. Deprecated: This option has moved to 'module.parser.javascript.strictExportPresence'.
@@ -6557,7 +6557,7 @@ Options affecting the normal modules (`NormalModuleFactory`).
 * `unknownContextRecursive` {boolean} Enable recursive directory lookup when using the require function in a not statically analyse-able way. Deprecated: This option has moved to 'module.parser.javascript.unknownContextRecursive'.
 * `unknownContextRegExp` {boolean|RegExp} Sets the regular expression when using the require function in a not statically analyse-able way. Deprecated: This option has moved to 'module.parser.javascript.unknownContextRegExp'.
 * `unknownContextRequest` {string} Sets the request when using the require function in a not statically analyse-able way. Deprecated: This option has moved to 'module.parser.javascript.unknownContextRequest'.
-* `unsafeCache` {boolean|object} Cache the resolving of module requests.
+* `unsafeCache` {boolean|(module: Module) => boolean} Cache the resolving of module requests.
 * `wrappedContextCritical` {boolean} Enable warnings for partial dynamic dependencies. Deprecated: This option has moved to 'module.parser.javascript.wrappedContextCritical'.
 * `wrappedContextRecursive` {boolean} Enable recursive directory lookup for partial dynamic dependencies. Deprecated: This option has moved to 'module.parser.javascript.wrappedContextRecursive'.
 * `wrappedContextRegExp` {RegExp} Set the inner regular expression for partial dynamic dependencies. Deprecated: This option has moved to 'module.parser.javascript.wrappedContextRegExp'.
@@ -6576,8 +6576,8 @@ Options affecting the normal modules (`NormalModuleFactory`).
 
 ### Properties
 
-* `read` {object}
-* `setCircularReference` {object}
+* `read` {() => any}
+* `setCircularReference` {(value: ReferenceableItem) => void}
 
 ***
 
@@ -6585,12 +6585,12 @@ Options affecting the normal modules (`NormalModuleFactory`).
 
 ### Properties
 
-* `rollback` {object}
-* `setCircularReference` {object}
-* `snapshot` {object}
-* `write` {object}
-* `writeLazy` {object}
-* `writeSeparate` {object}
+* `rollback` {(snapshot: ObjectSerializerSnapshot) => void}
+* `setCircularReference` {(value: ReferenceableItem) => void}
+* `snapshot` {() => ObjectSerializerSnapshot}
+* `write` {(value?: any) => void}
+* `writeLazy` {(item?: any) => void}
+* `writeSeparate` {(item: any, obj?: LazyOptions) => LazyFunction<any, any, any, LazyOptions>}
 
 ***
 
@@ -6598,17 +6598,17 @@ Options affecting the normal modules (`NormalModuleFactory`).
 
 ### Properties
 
-* `createReadStream` {object}
-* `dirname` {object}
-* `join` {object}
+* `createReadStream` {(path: PathLikeFs, options?: "ascii"|"utf8"|"utf-8"|"utf16le"|"utf-16le"|"ucs2"|"ucs-2"|"base64"|"base64url"|"latin1"|"binary"|"hex"|ReadStreamOptions) => ReadableStream}
+* `dirname` {(dirname: string) => string}
+* `join` {(path1: string, path2: string) => string}
 * `lstat` {LStatFs}
 * `mkdir` {Mkdir}
 * `readdir` {ReaddirFs}
 * `readFile` {ReadFileFs}
-* `relative` {object}
-* `rmdir` {object}
+* `relative` {(from: string, to: string) => string}
+* `rmdir` {(file: PathLikeFs, callback: (err: ErrnoException) => void) => void}
 * `stat` {StatFs}
-* `unlink` {object}
+* `unlink` {(pathLike: PathLikeFs, callback: (err: ErrnoException) => void) => void}
 * `writeFile` {WriteFile}
 
 ***
@@ -6645,13 +6645,13 @@ Specify options for each parser.
 * `chunkGraph` {ChunkGraph}
 * `contentHash` {string}
 * `contentHashType` {string}
-* `contentHashWithLength` {object}
+* `contentHashWithLength` {(length: number) => string}
 * `filename` {string}
 * `hash` {string}
-* `hashWithLength` {object}
+* `hashWithLength` {(length: number) => string}
 * `module` {Module|ModulePathData}
 * `noChunkHash` {boolean}
-* `prepareId` {object}
+* `prepareId` {(id: string|number) => string|number}
 * `query` {string}
 * `runtime` {RuntimeSpec}
 * `url` {string}
@@ -6664,11 +6664,11 @@ Specify options for each parser.
 
 #### OptionsType
 
-`OptionsType` = {object}
+`OptionsType` = {Object}
 
 #### ContextAdditions
 
-`ContextAdditions` = {object}
+`ContextAdditions` = {Object}
 
 * `this` {NormalModuleLoaderContext<OptionsType>|LoaderRunnerLoaderContext<OptionsType>|LoaderPluginLoaderContext|HotModuleReplacementPluginLoaderContext|ContextAdditions}
 * `remainingRequest` {string}
@@ -6697,11 +6697,11 @@ Specify options for each parser.
 
 #### OptionsType
 
-`OptionsType` = {object}
+`OptionsType` = {Object}
 
 #### ContextAdditions
 
-`ContextAdditions` = {object}
+`ContextAdditions` = {Object}
 
 * `this` {NormalModuleLoaderContext<OptionsType>|LoaderRunnerLoaderContext<OptionsType>|LoaderPluginLoaderContext|HotModuleReplacementPluginLoaderContext|ContextAdditions}
 * `content` {Buffer}
@@ -6722,7 +6722,7 @@ Specify options for each parser.
 * `fullHash` {string}
 * `hash` {string}
 * `moduleGraph` {ModuleGraph}
-* `moduleTemplates` {object}
+* `moduleTemplates` {{ javascript: ModuleTemplate }}
 * `outputOptions` {OutputNormalizedWithDefaults}
 * `runtimeTemplate` {RuntimeTemplate}
 
@@ -6737,7 +6737,7 @@ Specify options for each parser.
 * `context` {string}
 * `contextDependencies` {LazySet<string>}
 * `contextInfo` {ModuleFactoryCreateDataContextInfo}
-* `createData` {Partial<NormalModuleCreateData|object>}
+* `createData` {Partial<NormalModuleCreateData|{ settings: ModuleSettings }>}
 * `dependencies` {ModuleDependency[]}
 * `dependencyType` {string}
 * `fileDependencies` {LazySet<string>}
@@ -6754,34 +6754,34 @@ Options object for resolving requests.
 
 ### Properties
 
-* `alias` {object[]|object} Redirect module requests.
+* `alias` {{ alias: string|false|string[]; name: string; onlyModule?: boolean }[]|{ [index: string]: string|false|string[] }} Redirect module requests.
 * `aliasFields` {string|string[][]} Fields in the description file (usually package.json) which are used to redirect requests inside the module.
-* `byDependency` {object} Extra resolve options per dependency category. Typical categories are "commonjs", "amd", "esm".
+* `byDependency` {{ [index: string]: ResolveOptions }} Extra resolve options per dependency category. Typical categories are "commonjs", "amd", "esm".
 * `cache` {boolean} Enable caching of successfully resolved requests (cache entries are revalidated).
-* `cachePredicate` {object} Predicate function to decide which requests should be cached.
+* `cachePredicate` {(request: ResolveRequest) => boolean} Predicate function to decide which requests should be cached.
 * `cacheWithContext` {boolean} Include the context information in the cache identifier when caching.
 * `conditionNames` {string[]} Condition names for exports field entry point.
 * `descriptionFiles` {string[]} Filenames used to find a description file (like a package.json).
 * `enforceExtension` {boolean} Enforce the resolver to use one of the extensions from the extensions option (User must specify requests without extension).
 * `exportsFields` {string[]} Field names from the description file (usually package.json) which are used to provide entry points of a package.
-* `extensionAlias` {object} An object which maps extension to extension aliases.
+* `extensionAlias` {{ [index: string]: string|string[] }} An object which maps extension to extension aliases.
 * `extensions` {string[]} Extensions added to the request when trying to find the file.
-* `fallback` {object[]|object} Redirect module requests when normal resolving fails.
+* `fallback` {{ alias: string|false|string[]; name: string; onlyModule?: boolean }[]|{ [index: string]: string|false|string[] }} Redirect module requests when normal resolving fails.
 * `fileSystem` {InputFileSystem} Filesystem for the resolver.
 * `fullySpecified` {boolean} Treats the request specified by the user as fully specified, meaning no extensions are added and the mainFiles in directories are not resolved (This doesn't affect requests from mainFields, aliasFields or aliases).
 * `importsFields` {string[]} Field names from the description file (usually package.json) which are used to provide internal request of a package (requests starting with # are considered as internal).
 * `mainFields` {string|string[][]} Field names from the description file (package.json) which are used to find the default entry point.
 * `mainFiles` {string[]} Filenames used to find the default entry point if there is no description file or main field.
 * `modules` {string[]} Folder names or directory paths where to find modules.
-* `plugins` {false|""|0|"..."|object|object[]} Plugins for the resolver.
+* `plugins` {false|""|0|"..."|{ apply: (arg0: Resolver) => void }|(this: Resolver, arg1: Resolver) => void[]} Plugins for the resolver.
 * `preferAbsolute` {boolean} Prefer to resolve server-relative URLs (starting with '/') as absolute paths before falling back to resolve in 'resolve.roots'.
 * `preferRelative` {boolean} Prefer to resolve module requests as relative request and fallback to resolving as module.
 * `resolver` {Resolver} Custom resolver.
 * `restrictions` {string|RegExp[]} A list of resolve restrictions. Resolve results must fulfill all of these restrictions to resolve successfully. Other resolve paths are taken when restrictions are not met.
 * `roots` {string[]} A list of directories in which requests that are server-relative URLs (starting with '/') are resolved.
 * `symlinks` {boolean} Enable resolving symlinks to the original location.
-* `tsconfig` {string|boolean|object} TypeScript config for paths mapping. Can be `false` (disabled), `true` (use default `tsconfig.json`), a string path to `tsconfig.json`, or an object with `configFile` and `references` options.
-* `unsafeCache` {boolean|object} Enable caching of successfully resolved requests (cache entries are not revalidated).
+* `tsconfig` {string|boolean|{ configFile?: string; references?: string }} TypeScript config for paths mapping. Can be `false` (disabled), `true` (use default `tsconfig.json`), a string path to `tsconfig.json`, or an object with `configFile` and `references` options.
+* `unsafeCache` {boolean|{ [index: string]: any }} Enable caching of successfully resolved requests (cache entries are not revalidated).
 * `useSyncFileSystemCalls` {boolean} Use synchronous filesystem calls for the resolver.
 
 ***
@@ -6792,35 +6792,35 @@ A rule description with conditions and effects for modules.
 
 ### Properties
 
-* `assert` {object} Match on import assertions of the dependency.
-* `compiler` {string|RegExp|RuleSetLogicalConditions|object|RuleSetCondition[]} Match the child compiler name.
-* `dependency` {string|RegExp|RuleSetLogicalConditions|RuleSetCondition[]|object} Match dependency type.
-* `descriptionData` {object} Match values of properties in the description file (usually package.json).
+* `assert` {{ [index: string]: RuleSetConditionOrConditions }} Match on import assertions of the dependency.
+* `compiler` {string|RegExp|RuleSetLogicalConditions|(value: string) => boolean|RuleSetCondition[]} Match the child compiler name.
+* `dependency` {string|RegExp|RuleSetLogicalConditions|RuleSetCondition[]|(value: string) => boolean} Match dependency type.
+* `descriptionData` {{ [index: string]: RuleSetConditionOrConditions }} Match values of properties in the description file (usually package.json).
 * `enforce` {"pre"|"post"} Enforce this rule as pre or post step.
-* `exclude` {string|RegExp|RuleSetLogicalConditionsAbsolute|object|RuleSetConditionAbsolute[]} Shortcut for resource.exclude.
+* `exclude` {string|RegExp|RuleSetLogicalConditionsAbsolute|(value: string) => boolean|RuleSetConditionAbsolute[]} Shortcut for resource.exclude.
 * `extractSourceMap` {boolean} Enable/Disable extracting source map.
-* `generator` {object} The options for the module generator.
-* `include` {string|RegExp|RuleSetLogicalConditionsAbsolute|RuleSetConditionAbsolute[]|object} Shortcut for resource.include.
-* `issuer` {string|RegExp|RuleSetLogicalConditionsAbsolute|RuleSetConditionAbsolute[]|object} Match the issuer of the module (The module pointing to this module).
-* `issuerLayer` {string|RegExp|RuleSetLogicalConditions|RuleSetCondition[]|object} Match layer of the issuer of this module (The module pointing to this module).
+* `generator` {{ [index: string]: any }} The options for the module generator.
+* `include` {string|RegExp|RuleSetLogicalConditionsAbsolute|RuleSetConditionAbsolute[]|(value: string) => boolean} Shortcut for resource.include.
+* `issuer` {string|RegExp|RuleSetLogicalConditionsAbsolute|RuleSetConditionAbsolute[]|(value: string) => boolean} Match the issuer of the module (The module pointing to this module).
+* `issuerLayer` {string|RegExp|RuleSetLogicalConditions|RuleSetCondition[]|(value: string) => boolean} Match layer of the issuer of this module (The module pointing to this module).
 * `layer` {string} Specifies the layer in which the module should be placed in.
 * `loader` {string} Shortcut for use.loader.
-* `mimetype` {string|RegExp|RuleSetLogicalConditions|RuleSetCondition[]|object} Match module mimetype when load from Data URI.
+* `mimetype` {string|RegExp|RuleSetLogicalConditions|RuleSetCondition[]|(value: string) => boolean} Match module mimetype when load from Data URI.
 * `oneOf` {false|""|0|RuleSetRule[]} Only execute the first matching rule in this array.
-* `options` {string|object} Shortcut for use.options.
-* `parser` {object} Options for parsing.
-* `realResource` {string|RegExp|RuleSetLogicalConditionsAbsolute|RuleSetConditionAbsolute[]|object} Match the real resource path of the module.
+* `options` {string|{ [index: string]: any }} Shortcut for use.options.
+* `parser` {{ [index: string]: any }} Options for parsing.
+* `realResource` {string|RegExp|RuleSetLogicalConditionsAbsolute|RuleSetConditionAbsolute[]|(value: string) => boolean} Match the real resource path of the module.
 * `resolve` {ResolveOptions} Options for the resolver.
-* `resource` {string|RegExp|RuleSetLogicalConditionsAbsolute|RuleSetConditionAbsolute[]|object} Match the resource path of the module.
-* `resourceFragment` {string|RegExp|RuleSetLogicalConditions|RuleSetCondition[]|object} Match the resource fragment of the module.
-* `resourceQuery` {string|RegExp|RuleSetLogicalConditions|RuleSetCondition[]|object} Match the resource query of the module.
+* `resource` {string|RegExp|RuleSetLogicalConditionsAbsolute|RuleSetConditionAbsolute[]|(value: string) => boolean} Match the resource path of the module.
+* `resourceFragment` {string|RegExp|RuleSetLogicalConditions|RuleSetCondition[]|(value: string) => boolean} Match the resource fragment of the module.
+* `resourceQuery` {string|RegExp|RuleSetLogicalConditions|RuleSetCondition[]|(value: string) => boolean} Match the resource query of the module.
 * `rules` {false|""|0|RuleSetRule[]} Match and execute these rules when this rule is matched.
-* `scheme` {string|RegExp|RuleSetLogicalConditions|RuleSetCondition[]|object} Match module scheme.
+* `scheme` {string|RegExp|RuleSetLogicalConditions|RuleSetCondition[]|(value: string) => boolean} Match module scheme.
 * `sideEffects` {boolean} Flags a module as with or without side effects.
-* `test` {string|RegExp|RuleSetLogicalConditionsAbsolute|RuleSetConditionAbsolute[]|object} Shortcut for resource.test.
+* `test` {string|RegExp|RuleSetLogicalConditionsAbsolute|RuleSetConditionAbsolute[]|(value: string) => boolean} Shortcut for resource.test.
 * `type` {string} Module type to use for the module.
-* `use` {string|RuleSetUseFunction|string|false|0|RuleSetUseFunction|object[]|object} Modifiers applied to the module when rule is matched.
-* `with` {object} Match on import attributes of the dependency.
+* `use` {string|RuleSetUseFunction|string|false|0|RuleSetUseFunction|{ ident?: string; loader?: string; options?: string|{ [index: string]: any } }[]|{ ident?: string; loader?: string; options?: string|{ [index: string]: any } }} Modifiers applied to the module when rule is matched.
+* `with` {{ [index: string]: RuleSetConditionOrConditions }} Match on import attributes of the dependency.
 
 ***
 
@@ -6849,7 +6849,7 @@ Stats options object.
 * `chunkRelations` {boolean} Add information about parent, children and sibling chunks to chunk information.
 * `chunks` {boolean} Add chunk information.
 * `chunksSort` {string|false} Sort the chunks by that field.
-* `colors` {boolean|object} Enables/Disables colorful output.
+* `colors` {boolean|{ bold?: string; cyan?: string; green?: string; magenta?: string; red?: string; ... }} Enables/Disables colorful output.
 * `context` {string} Context directory for request shortening.
 * `dependentModules` {boolean} Show chunk modules that are dependencies of other modules of the chunk.
 * `depth` {boolean} Add module depth in module graph.
@@ -6862,9 +6862,9 @@ Stats options object.
 * `errorsCount` {boolean} Add errors count.
 * `errorsSpace` {number} Space to display errors (value is in number of lines).
 * `errorStack` {boolean} Add internal stack trace to errors.
-* `exclude` {string|boolean|RegExp|ModuleFilterItemTypes[]|object} Please use excludeModules instead.
-* `excludeAssets` {string|RegExp|AssetFilterItemTypes[]|object} Suppress assets that match the specified filters. Filters can be Strings, RegExps or Functions.
-* `excludeModules` {string|boolean|RegExp|ModuleFilterItemTypes[]|object} Suppress modules that match the specified filters. Filters can be Strings, RegExps, Booleans or Functions.
+* `exclude` {string|boolean|RegExp|ModuleFilterItemTypes[]|(name: string, module: StatsModule, type: "module"|"chunk"|"root-of-chunk"|"nested") => boolean} Please use excludeModules instead.
+* `excludeAssets` {string|RegExp|AssetFilterItemTypes[]|(name: string, asset: StatsAsset) => boolean} Suppress assets that match the specified filters. Filters can be Strings, RegExps or Functions.
+* `excludeModules` {string|boolean|RegExp|ModuleFilterItemTypes[]|(name: string, module: StatsModule, type: "module"|"chunk"|"root-of-chunk"|"nested") => boolean} Suppress modules that match the specified filters. Filters can be Strings, RegExps, Booleans or Functions.
 * `groupAssetsByChunk` {boolean} Group assets by how their are related to chunks.
 * `groupAssetsByEmitStatus` {boolean} Group assets by their status (emitted, compared for emit or cached).
 * `groupAssetsByExtension` {boolean} Group assets by their extension.
@@ -6880,7 +6880,7 @@ Stats options object.
 * `hash` {boolean} Add the hash of the compilation.
 * `ids` {boolean} Add ids.
 * `logging` {boolean|"error"|"warn"|"info"|"log"|"verbose"|"none"} Add logging output.
-* `loggingDebug` {string|boolean|RegExp|FilterItemTypes[]|object} Include debug logging of specified loggers (i. e. for plugins or loaders). Filters can be Strings, RegExps or Functions.
+* `loggingDebug` {string|boolean|RegExp|FilterItemTypes[]|(value: string) => boolean} Include debug logging of specified loggers (i. e. for plugins or loaders). Filters can be Strings, RegExps or Functions.
 * `loggingTrace` {boolean} Add stack traces to logging output.
 * `moduleAssets` {boolean} Add information about assets inside modules.
 * `modules` {boolean} Add built modules information.
@@ -6907,7 +6907,7 @@ Stats options object.
 * `version` {boolean} Add webpack version information.
 * `warnings` {boolean} Add warnings.
 * `warningsCount` {boolean} Add warnings count.
-* `warningsFilter` {string|RegExp|WarningFilterItemTypes[]|object} Suppress listing warnings that match the specified filters (they will still be counted). Filters can be Strings, RegExps or Functions.
+* `warningsFilter` {string|RegExp|WarningFilterItemTypes[]|(warning: StatsError, warningString: string) => boolean} Suppress listing warnings that match the specified filters (they will still be counted). Filters can be Strings, RegExps or Functions.
 * `warningsSpace` {number} Space to display warnings (value is in number of lines).
 
 ***
@@ -6918,20 +6918,20 @@ Normalized webpack options object.
 
 ### Properties
 
-* `amd` {false|object} Set the value of `require.amd` and `define.amd`. Or disable AMD support.
+* `amd` {false|{ [index: string]: any }} Set the value of `require.amd` and `define.amd`. Or disable AMD support.
 * `bail` {boolean} Report the first error as a hard error instead of tolerating it.
 * `cache` {CacheOptionsNormalized} Cache generated modules and chunks to improve performance for multiple incremental builds.
 * `context` {string} The base directory (absolute path!) for resolving the `entry` option. If `output.pathinfo` is set, the included pathinfo is shortened to this directory.
 * `dependencies` {string[]} References to other configurations to depend on.
-* `devServer` {false|object} Options for the webpack-dev-server.
-* `devtool` {string|false|object[]} A developer tool to enhance debugging (false | eval | [inline-|hidden-|eval-][nosources-][cheap-[module-]]source-map).
+* `devServer` {false|{ [index: string]: any }} Options for the webpack-dev-server.
+* `devtool` {string|false|{ type: "css"|"javascript"|"all"; use: RawDevTool }[]} A developer tool to enhance debugging (false | eval | [inline-|hidden-|eval-][nosources-][cheap-[module-]]source-map).
 * `dotenv` {boolean|DotenvPluginOptions} Enable and configure the Dotenv plugin to load environment variables from .env files.
 * `entry` {EntryNormalized} The entry point(s) of the compilation.
 * `experiments` {ExperimentsNormalized} Enables/Disables experiments (experimental features with relax SemVer compatibility).
 * `externals` {Externals} Specify dependencies that shouldn't be resolved by webpack, but should become dependencies of the resulting bundle. The kind of the dependency depends on `output.libraryTarget`.
 * `externalsPresets` {ExternalsPresets} Enable presets of externals for specific targets.
 * `externalsType` {"asset"|"module"|"css-import"|"css-url"|"global"|"import"|"commonjs"|"jsonp"|"promise"|"this"|"var"|"assign"|"window"|"self"|"commonjs2"|"commonjs-module"|"commonjs-static"|"amd"|"amd-require"|"umd"|"umd2"|"system"|"module-import"|"script"|"node-commonjs"} Specifies the default type of externals ('amd*', 'umd*', 'system' and 'jsonp' depend on output.libraryTarget set to the same value).
-* `ignoreWarnings` {object[]} Ignore specific warnings.
+* `ignoreWarnings` {(warning: Error, compilation: Compilation) => boolean[]} Ignore specific warnings.
 * `infrastructureLogging` {InfrastructureLogging} Options for infrastructure level logging.
 * `loader` {Loader} Custom values available in the loader context.
 * `mode` {"development"|"none"|"production"} Enable production optimizations or development hints.
@@ -6942,7 +6942,7 @@ Normalized webpack options object.
 * `output` {OutputNormalized} Normalized options affecting the output of the compilation. `output` options tell webpack how to write the compiled files to disk.
 * `parallelism` {number} The number of parallel processed modules in the compilation.
 * `performance` {false|PerformanceOptions} Configuration for web performance recommendations.
-* `plugins` {WebpackPluginInstance|object[]} Add additional plugins to the compiler.
+* `plugins` {WebpackPluginInstance|(this: Compiler, compiler: Compiler) => void[]} Add additional plugins to the compiler.
 * `profile` {boolean} Capture timing information for each module.
 * `recordsInputPath` {string|false} Store compiler state to a json file.
 * `recordsOutputPath` {string|false} Load compiler state from a json file.
@@ -6967,7 +6967,7 @@ Plugin instance.
 
 ### Properties
 
-* `apply` {object} The run point of the plugin, required method.
+* `apply` {(compiler: Compiler) => void} The run point of the plugin, required method.
 
 ***
 
@@ -6979,19 +6979,19 @@ Plugin instance.
 
 ## Type: `Entry`
 
-> **Entry** = {string|object|EntryObject|string[]}
+> **Entry** = {string|() => string|EntryObject|string[]|Promise<EntryStatic>|EntryObject|string[]}
 
 ***
 
 ## Type: `EntryNormalized`
 
-> **EntryNormalized** = {object|EntryStaticNormalized}
+> **EntryNormalized** = {() => Promise<EntryStaticNormalized>|EntryStaticNormalized}
 
 ***
 
 ## Type: `EntryOptions`
 
-> **EntryOptions** = {object|Omit<EntryDescriptionNormalized, "import">}
+> **EntryOptions** = {{ name?: string }|Omit<EntryDescriptionNormalized, "import">}
 
 ### Type Declaration
 
@@ -7001,49 +7001,49 @@ Plugin instance.
 
 ## Type: `ExternalItem`
 
-> **ExternalItem** = {string|RegExp|ExternalItemObjectKnown|ExternalItemObjectUnknown|object|object}
+> **ExternalItem** = {string|RegExp|ExternalItemObjectKnown|ExternalItemObjectUnknown|(data: ExternalItemFunctionData, callback: (err?: null|Error, result?: string|boolean|string[]|{ [index: string]: any }) => void) => void|(data: ExternalItemFunctionData) => Promise<ExternalItemValue>}
 
 ***
 
 ## Type: `ExternalItemFunction`
 
-> **ExternalItemFunction** = {object|object}
+> **ExternalItemFunction** = {(data: ExternalItemFunctionData, callback: (err?: null|Error, result?: string|boolean|string[]|{ [index: string]: any }) => void) => void|(data: ExternalItemFunctionData) => Promise<ExternalItemValue>}
 
 ***
 
 ## Type: `ExternalItemFunctionCallback`
 
-> **ExternalItemFunctionCallback** = {object}
+> **ExternalItemFunctionCallback** = {(data: ExternalItemFunctionData, callback: (err?: null|Error, result?: string|boolean|string[]|{ [index: string]: any }) => void) => void}
 
 * `data` {ExternalItemFunctionData}
-* `callback` {object}
+* `callback` {(err?: null|Error, result?: string|boolean|string[]|{ [index: string]: any }) => void}
 * Returns: {void}
 
 ***
 
 ## Type: `ExternalItemFunctionDataGetResolve`
 
-> **ExternalItemFunctionDataGetResolve** = {object}
+> **ExternalItemFunctionDataGetResolve** = {(options?: ResolveOptions) => (context: string, request: string, callback: (err?: null|Error, result?: string|false, resolveRequest?: ResolveRequest) => void) => void|(context: string, request: string) => Promise<string>}
 
 * `options` {ResolveOptions}
-* Returns: {object|object}
+* Returns: {(context: string, request: string, callback: (err?: null|Error, result?: string|false, resolveRequest?: ResolveRequest) => void) => void|(context: string, request: string) => Promise<string>}
 
 ***
 
 ## Type: `ExternalItemFunctionDataGetResolveCallbackResult`
 
-> **ExternalItemFunctionDataGetResolveCallbackResult** = {object}
+> **ExternalItemFunctionDataGetResolveCallbackResult** = {(context: string, request: string, callback: (err?: null|Error, result?: string|false, resolveRequest?: ResolveRequest) => void) => void}
 
 * `context` {string}
 * `request` {string}
-* `callback` {object}
+* `callback` {(err?: null|Error, result?: string|false, resolveRequest?: ResolveRequest) => void}
 * Returns: {void}
 
 ***
 
 ## Type: `ExternalItemFunctionDataGetResolveResult`
 
-> **ExternalItemFunctionDataGetResolveResult** = {object}
+> **ExternalItemFunctionDataGetResolveResult** = {(context: string, request: string) => Promise<string>}
 
 * `context` {string}
 * `request` {string}
@@ -7053,7 +7053,7 @@ Plugin instance.
 
 ## Type: `ExternalItemFunctionPromise`
 
-> **ExternalItemFunctionPromise** = {object}
+> **ExternalItemFunctionPromise** = {(data: ExternalItemFunctionData) => Promise<ExternalItemValue>}
 
 * `data` {ExternalItemFunctionData}
 * Returns: {Promise<ExternalItemValue>}
@@ -7062,13 +7062,13 @@ Plugin instance.
 
 ## Type: `ExternalItemValue`
 
-> **ExternalItemValue** = {string|boolean|string[]|object}
+> **ExternalItemValue** = {string|boolean|string[]|{ [index: string]: any }}
 
 ***
 
 ## Type: `Externals`
 
-> **Externals** = {string|RegExp|ExternalItemObjectKnown|ExternalItemObjectUnknown|object|object|ExternalItem[]}
+> **Externals** = {string|RegExp|ExternalItemObjectKnown|ExternalItemObjectUnknown|(data: ExternalItemFunctionData, callback: (err?: null|Error, result?: string|boolean|string[]|{ [index: string]: any }) => void) => void|(data: ExternalItemFunctionData) => Promise<ExternalItemValue>|ExternalItem[]}
 
 ***
 
@@ -7086,7 +7086,7 @@ Plugin instance.
 
 ## Type: `LoaderDefinition`
 
-> **LoaderDefinition**\<`OptionsType`, `ContextAdditions`\> = {LoaderDefinitionFunction<OptionsType, ContextAdditions>|object}
+> **LoaderDefinition**\<`OptionsType`, `ContextAdditions`\> = {LoaderDefinitionFunction<OptionsType, ContextAdditions>|{ pitch?: PitchLoaderDefinitionFunction<OptionsType, ContextAdditions>; raw?: false }}
 
 ### Type Declaration
 
@@ -7097,11 +7097,11 @@ Plugin instance.
 
 #### OptionsType
 
-`OptionsType` = {object}
+`OptionsType` = {Object}
 
 #### ContextAdditions
 
-`ContextAdditions` = {object}
+`ContextAdditions` = {Object}
 
 ***
 
@@ -7119,7 +7119,7 @@ Plugin instance.
 
 ## Type: `RawLoaderDefinition`
 
-> **RawLoaderDefinition**\<`OptionsType`, `ContextAdditions`\> = {RawLoaderDefinitionFunction<OptionsType, ContextAdditions>|object}
+> **RawLoaderDefinition**\<`OptionsType`, `ContextAdditions`\> = {RawLoaderDefinitionFunction<OptionsType, ContextAdditions>|{ pitch?: PitchLoaderDefinitionFunction<OptionsType, ContextAdditions>; raw: true }}
 
 ### Type Declaration
 
@@ -7130,11 +7130,11 @@ Plugin instance.
 
 #### OptionsType
 
-`OptionsType` = {object}
+`OptionsType` = {Object}
 
 #### ContextAdditions
 
-`ContextAdditions` = {object}
+`ContextAdditions` = {Object}
 
 ***
 
@@ -7146,43 +7146,43 @@ Plugin instance.
 
 ## Type: `ResolvePluginInstance`
 
-> **ResolvePluginInstance** = {object|object}
+> **ResolvePluginInstance** = {{ apply: (arg0: Resolver) => void }|(this: Resolver, arg1: Resolver) => void}
 
 ### Union Members
 
 #### Type Literal
 
-{object}
+{{ apply: (arg0: Resolver) => void }}
 
 #### Index Signature
 
 \[`index`: {string}\]: {any}
 
-* `apply` {object} The run point of the plugin, required method.
+* `apply` {(arg0: Resolver) => void} The run point of the plugin, required method.
 
 ***
 
 #### Function
 
-{object}
+{(this: Resolver, arg1: Resolver) => void}
 
 ***
 
 ## Type: `RuleSetCondition`
 
-> **RuleSetCondition** = {string|RegExp|object|RuleSetLogicalConditions|RuleSetCondition[]}
+> **RuleSetCondition** = {string|RegExp|(value: string) => boolean|RuleSetLogicalConditions|RuleSetCondition[]}
 
 ***
 
 ## Type: `RuleSetConditionAbsolute`
 
-> **RuleSetConditionAbsolute** = {string|RegExp|object|RuleSetLogicalConditionsAbsolute|RuleSetConditionAbsolute[]}
+> **RuleSetConditionAbsolute** = {string|RegExp|(value: string) => boolean|RuleSetLogicalConditionsAbsolute|RuleSetConditionAbsolute[]}
 
 ***
 
 ## Type: `RuleSetUse`
 
-> **RuleSetUse** = {string|undefined|null|string|false|0|RuleSetUseFunction|object[]|RuleSetUseFunction|object}
+> **RuleSetUse** = {string|undefined|null|string|false|0|RuleSetUseFunction|{ ident?: string; loader?: string; options?: string|{ [index: string]: any } }[]|RuleSetUseFunction|{ ident?: string; loader?: string; options?: string|{ [index: string]: any } }}
 
 ### Union Members
 
@@ -7190,7 +7190,7 @@ Plugin instance.
 
 ***
 
-{undefined|null|string|false|0|RuleSetUseFunction|object[]}
+{undefined|null|string|false|0|RuleSetUseFunction|{ ident?: string; loader?: string; options?: string|{ [index: string]: any } }[]}
 
 ***
 
@@ -7200,26 +7200,26 @@ Plugin instance.
 
 #### Type Literal
 
-{object}
+{{ ident?: string; loader?: string; options?: string|{ [index: string]: any } }}
 
 * `ident` {string} Unique loader options identifier.
 * `loader` {string} Loader name.
-* `options` {string|object} Loader options.
+* `options` {string|{ [index: string]: any }} Loader options.
 
 ***
 
 ## Type: `RuleSetUseFunction`
 
-> **RuleSetUseFunction** = {object}
+> **RuleSetUseFunction** = {(data: EffectData) => string|RuleSetUseFunction|{ ident?: string; loader?: string; options?: string|{ [index: string]: any } }|undefined|null|string|false|0|RuleSetUseFunction|{ ident?: string; loader?: string; options?: string|{ [index: string]: any } }[]}
 
 * `data` {EffectData}
-* Returns: {string|RuleSetUseFunction|object|undefined|null|string|false|0|RuleSetUseFunction|object[]}
+* Returns: {string|RuleSetUseFunction|{ ident?: string; loader?: string; options?: string|{ [index: string]: any } }|undefined|null|string|false|0|RuleSetUseFunction|{ ident?: string; loader?: string; options?: string|{ [index: string]: any } }[]}
 
 ***
 
 ## Type: `RuleSetUseItem`
 
-> **RuleSetUseItem** = {string|RuleSetUseFunction|object}
+> **RuleSetUseItem** = {string|RuleSetUseFunction|{ ident?: string; loader?: string; options?: string|{ [index: string]: any } }}
 
 ### Union Members
 
@@ -7233,11 +7233,11 @@ Plugin instance.
 
 #### Type Literal
 
-{object}
+{{ ident?: string; loader?: string; options?: string|{ [index: string]: any } }}
 
 * `ident` {string} Unique loader options identifier.
 * `loader` {string} Loader name.
-* `options` {string|object} Loader options.
+* `options` {string|{ [index: string]: any }} Loader options.
 
 ***
 
@@ -7327,13 +7327,13 @@ Plugin instance.
 
 ## Type: `TemplatePath`
 
-> **TemplatePath** = {string|object}
+> **TemplatePath** = {string|(pathData: PathData, assetInfo?: AssetInfo) => string}
 
 ***
 
 ## Type: `WebpackPluginFunction`
 
-> **WebpackPluginFunction** = {object}
+> **WebpackPluginFunction** = {(this: Compiler, compiler: Compiler) => void}
 
 * `this` {Compiler}
 * `compiler` {Compiler}
@@ -7343,13 +7343,13 @@ Plugin instance.
 
 ## `UsageState`
 
-> `const` **UsageState**: {Readonly<object>}
+> `const` **UsageState**: {Readonly<{ NoInfo: 2; OnlyPropertiesUsed: 1; Unknown: 3; Unused: 0; Used: 4 }>}
 
 ***
 
 ## `validate`
 
-> `const` **validate**: {object}
+> `const` **validate**: {(configuration: Configuration|MultiConfiguration) => void}
 
 * `configuration` {Configuration|MultiConfiguration}
 * Returns: {void}
@@ -7358,7 +7358,7 @@ Plugin instance.
 
 ## `validateSchema`
 
-> `const` **validateSchema**: {object}
+> `const` **validateSchema**: {(schema: Parameters<validateFunction>, options: Parameters<validateFunction>, validationConfiguration?: ValidationErrorConfiguration) => void}
 
 * `schema` {Parameters<validateFunction>}
 * `options` {Parameters<validateFunction>}

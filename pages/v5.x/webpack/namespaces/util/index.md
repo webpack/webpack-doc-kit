@@ -63,7 +63,7 @@
 ###### K
 
 `K`
-* `callbackFn` {object}
+* `callbackFn` {(value: T, value2: T, set: Set<T>) => void}
 * `thisArg` {K}
 * Returns: {void}
 
@@ -97,7 +97,7 @@
 
 ## `cleverMerge`
 
-> `const` **cleverMerge**: {object}
+> `const` **cleverMerge**: {(first?: null|T, second?: null|O) => T|O|T|O}
 
 #### T
 
@@ -114,7 +114,7 @@
 
 ## `createHash`
 
-> `const` **createHash**: {object}
+> `const` **createHash**: {(algorithm: HashFunction) => Hash}
 
 * `algorithm` {HashFunction}
 * Returns: {Hash}
@@ -124,4 +124,4 @@
 ## `compileBooleanMatcher(map)`
 
 * `map` {Record<string|number, boolean>}
-* Returns: {boolean|object}
+* Returns: {boolean|(value: string) => string}
