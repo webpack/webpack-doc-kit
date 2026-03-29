@@ -13,7 +13,7 @@
 
 > **getArguments**: {object}
 
-* `schema` {JSONSchema4|object|JSONSchema6|object|JSONSchema7|object}
+* `schema` {JSONSchema4&object|JSONSchema6&object|JSONSchema7&object}
 * Returns: {Flags}
 
 ***

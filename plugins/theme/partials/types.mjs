@@ -25,8 +25,10 @@ const resolve = type => {
       return `Tuple<${union(type.elements, ', ')}>`;
 
     case 'union':
-    case 'intersection':
       return union(type.types);
+
+    case 'intersection':
+      return union(type.types, '&');
 
     case 'optional':
     case 'indexedAccess':

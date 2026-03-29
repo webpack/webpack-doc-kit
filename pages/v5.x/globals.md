@@ -1542,13 +1542,13 @@ from parent (or top level compiler) and creates a child Compilation
 
 ##### Call Signature
 
-* `options` {FactorizeModuleOptions|object}
+* `options` {FactorizeModuleOptions&object}
 * `callback` {object}
 * Returns: {void}
 
 ##### Call Signature
 
-* `options` {FactorizeModuleOptions|object}
+* `options` {FactorizeModuleOptions&object}
 * `callback` {object}
 * Returns: {void}
 
@@ -1860,7 +1860,7 @@ Fetches a module from a compilation by its identifier
 ###### T
 
 `T` *extends* {object|object[]} = {object}
-* `schema` {JSONSchema4|ExtendedSchema|JSONSchema6|ExtendedSchema|JSONSchema7|ExtendedSchema|object}
+* `schema` {JSONSchema4&ExtendedSchema|JSONSchema6&ExtendedSchema|JSONSchema7&ExtendedSchema|object}
 * `value` {T}
 * `options` {ValidationErrorConfiguration}
 * `check` {object}
@@ -1942,7 +1942,7 @@ Schema validation function with optional pre-compiled check
 #### Static method: `matchModuleReference(name)`
 
 * `name` {string}
-* Returns: {ModuleReferenceOptions|object}
+* Returns: {ModuleReferenceOptions&object}
 
 ***
 
@@ -3618,12 +3618,12 @@ Apply the plugin
 
 #### `new LoaderOptionsPlugin([options])`
 
-* `options` {LoaderOptionsPluginOptions|MatchObject}
+* `options` {LoaderOptionsPluginOptions&MatchObject}
 * Returns: {LoaderOptionsPlugin}
 
 ### Properties
 
-* `options` {LoaderOptionsPluginOptions|MatchObject}
+* `options` {LoaderOptionsPluginOptions&MatchObject}
 
 ### Methods
 
@@ -4523,7 +4523,7 @@ In webpack 6, call getSourceBasicTypes() directly on the module instance instead
 * `hooks` {Readonly<object>}
 * `inputFileSystem` {InputFileSystem}
 * `intermediateFileSystem` {IntermediateFileSystem}
-* `options` {WebpackOptionsNormalized[]|MultiCompilerOptions}
+* `options` {WebpackOptionsNormalized[]&MultiCompilerOptions}
 * `outputFileSystem` {OutputFileSystem}
 * `outputPath` {string}
 * `running` {boolean}
@@ -4691,7 +4691,7 @@ Apply the plugin
 * `request` {string}
 * `resolveOptions` {ResolveOptions}
 * `resource` {string}
-* `resourceResolveData` {ResourceSchemeData|Partial<ResolveRequest>}
+* `resourceResolveData` {ResourceSchemeData&Partial<ResolveRequest>}
 * `type` {string}
 * `used` {any}
 * `usedExports` {boolean|SortableSet<string>}
@@ -5843,7 +5843,7 @@ Apply the plugin
 #### Static method: `renderRuntimeModules(runtimeModules, renderContext)`
 
 * `runtimeModules` {RuntimeModule[]}
-* `renderContext` {RenderContextJavascriptModulesPlugin|object}
+* `renderContext` {RenderContextJavascriptModulesPlugin&object}
 * Returns: {Source}
 
 #### Static method: `toComment(str)`
@@ -6320,7 +6320,7 @@ Options object as provided by the user.
 * `entry` {string|string[]|EntryObject|object} The entry point(s) of the compilation.
 * `experiments` {Experiments} Enables/Disables experiments (experimental features with relax SemVer compatibility).
 * `extends` {string|string[]} Extend configuration from another configuration (only works when using webpack-cli).
-* `externals` {string|RegExp|ExternalItemObjectKnown|ExternalItemObjectUnknown|object|object|ExternalItem[]} Specify dependencies that shouldn't be resolved by webpack, but should become dependencies of the resulting bundle. The kind of the dependency depends on `output.libraryTarget`.
+* `externals` {string|RegExp|ExternalItemObjectKnown&ExternalItemObjectUnknown|object|object|ExternalItem[]} Specify dependencies that shouldn't be resolved by webpack, but should become dependencies of the resulting bundle. The kind of the dependency depends on `output.libraryTarget`.
 * `externalsPresets` {ExternalsPresets} Enable presets of externals for specific targets.
 * `externalsType` {"asset"|"module"|"css-import"|"css-url"|"global"|"import"|"commonjs"|"jsonp"|"promise"|"this"|"var"|"assign"|"window"|"self"|"commonjs2"|"commonjs-module"|"commonjs-static"|"amd"|"amd-require"|"umd"|"umd2"|"system"|"module-import"|"script"|"node-commonjs"} Specifies the default type of externals ('amd*', 'umd*', 'system' and 'jsonp' depend on output.libraryTarget set to the same value).
 * `ignoreWarnings` {RegExp|object|object[]} Ignore specific warnings.
@@ -6496,7 +6496,7 @@ Options for library.
 
 `ContextAdditions` = {object}
 
-* `this` {NormalModuleLoaderContext<OptionsType>|LoaderRunnerLoaderContext<OptionsType>|LoaderPluginLoaderContext|HotModuleReplacementPluginLoaderContext|ContextAdditions}
+* `this` {NormalModuleLoaderContext<OptionsType>&LoaderRunnerLoaderContext<OptionsType>&LoaderPluginLoaderContext&HotModuleReplacementPluginLoaderContext&ContextAdditions}
 * `content` {string}
 * `sourceMap` {string|RawSourceMap}
 * `additionalData` {AdditionalData}
@@ -6670,7 +6670,7 @@ Specify options for each parser.
 
 `ContextAdditions` = {object}
 
-* `this` {NormalModuleLoaderContext<OptionsType>|LoaderRunnerLoaderContext<OptionsType>|LoaderPluginLoaderContext|HotModuleReplacementPluginLoaderContext|ContextAdditions}
+* `this` {NormalModuleLoaderContext<OptionsType>&LoaderRunnerLoaderContext<OptionsType>&LoaderPluginLoaderContext&HotModuleReplacementPluginLoaderContext&ContextAdditions}
 * `remainingRequest` {string}
 * `previousRequest` {string}
 * `data` {object}
@@ -6703,7 +6703,7 @@ Specify options for each parser.
 
 `ContextAdditions` = {object}
 
-* `this` {NormalModuleLoaderContext<OptionsType>|LoaderRunnerLoaderContext<OptionsType>|LoaderPluginLoaderContext|HotModuleReplacementPluginLoaderContext|ContextAdditions}
+* `this` {NormalModuleLoaderContext<OptionsType>&LoaderRunnerLoaderContext<OptionsType>&LoaderPluginLoaderContext&HotModuleReplacementPluginLoaderContext&ContextAdditions}
 * `content` {Buffer}
 * `sourceMap` {string|RawSourceMap}
 * `additionalData` {AdditionalData}
@@ -6737,7 +6737,7 @@ Specify options for each parser.
 * `context` {string}
 * `contextDependencies` {LazySet<string>}
 * `contextInfo` {ModuleFactoryCreateDataContextInfo}
-* `createData` {Partial<NormalModuleCreateData|object>}
+* `createData` {Partial<NormalModuleCreateData&object>}
 * `dependencies` {ModuleDependency[]}
 * `dependencyType` {string}
 * `fileDependencies` {LazySet<string>}
@@ -6973,7 +6973,7 @@ Plugin instance.
 
 ## Type: `AssetInfo`
 
-> **AssetInfo** = {KnownAssetInfo|Record<string, any>}
+> **AssetInfo** = {KnownAssetInfo&Record<string, any>}
 
 ***
 
@@ -6991,7 +6991,7 @@ Plugin instance.
 
 ## Type: `EntryOptions`
 
-> **EntryOptions** = {object|Omit<EntryDescriptionNormalized, "import">}
+> **EntryOptions** = {object&Omit<EntryDescriptionNormalized, "import">}
 
 ### Type Declaration
 
@@ -7001,7 +7001,7 @@ Plugin instance.
 
 ## Type: `ExternalItem`
 
-> **ExternalItem** = {string|RegExp|ExternalItemObjectKnown|ExternalItemObjectUnknown|object|object}
+> **ExternalItem** = {string|RegExp|ExternalItemObjectKnown&ExternalItemObjectUnknown|object|object}
 
 ***
 
@@ -7068,13 +7068,13 @@ Plugin instance.
 
 ## Type: `Externals`
 
-> **Externals** = {string|RegExp|ExternalItemObjectKnown|ExternalItemObjectUnknown|object|object|ExternalItem[]}
+> **Externals** = {string|RegExp|ExternalItemObjectKnown&ExternalItemObjectUnknown|object|object|ExternalItem[]}
 
 ***
 
 ## Type: `LoaderContext`
 
-> **LoaderContext**\<`OptionsType`\> = {NormalModuleLoaderContext<OptionsType>|LoaderRunnerLoaderContext<OptionsType>|LoaderPluginLoaderContext|HotModuleReplacementPluginLoaderContext}
+> **LoaderContext**\<`OptionsType`\> = {NormalModuleLoaderContext<OptionsType>&LoaderRunnerLoaderContext<OptionsType>&LoaderPluginLoaderContext&HotModuleReplacementPluginLoaderContext}
 
 ### Type Parameters
 
@@ -7086,7 +7086,7 @@ Plugin instance.
 
 ## Type: `LoaderDefinition`
 
-> **LoaderDefinition**\<`OptionsType`, `ContextAdditions`\> = {LoaderDefinitionFunction<OptionsType, ContextAdditions>|object}
+> **LoaderDefinition**\<`OptionsType`, `ContextAdditions`\> = {LoaderDefinitionFunction<OptionsType, ContextAdditions>&object}
 
 ### Type Declaration
 
@@ -7107,19 +7107,19 @@ Plugin instance.
 
 ## Type: `MultiConfiguration`
 
-> **MultiConfiguration** = {ReadonlyArray<Configuration>|MultiCompilerOptions}
+> **MultiConfiguration** = {ReadonlyArray<Configuration>&MultiCompilerOptions}
 
 ***
 
 ## Type: `ParserState`
 
-> **ParserState** = {ParserStateBase|Record<string, any>}
+> **ParserState** = {ParserStateBase&Record<string, any>}
 
 ***
 
 ## Type: `RawLoaderDefinition`
 
-> **RawLoaderDefinition**\<`OptionsType`, `ContextAdditions`\> = {RawLoaderDefinitionFunction<OptionsType, ContextAdditions>|object}
+> **RawLoaderDefinition**\<`OptionsType`, `ContextAdditions`\> = {RawLoaderDefinitionFunction<OptionsType, ContextAdditions>&object}
 
 ### Type Declaration
 
@@ -7243,85 +7243,85 @@ Plugin instance.
 
 ## Type: `StatsAsset`
 
-> **StatsAsset** = {KnownStatsAsset|Record<string, any>}
+> **StatsAsset** = {KnownStatsAsset&Record<string, any>}
 
 ***
 
 ## Type: `StatsChunk`
 
-> **StatsChunk** = {KnownStatsChunk|Record<string, any>}
+> **StatsChunk** = {KnownStatsChunk&Record<string, any>}
 
 ***
 
 ## Type: `StatsChunkGroup`
 
-> **StatsChunkGroup** = {KnownStatsChunkGroup|Record<string, any>}
+> **StatsChunkGroup** = {KnownStatsChunkGroup&Record<string, any>}
 
 ***
 
 ## Type: `StatsChunkOrigin`
 
-> **StatsChunkOrigin** = {KnownStatsChunkOrigin|Record<string, any>}
+> **StatsChunkOrigin** = {KnownStatsChunkOrigin&Record<string, any>}
 
 ***
 
 ## Type: `StatsCompilation`
 
-> **StatsCompilation** = {KnownStatsCompilation|Record<string, any>}
+> **StatsCompilation** = {KnownStatsCompilation&Record<string, any>}
 
 ***
 
 ## Type: `StatsError`
 
-> **StatsError** = {KnownStatsError|Record<string, any>}
+> **StatsError** = {KnownStatsError&Record<string, any>}
 
 ***
 
 ## Type: `StatsLogging`
 
-> **StatsLogging** = {KnownStatsLogging|Record<string, any>}
+> **StatsLogging** = {KnownStatsLogging&Record<string, any>}
 
 ***
 
 ## Type: `StatsLoggingEntry`
 
-> **StatsLoggingEntry** = {KnownStatsLoggingEntry|Record<string, any>}
+> **StatsLoggingEntry** = {KnownStatsLoggingEntry&Record<string, any>}
 
 ***
 
 ## Type: `StatsModule`
 
-> **StatsModule** = {KnownStatsModule|Record<string, any>}
+> **StatsModule** = {KnownStatsModule&Record<string, any>}
 
 ***
 
 ## Type: `StatsModuleIssuer`
 
-> **StatsModuleIssuer** = {KnownStatsModuleIssuer|Record<string, any>}
+> **StatsModuleIssuer** = {KnownStatsModuleIssuer&Record<string, any>}
 
 ***
 
 ## Type: `StatsModuleReason`
 
-> **StatsModuleReason** = {KnownStatsModuleReason|Record<string, any>}
+> **StatsModuleReason** = {KnownStatsModuleReason&Record<string, any>}
 
 ***
 
 ## Type: `StatsModuleTraceDependency`
 
-> **StatsModuleTraceDependency** = {KnownStatsModuleTraceDependency|Record<string, any>}
+> **StatsModuleTraceDependency** = {KnownStatsModuleTraceDependency&Record<string, any>}
 
 ***
 
 ## Type: `StatsModuleTraceItem`
 
-> **StatsModuleTraceItem** = {KnownStatsModuleTraceItem|Record<string, any>}
+> **StatsModuleTraceItem** = {KnownStatsModuleTraceItem&Record<string, any>}
 
 ***
 
 ## Type: `StatsProfile`
 
-> **StatsProfile** = {KnownStatsProfile|Record<string, any>}
+> **StatsProfile** = {KnownStatsProfile&Record<string, any>}
 
 ***
 
