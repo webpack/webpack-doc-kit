@@ -1,6 +1,6 @@
 import { Converter, ReflectionKind, Renderer } from 'typedoc';
-import { writeFileSync } from 'node:fs';
-import { join } from 'node:path';
+import { writeFileSync, mkdirSync } from 'node:fs';
+import { join, dirname } from 'node:path';
 
 /**
  * @param {import('typedoc-plugin-markdown').MarkdownApplication} app
@@ -12,6 +12,7 @@ export function load(app) {
       .getReflectionsByKind(ReflectionKind.Accessor)
       .forEach(accessor => {
         accessor.kind = ReflectionKind.Property;
+
         if (accessor.getSignature) {
           accessor.type = accessor.getSignature.type;
           accessor.comment = accessor.getSignature.comment;
@@ -45,9 +46,16 @@ export function load(app) {
         ])
     );
 
-    writeFileSync(
-      join(app.options.getValue('out'), 'type-map.json'),
-      JSON.stringify(typeMap, null, 2)
-    );
+    const outputPath = join(app.options.getValue('out'), 'type-map.json');
+
+    try {
+      // Ensure directory exists
+      mkdirSync(dirname(outputPath), { recursive: true });
+
+      // Write file safely
+      writeFileSync(outputPath, JSON.stringify(typeMap, null, 2));
+    } catch (err) {
+      console.error('Failed to write type-map.json:', err);
+    }
   });
 }
