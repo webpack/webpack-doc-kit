@@ -2,7 +2,7 @@
 
 ## `createColors`
 
-> **createColors**: {object}
+> **createColors**: {(__namedParameters?: ColorsOptions) => Colors}
 
 * `__namedParameters` {ColorsOptions}
 * Returns: {Colors}
@@ -11,16 +11,16 @@
 
 ## `getArguments`
 
-> **getArguments**: {object}
+> **getArguments**: {(schema?: JSONSchema4|{ absolutePath: boolean; cli: { description?: string; exclude?: boolean; helper?: boolean; negatedDescription?: string; resetDescription?: string }; instanceof: string }|JSONSchema6|{ absolutePath: boolean; cli: { description?: string; exclude?: boolean; helper?: boolean; negatedDescription?: string; resetDescription?: string }; instanceof: string }|JSONSchema7|{ absolutePath: boolean; cli: { description?: string; exclude?: boolean; helper?: boolean; negatedDescription?: string; resetDescription?: string }; instanceof: string }) => Flags}
 
-* `schema` {JSONSchema4|object|JSONSchema6|object|JSONSchema7|object}
+* `schema` {JSONSchema4|{ absolutePath: boolean; cli: { description?: string; exclude?: boolean; helper?: boolean; negatedDescription?: string; resetDescription?: string }; instanceof: string }|JSONSchema6|{ absolutePath: boolean; cli: { description?: string; exclude?: boolean; helper?: boolean; negatedDescription?: string; resetDescription?: string }; instanceof: string }|JSONSchema7|{ absolutePath: boolean; cli: { description?: string; exclude?: boolean; helper?: boolean; negatedDescription?: string; resetDescription?: string }; instanceof: string }}
 * Returns: {Flags}
 
 ***
 
 ## `isColorSupported`
 
-> **isColorSupported**: {object}
+> **isColorSupported**: {() => boolean}
 
 * Returns: {boolean}
 
@@ -28,7 +28,7 @@
 
 ## `processArguments`
 
-> **processArguments**: {object}
+> **processArguments**: {(args: Flags, config: ObjectConfiguration, values: Values) => null|Problem[]}
 
 * `args` {Flags}
 * `config` {ObjectConfiguration}

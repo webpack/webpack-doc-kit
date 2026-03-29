@@ -58,7 +58,7 @@ Apply the plugin
 
 #### `getCacheVersion(version)`
 
-* `version` {string|true|object}
+* `version` {string|true|() => string}
 * Returns: {string}
 
 Get the cache version for a given version value

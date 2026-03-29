@@ -2,7 +2,7 @@
 
 ## `compareChunkGroupsByIndex`
 
-> **compareChunkGroupsByIndex**: {object}
+> **compareChunkGroupsByIndex**: {(a: ChunkGroup, b: ChunkGroup) => 0|1|-1}
 
 * `a` {ChunkGroup}
 * `b` {ChunkGroup}
@@ -18,7 +18,7 @@
 
 ## `compareChunksById`
 
-> **compareChunksById**: {object}
+> **compareChunksById**: {(a: Chunk, b: Chunk) => 0|1|-1}
 
 * `a` {Chunk}
 * `b` {Chunk}
@@ -28,7 +28,7 @@
 
 ## `compareChunksNatural`
 
-> **compareChunksNatural**: {object}
+> **compareChunksNatural**: {(chunkGraph: ChunkGraph) => Comparator<Chunk>}
 
 * `chunkGraph` {ChunkGraph}
 * Returns: {Comparator<Chunk>}
@@ -37,7 +37,7 @@
 
 ## `compareIds`
 
-> **compareIds**: {object}
+> **compareIds**: {(a: string|number, b: string|number) => 0|1|-1}
 
 * `a` {string|number}
 * `b` {string|number}
@@ -47,7 +47,7 @@
 
 ## `compareIterables`
 
-> **compareIterables**: {object}
+> **compareIterables**: {(elementComparator: Comparator<T>) => Comparator<Iterable<T>>}
 
 #### T
 
@@ -59,7 +59,7 @@
 
 ## `compareLocations`
 
-> **compareLocations**: {object}
+> **compareLocations**: {(a: DependencyLocation, b: DependencyLocation) => 0|1|-1}
 
 * `a` {DependencyLocation}
 * `b` {DependencyLocation}
@@ -81,7 +81,7 @@
 
 ## `compareModulesByIdentifier`
 
-> **compareModulesByIdentifier**: {object}
+> **compareModulesByIdentifier**: {(a: Module, b: Module) => 0|1|-1}
 
 * `a` {Module}
 * `b` {Module}
@@ -109,7 +109,7 @@
 
 ## `compareNumbers`
 
-> **compareNumbers**: {object}
+> **compareNumbers**: {(a: number, b: number) => 0|1|-1}
 
 * `a` {number}
 * `b` {number}
@@ -119,7 +119,7 @@
 
 ## `compareSelect`
 
-> **compareSelect**: {object}
+> **compareSelect**: {(getter: Selector<T, R>, comparator: Comparator<R>) => Comparator<T>}
 
 #### T
 
@@ -136,7 +136,7 @@
 
 ## `compareStrings`
 
-> **compareStrings**: {object}
+> **compareStrings**: {(a: string, b: string) => 0|1|-1}
 
 * `a` {string}
 * `b` {string}
@@ -146,7 +146,7 @@
 
 ## `compareStringsNumeric`
 
-> **compareStringsNumeric**: {object}
+> **compareStringsNumeric**: {(a: string, b: string) => 0|1|-1}
 
 * `a` {string}
 * `b` {string}
@@ -156,7 +156,7 @@
 
 ## `concatComparators`
 
-> **concatComparators**: {object}
+> **concatComparators**: {(c1: Comparator<T>, c2: Comparator<T>, ...cRest: Comparator<T>[]) => Comparator<T>}
 
 #### T
 
@@ -170,7 +170,7 @@
 
 ## `keepOriginalOrder`
 
-> **keepOriginalOrder**: {object}
+> **keepOriginalOrder**: {(iterable: Iterable<T>) => Comparator<T>}
 
 #### T
 
@@ -182,9 +182,9 @@
 
 ## `sortWithSourceOrder`
 
-> **sortWithSourceOrder**: {object}
+> **sortWithSourceOrder**: {(dependencies: Dependency[], dependencySourceOrderMap: WeakMap<Dependency, DependencySourceOrder>, onDependencyReSort?: (dep: Dependency, index: number) => void) => void}
 
 * `dependencies` {Dependency[]}
 * `dependencySourceOrderMap` {WeakMap<Dependency, DependencySourceOrder>}
-* `onDependencyReSort` {object}
+* `onDependencyReSort` {(dep: Dependency, index: number) => void}
 * Returns: {void}
