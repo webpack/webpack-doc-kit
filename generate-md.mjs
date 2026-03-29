@@ -1,6 +1,11 @@
 import { Application } from 'typedoc';
-import webpack from './webpack/package.json' with { type: 'json' };
 import { major } from 'semver';
+
+import fs from 'fs';
+
+const webpack = JSON.parse(
+  fs.readFileSync(new URL('./webpack/package.json', import.meta.url))
+);
 
 const app = await Application.bootstrapWithPlugins({
   entryPoints: ['./webpack/types.d.ts'],
