@@ -1,48 +1,23 @@
-import fs from 'fs';
-import { execFileSync } from 'child_process';
+import { readFile, access } from 'node:fs/promises';
+import { execFileSync } from 'node:child_process';
 
-const webpackDir = './webpack';
-const headCommitFile = './HEAD_COMMIT';
+const WEBPACK_DIR = 'webpack';
+const REF = (await readFile('HEAD_COMMIT', 'utf-8')).trim();
 
-// Allow an env var override (used by CI)
-let ref = process.env.WEBPACK_REF;
-
-if (!ref && fs.existsSync(headCommitFile)) {
-  ref = fs.readFileSync(headCommitFile, 'utf-8').trim();
-}
-
-if (!ref) {
-  // Default fallback if running locally before any syncing has happened
-  console.log(
-    `Warning: WEBPACK_REF not set and ${headCommitFile} not found. Defaulting to 'main'.`
-  );
-  ref = 'main';
-}
-
-console.log(`Cloning webpack repository at ref: ${ref}...`);
-
-if (fs.existsSync(webpackDir)) {
-  console.log(
-    `Repository already exists at ${webpackDir}. Fetching latest updates...`
-  );
+try {
+  await access(WEBPACK_DIR);
   execFileSync('git', ['fetch', '--all'], {
-    cwd: webpackDir,
+    cwd: WEBPACK_DIR,
     stdio: 'inherit',
   });
-} else {
-  // Clone the repository
-  console.log('Running git clone https://github.com/webpack/webpack.git...');
+} catch {
   execFileSync(
     'git',
-    ['clone', 'https://github.com/webpack/webpack.git', webpackDir],
+    ['clone', 'https://github.com/webpack/webpack.git', WEBPACK_DIR],
     {
       stdio: 'inherit',
     }
   );
 }
 
-// Checkout the target commit
-console.log(`Checking out commit/branch: ${ref}...`);
-execFileSync('git', ['checkout', ref], { cwd: webpackDir, stdio: 'inherit' });
-
-console.log('Successfully completed clone-webpack script.');
+execFileSync('git', ['checkout', REF], { cwd: WEBPACK_DIR, stdio: 'inherit' });
