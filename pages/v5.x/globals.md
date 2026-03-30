@@ -3123,7 +3123,7 @@ Apply the plugin
 
 #### Static method: `byType(map)`
 
-* `map` {object}
+* `map` {{ [index: string]: Generator }}
 * Returns: {ByTypeGenerator}
 
 ***
@@ -6285,7 +6285,7 @@ Options object as provided by the user.
 
 ### Properties
 
-* `amd` {false|object} Set the value of `require.amd` and `define.amd`. Or disable AMD support.
+* `amd` {false|{ [index: string]: any }} Set the value of `require.amd` and `define.amd`. Or disable AMD support.
 * `bail` {boolean} Report the first error as a hard error instead of tolerating it.
 * `cache` {boolean|FileCacheOptions|MemoryCacheOptions} Cache generated modules and chunks to improve performance for multiple incremental builds.
 * `context` {string} The base directory (absolute path!) for resolving the `entry` option. If `output.pathinfo` is set, the included pathinfo is shortened to this directory.
@@ -6295,7 +6295,7 @@ Options object as provided by the user.
 * `entry` {string|string[]|EntryObject|() => string|string[]|EntryObject|Promise<EntryStatic>} The entry point(s) of the compilation.
 * `experiments` {Experiments} Enables/Disables experiments (experimental features with relax SemVer compatibility).
 * `extends` {string|string[]} Extend configuration from another configuration (only works when using webpack-cli).
-* `externals` {string|RegExp|ExternalItemObjectKnown|ExternalItemObjectUnknown|(data: ExternalItemFunctionData, callback: (err: Error, result: string|boolean|string[]|object) => void) => void|(data: ExternalItemFunctionData) => Promise<ExternalItemValue>|ExternalItem[]} Specify dependencies that shouldn't be resolved by webpack, but should become dependencies of the resulting bundle. The kind of the dependency depends on `output.libraryTarget`.
+* `externals` {string|RegExp|ExternalItemObjectKnown|ExternalItemObjectUnknown|(data: ExternalItemFunctionData, callback: (err: Error, result: string|boolean|string[]|{ [index: string]: any }) => void) => void|(data: ExternalItemFunctionData) => Promise<ExternalItemValue>|ExternalItem[]} Specify dependencies that shouldn't be resolved by webpack, but should become dependencies of the resulting bundle. The kind of the dependency depends on `output.libraryTarget`.
 * `externalsPresets` {ExternalsPresets} Enable presets of externals for specific targets.
 * `externalsType` {"asset"|"module"|"css-import"|"css-url"|"global"|"import"|"commonjs"|"jsonp"|"promise"|"this"|"var"|"assign"|"window"|"self"|"commonjs2"|"commonjs-module"|"commonjs-static"|"amd"|"amd-require"|"umd"|"umd2"|"system"|"module-import"|"script"|"node-commonjs"} Specifies the default type of externals ('amd*', 'umd*', 'system' and 'jsonp' depend on output.libraryTarget set to the same value).
 * `ignoreWarnings` {RegExp|{ file: RegExp; message: RegExp; module: RegExp }|(warning: Error, compilation: Compilation) => boolean[]} Ignore specific warnings.
@@ -6353,7 +6353,7 @@ If an dependency matches exactly a property of the object, the property value is
 
 ### Properties
 
-* `byLayer` {object|(layer: string) => ExternalItem} Specify externals depending on the layer.
+* `byLayer` {{ [index: string]: ExternalItem }|(layer: string) => ExternalItem} Specify externals depending on the layer.
 
 ***
 
@@ -6374,7 +6374,7 @@ Options object for persistent file-based caching.
 ### Properties
 
 * `allowCollectingMemory` {boolean} Allows to collect unused memory allocated during deserialization. This requires copying data into smaller buffers and has a performance cost.
-* `buildDependencies` {object} Dependencies the build depends on (in multiple categories, default categories: 'defaultWebpack').
+* `buildDependencies` {{ [index: string]: string[] }} Dependencies the build depends on (in multiple categories, default categories: 'defaultWebpack').
 * `cacheDirectory` {string} Base directory for the cache (defaults to node_modules/.cache/webpack).
 * `cacheLocation` {string} Locations for the cache (defaults to cacheDirectory / name).
 * `compression` {false|"gzip"|"brotli"} Compression type used for the cache files.
@@ -6463,8 +6463,8 @@ Options for library.
 
 ### Type Parameters
 
-* `OptionsType` = {object}
-* `ContextAdditions` = {object}
+* `OptionsType` = {{}}
+* `ContextAdditions` = {{}}
 
 * `this` {NormalModuleLoaderContext<OptionsType>|LoaderRunnerLoaderContext<OptionsType>|LoaderPluginLoaderContext|HotModuleReplacementPluginLoaderContext|ContextAdditions}
 * `content` {string}
@@ -6478,8 +6478,8 @@ Options for library.
 
 ### Type Parameters
 
-* `OptionsType` = {object}
-* `ContextAdditions` = {object}
+* `OptionsType` = {{}}
+* `ContextAdditions` = {{}}
 
 ### Properties
 
@@ -6627,8 +6627,8 @@ Specify options for each parser.
 
 ### Type Parameters
 
-* `OptionsType` = {object}
-* `ContextAdditions` = {object}
+* `OptionsType` = {{}}
+* `ContextAdditions` = {{}}
 
 * `this` {NormalModuleLoaderContext<OptionsType>|LoaderRunnerLoaderContext<OptionsType>|LoaderPluginLoaderContext|HotModuleReplacementPluginLoaderContext|ContextAdditions}
 * `remainingRequest` {string}
@@ -6655,8 +6655,8 @@ Specify options for each parser.
 
 ### Type Parameters
 
-* `OptionsType` = {object}
-* `ContextAdditions` = {object}
+* `OptionsType` = {{}}
+* `ContextAdditions` = {{}}
 
 * `this` {NormalModuleLoaderContext<OptionsType>|LoaderRunnerLoaderContext<OptionsType>|LoaderPluginLoaderContext|HotModuleReplacementPluginLoaderContext|ContextAdditions}
 * `content` {Buffer}
@@ -6709,9 +6709,9 @@ Options object for resolving requests.
 
 ### Properties
 
-* `alias` {{ alias: string|false|string[]; name: string; onlyModule: boolean }[]|object} Redirect module requests.
+* `alias` {{ alias: string|false|string[]; name: string; onlyModule: boolean }[]|{ [index: string]: string|false|string[] }} Redirect module requests.
 * `aliasFields` {string|string[][]} Fields in the description file (usually package.json) which are used to redirect requests inside the module.
-* `byDependency` {object} Extra resolve options per dependency category. Typical categories are "commonjs", "amd", "esm".
+* `byDependency` {{ [index: string]: ResolveOptions }} Extra resolve options per dependency category. Typical categories are "commonjs", "amd", "esm".
 * `cache` {boolean} Enable caching of successfully resolved requests (cache entries are revalidated).
 * `cachePredicate` {(request: ResolveRequest) => boolean} Predicate function to decide which requests should be cached.
 * `cacheWithContext` {boolean} Include the context information in the cache identifier when caching.
@@ -6719,16 +6719,16 @@ Options object for resolving requests.
 * `descriptionFiles` {string[]} Filenames used to find a description file (like a package.json).
 * `enforceExtension` {boolean} Enforce the resolver to use one of the extensions from the extensions option (User must specify requests without extension).
 * `exportsFields` {string[]} Field names from the description file (usually package.json) which are used to provide entry points of a package.
-* `extensionAlias` {object} An object which maps extension to extension aliases.
+* `extensionAlias` {{ [index: string]: string|string[] }} An object which maps extension to extension aliases.
 * `extensions` {string[]} Extensions added to the request when trying to find the file.
-* `fallback` {{ alias: string|false|string[]; name: string; onlyModule: boolean }[]|object} Redirect module requests when normal resolving fails.
+* `fallback` {{ alias: string|false|string[]; name: string; onlyModule: boolean }[]|{ [index: string]: string|false|string[] }} Redirect module requests when normal resolving fails.
 * `fileSystem` {InputFileSystem} Filesystem for the resolver.
 * `fullySpecified` {boolean} Treats the request specified by the user as fully specified, meaning no extensions are added and the mainFiles in directories are not resolved (This doesn't affect requests from mainFields, aliasFields or aliases).
 * `importsFields` {string[]} Field names from the description file (usually package.json) which are used to provide internal request of a package (requests starting with # are considered as internal).
 * `mainFields` {string|string[][]} Field names from the description file (package.json) which are used to find the default entry point.
 * `mainFiles` {string[]} Filenames used to find the default entry point if there is no description file or main field.
 * `modules` {string[]} Folder names or directory paths where to find modules.
-* `plugins` {false|""|0|"..."|{ apply: (arg0: Resolver) => void }|(this: Resolver, arg1: Resolver) => void[]} Plugins for the resolver.
+* `plugins` {false|""|0|"..."|{ [index: string]: any }|(this: Resolver, arg1: Resolver) => void[]} Plugins for the resolver.
 * `preferAbsolute` {boolean} Prefer to resolve server-relative URLs (starting with '/') as absolute paths before falling back to resolve in 'resolve.roots'.
 * `preferRelative` {boolean} Prefer to resolve module requests as relative request and fallback to resolving as module.
 * `resolver` {Resolver} Custom resolver.
@@ -6736,7 +6736,7 @@ Options object for resolving requests.
 * `roots` {string[]} A list of directories in which requests that are server-relative URLs (starting with '/') are resolved.
 * `symlinks` {boolean} Enable resolving symlinks to the original location.
 * `tsconfig` {string|boolean|{ configFile: string; references: string }} TypeScript config for paths mapping. Can be `false` (disabled), `true` (use default `tsconfig.json`), a string path to `tsconfig.json`, or an object with `configFile` and `references` options.
-* `unsafeCache` {boolean|object} Enable caching of successfully resolved requests (cache entries are not revalidated).
+* `unsafeCache` {boolean|{ [index: string]: any }} Enable caching of successfully resolved requests (cache entries are not revalidated).
 * `useSyncFileSystemCalls` {boolean} Use synchronous filesystem calls for the resolver.
 
 ***
@@ -6747,14 +6747,14 @@ A rule description with conditions and effects for modules.
 
 ### Properties
 
-* `assert` {object} Match on import assertions of the dependency.
+* `assert` {{ [index: string]: RuleSetConditionOrConditions }} Match on import assertions of the dependency.
 * `compiler` {string|RegExp|RuleSetLogicalConditions|(value: string) => boolean|RuleSetCondition[]} Match the child compiler name.
 * `dependency` {string|RegExp|RuleSetLogicalConditions|RuleSetCondition[]|(value: string) => boolean} Match dependency type.
-* `descriptionData` {object} Match values of properties in the description file (usually package.json).
+* `descriptionData` {{ [index: string]: RuleSetConditionOrConditions }} Match values of properties in the description file (usually package.json).
 * `enforce` {"pre"|"post"} Enforce this rule as pre or post step.
 * `exclude` {string|RegExp|RuleSetLogicalConditionsAbsolute|(value: string) => boolean|RuleSetConditionAbsolute[]} Shortcut for resource.exclude.
 * `extractSourceMap` {boolean} Enable/Disable extracting source map.
-* `generator` {object} The options for the module generator.
+* `generator` {{ [index: string]: any }} The options for the module generator.
 * `include` {string|RegExp|RuleSetLogicalConditionsAbsolute|RuleSetConditionAbsolute[]|(value: string) => boolean} Shortcut for resource.include.
 * `issuer` {string|RegExp|RuleSetLogicalConditionsAbsolute|RuleSetConditionAbsolute[]|(value: string) => boolean} Match the issuer of the module (The module pointing to this module).
 * `issuerLayer` {string|RegExp|RuleSetLogicalConditions|RuleSetCondition[]|(value: string) => boolean} Match layer of the issuer of this module (The module pointing to this module).
@@ -6762,8 +6762,8 @@ A rule description with conditions and effects for modules.
 * `loader` {string} Shortcut for use.loader.
 * `mimetype` {string|RegExp|RuleSetLogicalConditions|RuleSetCondition[]|(value: string) => boolean} Match module mimetype when load from Data URI.
 * `oneOf` {false|""|0|RuleSetRule[]} Only execute the first matching rule in this array.
-* `options` {string|object} Shortcut for use.options.
-* `parser` {object} Options for parsing.
+* `options` {string|{ [index: string]: any }} Shortcut for use.options.
+* `parser` {{ [index: string]: any }} Options for parsing.
 * `realResource` {string|RegExp|RuleSetLogicalConditionsAbsolute|RuleSetConditionAbsolute[]|(value: string) => boolean} Match the real resource path of the module.
 * `resolve` {ResolveOptions} Options for the resolver.
 * `resource` {string|RegExp|RuleSetLogicalConditionsAbsolute|RuleSetConditionAbsolute[]|(value: string) => boolean} Match the resource path of the module.
@@ -6774,8 +6774,8 @@ A rule description with conditions and effects for modules.
 * `sideEffects` {boolean} Flags a module as with or without side effects.
 * `test` {string|RegExp|RuleSetLogicalConditionsAbsolute|RuleSetConditionAbsolute[]|(value: string) => boolean} Shortcut for resource.test.
 * `type` {string} Module type to use for the module.
-* `use` {string|RuleSetUseFunction|string|false|0|RuleSetUseFunction|{ ident: string; loader: string; options: string|object }[]|{ ident: string; loader: string; options: string|object }} Modifiers applied to the module when rule is matched.
-* `with` {object} Match on import attributes of the dependency.
+* `use` {string|RuleSetUseFunction|string|false|0|RuleSetUseFunction|{ ident: string; loader: string; options: string|{ [index: string]: any } }[]|{ ident: string; loader: string; options: string|{ [index: string]: any } }} Modifiers applied to the module when rule is matched.
+* `with` {{ [index: string]: RuleSetConditionOrConditions }} Match on import attributes of the dependency.
 
 ***
 
@@ -6873,12 +6873,12 @@ Normalized webpack options object.
 
 ### Properties
 
-* `amd` {false|object} Set the value of `require.amd` and `define.amd`. Or disable AMD support.
+* `amd` {false|{ [index: string]: any }} Set the value of `require.amd` and `define.amd`. Or disable AMD support.
 * `bail` {boolean} Report the first error as a hard error instead of tolerating it.
 * `cache` {CacheOptionsNormalized} Cache generated modules and chunks to improve performance for multiple incremental builds.
 * `context` {string} The base directory (absolute path!) for resolving the `entry` option. If `output.pathinfo` is set, the included pathinfo is shortened to this directory.
 * `dependencies` {string[]} References to other configurations to depend on.
-* `devServer` {false|object} Options for the webpack-dev-server.
+* `devServer` {false|{ [index: string]: any }} Options for the webpack-dev-server.
 * `devtool` {string|false|{ type: "css"|"javascript"|"all"; use: RawDevTool }[]} A developer tool to enhance debugging (false | eval | [inline-|hidden-|eval-][nosources-][cheap-[module-]]source-map).
 * `dotenv` {boolean|DotenvPluginOptions} Enable and configure the Dotenv plugin to load environment variables from .env files.
 * `entry` {EntryNormalized} The entry point(s) of the compilation.
@@ -6956,22 +6956,22 @@ Plugin instance.
 
 ## Type: `ExternalItem`
 
-> **ExternalItem** = {string|RegExp|ExternalItemObjectKnown|ExternalItemObjectUnknown|(data: ExternalItemFunctionData, callback: (err: null|Error, result: string|boolean|string[]|object) => void) => void|(data: ExternalItemFunctionData) => Promise<ExternalItemValue>}
+> **ExternalItem** = {string|RegExp|ExternalItemObjectKnown|ExternalItemObjectUnknown|(data: ExternalItemFunctionData, callback: (err: null|Error, result: string|boolean|string[]|{ [index: string]: any }) => void) => void|(data: ExternalItemFunctionData) => Promise<ExternalItemValue>}
 
 ***
 
 ## Type: `ExternalItemFunction`
 
-> **ExternalItemFunction** = {(data: ExternalItemFunctionData, callback: (err: null|Error, result: string|boolean|string[]|object) => void) => void|(data: ExternalItemFunctionData) => Promise<ExternalItemValue>}
+> **ExternalItemFunction** = {(data: ExternalItemFunctionData, callback: (err: null|Error, result: string|boolean|string[]|{ [index: string]: any }) => void) => void|(data: ExternalItemFunctionData) => Promise<ExternalItemValue>}
 
 ***
 
 ## Type: `ExternalItemFunctionCallback`
 
-> **ExternalItemFunctionCallback** = {(data: ExternalItemFunctionData, callback: (err: null|Error, result: string|boolean|string[]|object) => void) => void}
+> **ExternalItemFunctionCallback** = {(data: ExternalItemFunctionData, callback: (err: null|Error, result: string|boolean|string[]|{ [index: string]: any }) => void) => void}
 
 * `data` {ExternalItemFunctionData}
-* `callback` {(err: null|Error, result: string|boolean|string[]|object) => void}
+* `callback` {(err: null|Error, result: string|boolean|string[]|{ [index: string]: any }) => void}
 * Returns: {void}
 
 ***
@@ -7017,13 +7017,13 @@ Plugin instance.
 
 ## Type: `ExternalItemValue`
 
-> **ExternalItemValue** = {string|boolean|string[]|object}
+> **ExternalItemValue** = {string|boolean|string[]|{ [index: string]: any }}
 
 ***
 
 ## Type: `Externals`
 
-> **Externals** = {string|RegExp|ExternalItemObjectKnown|ExternalItemObjectUnknown|(data: ExternalItemFunctionData, callback: (err: null|Error, result: string|boolean|string[]|object) => void) => void|(data: ExternalItemFunctionData) => Promise<ExternalItemValue>|ExternalItem[]}
+> **Externals** = {string|RegExp|ExternalItemObjectKnown|ExternalItemObjectUnknown|(data: ExternalItemFunctionData, callback: (err: null|Error, result: string|boolean|string[]|{ [index: string]: any }) => void) => void|(data: ExternalItemFunctionData) => Promise<ExternalItemValue>|ExternalItem[]}
 
 ***
 
@@ -7048,8 +7048,8 @@ Plugin instance.
 
 ### Type Parameters
 
-* `OptionsType` = {object}
-* `ContextAdditions` = {object}
+* `OptionsType` = {{}}
+* `ContextAdditions` = {{}}
 
 ***
 
@@ -7076,8 +7076,8 @@ Plugin instance.
 
 ### Type Parameters
 
-* `OptionsType` = {object}
-* `ContextAdditions` = {object}
+* `OptionsType` = {{}}
+* `ContextAdditions` = {{}}
 
 ***
 
@@ -7089,13 +7089,13 @@ Plugin instance.
 
 ## Type: `ResolvePluginInstance`
 
-> **ResolvePluginInstance** = {{ apply: (arg0: Resolver) => void }|(this: Resolver, arg1: Resolver) => void}
+> **ResolvePluginInstance** = {{ [index: string]: any }|(this: Resolver, arg1: Resolver) => void}
 
 ### Union Members
 
 #### Type Literal
 
-{{ apply: (arg0: Resolver) => void }}
+{{ [index: string]: any }}
 
 #### Index Signature
 
@@ -7125,7 +7125,7 @@ Plugin instance.
 
 ## Type: `RuleSetUse`
 
-> **RuleSetUse** = {string|undefined|null|string|false|0|RuleSetUseFunction|{ ident: string; loader: string; options: string|object }[]|RuleSetUseFunction|{ ident: string; loader: string; options: string|object }}
+> **RuleSetUse** = {string|undefined|null|string|false|0|RuleSetUseFunction|{ ident: string; loader: string; options: string|{ [index: string]: any } }[]|RuleSetUseFunction|{ ident: string; loader: string; options: string|{ [index: string]: any } }}
 
 ### Union Members
 
@@ -7133,7 +7133,7 @@ Plugin instance.
 
 ***
 
-{undefined|null|string|false|0|RuleSetUseFunction|{ ident: string; loader: string; options: string|object }[]}
+{undefined|null|string|false|0|RuleSetUseFunction|{ ident: string; loader: string; options: string|{ [index: string]: any } }[]}
 
 ***
 
@@ -7143,26 +7143,26 @@ Plugin instance.
 
 #### Type Literal
 
-{{ ident: string; loader: string; options: string|object }}
+{{ ident: string; loader: string; options: string|{ [index: string]: any } }}
 
 * `ident` {string} Unique loader options identifier.
 * `loader` {string} Loader name.
-* `options` {string|object} Loader options.
+* `options` {string|{ [index: string]: any }} Loader options.
 
 ***
 
 ## Type: `RuleSetUseFunction`
 
-> **RuleSetUseFunction** = {(data: EffectData) => string|RuleSetUseFunction|{ ident: string; loader: string; options: string|object }|undefined|null|string|false|0|RuleSetUseFunction|{ ident: string; loader: string; options: string|object }[]}
+> **RuleSetUseFunction** = {(data: EffectData) => string|RuleSetUseFunction|{ ident: string; loader: string; options: string|{ [index: string]: any } }|undefined|null|string|false|0|RuleSetUseFunction|{ ident: string; loader: string; options: string|{ [index: string]: any } }[]}
 
 * `data` {EffectData}
-* Returns: {string|RuleSetUseFunction|{ ident: string; loader: string; options: string|object }|undefined|null|string|false|0|RuleSetUseFunction|{ ident: string; loader: string; options: string|object }[]}
+* Returns: {string|RuleSetUseFunction|{ ident: string; loader: string; options: string|{ [index: string]: any } }|undefined|null|string|false|0|RuleSetUseFunction|{ ident: string; loader: string; options: string|{ [index: string]: any } }[]}
 
 ***
 
 ## Type: `RuleSetUseItem`
 
-> **RuleSetUseItem** = {string|RuleSetUseFunction|{ ident: string; loader: string; options: string|object }}
+> **RuleSetUseItem** = {string|RuleSetUseFunction|{ ident: string; loader: string; options: string|{ [index: string]: any } }}
 
 ### Union Members
 
@@ -7176,11 +7176,11 @@ Plugin instance.
 
 #### Type Literal
 
-{{ ident: string; loader: string; options: string|object }}
+{{ ident: string; loader: string; options: string|{ [index: string]: any } }}
 
 * `ident` {string} Unique loader options identifier.
 * `loader` {string} Loader name.
-* `options` {string|object} Loader options.
+* `options` {string|{ [index: string]: any }} Loader options.
 
 ***
 

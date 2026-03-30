@@ -11,6 +11,15 @@ const stringifySignature = signature => {
   return `(${params}) => ${returns}`;
 };
 
+const stringifyIndexSignatures = declaration =>
+  declaration?.indexSignatures
+    ?.map(signature => {
+      const keyType = resolve(signature.parameters?.[0]?.type);
+      const valueType = resolve(signature.type);
+      return `[index: ${keyType}]: ${valueType}`;
+    })
+    .join('; ');
+
 const resolve = type => {
   if (!type) return 'unknown';
 
@@ -59,6 +68,10 @@ const resolve = type => {
         return stringifySignature(type.declaration.signatures[0]);
       }
 
+      if (type.declaration?.indexSignatures?.length) {
+        return `{ ${stringifyIndexSignatures(type.declaration)} }`;
+      }
+
       if (type.declaration?.children?.length) {
         const preview = type.declaration.children
           .slice(0, 5)
@@ -69,7 +82,7 @@ const resolve = type => {
         return `{ ${preview}${suffix} }`;
       }
 
-      return 'object';
+      return '{}';
 
     case 'inferred':
     case 'unknown':
