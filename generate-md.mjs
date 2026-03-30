@@ -4,7 +4,7 @@ import { major } from 'semver';
 
 const app = await Application.bootstrapWithPlugins({
   entryPoints: ['./webpack/types.d.ts'],
-  out: `pages/v${major(webpack.version)}.x`,
+  out: `pages/v${major(webpack.version)}.x/api`,
 
   // Plugins
   plugin: [

@@ -1,4 +1,28 @@
 import { resolve } from 'node:path';
+import { readdirSync, existsSync } from 'node:fs';
+
+const pagesRoot = resolve(import.meta.dirname, './pages');
+
+const getLatestVersionDir = () => {
+  if (!existsSync(pagesRoot)) return 'v5.x';
+
+  const versions = readdirSync(pagesRoot, { withFileTypes: true })
+    .filter(entry => entry.isDirectory() && /^v\d+\.x$/.test(entry.name))
+    .map(entry => entry.name)
+    .sort(
+      (a, b) =>
+        Number.parseInt(b.slice(1), 10) - Number.parseInt(a.slice(1), 10)
+    );
+
+  return versions[0] ?? 'v5.x';
+};
+
+const latestVersion = getLatestVersionDir();
+const typeMapInApi = `./pages/${latestVersion}/api/type-map.json`;
+const typeMapLegacy = `./pages/${latestVersion}/type-map.json`;
+const typeMapPath = existsSync(resolve(import.meta.dirname, typeMapInApi))
+  ? typeMapInApi
+  : typeMapLegacy;
 
 /**
  * Configuration for @node-core/doc-kit when generating webpack API docs.
@@ -11,11 +35,11 @@ export default {
     repository: 'webpack/webpack',
 
     // Input & Output
-    input: ['./pages/v5.x/**/*.md'],
+    input: [`./pages/${latestVersion}/**/*.md`],
     output: 'out',
   },
   metadata: {
-    typeMap: './pages/v5.x/type-map.json',
+    typeMap: typeMapPath,
   },
   web: {
     // Use "webpack" as the product name in navbar and sidebar labels

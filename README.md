@@ -24,6 +24,8 @@ This ensures documentation stays in sync with upstream webpack without manual in
 
 ```
 ├── generate-md.mjs          # TypeDoc entry point
+├── scripts/
+│   └── fetch-ecosystem-readmes.mjs  # Sync plugin/loader README pages
 ├── plugins/
 │   ├── processor.mjs         # Namespace merging + type-map generation
 │   └── theme/                # Custom doc-kit theme
@@ -37,13 +39,14 @@ This ensures documentation stays in sync with upstream webpack without manual in
 
 ## Scripts
 
-| Script                  | Description                          |
-| ----------------------- | ------------------------------------ |
-| `npm run generate-docs` | Generate Markdown from webpack types |
-| `npm run build-html`    | Convert Markdown to HTML             |
-| `npm run build`         | Generate docs + build HTML           |
-| `npm run lint`          | Run ESLint                           |
-| `npm run format:check`  | Check Prettier formatting            |
+| Script                   | Description                          |
+| ------------------------ | ------------------------------------ |
+| `npm run generate-docs`  | Generate Markdown from webpack types |
+| `npm run sync:ecosystem` | Fetch ecosystem README pages         |
+| `npm run build-html`     | Convert Markdown to HTML             |
+| `npm run build`          | Generate docs + ecosystem + HTML     |
+| `npm run lint`           | Run ESLint                           |
+| `npm run format:check`   | Check Prettier formatting            |
 
 ## Contributing
 

@@ -1,8 +1,9 @@
 {
   "scripts": {
     "generate-docs": "node generate-md.mjs",
+    "sync:ecosystem": "node scripts/fetch-ecosystem-readmes.mjs",
     "build-html": "doc-kit generate -t web --config-file ./doc-kit.config.mjs",
-    "build": "npm run generate-docs && npm run build-html",
+    "build": "npm run generate-docs && npm run sync:ecosystem && npm run build-html",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
     "format": "prettier --write .",

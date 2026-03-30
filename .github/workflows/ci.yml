@@ -57,6 +57,12 @@ jobs:
       - name: Regenerate docs
         run: npm run generate-docs
 
+      - name: Refresh ecosystem readmes
+        run: npm run sync:ecosystem
+
+      - name: Verify web build
+        run: npm run build-html
+
       - name: Check docs freshness
         run: |
           if ! git diff --quiet pages/; then
