@@ -38,14 +38,6 @@ jobs:
             echo "New webpack commit detected, syncing."
           fi
 
-      - name: Checkout webpack
-        if: steps.check.outputs.changed == 'true'
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-        with:
-          repository: webpack/webpack
-          ref: ${{ steps.latest.outputs.latest }}
-          path: webpack
-
       - name: Setup Node.js
         if: steps.check.outputs.changed == 'true'
         uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6.2.0
@@ -56,6 +48,12 @@ jobs:
       - name: Install dependencies
         if: steps.check.outputs.changed == 'true'
         run: npm ci
+
+      - name: Clone webpack
+        if: steps.check.outputs.changed == 'true'
+        env:
+          WEBPACK_REF: ${{ steps.latest.outputs.latest }}
+        run: npm run clone-webpack
 
       - name: Update HEAD_COMMIT
         if: steps.check.outputs.changed == 'true'
