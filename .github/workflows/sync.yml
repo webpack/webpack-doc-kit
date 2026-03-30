@@ -49,15 +49,13 @@ jobs:
         if: steps.check.outputs.changed == 'true'
         run: npm ci
 
-      - name: Clone webpack
-        if: steps.check.outputs.changed == 'true'
-        env:
-          WEBPACK_REF: ${{ steps.latest.outputs.latest }}
-        run: npm run clone-webpack
-
       - name: Update HEAD_COMMIT
         if: steps.check.outputs.changed == 'true'
         run: echo "${{ steps.latest.outputs.latest }}" > HEAD_COMMIT
+
+      - name: Clone webpack
+        if: steps.check.outputs.changed == 'true'
+        run: npm run clone-webpack
 
       - name: Regenerate docs
         if: steps.check.outputs.changed == 'true'

@@ -21,18 +21,19 @@ if (!ref) {
 
 console.log(`Cloning webpack repository at ref: ${ref}...`);
 
-// Clean up existing directory if it exists
-if (fs.existsSync(webpackDir)) {
-  console.log(`Removing existing ${webpackDir} directory...`);
-  fs.rmSync(webpackDir, { recursive: true, force: true });
-}
-
 try {
-  // Clone the repository
-  console.log('Running git clone https://github.com/webpack/webpack.git...');
-  execSync(`git clone https://github.com/webpack/webpack.git ${webpackDir}`, {
-    stdio: 'inherit',
-  });
+  if (fs.existsSync(webpackDir)) {
+    console.log(
+      `Repository already exists at ${webpackDir}. Fetching latest updates...`
+    );
+    execSync('git fetch --all', { cwd: webpackDir, stdio: 'inherit' });
+  } else {
+    // Clone the repository
+    console.log('Running git clone https://github.com/webpack/webpack.git...');
+    execSync(`git clone https://github.com/webpack/webpack.git ${webpackDir}`, {
+      stdio: 'inherit',
+    });
+  }
 
   // Checkout the target commit
   console.log(`Checking out commit/branch: ${ref}...`);

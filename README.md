@@ -39,6 +39,7 @@ This ensures documentation stays in sync with upstream webpack without manual in
 
 | Script                  | Description                          |
 | ----------------------- | ------------------------------------ |
+| `npm run clone-webpack` | Clone webpack repo at pinned commit  |
 | `npm run generate-docs` | Generate Markdown from webpack types |
 | `npm run build-html`    | Convert Markdown to HTML             |
 | `npm run build`         | Generate docs + build HTML           |
