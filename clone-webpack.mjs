@@ -1,5 +1,5 @@
 import fs from 'fs';
-import { execSync } from 'child_process';
+import { execFileSync } from 'child_process';
 
 const webpackDir = './webpack';
 const headCommitFile = './HEAD_COMMIT';
@@ -26,20 +26,27 @@ try {
     console.log(
       `Repository already exists at ${webpackDir}. Fetching latest updates...`
     );
-    execSync('git fetch --all', { cwd: webpackDir, stdio: 'inherit' });
+    execFileSync('git', ['fetch', '--all'], {
+      cwd: webpackDir,
+      stdio: 'inherit',
+    });
   } else {
     // Clone the repository
     console.log('Running git clone https://github.com/webpack/webpack.git...');
-    execSync(`git clone https://github.com/webpack/webpack.git ${webpackDir}`, {
-      stdio: 'inherit',
-    });
+    execFileSync(
+      'git',
+      ['clone', 'https://github.com/webpack/webpack.git', webpackDir],
+      {
+        stdio: 'inherit',
+      }
+    );
   }
 
   // Checkout the target commit
   console.log(`Checking out commit/branch: ${ref}...`);
-  execSync(`git checkout ${ref}`, { cwd: webpackDir, stdio: 'inherit' });
+  execFileSync('git', ['checkout', ref], { cwd: webpackDir, stdio: 'inherit' });
 
-  console.log('✨ Successfully completed clone-webpack script.');
+  console.log('Successfully completed clone-webpack script.');
 } catch (error) {
   console.error('Error during git clone or checkout:', error.message);
   process.exit(1);
