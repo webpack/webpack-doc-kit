@@ -1,3 +1,5 @@
+import { resolve } from 'node:path';
+
 /**
  * Configuration for @node-core/doc-kit when generating webpack API docs.
  *
@@ -18,6 +20,25 @@ export default {
   web: {
     // Use "webpack" as the product name in navbar and sidebar labels
     title: 'webpack',
+    // Override selected doc-kit theme aliases with webpack-branded components.
+    imports: {
+      '#theme/Logo': resolve(
+        import.meta.dirname,
+        './plugins/web-theme/WebpackLogo.jsx'
+      ),
+      '#theme/Navigation':
+        '@node-core/doc-kit/src/generators/web/ui/components/NavBar.jsx',
+      '#theme/Sidebar':
+        '@node-core/doc-kit/src/generators/web/ui/components/SideBar/index.jsx',
+      '#theme/Metabar':
+        '@node-core/doc-kit/src/generators/web/ui/components/MetaBar/index.jsx',
+      '#theme/Footer': resolve(
+        import.meta.dirname,
+        './plugins/web-theme/WebpackFooter.jsx'
+      ),
+      '#theme/Layout':
+        '@node-core/doc-kit/src/generators/web/ui/components/Layout/index.jsx',
+    },
   },
   'jsx-ast': {
     // Disable the "Edit this page" link — webpack API docs are generated from

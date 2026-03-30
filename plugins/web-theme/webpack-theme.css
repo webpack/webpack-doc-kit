@@ -1,0 +1,62 @@
+:root {
+  --webpack-blue: #1c78c0;
+  --webpack-blue-dark: #0a2746;
+  --webpack-ink: #101828;
+}
+
+.webpack-docs-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: var(--webpack-ink);
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.webpack-docs-logo__icon {
+  width: 1.35rem;
+  height: 1.35rem;
+  fill: var(--webpack-blue);
+}
+
+.webpack-docs-logo__wordmark {
+  font-size: 1rem;
+}
+
+[data-theme='dark'] .webpack-docs-logo {
+  color: #e6f4ff;
+}
+
+[data-theme='dark'] .webpack-docs-logo__icon {
+  fill: #53a4f2;
+}
+
+.webpack-docs-footer {
+  margin-top: 2rem;
+  padding: 1rem 0;
+  border-top: 1px solid color-mix(in oklab, var(--webpack-blue) 20%, transparent);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  font-size: 0.92rem;
+}
+
+.webpack-docs-footer p {
+  margin: 0;
+}
+
+.webpack-docs-footer a {
+  color: var(--webpack-blue-dark);
+  font-weight: 600;
+}
+
+[data-theme='dark'] .webpack-docs-footer {
+  border-top-color: color-mix(in oklab, #53a4f2 30%, transparent);
+}
+
+[data-theme='dark'] .webpack-docs-footer a {
+  color: #7fc2ff;
+}
