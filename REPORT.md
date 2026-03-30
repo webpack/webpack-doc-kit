@@ -14,8 +14,6 @@ It explains:
 
 ## 2) Original Challenge Requirements
 
-From TASK.md, the project requested completion of five milestones:
-
 1. Milestone 1: Complete the TypeDoc theme so generated markdown is correct and doc-kit compatible.
 2. Milestone 2: Customize doc-kit output by adding configuration and style component references.
 3. Milestone 3: Implement CI/CD automation for generation pipeline and update PR workflow.
