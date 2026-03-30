@@ -47,7 +47,7 @@ Apply the plugin
 #### `new JavascriptParser([sourceType][, options])`
 
 * `sourceType` {"module"|"auto"|"script"}
-* `options` {object}
+* `options` {{ parse: (code: string, options: ParseOptions) => ParseResult }}
 * Returns: {JavascriptParser}
 
 ### Properties
@@ -55,9 +55,9 @@ Apply the plugin
 * `comments` {CommentJavascriptParser[]}
 * `currentTagData` {Record<string, any>|TopLevelSymbol|HarmonySettings|ImportSettings|CommonJsImportSettings|CompatibilitySettings|HarmonySpecifierGuards}
 * `destructuringAssignmentProperties` {WeakMap<Expression, Set<DestructuringAssignmentProperty>>}
-* `hooks` {Readonly<object>}
+* `hooks` {Readonly<{ assign: HookMap<SyncBailHook<Tuple<AssignmentExpression>, boolean|void>>; assignMemberChain: HookMap<SyncBailHook<Tuple<AssignmentExpression, string[]>, boolean|void>>; binaryExpression: SyncBailHook<Tuple<BinaryExpression>, boolean|void>; blockPreStatement: SyncBailHook<Tuple<ImportDeclaration|ExportNamedDeclaration|ExportAllDeclaration|FunctionDeclaration|MaybeNamedFunctionDeclaration|VariableDeclaration|ClassDeclaration|MaybeNamedClassDeclaration|ExpressionStatement|BlockStatement|StaticBlock|EmptyStatement|DebuggerStatement|WithStatement|ReturnStatement|LabeledStatement|BreakStatement|ContinueStatement|IfStatement|SwitchStatement|ThrowStatement|TryStatement|WhileStatement|DoWhileStatement|ForStatement|ForInStatement|ForOfStatement|ExportDefaultDeclaration>, boolean|void>; call: HookMap<SyncBailHook<Tuple<CallExpression>, boolean|void>>; ... }>}
 * `magicCommentContext` {Context}
-* `options` {object}
+* `options` {{ parse: (code: string, options: ParseOptions) => ParseResult }}
 * `prevStatement` {ClassDeclaration|MaybeNamedClassDeclaration|ClassExpression|Identifier|SimpleLiteral|RegExpLiteral|BigIntLiteral|ArrayExpression|ArrowFunctionExpression|AssignmentExpression|AwaitExpression|BinaryExpression|SimpleCallExpression|NewExpression|ChainExpression|ConditionalExpression|FunctionExpression|ImportExpression|LogicalExpression|MemberExpression|MetaProperty|ObjectExpression|SequenceExpression|TaggedTemplateExpression|TemplateLiteral|ThisExpression|UnaryExpression|UpdateExpression|YieldExpression|FunctionDeclaration|MaybeNamedFunctionDeclaration|ImportDeclaration|ExportNamedDeclaration|ExportDefaultDeclaration|ExportAllDeclaration|ExpressionStatement|BlockStatement|StaticBlock|EmptyStatement|DebuggerStatement|WithStatement|ReturnStatement|LabeledStatement|BreakStatement|ContinueStatement|IfStatement|SwitchStatement|ThrowStatement|TryStatement|WhileStatement|DoWhileStatement|ForStatement|ForInStatement|ForOfStatement|VariableDeclaration}
 * `scope` {ScopeInfo}
 * `semicolons` {Set<number>}
@@ -67,9 +67,9 @@ Apply the plugin
 * `ALLOWED_MEMBER_TYPES_ALL` {3}
 * `ALLOWED_MEMBER_TYPES_CALL_EXPRESSION` {1}
 * `ALLOWED_MEMBER_TYPES_EXPRESSION` {2}
-* `getImportAttributes` {object}
+* `getImportAttributes` {(node: ImportDeclaration|ExportNamedDeclaration|ExportAllDeclaration|ImportExpressionJavascriptParser) => Record<string, string>}
 * `VariableInfo` {VariableInfo}
-* `VariableInfoFlags` {Readonly<object>}
+* `VariableInfoFlags` {Readonly<{ Evaluated: 0; Free: 1; Normal: 2; Tagged: 4 }>}
 
 ### Methods
 
@@ -112,13 +112,8 @@ Block pre walking iterates the scope for block variable declarations
 
 #### `callHooksForExpression(hookMap, expr, args)`
 
-###### T
-
-`T`
-
-###### R
-
-`R`
+* `T`
+* `R`
 * `hookMap` {HookMap<SyncBailHook<T, R, UnsetAdditionalOptions>>}
 * `expr` {ClassExpression|Identifier|SimpleLiteral|RegExpLiteral|BigIntLiteral|ArrayExpression|ArrowFunctionExpression|AssignmentExpression|AwaitExpression|BinaryExpression|SimpleCallExpression|NewExpression|ChainExpression|ConditionalExpression|FunctionExpression|ImportExpression|LogicalExpression|MemberExpression|MetaProperty|ObjectExpression|SequenceExpression|TaggedTemplateExpression|TemplateLiteral|ThisExpression|UnaryExpression|UpdateExpression|YieldExpression|Super}
 * `args` {AsArray<T>}
@@ -126,29 +121,19 @@ Block pre walking iterates the scope for block variable declarations
 
 #### `callHooksForExpressionWithFallback(hookMap, expr, fallback, defined, args)`
 
-###### T
-
-`T`
-
-###### R
-
-`R`
+* `T`
+* `R`
 * `hookMap` {HookMap<SyncBailHook<T, R, UnsetAdditionalOptions>>}
 * `expr` {ClassExpression|Identifier|SimpleLiteral|RegExpLiteral|BigIntLiteral|ArrayExpression|ArrowFunctionExpression|AssignmentExpression|AwaitExpression|BinaryExpression|SimpleCallExpression|NewExpression|ChainExpression|ConditionalExpression|FunctionExpression|ImportExpression|LogicalExpression|MemberExpression|MetaProperty|ObjectExpression|SequenceExpression|TaggedTemplateExpression|TemplateLiteral|ThisExpression|UnaryExpression|UpdateExpression|YieldExpression|Super}
-* `fallback` {object}
-* `defined` {object}
+* `fallback` {(name: string, rootInfo: string|VariableInfo|ScopeInfo, getMembers: () => string[]) => R}
+* `defined` {(result: string) => R}
 * `args` {AsArray<T>}
 * Returns: {R}
 
 #### `callHooksForInfo(hookMap, info, args)`
 
-###### T
-
-`T`
-
-###### R
-
-`R`
+* `T`
+* `R`
 * `hookMap` {HookMap<SyncBailHook<T, R, UnsetAdditionalOptions>>}
 * `info` {ExportedVariableInfo}
 * `args` {AsArray<T>}
@@ -156,29 +141,19 @@ Block pre walking iterates the scope for block variable declarations
 
 #### `callHooksForInfoWithFallback(hookMap, info, fallback, defined, args)`
 
-###### T
-
-`T`
-
-###### R
-
-`R`
+* `T`
+* `R`
 * `hookMap` {HookMap<SyncBailHook<T, R, UnsetAdditionalOptions>>}
 * `info` {ExportedVariableInfo}
-* `fallback` {object}
-* `defined` {object}
+* `fallback` {(name: string) => R}
+* `defined` {(result: string) => R}
 * `args` {AsArray<T>}
 * Returns: {R}
 
 #### `callHooksForName(hookMap, name, args)`
 
-###### T
-
-`T`
-
-###### R
-
-`R`
+* `T`
+* `R`
 * `hookMap` {HookMap<SyncBailHook<T, R, UnsetAdditionalOptions>>}
 * `name` {string}
 * `args` {AsArray<T>}
@@ -186,17 +161,12 @@ Block pre walking iterates the scope for block variable declarations
 
 #### `callHooksForNameWithFallback(hookMap, name, fallback, defined, args)`
 
-###### T
-
-`T`
-
-###### R
-
-`R`
+* `T`
+* `R`
 * `hookMap` {HookMap<SyncBailHook<T, R, UnsetAdditionalOptions>>}
 * `name` {string}
-* `fallback` {object}
-* `defined` {object}
+* `fallback` {(value: string) => R}
+* `defined` {() => R}
 * `args` {AsArray<T>}
 * Returns: {R}
 
@@ -218,19 +188,19 @@ Block pre walking iterates the scope for block variable declarations
 #### `enterArrayPattern(pattern, onIdent)`
 
 * `pattern` {ArrayPattern}
-* `onIdent` {object}
+* `onIdent` {(ident: string, identifier: Identifier) => void}
 * Returns: {void}
 
 #### `enterAssignmentPattern(pattern, onIdent)`
 
 * `pattern` {AssignmentPattern}
-* `onIdent` {object}
+* `onIdent` {(ident: string, identifier: Identifier) => void}
 * Returns: {void}
 
 #### `enterDeclaration(declaration, onIdent)`
 
 * `declaration` {Declaration}
-* `onIdent` {object}
+* `onIdent` {(ident: string, identifier: Identifier) => void}
 * Returns: {void}
 
 #### `enterDestructuringAssignment(pattern, expression)`
@@ -242,31 +212,31 @@ Block pre walking iterates the scope for block variable declarations
 #### `enterIdentifier(pattern, onIdent)`
 
 * `pattern` {Identifier}
-* `onIdent` {object}
+* `onIdent` {(ident: string, identifier: Identifier) => void}
 * Returns: {void}
 
 #### `enterObjectPattern(pattern, onIdent)`
 
 * `pattern` {ObjectPattern}
-* `onIdent` {object}
+* `onIdent` {(ident: string, identifier: Identifier) => void}
 * Returns: {void}
 
 #### `enterPattern(pattern, onIdent)`
 
 * `pattern` {Property|Identifier|MemberExpression|ObjectPattern|ArrayPattern|RestElement|AssignmentPattern}
-* `onIdent` {object}
+* `onIdent` {(ident: string, identifier: Identifier) => void}
 * Returns: {void}
 
 #### `enterPatterns(patterns, onIdent)`
 
 * `patterns` {string|Property|Identifier|MemberExpression|ObjectPattern|ArrayPattern|RestElement|AssignmentPattern[]}
-* `onIdent` {object}
+* `onIdent` {(ident: string) => void}
 * Returns: {void}
 
 #### `enterRestElement(pattern, onIdent)`
 
 * `pattern` {RestElement}
-* `onIdent` {object}
+* `onIdent` {(ident: string, identifier: Identifier) => void}
 * Returns: {void}
 
 #### `evaluate(source)`
@@ -287,7 +257,7 @@ Block pre walking iterates the scope for block variable declarations
 #### `extractMemberExpressionChain(expression)`
 
 * `expression` {ClassExpression|Identifier|SimpleLiteral|RegExpLiteral|BigIntLiteral|ArrayExpression|ArrowFunctionExpression|AssignmentExpression|AwaitExpression|BinaryExpression|SimpleCallExpression|NewExpression|ChainExpression|ConditionalExpression|FunctionExpression|ImportExpression|LogicalExpression|MemberExpression|MetaProperty|ObjectExpression|SequenceExpression|TaggedTemplateExpression|TemplateLiteral|ThisExpression|UnaryExpression|UpdateExpression|YieldExpression|Super}
-* Returns: {object}
+* Returns: {{ memberRanges: Tuple<number, number>[]; members: string[]; membersOptionals: boolean[]; object: ClassExpression|Identifier|SimpleLiteral|RegExpLiteral|BigIntLiteral|ArrayExpression|ArrowFunctionExpression|AssignmentExpression|AwaitExpression|BinaryExpression|SimpleCallExpression|NewExpression|ChainExpression|ConditionalExpression|FunctionExpression|ImportExpression|LogicalExpression|MemberExpression|MetaProperty|ObjectExpression|SequenceExpression|TaggedTemplateExpression|TemplateLiteral|ThisExpression|UnaryExpression|UpdateExpression|YieldExpression|Super }}
 
 #### `getComments(range)`
 
@@ -297,7 +267,7 @@ Block pre walking iterates the scope for block variable declarations
 #### `getFreeInfoFromVariable(varName)`
 
 * `varName` {string}
-* Returns: {object}
+* Returns: {{ info: string|VariableInfo; name: string }}
 
 #### `getMemberExpressionInfo(expression, allowedTypes)`
 
@@ -308,12 +278,12 @@ Block pre walking iterates the scope for block variable declarations
 #### `getNameForExpression(expression)`
 
 * `expression` {Expression}
-* Returns: {object}
+* Returns: {{ getMembers: () => string[]; name: string; rootInfo: ExportedVariableInfo }}
 
 #### `getNameInfoFromVariable(varName)`
 
 * `varName` {string}
-* Returns: {object}
+* Returns: {{ info: string|VariableInfo; name: string }}
 
 #### `getRenameIdentifier(expr)`
 
@@ -333,7 +303,7 @@ Block pre walking iterates the scope for block variable declarations
 
 #### `inBlockScope(fn[, inExecutedPath])`
 
-* `fn` {object}
+* `fn` {() => void}
 * `inExecutedPath` {boolean}
 * Returns: {void}
 
@@ -341,14 +311,14 @@ Block pre walking iterates the scope for block variable declarations
 
 * `hasThis` {boolean}
 * `params` {Identifier[]}
-* `fn` {object}
+* `fn` {() => void}
 * Returns: {void}
 
 #### `inFunctionScope(hasThis, params, fn)`
 
 * `hasThis` {boolean}
 * `params` {string|Identifier|MemberExpression|ObjectPattern|ArrayPattern|RestElement|AssignmentPattern[]}
-* `fn` {object}
+* `fn` {() => void}
 * Returns: {void}
 
 #### `inScope(params, fn)`
@@ -356,7 +326,7 @@ Block pre walking iterates the scope for block variable declarations
 > Stability: 0 - Deprecated
 
 * `params` {string|Property|Identifier|MemberExpression|ObjectPattern|ArrayPattern|RestElement|AssignmentPattern[]}
-* `fn` {object}
+* `fn` {() => void}
 * Returns: {void}
 
 #### `isAsiPosition(pos)`
@@ -416,7 +386,7 @@ Module pre walking iterates the scope for import entries
 #### `parseCommentOptions(range)`
 
 * `range` {Tuple<number, number>}
-* Returns: {object}
+* Returns: {{ errors: Error|{ comment: CommentJavascriptParser }[]; options: Record<string, any> }}
 
 #### `parseString(expression)`
 
@@ -718,14 +688,12 @@ Pre walking iterates the scope for variable declarations
 
 #### `walkMemberExpressionWithExpressionName(expression, name, rootInfo, members, onUnhandled)`
 
-###### R
-
-`R`
+* `R`
 * `expression` {MemberExpression}
 * `name` {string}
 * `rootInfo` {string|VariableInfo}
 * `members` {string[]}
-* `onUnhandled` {object}
+* `onUnhandled` {() => R}
 * Returns: {void}
 
 #### `walkMetaProperty(metaProperty)`
@@ -871,5 +839,5 @@ Walking iterates the statements and expressions and processes them
 
 #### Static method: `extend(plugins)`
 
-* `plugins` {object[]}
+* `plugins` {(BaseParser: Parser) => Parser[]}
 * Returns: {JavascriptParser}

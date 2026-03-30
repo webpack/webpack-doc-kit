@@ -1,6 +1,16 @@
 const union = (arr, sep = '|') =>
   arr?.length ? arr.map(resolve).join(sep) : 'unknown';
 
+const stringifyParameters = params =>
+  params?.map(param => `${param.name}: ${resolve(param.type)}`).join(', ') ??
+  '';
+
+const stringifySignature = signature => {
+  const params = stringifyParameters(signature?.parameters);
+  const returns = resolve(signature?.type);
+  return `(${params}) => ${returns}`;
+};
+
 const resolve = type => {
   if (!type) return 'unknown';
 
@@ -45,6 +55,20 @@ const resolve = type => {
       return resolve(type.element);
 
     case 'reflection':
+      if (type.declaration?.signatures?.length) {
+        return stringifySignature(type.declaration.signatures[0]);
+      }
+
+      if (type.declaration?.children?.length) {
+        const preview = type.declaration.children
+          .slice(0, 5)
+          .map(child => `${child.name}: ${resolve(child.type)}`)
+          .join('; ');
+
+        const suffix = type.declaration.children.length > 5 ? '; ...' : '';
+        return `{ ${preview}${suffix} }`;
+      }
+
       return 'object';
 
     case 'inferred':
@@ -75,5 +99,5 @@ export const arrayType = someType,
   unionType = someType,
   unknownType = someType;
 
-export const declarationType = () => '{object}';
-export const functionType = () => '{Function}';
+export const declarationType = someType;
+export const functionType = model => `{${stringifySignature(model)}}`;

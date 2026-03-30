@@ -20,11 +20,11 @@
 
 ## `createFilename`
 
-> **createFilename**: {object}
+> **createFilename**: {(module: string|Module, options: { moduleFilenameTemplate: string|(context: ModuleFilenameTemplateContext) => string; namespace: string }, __namedParameters: { chunkGraph: ChunkGraph; hashFunction: string|Hash; requestShortener: RequestShortener }) => string}
 
 * `module` {string|Module}
-* `options` {object}
-* `__namedParameters` {object}
+* `options` {{ moduleFilenameTemplate: string|(context: ModuleFilenameTemplateContext) => string; namespace: string }}
+* `__namedParameters` {{ chunkGraph: ChunkGraph; hashFunction: string|Hash; requestShortener: RequestShortener }}
 * Returns: {string}
 
 ***
@@ -55,7 +55,7 @@
 
 ## `matchObject`
 
-> **matchObject**: {object}
+> **matchObject**: {(obj: MatchObject, str: string) => boolean}
 
 * `obj` {MatchObject}
 * `str` {string}
@@ -65,7 +65,7 @@
 
 ## `matchPart`
 
-> **matchPart**: {object}
+> **matchPart**: {(str: string, test: Matcher) => boolean}
 
 * `str` {string}
 * `test` {Matcher}
@@ -153,14 +153,12 @@
 
 ## `replaceDuplicates`
 
-> **replaceDuplicates**: {object}
+> **replaceDuplicates**: {(array: T[], fn: (duplicateItem: T, duplicateItemIndex: number, numberOfTimesReplaced: number) => T, comparator: (firstElement: T, nextElement: T) => 0|1|-1) => T[]}
 
-#### T
-
-`T`
+* `T`
 * `array` {T[]}
-* `fn` {object}
-* `comparator` {object}
+* `fn` {(duplicateItem: T, duplicateItemIndex: number, numberOfTimesReplaced: number) => T}
+* `comparator` {(firstElement: T, nextElement: T) => 0|1|-1}
 * Returns: {T[]}
 
 ***

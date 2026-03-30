@@ -51,7 +51,7 @@
 #### `getCondition(moduleGraph)`
 
 * `moduleGraph` {ModuleGraph}
-* Returns: {false|object}
+* Returns: {false|(moduleGraphConnection: ModuleGraphConnection, runtime: RuntimeSpec) => ConnectionState}
 
 #### `getContext()`
 
@@ -169,9 +169,9 @@ Update the hash
 * `type` {string}
 * `userRequest` {string}
 * `weak` {boolean}
-* `ExportPresenceModes` {object}
+* `ExportPresenceModes` {{ AUTO: ExportPresenceMode; ERROR: ExportPresenceMode; NONE: ExportPresenceMode; WARN: ExportPresenceMode; fromUserOption: unknown; ... }}
 * `EXPORTS_OBJECT_REFERENCED` {string[][]}
-* `getNonOptionalPart` {object}
+* `getNonOptionalPart` {(members: string[], membersOptionals: boolean[]) => string[]}
 * `NO_EXPORTS_REFERENCED` {string[][]}
 * `Template` {HarmonyImportDependencyTemplate}
 * `TRANSITIVE` {TRANSITIVE}
@@ -195,7 +195,7 @@ Update the hash
 #### `getCondition(moduleGraph)`
 
 * `moduleGraph` {ModuleGraph}
-* Returns: {false|object}
+* Returns: {false|(moduleGraphConnection: ModuleGraphConnection, runtime: RuntimeSpec) => ConnectionState}
 
 #### `getContext()`
 
@@ -360,7 +360,7 @@ Update the hash
 #### `getCondition(moduleGraph)`
 
 * `moduleGraph` {ModuleGraph}
-* Returns: {false|object}
+* Returns: {false|(moduleGraphConnection: ModuleGraphConnection, runtime: RuntimeSpec) => ConnectionState}
 
 #### `getContext()`
 
@@ -496,7 +496,7 @@ Update the hash
 #### `getCondition(moduleGraph)`
 
 * `moduleGraph` {ModuleGraph}
-* Returns: {false|object}
+* Returns: {false|(moduleGraphConnection: ModuleGraphConnection, runtime: RuntimeSpec) => ConnectionState}
 
 #### `getContext()`
 

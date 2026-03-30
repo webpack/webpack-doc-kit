@@ -4,25 +4,15 @@
 
 ### Type Parameters
 
-#### T
-
-`T`
-
-#### R
-
-`R` = {T}
+* `T`
+* `R` = {T}
 
 ### Constructors
 
 #### `new RuntimeSpecMap([clone])`
 
-###### T
-
-`T`
-
-###### R
-
-`R` = {T}
+* `T`
+* `R` = {T}
 * `clone` {RuntimeSpecMap<T, R>}
 * Returns: {RuntimeSpecMap<T, R>}
 
@@ -54,7 +44,7 @@
 #### `provide(runtime, computer)`
 
 * `runtime` {RuntimeSpec}
-* `computer` {object}
+* `computer` {() => R}
 * Returns: {R}
 
 #### `set(runtime, value)`
@@ -66,7 +56,7 @@
 #### `update(runtime, fn)`
 
 * `runtime` {RuntimeSpec}
-* `fn` {object}
+* `fn` {(value: R) => R}
 * Returns: {void}
 
 #### `values()`
@@ -108,7 +98,7 @@
 
 ## `compareRuntime`
 
-> **compareRuntime**: {object}
+> **compareRuntime**: {(a: RuntimeSpec, b: RuntimeSpec) => 0|1|-1}
 
 * `a` {RuntimeSpec}
 * `b` {RuntimeSpec}
@@ -118,20 +108,20 @@
 
 ## `filterRuntime`
 
-> **filterRuntime**: {object}
+> **filterRuntime**: {(runtime: RuntimeSpec, filter: (runtime: RuntimeSpec) => boolean) => undefined|string|boolean|SortableSet<string>}
 
 * `runtime` {RuntimeSpec}
-* `filter` {object}
+* `filter` {(runtime: RuntimeSpec) => boolean}
 * Returns: {undefined|string|boolean|SortableSet<string>}
 
 ***
 
 ## `forEachRuntime`
 
-> **forEachRuntime**: {object}
+> **forEachRuntime**: {(runtime: RuntimeSpec, fn: (runtime: string) => void, deterministicOrder: boolean) => void}
 
 * `runtime` {RuntimeSpec}
-* `fn` {object}
+* `fn` {(runtime: string) => void}
 * `deterministicOrder` {boolean}
 * Returns: {void}
 
@@ -139,7 +129,7 @@
 
 ## `getEntryRuntime`
 
-> **getEntryRuntime**: {object}
+> **getEntryRuntime**: {(compilation: Compilation, name: string, options: EntryOptions) => RuntimeSpec}
 
 * `compilation` {Compilation}
 * `name` {string}
@@ -150,7 +140,7 @@
 
 ## `getRuntimeKey`
 
-> **getRuntimeKey**: {object}
+> **getRuntimeKey**: {(runtime: RuntimeSpec) => string}
 
 * `runtime` {RuntimeSpec}
 * Returns: {string}
@@ -159,7 +149,7 @@
 
 ## `intersectRuntime`
 
-> **intersectRuntime**: {object}
+> **intersectRuntime**: {(a: RuntimeSpec, b: RuntimeSpec) => RuntimeSpec}
 
 * `a` {RuntimeSpec}
 * `b` {RuntimeSpec}
@@ -169,7 +159,7 @@
 
 ## `keyToRuntime`
 
-> **keyToRuntime**: {object}
+> **keyToRuntime**: {(key: string) => RuntimeSpec}
 
 * `key` {string}
 * Returns: {RuntimeSpec}
@@ -178,7 +168,7 @@
 
 ## `mergeRuntime`
 
-> **mergeRuntime**: {object}
+> **mergeRuntime**: {(a: RuntimeSpec, b: RuntimeSpec) => RuntimeSpec}
 
 * `a` {RuntimeSpec}
 * `b` {RuntimeSpec}
@@ -188,7 +178,7 @@
 
 ## `mergeRuntimeCondition`
 
-> **mergeRuntimeCondition**: {object}
+> **mergeRuntimeCondition**: {(a: RuntimeCondition, b: RuntimeCondition, runtime: RuntimeSpec) => RuntimeCondition}
 
 * `a` {RuntimeCondition}
 * `b` {RuntimeCondition}
@@ -199,7 +189,7 @@
 
 ## `mergeRuntimeConditionNonFalse`
 
-> **mergeRuntimeConditionNonFalse**: {object}
+> **mergeRuntimeConditionNonFalse**: {(a: undefined|string|true|SortableSet<string>, b: undefined|string|true|SortableSet<string>, runtime: RuntimeSpec) => undefined|string|true|SortableSet<string>}
 
 * `a` {undefined|string|true|SortableSet<string>}
 * `b` {undefined|string|true|SortableSet<string>}
@@ -210,7 +200,7 @@
 
 ## `mergeRuntimeOwned`
 
-> **mergeRuntimeOwned**: {object}
+> **mergeRuntimeOwned**: {(a: RuntimeSpec, b: RuntimeSpec) => RuntimeSpec}
 
 * `a` {RuntimeSpec}
 * `b` {RuntimeSpec}
@@ -220,7 +210,7 @@
 
 ## `runtimeConditionToString`
 
-> **runtimeConditionToString**: {object}
+> **runtimeConditionToString**: {(runtimeCondition: RuntimeCondition) => string}
 
 * `runtimeCondition` {RuntimeCondition}
 * Returns: {string}
@@ -229,7 +219,7 @@
 
 ## `runtimeEqual`
 
-> **runtimeEqual**: {object}
+> **runtimeEqual**: {(a: RuntimeSpec, b: RuntimeSpec) => boolean}
 
 * `a` {RuntimeSpec}
 * `b` {RuntimeSpec}
@@ -239,7 +229,7 @@
 
 ## `runtimeToString`
 
-> **runtimeToString**: {object}
+> **runtimeToString**: {(runtime: RuntimeSpec) => string}
 
 * `runtime` {RuntimeSpec}
 * Returns: {string}
@@ -248,7 +238,7 @@
 
 ## `subtractRuntime`
 
-> **subtractRuntime**: {object}
+> **subtractRuntime**: {(a: RuntimeSpec, b: RuntimeSpec) => RuntimeSpec}
 
 * `a` {RuntimeSpec}
 * `b` {RuntimeSpec}
@@ -258,7 +248,7 @@
 
 ## `subtractRuntimeCondition`
 
-> **subtractRuntimeCondition**: {object}
+> **subtractRuntimeCondition**: {(a: RuntimeCondition, b: RuntimeCondition, runtime: RuntimeSpec) => RuntimeCondition}
 
 * `a` {RuntimeCondition}
 * `b` {RuntimeCondition}

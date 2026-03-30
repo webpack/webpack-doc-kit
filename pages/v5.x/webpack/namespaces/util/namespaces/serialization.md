@@ -8,19 +8,11 @@
 
 ## `createFileSerializer`
 
-> **createFileSerializer**: {object}
+> **createFileSerializer**: {(fs: IntermediateFileSystem, hashFunction: HashFunction) => Serializer<D, S, C>}
 
-#### D
-
-`D`
-
-#### S
-
-`S`
-
-#### C
-
-`C`
+* `D`
+* `S`
+* `C`
 * `fs` {IntermediateFileSystem}
 * `hashFunction` {HashFunction}
 * Returns: {Serializer<D, S, C>}
@@ -47,7 +39,7 @@
 
 ## `register`
 
-> `const` **register**: {object}
+> `const` **register**: {(Constructor: Constructor, request: string, name: null|string, serializer: ObjectSerializer) => void}
 
 * `Constructor` {Constructor}
 * `request` {string}
@@ -59,17 +51,17 @@
 
 ## `registerLoader`
 
-> `const` **registerLoader**: {object}
+> `const` **registerLoader**: {(regExp: RegExp, loader: (request: string) => boolean) => void}
 
 * `regExp` {RegExp}
-* `loader` {object}
+* `loader` {(request: string) => boolean}
 * Returns: {void}
 
 ***
 
 ## `registerNotSerializable`
 
-> `const` **registerNotSerializable**: {object}
+> `const` **registerNotSerializable**: {(Constructor: Constructor) => void}
 
 * `Constructor` {Constructor}
 * Returns: {void}

@@ -70,11 +70,9 @@ Apply the plugin
 
 ## `scope`
 
-> `const` **scope**: {object}
+> `const` **scope**: {(scope: string, options: ContainerOptionsFormat<T>) => Record<string, string|string[]|T>}
 
-#### T
-
-`T`
+* `T`
 * `scope` {string}
 * `options` {ContainerOptionsFormat<T>}
 * Returns: {Record<string, string|string[]|T>}

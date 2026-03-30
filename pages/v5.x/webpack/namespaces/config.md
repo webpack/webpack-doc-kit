@@ -2,7 +2,7 @@
 
 ## `applyWebpackOptionsDefaults`
 
-> `const` **applyWebpackOptionsDefaults**: {object}
+> `const` **applyWebpackOptionsDefaults**: {(options: WebpackOptionsNormalized, compilerIndex: number) => ResolvedOptions}
 
 * `options` {WebpackOptionsNormalized}
 * `compilerIndex` {number}
@@ -12,7 +12,7 @@
 
 ## `getNormalizedWebpackOptions`
 
-> `const` **getNormalizedWebpackOptions**: {object}
+> `const` **getNormalizedWebpackOptions**: {(config: Configuration) => WebpackOptionsNormalized}
 
 * `config` {Configuration}
 * Returns: {WebpackOptionsNormalized}
