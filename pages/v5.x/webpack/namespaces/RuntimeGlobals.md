@@ -72,12 +72,6 @@
 
 ***
 
-## `cssInjectStyle`
-
-> **cssInjectStyle**: {"__webpack_require__.is"}
-
-***
-
 ## `cssMergeStyleSheets`
 
 > **cssMergeStyleSheets**: {"__webpack_require__.mcs"}

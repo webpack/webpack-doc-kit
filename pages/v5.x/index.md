@@ -299,7 +299,7 @@ If you have discovered a 🐜 or have a feature suggestion, feel free to create 
 
 ## Current project members
 
-For information about the governance of the webpack project, see [GOVERNANCE.md](_media/GOVERNANCE.md).
+For information about the governance of the webpack project, see [GOVERNANCE.md](./GOVERNANCE.md).
 
 ### TSC (Technical Steering Committee)
 
@@ -316,7 +316,7 @@ For information about the governance of the webpack project, see [GOVERNANCE.md]
 
 ### Maintenance
 
-This webpack repository is maintained by the [`Core Working Group`](_media/WORKING_GROUP.md).
+This webpack repository is maintained by the [`Core Working Group`](./WORKING_GROUP.md).
 
 ## Sponsoring
 

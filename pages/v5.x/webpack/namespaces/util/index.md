@@ -108,7 +108,7 @@
 `O`
 * `first` {null|T}
 * `second` {null|O}
-* Returns: {T|O|T|O}
+* Returns: {T|O|T&O}
 
 ***
 

@@ -25,12 +25,19 @@ const resolve = type => {
       return `Tuple<${union(type.elements, ', ')}>`;
 
     case 'union':
-    case 'intersection':
       return union(type.types);
 
+    case 'intersection':
+      return union(type.types, '&');
+
     case 'optional':
+      return resolve(type.elementType);
+
     case 'indexedAccess':
-      return resolve(type.elementType ?? type.objectType);
+      return `${resolve(type.objectType)}[${resolve(type.indexType)}]`;
+
+    case 'predicate':
+      return resolve(type.targetType);
 
     case 'query':
       return resolve(type.queryType);
