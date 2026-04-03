@@ -30,13 +30,13 @@
 * `EXPORTS_OBJECT_REFERENCED` {string[][]}
 * `NO_EXPORTS_REFERENCED` {string[][]}
 * `Template` {ConstDependencyTemplate}
-* `TRANSITIVE` {TRANSITIVE}
+* `TRANSITIVE` {symbol}
 
 ### Methods
 
 #### `couldAffectReferencingModule()`
 
-* Returns: {boolean|TRANSITIVE}
+* Returns: {boolean|symbol}
 
 #### `createIgnoredModule(context)`
 
@@ -174,13 +174,13 @@ Update the hash
 * `getNonOptionalPart` {object}
 * `NO_EXPORTS_REFERENCED` {string[][]}
 * `Template` {HarmonyImportDependencyTemplate}
-* `TRANSITIVE` {TRANSITIVE}
+* `TRANSITIVE` {symbol}
 
 ### Methods
 
 #### `couldAffectReferencingModule()`
 
-* Returns: {boolean|TRANSITIVE}
+* Returns: {boolean|symbol}
 
 #### `createIgnoredModule(context)`
 
@@ -339,13 +339,13 @@ Update the hash
 * `EXPORTS_OBJECT_REFERENCED` {string[][]}
 * `NO_EXPORTS_REFERENCED` {string[][]}
 * `Template` {DependencyTemplate}
-* `TRANSITIVE` {TRANSITIVE}
+* `TRANSITIVE` {symbol}
 
 ### Methods
 
 #### `couldAffectReferencingModule()`
 
-* Returns: {boolean|TRANSITIVE}
+* Returns: {boolean|symbol}
 
 #### `createIgnoredModule(context)`
 
@@ -475,13 +475,13 @@ Update the hash
 * `EXPORTS_OBJECT_REFERENCED` {string[][]}
 * `NO_EXPORTS_REFERENCED` {string[][]}
 * `Template` {NullDependencyTemplate}
-* `TRANSITIVE` {TRANSITIVE}
+* `TRANSITIVE` {symbol}
 
 ### Methods
 
 #### `couldAffectReferencingModule()`
 
-* Returns: {boolean|TRANSITIVE}
+* Returns: {boolean|symbol}
 
 #### `createIgnoredModule(context)`
 
