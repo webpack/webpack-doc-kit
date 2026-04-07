@@ -1,0 +1,33 @@
+# OccurrenceChunkIdsPlugin
+
+<!-- type=misc -->
+
+## Class: `OccurrenceChunkIdsPlugin`
+
+### Constructors
+
+#### `new OccurrenceChunkIdsPlugin([options])`
+
+##### Parameters
+
+* `options` {OccurrenceChunkIdsPluginOptions}
+
+* Returns: {OccurrenceChunkIdsPlugin}
+
+### Properties
+
+#### `options`
+
+* Type: {OccurrenceChunkIdsPluginOptions}
+
+### Methods
+
+#### `apply(compiler)`
+
+##### Parameters
+
+* `compiler` {Compiler}
+
+* Returns: {void}
+
+Apply the plugin

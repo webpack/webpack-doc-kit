@@ -1,7 +1,7 @@
 import { MarkdownTheme, MarkdownThemeContext } from 'typedoc-plugin-markdown';
 import helpers from './helpers/index.mjs';
 import partials from './partials/index.mjs';
-
+import templates from './templates/index.mjs';
 import { DocKitRouter } from './router.mjs';
 
 export class DocKitTheme extends MarkdownTheme {
@@ -15,9 +15,7 @@ export class DocKitThemeContext extends MarkdownThemeContext {
 
   partials = partials(this);
 
-  templates = {
-    ...this.templates,
-  };
+  templates = templates(this);
 }
 
 /**
