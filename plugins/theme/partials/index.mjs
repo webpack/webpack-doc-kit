@@ -1,39 +1,7 @@
 import { ReflectionKind } from 'typedoc';
 import * as typePartials from './types.mjs';
-
-const KIND_PREFIX = {
-  [ReflectionKind.Class]: 'Class',
-  [ReflectionKind.Interface]: 'Interface',
-  [ReflectionKind.Enum]: 'Enum',
-  [ReflectionKind.TypeAlias]: 'Type',
-  [ReflectionKind.Namespace]: 'Namespace',
-  [ReflectionKind.Accessor]: 'Accessor',
-};
-
-const STATIC_PREFIX = {
-  [ReflectionKind.Method]: 'Static method',
-};
-
-const formatParams = (params = []) =>
-  params
-    .map(({ name, flags }, i) =>
-      flags?.isOptional
-        ? i
-          ? `[, ${name}]`
-          : `[${name}]`
-        : i
-          ? `, ${name}`
-          : name
-    )
-    .join('');
-
-export const getMemberPrefix = model => {
-  const prefix = model.flags?.isStatic
-    ? STATIC_PREFIX[model.kind]
-    : KIND_PREFIX[model.kind];
-
-  return prefix ? `${prefix}: ` : '';
-};
+import { getMemberTitle } from '../utils/members.mjs';
+import { formatHeading, formatParams } from '../utils/formatting.mjs';
 
 /**
  * @param {import('typedoc-plugin-markdown').MarkdownThemeContext} ctx
@@ -43,30 +11,56 @@ export default ctx => ({
   ...ctx.partials,
   ...typePartials,
 
+  declarationTitle(model) {
+    const declarationType = ctx.helpers.getDeclarationType(model);
+    const type =
+      declarationType ||
+      (model.kind === ReflectionKind.TypeAlias ? model.type : undefined);
+    const description =
+      model.flags?.isOptional && !model.defaultValue ? 'Optional.' : undefined;
+
+    if (!type && !description && !model.defaultValue) {
+      return '';
+    }
+
+    return ctx.helpers.typedListItem({
+      label: 'Type',
+      type,
+      description,
+      defaultValue: model.defaultValue,
+    });
+  },
+
   signature(model, options) {
     const comment = options.multipleSignatures
       ? model.comment
       : model.comment || model.parent?.comment;
-
     const stability = ctx.helpers.stabilityBlockquote(comment);
 
     return [
       stability,
       stability && '',
       model.typeParameters?.length &&
-        ctx.partials.typeParametersList(model.typeParameters, {
-          headingLevel: options.headingLevel,
-        }),
+        (() => {
+          const content = ctx.partials.typeParametersList(
+            model.typeParameters,
+            {
+              headingLevel: options.headingLevel,
+            }
+          );
+
+          return content?.trim()
+            ? `${formatHeading(options.headingLevel, ReflectionKind.pluralString(ReflectionKind.TypeParameter))}\n\n${content}`
+            : '';
+        })(),
       model.parameters?.length &&
-        ctx.partials.parametersList(model.parameters, {
-          headingLevel: options.headingLevel,
-        }),
-      ctx.helpers.typedListItem({
-        label: 'Returns',
-        type: model.type ?? 'void',
-        comment: model.comment?.getTag('@returns'),
-      }),
-      '',
+        `${formatHeading(options.headingLevel, ReflectionKind.pluralString(ReflectionKind.Parameter))}\n\n${ctx.partials.parametersList(
+          model.parameters,
+          {
+            headingLevel: options.headingLevel,
+          }
+        )}`,
+      ctx.helpers.returnsItem(model),
       comment &&
         ctx.partials.comment(comment, {
           headingLevel: options.headingLevel,
@@ -74,40 +68,55 @@ export default ctx => ({
         }),
       ctx.helpers.examples(comment, options),
     ]
-      .filter(x => typeof x === 'string' || Boolean(x))
-      .join('\n');
-  },
-
-  memberTitle(model) {
-    const prefix = getMemberPrefix(model);
-    const params = model.signatures?.[0]?.parameters;
-
-    if (!params) {
-      return `${prefix}\`${model.name}\``;
-    }
-
-    return `${prefix}\`${model.name}(${formatParams(params)})\``;
+      .filter(block =>
+        typeof block === 'string' ? block.trim() : Boolean(block)
+      )
+      .join('\n\n');
   },
 
   constructor(model, options) {
     const md = [];
-    const heading = '#'.repeat(options.headingLevel);
+    const headingPrefix = '#'.repeat(options.headingLevel);
 
     model.signatures?.forEach(signature => {
       const paramsString = formatParams(signature.parameters ?? []);
 
-      md.push(`${heading} \`new ${model.parent.name}(${paramsString})\``);
+      md.push(`${headingPrefix} \`new ${model.parent.name}(${paramsString})\``);
       md.push(
         ctx.partials.signature(signature, {
           headingLevel: options.headingLevel + 1,
         })
       );
     });
+
     return md.join('\n\n');
   },
 
+  hierarchy(model) {
+    if (model.next && !model.isTarget) {
+      const parent = model.types
+        .map(hierarchyType =>
+          ctx.helpers.getHierarchyType(hierarchyType, {
+            isTarget: false,
+          })
+        )
+        .join('.');
+
+      return ctx.helpers.typedListItem({
+        label: 'Extends',
+        type: parent,
+      });
+    }
+
+    return '';
+  },
+
+  // Suppress the base theme's type-parameter table; the signature partial renders these inline.
+  typeParametersList: () => '',
+
+  memberTitle: getMemberTitle,
+
   parametersList: ctx.helpers.typedList,
-  typedParametersList: ctx.helpers.typedList,
   typeDeclarationList: ctx.helpers.typedList,
   propertiesTable: ctx.helpers.typedList,
 });
