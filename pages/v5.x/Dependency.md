@@ -68,13 +68,13 @@
 
 #### `TRANSITIVE`
 
-* Type: {TRANSITIVE}
+* Type: {symbol}
 
 ### Methods
 
 #### `couldAffectReferencingModule()`
 
-* Returns: {boolean|TRANSITIVE}
+* Returns: {boolean|symbol}
 
 ***
 

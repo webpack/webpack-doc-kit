@@ -112,7 +112,7 @@
 
 #### `TRANSITIVE`
 
-* Type: {TRANSITIVE}
+* Type: {symbol}
 
 ##### Overrides
 
@@ -122,7 +122,7 @@
 
 #### `couldAffectReferencingModule()`
 
-* Returns: {boolean|TRANSITIVE}
+* Returns: {boolean|symbol}
 
 ***
 

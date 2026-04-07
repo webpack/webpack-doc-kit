@@ -2323,7 +2323,7 @@ Apply the plugin
 
 #### `TRANSITIVE`
 
-* Type: {TRANSITIVE}
+* Type: {symbol}
 
 ##### Overrides
 
@@ -2333,7 +2333,7 @@ Apply the plugin
 
 #### `couldAffectReferencingModule()`
 
-* Returns: {boolean|TRANSITIVE}
+* Returns: {boolean|symbol}
 
 ***
 
