@@ -155,9 +155,6 @@
 
 > **replaceDuplicates**: {object}
 
-#### T
-
-`T`
 * `array` {T[]}
 * `fn` {object}
 * `comparator` {object}

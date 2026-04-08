@@ -4,25 +4,10 @@
 
 ### Type Parameters
 
-#### T
-
-`T`
-
-#### R
-
-`R` = {T}
-
 ### Constructors
 
 #### `new RuntimeSpecMap([clone])`
 
-###### T
-
-`T`
-
-###### R
-
-`R` = {T}
 * `clone` {RuntimeSpecMap<T, R>}
 * Returns: {RuntimeSpecMap<T, R>}
 

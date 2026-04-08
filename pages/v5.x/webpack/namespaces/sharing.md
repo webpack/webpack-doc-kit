@@ -72,9 +72,6 @@ Apply the plugin
 
 > `const` **scope**: {object}
 
-#### T
-
-`T`
 * `scope` {string}
 * `options` {ContainerOptionsFormat<T>}
 * Returns: {Record<string, string|string[]|T>}

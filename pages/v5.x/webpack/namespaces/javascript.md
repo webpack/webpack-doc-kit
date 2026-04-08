@@ -112,13 +112,6 @@ Block pre walking iterates the scope for block variable declarations
 
 #### `callHooksForExpression(hookMap, expr, args)`
 
-###### T
-
-`T`
-
-###### R
-
-`R`
 * `hookMap` {HookMap<SyncBailHook<T, R, UnsetAdditionalOptions>>}
 * `expr` {ClassExpression|Identifier|SimpleLiteral|RegExpLiteral|BigIntLiteral|ArrayExpression|ArrowFunctionExpression|AssignmentExpression|AwaitExpression|BinaryExpression|SimpleCallExpression|NewExpression|ChainExpression|ConditionalExpression|FunctionExpression|ImportExpression|LogicalExpression|MemberExpression|MetaProperty|ObjectExpression|SequenceExpression|TaggedTemplateExpression|TemplateLiteral|ThisExpression|UnaryExpression|UpdateExpression|YieldExpression|Super}
 * `args` {AsArray<T>}
@@ -126,13 +119,6 @@ Block pre walking iterates the scope for block variable declarations
 
 #### `callHooksForExpressionWithFallback(hookMap, expr, fallback, defined, args)`
 
-###### T
-
-`T`
-
-###### R
-
-`R`
 * `hookMap` {HookMap<SyncBailHook<T, R, UnsetAdditionalOptions>>}
 * `expr` {ClassExpression|Identifier|SimpleLiteral|RegExpLiteral|BigIntLiteral|ArrayExpression|ArrowFunctionExpression|AssignmentExpression|AwaitExpression|BinaryExpression|SimpleCallExpression|NewExpression|ChainExpression|ConditionalExpression|FunctionExpression|ImportExpression|LogicalExpression|MemberExpression|MetaProperty|ObjectExpression|SequenceExpression|TaggedTemplateExpression|TemplateLiteral|ThisExpression|UnaryExpression|UpdateExpression|YieldExpression|Super}
 * `fallback` {object}
@@ -142,13 +128,6 @@ Block pre walking iterates the scope for block variable declarations
 
 #### `callHooksForInfo(hookMap, info, args)`
 
-###### T
-
-`T`
-
-###### R
-
-`R`
 * `hookMap` {HookMap<SyncBailHook<T, R, UnsetAdditionalOptions>>}
 * `info` {ExportedVariableInfo}
 * `args` {AsArray<T>}
@@ -156,13 +135,6 @@ Block pre walking iterates the scope for block variable declarations
 
 #### `callHooksForInfoWithFallback(hookMap, info, fallback, defined, args)`
 
-###### T
-
-`T`
-
-###### R
-
-`R`
 * `hookMap` {HookMap<SyncBailHook<T, R, UnsetAdditionalOptions>>}
 * `info` {ExportedVariableInfo}
 * `fallback` {object}
@@ -172,13 +144,6 @@ Block pre walking iterates the scope for block variable declarations
 
 #### `callHooksForName(hookMap, name, args)`
 
-###### T
-
-`T`
-
-###### R
-
-`R`
 * `hookMap` {HookMap<SyncBailHook<T, R, UnsetAdditionalOptions>>}
 * `name` {string}
 * `args` {AsArray<T>}
@@ -186,13 +151,6 @@ Block pre walking iterates the scope for block variable declarations
 
 #### `callHooksForNameWithFallback(hookMap, name, fallback, defined, args)`
 
-###### T
-
-`T`
-
-###### R
-
-`R`
 * `hookMap` {HookMap<SyncBailHook<T, R, UnsetAdditionalOptions>>}
 * `name` {string}
 * `fallback` {object}
@@ -718,9 +676,6 @@ Pre walking iterates the scope for variable declarations
 
 #### `walkMemberExpressionWithExpressionName(expression, name, rootInfo, members, onUnhandled)`
 
-###### R
-
-`R`
 * `expression` {MemberExpression}
 * `name` {string}
 * `rootInfo` {string|VariableInfo}

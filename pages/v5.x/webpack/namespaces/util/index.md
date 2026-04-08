@@ -11,17 +11,10 @@
 
 ### Type Parameters
 
-#### T
-
-`T`
-
 ### Constructors
 
 #### `new LazySet([iterable])`
 
-###### T
-
-`T`
 * `iterable` {Iterable<T>}
 * Returns: {LazySet<T>}
 
@@ -60,9 +53,6 @@
 
 #### `forEach(callbackFn, thisArg)`
 
-###### K
-
-`K`
 * `callbackFn` {object}
 * `thisArg` {K}
 * Returns: {void}
@@ -87,9 +77,6 @@
 
 #### Static method: `deserialize(__namedParameters)`
 
-###### T
-
-`T`
 * `__namedParameters` {ObjectDeserializerContext}
 * Returns: {LazySet<T>}
 
@@ -99,13 +86,6 @@
 
 > `const` **cleverMerge**: {object}
 
-#### T
-
-`T`
-
-#### O
-
-`O`
 * `first` {null|T}
 * `second` {null|O}
 * Returns: {T|O|T|O}

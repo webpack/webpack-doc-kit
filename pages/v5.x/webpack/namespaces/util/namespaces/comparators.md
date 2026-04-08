@@ -49,9 +49,6 @@
 
 > **compareIterables**: {object}
 
-#### T
-
-`T`
 * `elementComparator` {Comparator<T>}
 * Returns: {Comparator<Iterable<T>>}
 
@@ -121,13 +118,6 @@
 
 > **compareSelect**: {object}
 
-#### T
-
-`T`
-
-#### R
-
-`R`
 * `getter` {Selector<T, R>}
 * `comparator` {Comparator<R>}
 * Returns: {Comparator<T>}
@@ -158,9 +148,6 @@
 
 > **concatComparators**: {object}
 
-#### T
-
-`T`
 * `c1` {Comparator<T>}
 * `c2` {Comparator<T>}
 * `cRest` {Comparator<T>[]}
@@ -172,9 +159,6 @@
 
 > **keepOriginalOrder**: {object}
 
-#### T
-
-`T`
 * `iterable` {Iterable<T>}
 * Returns: {Comparator<T>}
 

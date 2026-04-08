@@ -4,17 +4,10 @@
 
 ### Type Parameters
 
-#### T
-
-`T`
-
 ### Constructors
 
 #### `new AbstractLibraryPlugin(__namedParameters)`
 
-###### T
-
-`T`
 * `__namedParameters` {AbstractLibraryPluginOptions}
 * Returns: {AbstractLibraryPlugin<T>}
 

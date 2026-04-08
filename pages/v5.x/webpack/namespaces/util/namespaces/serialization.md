@@ -10,17 +10,6 @@
 
 > **createFileSerializer**: {object}
 
-#### D
-
-`D`
-
-#### S
-
-`S`
-
-#### C
-
-`C`
 * `fs` {IntermediateFileSystem}
 * `hashFunction` {HashFunction}
 * Returns: {Serializer<D, S, C>}

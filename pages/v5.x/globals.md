@@ -177,9 +177,6 @@ Apply the plugin
 
 #### `get(identifier, etag, callback)`
 
-###### T
-
-`T`
 * `identifier` {string}
 * `etag` {Etag}
 * `callback` {CallbackCacheCache<T>}
@@ -192,9 +189,6 @@ Apply the plugin
 
 #### `store(identifier, etag, data, callback)`
 
-###### T
-
-`T`
 * `identifier` {string}
 * `etag` {Etag}
 * `data` {T}
@@ -1857,9 +1851,6 @@ Fetches a module from a compilation by its identifier
 
 #### `validate(schema, value[, options][, check])`
 
-###### T
-
-`T` *extends* {object|object[]} = {object}
 * `schema` {JSONSchema4|ExtendedSchema|JSONSchema6|ExtendedSchema|JSONSchema7|ExtendedSchema|object}
 * `value` {T}
 * `options` {ValidationErrorConfiguration}
@@ -2087,13 +2078,13 @@ Apply the plugin
 * `weak` {boolean}
 * `EXPORTS_OBJECT_REFERENCED` {string[][]}
 * `NO_EXPORTS_REFERENCED` {string[][]}
-* `TRANSITIVE` {TRANSITIVE}
+* `TRANSITIVE` {symbol}
 
 ### Methods
 
 #### `couldAffectReferencingModule()`
 
-* Returns: {boolean|TRANSITIVE}
+* Returns: {boolean|symbol}
 
 #### `createIgnoredModule(context)`
 
@@ -3418,17 +3409,10 @@ Note that if "contextRegExp" is given, both the "resourceRegExp" and "contextReg
 
 ### Type Parameters
 
-#### GenerateContext
-
-`GenerateContext`
-
 ### Constructors
 
 #### `new InitFragment(content, stage, position[, key][, endContent])`
 
-###### GenerateContext
-
-`GenerateContext`
 * `content` {string|Source}
 * `stage` {number}
 * `position` {number}
@@ -3475,9 +3459,6 @@ Note that if "contextRegExp" is given, both the "resourceRegExp" and "contextReg
 
 #### Static method: `addToSource(source, initFragments, context)`
 
-###### Context
-
-`Context`
 * `source` {Source}
 * `initFragments` {MaybeMergeableInitFragment<Context>[]}
 * `context` {Context}
@@ -4095,13 +4076,6 @@ In webpack 6, call getSourceBasicTypes() directly on the module instance instead
 
 #### `cached(fn, args)`
 
-###### T
-
-`T` *extends* {any[]}
-
-###### R
-
-`R`
 * `fn` {object}
 * `args` {T}
 * Returns: {R}
@@ -4121,17 +4095,6 @@ In webpack 6, call getSourceBasicTypes() directly on the module instance instead
 
 #### `dependencyCacheProvide(dependency, args)`
 
-###### D
-
-`D` *extends* {Dependency}
-
-###### ARGS
-
-`ARGS` *extends* {any[]}
-
-###### R
-
-`R`
 * `dependency` {D}
 * `args` {Tuple<ARGS, unknown>}
 * Returns: {R}
@@ -6488,14 +6451,6 @@ Options for library.
 
 ### Type Parameters
 
-#### OptionsType
-
-`OptionsType` = {object}
-
-#### ContextAdditions
-
-`ContextAdditions` = {object}
-
 * `this` {NormalModuleLoaderContext<OptionsType>|LoaderRunnerLoaderContext<OptionsType>|LoaderPluginLoaderContext|HotModuleReplacementPluginLoaderContext|ContextAdditions}
 * `content` {string}
 * `sourceMap` {string|RawSourceMap}
@@ -6507,14 +6462,6 @@ Options for library.
 ## Interface: `LoaderModule`
 
 ### Type Parameters
-
-#### OptionsType
-
-`OptionsType` = {object}
-
-#### ContextAdditions
-
-`ContextAdditions` = {object}
 
 ### Properties
 
@@ -6649,6 +6596,7 @@ Specify options for each parser.
 * `filename` {string}
 * `hash` {string}
 * `hashWithLength` {object}
+* `local` {string}
 * `module` {Module|ModulePathData}
 * `noChunkHash` {boolean}
 * `prepareId` {object}
@@ -6661,14 +6609,6 @@ Specify options for each parser.
 ## Interface: `PitchLoaderDefinitionFunction(this, remainingRequest, previousRequest, data)`
 
 ### Type Parameters
-
-#### OptionsType
-
-`OptionsType` = {object}
-
-#### ContextAdditions
-
-`ContextAdditions` = {object}
 
 * `this` {NormalModuleLoaderContext<OptionsType>|LoaderRunnerLoaderContext<OptionsType>|LoaderPluginLoaderContext|HotModuleReplacementPluginLoaderContext|ContextAdditions}
 * `remainingRequest` {string}
@@ -6694,14 +6634,6 @@ Specify options for each parser.
 ## Interface: `RawLoaderDefinitionFunction(this, content[, sourceMap][, additionalData])`
 
 ### Type Parameters
-
-#### OptionsType
-
-`OptionsType` = {object}
-
-#### ContextAdditions
-
-`ContextAdditions` = {object}
 
 * `this` {NormalModuleLoaderContext<OptionsType>|LoaderRunnerLoaderContext<OptionsType>|LoaderPluginLoaderContext|HotModuleReplacementPluginLoaderContext|ContextAdditions}
 * `content` {Buffer}
@@ -7078,10 +7010,6 @@ Plugin instance.
 
 ### Type Parameters
 
-#### OptionsType
-
-`OptionsType`
-
 ***
 
 ## Type: `LoaderDefinition`
@@ -7094,14 +7022,6 @@ Plugin instance.
 * `raw` {false}
 
 ### Type Parameters
-
-#### OptionsType
-
-`OptionsType` = {object}
-
-#### ContextAdditions
-
-`ContextAdditions` = {object}
 
 ***
 
@@ -7127,14 +7047,6 @@ Plugin instance.
 * `raw` {true}
 
 ### Type Parameters
-
-#### OptionsType
-
-`OptionsType` = {object}
-
-#### ContextAdditions
-
-`ContextAdditions` = {object}
 
 ***
 

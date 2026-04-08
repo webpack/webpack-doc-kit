@@ -35,6 +35,17 @@ export const getMemberPrefix = model => {
   return prefix ? `${prefix}: ` : '';
 };
 
+export const getMemberTitle = model => {
+  const prefix = getMemberPrefix(model);
+  const params = model.signatures?.[0]?.parameters;
+
+  if (!params) {
+    return `${prefix}\`${model.name}\``;
+  }
+
+  return `${prefix}\`${model.name}(${formatParams(params)})\``;
+};
+
 /**
  * @param {import('typedoc-plugin-markdown').MarkdownThemeContext} ctx
  * @returns {import('typedoc-plugin-markdown').MarkdownThemeContext['partials']}
@@ -78,17 +89,6 @@ export default ctx => ({
       .join('\n');
   },
 
-  memberTitle(model) {
-    const prefix = getMemberPrefix(model);
-    const params = model.signatures?.[0]?.parameters;
-
-    if (!params) {
-      return `${prefix}\`${model.name}\``;
-    }
-
-    return `${prefix}\`${model.name}(${formatParams(params)})\``;
-  },
-
   constructor(model, options) {
     const md = [];
     const heading = '#'.repeat(options.headingLevel);
@@ -106,8 +106,10 @@ export default ctx => ({
     return md.join('\n\n');
   },
 
+  typeParametersList: () => '',
+
+  memberTitle: getMemberTitle,
   parametersList: ctx.helpers.typedList,
-  typedParametersList: ctx.helpers.typedList,
   typeDeclarationList: ctx.helpers.typedList,
   propertiesTable: ctx.helpers.typedList,
 });
