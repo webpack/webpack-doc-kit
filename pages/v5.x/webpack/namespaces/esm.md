@@ -20,41 +20,41 @@
 * `buildMeta` {BuildMeta}
 * `chunk` {Chunk}
 * `chunkGraph` {ChunkGraph}
-* `chunksIterable` {Iterable}
+* `chunksIterable` {Iterable<Chunk>} 
 * `codeGenerationDependencies` {Dependency[]}
 * `compilation` {Compilation}
 * `context` {string}
 * `debugId` {number}
 * `dependencies` {Dependency[]}
 * `dependentHash` {boolean}
-* `depth` {number}
+* `depth` {number} 
 * `errors` {any}
 * `exportsArgument` {string}
 * `factoryMeta` {FactoryMeta}
 * `fullHash` {boolean}
 * `hasEqualsChunks` {any}
-* `hash` {string}
+* `hash` {string} 
 * `hot` {boolean}
 * `id` {string|number} 
-* `index` {number}
-* `index2` {number}
-* `issuer` {Module}
+* `index` {number} 
+* `index2` {number} 
+* `issuer` {Module} 
 * `isUsed` {any}
 * `layer` {string}
 * `moduleArgument` {string}
 * `name` {string}
 * `needId` {boolean}
 * `optimizationBailout` {string|object[]} 
-* `optional` {boolean}
+* `optional` {boolean} 
 * `parent` {DependenciesBlock}
 * `presentationalDependencies` {Dependency[]}
-* `profile` {ModuleProfile}
-* `renderedHash` {string}
+* `profile` {ModuleProfile} 
+* `renderedHash` {string} 
 * `resolveOptions` {ResolveOptions}
 * `stage` {number}
 * `type` {string}
 * `used` {any}
-* `usedExports` {boolean|SortableSet}
+* `usedExports` {boolean|SortableSet<string>} 
 * `useSimpleSourceMap` {boolean}
 * `useSourceMap` {boolean}
 * `warnings` {any}
@@ -82,6 +82,8 @@ This is used for when a Module has a AsyncDependencyBlock tie (for code-splittin
 * Returns: {void}
 
 #### `addChunk(chunk)`
+
+> Stability: 0 - Deprecated
 
 * `chunk` {Chunk}
 * Returns: {boolean}
@@ -167,6 +169,8 @@ removes all warnings and errors
 
 #### `getChunks()`
 
+> Stability: 0 - Deprecated
+
 * Returns: {Chunk[]}
 
 #### `getConcatenationBailoutReason(context)`
@@ -189,6 +193,8 @@ removes all warnings and errors
 * Returns: {string}
 
 #### `getNumberOfChunks()`
+
+> Stability: 0 - Deprecated
 
 * Returns: {number}
 
@@ -275,9 +281,13 @@ This data will be passed to restoreFromUnsafeCache later.
 
 #### `isEntryModule()`
 
+> Stability: 0 - Deprecated
+
 * Returns: {boolean}
 
 #### `isInChunk(chunk)`
+
+> Stability: 0 - Deprecated
 
 * `chunk` {Chunk}
 * Returns: {boolean}
@@ -288,6 +298,8 @@ This data will be passed to restoreFromUnsafeCache later.
 * Returns: {boolean}
 
 #### `isProvided(exportName)`
+
+> Stability: 0 - Deprecated
 
 * `exportName` {string}
 * Returns: {boolean}
@@ -327,6 +339,8 @@ Use needBuild instead
 * Returns: {string}
 
 #### `removeChunk(chunk)`
+
+> Stability: 0 - Deprecated
 
 * `chunk` {Chunk}
 * Returns: {void}

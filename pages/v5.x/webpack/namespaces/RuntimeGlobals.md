@@ -54,6 +54,12 @@
 
 ***
 
+## `compileWasm`
+
+> **compileWasm**: {"__webpack_require__.vs"}
+
+***
+
 ## `createFakeNamespaceObject`
 
 > **createFakeNamespaceObject**: {"__webpack_require__.t"}

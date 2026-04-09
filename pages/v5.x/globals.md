@@ -241,7 +241,7 @@ After this method has succeeded the cache can only be restored when build depend
 * `id` {string|number}
 * `idNameHints` {SortableSet}
 * `ids` {ChunkId[]}
-* `modulesIterable` {Iterable}
+* `modulesIterable` {Iterable<Module>} 
 * `name` {string}
 * `preventIntegration` {boolean}
 * `rendered` {boolean}
@@ -257,6 +257,8 @@ After this method has succeeded the cache can only be restored when build depend
 
 #### `addModule(module)`
 
+> Stability: 0 - Deprecated
+
 * `module` {Module}
 * Returns: {boolean}
 
@@ -266,15 +268,21 @@ After this method has succeeded the cache can only be restored when build depend
 
 #### `canBeIntegrated(otherChunk)`
 
+> Stability: 0 - Deprecated
+
 * `otherChunk` {Chunk}
 * Returns: {boolean}
 
 #### `compareTo(otherChunk)`
 
+> Stability: 0 - Deprecated
+
 * `otherChunk` {Chunk}
 * Returns: {-1|0|1}
 
 #### `containsModule(module)`
+
+> Stability: 0 - Deprecated
 
 * `module` {Module}
 * Returns: {boolean}
@@ -327,6 +335,8 @@ After this method has succeeded the cache can only be restored when build depend
 
 #### `getChunkModuleMaps(filterFn)`
 
+> Stability: 0 - Deprecated
+
 * `filterFn` {object}
 * Returns: {ChunkModuleMaps}
 
@@ -336,6 +346,8 @@ After this method has succeeded the cache can only be restored when build depend
 
 #### `getModules()`
 
+> Stability: 0 - Deprecated
+
 * Returns: {Module[]}
 
 #### `getNumberOfGroups()`
@@ -343,6 +355,8 @@ After this method has succeeded the cache can only be restored when build depend
 * Returns: {number}
 
 #### `getNumberOfModules()`
+
+> Stability: 0 - Deprecated
 
 * Returns: {number}
 
@@ -360,9 +374,13 @@ After this method has succeeded the cache can only be restored when build depend
 
 #### `hasEntryModule()`
 
+> Stability: 0 - Deprecated
+
 * Returns: {boolean}
 
 #### `hasModuleInGraph(filterFn[, filterChunkFn])`
+
+> Stability: 0 - Deprecated
 
 * `filterFn` {object}
 * `filterChunkFn` {object}
@@ -374,16 +392,22 @@ After this method has succeeded the cache can only be restored when build depend
 
 #### `integrate(otherChunk)`
 
+> Stability: 0 - Deprecated
+
 * `otherChunk` {Chunk}
 * Returns: {boolean}
 
 #### `integratedSize(otherChunk, options)`
+
+> Stability: 0 - Deprecated
 
 * `otherChunk` {Chunk}
 * `options` {ChunkSizeOptions}
 * Returns: {number}
 
 #### `isEmpty()`
+
+> Stability: 0 - Deprecated
 
 * Returns: {boolean}
 
@@ -398,15 +422,21 @@ After this method has succeeded the cache can only be restored when build depend
 
 #### `modulesSize()`
 
+> Stability: 0 - Deprecated
+
 * Returns: {number}
 
 #### `moveModule(module, otherChunk)`
+
+> Stability: 0 - Deprecated
 
 * `module` {Module}
 * `otherChunk` {Chunk}
 * Returns: {void}
 
 #### `remove()`
+
+> Stability: 0 - Deprecated
 
 * Returns: {void}
 
@@ -417,10 +447,14 @@ After this method has succeeded the cache can only be restored when build depend
 
 #### `removeModule(module)`
 
+> Stability: 0 - Deprecated
+
 * `module` {Module}
 * Returns: {void}
 
 #### `size([options])`
+
+> Stability: 0 - Deprecated
 
 * `options` {ChunkSizeOptions}
 * Returns: {number}
@@ -1447,7 +1481,7 @@ If `module` is passed, `loc` and `request` must also be passed.
 
 #### `assignDepths(modules)`
 
-* `modules` {Set}
+* `modules` {Module[]|Set<Module>}
 * Returns: {void}
 
 #### `assignRuntimeIds()`
@@ -2704,39 +2738,39 @@ Apply the plugin
 * `blocks` {AsyncDependenciesBlock[]}
 * `buildInfo` {BuildInfo}
 * `buildMeta` {BuildMeta}
-* `chunksIterable` {Iterable}
+* `chunksIterable` {Iterable<Chunk>} 
 * `codeGenerationDependencies` {Dependency[]}
 * `context` {string}
 * `debugId` {number}
 * `dependencies` {Dependency[]}
 * `dependencyMeta` {ImportDependencyMeta|CssImportDependencyMeta|AssetDependencyMeta}
-* `depth` {number}
+* `depth` {number} 
 * `errors` {any}
 * `exportsArgument` {string}
 * `externalType` {ExternalsType}
 * `factoryMeta` {FactoryMeta}
 * `hasEqualsChunks` {any}
-* `hash` {string}
+* `hash` {string} 
 * `hot` {boolean}
 * `id` {string|number} 
-* `index` {number}
-* `index2` {number}
-* `issuer` {Module}
+* `index` {number} 
+* `index2` {number} 
+* `issuer` {Module} 
 * `isUsed` {any}
 * `layer` {string}
 * `moduleArgument` {string}
 * `needId` {boolean}
 * `optimizationBailout` {string|object[]} 
-* `optional` {boolean}
+* `optional` {boolean} 
 * `parent` {DependenciesBlock}
 * `presentationalDependencies` {Dependency[]}
-* `profile` {ModuleProfile}
-* `renderedHash` {string}
+* `profile` {ModuleProfile} 
+* `renderedHash` {string} 
 * `request` {ExternalModuleRequest}
 * `resolveOptions` {ResolveOptions}
 * `type` {string}
 * `used` {any}
-* `usedExports` {boolean|SortableSet}
+* `usedExports` {boolean|SortableSet<string>} 
 * `userRequest` {string}
 * `useSimpleSourceMap` {boolean}
 * `useSourceMap` {boolean}
@@ -2763,6 +2797,8 @@ This is used for when a Module has a AsyncDependencyBlock tie (for code-splittin
 * Returns: {void}
 
 #### `addChunk(chunk)`
+
+> Stability: 0 - Deprecated
 
 * `chunk` {Chunk}
 * Returns: {boolean}
@@ -2837,6 +2873,8 @@ removes all warnings and errors
 
 #### `getChunks()`
 
+> Stability: 0 - Deprecated
+
 * Returns: {Chunk[]}
 
 #### `getConcatenationBailoutReason(context)`
@@ -2855,6 +2893,8 @@ removes all warnings and errors
 * Returns: {ExportsType}
 
 #### `getNumberOfChunks()`
+
+> Stability: 0 - Deprecated
 
 * Returns: {number}
 
@@ -2941,9 +2981,13 @@ This data will be passed to restoreFromUnsafeCache later.
 
 #### `isEntryModule()`
 
+> Stability: 0 - Deprecated
+
 * Returns: {boolean}
 
 #### `isInChunk(chunk)`
+
+> Stability: 0 - Deprecated
 
 * `chunk` {Chunk}
 * Returns: {boolean}
@@ -2954,6 +2998,8 @@ This data will be passed to restoreFromUnsafeCache later.
 * Returns: {boolean}
 
 #### `isProvided(exportName)`
+
+> Stability: 0 - Deprecated
 
 * `exportName` {string}
 * Returns: {boolean}
@@ -2993,6 +3039,8 @@ Use needBuild instead
 * Returns: {string}
 
 #### `removeChunk(chunk)`
+
+> Stability: 0 - Deprecated
 
 * `chunk` {Chunk}
 * Returns: {void}
@@ -3186,7 +3234,7 @@ Apply the plugin
 * `id` {string|number}
 * `idNameHints` {SortableSet}
 * `ids` {ChunkId[]}
-* `modulesIterable` {Iterable}
+* `modulesIterable` {Iterable<Module>} 
 * `name` {string}
 * `preventIntegration` {boolean}
 * `rendered` {boolean}
@@ -3202,6 +3250,8 @@ Apply the plugin
 
 #### `addModule(module)`
 
+> Stability: 0 - Deprecated
+
 * `module` {Module}
 * Returns: {boolean}
 
@@ -3211,15 +3261,21 @@ Apply the plugin
 
 #### `canBeIntegrated(otherChunk)`
 
+> Stability: 0 - Deprecated
+
 * `otherChunk` {Chunk}
 * Returns: {boolean}
 
 #### `compareTo(otherChunk)`
 
+> Stability: 0 - Deprecated
+
 * `otherChunk` {Chunk}
 * Returns: {-1|0|1}
 
 #### `containsModule(module)`
+
+> Stability: 0 - Deprecated
 
 * `module` {Module}
 * Returns: {boolean}
@@ -3272,6 +3328,8 @@ Apply the plugin
 
 #### `getChunkModuleMaps(filterFn)`
 
+> Stability: 0 - Deprecated
+
 * `filterFn` {object}
 * Returns: {ChunkModuleMaps}
 
@@ -3281,6 +3339,8 @@ Apply the plugin
 
 #### `getModules()`
 
+> Stability: 0 - Deprecated
+
 * Returns: {Module[]}
 
 #### `getNumberOfGroups()`
@@ -3288,6 +3348,8 @@ Apply the plugin
 * Returns: {number}
 
 #### `getNumberOfModules()`
+
+> Stability: 0 - Deprecated
 
 * Returns: {number}
 
@@ -3305,9 +3367,13 @@ Apply the plugin
 
 #### `hasEntryModule()`
 
+> Stability: 0 - Deprecated
+
 * Returns: {boolean}
 
 #### `hasModuleInGraph(filterFn[, filterChunkFn])`
+
+> Stability: 0 - Deprecated
 
 * `filterFn` {object}
 * `filterChunkFn` {object}
@@ -3319,16 +3385,22 @@ Apply the plugin
 
 #### `integrate(otherChunk)`
 
+> Stability: 0 - Deprecated
+
 * `otherChunk` {Chunk}
 * Returns: {boolean}
 
 #### `integratedSize(otherChunk, options)`
+
+> Stability: 0 - Deprecated
 
 * `otherChunk` {Chunk}
 * `options` {ChunkSizeOptions}
 * Returns: {number}
 
 #### `isEmpty()`
+
+> Stability: 0 - Deprecated
 
 * Returns: {boolean}
 
@@ -3343,15 +3415,21 @@ Apply the plugin
 
 #### `modulesSize()`
 
+> Stability: 0 - Deprecated
+
 * Returns: {number}
 
 #### `moveModule(module, otherChunk)`
+
+> Stability: 0 - Deprecated
 
 * `module` {Module}
 * `otherChunk` {Chunk}
 * Returns: {void}
 
 #### `remove()`
+
+> Stability: 0 - Deprecated
 
 * Returns: {void}
 
@@ -3362,10 +3440,14 @@ Apply the plugin
 
 #### `removeModule(module)`
 
+> Stability: 0 - Deprecated
+
 * `module` {Module}
 * Returns: {void}
 
 #### `size([options])`
+
+> Stability: 0 - Deprecated
 
 * `options` {ChunkSizeOptions}
 * Returns: {number}
@@ -3710,36 +3792,36 @@ Apply the plugin
 * `blocks` {AsyncDependenciesBlock[]}
 * `buildInfo` {BuildInfo}
 * `buildMeta` {BuildMeta}
-* `chunksIterable` {Iterable}
+* `chunksIterable` {Iterable<Chunk>} 
 * `codeGenerationDependencies` {Dependency[]}
 * `context` {string}
 * `debugId` {number}
 * `dependencies` {Dependency[]}
-* `depth` {number}
+* `depth` {number} 
 * `errors` {any}
 * `exportsArgument` {string}
 * `factoryMeta` {FactoryMeta}
 * `hasEqualsChunks` {any}
-* `hash` {string}
+* `hash` {string} 
 * `hot` {boolean}
 * `id` {string|number} 
-* `index` {number}
-* `index2` {number}
-* `issuer` {Module}
+* `index` {number} 
+* `index2` {number} 
+* `issuer` {Module} 
 * `isUsed` {any}
 * `layer` {string}
 * `moduleArgument` {string}
 * `needId` {boolean}
 * `optimizationBailout` {string|object[]} 
-* `optional` {boolean}
+* `optional` {boolean} 
 * `parent` {DependenciesBlock}
 * `presentationalDependencies` {Dependency[]}
-* `profile` {ModuleProfile}
-* `renderedHash` {string}
+* `profile` {ModuleProfile} 
+* `renderedHash` {string} 
 * `resolveOptions` {ResolveOptions}
 * `type` {string}
 * `used` {any}
-* `usedExports` {boolean|SortableSet}
+* `usedExports` {boolean|SortableSet<string>} 
 * `useSimpleSourceMap` {boolean}
 * `useSourceMap` {boolean}
 * `warnings` {any}
@@ -3763,6 +3845,8 @@ This is used for when a Module has a AsyncDependencyBlock tie (for code-splittin
 * Returns: {void}
 
 #### `addChunk(chunk)`
+
+> Stability: 0 - Deprecated
 
 * `chunk` {Chunk}
 * Returns: {boolean}
@@ -3837,6 +3921,8 @@ removes all warnings and errors
 
 #### `getChunks()`
 
+> Stability: 0 - Deprecated
+
 * Returns: {Chunk[]}
 
 #### `getConcatenationBailoutReason(context)`
@@ -3855,6 +3941,8 @@ removes all warnings and errors
 * Returns: {ExportsType}
 
 #### `getNumberOfChunks()`
+
+> Stability: 0 - Deprecated
 
 * Returns: {number}
 
@@ -3941,9 +4029,13 @@ This data will be passed to restoreFromUnsafeCache later.
 
 #### `isEntryModule()`
 
+> Stability: 0 - Deprecated
+
 * Returns: {boolean}
 
 #### `isInChunk(chunk)`
+
+> Stability: 0 - Deprecated
 
 * `chunk` {Chunk}
 * Returns: {boolean}
@@ -3954,6 +4046,8 @@ This data will be passed to restoreFromUnsafeCache later.
 * Returns: {boolean}
 
 #### `isProvided(exportName)`
+
+> Stability: 0 - Deprecated
 
 * `exportName` {string}
 * Returns: {boolean}
@@ -3993,6 +4087,8 @@ Use needBuild instead
 * Returns: {string}
 
 #### `removeChunk(chunk)`
+
+> Stability: 0 - Deprecated
 
 * `chunk` {Chunk}
 * Returns: {void}
@@ -4653,12 +4749,12 @@ Apply the plugin
 * `blocks` {AsyncDependenciesBlock[]}
 * `buildInfo` {BuildInfo}
 * `buildMeta` {BuildMeta}
-* `chunksIterable` {Iterable}
+* `chunksIterable` {Iterable<Chunk>} 
 * `codeGenerationDependencies` {Dependency[]}
 * `context` {string}
 * `debugId` {number}
 * `dependencies` {Dependency[]}
-* `depth` {number}
+* `depth` {number} 
 * `error` {WebpackError}
 * `errors` {any}
 * `exportsArgument` {string}
@@ -4667,12 +4763,12 @@ Apply the plugin
 * `generator` {Generator}
 * `generatorOptions` {GeneratorOptions}
 * `hasEqualsChunks` {any}
-* `hash` {string}
+* `hash` {string} 
 * `hot` {boolean}
 * `id` {string|number} 
-* `index` {number}
-* `index2` {number}
-* `issuer` {Module}
+* `index` {number} 
+* `index2` {number} 
+* `issuer` {Module} 
 * `isUsed` {any}
 * `layer` {string}
 * `loaders` {LoaderItem[]}
@@ -4680,21 +4776,21 @@ Apply the plugin
 * `moduleArgument` {string}
 * `needId` {boolean}
 * `optimizationBailout` {string|object[]} 
-* `optional` {boolean}
+* `optional` {boolean} 
 * `parent` {DependenciesBlock}
 * `parser` {ParserClass}
 * `parserOptions` {ParserOptions}
 * `presentationalDependencies` {Dependency[]}
-* `profile` {ModuleProfile}
+* `profile` {ModuleProfile} 
 * `rawRequest` {string}
-* `renderedHash` {string}
+* `renderedHash` {string} 
 * `request` {string}
 * `resolveOptions` {ResolveOptions}
 * `resource` {string}
 * `resourceResolveData` {ResourceSchemeData|Partial}
 * `type` {string}
 * `used` {any}
-* `usedExports` {boolean|SortableSet}
+* `usedExports` {boolean|SortableSet<string>} 
 * `userRequest` {string}
 * `useSimpleSourceMap` {boolean}
 * `useSourceMap` {boolean}
@@ -4719,6 +4815,8 @@ This is used for when a Module has a AsyncDependencyBlock tie (for code-splittin
 * Returns: {void}
 
 #### `addChunk(chunk)`
+
+> Stability: 0 - Deprecated
 
 * `chunk` {Chunk}
 * Returns: {boolean}
@@ -4816,6 +4914,8 @@ removes all warnings and errors
 
 #### `getChunks()`
 
+> Stability: 0 - Deprecated
+
 * Returns: {Chunk[]}
 
 #### `getConcatenationBailoutReason(context)`
@@ -4840,6 +4940,8 @@ removes all warnings and errors
 * Returns: {ExportsType}
 
 #### `getNumberOfChunks()`
+
+> Stability: 0 - Deprecated
 
 * Returns: {number}
 
@@ -4930,9 +5032,13 @@ This data will be passed to restoreFromUnsafeCache later.
 
 #### `isEntryModule()`
 
+> Stability: 0 - Deprecated
+
 * Returns: {boolean}
 
 #### `isInChunk(chunk)`
+
+> Stability: 0 - Deprecated
 
 * `chunk` {Chunk}
 * Returns: {boolean}
@@ -4943,6 +5049,8 @@ This data will be passed to restoreFromUnsafeCache later.
 * Returns: {boolean}
 
 #### `isProvided(exportName)`
+
+> Stability: 0 - Deprecated
 
 * `exportName` {string}
 * Returns: {boolean}
@@ -4987,6 +5095,8 @@ Use needBuild instead
 * Returns: {string}
 
 #### `removeChunk(chunk)`
+
+> Stability: 0 - Deprecated
 
 * `chunk` {Chunk}
 * Returns: {void}
@@ -5341,41 +5451,41 @@ Apply the plugin
 * `buildMeta` {BuildMeta}
 * `chunk` {Chunk}
 * `chunkGraph` {ChunkGraph}
-* `chunksIterable` {Iterable}
+* `chunksIterable` {Iterable<Chunk>} 
 * `codeGenerationDependencies` {Dependency[]}
 * `compilation` {Compilation}
 * `context` {string}
 * `debugId` {number}
 * `dependencies` {Dependency[]}
 * `dependentHash` {boolean}
-* `depth` {number}
+* `depth` {number} 
 * `errors` {any}
 * `exportsArgument` {string}
 * `factoryMeta` {FactoryMeta}
 * `fullHash` {boolean}
 * `hasEqualsChunks` {any}
-* `hash` {string}
+* `hash` {string} 
 * `hot` {boolean}
 * `id` {string|number} 
-* `index` {number}
-* `index2` {number}
-* `issuer` {Module}
+* `index` {number} 
+* `index2` {number} 
+* `issuer` {Module} 
 * `isUsed` {any}
 * `layer` {string}
 * `moduleArgument` {string}
 * `name` {string}
 * `needId` {boolean}
 * `optimizationBailout` {string|object[]} 
-* `optional` {boolean}
+* `optional` {boolean} 
 * `parent` {DependenciesBlock}
 * `presentationalDependencies` {Dependency[]}
-* `profile` {ModuleProfile}
-* `renderedHash` {string}
+* `profile` {ModuleProfile} 
+* `renderedHash` {string} 
 * `resolveOptions` {ResolveOptions}
 * `stage` {number}
 * `type` {string}
 * `used` {any}
-* `usedExports` {boolean|SortableSet}
+* `usedExports` {boolean|SortableSet<string>} 
 * `useSimpleSourceMap` {boolean}
 * `useSourceMap` {boolean}
 * `warnings` {any}
@@ -5403,6 +5513,8 @@ This is used for when a Module has a AsyncDependencyBlock tie (for code-splittin
 * Returns: {void}
 
 #### `addChunk(chunk)`
+
+> Stability: 0 - Deprecated
 
 * `chunk` {Chunk}
 * Returns: {boolean}
@@ -5488,6 +5600,8 @@ removes all warnings and errors
 
 #### `getChunks()`
 
+> Stability: 0 - Deprecated
+
 * Returns: {Chunk[]}
 
 #### `getConcatenationBailoutReason(context)`
@@ -5510,6 +5624,8 @@ removes all warnings and errors
 * Returns: {string}
 
 #### `getNumberOfChunks()`
+
+> Stability: 0 - Deprecated
 
 * Returns: {number}
 
@@ -5596,9 +5712,13 @@ This data will be passed to restoreFromUnsafeCache later.
 
 #### `isEntryModule()`
 
+> Stability: 0 - Deprecated
+
 * Returns: {boolean}
 
 #### `isInChunk(chunk)`
+
+> Stability: 0 - Deprecated
 
 * `chunk` {Chunk}
 * Returns: {boolean}
@@ -5609,6 +5729,8 @@ This data will be passed to restoreFromUnsafeCache later.
 * Returns: {boolean}
 
 #### `isProvided(exportName)`
+
+> Stability: 0 - Deprecated
 
 * `exportName` {string}
 * Returns: {boolean}
@@ -5648,6 +5770,8 @@ Use needBuild instead
 * Returns: {string}
 
 #### `removeChunk(chunk)`
+
+> Stability: 0 - Deprecated
 
 * `chunk` {Chunk}
 * Returns: {void}
@@ -6743,7 +6867,8 @@ Specify options for each parser.
 * `dependencyType` {string}
 * `fileDependencies` {LazySet}
 * `ignoredModule` {Module}
-* `missingDependencies` {LazySet}
+* `missingDependencies` {LazySet<string>}
+* `phase` {"defer"|"source"|"evaluation"}
 * `request` {string}
 * `resolveOptions` {ResolveOptions}
 
@@ -6810,6 +6935,7 @@ A rule description with conditions and effects for modules.
 * `oneOf` {false|""|0|RuleSetRule[]} Only execute the first matching rule in this array.
 * `options` {string|object} Shortcut for use.options.
 * `parser` {object} Options for parsing.
+* `phase` {string|RegExp|RuleSetLogicalConditions|RuleSetCondition[]|object} Match the import phase of the dependency.
 * `realResource` {string|RegExp|RuleSetLogicalConditionsAbsolute|RuleSetConditionAbsolute[]|object} Match the real resource path of the module.
 * `resolve` {ResolveOptions} Options for the resolver.
 * `resource` {string|RegExp|RuleSetLogicalConditionsAbsolute|RuleSetConditionAbsolute[]|object} Match the resource path of the module.
