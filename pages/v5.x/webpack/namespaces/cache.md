@@ -15,4 +15,4 @@
 * `compiler` {Compiler}
 * Returns: {void}
 
-Apply the plugin
+Applies the plugin by registering its hooks on the compiler.

@@ -26,6 +26,8 @@
 * `clone` {RuntimeSpecMap}
 * Returns: {RuntimeSpecMap}
 
+Creates an instance of RuntimeSpecMap.
+
 ### Properties
 
 * `size` {number}
@@ -37,15 +39,21 @@
 * `runtime` {RuntimeSpec}
 * Returns: {void}
 
+Processes the provided runtime.
+
 #### `get(runtime)`
 
 * `runtime` {RuntimeSpec}
 * Returns: {R}
 
+Returns value.
+
 #### `has(runtime)`
 
 * `runtime` {RuntimeSpec}
 * Returns: {boolean}
+
+Returns true, when the runtime is stored.
 
 #### `keys()`
 
@@ -57,11 +65,15 @@
 * `computer` {object}
 * Returns: {R}
 
+Returns the new value.
+
 #### `set(runtime, value)`
 
 * `runtime` {RuntimeSpec}
 * `value` {R}
 * Returns: {void}
+
+Updates default using the provided runtime.
 
 #### `update(runtime, fn)`
 
@@ -69,9 +81,13 @@
 * `fn` {object}
 * Returns: {void}
 
+Processes the provided runtime.
+
 #### `values()`
 
 * Returns: {IterableIterator}
+
+Returns values.
 
 ***
 
@@ -84,6 +100,8 @@
 * `iterable` {Iterable}
 * Returns: {RuntimeSpecSet}
 
+Creates an instance of RuntimeSpecSet.
+
 ### Properties
 
 * `size` {number}
@@ -94,15 +112,21 @@
 
 * Returns: {IterableIterator}
 
+Returns iterable iterator.
+
 #### `add(runtime)`
 
 * `runtime` {RuntimeSpec}
 * Returns: {void}
 
+Processes the provided runtime.
+
 #### `has(runtime)`
 
 * `runtime` {RuntimeSpec}
 * Returns: {boolean}
+
+Returns true, when the runtime exists.
 
 ***
 

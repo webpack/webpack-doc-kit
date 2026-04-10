@@ -15,17 +15,19 @@
 * `runtimeRequirements` {string[]}
 * Returns: {ConstDependency}
 
+Creates an instance of ConstDependency.
+
 ### Properties
 
-* `category` {string}
+* `category` {string} Returns a dependency category, typical categories are "commonjs", "amd", "esm".
 * `disconnect` {any}
 * `expression` {string}
-* `loc` {DependencyLocation}
+* `loc` {DependencyLocation} Returns location.
 * `module` {any}
 * `optional` {boolean}
-* `range` {number|number|number}
-* `runtimeRequirements` {Set}
-* `type` {string}
+* `range` {number|Tuple<number, number>}
+* `runtimeRequirements` {Set<string>}
+* `type` {string} Returns a display name for the type of dependency.
 * `weak` {boolean}
 * `EXPORTS_OBJECT_REFERENCED` {string[][]}
 * `NO_EXPORTS_REFERENCED` {string[][]}
@@ -38,31 +40,41 @@
 
 * Returns: {boolean|symbol}
 
+Could affect referencing module.
+
 #### `createIgnoredModule(context)`
 
 * `context` {string}
 * Returns: {Module}
+
+Creates an ignored module.
 
 #### `deserialize(__namedParameters)`
 
 * `__namedParameters` {ObjectDeserializerContext}
 * Returns: {void}
 
+Restores this instance from the provided deserializer context.
+
 #### `getCondition(moduleGraph)`
 
 * `moduleGraph` {ModuleGraph}
 * Returns: {false|object}
 
+Returns function to determine if the connection is active.
+
 #### `getContext()`
 
 * Returns: {string}
+
+Returns a request context.
 
 #### `getErrors(moduleGraph)`
 
 * `moduleGraph` {ModuleGraph}
 * Returns: {WebpackError[]}
 
-Returns errors
+Returns errors.
 
 #### `getExports(moduleGraph)`
 
@@ -75,6 +87,8 @@ Returns the exported names
 
 * `moduleGraph` {ModuleGraph}
 * Returns: {ConnectionState}
+
+Gets module evaluation side effects state.
 
 #### `getNumberOfIdOccurrences()`
 
@@ -103,17 +117,21 @@ Returns list of exports referenced by this dependency
 
 * Returns: {string}
 
+Returns an identifier to merge equal requests.
+
 #### `getWarnings(moduleGraph)`
 
 * `moduleGraph` {ModuleGraph}
 * Returns: {WebpackError[]}
 
-Returns warnings
+Returns warnings.
 
 #### `serialize(__namedParameters)`
 
 * `__namedParameters` {ObjectSerializerContext}
 * Returns: {void}
+
+Serializes this instance into the provided serializer context.
 
 #### `setLoc(startLine, startColumn, endLine, endColumn)`
 
@@ -123,18 +141,22 @@ Returns warnings
 * `endColumn` {number}
 * Returns: {void}
 
+Updates loc using the provided start line.
+
 #### `updateHash(hash, context)`
 
 * `hash` {Hash}
 * `context` {UpdateHashContextDependency}
 * Returns: {void}
 
-Update the hash
+Updates the hash with the data contributed by this instance.
 
 #### Static method: `isLowPriorityDependency(dependency)`
 
 * `dependency` {Dependency}
 * Returns: {boolean}
+
+Returns true if the dependency is a low priority dependency.
 
 ***
 
@@ -154,19 +176,21 @@ Update the hash
 * `attributes` {ImportAttributes}
 * Returns: {HarmonyImportDependency}
 
+Creates an instance of HarmonyImportDependency.
+
 ### Properties
 
 * `attributes` {ImportAttributes}
-* `category` {string}
+* `category` {string} Returns a dependency category, typical categories are "commonjs", "amd", "esm".
 * `disconnect` {any}
-* `loc` {DependencyLocation}
+* `loc` {DependencyLocation} Returns location.
 * `module` {any}
 * `optional` {boolean}
 * `phase` {ImportPhaseType}
 * `range` {number|number}
 * `request` {string}
 * `sourceOrder` {number}
-* `type` {string}
+* `type` {string} Returns a display name for the type of dependency.
 * `userRequest` {string}
 * `weak` {boolean}
 * `ExportPresenceModes` {object}
@@ -182,31 +206,41 @@ Update the hash
 
 * Returns: {boolean|symbol}
 
+Could affect referencing module.
+
 #### `createIgnoredModule(context)`
 
 * `context` {string}
 * Returns: {Module}
+
+Creates an ignored module.
 
 #### `deserialize(__namedParameters)`
 
 * `__namedParameters` {ObjectDeserializerContext}
 * Returns: {void}
 
+Restores this instance from the provided deserializer context.
+
 #### `getCondition(moduleGraph)`
 
 * `moduleGraph` {ModuleGraph}
 * Returns: {false|object}
 
+Returns function to determine if the connection is active.
+
 #### `getContext()`
 
 * Returns: {string}
+
+Returns a request context.
 
 #### `getErrors(moduleGraph)`
 
 * `moduleGraph` {ModuleGraph}
 * Returns: {WebpackError[]}
 
-Returns errors
+Returns errors.
 
 #### `getExports(moduleGraph)`
 
@@ -221,10 +255,14 @@ Returns the exported names
 * `__namedParameters` {DependencyTemplateContext}
 * Returns: {string|string}
 
+Gets import statement.
+
 #### `getImportVar(moduleGraph)`
 
 * `moduleGraph` {ModuleGraph}
 * Returns: {string}
+
+Returns name of the variable for the import.
 
 #### `getLinkingErrors(moduleGraph, ids, additionalMessage)`
 
@@ -233,15 +271,21 @@ Returns the exported names
 * `additionalMessage` {string}
 * Returns: {WebpackError[]}
 
+Gets linking errors.
+
 #### `getModuleEvaluationSideEffectsState(moduleGraph)`
 
 * `moduleGraph` {ModuleGraph}
 * Returns: {ConnectionState}
 
+Gets module evaluation side effects state.
+
 #### `getModuleExports(__namedParameters)`
 
 * `__namedParameters` {DependencyTemplateContext}
 * Returns: {string}
+
+Gets module exports.
 
 #### `getNumberOfIdOccurrences()`
 
@@ -270,17 +314,21 @@ Returns list of exports referenced by this dependency
 
 * Returns: {string}
 
+Returns an identifier to merge equal requests.
+
 #### `getWarnings(moduleGraph)`
 
 * `moduleGraph` {ModuleGraph}
 * Returns: {WebpackError[]}
 
-Returns warnings
+Returns warnings.
 
 #### `serialize(__namedParameters)`
 
 * `__namedParameters` {ObjectSerializerContext}
 * Returns: {void}
+
+Serializes this instance into the provided serializer context.
 
 #### `setLoc(startLine, startColumn, endLine, endColumn)`
 
@@ -290,18 +338,22 @@ Returns warnings
 * `endColumn` {number}
 * Returns: {void}
 
+Updates loc using the provided start line.
+
 #### `updateHash(hash, context)`
 
 * `hash` {Hash}
 * `context` {UpdateHashContextDependency}
 * Returns: {void}
 
-Update the hash
+Updates the hash with the data contributed by this instance.
 
 #### Static method: `isLowPriorityDependency(dependency)`
 
 * `dependency` {Dependency}
 * Returns: {boolean}
+
+Returns true if the dependency is a low priority dependency.
 
 ***
 
@@ -323,17 +375,19 @@ Update the hash
 * `sourceOrder` {number}
 * Returns: {ModuleDependency}
 
+Creates an instance of ModuleDependency.
+
 ### Properties
 
-* `category` {string}
+* `category` {string} Returns a dependency category, typical categories are "commonjs", "amd", "esm".
 * `disconnect` {any}
-* `loc` {DependencyLocation}
+* `loc` {DependencyLocation} Returns location.
 * `module` {any}
 * `optional` {boolean}
 * `range` {number|number}
 * `request` {string}
 * `sourceOrder` {number}
-* `type` {string}
+* `type` {string} Returns a display name for the type of dependency.
 * `userRequest` {string}
 * `weak` {boolean}
 * `EXPORTS_OBJECT_REFERENCED` {string[][]}
@@ -347,31 +401,41 @@ Update the hash
 
 * Returns: {boolean|symbol}
 
+Could affect referencing module.
+
 #### `createIgnoredModule(context)`
 
 * `context` {string}
 * Returns: {Module}
+
+Creates an ignored module.
 
 #### `deserialize(__namedParameters)`
 
 * `__namedParameters` {ObjectDeserializerContext}
 * Returns: {void}
 
+Restores this instance from the provided deserializer context.
+
 #### `getCondition(moduleGraph)`
 
 * `moduleGraph` {ModuleGraph}
 * Returns: {false|object}
 
+Returns function to determine if the connection is active.
+
 #### `getContext()`
 
 * Returns: {string}
+
+Returns a request context.
 
 #### `getErrors(moduleGraph)`
 
 * `moduleGraph` {ModuleGraph}
 * Returns: {WebpackError[]}
 
-Returns errors
+Returns errors.
 
 #### `getExports(moduleGraph)`
 
@@ -384,6 +448,8 @@ Returns the exported names
 
 * `moduleGraph` {ModuleGraph}
 * Returns: {ConnectionState}
+
+Gets module evaluation side effects state.
 
 #### `getNumberOfIdOccurrences()`
 
@@ -412,17 +478,21 @@ Returns list of exports referenced by this dependency
 
 * Returns: {string}
 
+Returns an identifier to merge equal requests.
+
 #### `getWarnings(moduleGraph)`
 
 * `moduleGraph` {ModuleGraph}
 * Returns: {WebpackError[]}
 
-Returns warnings
+Returns warnings.
 
 #### `serialize(__namedParameters)`
 
 * `__namedParameters` {ObjectSerializerContext}
 * Returns: {void}
+
+Serializes this instance into the provided serializer context.
 
 #### `setLoc(startLine, startColumn, endLine, endColumn)`
 
@@ -432,18 +502,22 @@ Returns warnings
 * `endColumn` {number}
 * Returns: {void}
 
+Updates loc using the provided start line.
+
 #### `updateHash(hash, context)`
 
 * `hash` {Hash}
 * `context` {UpdateHashContextDependency}
 * Returns: {void}
 
-Update the hash
+Updates the hash with the data contributed by this instance.
 
 #### Static method: `isLowPriorityDependency(dependency)`
 
 * `dependency` {Dependency}
 * Returns: {boolean}
+
+Returns true if the dependency is a low priority dependency.
 
 ***
 
@@ -465,12 +539,12 @@ Update the hash
 
 ### Properties
 
-* `category` {string}
+* `category` {string} Returns a dependency category, typical categories are "commonjs", "amd", "esm".
 * `disconnect` {any}
-* `loc` {DependencyLocation}
+* `loc` {DependencyLocation} Returns location.
 * `module` {any}
 * `optional` {boolean}
-* `type` {string}
+* `type` {string} Returns a display name for the type of dependency.
 * `weak` {boolean}
 * `EXPORTS_OBJECT_REFERENCED` {string[][]}
 * `NO_EXPORTS_REFERENCED` {string[][]}
@@ -483,31 +557,41 @@ Update the hash
 
 * Returns: {boolean|symbol}
 
+Could affect referencing module.
+
 #### `createIgnoredModule(context)`
 
 * `context` {string}
 * Returns: {Module}
+
+Creates an ignored module.
 
 #### `deserialize(__namedParameters)`
 
 * `__namedParameters` {ObjectDeserializerContext}
 * Returns: {void}
 
+Restores this instance from the provided deserializer context.
+
 #### `getCondition(moduleGraph)`
 
 * `moduleGraph` {ModuleGraph}
 * Returns: {false|object}
 
+Returns function to determine if the connection is active.
+
 #### `getContext()`
 
 * Returns: {string}
+
+Returns a request context.
 
 #### `getErrors(moduleGraph)`
 
 * `moduleGraph` {ModuleGraph}
 * Returns: {WebpackError[]}
 
-Returns errors
+Returns errors.
 
 #### `getExports(moduleGraph)`
 
@@ -520,6 +604,8 @@ Returns the exported names
 
 * `moduleGraph` {ModuleGraph}
 * Returns: {ConnectionState}
+
+Gets module evaluation side effects state.
 
 #### `getNumberOfIdOccurrences()`
 
@@ -548,17 +634,21 @@ Returns list of exports referenced by this dependency
 
 * Returns: {string}
 
+Returns an identifier to merge equal requests.
+
 #### `getWarnings(moduleGraph)`
 
 * `moduleGraph` {ModuleGraph}
 * Returns: {WebpackError[]}
 
-Returns warnings
+Returns warnings.
 
 #### `serialize(__namedParameters)`
 
 * `__namedParameters` {ObjectSerializerContext}
 * Returns: {void}
+
+Serializes this instance into the provided serializer context.
 
 #### `setLoc(startLine, startColumn, endLine, endColumn)`
 
@@ -568,15 +658,19 @@ Returns warnings
 * `endColumn` {number}
 * Returns: {void}
 
+Updates loc using the provided start line.
+
 #### `updateHash(hash, context)`
 
 * `hash` {Hash}
 * `context` {UpdateHashContextDependency}
 * Returns: {void}
 
-Update the hash
+Updates the hash with the data contributed by this instance.
 
 #### Static method: `isLowPriorityDependency(dependency)`
 
 * `dependency` {Dependency}
 * Returns: {boolean}
+
+Returns true if the dependency is a low priority dependency.

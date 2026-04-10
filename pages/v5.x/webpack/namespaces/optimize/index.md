@@ -13,6 +13,8 @@
 * `options` {AggressiveMergingPluginOptions}
 * Returns: {AggressiveMergingPlugin}
 
+Creates an instance of AggressiveMergingPlugin.
+
 ### Properties
 
 * `options` {AggressiveMergingPluginOptions}
@@ -24,7 +26,7 @@
 * `compiler` {Compiler}
 * Returns: {void}
 
-Apply the plugin
+Applies the plugin by registering its hooks on the compiler.
 
 ***
 
@@ -37,6 +39,8 @@ Apply the plugin
 * `options` {AggressiveSplittingPluginOptions}
 * Returns: {AggressiveSplittingPlugin}
 
+Creates an instance of AggressiveSplittingPlugin.
+
 ### Properties
 
 * `options` {AggressiveSplittingPluginOptions}
@@ -48,12 +52,14 @@ Apply the plugin
 * `compiler` {Compiler}
 * Returns: {void}
 
-Apply the plugin
+Applies the plugin by registering its hooks on the compiler.
 
 #### Static method: `wasChunkRecorded(chunk)`
 
 * `chunk` {Chunk}
 * Returns: {boolean}
+
+Was chunk recorded.
 
 ***
 
@@ -66,6 +72,8 @@ Apply the plugin
 * `options` {LimitChunkCountPluginOptions}
 * Returns: {LimitChunkCountPlugin}
 
+Creates an instance of LimitChunkCountPlugin.
+
 ### Properties
 
 * `options` {LimitChunkCountPluginOptions}
@@ -76,6 +84,8 @@ Apply the plugin
 
 * `compiler` {Compiler}
 * Returns: {void}
+
+Applies the plugin by registering its hooks on the compiler.
 
 ***
 
@@ -88,6 +98,8 @@ Apply the plugin
 * `options` {MergeDuplicateChunksPluginOptions}
 * Returns: {MergeDuplicateChunksPlugin}
 
+Creates an instance of MergeDuplicateChunksPlugin.
+
 ### Properties
 
 * `options` {MergeDuplicateChunksPluginOptions}
@@ -98,6 +110,8 @@ Apply the plugin
 
 * `compiler` {Compiler}
 * Returns: {void}
+
+Applies the plugin by registering its hooks on the compiler.
 
 ***
 
@@ -110,6 +124,8 @@ Apply the plugin
 * `options` {MinChunkSizePluginOptions}
 * Returns: {MinChunkSizePlugin}
 
+Creates an instance of MinChunkSizePlugin.
+
 ### Properties
 
 * `options` {MinChunkSizePluginOptions}
@@ -121,7 +137,7 @@ Apply the plugin
 * `compiler` {Compiler}
 * Returns: {void}
 
-Apply the plugin
+Applies the plugin by registering its hooks on the compiler.
 
 ***
 
@@ -140,7 +156,7 @@ Apply the plugin
 * `compiler` {Compiler}
 * Returns: {void}
 
-Apply the plugin
+Applies the plugin by registering its hooks on the compiler.
 
 ***
 
@@ -153,6 +169,8 @@ Apply the plugin
 * `__namedParameters` {RealContentHashPluginOptions}
 * Returns: {RealContentHashPlugin}
 
+Creates an instance of RealContentHashPlugin.
+
 ### Methods
 
 #### `apply(compiler)`
@@ -160,12 +178,14 @@ Apply the plugin
 * `compiler` {Compiler}
 * Returns: {void}
 
-Apply the plugin
+Applies the plugin by registering its hooks on the compiler.
 
 #### Static method: `getCompilationHooks(compilation)`
 
 * `compilation` {Compilation}
 * Returns: {CompilationHooksRealContentHashPlugin}
+
+Returns the attached hooks.
 
 ***
 
@@ -178,6 +198,8 @@ Apply the plugin
 * `options` {object}
 * Returns: {RuntimeChunkPlugin}
 
+Creates an instance of RuntimeChunkPlugin.
+
 ### Properties
 
 * `options` {object}
@@ -189,7 +211,7 @@ Apply the plugin
 * `compiler` {Compiler}
 * Returns: {void}
 
-Apply the plugin
+Applies the plugin by registering its hooks on the compiler.
 
 ***
 
@@ -202,6 +224,8 @@ Apply the plugin
 * `analyseSource` {boolean}
 * Returns: {SideEffectsFlagPlugin}
 
+Creates an instance of SideEffectsFlagPlugin.
+
 ### Methods
 
 #### `apply(compiler)`
@@ -209,7 +233,7 @@ Apply the plugin
 * `compiler` {Compiler}
 * Returns: {void}
 
-Apply the plugin
+Applies the plugin by registering its hooks on the compiler.
 
 #### Static method: `moduleHasSideEffects(moduleName, flagValue, cache)`
 
@@ -217,6 +241,8 @@ Apply the plugin
 * `flagValue` {SideEffectsFlagValue}
 * `cache` {Map}
 * Returns: {boolean}
+
+Module has side effects.
 
 ***
 
@@ -229,6 +255,8 @@ Apply the plugin
 * `options` {OptimizationSplitChunksOptions}
 * Returns: {SplitChunksPlugin}
 
+Creates an instance of SplitChunksPlugin.
+
 ### Properties
 
 * `options` {SplitChunksOptions}
@@ -240,4 +268,4 @@ Apply the plugin
 * `compiler` {Compiler}
 * Returns: {void}
 
-Apply the plugin
+Applies the plugin by registering its hooks on the compiler.

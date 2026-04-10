@@ -9,6 +9,8 @@
 * `name` {string}
 * Returns: {TopLevelSymbol}
 
+Creates an instance of TopLevelSymbol.
+
 ### Properties
 
 * `name` {string}

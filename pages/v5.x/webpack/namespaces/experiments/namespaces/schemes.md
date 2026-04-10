@@ -9,6 +9,8 @@
 * `options` {HttpUriOptions}
 * Returns: {HttpUriPlugin}
 
+Creates an instance of HttpUriPlugin.
+
 ### Properties
 
 * `options` {HttpUriOptions}
@@ -20,7 +22,7 @@
 * `compiler` {Compiler}
 * Returns: {void}
 
-Apply the plugin
+Applies the plugin by registering its hooks on the compiler.
 
 ***
 
@@ -33,6 +35,8 @@ Apply the plugin
 * `modules` {VirtualModules}
 * `schemeOrOptions` {string|Omit}
 * Returns: {VirtualUrlPlugin}
+
+Creates an instance of VirtualUrlPlugin.
 
 ### Properties
 
@@ -49,12 +53,14 @@ Apply the plugin
 * `compiler` {Compiler}
 * Returns: {void}
 
-Apply the plugin
+Applies the plugin by registering its hooks on the compiler.
 
 #### `findVirtualModuleConfigById(id)`
 
 * `id` {string}
 * Returns: {VirtualModule}
+
+Finds virtual module config by id.
 
 #### `getCacheVersion(version)`
 

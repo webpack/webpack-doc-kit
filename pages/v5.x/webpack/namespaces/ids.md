@@ -9,6 +9,8 @@
 * `options` {ChunkModuleIdRangePluginOptions}
 * Returns: {ChunkModuleIdRangePlugin}
 
+Creates an instance of ChunkModuleIdRangePlugin.
+
 ### Properties
 
 * `options` {ChunkModuleIdRangePluginOptions}
@@ -20,7 +22,7 @@
 * `compiler` {Compiler}
 * Returns: {void}
 
-Apply the plugin
+Applies the plugin by registering its hooks on the compiler.
 
 ***
 
@@ -33,6 +35,8 @@ Apply the plugin
 * `options` {DeterministicChunkIdsPluginOptions}
 * Returns: {DeterministicChunkIdsPlugin}
 
+Creates an instance of DeterministicChunkIdsPlugin.
+
 ### Properties
 
 * `options` {DeterministicChunkIdsPluginOptions}
@@ -44,7 +48,7 @@ Apply the plugin
 * `compiler` {Compiler}
 * Returns: {void}
 
-Apply the plugin
+Applies the plugin by registering its hooks on the compiler.
 
 ***
 
@@ -57,6 +61,8 @@ Apply the plugin
 * `options` {DeterministicModuleIdsPluginOptions}
 * Returns: {DeterministicModuleIdsPlugin}
 
+Creates an instance of DeterministicModuleIdsPlugin.
+
 ### Properties
 
 * `options` {DeterministicModuleIdsPluginOptions}
@@ -68,7 +74,7 @@ Apply the plugin
 * `compiler` {Compiler}
 * Returns: {void}
 
-Apply the plugin
+Applies the plugin by registering its hooks on the compiler.
 
 ***
 
@@ -81,6 +87,8 @@ Apply the plugin
 * `options` {HashedModuleIdsPluginOptions}
 * Returns: {HashedModuleIdsPlugin}
 
+Creates an instance of HashedModuleIdsPlugin.
+
 ### Properties
 
 * `options` {HashedModuleIdsPluginOptions}
@@ -92,7 +100,7 @@ Apply the plugin
 * `compiler` {Compiler}
 * Returns: {void}
 
-Apply the plugin
+Applies the plugin by registering its hooks on the compiler.
 
 ***
 
@@ -105,6 +113,8 @@ Apply the plugin
 * `options` {NamedChunkIdsPluginOptions}
 * Returns: {NamedChunkIdsPlugin}
 
+Creates an instance of NamedChunkIdsPlugin.
+
 ### Properties
 
 * `options` {NamedChunkIdsPluginOptions}
@@ -116,7 +126,7 @@ Apply the plugin
 * `compiler` {Compiler}
 * Returns: {void}
 
-Apply the plugin
+Applies the plugin by registering its hooks on the compiler.
 
 ***
 
@@ -129,6 +139,8 @@ Apply the plugin
 * `options` {NamedModuleIdsPluginOptions}
 * Returns: {NamedModuleIdsPlugin}
 
+Creates an instance of NamedModuleIdsPlugin.
+
 ### Properties
 
 * `options` {NamedModuleIdsPluginOptions}
@@ -140,7 +152,7 @@ Apply the plugin
 * `compiler` {Compiler}
 * Returns: {void}
 
-Apply the plugin
+Applies the plugin by registering its hooks on the compiler.
 
 ***
 
@@ -159,7 +171,7 @@ Apply the plugin
 * `compiler` {Compiler}
 * Returns: {void}
 
-Apply the plugin
+Applies the plugin by registering its hooks on the compiler.
 
 ***
 
@@ -172,6 +184,8 @@ Apply the plugin
 * `options` {OccurrenceChunkIdsPluginOptions}
 * Returns: {OccurrenceChunkIdsPlugin}
 
+Creates an instance of OccurrenceChunkIdsPlugin.
+
 ### Properties
 
 * `options` {OccurrenceChunkIdsPluginOptions}
@@ -183,7 +197,7 @@ Apply the plugin
 * `compiler` {Compiler}
 * Returns: {void}
 
-Apply the plugin
+Applies the plugin by registering its hooks on the compiler.
 
 ***
 
@@ -196,6 +210,8 @@ Apply the plugin
 * `options` {OccurrenceModuleIdsPluginOptions}
 * Returns: {OccurrenceModuleIdsPlugin}
 
+Creates an instance of OccurrenceModuleIdsPlugin.
+
 ### Properties
 
 * `options` {OccurrenceModuleIdsPluginOptions}
@@ -207,4 +223,4 @@ Apply the plugin
 * `compiler` {Compiler}
 * Returns: {void}
 
-Apply the plugin
+Applies the plugin by registering its hooks on the compiler.

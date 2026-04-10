@@ -9,6 +9,8 @@
 * `options` {ConsumeSharedPluginOptions}
 * Returns: {ConsumeSharedPlugin}
 
+Creates an instance of ConsumeSharedPlugin.
+
 ### Properties
 
 * `options` {ConsumeSharedPluginOptions}
@@ -20,7 +22,7 @@
 * `compiler` {Compiler}
 * Returns: {void}
 
-Apply the plugin
+Applies the plugin by registering its hooks on the compiler.
 
 ***
 
@@ -33,6 +35,8 @@ Apply the plugin
 * `options` {ProvideSharedPluginOptions}
 * Returns: {ProvideSharedPlugin}
 
+Creates an instance of ProvideSharedPlugin.
+
 ### Properties
 
 * `options` {ProvideSharedPluginOptions}
@@ -44,7 +48,7 @@ Apply the plugin
 * `compiler` {Compiler}
 * Returns: {void}
 
-Apply the plugin
+Applies the plugin by registering its hooks on the compiler.
 
 ***
 
@@ -57,6 +61,8 @@ Apply the plugin
 * `options` {SharePluginOptions}
 * Returns: {SharePlugin}
 
+Creates an instance of SharePlugin.
+
 ### Methods
 
 #### `apply(compiler)`
@@ -64,7 +70,7 @@ Apply the plugin
 * `compiler` {Compiler}
 * Returns: {void}
 
-Apply the plugin
+Applies the plugin by registering its hooks on the compiler.
 
 ***
 

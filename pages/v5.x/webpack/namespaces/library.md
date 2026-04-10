@@ -18,6 +18,8 @@
 * `__namedParameters` {AbstractLibraryPluginOptions}
 * Returns: {AbstractLibraryPlugin}
 
+Creates an instance of AbstractLibraryPlugin.
+
 ### Properties
 
 * `COMMON_LIBRARY_NAME_MESSAGE` {string}
@@ -29,7 +31,7 @@
 * `compiler` {Compiler}
 * Returns: {void}
 
-Apply the plugin
+Applies the plugin by registering its hooks on the compiler.
 
 #### `chunkHash(chunk, hash, chunkHashContext, libraryContext)`
 
@@ -39,12 +41,16 @@ Apply the plugin
 * `libraryContext` {LibraryContext}
 * Returns: {void}
 
+Processes the provided chunk.
+
 #### `embedInRuntimeBailout(module, renderContext, libraryContext)`
 
 * `module` {Module}
 * `renderContext` {RenderContextJavascriptModulesPlugin}
 * `libraryContext` {LibraryContext}
 * Returns: {string}
+
+Embed in runtime bailout.
 
 #### `finishEntryModule(module, entryName, libraryContext)`
 
@@ -53,10 +59,14 @@ Apply the plugin
 * `libraryContext` {LibraryContext}
 * Returns: {void}
 
+Finish entry module.
+
 #### `parseOptions(library)`
 
 * `library` {LibraryOptions}
 * Returns: {T}
+
+Returns preprocess as needed by overriding.
 
 #### `render(source, renderContext, libraryContext)`
 
@@ -64,6 +74,8 @@ Apply the plugin
 * `renderContext` {RenderContextJavascriptModulesPlugin}
 * `libraryContext` {LibraryContext}
 * Returns: {Source}
+
+Returns source with library export.
 
 #### `renderModuleContent(source, module, renderContext, libraryContext)`
 
@@ -73,6 +85,8 @@ Apply the plugin
 * `libraryContext` {Omit}
 * Returns: {Source}
 
+Renders module content.
+
 #### `renderStartup(source, module, renderContext, libraryContext)`
 
 * `source` {Source}
@@ -81,6 +95,8 @@ Apply the plugin
 * `libraryContext` {LibraryContext}
 * Returns: {Source}
 
+Renders source with library export.
+
 #### `runtimeRequirements(chunk, set, libraryContext)`
 
 * `chunk` {Chunk}
@@ -88,11 +104,15 @@ Apply the plugin
 * `libraryContext` {LibraryContext}
 * Returns: {void}
 
+Processes the provided chunk.
+
 #### `strictRuntimeBailout(renderContext, libraryContext)`
 
 * `renderContext` {RenderContextJavascriptModulesPlugin}
 * `libraryContext` {LibraryContext}
 * Returns: {string}
+
+Strict runtime bailout.
 
 ***
 
@@ -106,6 +126,8 @@ Apply the plugin
 * `options` {EnableLibraryPluginOptions}
 * Returns: {EnableLibraryPlugin}
 
+Creates an instance of EnableLibraryPlugin.
+
 ### Properties
 
 * `options` {EnableLibraryPluginOptions}
@@ -118,7 +140,7 @@ Apply the plugin
 * `compiler` {Compiler}
 * Returns: {void}
 
-Apply the plugin
+Applies the plugin by registering its hooks on the compiler.
 
 #### Static method: `checkEnabled(compiler, type)`
 
@@ -126,8 +148,12 @@ Apply the plugin
 * `type` {string}
 * Returns: {void}
 
+Checks enabled.
+
 #### Static method: `setEnabled(compiler, type)`
 
 * `compiler` {Compiler}
 * `type` {string}
 * Returns: {void}
+
+Updates enabled using the provided compiler.

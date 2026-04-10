@@ -9,6 +9,8 @@
 * `context` {"main"|"preload"|"renderer"}
 * Returns: {ElectronTargetPlugin}
 
+Creates an instance of ElectronTargetPlugin.
+
 ### Methods
 
 #### `apply(compiler)`
@@ -16,4 +18,4 @@
 * `compiler` {Compiler}
 * Returns: {void}
 
-Apply the plugin
+Applies the plugin by registering its hooks on the compiler.

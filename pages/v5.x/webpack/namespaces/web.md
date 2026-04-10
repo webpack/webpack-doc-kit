@@ -27,29 +27,34 @@
 * `debugId` {number}
 * `dependencies` {Dependency[]}
 * `dependentHash` {boolean}
-* `depth` {number} 
+* `depth` {number} Returns the depth.
+Updates the depth using the provided value.
 * `errors` {any}
-* `exportsArgument` {string}
+* `exportsArgument` {string} Gets exports argument.
 * `factoryMeta` {FactoryMeta}
 * `fullHash` {boolean}
 * `hasEqualsChunks` {any}
-* `hash` {string} 
+* `hash` {string} Returns the hash of the module.
 * `hot` {boolean}
-* `id` {string|number} 
-* `index` {number} 
-* `index2` {number} 
-* `issuer` {Module} 
+* `id` {string|number} Returns the module id assigned by the chunk graph.
+Updates the module id using the provided value.
+* `index` {number} Returns the pre-order index.
+Updates the pre-order index using the provided value.
+* `index2` {number} Returns the post-order index.
+Updates the post-order index using the provided value.
+* `issuer` {Module} Returns the issuer.
+Updates the issuer using the provided value.
 * `isUsed` {any}
 * `layer` {string}
-* `moduleArgument` {string}
+* `moduleArgument` {string} Gets module argument.
 * `name` {string}
 * `needId` {boolean}
-* `optimizationBailout` {string|object[]} 
+* `optimizationBailout` {string|object[]} Gets optimization bailout.
 * `optional` {boolean} 
 * `parent` {DependenciesBlock}
 * `presentationalDependencies` {Dependency[]}
 * `profile` {ModuleProfile} 
-* `renderedHash` {string} 
+* `renderedHash` {string} Returns the rendered hash of the module.
 * `resolveOptions` {ResolveOptions}
 * `stage` {number}
 * `type` {string}
@@ -81,6 +86,8 @@ This is used for when a Module has a AsyncDependencyBlock tie (for code-splittin
 * `buildDependencies` {LazySet}
 * Returns: {void}
 
+Adds the provided file dependencies to the module.
+
 #### `addChunk(chunk)`
 
 > Stability: 0 - Deprecated
@@ -88,30 +95,42 @@ This is used for when a Module has a AsyncDependencyBlock tie (for code-splittin
 * `chunk` {Chunk}
 * Returns: {boolean}
 
+Adds the provided chunk to the module.
+
 #### `addCodeGenerationDependency(codeGenerationDependency)`
 
 * `codeGenerationDependency` {Dependency}
 * Returns: {void}
+
+Adds code generation dependency.
 
 #### `addDependency(dependency)`
 
 * `dependency` {Dependency}
 * Returns: {void}
 
+Adds the provided dependency to the dependencies block.
+
 #### `addError(error)`
 
 * `error` {WebpackError}
 * Returns: {void}
+
+Adds the provided error to the module.
 
 #### `addPresentationalDependency(presentationalDependency)`
 
 * `presentationalDependency` {Dependency}
 * Returns: {void}
 
+Adds presentational dependency.
+
 #### `addWarning(warning)`
 
 * `warning` {WebpackError}
 * Returns: {void}
+
+Adds the provided warning to the module.
 
 #### `attach(compilation, chunk[, chunkGraph])`
 
@@ -119,6 +138,8 @@ This is used for when a Module has a AsyncDependencyBlock tie (for code-splittin
 * `chunk` {Chunk}
 * `chunkGraph` {ChunkGraph}
 * Returns: {void}
+
+Processes the provided compilation.
 
 #### `build(options, compilation, resolver, fs, callback)`
 
@@ -129,11 +150,15 @@ This is used for when a Module has a AsyncDependencyBlock tie (for code-splittin
 * `callback` {object}
 * Returns: {void}
 
+Builds the module using the provided compilation context.
+
 #### `chunkCondition(chunk, compilation)`
 
 * `chunk` {Chunk}
 * `compilation` {Compilation}
 * Returns: {boolean}
+
+Returns true if the module can be placed in the chunk.
 
 #### `cleanupForCache()`
 
@@ -145,7 +170,7 @@ Assuming this module is in the cache. Remove internal references to allow freein
 
 * Returns: {void}
 
-Removes all dependencies and blocks
+Clear dependencies and blocks.
 
 #### `clearWarningsAndErrors()`
 
@@ -158,14 +183,20 @@ removes all warnings and errors
 * `context` {CodeGenerationContext}
 * Returns: {CodeGenerationResult}
 
+Generates code and runtime requirements for this module.
+
 #### `deserialize(__namedParameters)`
 
 * `__namedParameters` {ObjectDeserializerContext}
 * Returns: {void}
 
+Restores this instance from the provided deserializer context.
+
 #### `generate()`
 
 * Returns: {string}
+
+Generates runtime code for this runtime module.
 
 #### `getChunks()`
 
@@ -178,9 +209,13 @@ removes all warnings and errors
 * `context` {ConcatenationBailoutReasonContext}
 * Returns: {string}
 
+Returns the reason this module cannot be concatenated, when one exists.
+
 #### `getErrors()`
 
 * Returns: {Iterable}
+
+Returns list of errors if any.
 
 #### `getExportsType(moduleGraph[, strict])`
 
@@ -188,9 +223,13 @@ removes all warnings and errors
 * `strict` {boolean}
 * Returns: {ExportsType}
 
+Returns export type.
+
 #### `getGeneratedCode()`
 
 * Returns: {string}
+
+Gets generated code.
 
 #### `getNumberOfChunks()`
 
@@ -202,9 +241,13 @@ removes all warnings and errors
 
 * Returns: {number}
 
+Gets number of errors.
+
 #### `getNumberOfWarnings()`
 
 * Returns: {number}
+
+Gets number of warnings.
 
 #### `getRootBlock()`
 
@@ -214,6 +257,8 @@ removes all warnings and errors
 
 * `moduleGraph` {ModuleGraph}
 * Returns: {ConnectionState}
+
+Gets side effects connection state.
 
 #### `getSourceBasicTypes()`
 
@@ -229,6 +274,8 @@ from getSourceTypes(), but their generated output is still JavaScript, i.e. thei
 
 * Returns: {ReadonlySet}
 
+Returns the source types this module can generate.
+
 #### `getUnsafeCacheData()`
 
 * Returns: {UnsafeCacheData}
@@ -239,6 +286,8 @@ This data will be passed to restoreFromUnsafeCache later.
 #### `getWarnings()`
 
 * Returns: {Iterable}
+
+Returns list of warnings if any.
 
 #### `hasChunkCondition()`
 
@@ -251,19 +300,27 @@ This data will be passed to restoreFromUnsafeCache later.
 * `chunkGraph` {ChunkGraph}
 * Returns: {boolean}
 
+Checks whether this module contains the chunk.
+
 #### `hasReasons(moduleGraph, runtime)`
 
 * `moduleGraph` {ModuleGraph}
 * `runtime` {RuntimeSpec}
 * Returns: {boolean}
 
+Checks whether this module contains the module graph.
+
 #### `identifier()`
 
 * Returns: {string}
 
+Returns the unique identifier used to reference this module.
+
 #### `invalidateBuild()`
 
 * Returns: {void}
+
+Invalidates the cached state associated with this value.
 
 #### `isAccessibleInChunk(chunkGraph, chunk[, ignoreChunk])`
 
@@ -272,12 +329,16 @@ This data will be passed to restoreFromUnsafeCache later.
 * `ignoreChunk` {Chunk}
 * Returns: {boolean}
 
+Checks whether this module is accessible in chunk.
+
 #### `isAccessibleInChunkGroup(chunkGraph, chunkGroup[, ignoreChunk])`
 
 * `chunkGraph` {ChunkGraph}
 * `chunkGroup` {ChunkGroup}
 * `ignoreChunk` {Chunk}
 * Returns: {boolean}
+
+Checks whether this module is accessible in chunk group.
 
 #### `isEntryModule()`
 
@@ -292,10 +353,14 @@ This data will be passed to restoreFromUnsafeCache later.
 * `chunk` {Chunk}
 * Returns: {boolean}
 
+Checks whether this module is in the provided chunk.
+
 #### `isOptional(moduleGraph)`
 
 * `moduleGraph` {ModuleGraph}
 * Returns: {boolean}
+
+Checks whether this module is optional.
 
 #### `isProvided(exportName)`
 
@@ -304,14 +369,20 @@ This data will be passed to restoreFromUnsafeCache later.
 * `exportName` {string}
 * Returns: {boolean}
 
+Checks whether this module provides the specified export.
+
 #### `libIdent(options)`
 
 * `options` {LibIdentOptions}
 * Returns: {string}
 
+Gets the library identifier.
+
 #### `nameForCondition()`
 
 * Returns: {string}
+
+Returns the path used when matching this module against rule conditions.
 
 #### `needBuild(context, callback)`
 
@@ -319,24 +390,30 @@ This data will be passed to restoreFromUnsafeCache later.
 * `callback` {object}
 * Returns: {void}
 
+Checks whether the module needs to be rebuilt for the current build state.
+
 #### `needRebuild(fileTimestamps, contextTimestamps)`
 
-> Stability: 0 - Deprecated
+> Stability: 0 - Deprecated: Use needBuild instead
 
 * `fileTimestamps` {Map}
 * `contextTimestamps` {Map}
 * Returns: {boolean}
 
-Use needBuild instead
+Checks whether it needs rebuild.
 
 #### `originalSource()`
 
 * Returns: {Source}
 
+Gets the original source.
+
 #### `readableIdentifier(requestShortener)`
 
 * `requestShortener` {RequestShortener}
 * Returns: {string}
+
+Returns a human-readable identifier for this module.
 
 #### `removeChunk(chunk)`
 
@@ -345,35 +422,45 @@ Use needBuild instead
 * `chunk` {Chunk}
 * Returns: {void}
 
+Removes the provided chunk from the module.
+
 #### `removeDependency(dependency)`
 
 * `dependency` {Dependency}
 * Returns: {void}
+
+Removes dependency.
 
 #### `serialize(__namedParameters)`
 
 * `__namedParameters` {ObjectSerializerContext}
 * Returns: {void}
 
+Serializes this instance into the provided serializer context.
+
 #### `shouldIsolate()`
 
 * Returns: {boolean}
+
+Returns true, if the runtime module should get it's own scope.
 
 #### `size([type])`
 
 * `type` {string}
 * Returns: {number}
 
+Returns the estimated size for the requested source type.
+
 #### `source(dependencyTemplates, runtimeTemplate[, type])`
 
-> Stability: 0 - Deprecated
+> Stability: 0 - Deprecated: Use codeGeneration() instead
 
 * `dependencyTemplates` {DependencyTemplates}
 * `runtimeTemplate` {RuntimeTemplate}
 * `type` {string}
 * Returns: {Source}
 
-Use codeGeneration() instead
+Returns generated source.
 
 #### `updateCacheModule(module)`
 
@@ -390,6 +477,8 @@ and properties.
 * `context` {UpdateHashContextDependency}
 * Returns: {void}
 
+Updates the hash with the data contributed by this instance.
+
 #### Static method: `getCompilationHooks(compilation)`
 
 * `compilation` {Compilation}
@@ -397,12 +486,12 @@ and properties.
 
 #### Static method: `getSourceBasicTypes(module)`
 
-> Stability: 0 - Deprecated
+> Stability: 0 - Deprecated: In webpack 6, call getSourceBasicTypes() directly on the module instance instead of using this static method.
 
 * `module` {Module}
 * Returns: {ReadonlySet}
 
-In webpack 6, call getSourceBasicTypes() directly on the module instance instead of using this static method.
+Gets source basic types.
 
 ***
 
@@ -421,7 +510,8 @@ In webpack 6, call getSourceBasicTypes() directly on the module instance instead
 * `compiler` {Compiler}
 * Returns: {void}
 
-Apply the plugin
+Registers compilation hooks that attach the async fetch-based wasm runtime
+to chunks containing async WebAssembly modules.
 
 ***
 
@@ -434,6 +524,8 @@ Apply the plugin
 * `options` {FetchCompileWasmPluginOptions}
 * Returns: {FetchCompileWasmPlugin}
 
+Stores options that affect generated synchronous WebAssembly runtime code.
+
 ### Properties
 
 * `options` {FetchCompileWasmPluginOptions}
@@ -445,7 +537,8 @@ Apply the plugin
 * `compiler` {Compiler}
 * Returns: {void}
 
-Apply the plugin
+Registers compilation hooks that attach the fetch-based synchronous wasm
+runtime module to chunks containing sync WebAssembly modules.
 
 ***
 
@@ -476,29 +569,34 @@ Apply the plugin
 * `debugId` {number}
 * `dependencies` {Dependency[]}
 * `dependentHash` {boolean}
-* `depth` {number} 
+* `depth` {number} Returns the depth.
+Updates the depth using the provided value.
 * `errors` {any}
-* `exportsArgument` {string}
+* `exportsArgument` {string} Gets exports argument.
 * `factoryMeta` {FactoryMeta}
 * `fullHash` {boolean}
 * `hasEqualsChunks` {any}
-* `hash` {string} 
+* `hash` {string} Returns the hash of the module.
 * `hot` {boolean}
-* `id` {string|number} 
-* `index` {number} 
-* `index2` {number} 
-* `issuer` {Module} 
+* `id` {string|number} Returns the module id assigned by the chunk graph.
+Updates the module id using the provided value.
+* `index` {number} Returns the pre-order index.
+Updates the pre-order index using the provided value.
+* `index2` {number} Returns the post-order index.
+Updates the post-order index using the provided value.
+* `issuer` {Module} Returns the issuer.
+Updates the issuer using the provided value.
 * `isUsed` {any}
 * `layer` {string}
-* `moduleArgument` {string}
+* `moduleArgument` {string} Gets module argument.
 * `name` {string}
 * `needId` {boolean}
-* `optimizationBailout` {string|object[]} 
+* `optimizationBailout` {string|object[]} Gets optimization bailout.
 * `optional` {boolean} 
 * `parent` {DependenciesBlock}
 * `presentationalDependencies` {Dependency[]}
 * `profile` {ModuleProfile} 
-* `renderedHash` {string} 
+* `renderedHash` {string} Returns the rendered hash of the module.
 * `resolveOptions` {ResolveOptions}
 * `stage` {number}
 * `type` {string}
@@ -530,6 +628,8 @@ This is used for when a Module has a AsyncDependencyBlock tie (for code-splittin
 * `buildDependencies` {LazySet}
 * Returns: {void}
 
+Adds the provided file dependencies to the module.
+
 #### `addChunk(chunk)`
 
 > Stability: 0 - Deprecated
@@ -537,30 +637,42 @@ This is used for when a Module has a AsyncDependencyBlock tie (for code-splittin
 * `chunk` {Chunk}
 * Returns: {boolean}
 
+Adds the provided chunk to the module.
+
 #### `addCodeGenerationDependency(codeGenerationDependency)`
 
 * `codeGenerationDependency` {Dependency}
 * Returns: {void}
+
+Adds code generation dependency.
 
 #### `addDependency(dependency)`
 
 * `dependency` {Dependency}
 * Returns: {void}
 
+Adds the provided dependency to the dependencies block.
+
 #### `addError(error)`
 
 * `error` {WebpackError}
 * Returns: {void}
+
+Adds the provided error to the module.
 
 #### `addPresentationalDependency(presentationalDependency)`
 
 * `presentationalDependency` {Dependency}
 * Returns: {void}
 
+Adds presentational dependency.
+
 #### `addWarning(warning)`
 
 * `warning` {WebpackError}
 * Returns: {void}
+
+Adds the provided warning to the module.
 
 #### `attach(compilation, chunk[, chunkGraph])`
 
@@ -568,6 +680,8 @@ This is used for when a Module has a AsyncDependencyBlock tie (for code-splittin
 * `chunk` {Chunk}
 * `chunkGraph` {ChunkGraph}
 * Returns: {void}
+
+Processes the provided compilation.
 
 #### `build(options, compilation, resolver, fs, callback)`
 
@@ -578,11 +692,15 @@ This is used for when a Module has a AsyncDependencyBlock tie (for code-splittin
 * `callback` {object}
 * Returns: {void}
 
+Builds the module using the provided compilation context.
+
 #### `chunkCondition(chunk, compilation)`
 
 * `chunk` {Chunk}
 * `compilation` {Compilation}
 * Returns: {boolean}
+
+Returns true if the module can be placed in the chunk.
 
 #### `cleanupForCache()`
 
@@ -594,7 +712,7 @@ Assuming this module is in the cache. Remove internal references to allow freein
 
 * Returns: {void}
 
-Removes all dependencies and blocks
+Clear dependencies and blocks.
 
 #### `clearWarningsAndErrors()`
 
@@ -607,14 +725,20 @@ removes all warnings and errors
 * `context` {CodeGenerationContext}
 * Returns: {CodeGenerationResult}
 
+Generates code and runtime requirements for this module.
+
 #### `deserialize(__namedParameters)`
 
 * `__namedParameters` {ObjectDeserializerContext}
 * Returns: {void}
 
+Restores this instance from the provided deserializer context.
+
 #### `generate()`
 
 * Returns: {string}
+
+Generates runtime code for this runtime module.
 
 #### `getChunks()`
 
@@ -627,9 +751,13 @@ removes all warnings and errors
 * `context` {ConcatenationBailoutReasonContext}
 * Returns: {string}
 
+Returns the reason this module cannot be concatenated, when one exists.
+
 #### `getErrors()`
 
 * Returns: {Iterable}
+
+Returns list of errors if any.
 
 #### `getExportsType(moduleGraph[, strict])`
 
@@ -637,9 +765,13 @@ removes all warnings and errors
 * `strict` {boolean}
 * Returns: {ExportsType}
 
+Returns export type.
+
 #### `getGeneratedCode()`
 
 * Returns: {string}
+
+Gets generated code.
 
 #### `getNumberOfChunks()`
 
@@ -651,9 +783,13 @@ removes all warnings and errors
 
 * Returns: {number}
 
+Gets number of errors.
+
 #### `getNumberOfWarnings()`
 
 * Returns: {number}
+
+Gets number of warnings.
 
 #### `getRootBlock()`
 
@@ -663,6 +799,8 @@ removes all warnings and errors
 
 * `moduleGraph` {ModuleGraph}
 * Returns: {ConnectionState}
+
+Gets side effects connection state.
 
 #### `getSourceBasicTypes()`
 
@@ -678,6 +816,8 @@ from getSourceTypes(), but their generated output is still JavaScript, i.e. thei
 
 * Returns: {ReadonlySet}
 
+Returns the source types this module can generate.
+
 #### `getUnsafeCacheData()`
 
 * Returns: {UnsafeCacheData}
@@ -688,6 +828,8 @@ This data will be passed to restoreFromUnsafeCache later.
 #### `getWarnings()`
 
 * Returns: {Iterable}
+
+Returns list of warnings if any.
 
 #### `hasChunkCondition()`
 
@@ -700,19 +842,27 @@ This data will be passed to restoreFromUnsafeCache later.
 * `chunkGraph` {ChunkGraph}
 * Returns: {boolean}
 
+Checks whether this module contains the chunk.
+
 #### `hasReasons(moduleGraph, runtime)`
 
 * `moduleGraph` {ModuleGraph}
 * `runtime` {RuntimeSpec}
 * Returns: {boolean}
 
+Checks whether this module contains the module graph.
+
 #### `identifier()`
 
 * Returns: {string}
 
+Returns the unique identifier used to reference this module.
+
 #### `invalidateBuild()`
 
 * Returns: {void}
+
+Invalidates the cached state associated with this value.
 
 #### `isAccessibleInChunk(chunkGraph, chunk[, ignoreChunk])`
 
@@ -721,12 +871,16 @@ This data will be passed to restoreFromUnsafeCache later.
 * `ignoreChunk` {Chunk}
 * Returns: {boolean}
 
+Checks whether this module is accessible in chunk.
+
 #### `isAccessibleInChunkGroup(chunkGraph, chunkGroup[, ignoreChunk])`
 
 * `chunkGraph` {ChunkGraph}
 * `chunkGroup` {ChunkGroup}
 * `ignoreChunk` {Chunk}
 * Returns: {boolean}
+
+Checks whether this module is accessible in chunk group.
 
 #### `isEntryModule()`
 
@@ -741,10 +895,14 @@ This data will be passed to restoreFromUnsafeCache later.
 * `chunk` {Chunk}
 * Returns: {boolean}
 
+Checks whether this module is in the provided chunk.
+
 #### `isOptional(moduleGraph)`
 
 * `moduleGraph` {ModuleGraph}
 * Returns: {boolean}
+
+Checks whether this module is optional.
 
 #### `isProvided(exportName)`
 
@@ -753,14 +911,20 @@ This data will be passed to restoreFromUnsafeCache later.
 * `exportName` {string}
 * Returns: {boolean}
 
+Checks whether this module provides the specified export.
+
 #### `libIdent(options)`
 
 * `options` {LibIdentOptions}
 * Returns: {string}
 
+Gets the library identifier.
+
 #### `nameForCondition()`
 
 * Returns: {string}
+
+Returns the path used when matching this module against rule conditions.
 
 #### `needBuild(context, callback)`
 
@@ -768,24 +932,30 @@ This data will be passed to restoreFromUnsafeCache later.
 * `callback` {object}
 * Returns: {void}
 
+Checks whether the module needs to be rebuilt for the current build state.
+
 #### `needRebuild(fileTimestamps, contextTimestamps)`
 
-> Stability: 0 - Deprecated
+> Stability: 0 - Deprecated: Use needBuild instead
 
 * `fileTimestamps` {Map}
 * `contextTimestamps` {Map}
 * Returns: {boolean}
 
-Use needBuild instead
+Checks whether it needs rebuild.
 
 #### `originalSource()`
 
 * Returns: {Source}
 
+Gets the original source.
+
 #### `readableIdentifier(requestShortener)`
 
 * `requestShortener` {RequestShortener}
 * Returns: {string}
+
+Returns a human-readable identifier for this module.
 
 #### `removeChunk(chunk)`
 
@@ -794,35 +964,45 @@ Use needBuild instead
 * `chunk` {Chunk}
 * Returns: {void}
 
+Removes the provided chunk from the module.
+
 #### `removeDependency(dependency)`
 
 * `dependency` {Dependency}
 * Returns: {void}
+
+Removes dependency.
 
 #### `serialize(__namedParameters)`
 
 * `__namedParameters` {ObjectSerializerContext}
 * Returns: {void}
 
+Serializes this instance into the provided serializer context.
+
 #### `shouldIsolate()`
 
 * Returns: {boolean}
+
+Returns true, if the runtime module should get it's own scope.
 
 #### `size([type])`
 
 * `type` {string}
 * Returns: {number}
 
+Returns the estimated size for the requested source type.
+
 #### `source(dependencyTemplates, runtimeTemplate[, type])`
 
-> Stability: 0 - Deprecated
+> Stability: 0 - Deprecated: Use codeGeneration() instead
 
 * `dependencyTemplates` {DependencyTemplates}
 * `runtimeTemplate` {RuntimeTemplate}
 * `type` {string}
 * Returns: {Source}
 
-Use codeGeneration() instead
+Returns generated source.
 
 #### `updateCacheModule(module)`
 
@@ -839,6 +1019,8 @@ and properties.
 * `context` {UpdateHashContextDependency}
 * Returns: {void}
 
+Updates the hash with the data contributed by this instance.
+
 #### Static method: `getCompilationHooks(compilation)`
 
 * `compilation` {Compilation}
@@ -846,12 +1028,12 @@ and properties.
 
 #### Static method: `getSourceBasicTypes(module)`
 
-> Stability: 0 - Deprecated
+> Stability: 0 - Deprecated: In webpack 6, call getSourceBasicTypes() directly on the module instance instead of using this static method.
 
 * `module` {Module}
 * Returns: {ReadonlySet}
 
-In webpack 6, call getSourceBasicTypes() directly on the module instance instead of using this static method.
+Gets source basic types.
 
 ***
 
@@ -870,13 +1052,13 @@ In webpack 6, call getSourceBasicTypes() directly on the module instance instead
 * `compiler` {Compiler}
 * Returns: {void}
 
-Apply the plugin
+Applies the plugin by registering its hooks on the compiler.
 
 #### Static method: `getCompilationHooks(compilation)`
 
-> Stability: 0 - Deprecated
+> Stability: 0 - Deprecated: use JsonpChunkLoadingRuntimeModule.getCompilationHooks instead
 
 * `compilation` {Compilation}
 * Returns: {JsonpCompilationPluginHooks}
 
-use JsonpChunkLoadingRuntimeModule.getCompilationHooks instead
+Returns hooks.

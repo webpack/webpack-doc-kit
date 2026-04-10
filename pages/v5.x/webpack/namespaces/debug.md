@@ -9,6 +9,8 @@
 * `options` {ProfilingPluginOptions}
 * Returns: {ProfilingPlugin}
 
+Creates an instance of ProfilingPlugin.
+
 ### Properties
 
 * `options` {ProfilingPluginOptions}
@@ -21,4 +23,4 @@
 * `compiler` {Compiler}
 * Returns: {void}
 
-Apply the plugin
+Applies the plugin by registering its hooks on the compiler.
