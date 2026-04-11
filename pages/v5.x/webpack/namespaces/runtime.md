@@ -225,6 +225,8 @@ Returns the reason this module cannot be concatenated, when one exists.
 
 Returns list of errors if any.
 
+Returns list of errors if any.
+
 #### `getExportsType(moduleGraph[, strict])`
 
 * `moduleGraph` {ModuleGraph}
@@ -284,6 +286,8 @@ from getSourceTypes(), but their generated output is still JavaScript, i.e. thei
 
 Returns the source types this module can generate.
 
+Returns the source types this module can generate.
+
 #### `getUnsafeCacheData()`
 
 * Returns: {UnsafeCacheData}
@@ -294,6 +298,8 @@ This data will be passed to restoreFromUnsafeCache later.
 #### `getWarnings()`
 
 * Returns: {Iterable}
+
+Returns list of warnings if any.
 
 Returns list of warnings if any.
 
@@ -716,6 +722,8 @@ Returns the reason this module cannot be concatenated, when one exists.
 
 Returns list of errors if any.
 
+Returns list of errors if any.
+
 #### `getExportsType(moduleGraph[, strict])`
 
 * `moduleGraph` {ModuleGraph}
@@ -775,6 +783,8 @@ from getSourceTypes(), but their generated output is still JavaScript, i.e. thei
 
 Returns the source types this module can generate.
 
+Returns the source types this module can generate.
+
 #### `getUnsafeCacheData()`
 
 * Returns: {UnsafeCacheData}
@@ -785,6 +795,8 @@ This data will be passed to restoreFromUnsafeCache later.
 #### `getWarnings()`
 
 * Returns: {Iterable}
+
+Returns list of warnings if any.
 
 Returns list of warnings if any.
 
