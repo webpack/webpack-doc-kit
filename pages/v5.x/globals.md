@@ -349,9 +349,13 @@ Gets all async chunks.
 
 Gets all async chunks.
 
+Gets all async chunks.
+
 #### `getAllInitialChunks()`
 
 * Returns: {Set}
+
+Gets all initial chunks.
 
 Gets all initial chunks.
 
@@ -369,9 +373,13 @@ Gets all referenced async entrypoints.
 
 Gets all referenced async entrypoints.
 
+Gets all referenced async entrypoints.
+
 #### `getAllReferencedChunks()`
 
 * Returns: {Set}
+
+Gets all referenced chunks.
 
 Gets all referenced chunks.
 
@@ -384,6 +392,8 @@ Gets all referenced chunks.
 * `chunkGraph` {ChunkGraph}
 * `filterFn` {object}
 * Returns: {Record}
+
+Gets child ids by orders.
 
 Gets child ids by orders.
 
@@ -821,10 +831,14 @@ Gets chunk dependent hash modules iterable.
 
 Gets chunk dependent hash modules iterable.
 
+Gets chunk dependent hash modules iterable.
+
 #### `getChunkEntryDependentChunksIterable(chunk)`
 
 * `chunk` {Chunk}
 * Returns: {Iterable}
+
+Gets chunk entry dependent chunks iterable.
 
 Gets chunk entry dependent chunks iterable.
 
@@ -843,10 +857,14 @@ Gets chunk entry modules iterable.
 
 Gets chunk entry modules iterable.
 
+Gets chunk entry modules iterable.
+
 #### `getChunkEntryModulesWithChunkGroupIterable(chunk)`
 
 * `chunk` {Chunk}
 * Returns: {Iterable}
+
+Gets chunk entry modules with chunk group iterable.
 
 Gets chunk entry modules with chunk group iterable.
 
@@ -865,10 +883,14 @@ Gets chunk full hash modules iterable.
 
 Gets chunk full hash modules iterable.
 
+Gets chunk full hash modules iterable.
+
 #### `getChunkFullHashModulesSet(chunk)`
 
 * `chunk` {Chunk}
 * Returns: {ReadonlySet}
+
+Gets chunk full hash modules set.
 
 Gets chunk full hash modules set.
 
@@ -913,11 +935,15 @@ Gets chunk modules iterable.
 
 Gets chunk modules iterable.
 
+Gets chunk modules iterable.
+
 #### `getChunkModulesIterableBySourceType(chunk, sourceType)`
 
 * `chunk` {Chunk}
 * `sourceType` {string}
 * Returns: {Iterable}
+
+Gets chunk modules iterable by source type.
 
 Gets chunk modules iterable by source type.
 
@@ -937,6 +963,8 @@ Gets chunk module source types.
 
 Gets chunk module source types.
 
+Gets chunk module source types.
+
 #### `getChunkModulesSize(chunk)`
 
 * `chunk` {Chunk}
@@ -948,6 +976,8 @@ Gets chunk modules size.
 
 * `chunk` {Chunk}
 * Returns: {Record}
+
+Gets chunk modules sizes.
 
 Gets chunk modules sizes.
 
@@ -980,10 +1010,14 @@ Gets chunk runtime modules iterable.
 
 Gets chunk runtime modules iterable.
 
+Gets chunk runtime modules iterable.
+
 #### `getChunkRuntimeRequirements(chunk)`
 
 * `chunk` {Chunk}
 * Returns: {ReadonlySet}
+
+Gets chunk runtime requirements.
 
 Gets chunk runtime requirements.
 
@@ -1019,6 +1053,8 @@ Gets module chunks.
 
 * `module` {Module}
 * Returns: {Iterable}
+
+Gets module chunks iterable.
 
 Gets module chunks iterable.
 
@@ -1071,6 +1107,8 @@ Gets module runtime requirements.
 
 Gets module runtime requirements.
 
+Gets module runtime requirements.
+
 #### `getModuleRuntimes(module)`
 
 * `module` {Module}
@@ -1082,6 +1120,8 @@ Gets module runtimes.
 
 * `module` {Module}
 * Returns: {ReadonlySet}
+
+Gets module source types.
 
 Gets module source types.
 
@@ -1144,6 +1184,8 @@ Gets ordered chunk modules iterable.
 
 Gets ordered chunk modules iterable.
 
+Gets ordered chunk modules iterable.
+
 #### `getOrderedChunkModulesIterableBySourceType(chunk, sourceType, comparator)`
 
 * `chunk` {Chunk}
@@ -1157,11 +1199,15 @@ Gets ordered chunk modules iterable by source type.
 
 Gets ordered chunk modules iterable by source type.
 
+Gets ordered chunk modules iterable by source type.
+
 #### `getOrderedModuleChunksIterable(module, sortFn)`
 
 * `module` {Module}
 * `sortFn` {object}
 * Returns: {Iterable}
+
+Gets ordered module chunks iterable.
 
 Gets ordered module chunks iterable.
 
@@ -1188,6 +1234,8 @@ Gets runtime chunk dependent chunks iterable.
 
 Gets runtime chunk dependent chunks iterable.
 
+Gets runtime chunk dependent chunks iterable.
+
 #### `getRuntimeId(runtime)`
 
 * `runtime` {string}
@@ -1199,6 +1247,8 @@ Returns the id of the runtime.
 
 * `chunk` {Chunk}
 * Returns: {ReadonlySet}
+
+Gets tree runtime requirements.
 
 Gets tree runtime requirements.
 
@@ -1502,6 +1552,9 @@ by descending order and deterministic chunk-group comparison.
 Groups child chunk groups by their `*Order` options and sorts each group
 by descending order and deterministic chunk-group comparison.
 
+Groups child chunk groups by their `*Order` options and sorts each group
+by descending order and deterministic chunk-group comparison.
+
 #### `getFiles()`
 
 * Returns: {string[]}
@@ -1733,6 +1786,9 @@ computing and caching it on first access.
 * `module` {Module}
 * `runtime` {RuntimeSpec}
 * Returns: {ReadonlySet}
+
+Returns the runtime requirements captured during code generation for the
+requested module/runtime pair.
 
 Returns the runtime requirements captured during code generation for the
 requested module/runtime pair.
@@ -2109,6 +2165,8 @@ Processes the provided callback.
 
 * `name` {string}
 * Returns: {Readonly}
+
+Returns the asset or undefined when not found.
 
 Returns the asset or undefined when not found.
 
@@ -3179,6 +3237,9 @@ by descending order and deterministic chunk-group comparison.
 Groups child chunk groups by their `*Order` options and sorts each group
 by descending order and deterministic chunk-group comparison.
 
+Groups child chunk groups by their `*Order` options and sorts each group
+by descending order and deterministic chunk-group comparison.
+
 #### `getEntrypointChunk()`
 
 * Returns: {Chunk}
@@ -3640,6 +3701,8 @@ Returns list of errors if any.
 
 Returns list of errors if any.
 
+Returns list of errors if any.
+
 #### `getExportsType(moduleGraph[, strict])`
 
 * `moduleGraph` {ModuleGraph}
@@ -3697,6 +3760,8 @@ Returns the source types this module can generate.
 
 Returns the source types this module can generate.
 
+Returns the source types this module can generate.
+
 #### `getUnsafeCacheData()`
 
 * Returns: {UnsafeCacheData}
@@ -3707,6 +3772,8 @@ This data will be passed to restoreFromUnsafeCache later.
 #### `getWarnings()`
 
 * Returns: {Iterable}
+
+Returns list of warnings if any.
 
 Returns list of warnings if any.
 
@@ -3997,6 +4064,8 @@ Returns the source types available for this module.
 
 Returns the source types available for this module.
 
+Returns the source types available for this module.
+
 #### `updateHash(hash, __namedParameters)`
 
 * `hash` {Hash}
@@ -4142,9 +4211,13 @@ Gets all async chunks.
 
 Gets all async chunks.
 
+Gets all async chunks.
+
 #### `getAllInitialChunks()`
 
 * Returns: {Set}
+
+Gets all initial chunks.
 
 Gets all initial chunks.
 
@@ -4162,9 +4235,13 @@ Gets all referenced async entrypoints.
 
 Gets all referenced async entrypoints.
 
+Gets all referenced async entrypoints.
+
 #### `getAllReferencedChunks()`
 
 * Returns: {Set}
+
+Gets all referenced chunks.
 
 Gets all referenced chunks.
 
@@ -4177,6 +4254,8 @@ Gets all referenced chunks.
 * `chunkGraph` {ChunkGraph}
 * `filterFn` {object}
 * Returns: {Record}
+
+Gets child ids by orders.
 
 Gets child ids by orders.
 
@@ -4449,6 +4528,8 @@ Note that if "contextRegExp" is given, both the "resourceRegExp" and "contextReg
 * `key` {string}
 * `endContent` {string|Source}
 * Returns: {InitFragment}
+
+Creates an instance of InitFragment.
 
 Creates an instance of InitFragment.
 
@@ -4945,6 +5026,8 @@ Returns list of errors if any.
 
 Returns list of errors if any.
 
+Returns list of errors if any.
+
 #### `getExportsType(moduleGraph[, strict])`
 
 * `moduleGraph` {ModuleGraph}
@@ -5002,6 +5085,8 @@ Returns the source types this module can generate.
 
 Returns the source types this module can generate.
 
+Returns the source types this module can generate.
+
 #### `getUnsafeCacheData()`
 
 * Returns: {UnsafeCacheData}
@@ -5012,6 +5097,8 @@ This data will be passed to restoreFromUnsafeCache later.
 #### `getWarnings()`
 
 * Returns: {Iterable}
+
+Returns list of warnings if any.
 
 Returns list of warnings if any.
 
@@ -5368,10 +5455,14 @@ Gets incoming connections.
 
 Gets incoming connections.
 
+Gets incoming connections.
+
 #### `getIncomingConnectionsByOriginModule(module)`
 
 * `module` {Module}
 * Returns: {ReadonlyMap}
+
+Gets incoming connections by origin module.
 
 Gets incoming connections by origin module.
 
@@ -5432,10 +5523,14 @@ Gets outgoing connections.
 
 Gets outgoing connections.
 
+Gets outgoing connections.
+
 #### `getOutgoingConnectionsByModule(module)`
 
 * `module` {Module}
 * Returns: {ReadonlyMap}
+
+Gets outgoing connections by module.
 
 Gets outgoing connections by module.
 
@@ -5519,6 +5614,8 @@ Gets resolved origin.
 * `module` {Module}
 * `runtime` {RuntimeSpec}
 * Returns: {boolean|SortableSet}
+
+Returns the used exports.
 
 Returns the used exports.
 
@@ -6213,6 +6310,8 @@ Returns list of errors if any.
 
 Returns list of errors if any.
 
+Returns list of errors if any.
+
 #### `getExportsType(moduleGraph[, strict])`
 
 * `moduleGraph` {ModuleGraph}
@@ -6274,6 +6373,8 @@ Returns the source types this module can generate.
 
 Returns the source types this module can generate.
 
+Returns the source types this module can generate.
+
 #### `getUnsafeCacheData()`
 
 * Returns: {UnsafeCacheData}
@@ -6284,6 +6385,8 @@ This data will be passed to restoreFromUnsafeCache later.
 #### `getWarnings()`
 
 * Returns: {Iterable}
+
+Returns list of warnings if any.
 
 Returns list of warnings if any.
 
@@ -7006,6 +7109,8 @@ Returns list of errors if any.
 
 Returns list of errors if any.
 
+Returns list of errors if any.
+
 #### `getExportsType(moduleGraph[, strict])`
 
 * `moduleGraph` {ModuleGraph}
@@ -7069,6 +7174,8 @@ Returns the source types this module can generate.
 
 Returns the source types this module can generate.
 
+Returns the source types this module can generate.
+
 #### `getUnsafeCacheData()`
 
 * Returns: {UnsafeCacheData}
@@ -7079,6 +7186,8 @@ This data will be passed to restoreFromUnsafeCache later.
 #### `getWarnings()`
 
 * Returns: {Iterable}
+
+Returns list of warnings if any.
 
 Returns list of warnings if any.
 
@@ -7399,6 +7508,8 @@ Gets function content.
 
 * `modules` {WithId[]}
 * Returns: {false|number|number}
+
+Gets modules array bounds.
 
 Gets modules array bounds.
 
