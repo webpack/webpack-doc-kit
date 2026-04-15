@@ -254,6 +254,8 @@ Destructuring assignment properties for.
 
 Destructuring assignment properties for.
 
+Destructuring assignment properties for.
+
 #### `detectMode(statements)`
 
 * `statements` {ClassDeclaration|FunctionDeclaration|ImportDeclaration|ExportNamedDeclaration|ExportDefaultDeclaration|ExportAllDeclaration|ExpressionStatement|BlockStatement|StaticBlock|EmptyStatement|DebuggerStatement|WithStatement|ReturnStatement|LabeledStatement|BreakStatement|ContinueStatement|IfStatement|SwitchStatement|ThrowStatement|TryStatement|WhileStatement|DoWhileStatement|ForStatement|ForInStatement|ForOfStatement|VariableDeclaration|Directive[]}
@@ -290,6 +292,8 @@ Processes the provided declaration.
 * `pattern` {Pattern}
 * `expression` {Expression}
 * Returns: {Identifier|ClassExpression|SimpleLiteral|RegExpLiteral|BigIntLiteral|ArrayExpression|ArrowFunctionExpression|AssignmentExpression|AwaitExpression|BinaryExpression|SimpleCallExpression|NewExpression|ChainExpression|ConditionalExpression|FunctionExpression|ImportExpression|LogicalExpression|MemberExpression|MetaProperty|ObjectExpression|SequenceExpression|TaggedTemplateExpression|TemplateLiteral|ThisExpression|UnaryExpression|UpdateExpression|YieldExpression}
+
+Enter destructuring assignment.
 
 Enter destructuring assignment.
 
@@ -417,6 +421,8 @@ Gets rename identifier.
 * `name` {string}
 * `tag` {symbol}
 * Returns: {Record|TopLevelSymbol|HarmonySettings|ImportSettings|CommonJsImportSettings|CompatibilitySettings|HarmonySpecifierGuards}
+
+Returns tag data.
 
 Returns tag data.
 
