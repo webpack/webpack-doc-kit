@@ -8,6 +8,7 @@ Automated TypeScript API documentation generator for [webpack](https://github.co
 2. Custom plugins process the output (namespace merging, type mapping, themed rendering)
 3. **@node-core/doc-kit** converts Markdown to HTML
 4. GitHub Actions deploys the result to GitHub Pages
+5. Vercel provides live preview deployments for every pull request
 
 ### Webpack Version Tracking
 
@@ -33,6 +34,7 @@ This ensures documentation stays in sync with upstream webpack without manual in
 │   ├── deploy.yml            # Build HTML + deploy to GitHub Pages
 │   └── sync.yml              # Daily webpack sync
 └── package.json
+├── vercel.json              # Vercel deployment configuration
 ```
 
 ## Scripts
