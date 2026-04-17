@@ -32,6 +32,8 @@ Creates an instance of AbstractLibraryPlugin.
 
 Creates an instance of AbstractLibraryPlugin.
 
+Creates an instance of AbstractLibraryPlugin.
+
 ### Properties
 
 * `COMMON_LIBRARY_NAME_MESSAGE` {string}
