@@ -231,6 +231,8 @@ Returns list of errors if any.
 
 Returns list of errors if any.
 
+Returns list of errors if any.
+
 #### `getExportsType(moduleGraph[, strict])`
 
 * `moduleGraph` {ModuleGraph}
@@ -304,6 +306,8 @@ Returns the source types this module can generate.
 
 Returns the source types this module can generate.
 
+Returns the source types this module can generate.
+
 #### `getUnsafeCacheData()`
 
 * Returns: {UnsafeCacheData}
@@ -314,6 +318,8 @@ This data will be passed to restoreFromUnsafeCache later.
 #### `getWarnings()`
 
 * Returns: {Iterable}
+
+Returns list of warnings if any.
 
 Returns list of warnings if any.
 
@@ -815,6 +821,8 @@ Returns list of errors if any.
 
 Returns list of errors if any.
 
+Returns list of errors if any.
+
 #### `getExportsType(moduleGraph[, strict])`
 
 * `moduleGraph` {ModuleGraph}
@@ -888,6 +896,8 @@ Returns the source types this module can generate.
 
 Returns the source types this module can generate.
 
+Returns the source types this module can generate.
+
 #### `getUnsafeCacheData()`
 
 * Returns: {UnsafeCacheData}
@@ -898,6 +908,8 @@ This data will be passed to restoreFromUnsafeCache later.
 #### `getWarnings()`
 
 * Returns: {Iterable}
+
+Returns list of warnings if any.
 
 Returns list of warnings if any.
 

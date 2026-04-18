@@ -49,6 +49,9 @@ deferred merges.
 Seeds the set with an optional iterable while preparing internal queues for
 deferred merges.
 
+Seeds the set with an optional iterable while preparing internal queues for
+deferred merges.
+
 ### Properties
 
 * `size` {number} Returns the number of items after applying any deferred merges.
@@ -58,6 +61,8 @@ deferred merges.
 #### `[iterator]()`
 
 * Returns: {SetIterator}
+
+Returns the default iterator over values after forcing pending merges.
 
 Returns the default iterator over values after forcing pending merges.
 
@@ -96,10 +101,15 @@ Adds a single item immediately to the concrete backing set.
 
 Adds a single item immediately to the concrete backing set.
 
+Adds a single item immediately to the concrete backing set.
+
 #### `addAll(iterable)`
 
 * `iterable` {LazySet|Iterable}
 * Returns: {LazySet}
+
+Queues another iterable or lazy set for later merging so large bulk adds
+can stay cheap until the set is read.
 
 Queues another iterable or lazy set for later merging so large bulk adds
 can stay cheap until the set is read.
@@ -167,6 +177,9 @@ operations to eager merge mode to preserve iterator correctness.
 Returns the set's entry iterator and permanently switches future
 operations to eager merge mode to preserve iterator correctness.
 
+Returns the set's entry iterator and permanently switches future
+operations to eager merge mode to preserve iterator correctness.
+
 #### `forEach(callbackFn, thisArg)`
 
 ###### K
@@ -189,6 +202,8 @@ Checks whether an item is present after applying any deferred merges.
 #### `keys()`
 
 * Returns: {SetIterator}
+
+Returns the key iterator, eagerly materializing pending merges first.
 
 Returns the key iterator, eagerly materializing pending merges first.
 
@@ -234,6 +249,8 @@ Returns the value iterator, eagerly materializing pending merges first.
 
 Returns the value iterator, eagerly materializing pending merges first.
 
+Returns the value iterator, eagerly materializing pending merges first.
+
 #### Static method: `deserialize(__namedParameters)`
 
 ###### T
@@ -241,6 +258,8 @@ Returns the value iterator, eagerly materializing pending merges first.
 `T`
 * `__namedParameters` {ObjectDeserializerContext}
 * Returns: {LazySet}
+
+Restores a `LazySet` from serialized item data.
 
 Restores a `LazySet` from serialized item data.
 
