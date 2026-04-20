@@ -46,6 +46,8 @@ Creates an instance of RuntimeSpecMap.
 
 Creates an instance of RuntimeSpecMap.
 
+Creates an instance of RuntimeSpecMap.
+
 ### Properties
 
 * `size` {number}
@@ -125,6 +127,8 @@ Returns values.
 
 Returns values.
 
+Returns values.
+
 ***
 
 ## Class: `RuntimeSpecSet`
@@ -147,6 +151,8 @@ Creates an instance of RuntimeSpecSet.
 #### `[iterator]()`
 
 * Returns: {IterableIterator}
+
+Returns iterable iterator.
 
 Returns iterable iterator.
 
