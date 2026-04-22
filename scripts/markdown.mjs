@@ -1,16 +1,16 @@
 import { Application } from 'typedoc';
-import webpack from './webpack/package.json' with { type: 'json' };
+import webpack from '../webpack/package.json' with { type: 'json' };
 import { major } from 'semver';
 
 const app = await Application.bootstrapWithPlugins({
-  entryPoints: ['./webpack/types.d.ts'],
-  out: `pages/v${major(webpack.version)}.x`,
+  entryPoints: ['../webpack/types.d.ts'],
+  out: `../pages/v${major(webpack.version)}.x`,
 
   // Plugins
   plugin: [
     'typedoc-plugin-markdown',
-    './plugins/processor.mjs',
-    './plugins/theme/index.mjs',
+    '../plugins/processor.mjs',
+    '../plugins/theme/index.mjs',
   ],
   theme: 'doc-kit',
   router: 'doc-kit',
@@ -23,7 +23,7 @@ const app = await Application.bootstrapWithPlugins({
   propertiesFormat: 'table',
 
   entryFileName: 'index',
-  tsconfig: 'tsconfig.json',
+  tsconfig: '../tsconfig.json',
 });
 
 const project = await app.convert();
