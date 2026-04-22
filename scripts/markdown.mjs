@@ -22,7 +22,7 @@ const app = await Application.bootstrapWithPlugins({
   disableSources: true,
   propertiesFormat: 'table',
 
-  entryFileName: 'index',
+  modulesFileName: 'index',
   tsconfig: 'tsconfig.json',
 });
 
