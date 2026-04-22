@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "clone-webpack": "node scripts/clone.mjs",
+    "clone-webpack": "bash scripts/clone.sh",
     "generate-docs": "node scripts/markdown.mjs",
     "build-html": "doc-kit generate -t web --config-file ./doc-kit.config.mjs",
     "build": "npm run generate-docs && npm run build-html",

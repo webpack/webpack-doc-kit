@@ -3,5 +3,6 @@
   "outputDirectory": "out",
   "cleanUrls": true,
   "trailingSlash": false,
-  "buildCommand": "node --run clone-webpack && node --run build"
+  "installCommand": "bash scripts/prepare.sh",
+  "buildCommand": "bash scripts/build.sh"
 }
