@@ -1,7 +1,7 @@
 {
   "scripts": {
-    "clone-webpack": "node clone-webpack.mjs",
-    "generate-docs": "node generate-md.mjs",
+    "clone-webpack": "node scripts/clone.mjs",
+    "generate-docs": "node scripts/markdown.mjs",
     "build-html": "doc-kit generate -t web --config-file ./doc-kit.config.mjs",
     "build": "npm run generate-docs && npm run build-html",
     "lint": "eslint .",

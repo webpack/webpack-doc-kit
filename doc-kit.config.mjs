@@ -9,7 +9,7 @@ export default {
     repository: 'webpack/webpack',
 
     // Input & Output
-    input: ['./pages/v5.x/**/*.md'],
+    input: ['./pages/v5.x/**/*.md', './pages/v5.x/*.md'],
     output: 'out',
   },
   metadata: {

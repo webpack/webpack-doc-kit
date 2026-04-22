@@ -20,4 +20,12 @@ try {
   );
 }
 
-execFileSync('git', ['checkout', REF], { cwd: WEBPACK_DIR, stdio: 'inherit' });
+execFileSync('git', ['fetch', 'origin', REF], {
+  cwd: WEBPACK_DIR,
+  stdio: 'inherit',
+});
+
+execFileSync('git', ['checkout', REF], {
+  cwd: WEBPACK_DIR,
+  stdio: 'inherit',
+});
