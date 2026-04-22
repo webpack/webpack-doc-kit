@@ -3,5 +3,5 @@
   "outputDirectory": "out",
   "cleanUrls": true,
   "trailingSlash": false,
-  "buildCommand:": "node --run clone-webpack && node --run build"
+  "buildCommand": "node --run clone-webpack && node --run build"
 }
