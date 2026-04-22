@@ -279,6 +279,8 @@ Gets import statement.
 
 Gets import statement.
 
+Gets import statement.
+
 #### `getImportVar(moduleGraph)`
 
 * `moduleGraph` {ModuleGraph}
