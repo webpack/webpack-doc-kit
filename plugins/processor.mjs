@@ -13,12 +13,12 @@ export function load(app) {
       .forEach(accessor => {
         accessor.kind = ReflectionKind.Property;
         if (accessor.getSignature) {
-          accessor.type = accessor.getSignature.type;
-          accessor.comment = accessor.getSignature.comment;
-        } else if (accessor.setSignature) {
-          accessor.type = accessor.setSignature.parameters?.[0]?.type;
-          accessor.comment = accessor.setSignature.comment;
-        }
+  accessor.type = accessor.getSignature.type;
+  accessor.comment = accessor.getSignature.comment ?? accessor.comment;
+} else if (accessor.setSignature) {
+  accessor.type = accessor.setSignature.parameters?.[0]?.type;
+  accessor.comment = accessor.setSignature.comment ?? accessor.comment;
+}
       });
 
     // Remove re-exports
