@@ -11,6 +11,11 @@ export default {
     // Input & Output
     input: ['./pages/v5.x/**/*.md', './pages/v5.x/*.md'],
     output: 'out',
+
+    // Base URL,
+    baseURL: process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}`
+      : 'http://localhost:3000',
   },
   metadata: {
     typeMap: './pages/v5.x/type-map.json',
