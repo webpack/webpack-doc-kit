@@ -40,19 +40,23 @@ export default ctx => ({
     return entries.map(ctx.helpers.typedListItem).join('\n');
   },
 
-  examples(comment, { headingLevel }) {
+  examples(comment) {
     const examples =
       comment?.blockTags?.filter(t => t.tag === '@example') ?? [];
     if (!examples.length) return null;
 
-    const prefix = '#'.repeat(headingLevel + 1);
-    const single = examples.length === 1;
+    // Source JSDoc examples in webpack are usually plain code snippets. The
+    // doc-kit spec expects code examples to be fenced, so wrap bare snippets
+    // while leaving already-fenced examples untouched.
     return examples
       .map((tag, i) => {
         const body = ctx.helpers.getCommentParts(tag.content).trim();
-        return (
-          body && `${prefix} Example${single ? '' : ` ${i + 1}`}\n\n${body}`
-        );
+        if (!body) return;
+        if (body.includes('```')) return body;
+
+        const displayName =
+          examples.length > 1 ? ` displayName="Example ${i + 1}"` : '';
+        return `\`\`\`js${displayName}\n${body}\n\`\`\``;
       })
       .filter(Boolean)
       .join('\n\n');

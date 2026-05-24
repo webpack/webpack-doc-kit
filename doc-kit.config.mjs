@@ -9,7 +9,7 @@ export default {
     repository: 'webpack/webpack',
 
     // Input & Output
-    input: ['./pages/v5.x/**/*.md', './pages/v5.x/*.md'],
+    input: ['./pages/v5.x/**/*.md'],
     output: 'out',
 
     // Base URL,
@@ -17,11 +17,13 @@ export default {
       ? `https://${process.env.VERCEL_URL}`
       : 'http://localhost:3000',
   },
+  threads: 1,
   metadata: {
     typeMap: './pages/v5.x/type-map.json',
   },
   web: {
     project: 'webpack',
     useAbsoluteURLs: true,
+    remoteConfigUrl: null,
   },
 };
