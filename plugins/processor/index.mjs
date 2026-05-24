@@ -1,22 +1,11 @@
 import { Converter, ReflectionKind, Renderer } from 'typedoc';
 import { writeFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { applySourceMetadata } from './metadata.mjs';
+import { applyExportEqualsReflections } from './exportEquals.mjs';
+import { applySourceMetadata } from './source.mjs';
 import { DocKitRouter } from './router.mjs';
 import { sidebar } from './site.mjs';
-
-const typeMapKey = target => {
-  const name = target.getFullName();
-  let root = target;
-
-  while (root.parent) root = root.parent;
-
-  if (!root.name || name === root.name || name.startsWith(`${root.name}.`)) {
-    return name;
-  }
-
-  return `${root.name}.${name}`;
-};
+import { createTypeMap } from './typeMap.mjs';
 
 /**
  * @param {import('typedoc-plugin-markdown').MarkdownApplication} app
@@ -47,29 +36,14 @@ export function load(app) {
       .getReflectionsByKind(ReflectionKind.Reference)
       .forEach(ref => context.project.removeReflection(ref));
 
-    // types.d.ts models CommonJS `export = webpack` as a nested namespace.
-    // Collapse it so public names are emitted as webpack.*.
-    context.project
-      .getReflectionsByKind(ReflectionKind.Namespace)
-      .filter(ref => ref.name === 'export=')
-      .forEach(namespace =>
-        context.project.mergeReflections(namespace, namespace.parent)
-      );
-
+    applyExportEqualsReflections(context.project);
     applySourceMetadata(context.project);
   });
 
   app.renderer.on(Renderer.EVENT_END, () => {
     // doc-kit resolves custom type annotations from this map while generating
     // HTML, so use the final router URLs instead of recomputing paths here.
-    const typeMap = Object.fromEntries(
-      app.renderer.router
-        .getLinkTargets()
-        .map(target => [
-          typeMapKey(target),
-          app.renderer.router.getAnchoredURL(target),
-        ])
-    );
+    const typeMap = createTypeMap(app.renderer.router);
 
     writeFileSync(
       join(app.options.getValue('out'), 'type-map.json'),

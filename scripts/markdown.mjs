@@ -25,6 +25,7 @@ const app = await Application.bootstrapWithPlugins({
   membersWithOwnFile: ['Class'],
 
   modulesFileName: 'index',
+  entryFileName: 'index',
   tsconfig: 'tsconfig.json',
 });
 

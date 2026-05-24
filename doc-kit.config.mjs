@@ -1,9 +1,10 @@
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { major } from 'semver';
+import webpack from './webpack/package.json' with { type: 'json' };
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
-
-// TODO(@avivkeller): v5.x should not be hardcoded
+const DOCS_DIR = `pages/v${major(webpack.version)}.x`;
 
 /**
  * Configuration for @node-core/doc-kit when generating webpack API docs.
@@ -16,7 +17,7 @@ export default {
     repository: 'webpack/webpack',
 
     // Input & Output
-    input: ['./pages/v5.x/**/*.md'],
+    input: [`./${DOCS_DIR}/**/*.md`],
     output: 'out',
 
     // Base URL,
@@ -26,7 +27,11 @@ export default {
   },
   threads: 1,
   metadata: {
-    typeMap: './pages/v5.x/type-map.json',
+    typeMap: `./${DOCS_DIR}/type-map.json`,
+  },
+  'jsx-ast': {
+    generateIndexPage: false,
+    generateAllPage: false,
   },
   web: {
     project: 'webpack',
@@ -34,7 +39,7 @@ export default {
     remoteConfigUrl: null,
     imports: {
       '#theme/Sidebar': join(ROOT, 'components/SideBar.jsx'),
-      '#theme/site': join(ROOT, 'pages/v5.x/site.json'),
+      '#theme/site': join(ROOT, DOCS_DIR, 'site.json'),
     },
   },
 };

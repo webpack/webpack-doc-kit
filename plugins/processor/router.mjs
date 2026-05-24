@@ -1,13 +1,10 @@
 import createNodeSlugger from '@node-core/doc-kit/src/generators/metadata/utils/slugger.mjs';
-import {
-  DeclarationReflection,
-  PageKind,
-  Reflection,
-  ReflectionKind,
-} from 'typedoc';
+import { PageKind, Reflection, ReflectionKind } from 'typedoc';
 import { MemberRouter } from 'typedoc-plugin-markdown';
 import { categoryForReflection } from '../shared/categories.mjs';
-import { getMemberTitle } from '../shared/titles.mjs';
+import { getConstructorTitle, getMemberTitle } from '../shared/titles.mjs';
+import { getSourceMetadata, isTypePage } from './metadata.mjs';
+import { createTypePages, TYPE_PAGE_HEADING_KINDS } from './synthetic.mjs';
 
 /**
  * The router owns the public Markdown shape. It keeps one class per file,
@@ -15,24 +12,24 @@ import { getMemberTitle } from '../shared/titles.mjs';
  * root plugin classes under plugins/, and structural types on category types
  * pages instead of the root README.
  */
-export const SOURCE_METADATA = Symbol.for('webpack-doc-kit.sourceMetadata');
-export const TYPE_PAGE_METADATA = Symbol.for(
-  'webpack-doc-kit.typePageMetadata'
-);
-
 const sluggers = new Map();
 
-// Interfaces and type aliases are still public API, but doc-kit consumes them
-// more cleanly when category pages collect them instead of leaving hundreds of
-// structural entries on README.md.
-const TYPE_PAGE_KINDS = ReflectionKind.Interface | ReflectionKind.TypeAlias;
+const NON_HEADING_KINDS =
+  ReflectionKind.Property |
+  ReflectionKind.EnumMember |
+  ReflectionKind.SomeSignature |
+  ReflectionKind.TypeLiteral |
+  ReflectionKind.TypeParameter;
 
 const fullNameParts = reflection => reflection.getFullName().split('.');
 
 const pagePath = parts => parts.join('/');
 
+const categoryNameForReflection = reflection =>
+  categoryForReflection(reflection)?.category;
+
 const rootExportBaseName = reflection => {
-  const category = categoryForReflection(reflection);
+  const category = categoryNameForReflection(reflection);
   return category ? `${category}/${reflection.name}` : reflection.name;
 };
 
@@ -44,7 +41,7 @@ const namespaceBaseName = reflection => {
   const parts = fullNameParts(reflection);
 
   if (parts.length === 1) {
-    const category = categoryForReflection(reflection);
+    const category = categoryNameForReflection(reflection);
 
     if (category) {
       return `${category}/${reflection.name}`;
@@ -108,71 +105,26 @@ export const sourceAnchorName = reflection => {
     return;
   }
 
-  return reflection[SOURCE_METADATA]?.anchorName;
+  return getSourceMetadata(reflection)?.anchorName;
 };
 
-const typePageBaseName = reflection => {
-  const category = categoryForReflection(reflection);
-  return category ? `${category}/types` : 'types';
+const rendersHeading = (target, pageTarget) => {
+  if (!target.isDeclaration() || target.kindOf(NON_HEADING_KINDS)) {
+    return false;
+  }
+
+  return isTypePage(pageTarget) ? target.kindOf(TYPE_PAGE_HEADING_KINDS) : true;
 };
 
-const typePageTitle = baseName =>
-  baseName === 'types'
-    ? 'webpack.types'
-    : `webpack.${baseName.replace(/\/types$/, '').replace(/\//g, '.')}.types`;
-
-const typePageName = baseName => baseName.replace(/\//g, '.');
-
-const removeChildren = (items, moved) =>
-  items?.filter(item => !moved.has(item));
-
-const removeFromGroups = (groups, moved) =>
-  groups
-    ?.map(group => ({
-      ...group,
-      children: group.children.filter(child => !moved.has(child)),
-      categories: removeFromGroups(group.categories, moved),
-    }))
-    .filter(group => group.children.length || group.categories?.length);
-
-const makeTypeGroup = (title, children) =>
-  children.length ? { title, children } : undefined;
-
-const createTypePage = (project, baseName, children) => {
-  const page = new DeclarationReflection(
-    typePageName(baseName),
-    ReflectionKind.Namespace,
-    project
-  );
-  const interfaces = children.filter(child =>
-    child.kindOf(ReflectionKind.Interface)
-  );
-  const typeAliases = children.filter(child =>
-    child.kindOf(ReflectionKind.TypeAlias)
-  );
-
-  page.children = children;
-  page.childrenIncludingDocuments = children;
-  page.groups = [
-    makeTypeGroup('Interfaces', interfaces),
-    makeTypeGroup('Type Aliases', typeAliases),
-  ].filter(Boolean);
-  // Synthetic type pages are not TypeDoc declarations from the input file. This
-  // metadata gives the theme and router a stable title and output path for them.
-  page[TYPE_PAGE_METADATA] = {
-    baseName,
-    title: typePageTitle(baseName),
-  };
-
-  return page;
-};
-
-const compareByName = (a, b) => a.name.localeCompare(b.name);
+const anchorTitle = (target, pageTarget) =>
+  target.kindOf(ReflectionKind.Constructor)
+    ? getConstructorTitle(target)
+    : getMemberTitle(target, { local: isTypePage(pageTarget) });
 
 export class DocKitRouter extends MemberRouter {
   /** @param {import('typedoc').ProjectReflection} project */
   buildPages(project) {
-    const typePages = this.prepareTypePages(project);
+    const typePages = createTypePages(project);
     const pages = super.buildPages(project);
 
     for (const { baseName, children, model } of typePages) {
@@ -181,43 +133,11 @@ export class DocKitRouter extends MemberRouter {
       pages.push({ kind: PageKind.Reflection, model, url });
 
       for (const child of children) {
-        this.buildAnchors(child, model);
+        this.buildAnchors(child, model, { includeChildren: false });
       }
     }
 
     return pages;
-  }
-
-  /** @param {import('typedoc').ProjectReflection} project */
-  prepareTypePages(project) {
-    const movedTypes = (project.children ?? [])
-      .filter(child => child.kindOf(TYPE_PAGE_KINDS))
-      .sort(compareByName);
-    const movedSet = new Set(movedTypes);
-    const byPage = new Map();
-
-    for (const reflection of movedTypes) {
-      const baseName = typePageBaseName(reflection);
-      const group = byPage.get(baseName) ?? [];
-      group.push(reflection);
-      byPage.set(baseName, group);
-    }
-
-    // Remove moved structural types from the project root before TypeDoc builds
-    // README.md; their URLs are rebuilt below against the synthetic type pages.
-    project.children = removeChildren(project.children, movedSet);
-    project.childrenIncludingDocuments = removeChildren(
-      project.childrenIncludingDocuments,
-      movedSet
-    );
-    project.groups = removeFromGroups(project.groups, movedSet);
-    project.categories = removeFromGroups(project.categories, movedSet);
-
-    return [...byPage].map(([baseName, children]) => ({
-      baseName,
-      children,
-      model: createTypePage(project, baseName, children),
-    }));
   }
 
   /**
@@ -293,8 +213,9 @@ export class DocKitRouter extends MemberRouter {
   /**
    * @param {import('typedoc').RouterTarget} target
    * @param {import('typedoc').RouterTarget} pageTarget
+   * @param {{ includeChildren?: boolean }} [options]
    */
-  buildAnchors(target, pageTarget) {
+  buildAnchors(target, pageTarget, { includeChildren = true } = {}) {
     if (
       !(target instanceof Reflection) ||
       !(pageTarget instanceof Reflection)
@@ -305,31 +226,22 @@ export class DocKitRouter extends MemberRouter {
     const pageUrl = this.fullUrls.get(pageTarget);
     if (!pageUrl) return;
 
-    if (
-      !target.isDeclaration() &&
-      !target.isSignature() &&
-      !target.isTypeParameter()
-    ) {
+    // Only publish URLs for headings the custom theme actually renders. TypeDoc
+    // exposes signatures, type parameters, class properties, and type literals as
+    // reflections too, but in these docs they are signature bodies or typed list
+    // items rather than linkable headings.
+    if (!rendersHeading(target, pageTarget)) {
       return;
     }
 
-    if (
-      target.kindOf(ReflectionKind.TypeLiteral) &&
-      (!target.parent?.kindOf(ReflectionKind.SomeExport) ||
-        target.parent.type?.type !== 'reflection')
-    ) {
+    const title = anchorTitle(target, pageTarget);
+    const anchor = this.getSlugger(pageTarget).slug(title);
+
+    this.fullUrls.set(target, `${pageUrl.replace(/\.md$/, '.html')}#${anchor}`);
+    this.anchors.set(target, anchor);
+
+    if (!includeChildren) {
       return;
-    }
-
-    if (!target.kindOf(ReflectionKind.TypeLiteral)) {
-      const title = getMemberTitle(target);
-      const anchor = this.getSlugger(pageTarget).slug(title);
-
-      this.fullUrls.set(
-        target,
-        `${pageUrl.replace(/\.md$/, '.html')}#${anchor}`
-      );
-      this.anchors.set(target, anchor);
     }
 
     target.traverse(child => {

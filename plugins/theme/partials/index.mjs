@@ -1,4 +1,4 @@
-import { TYPE_PAGE_METADATA } from '../../processor/router.mjs';
+import { getTypePageTitle, isTypePage } from '../../processor/metadata.mjs';
 import {
   ArrayType,
   i18n,
@@ -9,7 +9,7 @@ import {
 } from 'typedoc';
 import {
   callableSignatures,
-  formatParams,
+  getConstructorTitle,
   getMemberTitle,
   getPageTitle,
 } from '../../shared/titles.mjs';
@@ -41,8 +41,8 @@ export default ctx => {
 
     pageTitle() {
       const model = ctx.page.model;
-      if (model[TYPE_PAGE_METADATA]?.title)
-        return `\`${model[TYPE_PAGE_METADATA].title}\``;
+      const typePageTitle = getTypePageTitle(model);
+      if (typePageTitle) return typePageTitle;
       if (model.getFullName) return getPageTitle(model);
       return ctx.partials.pageTitle();
     },
@@ -54,10 +54,6 @@ export default ctx => {
       return [
         stability,
         stability && '',
-        model.typeParameters?.length &&
-          ctx.partials.typeParametersList(model.typeParameters, {
-            headingLevel: options.headingLevel,
-          }),
         model.parameters?.length &&
           ctx.partials.parametersList(model.parameters, {
             headingLevel: options.headingLevel,
@@ -291,23 +287,23 @@ export default ctx => {
       const heading = '#'.repeat(options.headingLevel);
 
       model.signatures?.forEach(signature => {
-        const paramsString = formatParams(signature.parameters ?? []);
-
-        md.push(`${heading} \`new ${model.parent.name}(${paramsString})\``);
+        md.push(`${heading} ${getConstructorTitle(model, signature)}`);
         md.push(
           ctx.partials.signature(signature, {
             headingLevel: options.headingLevel + 1,
+            hideTypeParameters: true,
           })
         );
       });
       return md.join('\n\n');
     },
 
-    typeParametersList: () => '',
-
-    memberTitle: getMemberTitle,
+    memberTitle: model =>
+      getMemberTitle(model, { local: isTypePage(ctx.page.model) }),
     parametersList: ctx.helpers.typedList,
     typeDeclarationList: ctx.helpers.typedList,
     propertiesTable: ctx.helpers.typedList,
+
+    typeParametersList: () => '',
   };
 };
