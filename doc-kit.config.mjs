@@ -1,3 +1,10 @@
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const ROOT = dirname(fileURLToPath(import.meta.url));
+
+// TODO(@avivkeller): v5.x should not be hardcoded
+
 /**
  * Configuration for @node-core/doc-kit when generating webpack API docs.
  *
@@ -25,5 +32,9 @@ export default {
     project: 'webpack',
     useAbsoluteURLs: true,
     remoteConfigUrl: null,
+    imports: {
+      '#theme/Sidebar': join(ROOT, 'components/SideBar.jsx'),
+      '#theme/site': join(ROOT, 'pages/v5.x/site.json'),
+    },
   },
 };

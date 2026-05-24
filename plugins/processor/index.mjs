@@ -3,6 +3,7 @@ import { writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { applySourceMetadata } from './metadata.mjs';
 import { DocKitRouter } from './router.mjs';
+import { sidebar } from './site.mjs';
 
 const typeMapKey = target => {
   const name = target.getFullName();
@@ -73,6 +74,17 @@ export function load(app) {
     writeFileSync(
       join(app.options.getValue('out'), 'type-map.json'),
       JSON.stringify(typeMap, null, 2)
+    );
+
+    writeFileSync(
+      join(app.options.getValue('out'), 'site.json'),
+      JSON.stringify(
+        {
+          sidebar: sidebar(app.renderer.router),
+        },
+        null,
+        2
+      )
     );
   });
 }
