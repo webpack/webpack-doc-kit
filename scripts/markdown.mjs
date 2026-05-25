@@ -8,6 +8,7 @@ const app = await Application.bootstrapWithPlugins({
 
   // Plugins
   plugin: [
+    'typedoc-plugin-missing-exports',
     'typedoc-plugin-markdown',
     './plugins/processor/index.mjs',
     './plugins/theme/index.mjs',
