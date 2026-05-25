@@ -14,6 +14,7 @@ const app = await Application.bootstrapWithPlugins({
   ],
   theme: 'doc-kit',
   router: 'doc-kit',
+  publicPath: '/',
 
   // Formatting
   hideGroupHeadings: true,

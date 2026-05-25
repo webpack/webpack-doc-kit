@@ -100,12 +100,17 @@ export const sourceAnchorName = reflection => {
     return;
   }
 
-  const baseName = sourcePageBaseName(reflection);
-  if (!baseName || baseName.split('/').at(-1) === reflection.name) {
+  const anchorName = getSourceMetadata(reflection)?.anchorName;
+  if (!anchorName) {
     return;
   }
 
-  return getSourceMetadata(reflection)?.anchorName;
+  const baseName = sourcePageBaseName(reflection.parent);
+  if (baseName?.split('/').at(-1) === reflection.name) {
+    return;
+  }
+
+  return anchorName;
 };
 
 const rendersHeading = (target, pageTarget) => {
@@ -204,10 +209,10 @@ export class DocKitRouter extends MemberRouter {
     const fullUrl = this.getFullUrl(target);
     const [page, routedAnchor] = fullUrl.split('#');
     const anchor =
-      routedAnchor ?? sourceAnchorName(target) ?? this.getAnchor(target);
-    const pageUrl = anchor ? page.replace(/\.md$/, '.html') : page;
+      sourceAnchorName(target) ?? routedAnchor ?? this.getAnchor(target);
+    const pageUrl = page.replace(/\.md$/, '.html');
 
-    return anchor ? `${pageUrl}#${anchor}` : page;
+    return anchor ? `${pageUrl}#${anchor}` : pageUrl;
   }
 
   /**

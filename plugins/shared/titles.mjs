@@ -67,7 +67,9 @@ export const formatParams = (params = []) =>
   params
     .map(({ name, flags }, i) => {
       const paramName = flags?.isRest ? `...${name}` : name;
-      return flags?.isOptional || flags?.isRest
+      if (flags?.isRest) return i ? `, ${paramName}` : paramName;
+
+      return flags?.isOptional
         ? i
           ? `[, ${paramName}]`
           : `[${paramName}]`
