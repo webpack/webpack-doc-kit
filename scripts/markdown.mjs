@@ -9,6 +9,7 @@ const app = await Application.bootstrapWithPlugins({
   // Plugins
   plugin: [
     'typedoc-plugin-markdown',
+    'typedoc-plugin-missing-exports',
     './plugins/processor/index.mjs',
     './plugins/theme/index.mjs',
   ],
@@ -28,6 +29,7 @@ const app = await Application.bootstrapWithPlugins({
   modulesFileName: 'index',
   entryFileName: 'index',
   tsconfig: 'tsconfig.json',
+  excludeExternals: true,
 });
 
 const project = await app.convert();
