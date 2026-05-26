@@ -1,0 +1,19 @@
+{
+  "latest": "v5.x",
+  "versions": [
+    {
+      "label": "v5.x",
+      "major": 5,
+      "exactVersion": "5.107.1",
+      "commit": "0b60f1cba10640d886510999c1bfbca5f4ba7ab6",
+      "frozen": false
+    },
+    {
+      "label": "v6.x",
+      "major": 6,
+      "exactVersion": null,
+      "commit": null,
+      "frozen": false
+    }
+  ]
+}
