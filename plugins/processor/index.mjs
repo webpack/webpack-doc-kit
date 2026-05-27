@@ -6,6 +6,7 @@ import { applySourceMetadata } from './source.mjs';
 import { DocKitRouter } from './router.mjs';
 import { sidebar } from './site.mjs';
 import { createTypeMap } from './typeMap.mjs';
+import { categoryForReflection } from '../shared/categories.mjs';
 
 /**
  * @param {import('typedoc-plugin-markdown').MarkdownApplication} app
@@ -38,6 +39,29 @@ export function load(app) {
 
     applyExportEqualsReflections(context.project);
     applySourceMetadata(context.project);
+  });
+
+  app.converter.on(Converter.EVENT_RESOLVE_END, context => {
+    const project = context.project;
+
+    const internalModule = project.children?.find(c => c.name === '<internal>');
+
+    if (internalModule) {
+      const importantTypes = [];
+
+      internalModule.children.forEach(child => {
+        // TODO: We are calling `categoryForReflection` here, and then again when routing
+        // We should cache the result to avoid re-looking up that data
+        if (categoryForReflection(child)) {
+          importantTypes.push(child);
+        } else {
+          project.removeReflection(child);
+        }
+      });
+
+      internalModule.children = importantTypes;
+      project.mergeReflections(internalModule, project);
+    }
   });
 
   app.renderer.on(Renderer.EVENT_END, () => {
