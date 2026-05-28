@@ -11,9 +11,8 @@ import { createTypeMap } from './typeMap.mjs';
  * @param {import('typedoc-plugin-markdown').MarkdownApplication} app
  */
 export function load(app) {
-  // Keep router ownership in the processor plugin because routing depends on
-  // source metadata and the synthetic type pages created during conversion.
   app.renderer.defineRouter('doc-kit', DocKitRouter);
+  app.options.addDeclaration({ name: 'base' });
 
   app.converter.on(Converter.EVENT_RESOLVE_BEGIN, context => {
     // doc-kit has property metadata, not TypeDoc accessor metadata.
