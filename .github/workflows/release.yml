@@ -1,16 +1,27 @@
 name: Release
 
 on:
-  release:
-    types: [published]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Release tag (e.g. v5.99.0)'
+        required: true
+        type: string
+      commit:
+        description: 'Target commit SHA or branch'
+        required: true
+        type: string
 
 permissions:
   contents: write
   pull-requests: write
 
 jobs:
-  sync-docs:
+  sync:
     runs-on: ubuntu-latest
+    env:
+      TAG: ${{ inputs.tag }}
+      COMMIT: ${{ inputs.commit }}
 
     steps:
       - name: Checkout
@@ -22,120 +33,24 @@ jobs:
           node-version: lts/*
           cache: 'npm'
 
-      # Packages go stale as doc-kit ships new features. Always reinstall from
-      # the lockfile before anything else.
       - name: Install dependencies
         run: npm ci
 
-      - name: Parse release tag and commit
-        id: release
+      - name: Update files
+        shell: bash
         run: |
-          TAG="${{ github.event.release.tag_name }}"
-          COMMIT="${{ github.event.release.target_commitish }}"
-          # npm install doesn't accept a leading v - strip it here
-          CLEAN_TAG="${TAG#v}"
-          MAJOR=$(echo "$CLEAN_TAG" | cut -d. -f1)
-          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
-          echo "commit=$COMMIT" >> "$GITHUB_OUTPUT"
-          echo "clean_tag=$CLEAN_TAG" >> "$GITHUB_OUTPUT"
-          echo "clean_tag_major=$MAJOR" >> "$GITHUB_OUTPUT"
-          echo "Triggered by: $TAG @ $COMMIT"
-
-      - name: Update versions.json
-        id: versions
-        run: |
-          node scripts/update-versions.mjs "${{ steps.release.outputs.tag }}" "${{ steps.release.outputs.commit }}"
-          # If versions.json is unchanged after the script runs, this major is
-          # frozen. No point regenerating docs - nothing will differ.
-          if git diff --quiet versions.json; then
-            echo "frozen=true" >> "$GITHUB_OUTPUT"
-            echo "Version is frozen, skipping doc generation."
-          else
-            echo "frozen=false" >> "$GITHUB_OUTPUT"
-          fi
-
-      # Installing the exact release version updates package.json and
-      # package-lock.json so the lockfile stays in sync with what was used.
-      - name: Install webpack at release version
-        if: steps.versions.outputs.frozen == 'false'
-        run: npm install webpack@${{ steps.release.outputs.clean_tag }}
-
-      - name: Pin HEAD_COMMIT to release commit
-        if: steps.versions.outputs.frozen == 'false'
-        run: echo "${{ steps.release.outputs.commit }}" > HEAD_COMMIT
-
-      # Clone must come after npm install. TypeDoc needs to resolve types against
-      # the freshly installed webpack version, not whatever was in the lockfile.
-      - name: Clone webpack at release commit
-        if: steps.versions.outputs.frozen == 'false'
-        run: npm run clone-webpack
-
-      - name: Generate documentation
-        if: steps.versions.outputs.frozen == 'false'
-        run: npm run generate-docs
-
-      - name: Verify generated output
-        if: steps.versions.outputs.frozen == 'false'
-        run: |
-          LABEL="v${{ steps.release.outputs.clean_tag_major }}.x"
-          DOCS_DIR="pages/${LABEL}"
-          if [ ! -d "$DOCS_DIR" ]; then
-            echo "error: $DOCS_DIR was not generated"
-            exit 1
-          fi
-          if [ ! -f "$DOCS_DIR/type-map.json" ]; then
-            echo "error: type-map.json missing from $DOCS_DIR"
-            exit 1
-          fi
-          if [ -z "$(ls -A "$DOCS_DIR")" ]; then
-            echo "error: $DOCS_DIR is empty"
-            exit 1
-          fi
-          echo "$DOCS_DIR looks good"
-
-      - name: Write job summary
-        if: steps.versions.outputs.frozen == 'false'
-        run: |
-          FILES=$(git diff --name-only pages/ | wc -l)
-          CATEGORIES=$(git diff --name-only pages/ \
-            | sed 's|pages/[^/]*/||' \
-            | cut -d/ -f1 \
-            | sort -u \
-            | tr '\n' ',' \
-            | sed 's/,$//')
-          {
-            echo "## Doc generation summary"
-            echo "- **Release:** ${{ steps.release.outputs.tag }}"
-            echo "- **Commit:** \`${{ steps.release.outputs.commit }}\`"
-            echo "- **Pages updated:** ${FILES}"
-            echo "- **Affected categories:** ${CATEGORIES:-none detected}"
-          } >> "$GITHUB_STEP_SUMMARY"
+          set -euo pipefail
+          node scripts/update-versions.mjs "$TAG" "$COMMIT"
+          echo "$COMMIT" > HEAD_COMMIT
 
       - name: Open pull request
-        if: steps.versions.outputs.frozen == 'false'
-        uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1  # v8.1.1
+        uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          add-paths: |
-            versions.json
-            HEAD_COMMIT
-            package.json
-            package-lock.json
-            pages/
-          commit-message: "docs: sync API documentation to webpack@${{ steps.release.outputs.tag }}"
-          title: "docs: sync API documentation to webpack@${{ steps.release.outputs.tag }}"
+          commit-message: "chore: sync to webpack@${{ env.TAG }}"
+          title: "core: sync to webpack@${{ env.TAG }}"
           body: |
-            Automated doc sync triggered by the `${{ steps.release.outputs.tag }}` release.
+            Automated version sync triggered by the `${{ env.TAG }}` release of `${{ env.COMMIT }}`.
+          branch: "update-versions"
+          draft: true
 
-            **webpack commit:** `${{ steps.release.outputs.commit }}`
-
-            **Files in this PR:**
-            - `versions.json` -- updated `exactVersion` and `commit` for this release
-            - `HEAD_COMMIT` -- pinned to release commit
-            - `package.json` / `package-lock.json` -- webpack bumped to `${{ steps.release.outputs.tag }}`
-            - `pages/` -- regenerated API documentation
-
-            Check the Actions summary tab for a file count and category breakdown. CI must pass before merging.
-          labels: documentation
-          branch: "docs/release-${{ steps.release.outputs.tag }}"
-          delete-branch: true
