@@ -3,6 +3,6 @@
   "outputDirectory": "out",
   "cleanUrls": true,
   "trailingSlash": false,
-  "installCommand": "bash scripts/prepare.sh",
-  "buildCommand": "bash scripts/build.sh"
+  "installCommand": "bash scripts/vercel/prepare.sh",
+  "buildCommand": "bash scripts/vercel/build.sh"
 }

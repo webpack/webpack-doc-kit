@@ -1,5 +1,5 @@
 node_modules
 out
 *.generated.*
-/webpack
-/pages
+/.cache
+/pages/api

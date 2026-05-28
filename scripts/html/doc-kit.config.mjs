@@ -1,10 +1,13 @@
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { major } from 'semver';
-import webpack from './webpack/package.json' with { type: 'json' };
 
-const ROOT = dirname(fileURLToPath(import.meta.url));
-const DOCS_DIR = `pages/v${major(webpack.version)}.x`;
+const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
+
+const VERSION = process.env.VERSION;
+const inputDir = join(
+  ROOT,
+  VERSION ? `./pages/api/${VERSION.split('.')[0]}.x` : './pages'
+);
 
 /**
  * Configuration for @node-core/doc-kit when generating webpack API docs.
@@ -13,21 +16,18 @@ const DOCS_DIR = `pages/v${major(webpack.version)}.x`;
  */
 export default {
   global: {
-    // Point GitHub links to the webpack repository instead of nodejs/node
     repository: 'webpack/webpack',
-
-    // Input & Output
-    input: [`./${DOCS_DIR}/**/*.md`],
-    output: 'out',
-
-    // Base URL,
+    version: VERSION,
+    input: [`${inputDir}/**/*.md`],
+    ignore: VERSION ? [] : ['./pages/api/**/*.md'],
+    output: VERSION ? `./out/api/${VERSION.split('.')[0]}.x` : './out',
     baseURL: process.env.VERCEL_URL
       ? `https://${process.env.VERCEL_URL}`
       : 'http://localhost:3000',
   },
   threads: 1,
   metadata: {
-    typeMap: `./${DOCS_DIR}/type-map.json`,
+    typeMap: VERSION ? join(inputDir, 'type-map.json') : undefined,
   },
   'jsx-ast': {
     generateIndexPage: false,
@@ -39,7 +39,7 @@ export default {
     remoteConfigUrl: null,
     imports: {
       '#theme/Sidebar': join(ROOT, 'components/SideBar.jsx'),
-      '#theme/site': join(ROOT, DOCS_DIR, 'site.json'),
+      '#theme/site': join(inputDir, 'site.json'),
       '#theme/Layout': join(ROOT, 'components/Layout.jsx'),
     },
   },

@@ -11,6 +11,6 @@ export default [
     },
   },
   {
-    ignores: ['node_modules/', 'out/', 'webpack/'],
+    ignores: ['node_modules/', 'out/', '.cache/', 'webpack/', 'pages/'],
   },
 ];

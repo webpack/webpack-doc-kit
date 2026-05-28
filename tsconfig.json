@@ -1,8 +1,8 @@
 {
   "include": [
-    "./webpack/lib/**/*",
-    "./webpack/declarations/**/*",
-    "./webpack/types.d.ts"
+    "./.cache/webpack/*/lib/**/*",
+    "./.cache/webpack/*/declarations/**/*",
+    "./.cache/webpack/*/types.d.ts"
   ],
   "exclude": ["node_modules"],
   "compilerOptions": {

@@ -1,7 +1,6 @@
 node_modules
 out
 *.generated.*
-/webpack
-pages
-.husky
+/.cache
+/pages/api
 versions.json

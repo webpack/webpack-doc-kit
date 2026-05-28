@@ -9,46 +9,55 @@ Automated TypeScript API documentation generator for [webpack](https://github.co
 3. **@node-core/doc-kit** converts Markdown to HTML
 4. GitHub Actions deploys the result to GitHub Pages
 
-### Webpack Version Tracking
+### Webpack Versions
 
-The `HEAD_COMMIT` file pins the exact webpack/webpack commit used for doc generation. A scheduled GitHub Action runs every 24 hours to:
+Generation expects a `versions.json` file at the project root with the webpack release tags to generate, for example:
 
-1. Fetch the latest webpack `main` branch HEAD
-2. Update `HEAD_COMMIT`
-3. Regenerate documentation
-4. Push the changes to this repository
+```json
+["v5.1.0"]
+```
 
-This ensures documentation stays in sync with upstream webpack without manual intervention.
+Each tag is fetched from the webpack npm package and generated into `pages/api/v[Major].x`. Creating or updating `versions.json` is handled outside this project.
 
 ## Project Structure
 
 ```
-├── generate-md.mjs          # TypeDoc entry point
+├── scripts/
+│   ├── prepare/              # Fetches every webpack release listed in versions.json
+│   ├── markdown/             # TypeDoc → Markdown for a single webpack source path
+│   ├── html/                 # doc-kit HTML generation
+│   └── vercel/               # Vercel install/build entry points
 ├── plugins/
-│   ├── processor.mjs         # Namespace merging + type-map generation
+│   ├── processor/            # Namespace merging + type-map generation
 │   └── theme/                # Custom doc-kit theme
-├── HEAD_COMMIT               # Pinned webpack commit SHA
+├── versions.json             # Webpack release tags to generate
 ├── .github/workflows/
-│   ├── ci.yml                # Lint + doc generation check
-│   ├── deploy.yml            # Build HTML + deploy to GitHub Pages
-│   └── sync.yml              # Daily webpack sync
+│   └── ci.yml                # Lint + format check
 └── package.json
 ```
 
+The pipeline is split into three stages: `prepare` fetches each webpack tag into `.cache/webpack/<version>/`, `markdown` is invoked once per source directory to emit Markdown under `pages/api/v<major>.x`, and `html` runs doc-kit over the result.
+
 ## Scripts
 
-| Script                  | Description                          |
-| ----------------------- | ------------------------------------ |
-| `npm run clone-webpack` | Clone webpack repo at pinned commit  |
-| `npm run generate-docs` | Generate Markdown from webpack types |
-| `npm run build-html`    | Convert Markdown to HTML             |
-| `npm run build`         | Generate docs + build HTML           |
-| `npm run lint`          | Run ESLint                           |
-| `npm run format:check`  | Check Prettier formatting            |
+| Script                 | Description                                                       |
+| ---------------------- | ----------------------------------------------------------------- |
+| `npm run prep`         | Fetch every webpack tag in `versions.json` into `.cache/webpack/` |
+| `npm run build:md`     | Generate Markdown for every prepared webpack source               |
+| `npm run build:html`   | Convert Markdown to HTML                                          |
+| `npm run build`        | Full pipeline: prepare → Markdown → HTML                          |
+| `npm run lint`         | Run ESLint                                                        |
+| `npm run format:check` | Check Prettier formatting                                         |
+
+To generate Markdown for a single webpack source, invoke the processor directly:
+
+```sh
+node scripts/markdown/index.mjs .cache/webpack/v5.107.1
+```
 
 ## Contributing
 
-When making changes to documentation generation (plugins, `generate-md.mjs`, `tsconfig.json`), ensure the docs can still be generated successfully. CI will verify this on every pull request.
+When making changes to documentation generation (plugins, `scripts/markdown/index.mjs`, `tsconfig.json`), ensure the docs can still be generated successfully. CI will verify this on every pull request.
 
 ## License
 

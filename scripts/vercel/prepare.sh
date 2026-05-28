@@ -2,4 +2,3 @@
 set -euo pipefail
 
 npm ci
-bash scripts/clone.sh
