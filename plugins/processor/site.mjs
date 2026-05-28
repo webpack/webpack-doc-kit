@@ -10,9 +10,10 @@ const getFirstAtxHeading = text => text.match(/^#\s+(.+)$/m)?.[1]?.trim();
 
 const getFirstPathSegment = url => url.replace(/^\//, '').split('/')[0];
 
-const toSidebarLink = url => {
+const toSidebarLink = (url, basePath) => {
   const path = url.replace(/\.md$/, '').replace(/\/index$/, '');
-  return path ? `/${path}` : '/';
+  const prefix = basePath ? `/${basePath.replace(/^\/|\/$/g, '')}` : '';
+  return path ? `${prefix}/${path}` : prefix || '/';
 };
 
 const defaultLabelFor = (target, url) => {

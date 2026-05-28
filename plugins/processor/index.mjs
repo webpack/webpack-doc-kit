@@ -54,7 +54,7 @@ export function load(app) {
       join(app.options.getValue('out'), 'site.json'),
       JSON.stringify(
         {
-          sidebar: sidebar(app.renderer.router),
+          sidebar: sidebar(app.renderer.router, app.options.getValue('base')),
         },
         null,
         2
