@@ -40,7 +40,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          node scripts/update-versions.mjs "$TAG" "$COMMIT"
+          node scripts/update-versions.mjs "$TAG" 
           echo "$COMMIT" > HEAD_COMMIT
 
       - name: Open pull request
@@ -48,7 +48,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: "chore: sync to webpack@${{ env.TAG }}"
-          title: "core: sync to webpack@${{ env.TAG }}"
+          title: "chore: sync to webpack@${{ env.TAG }}"
           body: |
             Automated version sync triggered by the `${{ env.TAG }}` release of `${{ env.COMMIT }}`.
           branch: "update-versions"
