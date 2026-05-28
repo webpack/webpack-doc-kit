@@ -30,7 +30,7 @@ const isSidebarTarget = (router, target) => {
   return url.endsWith('.md') && !url.includes('#');
 };
 
-export const sidebar = router => {
+export const sidebar = (router, basePath) => {
   const categories = new Map();
   const seen = new Set();
 
@@ -59,7 +59,7 @@ export const sidebar = router => {
     };
 
     group.items.push({
-      link: toSidebarLink(url),
+      link: toSidebarLink(url, basePath),
       label,
     });
 
