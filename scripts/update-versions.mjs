@@ -10,7 +10,7 @@ if (!valid(tag)) throw new Error(`"${tag}" is not a valid semver tag`);
 const latestMajor = major(tag);
 const data = JSON.parse(readFileSync(VERSIONS_FILE, 'utf8'));
 
-const existingIndex = data.findIndex((v) => major(v) === latestMajor);
+const existingIndex = data.findIndex(v => major(v) === latestMajor);
 
 if (existingIndex !== -1) {
   data[existingIndex] = tag;
