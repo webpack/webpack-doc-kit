@@ -4,3 +4,4 @@ out
 /webpack
 pages
 .husky
+versions.json

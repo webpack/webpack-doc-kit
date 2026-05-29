@@ -1,0 +1,27 @@
+:root {
+  /* Brand — Webpack Cube Blue (Primary) */
+  --color-green-50: #f0f8fe;
+  --color-green-100: #e0effd;
+  --color-green-200: #b9def9;
+  --color-green-300: #8ed6fb;
+  --color-green-400: #4ba8de;
+  --color-green-500: #2b8fcf;
+  --color-green-600: #1c78c0;
+  --color-green-700: #175e96;
+  --color-green-800: #134c79;
+  --color-green-900: #0f3c61;
+  --color-green-950: #0a2c47;
+
+  /* Neutrals — Surfaces, Type, Borders */
+  --color-neutral-50: #fbfcfd;
+  --color-neutral-100: #f6f7f9;
+  --color-neutral-200: #e9edf0;
+  --color-neutral-300: #d9e1e4;
+  --color-neutral-400: #cbd4d9;
+  --color-neutral-500: #b1bcc2;
+  --color-neutral-600: #929fa5;
+  --color-neutral-700: #6e7b83;
+  --color-neutral-800: #556066;
+  --color-neutral-900: #2c3437;
+  --color-neutral-950: #0d121c;
+}

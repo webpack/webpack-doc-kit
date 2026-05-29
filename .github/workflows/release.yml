@@ -1,0 +1,55 @@
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Release tag (e.g. v5.99.0)'
+        required: true
+        type: string
+      commit:
+        description: 'Target commit SHA or branch'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    env:
+      TAG: ${{ inputs.tag }}
+      COMMIT: ${{ inputs.commit }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6.2.0
+        with:
+          node-version: lts/*
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Update files
+        shell: bash
+        run: |
+          set -euo pipefail
+          node scripts/update-versions.mjs "$TAG" 
+          echo "$COMMIT" > HEAD_COMMIT
+
+      - name: Open pull request
+        uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: 'chore: sync to webpack@${{ env.TAG }}'
+          title: 'chore: sync to webpack@${{ env.TAG }}'
+          body: |
+            Automated version sync triggered by the `${{ env.TAG }}` release of `${{ env.COMMIT }}`.
+          branch: 'update-versions'
+          draft: true

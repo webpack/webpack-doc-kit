@@ -40,6 +40,7 @@ export default {
     imports: {
       '#theme/Sidebar': join(ROOT, 'components/SideBar.jsx'),
       '#theme/site': join(ROOT, DOCS_DIR, 'site.json'),
+      '#theme/Layout': join(ROOT, 'components/Layout.jsx'),
     },
   },
 };
