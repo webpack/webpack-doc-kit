@@ -1,12 +1,14 @@
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { major } from 'semver';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 
 const VERSION = process.env.VERSION;
+const MAJOR_VERSION = VERSION ? `v${major(VERSION)}.x` : undefined;
 const inputDir = join(
   ROOT,
-  VERSION ? `./pages/api/${VERSION.split('.')[0]}.x` : './pages'
+  VERSION ? `./pages/api/${MAJOR_VERSION}` : './pages'
 );
 
 /**
@@ -20,7 +22,7 @@ export default {
     version: VERSION,
     input: [`${inputDir}/**/*.md`],
     ignore: VERSION ? [] : ['./pages/api/**/*.md'],
-    output: VERSION ? `./out/api/${VERSION.split('.')[0]}.x` : './out',
+    output: VERSION ? `./out/api/${MAJOR_VERSION}` : './out',
     baseURL: process.env.VERCEL_URL
       ? `https://${process.env.VERCEL_URL}`
       : 'http://localhost:3000',
