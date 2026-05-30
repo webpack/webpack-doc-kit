@@ -8,7 +8,7 @@ const resolve = type => {
     case 'intrinsic':
     case 'reference': {
       const args = type.typeArguments?.length
-        ? `<${type.typeArguments.map(resolve).join(', ')}>`
+        ? `< ${type.typeArguments.map(resolve).join(', ')} >`
         : '';
       return type.name + args;
     }
@@ -22,7 +22,7 @@ const resolve = type => {
       return resolve(type.elementType) + '[]';
 
     case 'tuple':
-      return `Tuple<${union(type.elements, ', ')}>`;
+      return `Tuple< ${union(type.elements, ', ')} >`;
 
     case 'union':
     case 'intersection':
