@@ -3,3 +3,4 @@ out
 *.generated.*
 /webpack
 /pages
+styles/output.css
