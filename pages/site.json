@@ -1,3 +1,148 @@
 {
-  "sidebar": []
+  "navbar": [
+    {
+      "link": "/guides",
+      "text": "Guides"
+    },
+    {
+      "link": "/about",
+      "text": "About"
+    },
+    {
+      "link": "/blog",
+      "text": "Blog"
+    },
+    {
+      "link": "/api/v5.x",
+      "text": "API"
+    },
+    {
+      "link": "https://github.com/webpack/webpack/blob/main/CONTRIBUTING.md",
+      "text": "Contribute",
+      "target": "_blank"
+    }
+  ],
+  "sidebar": [],
+  "footer": {
+    "socialLinks": [
+      {
+        "label": "GitHub",
+        "link": "https://github.com/webpack/webpack"
+      },
+      {
+        "label": "X",
+        "link": "https://x.com/webpack"
+      },
+      {
+        "label": "Discord",
+        "link": "https://discord.com/invite/webpack"
+      },
+      {
+        "label": "LinkedIn",
+        "link": "https://www.linkedin.com/company/webpack/"
+      }
+    ],
+    "groups": [
+      {
+        "title": "Documentation",
+        "links": [
+          {
+            "text": "Getting Started",
+            "link": "/guides/getting-started"
+          },
+          {
+            "text": "Guides",
+            "link": "/guides"
+          },
+          {
+            "text": "Concepts",
+            "link": "/concepts"
+          },
+          {
+            "text": "Configuration",
+            "link": "/configuration"
+          },
+          {
+            "text": "API",
+            "link": "/api/v5.x"
+          }
+        ]
+      },
+      {
+        "title": "Ecosystem",
+        "links": [
+          {
+            "text": "Loaders",
+            "link": "/loaders"
+          },
+          {
+            "text": "Plugins",
+            "link": "/plugins"
+          },
+          {
+            "text": "Awesome webpack",
+            "link": "https://github.com/webpack-contrib/awesome-webpack"
+          },
+          {
+            "text": "Blog",
+            "link": "/blog"
+          },
+          {
+            "text": "Support webpack",
+            "link": "https://opencollective.com/webpack"
+          }
+        ]
+      },
+      {
+        "title": "Community & Foundation",
+        "links": [
+          {
+            "text": "Contribute",
+            "link": "https://github.com/webpack/.github/blob/HEAD/.github/CONTRIBUTING.md"
+          },
+          {
+            "text": "Code of Conduct",
+            "link": "https://github.com/webpack/webpack/blob/main/CODE_OF_CONDUCT.md"
+          },
+          {
+            "text": "OpenJS Foundation",
+            "link": "https://openjsf.org/"
+          },
+          {
+            "text": "AI Coding Assistants Policy",
+            "link": "https://ai-coding-assistants-policy.openjsf.org/"
+          },
+          {
+            "text": "Bylaws",
+            "link": "https://bylaws.openjsf.org/"
+          }
+        ]
+      },
+      {
+        "title": "Legal",
+        "links": [
+          {
+            "text": "Privacy Policy",
+            "link": "https://privacy-policy.openjsf.org/"
+          },
+          {
+            "text": "Terms of Use",
+            "link": "https://terms-of-use.openjsf.org/"
+          },
+          {
+            "text": "Cookie Policy",
+            "link": "https://www.linuxfoundation.org/cookies/"
+          },
+          {
+            "text": "Trademark Policy",
+            "link": "https://trademark-policy.openjsf.org/"
+          },
+          {
+            "text": "Trademark List",
+            "link": "https://trademark-list.openjsf.org/"
+          }
+        ]
+      }
+    ]
+  }
 }

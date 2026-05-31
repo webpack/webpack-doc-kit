@@ -8,6 +8,7 @@ const CACHE_DIR = join('.', '.cache', 'webpack');
 const execOptions = {
   stdio: ['ignore', 'pipe', 'inherit'],
   encoding: 'utf8',
+  shell: true,
 };
 
 const fetchWebpack = version => {

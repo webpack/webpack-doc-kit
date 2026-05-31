@@ -1,5 +1,5 @@
 import SideBar from '@node-core/ui-components/Containers/Sidebar';
-import { sidebar } from '#theme/site' with { type: 'json' };
+import { sidebar } from '#theme/local/site' with { type: 'json' };
 
 /** @param {string} url */
 const redirect = url => (window.location.href = url);

@@ -22,6 +22,7 @@ const runDocKit = version =>
         ...process.env,
         VERSION: version,
       },
+      shell: true,
     }
   );
 
