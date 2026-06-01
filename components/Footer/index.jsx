@@ -10,7 +10,7 @@ import styles from './index.module.css';
 const SOCIAL_ICONS = {
   GitHub: GitHubIcon,
   X: XIcon,
-  Dicord: DiscordIcon,
+  Discord: DiscordIcon,
   LinkedIn: LinkedInIcon,
 };
 
