@@ -7,9 +7,6 @@ on:
         description: 'Release tag (e.g. v5.99.0)'
         required: true
         type: string
-  repository_dispatch:
-    types: [webpack-release]
-
 permissions:
   contents: write
   pull-requests: write
@@ -18,7 +15,7 @@ jobs:
   sync:
     runs-on: ubuntu-latest
     env:
-      TAG: ${{ github.event_name == 'repository_dispatch' && github.event.client_payload.tag || inputs.tag }}
+      TAG: ${{ inputs.tag }}
 
     steps:
       - name: Checkout
