@@ -13,10 +13,11 @@ const generate = async packageDir => {
   const app = await Application.bootstrapWithPlugins({
     entryPoints: [join(packageDir, 'types.d.ts')],
     out: join('pages', 'api', `v${major(version)}.x`),
-    base: `api/v${major(version)}.x`,
+    publicPath: `/api/v${major(version)}.x/`,
 
     plugin: [
       'typedoc-plugin-markdown',
+      'typedoc-plugin-missing-exports',
       './plugins/processor/index.mjs',
       './plugins/theme/index.mjs',
     ],
@@ -34,6 +35,7 @@ const generate = async packageDir => {
     modulesFileName: 'index',
     entryFileName: 'index',
     tsconfig: 'tsconfig.json',
+    excludeExternals: true,
   });
 
   const project = await app.convert();

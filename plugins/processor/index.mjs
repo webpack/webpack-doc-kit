@@ -13,7 +13,6 @@ import { categoryForReflection } from '../shared/categories.mjs';
  */
 export function load(app) {
   app.renderer.defineRouter('doc-kit', DocKitRouter);
-  app.options.addDeclaration({ name: 'base' });
 
   app.converter.on(Converter.EVENT_RESOLVE_BEGIN, context => {
     // doc-kit has property metadata, not TypeDoc accessor metadata.
@@ -77,7 +76,10 @@ export function load(app) {
       join(app.options.getValue('out'), 'site.json'),
       JSON.stringify(
         {
-          sidebar: sidebar(app.renderer.router, app.options.getValue('base')),
+          sidebar: sidebar(
+            app.renderer.router,
+            app.options.getValue('publicPath')
+          ),
         },
         null,
         2
