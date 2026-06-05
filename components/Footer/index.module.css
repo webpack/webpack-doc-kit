@@ -1,61 +1,122 @@
 @reference "../../styles/index.css";
 
 .footer {
-  @apply border-t border-neutral-900 bg-neutral-950 text-neutral-500;
+  @apply border-t
+    border-neutral-900
+    bg-neutral-950
+    text-neutral-500;
 }
 
 .inner {
-  @apply max-w-7xl mx-auto px-6 pt-12 pb-6;
+  @apply max-w-7xl
+    mx-auto
+    px-6
+    pt-12
+    pb-6;
 }
 
 .top {
-  @apply grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-[1.5fr_repeat(4,1fr)] lg:gap-8;
+  @apply grid
+    grid-cols-1
+    gap-10
+    sm:grid-cols-2
+    lg:grid-cols-[1.5fr_repeat(4,1fr)]
+    lg:gap-8;
 }
 
 .brand {
-  @apply flex flex-col gap-4 max-w-72;
+  @apply flex
+    flex-col
+    gap-4
+    max-w-72;
 }
 
 .logo {
-  @apply inline-flex items-center gap-2 no-underline;
+  @apply inline-flex
+    items-center
+    gap-2
+    no-underline;
 }
 
 .wordmark {
-  @apply text-lg font-semibold text-neutral-50;
+  @apply text-lg
+    font-semibold
+    text-neutral-50;
 }
 
 .tagline {
-  @apply m-0 text-sm leading-relaxed text-neutral-600;
+  @apply m-0
+    text-sm
+    leading-relaxed
+    text-neutral-600;
 }
 
 .section {
-  @apply flex flex-col gap-3.5;
+  @apply flex
+    flex-col
+    gap-3.5;
 }
 
 .heading {
-  @apply m-0 text-xs font-semibold tracking-[0.08em] uppercase text-blue-300;
+  @apply m-0
+    text-xs
+    font-semibold
+    tracking-[0.08em]
+    uppercase
+    text-blue-300;
 }
 
 .list {
-  @apply flex flex-col gap-2.5 m-0 p-0 list-none;
+  @apply flex
+    flex-col
+    gap-2.5
+    m-0
+    p-0
+    list-none;
 }
 
 .link {
-  @apply text-[0.9375rem] text-neutral-300 no-underline transition-colors duration-150 ease-in-out hover:text-blue-300;
+  @apply text-[0.9375rem]
+    text-neutral-300
+    no-underline
+    transition-colors
+    duration-150
+    ease-in-out
+    hover:text-blue-300;
 }
 
 .bottom {
-  @apply flex flex-col gap-4 items-center mt-10 pt-6 border-t border-neutral-900 sm:flex-row sm:justify-between;
+  @apply flex
+    flex-col
+    gap-4
+    items-center
+    mt-10
+    pt-6
+    border-t
+    border-neutral-900
+    sm:flex-row
+    sm:justify-between;
 }
 
 .legal {
-  @apply m-0 text-sm text-neutral-600;
+  @apply m-0
+    text-sm
+    text-neutral-600;
 }
 
 .social {
-  @apply flex items-center gap-4 m-0 p-0 list-none;
+  @apply flex
+    items-center
+    gap-4
+    m-0
+    p-0
+    list-none;
 }
 
 .socialLink {
-  @apply inline-flex text-neutral-500 transition-colors duration-150 hover:text-neutral-50;
+  @apply inline-flex
+    text-neutral-500
+    transition-colors
+    duration-150
+    hover:text-neutral-50;
 }

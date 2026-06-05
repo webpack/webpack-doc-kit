@@ -40,14 +40,14 @@ The pipeline is split into three stages: `prepare` fetches each webpack tag into
 
 ## Scripts
 
-| Script                 | Description                                                       |
-| ---------------------- | ----------------------------------------------------------------- |
-| `npm run prep`         | Fetch every webpack tag in `versions.json` into `.cache/webpack/` |
-| `npm run build:md`     | Generate Markdown for every prepared webpack source               |
-| `npm run build:html`   | Convert Markdown to HTML                                          |
-| `npm run build`        | Full pipeline: prepare → Markdown → HTML                          |
-| `npm run lint`         | Run ESLint                                                        |
-| `npm run format:check` | Check Prettier formatting                                         |
+| Script                  | Description                                                       |
+| ----------------------- | ----------------------------------------------------------------- |
+| `npm run build:prepare` | Fetch every webpack tag in `versions.json` into `.cache/webpack/` |
+| `npm run build:md`      | Generate Markdown for every prepared webpack source               |
+| `npm run build:html`    | Convert Markdown to HTML                                          |
+| `npm run build`         | Full pipeline: prepare → Markdown → HTML                          |
+| `npm run lint`          | Run ESLint                                                        |
+| `npm run format:check`  | Check Prettier formatting                                         |
 
 To generate Markdown for a single webpack source, invoke the processor directly:
 

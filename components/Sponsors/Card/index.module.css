@@ -1,0 +1,101 @@
+@reference "../../../styles/index.css";
+
+.card {
+  @apply flex
+    rounded-xl
+    border
+    border-neutral-200
+    bg-white
+    no-underline
+    transition-colors
+    duration-150
+    hover:border-blue-300
+    hover:bg-blue-50/40
+    dark:border-neutral-800
+    dark:bg-neutral-900
+    dark:hover:border-blue-400/60
+    dark:hover:bg-blue-950/40;
+
+  /* Expanded card used by the top tier. */
+  &.lg {
+    @apply flex-col
+      items-start
+      gap-3
+      p-5;
+
+    & .name {
+      @apply text-base;
+    }
+  }
+
+  /* Compact rows for the lower tiers. */
+  &.md {
+    @apply items-center
+      gap-3
+      p-3.5;
+  }
+
+  &.sm {
+    @apply items-center
+      gap-2.5
+      p-3;
+  }
+
+  &.xs {
+    @apply items-center
+      gap-2
+      p-2.5;
+  }
+}
+
+.body {
+  @apply flex
+    min-w-0
+    flex-col!;
+}
+
+.name {
+  @apply truncate
+    text-sm
+    font-semibold
+    text-neutral-900
+    dark:text-white;
+}
+
+.amount {
+  @apply text-xs
+    text-neutral-500
+    dark:text-neutral-400;
+}
+
+.description {
+  @apply m-0
+    text-sm
+    leading-relaxed
+    text-neutral-600
+    dark:text-neutral-300;
+}
+
+.footer {
+  @apply mt-auto
+    flex
+    w-full
+    items-center
+    justify-between
+    pt-1;
+}
+
+.visit {
+  @apply text-sm
+    font-medium
+    text-blue-600
+    dark:text-blue-400;
+}
+
+.chevron {
+  @apply ml-auto
+    text-xl
+    leading-none
+    text-neutral-300
+    dark:text-neutral-600;
+}

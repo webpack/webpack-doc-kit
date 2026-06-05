@@ -1,0 +1,5 @@
+@reference "../../../styles/index.css";
+
+.toggle {
+  @apply inline-flex;
+}

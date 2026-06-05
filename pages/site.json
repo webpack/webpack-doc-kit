@@ -17,6 +17,10 @@
       "text": "API"
     },
     {
+      "link": "/about/sponsors",
+      "text": "Support"
+    },
+    {
       "link": "https://github.com/webpack/webpack/blob/main/CONTRIBUTING.md",
       "text": "Contribute",
       "target": "_blank"

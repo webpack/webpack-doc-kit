@@ -68,10 +68,11 @@ export default {
       '#theme/site': join(ROOT, 'pages/site.mjs'),
 
       '#theme/Sidebar': join(ROOT, 'components/SideBar.jsx'),
+      '#theme/sponsors': join(ROOT, 'generated/sponsors.json'),
       '#theme/Layout': join(ROOT, 'components/Layout.jsx'),
       '#theme/Navigation': join(ROOT, 'components/NavBar.jsx'),
       '#theme/Footer': join(ROOT, 'components/Footer/index.jsx'),
-      '#theme/Logo': join(ROOT, 'components/WebpackLogo/Icon.jsx'),
+      '#theme/Logo': join(ROOT, 'components/Icons/Webpack.jsx'),
     },
     lightningcss: {
       resolver: {

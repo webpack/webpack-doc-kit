@@ -1,13 +1,19 @@
 {
   "scripts": {
-    "prep": "node scripts/prepare/index.mjs",
-    "build:md": "npm run build:md:api && npm run build:md:readmes",
+    "build:prepare": "node scripts/prepare/index.mjs",
+    "build:data": "npm-run-all build:data:*",
+    "build:data:sponsors": "node scripts/data/sponsors.mjs",
+    "build:md": "npm-run-all build:md:*",
     "build:md:api": "node scripts/markdown/api.mjs",
     "build:md:readmes": "node scripts/markdown/readmes.mjs",
     "build:html": "node scripts/html/index.mjs",
-    "build": "npm run prep && npm run build:md && npm run build:html",
-    "lint": "eslint .",
-    "lint:fix": "eslint --fix .",
+    "build": "npm-run-all build:*",
+    "lint": "npm-run-all \"lint:!(fix)\"",
+    "lint:fix": "npm-run-all lint:*:fix",
+    "lint:js": "eslint .",
+    "lint:js:fix": "node --run lint:js -- --fix",
+    "lint:css": "stylelint \"**/*.css\" --allow-empty-input",
+    "lint:css:fix": "node --run lint:css -- --fix",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "prepare": "husky"
@@ -15,6 +21,8 @@
   "dependencies": {
     "@node-core/doc-kit": "^1.3.9",
     "@tailwindcss/node": "^4.3.0",
+    "classnames": "^2.5.1",
+    "npm-run-all": "^4.1.5",
     "semver": "^7.8.1",
     "typedoc": "^0.28.19",
     "typedoc-plugin-markdown": "^4.11.0",
@@ -27,6 +35,9 @@
     "husky": "^9.1.7",
     "lint-staged": "^17.0.5",
     "prettier": "^3.8.3",
+    "stylelint": "^17.13.0",
+    "stylelint-config-standard": "^40.0.0",
+    "stylelint-order": "^8.1.1",
     "typedoc-plugin-missing-exports": "^4.1.3"
   }
 }

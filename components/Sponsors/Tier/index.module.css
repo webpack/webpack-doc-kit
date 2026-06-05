@@ -1,0 +1,94 @@
+@reference "../../../styles/index.css";
+
+.tier {
+  @apply flex
+    flex-col
+    gap-4;
+}
+
+.header {
+  @apply flex
+    items-center
+    gap-3
+    border-b
+    border-neutral-200
+    pb-3
+    dark:border-neutral-800;
+}
+
+.label {
+  @apply inline-flex
+    items-center
+    gap-2
+    text-base
+    font-semibold
+    text-neutral-900
+    dark:text-white;
+}
+
+.icon {
+  @apply text-lg;
+}
+
+.price {
+  @apply ml-auto
+    text-sm
+    text-neutral-500
+    dark:text-neutral-400;
+}
+
+/* Tier accent colors for the diamond glyph (lightened on dark surfaces). */
+.platinum {
+  & .icon {
+    @apply text-blue-400;
+  }
+}
+
+.gold {
+  & .icon {
+    @apply text-amber-500
+      dark:text-amber-400;
+  }
+}
+
+.silver {
+  & .icon {
+    @apply text-neutral-400
+      dark:text-neutral-300;
+  }
+}
+
+.bronze {
+  & .icon {
+    @apply text-orange-700
+      dark:text-orange-400;
+  }
+}
+
+.grid {
+  @apply grid
+    grid-cols-1
+    gap-4;
+
+  &.platinum {
+    @apply sm:grid-cols-2;
+  }
+
+  &.gold {
+    @apply sm:grid-cols-2
+      lg:grid-cols-3;
+  }
+
+  &.silver {
+    @apply grid-cols-2
+      sm:grid-cols-3
+      lg:grid-cols-4;
+  }
+
+  &.bronze {
+    @apply grid-cols-2
+      gap-3
+      sm:grid-cols-3
+      lg:grid-cols-6;
+  }
+}

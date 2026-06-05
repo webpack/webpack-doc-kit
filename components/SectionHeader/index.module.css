@@ -1,0 +1,39 @@
+@reference "../../styles/index.css";
+
+.header {
+  @apply mx-auto
+    flex
+    max-w-2xl
+    flex-col
+    items-center
+    gap-3
+    text-center;
+}
+
+.eyebrow {
+  @apply m-0
+    text-xs
+    font-semibold
+    tracking-[0.12em]
+    uppercase
+    text-blue-600
+    dark:text-blue-400;
+}
+
+.title {
+  @apply m-0
+    text-3xl
+    font-bold
+    tracking-tight
+    text-neutral-900
+    sm:text-4xl
+    dark:text-white;
+}
+
+.description {
+  @apply m-0
+    text-base
+    leading-relaxed
+    text-neutral-600
+    dark:text-neutral-300;
+}

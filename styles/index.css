@@ -1,6 +1,12 @@
 @import 'tailwindcss';
 @import './theme.css';
 
+/* Drive the `dark:` variant off the `data-theme="dark"` attribute that the
+   ThemeToggle / useTheme hook sets on <html>, matching @node-core/ui-components.
+   Without this, Tailwind would default `dark:` to `prefers-color-scheme`, which
+   ignores the in-app theme switch. */
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
 /* to override Node.js theme variables */
 :root {
   --color-green-50: var(--color-blue-50);

@@ -2,5 +2,9 @@
   "**/*.{js,mjs,ts,tsx,md,mdx,json.yml}": [
     "eslint --fix",
     "prettier --check --write"
+  ],
+  "**/*.css": [
+    "stylelint --allow-empty-input --fix",
+    "prettier --check --write"
   ]
 }
