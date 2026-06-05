@@ -3,3 +3,5 @@ out
 *.generated.*
 /.cache
 /pages/api
+/pages/loaders/
+/pages/plugins/

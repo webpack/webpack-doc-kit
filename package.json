@@ -2,8 +2,11 @@
   "scripts": {
     "prep": "node scripts/prepare/index.mjs",
     "build:md": "node scripts/markdown/index.mjs",
+    "build:md:loaders": "node scripts/fetch-readmes.mjs --loaders",
+    "build:md:plugins": "node scripts/fetch-readmes.mjs --plugins",
+    "build:md:readmes": "node scripts/fetch-readmes.mjs",
     "build:html": "node scripts/html/index.mjs",
-    "build": "npm run prep && npm run build:md && npm run build:html",
+    "build": "npm run prep && npm run build:md && npm run build:md:readmes && npm run build:html",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
     "format": "prettier --write .",
