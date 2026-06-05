@@ -64,31 +64,27 @@ export const fullName = model => {
 };
 
 export const formatParams = (params = []) => {
-  const { result, openBrackets } = params.reduce(
-    (acc, param, i) => {
-      const { name, flags } = param;
+  let result = '';
+  let openBrackets = 0;
 
-      const isRest = flags?.isRest ?? false;
-      const isOptional = isRest || (flags?.isOptional ?? false);
-      const paramName = isRest ? `...${name}` : name;
+  for (let i = 0; i < params.length; i++) {
+    const { name, flags } = params[i];
+    const isRest = flags?.isRest ?? false;
+    const paramName = isRest ? `...${name}` : name;
 
-      if (isOptional) {
-        acc.result += i ? `[, ${paramName}` : `[${paramName}`;
-        acc.openBrackets++;
-      } else {
-        if (acc.openBrackets) {
-          acc.result += ']'.repeat(acc.openBrackets);
-          acc.openBrackets = 0;
-        }
-        acc.result += i ? `, ${paramName}` : paramName;
+    if (isRest || flags?.isOptional) {
+      result += (i ? '[, ' : '[') + paramName;
+      openBrackets++;
+    } else {
+      if (openBrackets) {
+        result += ']'.repeat(openBrackets);
+        openBrackets = 0;
       }
+      result += (i ? ', ' : '') + paramName;
+    }
+  }
 
-      return acc;
-    },
-    { result: '', openBrackets: 0 }
-  );
-
-  return openBrackets ? result + ']'.repeat(openBrackets) : result;
+  return result + ']'.repeat(openBrackets);
 };
 
 export const signatureExpression = (
