@@ -2,7 +2,7 @@ import GitHubIcon from '@node-core/ui-components/Icons/Social/GitHub';
 import LinkedInIcon from '@node-core/ui-components/Icons/Social/LinkedIn';
 import DiscordIcon from '@node-core/ui-components/Icons/Social/Discord';
 import XIcon from '@node-core/ui-components/Icons/Social/X';
-import { footer } from '#theme/site' with { type: 'json' };
+import { footer } from '#theme/site';
 
 import Logo from '#theme/Logo';
 import styles from './index.module.css';

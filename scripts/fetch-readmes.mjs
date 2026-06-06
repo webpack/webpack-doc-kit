@@ -2,12 +2,9 @@ import { mkdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 
 const { GH_TOKEN } = process.env;
-if (!GH_TOKEN) {
-  throw new Error('GH_TOKEN environment variable is not set');
-}
 
 const BASE_HEADERS = {
-  Authorization: `Bearer ${GH_TOKEN}`,
+  ...(GH_TOKEN && { Authorization: `Bearer ${GH_TOKEN}` }),
   'X-GitHub-Api-Version': '2022-11-28',
 };
 
@@ -61,6 +58,7 @@ const stripBadges = content =>
     )
     .replace(/\n{3,}/g, '\n\n');
 
+// TODO: remove this allowlist once Shiki silently skips unknown languages instead of build errors.
 const SUPPORTED_LANGS = new Set([
   'bash',
   'c',
@@ -129,19 +127,14 @@ const processContent = content =>
   transformGfmAlerts(sanitizeCodeFences(stripBadges(stripLeadingDiv(content))));
 
 const fetchReadme = async fullName => {
-  const url = `https://api.github.com/repos/${fullName}/readme`;
-  const res = await fetch(url, {
-    headers: { ...BASE_HEADERS, Accept: 'application/vnd.github.raw' },
-  });
+  const url = `https://raw.githubusercontent.com/${fullName}/HEAD/README.md`;
+  const res = await fetch(url);
   return res.ok
     ? { ok: true, text: await res.text() }
     : { ok: false, status: res.status };
 };
 
-const processRepos = async (
-  repos,
-  { layout, groupName, basePath, outputDir }
-) => {
+const processRepos = async (repos, { groupName, basePath, outputDir }) => {
   mkdirSync(outputDir, { recursive: true });
   const repoName = r => r.split('/')[1];
   console.log(
@@ -156,7 +149,7 @@ const processRepos = async (
       console.log(`Failed: ${name} — ${result.status}`);
       continue;
     }
-    const content = `---\nlayout: ${layout}\n---\n\n${processContent(result.text)}`;
+    const content = processContent(result.text);
     writeFileSync(join(outputDir, `${name}.md`), content, 'utf8');
     fetched.push(name);
     console.log(`Fetched: ${name}`);
@@ -186,12 +179,11 @@ const args = process.argv.slice(2);
 const runLoaders = args.includes('--loaders') || args.length === 0;
 const runPlugins = args.includes('--plugins') || args.length === 0;
 
-const root = new URL('..', import.meta.url).pathname;
+const root = join(import.meta.dirname, '..');
 const { loaders, plugins } = await discoverRepos();
 
 if (runLoaders) {
   await processRepos(loaders, {
-    layout: 'loader',
     groupName: 'Loaders',
     basePath: '/loaders',
     outputDir: join(root, 'pages/loaders'),
@@ -200,7 +192,6 @@ if (runLoaders) {
 
 if (runPlugins) {
   await processRepos(plugins, {
-    layout: 'plugin',
     groupName: 'Plugins',
     basePath: '/plugins',
     outputDir: join(root, 'pages/plugins'),

@@ -5,7 +5,7 @@ import GitHubIcon from '@node-core/ui-components/Icons/Social/GitHub';
 
 import SearchBox from '@node-core/doc-kit/src/generators/web/ui/components/SearchBox';
 import { useTheme } from '@node-core/doc-kit/src/generators/web/ui/hooks/useTheme.mjs';
-import { navbar } from '#theme/site' with { type: 'json' };
+import { navbar } from '#theme/site';
 import Logo from '#theme/Logo';
 
 /**

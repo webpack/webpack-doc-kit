@@ -40,10 +40,12 @@ export default {
     useAbsoluteURLs: true,
     remoteConfigUrl: null,
     imports: {
-      '#theme/local/site': join(inputDir, 'site.json'),
+      '#theme/local/site': VERSION
+        ? join(inputDir, 'site.json')
+        : join(ROOT, 'pages/site.mjs'),
 
       '#theme/Sidebar': join(ROOT, 'components/SideBar.jsx'),
-      '#theme/site': join(ROOT, 'pages/site.json'),
+      '#theme/site': join(ROOT, 'pages/site.mjs'),
       '#theme/Layout': join(ROOT, 'components/Layout.jsx'),
       '#theme/Navigation': join(ROOT, 'components/NavBar.jsx'),
       '#theme/Footer': join(ROOT, 'components/Footer/index.jsx'),
