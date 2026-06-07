@@ -1,15 +1,15 @@
-import { dirname, join } from 'node:path';
+import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { major } from 'semver';
+
+import createTailwindReader from './tailwind.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 
 const VERSION = process.env.VERSION;
 const MAJOR_VERSION = VERSION ? `v${major(VERSION)}.x` : undefined;
-const inputDir = join(
-  ROOT,
-  VERSION ? `./pages/api/${MAJOR_VERSION}` : './pages'
-);
+
+const inputDir = VERSION ? `./pages/api/${MAJOR_VERSION}` : './pages';
 
 /**
  * Configuration for @node-core/doc-kit when generating webpack API docs.
@@ -29,7 +29,7 @@ export default {
   },
   threads: 1,
   metadata: {
-    typeMap: VERSION ? join(inputDir, 'type-map.json') : undefined,
+    typeMap: VERSION ? `${inputDir}/type-map.json` : undefined,
   },
   'jsx-ast': {
     generateIndexPage: false,
@@ -50,6 +50,11 @@ export default {
       '#theme/Navigation': join(ROOT, 'components/NavBar.jsx'),
       '#theme/Footer': join(ROOT, 'components/Footer/index.jsx'),
       '#theme/Logo': join(ROOT, 'components/WebpackLogo/Icon.jsx'),
+    },
+    lightningcss: {
+      resolver: {
+        read: createTailwindReader(),
+      },
     },
   },
 };

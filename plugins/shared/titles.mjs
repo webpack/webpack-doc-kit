@@ -63,21 +63,29 @@ export const fullName = model => {
   return `${root.name}.${name}`;
 };
 
-export const formatParams = (params = []) =>
-  params
-    .map(({ name, flags }, i) => {
-      const paramName = flags?.isRest ? `...${name}` : name;
-      if (flags?.isRest) return i ? `, ${paramName}` : paramName;
+export const formatParams = (params = []) => {
+  let result = '';
+  let openBrackets = 0;
 
-      return flags?.isOptional
-        ? i
-          ? `[, ${paramName}]`
-          : `[${paramName}]`
-        : i
-          ? `, ${paramName}`
-          : paramName;
-    })
-    .join('');
+  for (let i = 0; i < params.length; i++) {
+    const { name, flags } = params[i];
+    const isRest = flags?.isRest ?? false;
+    const paramName = isRest ? `...${name}` : name;
+
+    if (isRest || flags?.isOptional) {
+      result += (i ? '[, ' : '[') + paramName;
+      openBrackets++;
+    } else {
+      if (openBrackets) {
+        result += ']'.repeat(openBrackets);
+        openBrackets = 0;
+      }
+      result += (i ? ', ' : '') + paramName;
+    }
+  }
+
+  return result + ']'.repeat(openBrackets);
+};
 
 export const signatureExpression = (
   model,

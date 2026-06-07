@@ -1,0 +1,17 @@
+@import 'tailwindcss';
+@import './theme.css';
+
+/* to override Node.js theme variables */
+:root {
+  --color-green-50: var(--color-blue-50);
+  --color-green-100: var(--color-blue-100);
+  --color-green-200: var(--color-blue-200);
+  --color-green-300: var(--color-blue-300);
+  --color-green-400: var(--color-blue-400);
+  --color-green-500: var(--color-blue-500);
+  --color-green-600: var(--color-blue-600);
+  --color-green-700: var(--color-blue-700);
+  --color-green-800: var(--color-blue-800);
+  --color-green-900: var(--color-blue-900);
+  --color-green-950: var(--color-blue-950);
+}
