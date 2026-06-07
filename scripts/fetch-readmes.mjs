@@ -32,9 +32,7 @@ const discoverRepos = async () => {
       if (repo.archived) continue;
       if (repo.name.endsWith('-loader')) {
         loaders.push(repo.full_name);
-      } else if (
-        repo.name.endsWith('-plugin')
-      ) {
+      } else if (repo.name.endsWith('-plugin')) {
         plugins.push(repo.full_name);
       }
     }
