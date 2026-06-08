@@ -4,5 +4,12 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "installCommand": "bash scripts/vercel/prepare.sh",
-  "buildCommand": "bash scripts/vercel/build.sh"
+  "buildCommand": "bash scripts/vercel/build.sh",
+  "redirects": [
+    {
+      "source": "/branding",
+      "destination": "/about/branding",
+      "permanent": true
+    }
+  ]
 }
