@@ -11,7 +11,7 @@ const formatStability = (ctx, level, tag) => {
     ? ctx.helpers.getCommentParts(tag.content).trim()
     : '';
   return message
-    ? `> Stability: ${level}: ${message}`
+    ? `> Stability: ${level}: ${message.replace(/\n/g, '\n> ')}`
     : `> Stability: ${level}`;
 };
 
