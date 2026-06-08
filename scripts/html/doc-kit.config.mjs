@@ -41,11 +41,11 @@ export default {
     remoteConfigUrl: null,
     imports: {
       '#theme/local/site': VERSION
-        ? join(inputDir, 'site.json')
+        ? join(ROOT, inputDir, 'site.json')
         : join(ROOT, 'pages/site.mjs'),
+      '#theme/site': join(ROOT, 'pages/site.mjs'),
 
       '#theme/Sidebar': join(ROOT, 'components/SideBar.jsx'),
-      '#theme/site': join(ROOT, 'pages/site.mjs'),
       '#theme/Layout': join(ROOT, 'components/Layout.jsx'),
       '#theme/Navigation': join(ROOT, 'components/NavBar.jsx'),
       '#theme/Footer': join(ROOT, 'components/Footer/index.jsx'),

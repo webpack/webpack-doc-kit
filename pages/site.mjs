@@ -1,7 +1,13 @@
-import base from './site.json' with { type: 'json' };
-import loadersSite from './loaders/site.json' with { type: 'json' };
-import pluginsSite from './plugins/site.json' with { type: 'json' };
+import { sidebar as _sidebar } from './site.json' with { type: 'json' };
+import loaders from './loaders/site.json' with { type: 'json' };
+import plugins from './plugins/site.json' with { type: 'json' };
 
-export const { navbar, footer } = base;
+export * from './site.json' with { type: 'json' };
 
-export const sidebar = [...loadersSite.sidebar, ...pluginsSite.sidebar];
+export const sidebar = [
+  ..._sidebar,
+  {
+    groupName: 'Loaders & Plugins',
+    items: [...loaders.sidebar, ...plugins.sidebar],
+  },
+];
