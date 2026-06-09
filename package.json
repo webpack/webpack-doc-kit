@@ -6,6 +6,7 @@
     "build:md": "npm-run-all build:md:*",
     "build:md:api": "node scripts/markdown/api.mjs",
     "build:md:readmes": "node scripts/markdown/readmes.mjs",
+    "build:md:governance": "node scripts/markdown/governance.mjs",
     "build:html": "node scripts/html/index.mjs",
     "build": "npm-run-all build:*",
     "lint": "npm-run-all \"lint:!(fix)\"",
