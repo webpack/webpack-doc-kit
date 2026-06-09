@@ -10,7 +10,7 @@ const BASE_HEADERS = {
 // Maps source filenames in webpack/governance repo to their output slug and sidebar label.
 // Insertion order determines sidebar order, this could be changed as per need.
 const FILE_MAP = {
-  'README.md': { output: 'governance-overview', label: 'Governance Overview' },
+  'README.md': { output: 'index', label: 'Governance Overview' },
   'CHARTER.md': { output: 'charter', label: 'Charter' },
   'MEMBER_EXPECTATIONS.md': {
     output: 'member-expectations',
