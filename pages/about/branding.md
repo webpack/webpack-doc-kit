@@ -12,126 +12,28 @@ Webpack can be written with a capital **W** when used at the start of a sentence
 
 Please use the **logo with text** whenever possible. The logo should be placed on its matching background with enough space around it. Double the size of the inner dark blue cube to get an idea of how much space the logo should have.
 
-<table>
-  <thead>
-    <tr>
-      <th align="center" scope="col">Light backgrounds</th>
-      <th align="center" scope="col">Dark backgrounds</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td align="center">
-        <img
-          alt="webpack horizontal logo for light backgrounds"
-          src="https://raw.githubusercontent.com/openjs-foundation/artwork/main/projects/webpack/webpack-logo-horizontal-color.png"
-          width="350"
-        />
-      </td>
-      <td align="center" style="background:#111;">
-        <img
-          alt="webpack horizontal logo for dark backgrounds"
-          src="https://raw.githubusercontent.com/openjs-foundation/artwork/main/projects/webpack/webpack-logo-horizontal-color-dark_background.png"
-          width="350"
-        />
-      </td>
-    </tr>
-    <tr>
-      <td align="center">
-        <a href="https://github.com/openjs-foundation/artwork/blob/main/projects/webpack/webpack-logo-horizontal-color.svg">svg</a>
-        |
-        <a href="https://github.com/openjs-foundation/artwork/blob/main/projects/webpack/webpack-logo-horizontal-color.png">png</a>
-      </td>
-      <td align="center">
-        <a href="https://github.com/openjs-foundation/artwork/blob/main/projects/webpack/webpack-logo-horizontal-color-dark_background.svg">svg</a>
-        |
-        <a href="https://github.com/openjs-foundation/artwork/blob/main/projects/webpack/webpack-logo-horizontal-color-dark_background.png">png</a>
-      </td>
-    </tr>
-  </tbody>
-</table>
+### Horizontal logo
 
-<table>
-  <thead>
-    <tr>
-      <th align="center" scope="col">Light backgrounds</th>
-      <th align="center" scope="col">Dark backgrounds</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td align="center">
-        <img
-          alt="webpack stacked logo for light backgrounds"
-          src="https://raw.githubusercontent.com/openjs-foundation/artwork/main/projects/webpack/webpack-logo-stacked-color.png"
-          width="250"
-        />
-      </td>
-      <td align="center" style="background:#111;">
-        <img
-          alt="webpack stacked logo for dark backgrounds"
-          src="https://raw.githubusercontent.com/openjs-foundation/artwork/main/projects/webpack/webpack-logo-stacked-color-dark_background.png"
-          width="250"
-        />
-      </td>
-    </tr>
-    <tr>
-      <td align="center">
-        <a href="https://github.com/openjs-foundation/artwork/blob/main/projects/webpack/webpack-logo-stacked-color.svg">svg</a>
-        |
-        <a href="https://github.com/openjs-foundation/artwork/blob/main/projects/webpack/webpack-logo-stacked-color.png">png</a>
-      </td>
-      <td align="center">
-        <a href="https://github.com/openjs-foundation/artwork/blob/main/projects/webpack/webpack-logo-stacked-color-dark_background.svg">svg</a>
-        |
-        <a href="https://github.com/openjs-foundation/artwork/blob/main/projects/webpack/webpack-logo-stacked-color-dark_background.png">png</a>
-      </td>
-    </tr>
-  </tbody>
-</table>
+|                                                                                                          Light backgrounds                                                                                                           |                                                                                                                           Dark backgrounds                                                                                                                           |
+| :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|                                ![webpack horizontal logo for light backgrounds](https://raw.githubusercontent.com/openjs-foundation/artwork/main/projects/webpack/webpack-logo-horizontal-color.png)                                 |                                         ![webpack horizontal logo for dark backgrounds](https://raw.githubusercontent.com/openjs-foundation/artwork/main/projects/webpack/webpack-logo-horizontal-color-dark_background.png)                                         |
+| [svg](https://github.com/openjs-foundation/artwork/blob/main/projects/webpack/webpack-logo-horizontal-color.svg) \| [png](https://github.com/openjs-foundation/artwork/blob/main/projects/webpack/webpack-logo-horizontal-color.png) | [svg](https://github.com/openjs-foundation/artwork/blob/main/projects/webpack/webpack-logo-horizontal-color-dark_background.svg) \| [png](https://github.com/openjs-foundation/artwork/blob/main/projects/webpack/webpack-logo-horizontal-color-dark_background.png) |
+
+### Stacked logo
+
+|                                                                                                       Light backgrounds                                                                                                        |                                                                                                                        Dark backgrounds                                                                                                                        |
+| :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|                                ![webpack stacked logo for light backgrounds](https://raw.githubusercontent.com/openjs-foundation/artwork/main/projects/webpack/webpack-logo-stacked-color.png)                                 |                                         ![webpack stacked logo for dark backgrounds](https://raw.githubusercontent.com/openjs-foundation/artwork/main/projects/webpack/webpack-logo-stacked-color-dark_background.png)                                         |
+| [svg](https://github.com/openjs-foundation/artwork/blob/main/projects/webpack/webpack-logo-stacked-color.svg) \| [png](https://github.com/openjs-foundation/artwork/blob/main/projects/webpack/webpack-logo-stacked-color.png) | [svg](https://github.com/openjs-foundation/artwork/blob/main/projects/webpack/webpack-logo-stacked-color-dark_background.svg) \| [png](https://github.com/openjs-foundation/artwork/blob/main/projects/webpack/webpack-logo-stacked-color-dark_background.png) |
 
 ## webpack Icons
 
 The icon is designed to be used in **layout-constrained areas only**. As previously stated, please prefer the logo with text.
 
-<table>
-  <thead>
-    <tr>
-      <th align="center" scope="col">Icon<br />(avatars, profile pictures, favicons)</th>
-      <th align="center" scope="col">Hex sticker</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td align="center">
-        <img
-          alt="webpack icon"
-          src="https://raw.githubusercontent.com/openjs-foundation/artwork/main/projects/webpack/webpack-icon-color.png"
-          width="150"
-        />
-      </td>
-      <td align="center">
-        <img
-          alt="webpack hex sticker"
-          src="https://raw.githubusercontent.com/openjs-foundation/artwork/main/projects/webpack/webpack-hex-sticker.png"
-          width="150"
-        />
-      </td>
-    </tr>
-    <tr>
-      <td align="center">
-        <a href="https://github.com/openjs-foundation/artwork/blob/main/projects/webpack/webpack-icon-color.svg">svg</a>
-        |
-        <a href="https://github.com/openjs-foundation/artwork/blob/main/projects/webpack/webpack-icon-color.png">png</a>
-      </td>
-      <td align="center">
-        <a href="https://github.com/openjs-foundation/artwork/blob/main/projects/webpack/webpack-hex-sticker.svg">svg</a>
-        |
-        <a href="https://github.com/openjs-foundation/artwork/blob/main/projects/webpack/webpack-hex-sticker.png">png</a>
-      </td>
-    </tr>
-  </tbody>
-</table>
+|                                                                                   Icon (avatars, profile pictures, favicons)                                                                                   |                                                                                                   Hex sticker                                                                                                    |
+| :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|                                           ![webpack icon](https://raw.githubusercontent.com/openjs-foundation/artwork/main/projects/webpack/webpack-icon-color.png)                                            |                                        ![webpack hex sticker](https://raw.githubusercontent.com/openjs-foundation/artwork/main/projects/webpack/webpack-hex-sticker.png)                                         |
+| [svg](https://github.com/openjs-foundation/artwork/blob/main/projects/webpack/webpack-icon-color.svg) \| [png](https://github.com/openjs-foundation/artwork/blob/main/projects/webpack/webpack-icon-color.png) | [svg](https://github.com/openjs-foundation/artwork/blob/main/projects/webpack/webpack-hex-sticker.svg) \| [png](https://github.com/openjs-foundation/artwork/blob/main/projects/webpack/webpack-hex-sticker.png) |
 
 ## Color Palette
 
