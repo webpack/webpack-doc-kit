@@ -21,6 +21,8 @@ const runDocKit = version =>
       'generate',
       '-t',
       'web',
+      '-t',
+      'orama-db',
       '--config-file',
       './scripts/html/doc-kit.config.mjs',
     ],

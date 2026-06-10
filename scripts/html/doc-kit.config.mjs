@@ -8,12 +8,16 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 
 const VERSION = process.env.VERSION;
 const MAJOR_VERSION = VERSION ? `v${major(VERSION)}.x` : undefined;
+const URL_PATH = VERSION ? `/api/${MAJOR_VERSION}` : '/';
 
-const inputDir = VERSION ? `./pages/api/${MAJOR_VERSION}` : './pages';
-
-const BASE_URL = process.env.VERCEL_URL
+const ORIGIN = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
   : 'http://localhost:3000';
+
+const BASE_URL = `${ORIGIN}${URL_PATH}`;
+
+const INPUT_DIR = `./pages/${URL_PATH}`;
+const SITE_MODULE = join(ROOT, 'pages/site.mjs');
 
 /**
  * Configuration for @node-core/doc-kit when generating webpack API docs.
@@ -24,14 +28,14 @@ export default {
   global: {
     repository: 'webpack/webpack',
     version: VERSION,
-    input: [`${inputDir}/**/*.md`],
+    input: [`${INPUT_DIR}/**/*.md`],
     ignore: VERSION ? [] : ['./pages/api/**/*.md'],
     output: VERSION ? `./out/api/${MAJOR_VERSION}` : './out',
     baseURL: BASE_URL,
   },
   threads: 1,
   metadata: {
-    typeMap: VERSION ? `${inputDir}/type-map.json` : undefined,
+    typeMap: VERSION ? `${INPUT_DIR}/type-map.json` : undefined,
   },
   'jsx-ast': {
     generateIndexPage: false,
@@ -63,9 +67,9 @@ export default {
     },
     imports: {
       '#theme/local/site': VERSION
-        ? join(ROOT, inputDir, 'site.json')
-        : join(ROOT, 'pages/site.mjs'),
-      '#theme/site': join(ROOT, 'pages/site.mjs'),
+        ? join(ROOT, INPUT_DIR, 'site.json')
+        : SITE_MODULE,
+      '#theme/site': SITE_MODULE,
 
       '#theme/Sidebar': join(ROOT, 'components/SideBar.jsx'),
       '#theme/sponsors': join(ROOT, 'generated/sponsors.json'),
