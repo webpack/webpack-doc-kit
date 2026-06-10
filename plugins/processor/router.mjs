@@ -5,6 +5,7 @@ import { categoryForReflection } from '../shared/categories.mjs';
 import { getConstructorTitle, getMemberTitle } from '../shared/titles.mjs';
 import { getSourceMetadata, isTypePage } from './metadata.mjs';
 import { createTypePages, TYPE_PAGE_HEADING_KINDS } from './synthetic.mjs';
+import { normalizeLink } from '../shared/urls.mjs';
 
 /**
  * The router owns the public Markdown shape. It keeps one class per file,
@@ -210,7 +211,7 @@ export class DocKitRouter extends MemberRouter {
     const [page, routedAnchor] = fullUrl.split('#');
     const anchor =
       sourceAnchorName(target) ?? routedAnchor ?? this.getAnchor(target);
-    const pageUrl = page.replace(/\.md$/, '.html');
+    const pageUrl = normalizeLink(page);
 
     return anchor ? `${pageUrl}#${anchor}` : pageUrl;
   }
@@ -242,7 +243,7 @@ export class DocKitRouter extends MemberRouter {
     const title = anchorTitle(target, pageTarget);
     const anchor = this.getSlugger(pageTarget).slug(title);
 
-    this.fullUrls.set(target, `${pageUrl.replace(/\.md$/, '.html')}#${anchor}`);
+    this.fullUrls.set(target, `${normalizeLink(pageUrl)}#${anchor}`);
     this.anchors.set(target, anchor);
 
     if (!includeChildren) {

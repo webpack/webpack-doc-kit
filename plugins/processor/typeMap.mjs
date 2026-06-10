@@ -1,5 +1,6 @@
 import { ReflectionKind } from 'typedoc';
 import { isTypePage } from './metadata.mjs';
+import { normalizeLink } from '../shared/urls.mjs';
 
 const TYPE_MAP_KINDS =
   ReflectionKind.Class |
@@ -23,7 +24,7 @@ export const createTypeMap = router => {
 
     const { name } = target;
     if (!typeMap.has(name)) {
-      typeMap.set(name, router.getAnchoredURL(target));
+      typeMap.set(name, normalizeLink(router.getAnchoredURL(target)));
     }
   }
 

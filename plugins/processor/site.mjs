@@ -1,20 +1,15 @@
 import { ReflectionKind } from 'typedoc';
 import { CATEGORY_RULES } from '../shared/categories.mjs';
+import { toPublicLink } from '../shared/urls.mjs';
 
 const SIDEBAR_KINDS =
   ReflectionKind.Project | ReflectionKind.Namespace | ReflectionKind.Class;
 
-const SIDEBAR_GROUP_NAME = 'API Documentation';
+const SIDEBAR_GROUP_NAME = 'API';
 
 const getFirstAtxHeading = text => text.match(/^#\s+(.+)$/m)?.[1]?.trim();
 
 const getFirstPathSegment = url => url.replace(/^\//, '').split('/')[0];
-
-const toSidebarLink = (url, basePath) => {
-  const path = url.replace(/\.md$/, '').replace(/\/index$/, '');
-  const prefix = basePath ? `/${basePath.replace(/^\/|\/$/g, '')}` : '';
-  return path ? `${prefix}/${path}` : prefix || '/';
-};
 
 const defaultLabelFor = (target, url) => {
   if (url.endsWith('/index.md')) return 'Overview';
@@ -59,7 +54,7 @@ export const sidebar = (router, basePath) => {
     };
 
     group.items.push({
-      link: toSidebarLink(url, basePath),
+      link: toPublicLink(url, basePath),
       label,
     });
 
