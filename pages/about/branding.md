@@ -12,9 +12,13 @@ Webpack can be written with a capital **W** when used at the start of a sentence
 
 Please use the **logo with text** whenever possible. The logo should be placed on its matching background with enough space around it. Double the size of the inner dark blue cube to get an idea of how much space the logo should have.
 
-### Horizontal Logo
-
 <table>
+  <thead>
+    <tr>
+      <th align="center" scope="col">Light backgrounds</th>
+      <th align="center" scope="col">Dark backgrounds</th>
+    </tr>
+  </thead>
   <tbody>
     <tr>
       <td align="center">
@@ -34,26 +38,26 @@ Please use the **logo with text** whenever possible. The logo should be placed o
     </tr>
     <tr>
       <td align="center">
-
-[svg](https://github.com/openjs-foundation/artwork/blob/main/projects/webpack/webpack-logo-horizontal-color.svg) | [png](https://github.com/openjs-foundation/artwork/blob/main/projects/webpack/webpack-logo-horizontal-color.png)
-
-</td>
+        <a href="https://github.com/openjs-foundation/artwork/blob/main/projects/webpack/webpack-logo-horizontal-color.svg">svg</a>
+        |
+        <a href="https://github.com/openjs-foundation/artwork/blob/main/projects/webpack/webpack-logo-horizontal-color.png">png</a>
+      </td>
       <td align="center">
-
-[svg](https://github.com/openjs-foundation/artwork/blob/main/projects/webpack/webpack-logo-horizontal-color-dark_background.svg) | [png](https://github.com/openjs-foundation/artwork/blob/main/projects/webpack/webpack-logo-horizontal-color-dark_background.png)
-
-</td>
-    </tr>
-    <tr>
-      <td align="center">Light backgrounds</td>
-      <td align="center">Dark backgrounds</td>
+        <a href="https://github.com/openjs-foundation/artwork/blob/main/projects/webpack/webpack-logo-horizontal-color-dark_background.svg">svg</a>
+        |
+        <a href="https://github.com/openjs-foundation/artwork/blob/main/projects/webpack/webpack-logo-horizontal-color-dark_background.png">png</a>
+      </td>
     </tr>
   </tbody>
 </table>
 
-### Stacked Logo
-
 <table>
+  <thead>
+    <tr>
+      <th align="center" scope="col">Light backgrounds</th>
+      <th align="center" scope="col">Dark backgrounds</th>
+    </tr>
+  </thead>
   <tbody>
     <tr>
       <td align="center">
@@ -73,19 +77,15 @@ Please use the **logo with text** whenever possible. The logo should be placed o
     </tr>
     <tr>
       <td align="center">
-
-[svg](https://github.com/openjs-foundation/artwork/blob/main/projects/webpack/webpack-logo-stacked-color.svg) | [png](https://github.com/openjs-foundation/artwork/blob/main/projects/webpack/webpack-logo-stacked-color.png)
-
-</td>
+        <a href="https://github.com/openjs-foundation/artwork/blob/main/projects/webpack/webpack-logo-stacked-color.svg">svg</a>
+        |
+        <a href="https://github.com/openjs-foundation/artwork/blob/main/projects/webpack/webpack-logo-stacked-color.png">png</a>
+      </td>
       <td align="center">
-
-[svg](https://github.com/openjs-foundation/artwork/blob/main/projects/webpack/webpack-logo-stacked-color-dark_background.svg) | [png](https://github.com/openjs-foundation/artwork/blob/main/projects/webpack/webpack-logo-stacked-color-dark_background.png)
-
-</td>
-    </tr>
-    <tr>
-      <td align="center">Light backgrounds</td>
-      <td align="center">Dark backgrounds</td>
+        <a href="https://github.com/openjs-foundation/artwork/blob/main/projects/webpack/webpack-logo-stacked-color-dark_background.svg">svg</a>
+        |
+        <a href="https://github.com/openjs-foundation/artwork/blob/main/projects/webpack/webpack-logo-stacked-color-dark_background.png">png</a>
+      </td>
     </tr>
   </tbody>
 </table>
@@ -95,6 +95,12 @@ Please use the **logo with text** whenever possible. The logo should be placed o
 The icon is designed to be used in **layout-constrained areas only**. As previously stated, please prefer the logo with text.
 
 <table>
+  <thead>
+    <tr>
+      <th align="center" scope="col">Icon<br />(avatars, profile pictures, favicons)</th>
+      <th align="center" scope="col">Hex sticker</th>
+    </tr>
+  </thead>
   <tbody>
     <tr>
       <td align="center">
@@ -114,19 +120,15 @@ The icon is designed to be used in **layout-constrained areas only**. As previou
     </tr>
     <tr>
       <td align="center">
-
-[svg](https://github.com/openjs-foundation/artwork/blob/main/projects/webpack/webpack-icon-color.svg) | [png](https://github.com/openjs-foundation/artwork/blob/main/projects/webpack/webpack-icon-color.png)
-
-</td>
+        <a href="https://github.com/openjs-foundation/artwork/blob/main/projects/webpack/webpack-icon-color.svg">svg</a>
+        |
+        <a href="https://github.com/openjs-foundation/artwork/blob/main/projects/webpack/webpack-icon-color.png">png</a>
+      </td>
       <td align="center">
-
-[svg](https://github.com/openjs-foundation/artwork/blob/main/projects/webpack/webpack-hex-sticker.svg) | [png](https://github.com/openjs-foundation/artwork/blob/main/projects/webpack/webpack-hex-sticker.png)
-
-</td>
-    </tr>
-    <tr>
-      <td align="center">Icon<br />(avatars, profile pictures, favicons)</td>
-      <td align="center">Hex sticker</td>
+        <a href="https://github.com/openjs-foundation/artwork/blob/main/projects/webpack/webpack-hex-sticker.svg">svg</a>
+        |
+        <a href="https://github.com/openjs-foundation/artwork/blob/main/projects/webpack/webpack-hex-sticker.png">png</a>
+      </td>
     </tr>
   </tbody>
 </table>
@@ -135,19 +137,19 @@ The icon is designed to be used in **layout-constrained areas only**. As previou
 
 The following colors are used throughout the site in various combinations and on our fancy clothing line launched with the help of [Open Collective](https://opencollective.com/) and [Threadless](https://medium.com/u/840563ee2a56) over at the [official webpack store](https://webpack.threadless.com/collections/the-final-release-collection/)!
 
-| Sample                                                             | Color Name  | HEX Code  | RGB Code             |
-| ------------------------------------------------------------------ | ----------- | --------- | -------------------- |
-| <img src="https://singlecolorimage.com/get/8dd6f9/60x24" alt="" /> | Malibu      | `#8dd6f9` | `rgb(141, 214, 249)` |
-| <img src="https://singlecolorimage.com/get/1d78c1/60x24" alt="" /> | Denim       | `#1d78c1` | `rgb(29, 120, 193)`  |
-| <img src="https://singlecolorimage.com/get/465E69/60x24" alt="" /> | Fiord       | `#465E69` | `rgb(70, 94, 105)`   |
-| <img src="https://singlecolorimage.com/get/2B3A42/60x24" alt="" /> | Outer Space | `#2B3A42` | `rgb(43, 58, 66)`    |
-| <img src="https://singlecolorimage.com/get/fefefe/60x24" alt="" /> | White       | `#ffffff` | `rgb(255, 255, 255)` |
-| <img src="https://singlecolorimage.com/get/f2f2f2/60x24" alt="" /> | Concrete    | `#f2f2f2` | `rgb(242, 242, 242)` |
-| <img src="https://singlecolorimage.com/get/dedede/60x24" alt="" /> | Alto        | `#dedede` | `rgb(222, 222, 222)` |
-| <img src="https://singlecolorimage.com/get/999999/60x24" alt="" /> | Dusty Gray  | `#999999` | `rgb(153, 153, 153)` |
-| <img src="https://singlecolorimage.com/get/666666/60x24" alt="" /> | Dove Gray   | `#666666` | `rgb(102, 102, 102)` |
-| <img src="https://singlecolorimage.com/get/535353/60x24" alt="" /> | Emperor     | `#535353` | `rgb(83, 83, 83)`    |
-| <img src="https://singlecolorimage.com/get/333333/60x24" alt="" /> | Mine Shaft  | `#333333` | `rgb(51, 51, 51)`    |
+| Sample                                             | Color Name  | HEX Code  | RGB Code             |
+| -------------------------------------------------- | ----------- | --------- | -------------------- |
+| ![](https://singlecolorimage.com/get/8dd6f9/60x24) | Malibu      | `#8dd6f9` | `rgb(141, 214, 249)` |
+| ![](https://singlecolorimage.com/get/1d78c1/60x24) | Denim       | `#1d78c1` | `rgb(29, 120, 193)`  |
+| ![](https://singlecolorimage.com/get/465E69/60x24) | Fiord       | `#465E69` | `rgb(70, 94, 105)`   |
+| ![](https://singlecolorimage.com/get/2B3A42/60x24) | Outer Space | `#2B3A42` | `rgb(43, 58, 66)`    |
+| ![](https://singlecolorimage.com/get/fefefe/60x24) | White       | `#ffffff` | `rgb(255, 255, 255)` |
+| ![](https://singlecolorimage.com/get/f2f2f2/60x24) | Concrete    | `#f2f2f2` | `rgb(242, 242, 242)` |
+| ![](https://singlecolorimage.com/get/dedede/60x24) | Alto        | `#dedede` | `rgb(222, 222, 222)` |
+| ![](https://singlecolorimage.com/get/999999/60x24) | Dusty Gray  | `#999999` | `rgb(153, 153, 153)` |
+| ![](https://singlecolorimage.com/get/666666/60x24) | Dove Gray   | `#666666` | `rgb(102, 102, 102)` |
+| ![](https://singlecolorimage.com/get/535353/60x24) | Emperor     | `#535353` | `rgb(83, 83, 83)`    |
+| ![](https://singlecolorimage.com/get/333333/60x24) | Mine Shaft  | `#333333` | `rgb(51, 51, 51)`    |
 
 ## Trademarks and Licensing
 
