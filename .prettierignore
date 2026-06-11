@@ -2,6 +2,8 @@ node_modules
 out
 *.generated.*
 /.cache
-/pages/api
+/pages/docs/api
+/pages/docs/loaders
+/pages/docs/plugins
 versions.json
 /generated

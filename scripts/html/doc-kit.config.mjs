@@ -8,7 +8,7 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 
 const VERSION = process.env.VERSION;
 const MAJOR_VERSION = VERSION ? `v${major(VERSION)}.x` : undefined;
-const URL_PATH = VERSION ? `/api/${MAJOR_VERSION}` : '/';
+const URL_PATH = VERSION ? `/docs/api/${MAJOR_VERSION}` : '/';
 
 const ORIGIN = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -29,8 +29,8 @@ export default {
     repository: 'webpack/webpack',
     version: VERSION,
     input: [`${INPUT_DIR}/**/*.md`],
-    ignore: VERSION ? [] : ['./pages/api/**/*.md'],
-    output: VERSION ? `./out/api/${MAJOR_VERSION}` : './out',
+    ignore: VERSION ? [] : ['./pages/docs/api/**/*.md'],
+    output: VERSION ? `./out/docs/api/${MAJOR_VERSION}` : './out',
     baseURL: BASE_URL,
   },
   threads: 1,
@@ -46,6 +46,8 @@ export default {
     useAbsoluteURLs: true,
     remoteConfigUrl: null,
     title: VERSION ? `Webpack ${MAJOR_VERSION} Documentation` : 'Webpack',
+    editURL:
+      'https://github.com/webpack/webpack-doc-kit/blob/main/pages/{path}.md',
     head: {
       meta: [
         {
@@ -72,6 +74,7 @@ export default {
       '#theme/site': SITE_MODULE,
 
       '#theme/Sidebar': join(ROOT, 'components/SideBar.jsx'),
+      '#theme/Metabar': join(ROOT, 'components/MetaBar/index.jsx'),
       '#theme/sponsors': join(ROOT, 'generated/sponsors.json'),
       '#theme/Layout': join(ROOT, 'components/Layout.jsx'),
       '#theme/Navigation': join(ROOT, 'components/NavBar.jsx'),

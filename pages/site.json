@@ -13,8 +13,8 @@
       "text": "Blog"
     },
     {
-      "link": "/api/v5.x",
-      "text": "API"
+      "link": "/docs",
+      "text": "Docs"
     },
     {
       "link": "/about/sponsors",
@@ -26,7 +26,6 @@
       "target": "_blank"
     }
   ],
-  "sidebar": [],
   "footer": {
     "socialLinks": [
       {
@@ -55,20 +54,16 @@
             "link": "/guides/getting-started"
           },
           {
+            "text": "Concepts",
+            "link": "/guides/getting-started/concepts"
+          },
+          {
             "text": "Guides",
             "link": "/guides"
           },
           {
-            "text": "Concepts",
-            "link": "/concepts"
-          },
-          {
-            "text": "Configuration",
-            "link": "/configuration"
-          },
-          {
             "text": "API",
-            "link": "/api/v5.x"
+            "link": "/docs/api/v5.x"
           }
         ]
       },
@@ -77,11 +72,11 @@
         "links": [
           {
             "text": "Loaders",
-            "link": "/loaders"
+            "link": "/docs/loaders"
           },
           {
             "text": "Plugins",
-            "link": "/plugins"
+            "link": "/docs/plugins"
           },
           {
             "text": "Awesome webpack",

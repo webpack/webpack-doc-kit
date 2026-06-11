@@ -75,10 +75,10 @@ const processRepos = async (repos, { label, basePath, outputDir }) => {
   const siteJson = {
     sidebar: [
       {
-        label,
+        groupName: label,
         items: fetched.map(name => ({
           link: `${basePath}/${name}`,
-          label: name.replace(/-(?:loader|plugin)$/, ''),
+          label: name.replace(/-(?:webpack-)?(?:loader|plugin)$/, ''),
         })),
       },
     ],
@@ -102,14 +102,14 @@ await Promise.all(
     runLoaders &&
       processRepos(loaders, {
         label: 'Loaders',
-        basePath: '/loaders',
-        outputDir: join(root, 'pages/loaders'),
+        basePath: '/docs/loaders',
+        outputDir: join(root, 'pages/docs/loaders'),
       }),
     runPlugins &&
       processRepos(plugins, {
         label: 'Plugins',
-        basePath: '/plugins',
-        outputDir: join(root, 'pages/plugins'),
+        basePath: '/docs/plugins',
+        outputDir: join(root, 'pages/docs/plugins'),
       }),
   ].filter(Boolean)
 );

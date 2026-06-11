@@ -2,8 +2,8 @@ node_modules
 out
 *.generated.*
 /.cache
-/pages/api
-/pages/loaders
-/pages/plugins
+/pages/docs/api
+/pages/docs/loaders
+/pages/docs/plugins
 /generated
 /pages/about/governance

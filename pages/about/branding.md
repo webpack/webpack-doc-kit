@@ -1,3 +1,7 @@
+---
+authors: avivkeller
+---
+
 # Branding of webpack
 
 Here you can find **webpack** project brand guidelines and assets. Official artwork is maintained in the OpenJS Foundation [artwork repository](https://github.com/openjs-foundation/artwork/tree/main/projects/webpack).

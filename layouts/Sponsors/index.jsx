@@ -4,6 +4,7 @@ import BaseButton from '@node-core/ui-components/Common/BaseButton';
 
 import NavBar from '../../components/NavBar.jsx';
 import Footer from '../../components/Footer/index.jsx';
+import SideBar from '../../components/SideBar.jsx';
 import SectionHeader from '../../components/SectionHeader/index.jsx';
 import SponsorTier from '../../components/Sponsors/Tier/index.jsx';
 import BackerWall from '../../components/Sponsors/BackerWall/index.jsx';
@@ -73,54 +74,60 @@ export default function SponsorsLayout({ metadata }) {
     <>
       <NavBar metadata={metadata} />
 
-      <main className={styles.page}>
-        <section className={styles.sponsorsSection}>
-          <div className={styles.container}>
-            <SectionHeader
-              eyebrow="Our sponsors"
-              title="The organizations behind webpack"
-            />
-            <div className={styles.actions}>
-              <BaseButton
-                href={OC_URL}
-                target="_blank"
-                rel="noreferrer noopener"
-                kind="primary"
-              >
-                View on Open Collective
-              </BaseButton>
-            </div>
-            <div className={styles.toolbar}>
-              <SortToggle value={metric} onChange={setMetric} />
-            </div>
-            <div className={styles.tiers}>
-              {TIERS.map(tier => (
-                <SponsorTier
-                  key={tier.tier}
-                  tier={tier.tier}
-                  label={tier.label}
-                  price={tier.price[metric]}
-                  cardSize={tier.cardSize}
-                  sponsors={buckets[tier.tier]}
-                  metric={metric}
-                />
-              ))}
-            </div>
-          </div>
-        </section>
+      <div className={styles.shell}>
+        <aside className={styles.sidebar}>
+          <SideBar metadata={metadata} />
+        </aside>
 
-        <section className={styles.backersSection}>
-          <div className={styles.container}>
-            <SectionHeader
-              eyebrow="Our backers"
-              title="And the people who chip in"
-            />
-            <div className={styles.backersBody}>
-              <BackerWall backers={data.backers} />
+        <main className={styles.page}>
+          <section className={styles.sponsorsSection}>
+            <div className={styles.container}>
+              <SectionHeader
+                eyebrow="Our sponsors"
+                title="The organizations behind webpack"
+              />
+              <div className={styles.actions}>
+                <BaseButton
+                  href={OC_URL}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  kind="primary"
+                >
+                  View on Open Collective
+                </BaseButton>
+              </div>
+              <div className={styles.toolbar}>
+                <SortToggle value={metric} onChange={setMetric} />
+              </div>
+              <div className={styles.tiers}>
+                {TIERS.map(tier => (
+                  <SponsorTier
+                    key={tier.tier}
+                    tier={tier.tier}
+                    label={tier.label}
+                    price={tier.price[metric]}
+                    cardSize={tier.cardSize}
+                    sponsors={buckets[tier.tier]}
+                    metric={metric}
+                  />
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
-      </main>
+          </section>
+
+          <section className={styles.backersSection}>
+            <div className={styles.container}>
+              <SectionHeader
+                eyebrow="Our backers"
+                title="And the people who chip in"
+              />
+              <div className={styles.backersBody}>
+                <BackerWall backers={data.backers} />
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
 
       <Footer />
     </>
