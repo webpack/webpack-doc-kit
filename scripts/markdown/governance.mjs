@@ -28,7 +28,7 @@ const FILE_MAP = {
 const LINK_REWRITE_MAP = Object.fromEntries(
   Object.entries(FILE_MAP).map(([source, { output }]) => [
     source,
-    `/contribute/governance/${output}`,
+    `/about/governance/${output}`,
   ])
 );
 
@@ -49,7 +49,7 @@ const outputDir = join(
   '..',
   '..',
   'pages',
-  'contribute',
+  'about',
   'governance'
 );
 await mkdir(outputDir, { recursive: true });
@@ -78,7 +78,7 @@ const siteJson = {
     {
       groupName: 'Governance',
       items: fetched.map(({ output, label }) => ({
-        link: `/contribute/governance/${output}`,
+        link: `/about/governance/${output}`,
         label,
       })),
     },
@@ -91,5 +91,5 @@ await writeFile(
   'utf8'
 );
 console.log(
-  `Written: pages/contribute/governance/site.json (${fetched.length} pages)`
+  `Written: pages/about/governance/site.json (${fetched.length} pages)`
 );
