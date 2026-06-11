@@ -76,7 +76,7 @@ const fetched = results.filter(Boolean);
 const siteJson = {
   sidebar: [
     {
-      groupName: 'Governance',
+      label: 'Governance',
       items: fetched.map(({ output, label }) => ({
         link: `/about/governance/${output}`,
         label,
