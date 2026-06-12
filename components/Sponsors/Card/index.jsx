@@ -19,12 +19,14 @@ const amountLabel = (sponsor, metric) =>
  *   sponsor: { name: string, slug: string, imageUrl: string|null, url: string, monthly: { value: number, tier: string|null }, allTime: { value: number, tier: string|null }, description?: string },
  *   size?: 'lg'|'md'|'sm'|'xs',
  *   metric?: 'monthly'|'allTime',
+ *   showAmount?: boolean,
  * }} props
  */
 export default function SponsorCard({
   sponsor,
   size = 'md',
   metric = 'monthly',
+  showAmount = true,
   className,
   ...props
 }) {
@@ -53,7 +55,11 @@ export default function SponsorCard({
           <p className={styles.description}>{sponsor.description}</p>
         )}
         <div className={styles.footer}>
-          <span className={styles.amount}>{amountLabel(sponsor, metric)}</span>
+          {showAmount && (
+            <span className={styles.amount}>
+              {amountLabel(sponsor, metric)}
+            </span>
+          )}
           <span className={styles.visit}>Visit &rarr;</span>
         </div>
       </a>
@@ -72,7 +78,7 @@ export default function SponsorCard({
       </div>
       <span className={styles.body}>
         <span className={styles.name}>{sponsor.name}</span>
-        {size !== 'xs' && (
+        {size !== 'xs' && showAmount && (
           <span className={styles.amount}>{amountLabel(sponsor, metric)}</span>
         )}
       </span>

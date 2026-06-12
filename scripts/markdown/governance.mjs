@@ -10,7 +10,7 @@ const BASE_HEADERS = {
 // Maps source filenames in webpack/governance repo to their output slug and sidebar label.
 // Insertion order determines sidebar order, this could be changed as per need.
 const FILE_MAP = {
-  'README.md': { output: 'index', label: 'Governance Overview' },
+  'README.md': { output: 'index', label: 'Overview' },
   'CHARTER.md': { output: 'charter', label: 'Charter' },
   'MEMBER_EXPECTATIONS.md': {
     output: 'member-expectations',
@@ -64,7 +64,13 @@ const results = await Promise.all(
       return null;
     }
 
-    const content = `---\nsource: ${url}\n---\n\n${rewriteLinks(await res.text())}`;
+    let body = rewriteLinks(await res.text());
+
+    // Some governance docs (e.g. MEMBER_EXPECTATIONS.md) have no H1, which the
+    // site derives the page title from — fall back to the sidebar label.
+    if (!/^# /m.test(body)) body = `# ${label}\n\n${body}`;
+
+    const content = `---\nsource: ${url}\n---\n\n${body}`;
     await writeFile(join(outputDir, `${output}.md`), content, 'utf8');
     console.log(`Fetched: ${source} -> ${output}.md`);
     return { output, label };

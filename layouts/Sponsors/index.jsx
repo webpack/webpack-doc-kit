@@ -84,7 +84,7 @@ export default function SponsorsLayout({ metadata }) {
             <div className={styles.container}>
               <SectionHeader
                 eyebrow="Our sponsors"
-                title="The organizations behind webpack"
+                title="The organizations supporting webpack"
               />
               <div className={styles.actions}>
                 <BaseButton

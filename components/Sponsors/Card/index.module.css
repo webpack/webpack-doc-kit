@@ -6,7 +6,7 @@
     border
     border-neutral-200
     bg-white
-    no-underline
+    no-underline!
     transition-colors
     duration-150
     hover:border-blue-300
@@ -96,6 +96,7 @@
   @apply ml-auto
     text-xl
     leading-none
+    font-normal
     text-neutral-300
     dark:text-neutral-600;
 }

@@ -8,9 +8,9 @@ import SponsorCard from '../Sponsors/Card/index.jsx';
 
 // Active recurring platinum-tier sponsors, ranked by monthly amount. There are
 // only ever a handful, so the MetaBar features them as full expanded cards.
-const platinumSponsors = sponsors.sponsors.filter(
-  sponsor => sponsor.monthly.tier === 'platinum'
-);
+const platinumSponsors = sponsors.sponsors
+  .filter(sponsor => sponsor.monthly.tier === 'platinum')
+  .sort((a, b) => b.monthly.value - a.monthly.value);
 
 export default ({ metadata, headings = [], readingTime }) => {
   const editThisPage =
@@ -40,14 +40,16 @@ export default ({ metadata, headings = [], readingTime }) => {
         ),
         ...(platinumSponsors.length
           ? {
-              'Webpack is proudly supported by': (
-                <div className="flex flex-col gap-3">
+              [platinumSponsors.length > 1
+                ? 'Featured Sponsors'
+                : 'Featured Sponsor']: (
+                <div className="flex w-full flex-col gap-3">
                   {platinumSponsors.map(sponsor => (
                     <SponsorCard
                       key={sponsor.slug}
                       sponsor={sponsor}
                       size="sm"
-                      metric="monthly"
+                      showAmount={false}
                     />
                   ))}
                 </div>
