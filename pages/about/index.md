@@ -79,7 +79,7 @@ The core [`webpack`](https://www.npmjs.com/package/webpack) and
 as unscoped packages by the webpack team, alongside officially maintained tooling
 such as [`webpack-dev-server`](https://www.npmjs.com/package/webpack-dev-server).
 Using packages from the webpack team guarantees that you are working with
-officially supported webpack components. Any packages not published by the `~webpack`
+officially supported webpack components. Any packages not published by the [`~webpack`](https://www.npmjs.com/org/webpack)
 organization may not be affiliated with the webpack project.
 
 ### Official GitHub Organizations
