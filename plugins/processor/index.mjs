@@ -68,7 +68,7 @@ export function load(app) {
     const sourceMeta = getSourceMetadata(page.model);
 
     if (sourceMeta && sourceMeta.sourceRelativePath) {
-      const source = `https://github.com/webpack/webpack/blob/main/lib/${sourceMeta.sourceRelativePath}`;
+      const source = `https://github.com/webpack/webpack/edit/main/lib/${sourceMeta.sourceRelativePath}`;
       const frontmatter = `---\n` + `source: ${source}\n` + `---\n\n`;
 
       page.contents = frontmatter + page.contents;
