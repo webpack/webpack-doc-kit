@@ -22,9 +22,15 @@ export const createTypeMap = router => {
   for (const target of router.getLinkTargets()) {
     if (!isTypeMapTarget(target)) continue;
 
-    const { name } = target;
+    const { name, escapedName } = target;
+    const url = normalizeLink(router.getAnchoredURL(target));
+
     if (!typeMap.has(name)) {
-      typeMap.set(name, normalizeLink(router.getAnchoredURL(target)));
+      typeMap.set(name, url);
+    }
+
+    if (escapedName && !typeMap.has(escapedName)) {
+      typeMap.set(escapedName, url);
     }
   }
 

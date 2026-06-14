@@ -3,6 +3,7 @@
 import { mkdir, writeFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { fetchWithRetry } from '../utils/fetch.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const OUTPUT = join(ROOT, 'generated', 'sponsors.json');
@@ -78,7 +79,7 @@ const fetchAllOrders = async () => {
   const all = [];
 
   while (offset < totalCount) {
-    const res = await fetch(API, {
+    const res = await fetchWithRetry(API, {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify({

@@ -202,10 +202,11 @@ export default ctx => {
         );
       }
 
-      if (model.typeHierarchy?.next) {
+      if (model.typeHierarchy?.next && !model.typeHierarchy.isTarget) {
         md.push(
-          ctx.partials.hierarchy(model.typeHierarchy, {
-            headingLevel: options.headingLevel,
+          ctx.helpers.typedListItem({
+            label: 'Extends',
+            type: model.typeHierarchy.types[0],
           })
         );
       }
