@@ -1,5 +1,6 @@
 import { mkdir, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
+import { fetchWithRetry } from '../utils/fetch.mjs';
 
 const { GH_TOKEN } = process.env;
 
@@ -57,7 +58,7 @@ await mkdir(outputDir, { recursive: true });
 const results = await Promise.all(
   Object.entries(FILE_MAP).map(async ([source, { output, label }]) => {
     const url = `https://raw.githubusercontent.com/webpack/governance/HEAD/${source}`;
-    const res = await fetch(url, { headers: BASE_HEADERS });
+    const res = await fetchWithRetry(url, { headers: BASE_HEADERS });
 
     if (!res.ok) {
       console.error(`Failed: ${source} -> ${res.status} ${res.statusText}`);

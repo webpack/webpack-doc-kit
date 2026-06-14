@@ -1,5 +1,6 @@
 import { mkdir, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
+import { fetchWithRetry } from '../utils/fetch.mjs';
 
 const { GH_TOKEN } = process.env;
 
@@ -18,7 +19,7 @@ const discoverRepos = async () => {
     'https://api.github.com/orgs/webpack/repos?per_page=100&type=public';
 
   while (url) {
-    const res = await fetch(url, { headers: BASE_HEADERS });
+    const res = await fetchWithRetry(url, { headers: BASE_HEADERS });
 
     for (const repo of await res.json()) {
       if (repo.archived) continue;
@@ -50,7 +51,7 @@ const repoName = fullName => fullName.split('/')[1];
 
 const fetchReadme = async fullName => {
   const url = `https://raw.githubusercontent.com/${fullName}/HEAD/README.md`;
-  const res = await fetch(url);
+  const res = await fetchWithRetry(url);
   return res.text();
 };
 
