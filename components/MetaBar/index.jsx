@@ -7,6 +7,8 @@ import { editURL } from '#theme/config';
 import sponsors from '#theme/sponsors' with { type: 'json' };
 import SponsorCard from '../Sponsors/Card/index.jsx';
 
+import styles from './index.module.css';
+
 const OC_URL = 'https://opencollective.com/webpack';
 
 // Active recurring platinum-tier sponsors, ranked by monthly amount. There are
@@ -46,7 +48,7 @@ export default ({ metadata, headings = [], readingTime }) => {
               [platinumSponsors.length > 1
                 ? 'Featured Sponsors'
                 : 'Featured Sponsor']: (
-                <div className="flex w-full flex-col gap-3">
+                <div className={styles.sponsors}>
                   {platinumSponsors.map(sponsor => (
                     <SponsorCard
                       key={sponsor.slug}
@@ -60,7 +62,7 @@ export default ({ metadata, headings = [], readingTime }) => {
                     target="_blank"
                     rel="noreferrer noopener"
                     kind="primary"
-                    className="no-underline!"
+                    className={styles.becomeSponsor}
                   >
                     Become a sponsor
                   </BaseButton>

@@ -1,0 +1,12 @@
+@reference "../../styles/index.css";
+
+.sponsors {
+  @apply flex
+    w-full
+    flex-col
+    gap-3;
+}
+
+.becomeSponsor {
+  @apply no-underline!;
+}
