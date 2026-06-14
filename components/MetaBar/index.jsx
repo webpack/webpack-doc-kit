@@ -1,10 +1,13 @@
 import MetaBar from '@node-core/ui-components/Containers/MetaBar';
 import AvatarGroup from '@node-core/ui-components/Common/AvatarGroup';
+import BaseButton from '@node-core/ui-components/Common/BaseButton';
 import GitHubIcon from '@node-core/ui-components/Icons/Social/GitHub';
 
 import { editURL } from '#theme/config';
 import sponsors from '#theme/sponsors' with { type: 'json' };
 import SponsorCard from '../Sponsors/Card/index.jsx';
+
+const OC_URL = 'https://opencollective.com/webpack';
 
 // Active recurring platinum-tier sponsors, ranked by monthly amount. There are
 // only ever a handful, so the MetaBar features them as full expanded cards.
@@ -56,6 +59,16 @@ export default ({ metadata, headings = [], readingTime }) => {
               ),
             }
           : {}),
+        'Support webpack': (
+          <BaseButton
+            href={OC_URL}
+            target="_blank"
+            rel="noreferrer noopener"
+            kind="primary"
+          >
+            Become a sponsor
+          </BaseButton>
+        ),
       }}
     />
   );

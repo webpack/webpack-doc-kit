@@ -1,0 +1,24 @@
+@reference "../../styles/index.css";
+
+.shell {
+  @apply block
+    w-full
+    min-[896px]:grid
+    min-[896px]:grid-cols-[--spacing(56)_1fr];
+}
+
+.sidebar {
+  @apply min-[896px]:sticky
+    min-[896px]:top-0
+    min-[896px]:grid
+    min-[896px]:h-svh
+    min-[896px]:overflow-y-auto;
+}
+
+.page {
+  @apply min-w-0
+    bg-white
+    text-neutral-900
+    dark:bg-neutral-950
+    dark:text-white;
+}
