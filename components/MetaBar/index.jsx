@@ -55,20 +55,19 @@ export default ({ metadata, headings = [], readingTime }) => {
                       showAmount={false}
                     />
                   ))}
+                  <BaseButton
+                    href={OC_URL}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    kind="primary"
+                    className="no-underline!"
+                  >
+                    Become a sponsor
+                  </BaseButton>
                 </div>
               ),
             }
           : {}),
-        'Support webpack': (
-          <BaseButton
-            href={OC_URL}
-            target="_blank"
-            rel="noreferrer noopener"
-            kind="primary"
-          >
-            Become a sponsor
-          </BaseButton>
-        ),
       }}
     />
   );
