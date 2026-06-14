@@ -1,4 +1,6 @@
 import { Converter, ReflectionKind, Renderer } from 'typedoc';
+import { MarkdownPageEvent } from 'typedoc-plugin-markdown';
+import { getSourceMetadata } from './metadata.mjs';
 import { writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { applyExportEqualsReflections } from './exportEquals.mjs';
@@ -59,6 +61,17 @@ export function load(app) {
 
       internalModule.children = importantTypes;
       project.mergeReflections(internalModule, project);
+    }
+  });
+
+  app.renderer.on(MarkdownPageEvent.END, page => {
+    const sourceMeta = getSourceMetadata(page.model);
+
+    if (sourceMeta && sourceMeta.sourceRelativePath) {
+      const source = `https://github.com/webpack/webpack/blob/main/lib/${sourceMeta.sourceRelativePath}`;
+      const frontmatter = `---\n` + `source: ${source}\n` + `---\n\n`;
+
+      page.contents = frontmatter + page.contents;
     }
   });
 
