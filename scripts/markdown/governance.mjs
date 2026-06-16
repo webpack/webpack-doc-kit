@@ -1,6 +1,7 @@
 import { mkdir, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { fetchWithRetry } from '../utils/fetch.mjs';
+import { rewriteRelativeLinks } from '../utils/sanitize.mjs';
 
 const { GH_TOKEN } = process.env;
 
@@ -33,18 +34,6 @@ const LINK_REWRITE_MAP = Object.fromEntries(
   ])
 );
 
-// Rewrites relative cross-references between governance docs.
-// Covers both inline [text](./FILE.md) and reference-style [label]: ./FILE.md.
-// Negative lookaheads prevent rewriting absolute URLs that happen to end in a known filename.
-const rewriteLinks = content =>
-  content.replace(
-    /(\]\(|\]:\s*)(?!https?:\/\/)(?!\/)(\.\/)?([A-Z_]+\.md)/g,
-    (match, prefix, _dot, filename) =>
-      LINK_REWRITE_MAP[filename]
-        ? `${prefix}${LINK_REWRITE_MAP[filename]}`
-        : match
-  );
-
 const outputDir = join(
   import.meta.dirname,
   '..',
@@ -65,7 +54,10 @@ const results = await Promise.all(
       return null;
     }
 
-    let body = rewriteLinks(await res.text());
+    let body = rewriteRelativeLinks(
+      await res.text(),
+      file => LINK_REWRITE_MAP[file] ?? null
+    );
 
     // Some governance docs (e.g. MEMBER_EXPECTATIONS.md) have no H1, which the
     // site derives the page title from — fall back to the sidebar label.

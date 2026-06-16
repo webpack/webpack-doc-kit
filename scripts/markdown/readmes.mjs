@@ -1,6 +1,12 @@
 import { mkdir, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { fetchWithRetry } from '../utils/fetch.mjs';
+import {
+  stripLeadingHtml,
+  stripBadges,
+  stripBoilerplate,
+  rewriteRelativeLinks,
+} from '../utils/sanitize.mjs';
 
 const { GH_TOKEN } = process.env;
 
@@ -33,19 +39,12 @@ const discoverRepos = async () => {
   return { loaders, plugins };
 };
 
-const stripLeadingDiv = content =>
-  content.replace(/^\s*<div[\s\S]*?<\/div>\n*/i, '');
-
-// Remove badge-only lines: [![...][ref]][ref] or [![...](url)](url)
-const stripBadges = content =>
-  content
-    .replace(
-      /^(\[!\[[^\]]*\](?:\[[^\]]*\]|\([^)]*\))\]\s*(?:\[[^\]]*\]|\([^)]*\))\s*)+$/gm,
-      ''
-    )
-    .replace(/\n{3,}/g, '\n\n');
-
-const processContent = content => stripBadges(stripLeadingDiv(content));
+// Strip repo chrome, then point any relative links at the source repo on GitHub.
+const cleanReadme = (content, fullName) =>
+  rewriteRelativeLinks(
+    stripBoilerplate(stripBadges(stripLeadingHtml(content))),
+    target => `https://github.com/${fullName}/blob/HEAD/${target}`
+  );
 
 const repoName = fullName => fullName.split('/')[1];
 
@@ -65,7 +64,7 @@ const processRepos = async (repos, { label, basePath, outputDir }) => {
         const result = await fetchReadme(fullName);
         await writeFile(
           join(outputDir, `${name}.md`),
-          processContent(result),
+          cleanReadme(result, fullName),
           'utf8'
         );
         return name;
