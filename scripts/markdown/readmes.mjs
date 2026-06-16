@@ -1,12 +1,7 @@
 import { mkdir, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { fetchWithRetry } from '../utils/fetch.mjs';
-import {
-  stripLeadingHtml,
-  stripBadges,
-  stripBoilerplate,
-  rewriteRelativeLinks,
-} from '../utils/sanitize.mjs';
+import cleanupMarkdown from './sanitize.mjs';
 
 const { GH_TOKEN } = process.env;
 
@@ -41,8 +36,8 @@ const discoverRepos = async () => {
 
 // Strip repo chrome, then point any relative links at the source repo on GitHub.
 const cleanReadme = (content, fullName) =>
-  rewriteRelativeLinks(
-    stripBoilerplate(stripBadges(stripLeadingHtml(content))),
+  cleanupMarkdown(
+    content,
     target => `https://github.com/${fullName}/blob/HEAD/${target}`
   );
 

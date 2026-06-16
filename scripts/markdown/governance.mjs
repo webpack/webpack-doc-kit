@@ -1,7 +1,7 @@
 import { mkdir, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { fetchWithRetry } from '../utils/fetch.mjs';
-import { rewriteRelativeLinks } from '../utils/sanitize.mjs';
+import { rewriteRelativeLinks } from './sanitize.mjs';
 
 const { GH_TOKEN } = process.env;
 
