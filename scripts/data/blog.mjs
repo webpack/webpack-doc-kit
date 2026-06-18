@@ -9,13 +9,6 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const POSTS_DIR = join(ROOT, 'pages', 'blog', 'posts');
 const OUTPUT = join(ROOT, 'generated', 'blog.json');
 
-const toAuthors = data => {
-  const value = data.authors ?? data.author;
-  if (Array.isArray(value)) return value.map(String);
-  if (value == null) return [];
-  return [String(value)];
-};
-
 const titleFromBody = body => body.match(/^#\s+(.+)$/m)?.[1].trim() ?? null;
 
 const readPosts = async () => {
@@ -32,7 +25,7 @@ const readPosts = async () => {
       return {
         slug,
         title: titleFromBody(content) ?? slug,
-        authors: toAuthors(data),
+        authors: data.authors.split(',').map(s => s.trim()),
         date: new Date(data.date).toISOString(),
         category: data.category ?? null,
         image: data.image ?? null,
