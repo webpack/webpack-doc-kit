@@ -1,0 +1,66 @@
+@reference "../../../styles/index.css";
+
+.byline {
+  @apply flex
+    items-center
+    gap-3;
+}
+
+.avatars {
+  @apply inline-flex
+    shrink-0
+    items-center;
+}
+
+.meta {
+  @apply flex
+    min-w-0
+    items-center
+    gap-1.5;
+}
+
+.who {
+  @apply truncate
+    font-semibold
+    text-neutral-900
+    dark:text-white;
+}
+
+.date {
+  @apply shrink-0
+    font-mono
+    text-neutral-500
+    dark:text-neutral-400;
+}
+
+.sep {
+  @apply text-neutral-300
+    dark:text-neutral-600;
+}
+
+.sm {
+  @apply gap-2.5;
+}
+
+.sm .who,
+.sm .date {
+  @apply text-[13px];
+}
+
+.md .meta {
+  @apply flex-col
+    items-start
+    gap-0.5;
+}
+
+.md .sep {
+  @apply hidden;
+}
+
+.md .who {
+  @apply text-sm;
+}
+
+.md .date {
+  @apply text-[13px];
+}

@@ -1,0 +1,68 @@
+@reference "../../../styles/index.css";
+
+.cover {
+  @apply relative
+    flex
+    items-end
+    overflow-hidden
+    rounded-lg
+    border
+    border-neutral-200
+    bg-neutral-100
+    dark:border-neutral-800
+    dark:bg-neutral-900;
+}
+
+.cover::before {
+  background-image: repeating-linear-gradient(
+    135deg,
+    rgb(28 120 192 / 7%) 0 1px,
+    transparent 1px 14px
+  );
+  content: '';
+  inset: 0;
+  position: absolute;
+}
+
+.tag {
+  @apply absolute
+    left-3.5
+    top-3.5
+    z-20
+    inline-flex
+    items-center
+    rounded-full
+    bg-white
+    px-2.5
+    py-1
+    text-xs
+    font-bold
+    text-blue-700
+    shadow-sm
+    dark:bg-neutral-900
+    dark:text-blue-300;
+}
+
+.cube {
+  @apply pointer-events-none
+    absolute
+    -bottom-7
+    -right-7
+    z-0
+    block
+    w-36
+    opacity-[0.14];
+}
+
+.cube svg {
+  height: auto;
+  width: 100%;
+}
+
+.image {
+  @apply absolute
+    inset-0
+    z-10
+    size-full
+    object-cover;
+}

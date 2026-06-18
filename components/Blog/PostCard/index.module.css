@@ -1,0 +1,59 @@
+@reference "../../../styles/index.css";
+
+.card {
+  @apply flex
+    h-full
+    flex-col
+    no-underline;
+}
+
+.cover {
+  @apply mb-4
+    aspect-[16/10]
+    transition-shadow
+    duration-150;
+}
+
+.card:hover .cover {
+  @apply shadow-md;
+}
+
+.category {
+  @apply mb-2
+    text-xs
+    font-bold
+    tracking-wide
+    uppercase
+    text-blue-600
+    dark:text-blue-400;
+}
+
+.title {
+  @apply m-0
+    mb-2
+    text-lg
+    font-semibold
+    leading-snug
+    tracking-tight
+    text-neutral-900
+    dark:text-white;
+}
+
+.card:hover .title {
+  @apply text-blue-700
+    dark:text-blue-300;
+}
+
+.excerpt {
+  @apply m-0
+    mb-4
+    text-sm
+    leading-relaxed
+    text-neutral-600
+    dark:text-neutral-300;
+}
+
+.foot {
+  @apply mt-auto
+    pt-1;
+}

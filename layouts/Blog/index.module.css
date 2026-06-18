@@ -1,0 +1,101 @@
+@reference "../../styles/index.css";
+
+.page {
+  @apply bg-white
+    text-neutral-900
+    dark:bg-neutral-950
+    dark:text-white;
+}
+
+.wrap {
+  @apply mx-auto
+    max-w-[1200px]
+    px-8
+    max-md:px-5;
+}
+
+.head {
+  @apply border-b
+    border-neutral-200
+    pb-10
+    pt-16
+    dark:border-neutral-800;
+}
+
+.eyebrow {
+  @apply m-0
+    mb-3.5
+    inline-flex
+    items-center
+    gap-2
+    text-sm
+    font-bold
+    tracking-wide
+    uppercase
+    text-blue-600
+    dark:text-blue-400;
+}
+
+.dot {
+  @apply inline-block
+    size-1.5
+    rounded-full
+    bg-blue-600
+    dark:bg-blue-400;
+}
+
+.title {
+  @apply m-0
+    mb-4
+    text-5xl
+    font-semibold
+    tracking-tight
+    text-neutral-900
+    max-sm:text-4xl
+    dark:text-white;
+}
+
+.deck {
+  @apply m-0
+    max-w-xl
+    text-lg
+    leading-relaxed
+    text-neutral-600
+    dark:text-neutral-300;
+}
+
+.recent {
+  @apply pb-20
+    pt-12;
+}
+
+.recentHead {
+  @apply m-0
+    mb-6
+    text-sm
+    font-bold
+    tracking-wider
+    uppercase
+    text-neutral-500
+    dark:text-neutral-400;
+}
+
+.grid {
+  @apply grid
+    grid-cols-1
+    gap-x-6
+    gap-y-7
+    sm:grid-cols-2
+    lg:grid-cols-3;
+}
+
+.empty {
+  @apply m-0
+    py-8
+    text-neutral-500
+    dark:text-neutral-400;
+}
+
+.pagination {
+  @apply mt-12;
+}

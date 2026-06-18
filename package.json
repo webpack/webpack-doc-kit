@@ -2,6 +2,7 @@
   "scripts": {
     "build:prepare": "node scripts/prepare/index.mjs",
     "build:data": "npm-run-all build:data:*",
+    "build:data:blog": "node scripts/data/blog.mjs",
     "build:data:sponsors": "node scripts/data/sponsors.mjs",
     "build:md": "npm-run-all build:md:*",
     "build:md:api": "node scripts/markdown/api.mjs",
@@ -23,6 +24,7 @@
     "@node-core/doc-kit": "^1.3.9",
     "@tailwindcss/node": "^4.3.0",
     "classnames": "^2.5.1",
+    "gray-matter": "^4.0.3",
     "npm-run-all": "^4.1.5",
     "semver": "^7.8.1",
     "typedoc": "^0.28.19",
