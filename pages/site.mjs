@@ -1,6 +1,7 @@
 import loaders from './docs/loaders/site.json' with { type: 'json' };
 import plugins from './docs/plugins/site.json' with { type: 'json' };
 import governance from './about/governance/site.json' with { type: 'json' };
+import guides from './guides/site.json' with { type: 'json' };
 import versions from '../versions.json' with { type: 'json' };
 import { major } from 'semver';
 
@@ -37,4 +38,5 @@ export const sidebar = {
     ...loaders.sidebar,
     ...plugins.sidebar,
   ],
+  guides: guides.sidebar,
 };

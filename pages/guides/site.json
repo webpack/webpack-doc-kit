@@ -1,0 +1,209 @@
+{
+  "sidebar": [
+    {
+      "groupName": "Getting Started",
+      "items": [
+        { "link": "/guides/getting-started", "label": "Getting Started" },
+        {
+          "link": "/guides/getting-started/installing-webpack",
+          "label": "Installing webpack"
+        },
+        {
+          "label": "Concepts",
+          "items": [
+            { "link": "/guides/getting-started/concepts", "label": "Overview" },
+            {
+              "link": "/guides/getting-started/concepts/why-webpack",
+              "label": "Why webpack"
+            },
+            {
+              "link": "/guides/getting-started/concepts/modules",
+              "label": "Modules"
+            },
+            {
+              "link": "/guides/getting-started/concepts/dependency-graph",
+              "label": "Dependency Graph"
+            },
+            {
+              "link": "/guides/getting-started/concepts/entry-points",
+              "label": "Entry Points"
+            },
+            {
+              "link": "/guides/getting-started/concepts/output",
+              "label": "Output"
+            },
+            {
+              "link": "/guides/getting-started/concepts/loaders",
+              "label": "Loaders"
+            },
+            {
+              "link": "/guides/getting-started/concepts/plugins",
+              "label": "Plugins"
+            },
+            {
+              "link": "/guides/getting-started/concepts/configuration",
+              "label": "Configuration"
+            },
+            {
+              "link": "/guides/getting-started/concepts/module-resolution",
+              "label": "Module Resolution"
+            },
+            {
+              "link": "/guides/getting-started/concepts/targets",
+              "label": "Targets"
+            },
+            {
+              "link": "/guides/getting-started/concepts/manifest",
+              "label": "The Manifest"
+            },
+            {
+              "link": "/guides/getting-started/concepts/hot-module-replacement",
+              "label": "Hot Module Replacement"
+            },
+            {
+              "link": "/guides/getting-started/concepts/module-federation",
+              "label": "Module Federation"
+            },
+            {
+              "link": "/guides/getting-started/concepts/under-the-hood",
+              "label": "Under the Hood"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "groupName": "Core Workflows",
+      "items": [
+        {
+          "link": "/guides/core-workflows/asset-management",
+          "label": "Asset Management"
+        },
+        {
+          "link": "/guides/core-workflows/asset-modules",
+          "label": "Asset Modules"
+        },
+        {
+          "link": "/guides/core-workflows/output-management",
+          "label": "Output Management"
+        },
+        {
+          "label": "Development",
+          "items": [
+            {
+              "link": "/guides/core-workflows/development",
+              "label": "Overview"
+            },
+            {
+              "link": "/guides/core-workflows/development/hot-module-replacement",
+              "label": "Hot Module Replacement"
+            },
+            {
+              "link": "/guides/core-workflows/development/vagrant",
+              "label": "Vagrant"
+            }
+          ]
+        },
+        { "link": "/guides/core-workflows/production", "label": "Production" },
+        {
+          "link": "/guides/core-workflows/environment-variables",
+          "label": "Environment Variables"
+        }
+      ]
+    },
+    {
+      "groupName": "Optimization",
+      "items": [
+        {
+          "label": "Code Splitting",
+          "items": [
+            {
+              "link": "/guides/optimization/code-splitting",
+              "label": "Overview"
+            },
+            {
+              "link": "/guides/optimization/code-splitting/lazy-loading",
+              "label": "Lazy Loading"
+            }
+          ]
+        },
+        { "link": "/guides/optimization/caching", "label": "Caching" },
+        {
+          "link": "/guides/optimization/tree-shaking",
+          "label": "Tree Shaking"
+        },
+        {
+          "link": "/guides/optimization/build-performance",
+          "label": "Build Performance"
+        }
+      ]
+    },
+    {
+      "groupName": "Modern Web Platform",
+      "items": [
+        { "link": "/guides/modern-web", "label": "Overview" },
+        { "link": "/guides/modern-web/native-css", "label": "Native CSS" },
+        {
+          "link": "/guides/modern-web/progressive-web-application",
+          "label": "Progressive Web Application"
+        },
+        { "link": "/guides/modern-web/web-workers", "label": "Web Workers" }
+      ]
+    },
+    {
+      "groupName": "Modules & Dependencies",
+      "items": [
+        {
+          "link": "/guides/modules-and-dependencies/ecma-script-modules",
+          "label": "ECMAScript Modules"
+        },
+        {
+          "link": "/guides/modules-and-dependencies/package-exports",
+          "label": "Package Exports"
+        },
+        {
+          "link": "/guides/modules-and-dependencies/dependency-management",
+          "label": "Dependency Management"
+        },
+        {
+          "link": "/guides/modules-and-dependencies/entry-advanced",
+          "label": "Advanced Entry"
+        },
+        {
+          "link": "/guides/modules-and-dependencies/shimming",
+          "label": "Shimming"
+        }
+      ]
+    },
+    {
+      "groupName": "Tooling & Integration",
+      "items": [
+        {
+          "link": "/guides/tooling-and-integration/typescript",
+          "label": "TypeScript"
+        },
+        {
+          "link": "/guides/tooling-and-integration/authoring-libraries",
+          "label": "Authoring Libraries"
+        },
+        {
+          "link": "/guides/tooling-and-integration/content-security-policy",
+          "label": "Content Security Policies"
+        },
+        {
+          "link": "/guides/tooling-and-integration/integrations",
+          "label": "Integrations"
+        }
+      ]
+    },
+    {
+      "groupName": "Migration",
+      "items": [
+        { "link": "/guides/migration", "label": "Overview" },
+        { "link": "/guides/migration/to-v3", "label": "To v2 or v3 from v1" },
+        { "link": "/guides/migration/to-v4", "label": "To v4 from v3" },
+        { "link": "/guides/migration/to-v5", "label": "To v5 from v4" }
+      ]
+    }
+  ]
+}
