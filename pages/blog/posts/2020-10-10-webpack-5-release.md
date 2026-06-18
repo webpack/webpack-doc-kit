@@ -1,9 +1,7 @@
 ---
 layout: post
 date: 2020-10-10T00:00:00Z
-authors:
-  - sokra
-  - chenxsan
+authors: sokra, chenxsan
 category: Release
 image: /assets/blog/cover-1.svg
 description: Webpack 5.0.0 is officially released! This major version brings huge architectural improvements, persistent caching, deterministic chunk IDs, and Module Federation.

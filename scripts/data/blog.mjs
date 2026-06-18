@@ -25,7 +25,7 @@ const readPosts = async () => {
       return {
         slug,
         title: titleFromBody(content) ?? slug,
-        authors: data.authors.split(',').map(s => s.trim()),
+        authors: data.authors?.split(',').map(s => s.trim()),
         date: new Date(data.date).toISOString(),
         category: data.category ?? null,
         image: data.image ?? null,
