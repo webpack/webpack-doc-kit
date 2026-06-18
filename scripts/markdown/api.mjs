@@ -13,7 +13,7 @@ const generate = async packageDir => {
   const app = await Application.bootstrapWithPlugins({
     entryPoints: [join(packageDir, 'types.d.ts')],
     out: join('pages', 'docs', 'api', `v${major(version)}.x`),
-    publicPath: `/api/v${major(version)}.x/`,
+    publicPath: `/docs/api/v${major(version)}.x/`,
 
     plugin: [
       'typedoc-plugin-markdown',
