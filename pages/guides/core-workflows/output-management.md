@@ -5,9 +5,9 @@ authors: skipjack,TheDutchCoder,sudarsangp,JGJP,EugeneHlushko,AnayaDesign,chenxs
 # Output Management
 
 > [!TIP]
-> This guide builds on the code examples from the [Asset Management](#TODO[/guides/asset-management]) guide.
+> This guide builds on the code examples from the [Asset Management](/guides/core-workflows/asset-management) guide.
 
-So far we've manually listed every asset in our `index.html` file. As an application grows, and once you start [using hashes in filenames](#TODO[/guides/caching]) and outputting [multiple bundles](#TODO[/guides/code-splitting]), maintaining `index.html` by hand becomes difficult. Fortunately, a few plugins make this much easier to manage.
+So far we've manually listed every asset in our `index.html` file. As an application grows, and once you start [using hashes in filenames](/guides/optimization/caching) and outputting [multiple bundles](/guides/optimization/code-splitting), maintaining `index.html` by hand becomes difficult. Fortunately, a few plugins make this much easier to manage.
 
 ## Preparation
 
@@ -117,13 +117,13 @@ webpack generates `print.bundle.js` and `index.bundle.js`, both of which we refe
 But what if we renamed one of our entry points, or added a new one? The generated bundles would be renamed on the next build, yet `index.html` would still reference the old names. Let's fix that with [`HtmlWebpackPlugin`](#TODO[/plugins/html-webpack-plugin]).
 
 > [!TIP]
-> If you inspected `print.bundle.js`, you might have noticed that it does not contain the `printMe` function. Instead, it contains only an [IIFE](#TODO[/concepts/why-webpack/#iifes---immediately-invoked-function-expressions]) with no observable side effects.
+> If you inspected `print.bundle.js`, you might have noticed that it does not contain the `printMe` function. Instead, it contains only an [IIFE](/guides/getting-started/concepts/why-webpack/#iifes---immediately-invoked-function-expressions) with no observable side effects.
 >
-> This is because, in our current setup, webpack treats each entry point as a standalone program that runs when the bundle is loaded. Since `print.js` only exports a function and never calls `printMe()`, running it as its own entry requires no executable runtime code. As a result, [webpack can omit that code as an optimization](#TODO[/guides/tree-shaking/]) because it would have no observable effect.
+> This is because, in our current setup, webpack treats each entry point as a standalone program that runs when the bundle is loaded. Since `print.js` only exports a function and never calls `printMe()`, running it as its own entry requires no executable runtime code. As a result, [webpack can omit that code as an optimization](/guides/optimization/tree-shaking) because it would have no observable effect.
 >
 > By contrast, since `index.js` imports and uses `printMe`, webpack includes that function directly in `index.bundle.js`. Remember that webpack is a module _bundler_, so `index.bundle.js` contains all the code it needs to run rather than unresolved import statements.
 >
-> The multiple entry points here exist solely to demonstrate output management and `HtmlWebpackPlugin`. In a real project, you'd typically avoid creating a separate entry point for a utility module like this. If you do have multiple entry points that share dependencies, see [Prevent Duplication](#TODO[/guides/code-splitting/#prevent-duplication]) in the Code Splitting guide.
+> The multiple entry points here exist solely to demonstrate output management and `HtmlWebpackPlugin`. In a real project, you'd typically avoid creating a separate entry point for a utility module like this. If you do have multiple entry points that share dependencies, see [Prevent Duplication](/guides/optimization/code-splitting/#prevent-duplication) in the Code Splitting guide.
 
 ## Setting up `HtmlWebpackPlugin`
 
@@ -218,8 +218,8 @@ You might wonder how webpack and its plugins seem to "know" which files are bein
 
 The manifest data can be extracted into a JSON file for consumption using the [`ManifestPlugin`](#TODO[/plugins/manifest-plugin/]).
 
-We won't walk through a full example of using this plugin in your project, but you can read the [concept page](#TODO[/concepts/manifest]) and the [caching guide](#TODO[/guides/caching]) to learn how this ties into long-term caching.
+We won't walk through a full example of using this plugin in your project, but you can read the [concept page](/guides/getting-started/concepts/manifest) and the [caching guide](/guides/optimization/caching) to learn how this ties into long-term caching.
 
 ## Conclusion
 
-Now that you've learned how to add bundles to your HTML dynamically, dive into the [development guide](#TODO[/guides/development]). Or, if you want to explore more advanced topics, head over to the [code splitting guide](#TODO[/guides/code-splitting]).
+Now that you've learned how to add bundles to your HTML dynamically, dive into the [development guide](/guides/core-workflows/development). Or, if you want to explore more advanced topics, head over to the [code splitting guide](/guides/optimization/code-splitting).

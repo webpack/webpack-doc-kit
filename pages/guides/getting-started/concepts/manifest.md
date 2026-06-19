@@ -28,10 +28,10 @@ So now you have a little insight into how webpack works behind the scenes. "But 
 
 By using content hashes in your bundle file names, you can signal to the browser when a file's content has changed, which invalidates the cache. Once you start doing this, though, you'll immediately notice some odd behavior: certain hashes change even when their content apparently does not. This is caused by the injection of the runtime and manifest, which changes with every build.
 
-See [the manifest section](#TODO[/guides/output-management/#the-manifest]) of our _Output management_ guide to learn how to extract the manifest, and read the guides below to learn more about the intricacies of long-term caching.
+See [the manifest section](/guides/core-workflows/output-management/#the-manifest) of our _Output management_ guide to learn how to extract the manifest, and read the guides below to learn more about the intricacies of long-term caching.
 
 ## Further reading
 
 - [Separating a Manifest](https://survivejs.com/webpack/optimizing/separating-manifest/)
 - [Predictable Long Term Caching with webpack](https://medium.com/webpack/predictable-long-term-caching-with-webpack-d3eee1d3fa31)
-- [Caching](#TODO[/guides/caching/])
+- [Caching](/guides/optimization/caching)

@@ -24,10 +24,10 @@ Unlike [Node.js modules](https://nodejs.org/api/modules.html), webpack modules c
 
 webpack supports the following module types natively:
 
-- [ECMAScript modules](#TODO[/guides/ecma-script-modules])
+- [ECMAScript modules](/guides/modules-and-dependencies/ecma-script-modules)
 - CommonJS modules
 - AMD modules
-- [Assets](#TODO[/guides/asset-modules])
+- [Assets](/guides/core-workflows/asset-modules)
 - WebAssembly modules
 
 Beyond these, webpack supports modules written in many other languages and preprocessors through _loaders_. Loaders tell webpack **how** to process non-native modules and how to include their dependencies in your bundles. The webpack community has built loaders for a wide range of popular languages and language processors, including:

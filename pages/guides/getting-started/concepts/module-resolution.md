@@ -48,7 +48,7 @@ import 'my-module/lib/file';
 
 Modules are searched for in every directory listed in [`resolve.modules`](#TODO[/configuration/resolve/#resolvemodules]). You can substitute a different path for the original module path by defining an alias through the [`resolve.alias`](#TODO[/configuration/resolve/#resolvealias]) configuration option.
 
-- If the package contains a `package.json` file, the fields listed in the [`resolve.exportsFields`](#TODO[/configuration/resolve/#resolveexportsfields]) configuration option are checked in order. The first matching field in `package.json` determines the package's available exports, following the [package exports guideline](#TODO[/guides/package-exports/]).
+- If the package contains a `package.json` file, the fields listed in the [`resolve.exportsFields`](#TODO[/configuration/resolve/#resolveexportsfields]) configuration option are checked in order. The first matching field in `package.json` determines the package's available exports, following the [package exports guideline](/guides/modules-and-dependencies/package-exports).
 
 Once the path is resolved by the rules above, the resolver checks whether it points to a file or a directory. If it points to a file:
 

@@ -5,7 +5,7 @@ authors: SpaceK33z,rafde,fvgs,TheDutchCoder,WojciechKo,Calinou,GAumala,EugeneHlu
 # Development
 
 > [!TIP]
-> This guide builds on the code examples from the [Output Management](#TODO[/guides/output-management]) guide.
+> This guide builds on the code examples from the [Output Management](/guides/core-workflows/output-management) guide.
 
 If you've worked through the previous guides, you should now have a solid grasp of webpack's fundamentals. Before moving on, let's set up a development environment that makes day-to-day work a little smoother.
 
@@ -222,7 +222,7 @@ Update your configuration file to tell the dev server where to find files:
 This tells `webpack-dev-server` to serve the files from the `dist` directory on `localhost:8080`.
 
 > [!TIP]
-> `optimization.runtimeChunk: 'single'` was added because this example uses more than one entry point on a single HTML page. Without it, we'd run into the problem described [here](https://bundlers.tooling.report/code-splitting/multi-entry/). See the [Code Splitting](#TODO[/guides/code-splitting/]) chapter for more details.
+> `optimization.runtimeChunk: 'single'` was added because this example uses more than one entry point on a single HTML page. Without it, we'd run into the problem described [here](https://bundlers.tooling.report/code-splitting/multi-entry/). See the [Code Splitting](/guides/optimization/code-splitting) chapter for more details.
 
 > [!TIP]
 > `webpack-dev-server` serves bundled files from the directory defined in [`output.path`](#TODO[/configuration/output/#outputpath]); that is, files are available under `http://[devServer.host]:[devServer.port]/[output.publicPath]/[output.filename]`.
@@ -264,7 +264,7 @@ Now run `npm start` from the command line, and your browser will open the page a
 `webpack-dev-server` offers many configurable options. Head over to the [documentation](#TODO[/configuration/dev-server]) to learn more.
 
 > [!TIP]
-> Now that your server is up and running, you might want to give [Hot Module Replacement](#TODO[/guides/hot-module-replacement]) a try!
+> Now that your server is up and running, you might want to give [Hot Module Replacement](/guides/core-workflows/development/hot-module-replacement) a try!
 
 ### Using webpack-dev-middleware
 
@@ -405,7 +405,7 @@ Example app listening on port 3000!
 Now open your browser at `http://localhost:3000`. You should see your webpack app up and running!
 
 > [!TIP]
-> If you'd like to learn more about how Hot Module Replacement works, we recommend reading the [Hot Module Replacement](#TODO[/guides/hot-module-replacement/]) guide.
+> If you'd like to learn more about how Hot Module Replacement works, we recommend reading the [Hot Module Replacement](/guides/core-workflows/development/hot-module-replacement) guide.
 
 ## Adjusting your text editor
 
@@ -419,4 +419,4 @@ To disable it in a few common editors:
 
 ## Conclusion
 
-Now that you know how to compile your code automatically and run a development server, you can move on to the next guide, which covers [Code Splitting](#TODO[/guides/code-splitting/]).
+Now that you know how to compile your code automatically and run a development server, you can move on to the next guide, which covers [Code Splitting](/guides/optimization/code-splitting).

@@ -287,7 +287,7 @@ export default {
 
 ## Final steps
 
-Optimize your output for production by following the steps in the [production guide](#TODO[/guides/production]). Let's also point the package's `main` field in `package.json` at your generated bundle:
+Optimize your output for production by following the steps in the [production guide](/guides/core-workflows/production). Let's also point the package's `main` field in `package.json` at your generated bundle:
 
 ```json displayName="package.json"
 {
@@ -315,4 +315,4 @@ The `main` key refers to the [standard from `package.json`](https://docs.npmjs.c
 You can now [publish it as an npm package](https://docs.npmjs.com/getting-started/publishing-npm-packages) and find it on [unpkg.com](https://unpkg.com/#/) to distribute it to your users.
 
 > [!TIP]
-> To expose stylesheets associated with your library, use the [`MiniCssExtractPlugin`](#TODO[/plugins/mini-css-extract-plugin]). Users can then consume and load them as they would any other stylesheet.
+> To expose stylesheets associated with your library, use the [`MiniCssExtractPlugin`](/docs/plugins/mini-css-extract-plugin). Users can then consume and load them as they would any other stylesheet.

@@ -26,7 +26,7 @@ console.log('account page type');
 // account page individual styles
 ```
 
-As a best practice, we'll use [`MiniCssExtractPlugin`](#TODO[/plugins/mini-css-extract-plugin/]) in `production` mode for the CSS.
+As a best practice, we'll use [`MiniCssExtractPlugin`](/docs/plugins/mini-css-extract-plugin) in `production` mode for the CSS.
 
 ```js displayName="webpack.config.js"
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';

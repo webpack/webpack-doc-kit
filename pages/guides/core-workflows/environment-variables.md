@@ -4,7 +4,7 @@ authors: simon04,grisanu,tbroadley,legalcodes,byzyk,jceipek,snitin315,Brennvo,av
 
 # Environment Variables
 
-To distinguish between [development](#TODO[/guides/development]) and [production builds](#TODO[/guides/production]) in your `webpack.config.js`, you can use environment variables.
+To distinguish between [development](/guides/core-workflows/development) and [production builds](/guides/core-workflows/production) in your `webpack.config.js`, you can use environment variables.
 
 > [!TIP]
 > webpack's environment variables are different from the [environment variables](https://en.wikipedia.org/wiki/Environment_variable) of operating system shells such as `bash` and `CMD.exe`.

@@ -7,7 +7,7 @@ authors: henriquea,rajagopal4890,makuzaverite,markerikson,simon04,kisnows,chrisV
 In this guide, we'll explore some of the best practices and utilities for building a production site or application.
 
 > [!TIP]
-> This walkthrough builds on [Tree Shaking](#TODO[/guides/tree-shaking]) and [Development](#TODO[/guides/development]). Make sure you're familiar with the concepts and setup from those guides before continuing.
+> This walkthrough builds on [Tree Shaking](/guides/optimization/tree-shaking) and [Development](/guides/core-workflows/development). Make sure you're familiar with the concepts and setup from those guides before continuing.
 
 ## Setup
 
@@ -83,7 +83,7 @@ npm install --save-dev webpack-merge
 + });
 ```
 
-In `webpack.common.js`, we now have our `entry` and `output` configuration along with any plugins required by both environments. In `webpack.dev.js`, we've set `mode` to `development`, added the recommended `devtool` for that environment (strong source mapping), and configured our `devServer`. Finally, in `webpack.prod.js`, `mode` is set to `production`, which loads the [`MinimizerPlugin`](#TODO[/plugins/minimizer-webpack-plugin/]) first introduced in the [tree shaking](#TODO[/guides/tree-shaking/]) guide.
+In `webpack.common.js`, we now have our `entry` and `output` configuration along with any plugins required by both environments. In `webpack.dev.js`, we've set `mode` to `development`, added the recommended `devtool` for that environment (strong source mapping), and configured our `devServer`. Finally, in `webpack.prod.js`, `mode` is set to `production`, which loads the [`MinimizerPlugin`](/docs/plugins/minimizer-webpack-plugin) first introduced in the [tree shaking](/guides/optimization/tree-shaking) guide.
 
 Note the `merge()` calls in the environment-specific configurations, which pull in our common configuration in both `webpack.dev.js` and `webpack.prod.js`. `webpack-merge` offers a variety of advanced merging features, but we won't need any of them for this use case.
 
@@ -167,11 +167,11 @@ If you use a library like [`react`](https://reactjs.org/), you should see a sign
 
 webpack v4+ minifies your code by default in [production mode](#TODO[/configuration/mode/#mode-production]).
 
-While the [`MinimizerPlugin`](#TODO[/plugins/minimizer-webpack-plugin/]) is a great starting point and is used by default, other options exist:
+While the [`MinimizerPlugin`](/docs/plugins/minimizer-webpack-plugin) is a great starting point and is used by default, other options exist:
 
 - [`ClosureWebpackPlugin`](https://github.com/webpack-contrib/closure-webpack-plugin)
 
-If you decide to try another minification plugin, make sure your choice also drops dead code as described in the [tree shaking](#TODO[/guides/tree-shaking]) guide, and provide it via [`optimization.minimizer`](#TODO[/configuration/optimization/#optimizationminimizer]).
+If you decide to try another minification plugin, make sure your choice also drops dead code as described in the [tree shaking](/guides/optimization/tree-shaking) guide, and provide it via [`optimization.minimizer`](#TODO[/configuration/optimization/#optimizationminimizer]).
 
 ## Source mapping
 
@@ -192,7 +192,7 @@ We encourage you to enable source maps in production, as they're useful for debu
 
 ## Minimize CSS
 
-It's crucial to minimize your CSS for production. See the [Minimizing for Production](#TODO[/plugins/mini-css-extract-plugin/#minimizing-for-production]) section.
+It's crucial to minimize your CSS for production. See the [Minimizing for Production](/docs/plugins/mini-css-extract-plugin/#minimizing-for-production) section.
 
 ## CLI alternatives
 

@@ -14,9 +14,9 @@ You can find instructions for upgrading Node.js [here](https://stackoverflow.com
 
 ## CLI
 
-The CLI has moved into its own package, `webpack-cli`. You must install it before using webpack; see [basic setup](#TODO[/guides/getting-started/#basic-setup]).
+The CLI has moved into its own package, `webpack-cli`. You must install it before using webpack; see [basic setup](/guides/getting-started/#basic-setup).
 
-The installation guide is available [here](#TODO[/guides/installation]).
+The installation guide is available [here](/guides/getting-started/installing-webpack).
 
 ## Update plugins
 
@@ -34,7 +34,7 @@ module.exports = {
 ```
 
 > [!TIP]
-> `'development'` mode and `'production'` mode serve different purposes. You can use `webpack-merge`, as shown in the [production guide](#TODO[/guides/production/#setup]), to maintain separate optimized configurations.
+> `'development'` mode and `'production'` mode serve different purposes. You can use `webpack-merge`, as shown in the [production guide](/guides/core-workflows/production/#setup), to maintain separate optimized configurations.
 
 ## Deprecated and removed plugins
 

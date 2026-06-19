@@ -6,9 +6,9 @@ authors: skipjack,michael-ciniawsky,TheDutchCoder,sudarsangp,chenxsan,EugeneHlus
 
 If you've followed the guides from the beginning, you now have a small project that prints "Hello webpack". The next step is to bring in other kinds of assets, such as images, and see how webpack handles them.
 
-Before webpack, front-end developers relied on tools like [grunt](https://gruntjs.com/) and [gulp](https://gulpjs.com/) to process assets and copy them from a `/src` folder into a `/dist` or `/build` directory. JavaScript modules followed the same approach, but webpack takes it further: it **dynamically bundles** every dependency, building what's known as a [dependency graph](#TODO[/concepts/dependency-graph]). This is powerful because each module now _explicitly declares its dependencies_, which lets webpack skip anything that isn't actually used.
+Before webpack, front-end developers relied on tools like [grunt](https://gruntjs.com/) and [gulp](https://gulpjs.com/) to process assets and copy them from a `/src` folder into a `/dist` or `/build` directory. JavaScript modules followed the same approach, but webpack takes it further: it **dynamically bundles** every dependency, building what's known as a [dependency graph](/guides/getting-started/concepts/dependency-graph). This is powerful because each module now _explicitly declares its dependencies_, which lets webpack skip anything that isn't actually used.
 
-One of webpack's nicest features is that you can _import almost any type of file_, not just JavaScript, as long as there's a loader or built-in [Asset Modules](#TODO[/guides/asset-modules/]) support for it. That means the benefits you get with JavaScript, like explicit dependencies, apply to everything you use to build a site or web app. We'll begin with CSS, since that setup is probably already familiar to you.
+One of webpack's nicest features is that you can _import almost any type of file_, not just JavaScript, as long as there's a loader or built-in [Asset Modules](/guides/core-workflows/asset-modules) support for it. That means the benefits you get with JavaScript, like explicit dependencies, apply to everything you use to build a site or web app. We'll begin with CSS, since that setup is probably already familiar to you.
 
 ## Setup
 
@@ -48,7 +48,7 @@ First, make a small change to the project before we begin.
 
 ## Loading CSS
 
-To `import` a CSS file from within a JavaScript module, install the [style-loader](#TODO[/loaders/style-loader]) and [css-loader](#TODO[/loaders/css-loader]), then add them to your [`module` configuration](#TODO[/configuration/module]):
+To `import` a CSS file from within a JavaScript module, install the [style-loader](/docs/loaders/style-loader) and [css-loader](/docs/loaders/css-loader), then add them to your [`module` configuration](#TODO[/configuration/module]):
 
 ```bash
 npm install --save-dev style-loader css-loader
@@ -157,11 +157,11 @@ webpack 5.x.x compiled successfully in 2231 ms
 
 Open `dist/index.html` in your browser again and you should see `Hello webpack` styled in red. To check what webpack did, inspect the page rather than viewing the page source; the source won't reflect the result because the `<style>` tag is created dynamically by JavaScript. Look at the page's head tags, and you should find the style block we imported in `index.js`.
 
-Note that you can, and usually should, [minimize CSS](#TODO[/plugins/mini-css-extract-plugin/#minimizing-for-production]) for faster load times in production. On top of that, loaders exist for just about every flavor of CSS you can think of, including [postcss](#TODO[/loaders/postcss-loader]), [sass](#TODO[/loaders/sass-loader]), and [less](#TODO[/loaders/less-loader]).
+Note that you can, and usually should, [minimize CSS](/docs/plugins/mini-css-extract-plugin/#minimizing-for-production) for faster load times in production. On top of that, loaders exist for just about every flavor of CSS you can think of, including [postcss](/docs/loaders/postcss-loader), [sass](/docs/loaders/sass-loader), and [less](/docs/loaders/less-loader).
 
 ## Loading Images
 
-Now that CSS is in place, what about images such as backgrounds and icons? Since webpack 5, the built-in [Asset Modules](#TODO[/guides/asset-modules/]) make it easy to handle these as well:
+Now that CSS is in place, what about images such as backgrounds and icons? Since webpack 5, the built-in [Asset Modules](/guides/core-workflows/asset-modules) make it easy to handle these as well:
 
 ```diff displayName="webpack.config.js"
  import path from 'node:path';
@@ -191,7 +191,7 @@ Now that CSS is in place, what about images such as backgrounds and icons? Since
  };
 ```
 
-Now, when you write `import MyImage from './my-image.png'`, the image is processed and added to your `output` directory, and the `MyImage` variable holds its final URL after processing. When you use the [css-loader](#TODO[/loaders/css-loader]) as shown above, the same thing happens for `url('./my-image.png')` inside your CSS: the loader recognizes the local file and replaces the `'./my-image.png'` path with the final path to the image in your `output` directory. The [html-loader](#TODO[/loaders/html-loader]) handles `<img src="./my-image.png" />` the same way.
+Now, when you write `import MyImage from './my-image.png'`, the image is processed and added to your `output` directory, and the `MyImage` variable holds its final URL after processing. When you use the [css-loader](/docs/loaders/css-loader) as shown above, the same thing happens for `url('./my-image.png')` inside your CSS: the loader recognizes the local file and replaces the `'./my-image.png'` path with the final path to the image in your `output` directory. The [html-loader](/docs/loaders/html-loader) handles `<img src="./my-image.png" />` the same way.
 
 Let's add an image to the project to see this in action. You can use any image you like.
 

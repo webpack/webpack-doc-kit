@@ -4,10 +4,10 @@ authors: TheLarkInn,jhnns,grgur,johnstew,jimrfenner,TheDutchCoder,adambraimbridg
 
 # Concepts
 
-At its core, **webpack** is a _static module bundler_ for modern JavaScript applications. When webpack processes your application, it internally builds a [dependency graph](#TODO[/concepts/dependency-graph/]) from one or more _entry points_ and then combines every module your project needs into one or more _bundles_, which are static assets that serve your content.
+At its core, **webpack** is a _static module bundler_ for modern JavaScript applications. When webpack processes your application, it internally builds a [dependency graph](/guides/getting-started/concepts/dependency-graph) from one or more _entry points_ and then combines every module your project needs into one or more _bundles_, which are static assets that serve your content.
 
 > [!TIP]
-> Learn more about JavaScript modules and webpack modules [here](#TODO[/concepts/modules]).
+> Learn more about JavaScript modules and webpack modules [here](/guides/getting-started/concepts/modules).
 
 Since version 4.0.0, **webpack does not require a configuration file** to bundle your project. Even so, it is [incredibly configurable](#TODO[/configuration]) to better fit your needs.
 
@@ -30,7 +30,7 @@ For a deeper understanding of the ideas behind module bundlers and how they work
 
 ## Entry
 
-An **entry point** tells webpack which module to use to begin building its internal [dependency graph](#TODO[/concepts/dependency-graph/]). From there, webpack determines which other modules and libraries that entry point depends on, both directly and indirectly.
+An **entry point** tells webpack which module to use to begin building its internal [dependency graph](/guides/getting-started/concepts/dependency-graph). From there, webpack determines which other modules and libraries that entry point depends on, both directly and indirectly.
 
 By default the entry is `./src/index.js`, but you can specify a different entry point — or multiple — by setting the [`entry` property in the webpack configuration](#TODO[/configuration/entry-context/#entry]). For example:
 
@@ -48,7 +48,7 @@ export default {
 > The error mentions `'./src'` rather than `'./src/index.js'` because webpack resolves the directory first and then fails to find the default `index.js` inside it. To use a different entry filename, add a `webpack.config.js` as shown in the example above.
 
 > [!TIP]
-> Learn more in the [entry points](#TODO[/concepts/entry-points]) section.
+> Learn more in the [entry points](/guides/getting-started/concepts/entry-points) section.
 
 ## Output
 
@@ -74,11 +74,11 @@ export default {
 In the example above, the `output.filename` and `output.path` properties tell webpack the name of our bundle and where to emit it. If you're wondering about the `path` module imported at the top, it is a core [Node.js module](https://nodejs.org/api/modules.html) used to manipulate file paths.
 
 > [!TIP]
-> The `output` property has [many more configurable features](#TODO[/configuration/output]). To learn about the concepts behind it, [read more in the output section](#TODO[/concepts/output]).
+> The `output` property has [many more configurable features](#TODO[/configuration/output]). To learn about the concepts behind it, [read more in the output section](/guides/getting-started/concepts/output).
 
 ## Loaders
 
-Out of the box, webpack only understands JavaScript and JSON files. **Loaders** let webpack process other types of files and convert them into valid [modules](#TODO[/concepts/modules]) that your application can consume and that can be added to the dependency graph.
+Out of the box, webpack only understands JavaScript and JSON files. **Loaders** let webpack process other types of files and convert them into valid [modules](/guides/getting-started/concepts/modules) that your application can consume and that can be added to the dependency graph.
 
 > [!WARNING]
 > One of webpack's distinctive features is the ability to `import` any type of module, for example `.css` files, which other bundlers or task runners may not support. We feel this extension of the language is warranted, because it lets developers build a more accurate dependency graph.
@@ -111,7 +111,7 @@ The configuration above defines a `rules` property with a single rule that has t
 > [!WARNING]
 > Keep in mind that when you use a regular expression to match files, you must not quote it. For example, `/\.txt$/` is not the same as `'/\.txt$/'` or `"/\.txt$/"`. The former tells webpack to match any file ending in `.txt`, while the latter tells webpack to match a single file with the absolute path `'.txt'`, which is likely not your intention.
 
-You can learn more about including loaders in the [loaders section](#TODO[/concepts/loaders]).
+You can learn more about including loaders in the [loaders section](/guides/getting-started/concepts/loaders).
 
 ## Plugins
 
@@ -139,7 +139,7 @@ In the example above, the `html-webpack-plugin` generates an HTML file for your 
 > [!TIP]
 > webpack provides many plugins out of the box. Check out the [list of plugins](#TODO[/plugins]).
 
-Using plugins in your webpack configuration is straightforward, but there are many use cases worth exploring further. [Learn more about them here](#TODO[/concepts/plugins]).
+Using plugins in your webpack configuration is straightforward, but there are many use cases worth exploring further. [Learn more about them here](/guides/getting-started/concepts/plugins).
 
 ## Mode
 
@@ -155,7 +155,7 @@ Learn more about the [mode configuration here](#TODO[/configuration/mode]) and w
 
 ## Browser Compatibility
 
-webpack supports all browsers that are [ES5-compliant](https://compat-table.github.io/compat-table/es5/); IE8 and below are not supported. webpack needs `Promise` for [`import()` and `require.ensure()`](#TODO[/guides/code-splitting/#dynamic-imports]). To support older browsers, you will need to [load a polyfill](#TODO[/guides/shimming/]) before using these expressions.
+webpack supports all browsers that are [ES5-compliant](https://compat-table.github.io/compat-table/es5/); IE8 and below are not supported. webpack needs `Promise` for [`import()` and `require.ensure()`](/guides/optimization/code-splitting/#dynamic-imports). To support older browsers, you will need to [load a polyfill](/guides/modules-and-dependencies/shimming) before using these expressions.
 
 ## Environment
 

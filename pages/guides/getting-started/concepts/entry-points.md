@@ -4,7 +4,7 @@ authors: TheLarkInn,chrisVillanueva,byzyk,sokra,EugeneHlushko,Zearin,chenxsan,ad
 
 # Entry Points
 
-As mentioned in [Getting Started](#TODO[/guides/getting-started/#using-a-configuration]), there are several ways to define the `entry` property in your webpack configuration. This page walks through the ways you can configure `entry` and explains why each may be useful.
+As mentioned in [Getting Started](/guides/getting-started/#using-a-configuration), there are several ways to define the `entry` property in your webpack configuration. This page walks through the ways you can configure `entry` and explains why each may be useful.
 
 In simple terms, an entry point tells webpack where to start building its internal dependency graph. Starting from this file, webpack recursively follows every imported module and asset to determine what belongs in the final bundle.
 

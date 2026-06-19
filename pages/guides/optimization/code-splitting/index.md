@@ -5,7 +5,7 @@ authors: pksjce,pastelsky,simon04,jonwheeler,johnstew,shinxi,tomtasche,levy9527,
 # Code Splitting
 
 > [!TIP]
-> This guide builds on the example from [Getting Started](#TODO[/guides/getting-started]). Make sure you are at least familiar with that example and the [Output Management](#TODO[/guides/output-management/]) chapter before continuing.
+> This guide builds on the example from [Getting Started](/guides/getting-started). Make sure you are at least familiar with that example and the [Output Management](/guides/core-workflows/output-management) chapter before continuing.
 
 Code splitting is one of webpack's most compelling features. It lets you split your code into multiple bundles that can be loaded on demand or in parallel. Used well, it produces smaller bundles and gives you control over resource load prioritization, which can have a significant impact on load time.
 
@@ -223,7 +223,7 @@ webpack 5.x.x compiled successfully in 241 ms
 
 Here are some other useful community plugins and loaders for splitting code:
 
-- [`mini-css-extract-plugin`](#TODO[/plugins/mini-css-extract-plugin]): Useful for splitting CSS out of the main application.
+- [`mini-css-extract-plugin`](/docs/plugins/mini-css-extract-plugin): Useful for splitting CSS out of the main application.
 
 ## Dynamic Imports
 
@@ -232,7 +232,7 @@ webpack supports two similar techniques for dynamic code splitting. The first an
 > [!WARNING]
 > `import()` calls use [promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) internally. If you use `import()` with older browsers (such as IE 11), remember to shim `Promise` with a polyfill like [es6-promise](https://github.com/stefanpenner/es6-promise) or [promise-polyfill](https://github.com/taylorhakes/promise-polyfill).
 
-Before we begin, let's remove the extra [`entry`](#TODO[/concepts/entry-points/]) and [`optimization.splitChunks`](#TODO[/plugins/split-chunks-plugin]) configuration from the previous example, since they aren't needed for this demonstration:
+Before we begin, let's remove the extra [`entry`](/guides/getting-started/concepts/entry-points) and [`optimization.splitChunks`](#TODO[/plugins/split-chunks-plugin]) configuration from the previous example, since they aren't needed for this demonstration:
 
 ```diff displayName="webpack.config.js"
  import path from 'node:path';
@@ -452,7 +452,7 @@ Once you start splitting your code, it can be helpful to analyze the output to s
 
 ## Next Steps
 
-See [Lazy Loading](#TODO[/guides/lazy-loading/]) for a more concrete example of how `import()` can be used in a real application, and [Caching](#TODO[/guides/caching/]) to learn how to split code more effectively.
+See [Lazy Loading](/guides/optimization/code-splitting/lazy-loading) for a more concrete example of how `import()` can be used in a real application, and [Caching](/guides/optimization/caching) to learn how to split code more effectively.
 
 ## Further reading
 

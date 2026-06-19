@@ -36,7 +36,7 @@ The good news for web projects is that modules are becoming an official feature 
 
 ## Automatic dependency collection
 
-Old-school task runners, and even the Google Closure Compiler, require you to declare all dependencies manually and upfront. Bundlers like webpack, by contrast, automatically build and infer your [dependency graph](#TODO[/concepts/dependency-graph/]) from what you import and export. Together with [plugins](#TODO[/concepts/plugins/]) and [loaders](#TODO[/concepts/loaders/]), this makes for a great developer experience.
+Old-school task runners, and even the Google Closure Compiler, require you to declare all dependencies manually and upfront. Bundlers like webpack, by contrast, automatically build and infer your [dependency graph](/guides/getting-started/concepts/dependency-graph) from what you import and export. Together with [plugins](/guides/getting-started/concepts/plugins) and [loaders](/guides/getting-started/concepts/loaders), this makes for a great developer experience.
 
 ## Wouldn't it be nice…
 

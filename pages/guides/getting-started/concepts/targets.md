@@ -7,7 +7,7 @@ authors: TheLarkInn,rouzbeh84,johnstew,srilman,byzyk,EugeneHlushko,avivkeller
 Because JavaScript can run on both the server and the browser, webpack offers several deployment _targets_ that you can set in your webpack [configuration](#TODO[/configuration]).
 
 > [!WARNING]
-> Do not confuse the webpack `target` property with the `output.libraryTarget` property. For more information, see our [guide](#TODO[/concepts/output/]) on the `output` property.
+> Do not confuse the webpack `target` property with the `output.libraryTarget` property. For more information, see our [guide](/guides/getting-started/concepts/output) on the `output` property.
 
 ## Usage
 

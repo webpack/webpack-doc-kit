@@ -4,7 +4,7 @@ authors: kryptokinght,SpaceK33z,sokra,GRardB,rouzbeh84,skipjack,avivkeller
 
 # Hot Module Replacement
 
-Hot Module Replacement (HMR) exchanges, adds, or removes [modules](#TODO[/concepts/modules/]) while an application is running, without a full reload. It can significantly speed up development in several ways:
+Hot Module Replacement (HMR) exchanges, adds, or removes [modules](/guides/getting-started/concepts/modules) while an application is running, without a full reload. It can significantly speed up development in several ways:
 
 - It preserves application state that would otherwise be lost during a full reload.
 - It saves valuable development time by updating only what changed.
@@ -29,7 +29,7 @@ You can configure HMR so that this process happens automatically, or you can req
 
 Beyond the usual assets, the compiler emits an "update" that allows moving from the previous version to the new one. An update has two parts:
 
-1. The updated [manifest](#TODO[/concepts/manifest]) (JSON).
+1. The updated [manifest](/guides/getting-started/concepts/manifest) (JSON).
 2. One or more updated chunks (JavaScript).
 
 The manifest contains the new compilation hash and a list of all updated chunks. Each chunk contains the new code for its updated modules, or a flag indicating that a module was removed.
@@ -46,7 +46,7 @@ See the [HMR API page](#TODO[/api/hot-module-replacement]) for details on the `m
 
 ### In the runtime
 
-Here things get a bit more technical. If you're not interested in the internals, feel free to skip ahead to the [HMR API page](#TODO[/api/hot-module-replacement]) or the [HMR guide](#TODO[/guides/hot-module-replacement]).
+Here things get a bit more technical. If you're not interested in the internals, feel free to skip ahead to the [HMR API page](#TODO[/api/hot-module-replacement]) or the [HMR guide](/guides/core-workflows/development/hot-module-replacement).
 
 For the module system runtime, additional code is emitted to track each module's `parents` and `children`. On the management side, the runtime supports two methods: `check` and `apply`.
 
@@ -58,7 +58,7 @@ Afterward, all invalid modules are disposed (via their dispose handlers) and unl
 
 ## Get started
 
-HMR can be used in development as a replacement for LiveReload. [webpack-dev-server](#TODO[/configuration/dev-server/]) supports a `hot` mode in which it tries to update with HMR before falling back to reloading the whole page. See the [Hot Module Replacement guide](#TODO[/guides/hot-module-replacement]) for details.
+HMR can be used in development as a replacement for LiveReload. [webpack-dev-server](#TODO[/configuration/dev-server/]) supports a `hot` mode in which it tries to update with HMR before falling back to reloading the whole page. See the [Hot Module Replacement guide](/guides/core-workflows/development/hot-module-replacement) for details.
 
 > [!TIP]
 > As with many other features, webpack's power lies in its customizability. There are _many_ ways to configure HMR depending on a project's needs. For most purposes, though, `webpack-dev-server` is a good fit and will get you started with HMR quickly.

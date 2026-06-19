@@ -5,7 +5,7 @@ authors: okonet,jouni-kantola,skipjack,dannycjones,fadysamirsadek,afontcu,rosava
 # Caching
 
 > [!TIP]
-> The examples in this guide build on [getting started](#TODO[/guides/getting-started]), [output management](#TODO[/guides/output-management]), and [code splitting](#TODO[/guides/code-splitting]).
+> The examples in this guide build on [getting started](/guides/getting-started), [output management](/guides/core-workflows/output-management), and [code splitting](/guides/optimization/code-splitting).
 
 We use webpack to bundle a modular application into a deployable `/dist` directory. Once that directory is deployed to a server, clients (usually browsers) request the site and its assets from that server. Downloading those assets can be slow, so browsers rely on a technique called [caching](<https://en.wikipedia.org/wiki/Cache_(computing)>) to load sites faster and avoid unnecessary network traffic. The downside is that caching can get in the way when you actually want clients to pick up new code.
 
@@ -15,7 +15,7 @@ This guide covers the configuration you need so that files produced by a webpack
 
 The `output.filename` [substitutions](#TODO[/configuration/output/#outputfilename]) setting lets us define the names of our output files. webpack supports templating filenames with bracketed strings called **substitutions**. The `[contenthash]` substitution adds a unique hash derived from an asset's content, so whenever that content changes the hash changes too.
 
-Let's set up the project using the example from [getting started](#TODO[/guides/getting-started]), along with the `plugins` from [output management](#TODO[/guides/output-management]), so we don't have to maintain `index.html` by hand:
+Let's set up the project using the example from [getting started](/guides/getting-started), along with the `plugins` from [output management](/guides/core-workflows/output-management), so we don't have to maintain `index.html` by hand:
 
 ```diff displayName="project"
 webpack-demo
@@ -80,7 +80,7 @@ This happens because webpack includes certain boilerplate, specifically the runt
 
 ## Extracting boilerplate
 
-As we saw in [code splitting](#TODO[/guides/code-splitting]), the [`SplitChunksPlugin`](#TODO[/plugins/split-chunks-plugin/]) can split modules out into separate bundles. webpack also offers an optimization that splits the runtime code into its own chunk via the [`optimization.runtimeChunk`](#TODO[/configuration/optimization/#optimizationruntimechunk]) option. Set it to `single` to create a single runtime bundle shared across all chunks:
+As we saw in [code splitting](/guides/optimization/code-splitting), the [`SplitChunksPlugin`](#TODO[/plugins/split-chunks-plugin/]) can split modules out into separate bundles. webpack also offers an optimization that splits the runtime code into its own chunk via the [`optimization.runtimeChunk`](#TODO[/configuration/optimization/#optimizationruntimechunk]) option. Set it to `single` to create a single runtime bundle shared across all chunks:
 
 ```diff displayName="webpack.config.js"
  import path from 'node:path';

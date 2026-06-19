@@ -5,15 +5,15 @@ authors: iammerrick,chrisVillanueva,skipjack,byzyk,EugeneHlushko,AnayaDesign,tap
 # Lazy Loading
 
 > [!TIP]
-> This guide is a short follow-up to [Code Splitting](#TODO[/guides/code-splitting]). If you haven't read through that guide yet, please do so now.
+> This guide is a short follow-up to [Code Splitting](/guides/optimization/code-splitting). If you haven't read through that guide yet, please do so now.
 
 Lazy, or "on demand", loading is a great way to optimize your site or application. The practice essentially involves splitting your code at logical breakpoints and then loading a block of code once the user does something that requires it (or will soon require it). This speeds up the initial load of the application and lightens its overall weight, since some blocks may never be loaded at all.
 
 ## Dynamic import example
 
-Let's take the example from [Code Splitting](#TODO[/guides/code-splitting/#dynamic-imports]) and tweak it to demonstrate this concept more clearly. The code there does cause a separate chunk, `lodash.bundle.js`, to be generated and technically "lazy-loads" it as soon as the script runs. The trouble is that no user interaction is required to load the bundle, which means the request fires every time the page loads. That doesn't help us much and negatively impacts performance.
+Let's take the example from [Code Splitting](/guides/optimization/code-splitting/#dynamic-imports) and tweak it to demonstrate this concept more clearly. The code there does cause a separate chunk, `lodash.bundle.js`, to be generated and technically "lazy-loads" it as soon as the script runs. The trouble is that no user interaction is required to load the bundle, which means the request fires every time the page loads. That doesn't help us much and negatively impacts performance.
 
-Let's try something different. We'll add an interaction that logs some text to the console when the user clicks a button. However, we'll wait to load that code (`print.js`) until the interaction occurs for the first time. To do this, we'll go back and rework the [final _Dynamic Imports_ example](#TODO[/guides/code-splitting/#dynamic-imports]) from _Code Splitting_, leaving `lodash` in the main chunk.
+Let's try something different. We'll add an interaction that logs some text to the console when the user clicks a button. However, we'll wait to load that code (`print.js`) until the interaction occurs for the first time. To do this, we'll go back and rework the [final _Dynamic Imports_ example](/guides/optimization/code-splitting/#dynamic-imports) from _Code Splitting_, leaving `lodash` in the main chunk.
 
 ```diff displayName="project"
 webpack-demo

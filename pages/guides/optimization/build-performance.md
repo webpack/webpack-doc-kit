@@ -8,7 +8,7 @@ This guide collects practical tips for improving the speed of your builds and co
 
 ## General
 
-The advice below applies whether you're running build scripts in [development](#TODO[/guides/development]) or [production](#TODO[/guides/production]).
+The advice below applies whether you're running build scripts in [development](/guides/core-workflows/development) or [production](/guides/core-workflows/production).
 
 ### Stay up to date
 

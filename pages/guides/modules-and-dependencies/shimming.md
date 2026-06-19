@@ -14,7 +14,7 @@ Another case where shimming is useful is when you want to [polyfill](https://en.
 The following article walks through both of these use cases.
 
 > [!TIP]
-> For simplicity, this guide builds on the examples from [Getting Started](#TODO[/guides/getting-started]). Make sure you're familiar with that setup before moving on.
+> For simplicity, this guide builds on the examples from [Getting Started](/guides/getting-started). Make sure you're familiar with that setup before moving on.
 
 ## Shimming globals
 
@@ -131,7 +131,7 @@ We can also use `ProvidePlugin` to expose a single export of a module by configu
  };
 ```
 
-This pairs nicely with [Tree Shaking](#TODO[/guides/tree-shaking]), as the rest of the `lodash` library should get dropped.
+This pairs nicely with [Tree Shaking](/guides/optimization/tree-shaking), as the rest of the `lodash` library should get dropped.
 
 ## Granular shimming
 
@@ -152,7 +152,7 @@ Some legacy modules rely on `this` being the `window` object. Let's update our `
  document.body.appendChild(component());
 ```
 
-This becomes a problem when the module runs in a CommonJS context, where `this` equals `module.exports`. In that case, you can override `this` using the [`imports-loader`](#TODO[/loaders/imports-loader/]):
+This becomes a problem when the module runs in a CommonJS context, where `this` equals `module.exports`. In that case, you can override `this` using the [`imports-loader`](/docs/loaders/imports-loader):
 
 ```diff displayName="webpack.config.js"
  import path from "node:path";
@@ -212,7 +212,7 @@ const helpers = {
 };
 ```
 
-You'd likely never write code like this in your own source, but you may come across a dated library that contains something similar. In that case, we can use [`exports-loader`](#TODO[/loaders/exports-loader/]) to export that global variable as a normal module export. For instance, to export `file` as `file` and `helpers.parse` as `parse`:
+You'd likely never write code like this in your own source, but you may come across a dated library that contains something similar. In that case, we can use [`exports-loader`](/docs/loaders/exports-loader) to export that global variable as a normal module export. For instance, to export `file` as `file` and `helpers.parse` as `parse`:
 
 ```diff displayName="webpack.config.js"
  import path from "node:path";
@@ -453,7 +453,7 @@ When a module has no AMD or CommonJS version and you want to include its `dist`,
 > [!WARNING]
 > Any feature requiring the AST, such as `ProvidePlugin`, will not work.
 
-Finally, some modules support multiple [module styles](#TODO[/concepts/modules]) (for example, a combination of AMD, CommonJS, and legacy). In most of these cases, they first check for `define` and then use some quirky code to export properties. In these cases, it can help to force the CommonJS path by setting `additionalCode=var%20define%20=%20false;` via the [`imports-loader`](#TODO[/loaders/imports-loader/]).
+Finally, some modules support multiple [module styles](/guides/getting-started/concepts/modules) (for example, a combination of AMD, CommonJS, and legacy). In most of these cases, they first check for `define` and then use some quirky code to export properties. In these cases, it can help to force the CommonJS path by setting `additionalCode=var%20define%20=%20false;` via the [`imports-loader`](/docs/loaders/imports-loader).
 
 ## Further reading
 

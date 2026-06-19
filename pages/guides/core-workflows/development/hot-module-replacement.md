@@ -5,12 +5,12 @@ authors: jmreidy,jhnns,sararubin,rohannair,joshsantos,drpicox,skipjack,sbaidon,g
 # Hot Module Replacement
 
 > [!TIP]
-> This guide builds on the code examples found in the [Development](#TODO[/guides/development]) guide.
+> This guide builds on the code examples found in the [Development](/guides/core-workflows/development) guide.
 
-Hot Module Replacement (HMR) is one of the most useful features webpack offers. It lets all kinds of modules update at runtime without a full page refresh. This page focuses on **implementation**, while the [concepts page](#TODO[/concepts/hot-module-replacement]) covers how HMR works and why it's useful.
+Hot Module Replacement (HMR) is one of the most useful features webpack offers. It lets all kinds of modules update at runtime without a full page refresh. This page focuses on **implementation**, while the [concepts page](/guides/getting-started/concepts/hot-module-replacement) covers how HMR works and why it's useful.
 
 > [!WARNING]
-> HMR is not intended for use in production; it should only be used during development. See the [building for production guide](#TODO[/guides/production]) for more information.
+> HMR is not intended for use in production; it should only be used during development. See the [building for production guide](/guides/core-workflows/production) for more information.
 
 ## Enabling HMR
 
@@ -206,7 +206,7 @@ try {
 See the [full documentation of the `webpack-dev-server` Node.js API](#TODO[/api/webpack-dev-server/]).
 
 > [!TIP]
-> If you're [using `webpack-dev-middleware`](#TODO[/guides/development/#using-webpack-dev-middleware]), check out the [`webpack-hot-middleware`](https://github.com/webpack/webpack-hot-middleware) package to enable HMR on your custom dev server.
+> If you're [using `webpack-dev-middleware`](/guides/core-workflows/development/#using-webpack-dev-middleware), check out the [`webpack-hot-middleware`](https://github.com/webpack/webpack-hot-middleware) package to enable HMR on your custom dev server.
 
 ## Gotchas
 

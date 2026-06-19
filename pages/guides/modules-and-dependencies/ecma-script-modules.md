@@ -79,12 +79,12 @@ Beyond the module format itself, flagging modules as ESM also affects the resolv
 
 webpack exposes several `import.meta` properties for use in ESM:
 
-| Property                     | Description                                                                                            |
-| ---------------------------- | ------------------------------------------------------------------------------------------------------ |
-| `import.meta.url`            | The URL of the current module file — use it for `new Worker()` or `new URL()`.                         |
-| `import.meta.webpack`        | The webpack major version number (e.g. `5`).                                                           |
-| `import.meta.webpackHot`     | Equivalent of `module.hot` — use it for HMR in ESM.                                                    |
-| `import.meta.webpackContext` | [ESM equivalent of `require.context`](#TODO[/guides/dependency-management/#importmetawebpackcontext]). |
+| Property                     | Description                                                                                                              |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| `import.meta.url`            | The URL of the current module file — use it for `new Worker()` or `new URL()`.                                           |
+| `import.meta.webpack`        | The webpack major version number (e.g. `5`).                                                                             |
+| `import.meta.webpackHot`     | Equivalent of `module.hot` — use it for HMR in ESM.                                                                      |
+| `import.meta.webpackContext` | [ESM equivalent of `require.context`](/guides/modules-and-dependencies/dependency-management/#importmetawebpackcontext). |
 
 **Example — using `import.meta.url` for assets:**
 

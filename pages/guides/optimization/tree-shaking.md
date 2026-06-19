@@ -9,7 +9,7 @@ _Tree shaking_ is a term commonly used in JavaScript for dead-code elimination. 
 webpack 2 introduced built-in support for ES2015 modules (also known as _harmony modules_) along with detection of unused module exports. webpack 4 expanded on this by letting you hint to the compiler, via the `"sideEffects"` property in `package.json`, which files in your project are "pure" and therefore safe to prune if unused.
 
 > [!TIP]
-> The rest of this guide builds on [Getting Started](#TODO[/guides/getting-started]). If you haven't read through that guide yet, please do so now.
+> The rest of this guide builds on [Getting Started](/guides/getting-started). If you haven't read through that guide yet, please do so now.
 
 ## Add a utility
 
@@ -227,7 +227,7 @@ const Button$1 = /* #__PURE__ */ withAppProvider()(Button);
 
 This allows the piece of code to be removed. But there are still questions about the imports, which need to be included and evaluated because they could contain side effects.
 
-To tackle this, we use the [`"sideEffects"`](#TODO[/guides/tree-shaking/#mark-the-file-as-side-effect-free]) property in `package.json`.
+To tackle this, we use the [`"sideEffects"`](/guides/optimization/tree-shaking/#mark-the-file-as-side-effect-free) property in `package.json`.
 
 It's similar to `/*#__PURE__*/`, but at the module level rather than the statement level. The `"sideEffects"` property says: "If no direct export from a module flagged as side-effect-free is used, the bundler can skip evaluating the module for side effects."
 
@@ -568,7 +568,7 @@ What we've learned is that, to take advantage of _tree shaking_, you must:
 
 You can imagine your application as a tree. The source code and libraries you actually use represent the green, living leaves of the tree. Dead code represents the brown, dead leaves consumed by autumn. To get rid of the dead leaves, you have to shake the tree, causing them to fall.
 
-If you're interested in more ways to optimize your output, head to the next guide for details on building for [production](#TODO[/guides/production]).
+If you're interested in more ways to optimize your output, head to the next guide for details on building for [production](/guides/core-workflows/production).
 
 ## Further reading
 

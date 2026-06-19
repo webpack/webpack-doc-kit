@@ -5,7 +5,7 @@ authors: johnnyreilly,chenxsan,EugeneHlushko,benschac,aholzner,avivkeller
 # Progressive Web Application
 
 > [!TIP]
-> This guide builds on the code examples from the [Output Management](#TODO[/guides/output-management]) guide.
+> This guide builds on the code examples from the [Output Management](/guides/core-workflows/output-management) guide.
 
 Progressive Web Applications (PWAs) are web apps that deliver an experience similar to native applications. Many things can contribute to this, but the most significant is an app's ability to function while **offline**. This is achieved with a web technology called [Service Workers](https://developers.google.com/web/fundamentals/primers/service-workers/).
 

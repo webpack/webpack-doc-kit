@@ -14,7 +14,7 @@ For instance, you can use loaders to tell webpack to load a CSS file or to conve
 npm install --save-dev css-loader ts-loader
 ```
 
-Then instruct webpack to use [`css-loader`](#TODO[/loaders/css-loader]) for every `.css` file and [`ts-loader`](https://github.com/TypeStrong/ts-loader) for every `.ts` file:
+Then instruct webpack to use [`css-loader`](/docs/loaders/css-loader) for every `.css` file and [`ts-loader`](https://github.com/TypeStrong/ts-loader) for every `.ts` file:
 
 ```js displayName="webpack.config.js"
 export default {
@@ -117,6 +117,6 @@ Loaders let you customize the output through their preprocessing functions. This
 
 ## Resolving loaders
 
-Loaders follow the standard [module resolution](#TODO[/concepts/module-resolution/]). In most cases they are loaded from the [module path](#TODO[/concepts/module-resolution/#module-paths]) (think `npm install` and `node_modules`).
+Loaders follow the standard [module resolution](/guides/getting-started/concepts/module-resolution). In most cases they are loaded from the [module path](/guides/getting-started/concepts/module-resolution/#module-paths) (think `npm install` and `node_modules`).
 
 A loader module is expected to export a function and be written in Node.js-compatible JavaScript. Loaders are most commonly managed with npm, but you can also keep custom loaders as files within your application. By convention, loaders are usually named `xxx-loader` (for example, `json-loader`). See [Writing a Loader](#TODO[/contribute/writing-a-loader/]) for more information.

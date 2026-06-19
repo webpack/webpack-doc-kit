@@ -7,7 +7,7 @@ authors: phoekerson,avivkeller
 This guide describes practical webpack patterns for **Web Components**, **Import Maps**, and **Progressive Web Apps** (PWAs) with **Service Workers**. Each section states the problem, shows a minimal configuration you can copy, and notes the current limits relative to future webpack improvements.
 
 > [!TIP]
-> Familiarity with [code splitting](#TODO[/guides/code-splitting/]), [caching](#TODO[/guides/caching/]) (`[contenthash]`), and the [`SplitChunksPlugin`](#TODO[/plugins/split-chunks-plugin/]) is helpful here.
+> Familiarity with [code splitting](/guides/optimization/code-splitting), [caching](/guides/optimization/caching) (`[contenthash]`), and the [`SplitChunksPlugin`](#TODO[/plugins/split-chunks-plugin/]) is helpful here.
 
 ## Web Components with webpack
 
@@ -17,7 +17,7 @@ If more than one JavaScript bundle calls `customElements.define()` for the same 
 
 ### Approach
 
-Use [`optimization.splitChunks`](#TODO[/configuration/optimization/#optimizationsplitchunks]) so the module that defines the element lives in a **single shared chunk** that loads once. Adjust `cacheGroups` so your element definitions (or a dedicated folder such as `src/elements/`) are forced into one chunk. See [Prevent Duplication](#TODO[/guides/code-splitting/#prevent-duplication]) for the general idea.
+Use [`optimization.splitChunks`](#TODO[/configuration/optimization/#optimizationsplitchunks]) so the module that defines the element lives in a **single shared chunk** that loads once. Adjust `cacheGroups` so your element definitions (or a dedicated folder such as `src/elements/`) are forced into one chunk. See [Prevent Duplication](/guides/optimization/code-splitting/#prevent-duplication) for the general idea.
 
 ```js displayName="webpack.config.js"
 import path from 'node:path';
@@ -135,9 +135,9 @@ webpack **does not** emit or update `importmap.json` for you. You must maintain 
 
 ### Problem
 
-Long-lived caching requires **stable URLs** for HTML but **versioned URLs** for scripts and styles. Using [`[contenthash]`](#TODO[/guides/caching/]) in `output.filename` changes those URLs every build. A **service worker** precache list must list the **exact** URLs after each build, or offline shells will point at missing files.
+Long-lived caching requires **stable URLs** for HTML but **versioned URLs** for scripts and styles. Using [`[contenthash]`](/guides/optimization/caching) in `output.filename` changes those URLs every build. A **service worker** precache list must list the **exact** URLs after each build, or offline shells will point at missing files.
 
-The [`workbox-webpack-plugin`](#TODO[/guides/progressive-web-application/]) **`GenerateSW`** plugin generates an entire service worker for you. That is convenient, but when you need **full control** over the service worker code (custom routing, `skipWaiting` behavior, or coordination with `[contenthash]` and other plugins), **`InjectManifest`** is appropriate: you write the worker, and Workbox injects the precache manifest at build time from webpack's asset list.
+The [`workbox-webpack-plugin`](/guides/modern-web/progressive-web-application) **`GenerateSW`** plugin generates an entire service worker for you. That is convenient, but when you need **full control** over the service worker code (custom routing, `skipWaiting` behavior, or coordination with `[contenthash]` and other plugins), **`InjectManifest`** is appropriate: you write the worker, and Workbox injects the precache manifest at build time from webpack's asset list.
 
 ### Approach
 

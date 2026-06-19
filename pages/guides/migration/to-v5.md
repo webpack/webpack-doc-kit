@@ -14,7 +14,7 @@ webpack 5 requires at least Node.js 10.13.0 (LTS), so upgrade your Node.js insta
 
 1. Upgrade `webpack` 4 to the latest available version.
    - If you are already on webpack >= 4, upgrading to the latest webpack 4 release should not require additional guidance.
-   - If you are on a version earlier than 4, follow the [webpack 4 migration guide](#TODO[/migrate/4/]) first.
+   - If you are on a version earlier than 4, follow the [webpack 4 migration guide](/guides/migration/to-v4) first.
 
 2. Upgrade `webpack-cli` to the latest available version (if you use it).
 
@@ -78,7 +78,7 @@ Update the following options to their new form (if you use them):
 - `Rule.loaders` → [`Rule.use`](#TODO[/configuration/module/#ruleuse])
 
 > [!TIP]
-> Review the detailed configuration changes [here](#TODO[/blog/2020-10-10-webpack-5-release/#changes-to-the-configuration]).
+> Review the detailed configuration changes [here](/blog/posts/2020-10-10-webpack-5-release/#changes-to-the-configuration).
 
 ### Test webpack 5 compatibility
 
@@ -117,7 +117,7 @@ If you were unable to upgrade some plugins or loaders to their latest versions i
 - If you use `IgnorePlugin` with a regular expression argument, it now takes an `options` object: `new IgnorePlugin({ resourceRegExp: /regExp/ })`.
 - If you use something like `node.fs: 'empty'`, replace it with `resolve.fallback.fs: false`.
 - If you use `watch: true` in the webpack Node.js API, remove it. It is unnecessary, since the compiler method you call already indicates watch mode: `watch()` for watching and `run()` for a single build.
-- If you have `rules` that load assets with `raw-loader`, `url-loader`, or `file-loader`, use [Asset Modules](#TODO[/guides/asset-modules/]) instead, as those loaders will be deprecated soon.
+- If you have `rules` that load assets with `raw-loader`, `url-loader`, or `file-loader`, use [Asset Modules](/guides/core-workflows/asset-modules) instead, as those loaders will be deprecated soon.
 - If you have `target` set to a function, set it to `false` and apply that function in the `plugins` option instead. For example:
 
   ```json

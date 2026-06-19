@@ -6,7 +6,7 @@ authors: bebraw,varunjayaraman,cntanglijun,chrisVillanueva,johnstew,simon04,aaro
 
 webpack is a good fit when your application needs a customizable build pipeline: bundling JavaScript modules, processing assets, integrating loaders and plugins, and shaping output for different environments. For a very small page with one or two scripts, a bundler may be unnecessary at first; but for an application with shared dependencies, npm packages, assets, and production builds, webpack gives you explicit control over how everything is assembled.
 
-webpack is used to efficiently compile JavaScript modules. Once [installed](#TODO[/guides/installation]), you can interact with webpack through either its [CLI](#TODO[/api/cli]) or its [API](#TODO[/api/node]). If you're new to webpack, please read through the [core concepts](#TODO[/concepts]) and [this comparison](#TODO[/comparison]) to learn why you might choose it over the other tools available in the community.
+webpack is used to efficiently compile JavaScript modules. Once [installed](/guides/getting-started/installing-webpack), you can interact with webpack through either its [CLI](#TODO[/api/cli]) or its [API](#TODO[/api/node]). If you're new to webpack, please read through the [core concepts](/guides/getting-started/concepts) and [this comparison](#TODO[/comparison]) to learn why you might choose it over the other tools available in the community.
 
 > [!WARNING]
 > The examples in this guide use `webpack-cli` 7, which requires Node.js 20.9.0 or later.
@@ -30,7 +30,7 @@ cd webpack-demo
 
 ## Basic setup
 
-First, let's create a directory, initialize npm, [install webpack locally](#TODO[/guides/installation/#local-installation]), and install the [`webpack-cli`](https://github.com/webpack/webpack-cli) (the tool used to run webpack on the command line):
+First, let's create a directory, initialize npm, [install webpack locally](/guides/getting-started/installing-webpack/#local-installation), and install the [`webpack-cli`](https://github.com/webpack/webpack-cli) (the tool used to run webpack on the command line):
 
 ```bash
 # Run the commands for one package manager only.
@@ -150,7 +150,7 @@ First, we'll tweak our directory structure slightly, separating the "source" cod
        └── index.js
 ```
 
-The `dist` directory is build output, so in a mature project you usually do not hand-edit files there. We are moving `index.html` into `dist` for now only as temporary scaffolding, so the browser has an HTML file that loads the first generated bundle. Later, in [another guide](#TODO[/guides/output-management/#setting-up-htmlwebpackplugin]), we'll generate `index.html` rather than edit it manually. Once that's done, it should be safe to empty the `dist` directory and regenerate all the files within it.
+The `dist` directory is build output, so in a mature project you usually do not hand-edit files there. We are moving `index.html` into `dist` for now only as temporary scaffolding, so the browser has an HTML file that loads the first generated bundle. Later, in [another guide](/guides/core-workflows/output-management/#setting-up-htmlwebpackplugin), we'll generate `index.html` rather than edit it manually. Once that's done, it should be safe to empty the `dist` directory and regenerate all the files within it.
 
 To bundle the `lodash` dependency with `index.js`, we'll need to install the library locally:
 
@@ -210,7 +210,7 @@ In this setup, `index.js` explicitly requires `lodash` to be present and binds i
 > [!TIP]
 > A couple of other script-loading strategies exist. Deferred loading is one alternative to the above: scripts are consolidated into the `<head>` and given the `defer` attribute. This strategy downloads external script resources in parallel with document parsing and executes the scripts in order of document appearance after parsing has finished. This contrasts with the approach above, in which the parser pauses to download and then execute the external resource synchronously. To learn more, MDN has a nice [reference guide](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/script#async_and_defer).
 
-With that said, let's run `npx webpack` from the project root. If webpack is installed locally, `npx` runs the local binary from `node_modules/.bin`; otherwise, it may download and execute it. This command takes our script at `src/index.js` as the [entry point](#TODO[/concepts/entry-points]) and generates `dist/main.js` as the [output](#TODO[/concepts/output]).
+With that said, let's run `npx webpack` from the project root. If webpack is installed locally, `npx` runs the local binary from `node_modules/.bin`; otherwise, it may download and execute it. This command takes our script at `src/index.js` as the [entry point](/guides/getting-started/concepts/entry-points) and generates `dist/main.js` as the [output](/guides/getting-started/concepts/output).
 
 ```bash
 # Run the command for one package manager only.
@@ -247,11 +247,11 @@ The [`import`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference
 
 Behind the scenes, webpack analyzes your module graph and bundles the modules into code the browser can load in the right order. It handles module syntax such as `import` and `export`, and supports various other module syntaxes as well. See [Module API](#TODO[/api/module-methods]) for more information.
 
-Note that webpack will not alter any code other than `import` and `export` statements. If you're using other [ES2015 features](http://es6-features.org/), make sure to [use a transpiler](#TODO[/loaders/#transpiling]) such as [Babel](https://babeljs.io/) via webpack's [loader system](#TODO[/concepts/loaders/]).
+Note that webpack will not alter any code other than `import` and `export` statements. If you're using other [ES2015 features](http://es6-features.org/), make sure to [use a transpiler](#TODO[/loaders/#transpiling]) such as [Babel](https://babeljs.io/) via webpack's [loader system](/guides/getting-started/concepts/loaders).
 
 ## Using a configuration
 
-As of version 4, webpack doesn't require any configuration, but most projects will need a more complex setup, which is why webpack supports a [configuration file](#TODO[/concepts/configuration]). This is much more efficient than manually typing a lot of commands in the terminal, so let's create one.
+As of version 4, webpack doesn't require any configuration, but most projects will need a more complex setup, which is why webpack supports a [configuration file](/guides/getting-started/concepts/configuration). This is much more efficient than manually typing a lot of commands in the terminal, so let's create one.
 
 webpack configuration files can be written using either CommonJS or ECMAScript modules. The examples below use modern ESM syntax.
 
@@ -372,7 +372,7 @@ webpack 5.x.x compiled successfully in 1940 ms
 
 ## Conclusion
 
-Now that you have a basic build together, you should move on to the next guide, [Asset Management](#TODO[/guides/asset-management]), to learn how to manage assets such as images and fonts with webpack. At this point, your project should look like this:
+Now that you have a basic build together, you should move on to the next guide, [Asset Management](/guides/core-workflows/asset-management), to learn how to manage assets such as images and fonts with webpack. At this point, your project should look like this:
 
 ```diff displayName="project"
 webpack-demo
@@ -390,4 +390,4 @@ webpack-demo
 > [!WARNING]
 > Do not compile untrusted code with webpack. It could lead to execution of malicious code on your computer, on remote servers, or in the web browsers of your application's end users.
 
-If you want to learn more about webpack's design, you can check out the [basic concepts](#TODO[/concepts]) and [configuration](#TODO[/configuration]) pages. Furthermore, the [API](#TODO[/api]) section digs into the various interfaces webpack offers.
+If you want to learn more about webpack's design, you can check out the [basic concepts](/guides/getting-started/concepts) and [configuration](#TODO[/configuration]) pages. Furthermore, the [API](#TODO[/api]) section digs into the various interfaces webpack offers.

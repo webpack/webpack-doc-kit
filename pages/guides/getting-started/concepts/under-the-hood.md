@@ -9,11 +9,11 @@ authors: smelukov,EugeneHlushko,chenxsan,amirsaeed671,avivkeller
 
 At its core, bundling is a function that takes some files and emits others.
 
-Between input and output, however, it works with [modules](#TODO[/concepts/modules/]), [entry points](#TODO[/concepts/entry-points/]), chunks, chunk groups, and many other intermediate pieces.
+Between input and output, however, it works with [modules](/guides/getting-started/concepts/modules), [entry points](/guides/getting-started/concepts/entry-points), chunks, chunk groups, and many other intermediate pieces.
 
 ## The main parts
 
-Every file used in your project is a [module](#TODO[/concepts/modules/]).
+Every file used in your project is a [module](/guides/getting-started/concepts/modules).
 
 ```js displayName="./index.js"
 import app from './app.js';
@@ -56,7 +56,7 @@ This creates two chunk groups, named `home` and `about`. Each has one chunk cont
 Chunks come in two forms:
 
 - `initial` is the main chunk for an entry point. It contains all the modules and their dependencies that you specify for that entry point.
-- `non-initial` is a chunk that may be lazy-loaded. It can appear when a [dynamic import](#TODO[/guides/code-splitting/#dynamic-imports]) or [`SplitChunksPlugin`](#TODO[/plugins/split-chunks-plugin/]) is used.
+- `non-initial` is a chunk that may be lazy-loaded. It can appear when a [dynamic import](/guides/optimization/code-splitting/#dynamic-imports) or [`SplitChunksPlugin`](#TODO[/plugins/split-chunks-plugin/]) is used.
 
 Each chunk has a corresponding **asset**. Assets are the output files, the result of bundling.
 

@@ -6,7 +6,7 @@ authors: TheLarkInn,jhnns,rouzbeh84,johnstew,MisterDev,byzyk,chenxsan,avivkeller
 
 Plugins are the [backbone](https://github.com/webpack/tapable) of webpack. webpack itself is built on the **same plugin system** that you use in your own configuration.
 
-Plugins also handle **anything else** that a [loader](#TODO[/concepts/loaders]) cannot do. webpack ships with [many plugins](#TODO[/plugins/]) out of the box.
+Plugins also handle **anything else** that a [loader](/guides/getting-started/concepts/loaders) cannot do. webpack ships with [many plugins](#TODO[/plugins/]) out of the box.
 
 > [!TIP]
 > When consuming the [`webpack-sources`](https://github.com/webpack/webpack-sources) package in plugins, prefer `compiler.webpack.sources` over importing from `webpack` or `webpack-sources` directly. This avoids version conflicts with persistent caching.

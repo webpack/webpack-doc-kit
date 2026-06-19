@@ -5,7 +5,7 @@ authors: morsdyce,kkamali,mtrivera,byzyk,EugeneHlushko,chenxsan,snitin315,tushar
 # TypeScript
 
 > [!TIP]
-> This guide builds on the [Getting Started](#TODO[/guides/getting-started/]) guide.
+> This guide builds on the [Getting Started](/guides/getting-started) guide.
 
 [TypeScript](https://www.typescriptlang.org) is a typed superset of JavaScript that compiles to plain JavaScript. In this guide, we'll learn how to integrate TypeScript with webpack.
 
@@ -53,7 +53,7 @@ Let's set up a configuration that supports JSX and compiles TypeScript down to E
 }
 ```
 
-See [TypeScript's documentation](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) to learn more about `tsconfig.json` configuration options. To learn more about webpack configuration, see the [configuration concepts](#TODO[/concepts/configuration/]).
+See [TypeScript's documentation](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) to learn more about `tsconfig.json` configuration options. To learn more about webpack configuration, see the [configuration concepts](/guides/getting-started/concepts/configuration).
 
 Now let's configure webpack to handle TypeScript. First, install the required dependencies:
 
@@ -246,13 +246,13 @@ npm uninstall tsconfig-paths-webpack-plugin
 We use `ts-loader` in this guide because it makes enabling additional webpack features, such as importing other web assets, a bit easier.
 
 > [!WARNING]
-> `ts-loader` uses `tsc`, the TypeScript compiler, and relies on your `tsconfig.json` configuration. Be sure to avoid setting [`module`](https://www.typescriptlang.org/tsconfig#module) to "CommonJS", or webpack won't be able to [tree-shake your code](#TODO[/guides/tree-shaking]).
+> `ts-loader` uses `tsc`, the TypeScript compiler, and relies on your `tsconfig.json` configuration. Be sure to avoid setting [`module`](https://www.typescriptlang.org/tsconfig#module) to "CommonJS", or webpack won't be able to [tree-shake your code](/guides/optimization/tree-shaking).
 
 Note that if you're already using [`babel-loader`](https://github.com/babel/babel-loader) to transpile your code, you can use [`@babel/preset-typescript`](https://babeljs.io/docs/en/babel-preset-typescript) and let Babel handle both your JavaScript and TypeScript files instead of using an additional loader. Keep in mind that, unlike `ts-loader`, the underlying [`@babel/plugin-transform-typescript`](https://babeljs.io/docs/en/babel-plugin-transform-typescript) plugin does not perform any type checking.
 
 ## Source maps
 
-To learn more about source maps, see the [development guide](#TODO[/guides/development]).
+To learn more about source maps, see the [development guide](/guides/core-workflows/development).
 
 To enable source maps, we must configure TypeScript to output inline source maps to our compiled JavaScript files. The following line must be added to our TypeScript configuration:
 
@@ -357,4 +357,4 @@ Here we declare a new module for SVGs by matching any import that ends in `.svg`
 > [!WARNING]
 > This may degrade build performance.
 
-See the [Build Performance](#TODO[/guides/build-performance/]) guide on build tooling.
+See the [Build Performance](/guides/optimization/build-performance) guide on build tooling.
