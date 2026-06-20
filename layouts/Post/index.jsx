@@ -36,11 +36,10 @@ export default function PostLayout({
   readingTime,
   children,
 }) {
-  const { authors = [], date, category } = metadata;
-
   // `basename` is the slug (filename without extension), matching the listing.
   const index = posts.findIndex(post => post.slug === metadata.basename);
   const current = posts[index];
+  const { authors = [], date, category } = current;
   const next = index > 0 ? posts[index - 1] : undefined;
   const previous = index >= 0 ? posts[index + 1] : undefined;
 
