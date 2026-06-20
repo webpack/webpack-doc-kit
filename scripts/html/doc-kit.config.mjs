@@ -44,7 +44,7 @@ export default {
   web: {
     project: 'webpack',
     useAbsoluteURLs: true,
-    remoteConfigUrl: null,
+    remoteConfigUrl: '/banners.json',
     title: VERSION ? `Webpack ${MAJOR_VERSION} Documentation` : 'Webpack',
     editURL:
       'https://github.com/webpack/webpack-doc-kit/blob/main/pages/{path}.md',
