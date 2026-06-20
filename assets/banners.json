@@ -1,0 +1,19 @@
+{
+  "//": [
+    "Banner that shows at the top of the docs pages.",
+    "Nothing shows right now because there is no 'index' entry.",
+    "To put a banner up, copy 'example' below into 'index' and edit the text. Remove 'index' again to take it down.",
+    "text is required. link, type, startDate and endDate are optional.",
+    "type is one of 'default' (blue), 'warning' (orange), 'error' (red).",
+    "startDate and endDate are ISO dates that limit when the banner shows."
+  ],
+  "websiteBanners": {
+    "example": {
+      "text": "webpack 5.x.0 is now available, read the release notes",
+      "link": "/blog/posts/your-release-post",
+      "type": "default",
+      "startDate": "2026-01-01T00:00:00.000Z",
+      "endDate": "2026-01-08T00:00:00.000Z"
+    }
+  }
+}
