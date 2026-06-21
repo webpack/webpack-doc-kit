@@ -3,7 +3,9 @@ out
 *.generated.*
 /.cache
 /pages/docs/api
-/pages/docs/loaders
-/pages/docs/plugins
+/pages/docs/loaders/*
+!/pages/docs/loaders/index.md
+/pages/docs/plugins/*
+!/pages/docs/plugins/index.md
 /generated
 /pages/about/governance
