@@ -113,7 +113,7 @@ Options can be passed as a query parameter, such as `?key=value&foo=bar`, or as 
 - Plugins can give loaders additional features.
 - Loaders can emit extra, arbitrary files.
 
-Loaders let you customize the output through their preprocessing functions. This gives you the flexibility to include fine-grained logic such as compression, packaging, language translation, and [more](#TODO[/loaders]).
+Loaders let you customize the output through their preprocessing functions. This gives you the flexibility to include fine-grained logic such as compression, packaging, language translation, and [more](/docs/loaders).
 
 ## Resolving loaders
 

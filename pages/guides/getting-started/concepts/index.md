@@ -137,7 +137,7 @@ export default {
 In the example above, the `html-webpack-plugin` generates an HTML file for your application and automatically injects all of your generated bundles into it.
 
 > [!TIP]
-> webpack provides many plugins out of the box. Check out the [list of plugins](#TODO[/plugins]).
+> webpack provides many plugins out of the box. Check out the [list of plugins](/docs/plugins).
 
 Using plugins in your webpack configuration is straightforward, but there are many use cases worth exploring further. [Learn more about them here](/guides/getting-started/concepts/plugins).
 
