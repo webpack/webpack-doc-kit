@@ -1,11 +1,9 @@
-name: CodeQL
+name: Zizmor
 
 on:
   pull_request:
   push:
     branches: [main]
-  schedule:
-    - cron: '0 0 * * 1' # every Monday at 00:00 UTC
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -15,7 +13,7 @@ permissions:
   contents: read
 
 jobs:
-  analyze:
+  zizmor:
     runs-on: ubuntu-latest
     permissions:
       actions: read
@@ -27,10 +25,5 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Initialize CodeQL
-        uses: github/codeql-action/init@8aad20d150bbac5944a9f9d289da16a4b0d87c1e # v4.36.2
-        with:
-          languages: javascript-typescript
-
-      - name: Perform CodeQL analysis
-        uses: github/codeql-action/analyze@8aad20d150bbac5944a9f9d289da16a4b0d87c1e # v4.36.2
+      - name: Run zizmor
+        uses: zizmorcore/zizmor-action@192e21d79ab29983730a13d1382995c2307fbcaa # v0.5.7
