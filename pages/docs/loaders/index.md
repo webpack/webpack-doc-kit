@@ -1,6 +1,5 @@
 ---
 authors: simon04,bajras,rhys-vdw,EugeneHlushko,hemal7735,snitin315,anshumanv,jamesgeorge007,chenxsan
-source: https://github.com/webpack/webpack-doc-kit/blob/main/pages/docs/loaders/index.md
 ---
 
 # Loaders

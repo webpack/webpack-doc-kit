@@ -1,6 +1,5 @@
 ---
 authors: simon04,gonzoyumo,rouzbeh84,aretecode,eko3alpha,refactorized,byzyk,EugeneHlushko,snitin315,chenxsan
-source: https://github.com/webpack/webpack-doc-kit/blob/main/pages/docs/plugins/index.md
 ---
 
 # Plugins
