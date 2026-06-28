@@ -3,6 +3,7 @@ import { fileURLToPath } from 'node:url';
 import { major } from 'semver';
 
 import createTailwindReader from './tailwind.mjs';
+import allVersions from '../../versions.json' with { type: 'json' };
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 
@@ -27,7 +28,7 @@ const SITE_MODULE = join(ROOT, 'pages/site.mjs');
 export default {
   global: {
     repository: 'webpack/webpack',
-    version: VERSION,
+    version: VERSION ?? allVersions[0],
     input: [`${INPUT_DIR}/**/*.md`],
     ignore: VERSION ? [] : ['./pages/docs/api/**/*.md'],
     output: VERSION ? `./out/docs/api/${MAJOR_VERSION}` : './out',
