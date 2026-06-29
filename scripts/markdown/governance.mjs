@@ -26,11 +26,14 @@ const FILE_MAP = {
   'AI_POLICY.md': { output: 'ai-policy', label: 'AI Policy' },
 };
 
+const pageLink = output =>
+  output === 'index' ? '/about/governance' : `/about/governance/${output}`;
+
 // Derived from FILE_MAP - stays in sync automatically if entries are added/removed.
 const LINK_REWRITE_MAP = Object.fromEntries(
   Object.entries(FILE_MAP).map(([source, { output }]) => [
     source,
-    `/about/governance/${output}`,
+    pageLink(output),
   ])
 );
 
@@ -77,7 +80,7 @@ const siteJson = {
     {
       groupName: 'Governance',
       items: fetched.map(({ output, label }) => ({
-        link: `/about/governance/${output}`,
+        link: pageLink(output),
         label,
       })),
     },
