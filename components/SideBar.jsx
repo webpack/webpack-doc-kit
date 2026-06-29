@@ -2,6 +2,7 @@ import Select from '@node-core/ui-components/Common/Select';
 import SideBar from '@node-core/ui-components/Containers/Sidebar';
 import { major } from 'semver';
 import { sidebar } from '#theme/local/site';
+import { version } from '#theme/config';
 import versions from '../versions.json' with { type: 'json' };
 
 /** @param {string} url */
@@ -30,9 +31,9 @@ const versionItems = versions.map(version => ({
   label: `v${major(version)}.x`,
 }));
 
-// Read the current /docs/api/vX.x base off the sidebar links so the picker preselects it.
+// Preselect the picker with the version this API build was generated for.
 const currentVersion = isVersioned
-  ? JSON.stringify(sidebar).match(/\/docs\/api\/v\d+\.x/)?.[0]
+  ? `/docs/api/v${version.major}.x`
   : undefined;
 
 /** Docs sidebar, plus a webpack version picker on the versioned API docs. */
