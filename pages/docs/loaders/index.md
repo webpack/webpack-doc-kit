@@ -1,59 +1,28 @@
 ---
-authors: simon04,bajras,rhys-vdw,EugeneHlushko,hemal7735,snitin315,anshumanv,jamesgeorge007,chenxsan
+authors: ryzrr
 ---
 
 # Loaders
 
-Webpack enables use of [loaders](#TODO[/concepts/loaders]) to preprocess files. This allows you to bundle any static resource way beyond JavaScript. You can easily write your own loaders using Node.js.
-Loaders are separate packages that extend webpack's capabilities and are maintained within the broader ecosystem.
-Loaders are activated by using `loadername!` prefixes in `import .. from "mod";`/`require()` statements, or are automatically applied via regex from your webpack configuration – see [configuration](#TODO[/concepts/loaders/#configuration]).
+Out of the box, webpack only understands JavaScript and JSON. Loaders let it
+handle other file types by transforming their contents into modules that webpack
+can add to the dependency graph. See
+[Concepts: Loaders](/guides/getting-started/concepts/loaders) for how they fit
+into a build.
 
-## Files
+The loaders below are maintained by the webpack organization.
 
-- [`ref-loader`](https://www.npmjs.com/package/ref-loader) Create dependencies between any files manually
-
-## JSON
-
-- [`cson-loader`](https://github.com/awnist/cson-loader) Loads and transpiles a [CSON](https://github.com/bevry/cson#what-is-cson) file
-
-## Transpiling
-
-- [`babel-loader`](https://github.com/babel/babel-loader) Loads ES2015+ code and transpiles to ES5 using [Babel](https://babeljs.io/)
-- [`esbuild-loader`](https://github.com/privatenumber/esbuild-loader) Loads ES2015+ code and transpiles to ES6+ using [esbuild](https://esbuild.github.io/)
-- [`buble-loader`](https://github.com/sairion/buble-loader) Loads ES2015+ code and transpiles to ES5 using [Bublé](https://buble.surge.sh/guide/)
-- [`traceur-loader`](https://github.com/jupl/traceur-loader) Loads ES2015+ code and transpiles to ES5 using [Traceur](https://github.com/google/traceur-compiler#readme)
-- [`ts-loader`](https://github.com/TypeStrong/ts-loader) Loads [TypeScript](https://www.typescriptlang.org/) 2.0+ like JavaScript
-- [`coffee-loader`](/docs/loaders/coffee-loader) Loads [CoffeeScript](http://coffeescript.org/) like JavaScript
-- [`fengari-loader`](https://github.com/fengari-lua/fengari-loader/) Loads Lua code using [fengari](https://fengari.io/)
-- [`elm-webpack-loader`](https://github.com/elm-community/elm-webpack-loader) Loads [Elm](https://elm-lang.org/) like JavaScript
-
-## Templating
-
-- [`html-loader`](/docs/loaders/html-loader) Exports HTML as string, require references to static resources
-- [`pug-loader`](https://github.com/pugjs/pug-loader) Loads Pug and Jade templates and returns a function
-- [`markdown-loader`](https://github.com/peerigon/markdown-loader) Compiles Markdown to HTML
-- [`react-markdown-loader`](https://github.com/javiercf/react-markdown-loader) Compiles Markdown to a React Component using the markdown-parse parser
-- [`posthtml-loader`](https://github.com/posthtml/posthtml-loader) Loads and transforms a HTML file using [PostHTML](https://github.com/posthtml/posthtml)
-- [`handlebars-loader`](https://github.com/pcardune/handlebars-loader) Compiles Handlebars to HTML
-- [`markup-inline-loader`](https://github.com/asnowwolf/markup-inline-loader) Inline SVG/MathML files to HTML. It's useful when applying icon font or applying CSS animation to SVG.
-- [`twig-loader`](https://github.com/zimmo-be/twig-loader) Compiles Twig templates and returns a function
-- [`remark-loader`](https://github.com/webpack/remark-loader) Load markdown through `remark` with built-in image resolution
-
-## Styling
-
-- [`style-loader`](/docs/loaders/style-loader) Add exports of a module as style to DOM
-- [`css-loader`](/docs/loaders/css-loader) Loads CSS file with resolved imports and returns CSS code
-- [`css-utility-loader`](https://github.com/SahilKhanWDC/css-utility-loader-webpack-.git) - Automatically parses and translates legacy CSS properties into modern utility classes (Tailwind) at build-time.
-- [`less-loader`](/docs/loaders/less-loader) Loads and compiles a LESS file
-- [`sass-loader`](/docs/loaders/sass-loader) Loads and compiles a SASS/SCSS file
-- [`postcss-loader`](/docs/loaders/postcss-loader) Loads and transforms a CSS/SSS file using [PostCSS](http://postcss.org)
-- [`stylus-loader`](/docs/loaders/stylus-loader) Loads and compiles a Stylus file
-
-## Frameworks
-
-- [`vue-loader`](https://github.com/vuejs/vue-loader) Loads and compiles [Vue Components](https://vuejs.org/v2/guide/components.html)
-- [`angular2-template-loader`](https://github.com/TheLarkInn/angular2-template-loader) Loads and compiles [Angular](https://angular.io/) Components
-
-## Awesome
-
-For more third-party loaders, see the list from [awesome-webpack](https://github.com/webpack-contrib/awesome-webpack#loaders).
+| Loader                                           | Description                                                                        |
+| ------------------------------------------------ | ---------------------------------------------------------------------------------- |
+| [`css-loader`](/docs/loaders/css-loader)         | Resolve `@import` and `url()` in CSS the way `import` and `require()` are resolved |
+| [`style-loader`](/docs/loaders/style-loader)     | Inject CSS into the DOM                                                            |
+| [`sass-loader`](/docs/loaders/sass-loader)       | Compile Sass and SCSS to CSS                                                       |
+| [`less-loader`](/docs/loaders/less-loader)       | Compile Less to CSS                                                                |
+| [`stylus-loader`](/docs/loaders/stylus-loader)   | Compile Stylus to CSS                                                              |
+| [`postcss-loader`](/docs/loaders/postcss-loader) | Process CSS with PostCSS                                                           |
+| [`html-loader`](/docs/loaders/html-loader)       | Export HTML as a string and resolve its asset references                           |
+| [`coffee-loader`](/docs/loaders/coffee-loader)   | Compile CoffeeScript to JavaScript                                                 |
+| [`exports-loader`](/docs/loaders/exports-loader) | Add exports to a module that does not define its own                               |
+| [`imports-loader`](/docs/loaders/imports-loader) | Provide global variables to a module that expects them                             |
+| [`expose-loader`](/docs/loaders/expose-loader)   | Expose a module on the global object                                               |
+| [`thread-loader`](/docs/loaders/thread-loader)   | Run the loaders that follow it in a worker pool                                    |
