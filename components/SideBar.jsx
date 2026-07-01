@@ -10,14 +10,16 @@ const redirect = url => (window.location.href = url);
 
 const PrefetchLink = props => <a {...props} rel="prefetch" />;
 
-const pathnameFor = path => {
-  const clean = path.replace(/\/index$/, '');
-  if (!clean) return '/';
-  return clean.startsWith('/') ? clean : `/${clean}`;
-};
-
 // The versioned API docs pass `sidebar` as an array of groups; the main site keys it by section.
 const isVersioned = Array.isArray(sidebar);
+
+// Versioned pages expose a version relative path, we prefix it so it matches the absolute sidebar links.
+const versionBase = isVersioned ? `/docs/api/v${version.major}.x` : '';
+
+const pathnameFor = path => {
+  const clean = path.replace(/\/index$/, '').replace(/^\//, '');
+  return (clean ? `${versionBase}/${clean}` : versionBase) || '/';
+};
 
 const groupsFor = path => {
   if (isVersioned) return sidebar;
@@ -32,9 +34,7 @@ const versionItems = versions.map(version => ({
 }));
 
 // Preselect the picker with the version this API build was generated for.
-const currentVersion = isVersioned
-  ? `/docs/api/v${version.major}.x`
-  : undefined;
+const currentVersion = isVersioned ? versionBase : undefined;
 
 /** Docs sidebar, plus a webpack version picker on the versioned API docs. */
 export default ({ metadata }) => (
