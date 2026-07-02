@@ -1,3 +1,7 @@
+---
+authors: moshams272
+---
+
 # Documentation
 
 The documentation provides deep technical details on webpack's API, configuration, and ecosystem. Whether you are looking up core features or exploring community tools, you will find everything you need below.

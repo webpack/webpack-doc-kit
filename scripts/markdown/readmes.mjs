@@ -71,10 +71,16 @@ const processRepos = async (repos, { label, basePath, outputDir }) => {
     sidebar: [
       {
         label: label,
-        items: fetched.map(name => ({
-          link: `${basePath}/${name}`,
-          label: name.replace(/-(?:webpack-)?(?:loader|plugin)$/, ''),
-        })),
+        items: [
+          {
+            link: basePath,
+            label: 'Overview',
+          },
+          ...fetched.map(name => ({
+            link: `${basePath}/${name}`,
+            label: name.replace(/-(?:webpack-)?(?:loader|plugin)$/, ''),
+          })),
+        ],
       },
     ],
   };
