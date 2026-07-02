@@ -14,10 +14,10 @@ Explore the core configuration, CLI commands, and Node.js API for the latest ver
 
 Loaders allow webpack to process other types of files and convert them into valid modules. Discover the extensive ecosystem of third-party loaders for CSS, TypeScript, images, and more.
 
-[Discover community loaders!](/docs/loaders/coffee-loader)
+[Discover community loaders!](/docs/loaders)
 
 #### Plugins
 
 Plugins are the backbone of webpack's architecture. Browse community-maintained plugins that extend webpack's capabilities for build optimization, asset management, and environment injection.
 
-[Browse community plugins!](/docs/plugins/compression-webpack-plugin)
+[Browse community plugins!](/docs/plugins)
