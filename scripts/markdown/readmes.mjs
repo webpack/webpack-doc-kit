@@ -70,7 +70,7 @@ const processRepos = async (repos, { label, basePath, outputDir }) => {
   const siteJson = {
     sidebar: [
       {
-        groupName: label,
+        label: label,
         items: fetched.map(name => ({
           link: `${basePath}/${name}`,
           label: name.replace(/-(?:webpack-)?(?:loader|plugin)$/, ''),

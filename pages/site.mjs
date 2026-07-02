@@ -35,8 +35,10 @@ export const sidebar = {
         },
       ],
     },
-    ...loaders.sidebar,
-    ...plugins.sidebar,
+    {
+      groupName: 'Third Party Packages',
+      items: [...loaders.sidebar, ...plugins.sidebar],
+    },
   ],
   guides: guides.sidebar,
 };
