@@ -445,7 +445,7 @@ A welcome benefit: because loading is now Promise-based, you can handle the fail
 
 ## Dynamic expressions
 
-You can pass a partial expression to `import()`. This works much like expressions in CommonJS: webpack creates a [context](#TODO[/plugins/context-replacement-plugin/]) containing all possible files, and `import()` produces a separate chunk for each possible module.
+You can pass a partial expression to `import()`. This works much like expressions in CommonJS: webpack creates a [context](/docs/api/v5.x/plugins/ContextReplacementPlugin) containing all possible files, and `import()` produces a separate chunk for each possible module.
 
 ```js
 function route(path, query) {
@@ -539,7 +539,7 @@ module.exports = {
 
 Several new CLI options are available:
 
-- `--define process.env.NODE_ENV="production"` — see [`DefinePlugin`](#TODO[/plugins/define-plugin/]).
+- `--define process.env.NODE_ENV="production"` — see [`DefinePlugin`](/docs/api/v5.x/plugins/DefinePlugin).
 - `--display-depth` — displays the distance from the entry point for each module.
 - `--display-used-exports` — displays which exports are used in a module.
 - `--display-max-modules` — sets how many modules appear in the output (defaults to 15).

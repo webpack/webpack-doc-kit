@@ -49,14 +49,14 @@ export default {
 This creates two chunk groups, named `home` and `about`. Each has one chunk containing a single module: `./home.js` for `home` and `./about.js` for `about`.
 
 > [!NOTE]
-> A chunk group may contain more than one chunk. For example, [`SplitChunksPlugin`](#TODO[/plugins/split-chunks-plugin/]) splits a chunk into one or more chunks.
+> A chunk group may contain more than one chunk. For example, [`SplitChunksPlugin`](/docs/api/v5.x/optimize/SplitChunksPlugin) splits a chunk into one or more chunks.
 
 ## Chunks
 
 Chunks come in two forms:
 
 - `initial` is the main chunk for an entry point. It contains all the modules and their dependencies that you specify for that entry point.
-- `non-initial` is a chunk that may be lazy-loaded. It can appear when a [dynamic import](/guides/optimization/code-splitting/#dynamic-imports) or [`SplitChunksPlugin`](#TODO[/plugins/split-chunks-plugin/]) is used.
+- `non-initial` is a chunk that may be lazy-loaded. It can appear when a [dynamic import](/guides/optimization/code-splitting/#dynamic-imports) or [`SplitChunksPlugin`](/docs/api/v5.x/optimize/SplitChunksPlugin) is used.
 
 Each chunk has a corresponding **asset**. Assets are the output files, the result of bundling.
 

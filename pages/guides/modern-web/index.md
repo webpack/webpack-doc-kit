@@ -7,7 +7,7 @@ authors: phoekerson,avivkeller
 This guide describes practical webpack patterns for **Web Components**, **Import Maps**, and **Progressive Web Apps** (PWAs) with **Service Workers**. Each section states the problem, shows a minimal configuration you can copy, and notes the current limits relative to future webpack improvements.
 
 > [!TIP]
-> Familiarity with [code splitting](/guides/optimization/code-splitting), [caching](/guides/optimization/caching) (`[contenthash]`), and the [`SplitChunksPlugin`](#TODO[/plugins/split-chunks-plugin/]) is helpful here.
+> Familiarity with [code splitting](/guides/optimization/code-splitting), [caching](/guides/optimization/caching) (`[contenthash]`), and the [`SplitChunksPlugin`](/docs/api/v5.x/optimize/SplitChunksPlugin) is helpful here.
 
 ## Web Components with webpack
 
