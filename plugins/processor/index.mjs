@@ -52,7 +52,9 @@ export function load(app) {
             );
             param.name = `{ ${destructuredKeys.join(', ')} }`;
           } else if (param.type?.type === 'reference' && param.type.name) {
-            param.name = param.type.name;
+            const interfaceName = param.type.name;
+            param.name =
+              interfaceName[0].toLowerCase() + interfaceName.slice(1);
           } else {
             param.name = 'options';
           }
