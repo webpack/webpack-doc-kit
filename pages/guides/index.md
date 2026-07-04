@@ -1,54 +1,18 @@
 ---
 authors: moshams272
 ---
-
 # Guides
 
-This section contains guides for understanding and mastering the wide variety of tools and features that webpack offers. The first is a guide that takes you through [getting started](/guides/getting-started).
+This section contains guides for understanding and mastering the wide variety of tools and features that webpack offers. Start with [Getting Started](/guides/getting-started) to learn the basics, then work through the rest at your own pace.
+The guides increase in complexity as you progress. Each one serves as a starting point — once you've worked through it, you should feel ready to dive into the full [documentation](/docs).
 
-The guides get more advanced as you go on. Most serve as a starting point, and once completed you should feel more comfortable diving into the actual [documentation](/docs).
-
-### Getting Started
-
-If you are new to webpack, this is the best place to begin. Learn the core concepts, build your first bundle, and understand how to set up your basic webpack configuration.
-
-[Learn how to get started!](/guides/getting-started)
-
-### Core Workflows
-
-Master the essential daily workflows of a webpack developer. This section covers how to manage your assets, set up a hot-reloading development environment, and prepare highly optimized bundles for production.
-
-[Explore core workflows!](/guides/core-workflows/asset-management)
-
-### Optimization
-
-Take your application's performance to the next level. Learn how to split your code into smaller chunks, leverage browser caching, and use tree shaking to eliminate dead code from your final bundle.
-
-[Learn more about optimization!](/guides/optimization/build-performance)
-
-### Modern Web Platform
-
-Keep up with modern web standards. Discover how to natively bundle CSS, configure Progressive Web Applications (PWAs), and implement Web Workers seamlessly.
-
-[Discover modern web platform features!](/guides/modern-web)
-
-### Modules & Dependencies
-
-Understand how webpack handles different module types and dependencies. Dive into ECMAScript Modules (ESM), package exports, and advanced entry point configurations.
-
-[Master modules and dependencies!](/guides/modules-and-dependencies/dependency-management)
-
-### Tooling & Integration
-
-Integrate webpack perfectly into your broader tech stack. Find out how to author your own libraries, set up TypeScript, and ensure Content Security Policy (CSP) compliance.
-
-[Learn about tooling and integration!](/guides/tooling-and-integration/authoring-libraries)
-
-### Migration
-
-Are you upgrading from an older version of webpack? We provide step-by-step guides to help you transition smoothly to the latest major releases.
-
-[Check the migration guides!](/guides/migration)
+- [Getting Started](/guides/getting-started) — Learn the core concepts, build your first bundle, and set up a basic webpack configuration
+- [Core Workflows](/guides/core-workflows/asset-management) — Manage assets, set up hot-reloading development, and prepare optimized bundles for production
+- [Optimization](/guides/optimization/build-performance) — Split code into smaller chunks, leverage browser caching, and use tree shaking to eliminate dead code
+- [Modern Web Platform](/guides/modern-web) — Natively bundle CSS, configure Progressive Web Applications (PWAs), and implement Web Workers
+- [Modules & Dependencies](/guides/modules-and-dependencies/dependency-management) — Work with ECMAScript Modules (ESM), package exports, and advanced entry point configurations
+- [Tooling & Integration](/guides/tooling-and-integration/authoring-libraries) — Author your own libraries, set up TypeScript, and ensure Content Security Policy (CSP) compliance
+- [Migration](/guides/migration) — Step-by-step guides for upgrading smoothly to the latest major releases
 
 > [!TIP]
-> The output shown from running webpack in the guides may differ slightly from the output of newer versions. This is to be expected. As long as the bundles look similar and run correctly, then there shouldn't be any issues. If you do come across an example that seems to be broken by a new version, please [`create an issue`](https://github.com/webpack/webpack-doc-kit/issues/new/choose) and we will do our best to resolve the discrepancy.
+> The output shown in these guides may differ slightly from what you see with newer versions of webpack. As long as your bundles look similar and run correctly, there's no cause for concern. If you find an example that seems broken by a newer release, please [open a PR](https://github.com/webpack/webpack-doc-kit/issues/new/choose) and we'll do our best to resolve the discrepancy.
