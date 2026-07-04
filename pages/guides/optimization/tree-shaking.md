@@ -518,7 +518,7 @@ With that squared away, run `npm run build` again and see what's changed.
 Notice anything different about `dist/bundle.js`? The whole bundle is now minified and mangled, but if you look carefully, you won't see the `square` function — only a mangled version of the `cube` function (`function r(e){return e*e*e}n.a=r`). With minification and tree shaking, our bundle is now a few bytes smaller. That may not seem like much in this contrived example, but tree shaking can yield a significant decrease in bundle size when working on larger applications with complex dependency trees.
 
 > [!TIP]
-> [`ModuleConcatenationPlugin`](/docs/api/v5.x/optimize/ModuleConcatenationPlugin) is required for tree shaking to work. It's added by `mode: 'production'`. If you're not using that mode, remember to add [`ModuleConcatenationPlugin`](/docs/api/v5.x/optimize/ModuleConcatenationPlugin) manually.
+> [`ModuleConcatenationPlugin`](/docs/api/optimize/ModuleConcatenationPlugin) is required for tree shaking to work. It's added by `mode: 'production'`. If you're not using that mode, remember to add [`ModuleConcatenationPlugin`](/docs/api/optimize/ModuleConcatenationPlugin) manually.
 
 ## Common pitfalls with side effects
 

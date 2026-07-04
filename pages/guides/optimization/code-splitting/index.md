@@ -12,7 +12,7 @@ Code splitting is one of webpack's most compelling features. It lets you split y
 There are three general approaches to code splitting:
 
 - **Entry points**: Manually split code using the [`entry`](#TODO[/configuration/entry-context]) configuration.
-- **Prevent duplication**: Use [entry dependencies](#TODO[/configuration/entry-context/#dependencies]) or the [`SplitChunksPlugin`](/docs/api/v5.x/optimize/SplitChunksPlugin) to deduplicate and split chunks.
+- **Prevent duplication**: Use [entry dependencies](#TODO[/configuration/entry-context/#dependencies]) or the [`SplitChunksPlugin`](/docs/api/optimize/SplitChunksPlugin) to deduplicate and split chunks.
 - **Dynamic imports**: Split code through inline function calls within modules.
 
 ## Entry Points
@@ -174,7 +174,7 @@ Although webpack allows multiple entry points per page, you should avoid it when
 
 ### SplitChunksPlugin
 
-The [`SplitChunksPlugin`](/docs/api/v5.x/optimize/SplitChunksPlugin) lets you extract common dependencies into an existing entry chunk or an entirely new one. Let's use it to deduplicate the `lodash` dependency from the previous example:
+The [`SplitChunksPlugin`](/docs/api/optimize/SplitChunksPlugin) lets you extract common dependencies into an existing entry chunk or an entirely new one. Let's use it to deduplicate the `lodash` dependency from the previous example:
 
 ```diff displayName="webpack.config.js"
   import path from 'node:path';
@@ -201,7 +201,7 @@ The [`SplitChunksPlugin`](/docs/api/v5.x/optimize/SplitChunksPlugin) lets you ex
   };
 ```
 
-With the [`optimization.splitChunks`](/docs/api/v5.x/chunks/types#interface-optimizationsplitchunksoptions) option in place, the duplicate dependency should now be removed from both `index.bundle.js` and `another.bundle.js`. The plugin recognizes that `lodash` has been separated into its own chunk and strips the dead weight from the main bundles. Note, however, that common dependencies are only extracted into a separate chunk if they meet the [size thresholds](/docs/api/v5.x/chunks/types#interface-optimizationsplitchunksoptions) specified by webpack.
+With the [`optimization.splitChunks`](/docs/api/chunks/types#interface-optimizationsplitchunksoptions) option in place, the duplicate dependency should now be removed from both `index.bundle.js` and `another.bundle.js`. The plugin recognizes that `lodash` has been separated into its own chunk and strips the dead weight from the main bundles. Note, however, that common dependencies are only extracted into a separate chunk if they meet the [size thresholds](/docs/api/chunks/types#interface-optimizationsplitchunksoptions) specified by webpack.
 
 Run `npm run build` to confirm it worked:
 
@@ -232,7 +232,7 @@ webpack supports two similar techniques for dynamic code splitting. The first an
 > [!WARNING]
 > `import()` calls use [promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) internally. If you use `import()` with older browsers (such as IE 11), remember to shim `Promise` with a polyfill like [es6-promise](https://github.com/stefanpenner/es6-promise) or [promise-polyfill](https://github.com/taylorhakes/promise-polyfill).
 
-Before we begin, let's remove the extra [`entry`](/guides/getting-started/concepts/entry-points) and [`optimization.splitChunks`](/docs/api/v5.x/chunks/types#interface-optimizationsplitchunksoptions) configuration from the previous example, since they aren't needed for this demonstration:
+Before we begin, let's remove the extra [`entry`](/guides/getting-started/concepts/entry-points) and [`optimization.splitChunks`](/docs/api/chunks/types#interface-optimizationsplitchunksoptions) configuration from the previous example, since they aren't needed for this demonstration:
 
 ```diff displayName="webpack.config.js"
  import path from 'node:path';

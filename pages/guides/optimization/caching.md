@@ -80,7 +80,7 @@ This happens because webpack includes certain boilerplate, specifically the runt
 
 ## Extracting boilerplate
 
-As we saw in [code splitting](/guides/optimization/code-splitting), the [`SplitChunksPlugin`](/docs/api/v5.x/optimize/SplitChunksPlugin) can split modules out into separate bundles. webpack also offers an optimization that splits the runtime code into its own chunk via the [`optimization.runtimeChunk`](#TODO[/configuration/optimization/#optimizationruntimechunk]) option. Set it to `single` to create a single runtime bundle shared across all chunks:
+As we saw in [code splitting](/guides/optimization/code-splitting), the [`SplitChunksPlugin`](/docs/api/optimize/SplitChunksPlugin) can split modules out into separate bundles. webpack also offers an optimization that splits the runtime code into its own chunk via the [`optimization.runtimeChunk`](#TODO[/configuration/optimization/#optimizationruntimechunk]) option. Set it to `single` to create a single runtime bundle shared across all chunks:
 
 ```diff displayName="webpack.config.js"
  import path from 'node:path';
@@ -124,7 +124,7 @@ runtime.cc17ae2a94ec771e9221.js   1.42 KiB       0  [emitted]  runtime
     + 1 hidden module
 ```
 
-It's also good practice to extract third-party libraries, such as `lodash` or `react`, into a separate `vendor` chunk, since they change less often than our own source code. Doing so means clients have to re-download less in order to stay up to date. We can achieve this with the [`cacheGroups`](/docs/api/v5.x/chunks/types#interface-optimizationsplitchunksoptions) option of the [`SplitChunksPlugin`](/docs/api/v5.x/optimize/SplitChunksPlugin). Let's add `optimization.splitChunks` with `cacheGroups` and the following parameters, then build:
+It's also good practice to extract third-party libraries, such as `lodash` or `react`, into a separate `vendor` chunk, since they change less often than our own source code. Doing so means clients have to re-download less in order to stay up to date. We can achieve this with the [`cacheGroups`](/docs/api/chunks/types#interface-optimizationsplitchunksoptions) option of the [`SplitChunksPlugin`](/docs/api/optimize/SplitChunksPlugin). Let's add `optimization.splitChunks` with `cacheGroups` and the following parameters, then build:
 
 ```diff displayName="webpack.config.js"
  import path from 'node:path';

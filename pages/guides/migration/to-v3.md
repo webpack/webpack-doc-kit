@@ -539,7 +539,7 @@ module.exports = {
 
 Several new CLI options are available:
 
-- `--define process.env.NODE_ENV="production"` — see [`DefinePlugin`](/docs/api/v5.x/plugins/DefinePlugin).
+- `--define process.env.NODE_ENV="production"` — see [`DefinePlugin`](/docs/api/plugins/DefinePlugin).
 - `--display-depth` — displays the distance from the entry point for each module.
 - `--display-used-exports` — displays which exports are used in a module.
 - `--display-max-modules` — sets how many modules appear in the output (defaults to 15).

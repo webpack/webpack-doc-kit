@@ -10,6 +10,11 @@
       "source": "/branding",
       "destination": "/about/branding",
       "permanent": true
+    },
+    {
+      "source": "/docs/api/:path((?!v\\d+\\.x).*)",
+      "destination": "/docs/api/v5.x/:path",
+      "permanent": false
     }
   ]
 }

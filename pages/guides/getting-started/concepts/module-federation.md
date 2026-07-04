@@ -49,7 +49,7 @@ This plugin adds specific references to containers as externals and allows impor
 
 ### `ModuleFederationPlugin` (high level)
 
-[`ModuleFederationPlugin`](/docs/api/v5.x/container/ModuleFederationPlugin) combines `ContainerPlugin` and `ContainerReferencePlugin`.
+[`ModuleFederationPlugin`](/docs/api/container/ModuleFederationPlugin) combines `ContainerPlugin` and `ContainerReferencePlugin`.
 
 ## Concept goals
 

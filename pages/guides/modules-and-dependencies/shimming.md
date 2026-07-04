@@ -34,7 +34,7 @@ webpack-demo
 
 Remember the `lodash` package we were using? For demonstration purposes, let's say we want to provide it as a global throughout our application instead. To do this, we can use `ProvidePlugin`.
 
-The [`ProvidePlugin`](/docs/api/v5.x/plugins/ProvidePlugin) makes a package available as a variable in every module compiled through webpack. If webpack sees that variable used, it includes the given package in the final bundle. Let's remove the `import` statement for `lodash` and provide it through the plugin instead:
+The [`ProvidePlugin`](/docs/api/plugins/ProvidePlugin) makes a package available as a variable in every module compiled through webpack. If webpack sees that variable used, it includes the given package in the final bundle. Let's remove the `import` statement for `lodash` and provide it through the plugin instead:
 
 ```diff displayName="src/index.js"
 -import _ from 'lodash';
