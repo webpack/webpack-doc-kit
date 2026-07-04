@@ -445,7 +445,7 @@ A welcome benefit: because loading is now Promise-based, you can handle the fail
 
 ## Dynamic expressions
 
-You can pass a partial expression to `import()`. This works much like expressions in CommonJS: webpack creates a [context](/docs/api/v5.x/plugins/ContextReplacementPlugin) containing all possible files, and `import()` produces a separate chunk for each possible module.
+You can pass a partial expression to `import()`. This works much like expressions in CommonJS: webpack creates a [context](/guides/modules-and-dependencies/dependency-management/#context-module) containing all possible files, and `import()` produces a separate chunk for each possible module.
 
 ```js
 function route(path, query) {
