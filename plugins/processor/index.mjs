@@ -37,6 +37,28 @@ export function load(app) {
       .getReflectionsByKind(ReflectionKind.Reference)
       .forEach(ref => context.project.removeReflection(ref));
 
+    // Destructured parameters are not supported by TypeDoc, so we rename them to
+    // a more generic name.
+    context.project
+      .getReflectionsByKind(ReflectionKind.Parameter)
+      .forEach(param => {
+        if (param.name.startsWith('__namedParameters')) {
+          if (
+            param.type?.type === 'reflection' &&
+            param.type.declaration?.children
+          ) {
+            const destructuredKeys = param.type.declaration.children.map(
+              child => child.name
+            );
+            param.name = `{ ${destructuredKeys.join(', ')} }`;
+          } else if (param.type?.type === 'reference' && param.type.name) {
+            param.name = param.type.name;
+          } else {
+            param.name = 'options';
+          }
+        }
+      });
+
     applyExportEqualsReflections(context.project);
     applySourceMetadata(context.project);
   });

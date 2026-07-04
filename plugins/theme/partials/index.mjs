@@ -55,9 +55,7 @@ export default ctx => {
         stability,
         stability && '',
         model.parameters?.length &&
-          ctx.partials.parametersList(model.parameters, {
-            headingLevel: options.headingLevel,
-          }),
+          ctx.partials.parametersList(model.parameters),
         ctx.helpers.typedListItem({
           label: 'Returns',
           type: model.type ?? 'void',
@@ -301,7 +299,22 @@ export default ctx => {
 
     memberTitle: model =>
       getMemberTitle(model, { local: isTypePage(ctx.page.model) }),
-    parametersList: ctx.helpers.typedList,
+    parametersList(parameters) {
+      const flatList = [];
+
+      parameters.forEach(param => {
+        if (
+          param.type?.type === 'reflection' &&
+          param.type.declaration?.children
+        ) {
+          flatList.push(...param.type.declaration.children);
+        } else {
+          flatList.push(param);
+        }
+      });
+
+      return ctx.helpers.typedList(flatList);
+    },
     typeDeclarationList: ctx.helpers.typedList,
     propertiesTable: ctx.helpers.typedList,
 
