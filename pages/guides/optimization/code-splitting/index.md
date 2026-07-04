@@ -328,7 +328,7 @@ webpack 5.x.x compiled successfully in 268 ms
 > );
 > ```
 >
-> This helps webpack tree shake the other unused exports. See [Magic Comments](#TODO[/api/module-methods/#magic-comments]) for details.
+> This helps webpack tree shake the other unused exports. See [Magic Comments](#magic-comments) for details.
 
 Because `import()` returns a promise, it can be used with [`async` functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function). Here's how that simplifies the code:
 
@@ -357,7 +357,7 @@ Because `import()` returns a promise, it can be used with [`async` functions](ht
 ```
 
 > [!TIP]
-> You can also provide a [dynamic expression](#TODO[/api/module-methods/#dynamic-expressions-in-import]) to `import()` when you need to import a specific module based on a value computed later.
+> You can also provide a [dynamic expression](/guides/modules-and-dependencies/dependency-management/#dynamic-expressions-in-import-or-require) to `import()` when you need to import a specific module based on a value computed later.
 
 ### Understanding ChunkLoadError
 
@@ -372,6 +372,42 @@ If you encounter this error:
 - Inspect the browser console for additional script or network errors.
 
 For more context, see the related discussion in the webpack issue tracker.
+
+## Magic Comments
+
+webpack lets you attach inline comments to a dynamic `import()` to control how the resulting chunk is named, split, and loaded. These "magic comments" go inside the `import()` call, immediately before the module request:
+
+```js
+import(/* webpackChunkName: "my-chunk" */ './module');
+```
+
+You can combine several in a single `import()`:
+
+```js
+import(
+  /* webpackChunkName: "my-chunk" */
+  /* webpackMode: "lazy" */
+  './module'
+);
+```
+
+The following comments are supported:
+
+- **`webpackChunkName`** - a string that names the generated chunk, so it appears as, for example, `my-chunk.js` instead of a numeric id. Imports that share the same name are bundled into the same chunk.
+- **`webpackMode`** - controls how the module is resolved and split. One of:
+  - `"lazy"` (default) - generates a separate lazy-loadable chunk for the module.
+  - `"lazy-once"` - generates a single lazy-loadable chunk shared by every module matched by a [dynamic expression](/guides/modules-and-dependencies/dependency-management/#dynamic-expressions-in-import-or-require).
+  - `"eager"` - no separate chunk is generated; the module is bundled into the current chunk and no extra network request is made. `import()` still returns a `Promise`, but it resolves immediately.
+  - `"weak"` - the module is used only if it has already been loaded some other way; otherwise the returned `Promise` rejects.
+- **`webpackPrefetch`** - `true` or a number. Marks the chunk as a prefetch resource. See [Prefetching/Preloading modules](#prefetchingpreloading-modules) below.
+- **`webpackPreload`** - `true` or a number. Marks the chunk as a preload resource. See [Prefetching/Preloading modules](#prefetchingpreloading-modules) below.
+- **`webpackFetchPriority`** - `"high"`, `"low"`, or `"auto"`. Sets the fetch priority hint used when loading the chunk.
+- **`webpackExports`** - a string or an array of strings. Tells webpack to only bundle the named exports of the imported module, which helps it tree shake the rest.
+- **`webpackInclude`** / **`webpackExclude`** - a regular expression that limits which modules are bundled when you pass a [dynamic expression](/guides/modules-and-dependencies/dependency-management/#dynamic-expressions-in-import-or-require) to `import()`. `webpackInclude` bundles only matching modules; `webpackExclude` skips matching ones.
+- **`webpackIgnore`** - set to `true` to disable webpack's processing for this `import()`. webpack leaves the statement untouched, so it stays a native dynamic import at runtime and is never bundled or split.
+
+> [!NOTE]
+> `require.context` and `import.meta.webpackContext` accept a similar set of options (such as `mode`), but as properties of an options object rather than as inline comments. See [Dependency Management](/guides/modules-and-dependencies/dependency-management) for details.
 
 ## Prefetching/Preloading modules
 

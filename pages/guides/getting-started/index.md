@@ -390,4 +390,4 @@ webpack-demo
 > [!WARNING]
 > Do not compile untrusted code with webpack. It could lead to execution of malicious code on your computer, on remote servers, or in the web browsers of your application's end users.
 
-If you want to learn more about webpack's design, you can check out the [basic concepts](/guides/getting-started/concepts) and [configuration](#TODO[/configuration]) pages. Furthermore, the [API](#TODO[/api]) section digs into the various interfaces webpack offers.
+If you want to learn more about webpack's design, you can check out the [basic concepts](/guides/getting-started/concepts) and [configuration](#TODO[/configuration]) pages. Furthermore, the [API](/docs/api/types) section digs into the various interfaces webpack offers.

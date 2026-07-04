@@ -819,7 +819,8 @@ As webpack 5 differs between different issuing dependencies so it might make sen
 
 ## Major Internal Changes
 
-?> This section might need a bit more refinement
+> [!NOTE]
+> This section might need a bit more refinement
 
 The following changes are only relevant for plugin authors:
 

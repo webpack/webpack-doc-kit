@@ -429,7 +429,7 @@ require.ensure([], require => {
 });
 ```
 
-The ES2015 loader spec defines [`import()`](#TODO[/api/module-methods/#import-1]) as the way to load ES2015 modules dynamically at runtime. webpack treats `import()` as a split point and places the requested module in a separate chunk. `import()` takes the module name as its argument and returns a Promise.
+The ES2015 loader spec defines [`import()`](/guides/optimization/code-splitting/#dynamic-imports) as the way to load ES2015 modules dynamically at runtime. webpack treats `import()` as a split point and places the requested module in a separate chunk. `import()` takes the module name as its argument and returns a Promise.
 
 ```js
 function onClick() {

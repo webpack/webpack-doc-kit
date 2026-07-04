@@ -118,7 +118,7 @@ You can learn more about including loaders in the [loaders section](/guides/gett
 While loaders transform certain types of modules, plugins can perform a much wider range of tasks, such as bundle optimization, asset management, and injecting environment variables.
 
 > [!TIP]
-> Check out the [plugin interface](#TODO[/api/plugins]) and how to use it to extend webpack's capabilities.
+> Check out the [plugin interface](/docs/api/plugins/types#interface-webpackplugininstance) and how to use it to extend webpack's capabilities.
 
 To use a plugin, you `import` it and add it to the `plugins` array. Most plugins are customizable through options. Since you can use a plugin multiple times in a configuration for different purposes, you create an instance of it by calling it with the `new` operator.
 

@@ -90,7 +90,7 @@ A non-initial chunk for `./app.jsx` is created because that module is imported d
 - `/dist/main.js` — an `initial` chunk
 - `/dist/394.js` — a `non-initial` chunk
 
-By default, `non-initial` chunks have no name, so a unique ID is used instead. When using a dynamic import, you can specify a chunk name explicitly with a ["magic" comment](#TODO[/api/module-methods/#magic-comments]):
+By default, `non-initial` chunks have no name, so a unique ID is used instead. When using a dynamic import, you can specify a chunk name explicitly with a ["magic" comment](/guides/optimization/code-splitting/#magic-comments):
 
 ```jsx
 import(

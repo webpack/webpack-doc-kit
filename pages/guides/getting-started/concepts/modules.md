@@ -42,7 +42,7 @@ Beyond these, webpack supports modules written in many other languages and prepr
 
 And many more. In short, webpack offers a powerful, rich API for customization that lets you use it with **any stack** while remaining **non-opinionated** about your development, testing, and production workflows.
 
-For a complete list, see [the list of loaders](/docs/loaders) or learn how to [write your own](#TODO[/api/loaders]).
+For a complete list, see [the list of loaders](/docs/loaders) or learn how to [write your own](/docs/api/loaders/types).
 
 ## Further reading
 
