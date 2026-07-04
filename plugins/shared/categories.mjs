@@ -4,6 +4,11 @@ import { ReflectionKind } from 'typedoc';
 // adding a new category is usually a single RegExp entry rather than router code.
 export const CATEGORY_RULES = [
   {
+    category: 'optimize',
+    label: 'Optimization',
+    match: reflection => /^optimize\./i.test(reflection.getFullName()),
+  },
+  {
     category: 'plugins',
     label: 'Plugins',
     match: reflection =>

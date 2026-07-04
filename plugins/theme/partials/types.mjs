@@ -1,4 +1,4 @@
-const union = (arr, sep = '|') =>
+const joinTypes = (arr, sep = ' | ') =>
   arr?.length ? arr.map(resolve).join(sep) : 'unknown';
 
 const resolve = type => {
@@ -22,11 +22,13 @@ const resolve = type => {
       return resolve(type.elementType) + '[]';
 
     case 'tuple':
-      return `Tuple< ${union(type.elements, ', ')} >`;
+      return `Tuple< ${joinTypes(type.elements, ', ')} >`;
 
     case 'union':
+      return joinTypes(type.types);
+
     case 'intersection':
-      return union(type.types);
+      return joinTypes(type.types, ' & ');
 
     case 'optional':
     case 'indexedAccess':
@@ -45,7 +47,7 @@ const resolve = type => {
       return resolve(type.element);
 
     case 'reflection':
-      return 'object';
+      return type.declaration?.signatures?.length ? 'Function' : 'object';
 
     case 'inferred':
     case 'unknown':
