@@ -33,11 +33,9 @@ export const sidebar = {
             link: `/docs/api/v${major(v)}.x`,
           })),
         },
+        ...loaders.sidebar,
+        ...plugins.sidebar,
       ],
-    },
-    {
-      groupName: 'Third Party Packages',
-      items: [...loaders.sidebar, ...plugins.sidebar],
     },
   ],
   guides: guides.sidebar,
