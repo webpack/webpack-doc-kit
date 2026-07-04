@@ -1,9 +1,11 @@
 ---
 authors: moshams272
 ---
+
 # Guides
 
 This section contains guides for understanding and mastering the wide variety of tools and features that webpack offers. Start with [Getting Started](/guides/getting-started) to learn the basics, then work through the rest at your own pace.
+
 The guides increase in complexity as you progress. Each one serves as a starting point — once you've worked through it, you should feel ready to dive into the full [documentation](/docs).
 
 - [Getting Started](/guides/getting-started) — Learn the core concepts, build your first bundle, and set up a basic webpack configuration
@@ -15,4 +17,4 @@ The guides increase in complexity as you progress. Each one serves as a starting
 - [Migration](/guides/migration) — Step-by-step guides for upgrading smoothly to the latest major releases
 
 > [!TIP]
-> The output shown in these guides may differ slightly from what you see with newer versions of webpack. As long as your bundles look similar and run correctly, there's no cause for concern. If you find an example that seems broken by a newer release, please [open a PR](https://github.com/webpack/webpack-doc-kit/issues/new/choose) and we'll do our best to resolve the discrepancy.
+> The output shown in these guides may differ slightly from what you see with newer versions of webpack. As long as your bundles look similar and run correctly, there's no cause for concern. If you find an example that seems broken by a newer release, please [open an issue](https://github.com/webpack/webpack-doc-kit/issues/new/choose) and we'll do our best to resolve the discrepancy.
