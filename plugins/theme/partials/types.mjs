@@ -35,10 +35,10 @@ const resolve = type => {
       return resolve(type.elementType ?? type.objectType);
 
     case 'query':
-      return resolve(type.queryType);
+      return `typeof ${resolve(type.queryType)}`;
 
     case 'typeOperator':
-      return resolve(type.target);
+      return `${type.operator} ${resolve(type.target)}`;
 
     case 'conditional':
       return `${resolve(type.trueType)}|${resolve(type.falseType)}`;
