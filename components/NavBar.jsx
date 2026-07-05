@@ -19,6 +19,7 @@ export default ({ metadata }) => {
       Logo={Logo}
       sidebarItemTogglerAriaLabel="Toggle navigation menu"
       navItems={navbar}
+      pathname={metadata.path}
     >
       <SearchBox pathname={metadata.path} />
       <ThemeToggle
