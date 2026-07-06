@@ -7,14 +7,10 @@ import SearchBox from '@node-core/doc-kit/src/generators/web/ui/components/Searc
 import { useTheme } from '@node-core/doc-kit/src/generators/web/ui/hooks/useTheme.mjs';
 import { navbar } from '#theme/site';
 import { baseURL } from '#theme/config';
+import { toPublicLink } from '../plugins/shared/urls.mjs';
 import Logo from '#theme/Logo';
 
-const versionBase = new URL(baseURL).pathname.replace(/\/$/, '');
-
-const pathnameFor = path => {
-  const clean = path.replace(/\/index$/, '').replace(/^\//, '');
-  return (clean ? `${versionBase}/${clean}` : versionBase) || '/';
-};
+const versionBase = new URL(baseURL).pathname;
 
 /**
  * NavBar component that displays the headings, search, etc.
@@ -27,7 +23,7 @@ export default ({ metadata }) => {
       Logo={Logo}
       sidebarItemTogglerAriaLabel="Toggle navigation menu"
       navItems={navbar}
-      pathname={pathnameFor(metadata.path)}
+      pathname={toPublicLink(metadata.path, versionBase)}
     >
       <SearchBox pathname={metadata.path} />
       <ThemeToggle
