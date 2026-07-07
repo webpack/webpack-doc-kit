@@ -22,7 +22,7 @@ export default () => {
             </p>
 
             <div className={styles.actions}>
-              <a href="/docs" className={styles.primaryBtn}>
+              <a href="/guides/getting-started" className={styles.primaryBtn}>
                 <span> Get started</span>
                 <span>
                   <svg
