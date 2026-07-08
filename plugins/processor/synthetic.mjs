@@ -1,6 +1,7 @@
 import { Comment, DeclarationReflection, ReflectionKind } from 'typedoc';
 import { categoryForReflection } from '../shared/categories.mjs';
 import { setTypePageMetadata } from './metadata.mjs';
+import { soleOwnerPages } from './ownership.mjs';
 
 export const TYPE_PAGE_HEADING_KINDS =
   ReflectionKind.Interface | ReflectionKind.TypeAlias;
@@ -32,6 +33,15 @@ const typePageComment = () =>
       text: TYPE_PAGE_NOTICE,
     },
   ]);
+
+const attachToOwner = (owner, children) => {
+  for (const child of children) {
+    child.parent = owner;
+    owner.addChild(child);
+  }
+
+  owner.groups = [...(owner.groups ?? []), { title: 'Types', children }];
+};
 
 const removeChildren = (items, moved) =>
   items?.filter(item => !moved.has(item));
@@ -80,7 +90,7 @@ const createTypePage = (project, baseName, children) => {
 const compareByName = (a, b) => a.name.localeCompare(b.name);
 
 /**
- * Move root interfaces and type aliases onto synthetic category pages so they
+ * Move root interfaces and type aliases onto the page that owns them so they
  * remain linkable without appearing as root API exports.
  *
  * @param {import('typedoc').ProjectReflection} project
@@ -90,9 +100,20 @@ export const createTypePages = project => {
     .filter(child => child.kindOf(TYPE_PAGE_HEADING_KINDS))
     .sort(compareByName);
   const movedSet = new Set(movedTypes);
+  const ownerPages = soleOwnerPages(project, movedTypes);
   const byPage = new Map();
+  const byOwner = new Map();
 
   for (const reflection of movedTypes) {
+    const owner = ownerPages.get(reflection);
+
+    if (owner) {
+      const siblings = byOwner.get(owner) ?? [];
+      siblings.push(reflection);
+      byOwner.set(owner, siblings);
+      continue;
+    }
+
     const baseName = typePageBaseName(reflection);
     const group = byPage.get(baseName) ?? [];
     group.push(reflection);
@@ -108,6 +129,10 @@ export const createTypePages = project => {
   );
   project.groups = removeFromGroups(project.groups, movedSet);
   project.categories = removeFromGroups(project.categories, movedSet);
+
+  for (const [owner, children] of byOwner) {
+    attachToOwner(owner, children);
+  }
 
   return [...byPage].map(([baseName, children]) => ({
     baseName,
