@@ -226,7 +226,7 @@ After running another build, we'd expect only the `main` bundle's hash to change
 ...
 ```
 
-All three hashes changed. This is because, by default, each [`module.id`](#TODO[/api/module-variables/#moduleid-commonjs]) is assigned incrementally based on resolution order. When that order changes, the IDs change too. To recap:
+All three hashes changed. This is because, by default, each `module.id` is assigned incrementally based on resolution order. When that order changes, the IDs change too. To recap:
 
 - The `main` bundle changed because of its new content.
 - The `vendor` bundle changed because its `module.id` changed.

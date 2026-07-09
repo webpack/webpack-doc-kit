@@ -42,11 +42,11 @@ HMR is an opt-in feature that only affects modules containing HMR code. One exam
 
 Similarly, by implementing the HMR interface in a module, you can describe what should happen when that module is updated. In most cases, however, you do not need to write HMR code in every module. If a module has no HMR handlers, the update bubbles up. This means a single handler can update a whole module tree. When any module in the tree is updated, the entire set of dependencies is reloaded.
 
-See the [HMR API page](#TODO[/api/hot-module-replacement]) for details on the `module.hot` interface.
+See the [HMR guide](/guides/core-workflows/development/hot-module-replacement) for details on using the `module.hot` interface.
 
 ### In the runtime
 
-Here things get a bit more technical. If you're not interested in the internals, feel free to skip ahead to the [HMR API page](#TODO[/api/hot-module-replacement]) or the [HMR guide](/guides/core-workflows/development/hot-module-replacement).
+Here things get a bit more technical. If you're not interested in the internals, feel free to skip ahead to the [HMR guide](/guides/core-workflows/development/hot-module-replacement).
 
 For the module system runtime, additional code is emitted to track each module's `parents` and `children`. On the management side, the runtime supports two methods: `check` and `apply`.
 

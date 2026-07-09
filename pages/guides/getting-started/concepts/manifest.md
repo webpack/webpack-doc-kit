@@ -20,7 +20,7 @@ The runtime, together with the manifest data, is all the code webpack needs to w
 
 Once your application reaches the browser as an `index.html` file, some bundles and a variety of other assets must be loaded and linked together somehow. That `/src` directory you carefully laid out is now bundled, minified, and maybe even split into smaller chunks for lazy-loading by webpack's [`optimization`](#TODO[/configuration/optimization/]). So how does webpack manage the interaction between all of your required modules? This is where the manifest data comes in.
 
-As the compiler enters, resolves, and maps out your application, it keeps detailed notes on all of your modules. This collection of data is called the "manifest," and it's what the runtime uses to resolve and load modules once they've been bundled and shipped to the browser. No matter which [module syntax](#TODO[/api/module-methods]) you chose, those `import` and `require` statements have now become `__webpack_require__` methods that point to module identifiers. Using the data in the manifest, the runtime can find out where to retrieve the modules behind those identifiers.
+As the compiler enters, resolves, and maps out your application, it keeps detailed notes on all of your modules. This collection of data is called the "manifest," and it's what the runtime uses to resolve and load modules once they've been bundled and shipped to the browser. No matter which module syntax you chose, those `import` and `require` statements have now become `__webpack_require__` methods that point to module identifiers. Using the data in the manifest, the runtime can find out where to retrieve the modules behind those identifiers.
 
 ## The problem
 

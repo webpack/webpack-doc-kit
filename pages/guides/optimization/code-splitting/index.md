@@ -227,7 +227,7 @@ Here are some other useful community plugins and loaders for splitting code:
 
 ## Dynamic Imports
 
-webpack supports two similar techniques for dynamic code splitting. The first and recommended approach is the [`import()` syntax](#TODO[/api/module-methods/#import-1]), which conforms to the [ECMAScript proposal](https://github.com/tc39/proposal-dynamic-import) for dynamic imports. The legacy, webpack-specific approach uses [`require.ensure`](#TODO[/api/module-methods/#requireensure]). Let's try the first of these.
+webpack supports two similar techniques for dynamic code splitting. The first and recommended approach is the [`import()` syntax](/guides/optimization/code-splitting/lazy-loading/#dynamic-import-example), which conforms to the [ECMAScript proposal](https://github.com/tc39/proposal-dynamic-import) for dynamic imports. The legacy, webpack-specific approach uses `require.ensure`. Let's try the first of these.
 
 > [!WARNING]
 > `import()` calls use [promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) internally. If you use `import()` with older browsers (such as IE 11), remember to shim `Promise` with a polyfill like [es6-promise](https://github.com/stefanpenner/es6-promise) or [promise-polyfill](https://github.com/taylorhakes/promise-polyfill).

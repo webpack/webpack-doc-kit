@@ -231,7 +231,7 @@ publicPath.set('/your-public-path');
 
 ### Infer the public path from the script
 
-You can infer the public path from the script tag via `document.currentScript.src` and set it with the [`__webpack_public_path__`](#TODO[/api/module-variables/#__webpack_public_path__-webpack-specific]) module variable at runtime.
+You can infer the public path from the script tag via `document.currentScript.src` and set it with the [`__webpack_public_path__`](/guides/getting-started/concepts/output/#advanced) module variable at runtime.
 
 Example:
 

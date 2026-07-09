@@ -6,7 +6,7 @@ authors: bebraw,varunjayaraman,cntanglijun,chrisVillanueva,johnstew,simon04,aaro
 
 webpack is a good fit when your application needs a customizable build pipeline: bundling JavaScript modules, processing assets, integrating loaders and plugins, and shaping output for different environments. For a very small page with one or two scripts, a bundler may be unnecessary at first; but for an application with shared dependencies, npm packages, assets, and production builds, webpack gives you explicit control over how everything is assembled.
 
-webpack is used to efficiently compile JavaScript modules. Once [installed](/guides/getting-started/installing-webpack), you can interact with webpack through either its [CLI](#TODO[/api/cli]) or its [API](#TODO[/api/node]). If you're new to webpack, please read through the [core concepts](/guides/getting-started/concepts) and [this comparison](#TODO[/comparison]) to learn why you might choose it over the other tools available in the community.
+webpack is used to efficiently compile JavaScript modules. Once [installed](/guides/getting-started/installing-webpack), you can interact with webpack through either its [CLI](https://github.com/webpack/webpack-cli) or its [API](#TODO[/api/node]). If you're new to webpack, please read through the [core concepts](/guides/getting-started/concepts) to learn why you might choose it over the other tools available in the community.
 
 > [!WARNING]
 > The examples in this guide use `webpack-cli` 7, which requires Node.js 20.9.0 or later.
@@ -23,7 +23,7 @@ cd webpack-demo
 ```
 
 > [!TIP]
-> Need a CLI-based project setup or templates? See the [Init command](#TODO[/api/cli/#init]) for webpack's scaffolding flow.
+> Need a CLI-based project setup or templates? See the [Init command](https://github.com/webpack/webpack-cli/tree/main/packages/create-webpack-app) for webpack's scaffolding flow.
 
 > [!TIP]
 > This command generates a ready-to-use webpack project with a sensible default configuration. Continue below if you'd like to understand how to set up webpack manually, step by step.
@@ -245,9 +245,9 @@ Open `index.html` from the `dist` directory in your browser, and if everything w
 
 The [`import`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) and [`export`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export) statements were standardized in [ES2015](https://babeljs.io/docs/en/learn/). They are supported in most browsers today, though some browsers don't recognize the new syntax. Don't worry, though: webpack supports them out of the box.
 
-Behind the scenes, webpack analyzes your module graph and bundles the modules into code the browser can load in the right order. It handles module syntax such as `import` and `export`, and supports various other module syntaxes as well. See [Module API](#TODO[/api/module-methods]) for more information.
+Behind the scenes, webpack analyzes your module graph and bundles the modules into code the browser can load in the right order. It handles module syntax such as `import` and `export`, and supports various other module syntaxes as well.
 
-Note that webpack will not alter any code other than `import` and `export` statements. If you're using other [ES2015 features](http://es6-features.org/), make sure to [use a transpiler](#TODO[/loaders/#transpiling]) such as [Babel](https://babeljs.io/) via webpack's [loader system](/guides/getting-started/concepts/loaders).
+Note that webpack will not alter any code other than `import` and `export` statements. If you're using other [ES2015 features](http://es6-features.org/), make sure to use a transpiler such as [Babel](https://babeljs.io/) via webpack's [loader system](/guides/getting-started/concepts/loaders).
 
 ## Using a configuration
 

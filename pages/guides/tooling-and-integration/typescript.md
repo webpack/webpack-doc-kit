@@ -308,7 +308,7 @@ See the [devtool documentation](#TODO[/configuration/devtool/]) for more informa
 
 ## Client types
 
-You can use webpack-specific features in your TypeScript code, such as [`import.meta.webpack`](#TODO[/api/module-variables/#importmetawebpack]). webpack also provides types for them. Add a TypeScript [`reference`](https://www.typescriptlang.org/docs/handbook/triple-slash-directives.html#-reference-types-) directive to declare it:
+You can use webpack-specific features in your TypeScript code, such as [`import.meta.webpack`](/guides/modules-and-dependencies/ecma-script-modules/#importmeta-in-esm). webpack also provides types for them. Add a TypeScript [`reference`](https://www.typescriptlang.org/docs/handbook/triple-slash-directives.html#-reference-types-) directive to declare it:
 
 ```ts
 /// <reference types="webpack/module" />

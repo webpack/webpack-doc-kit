@@ -69,7 +69,7 @@ export default {
 
 ### Inline
 
-You can specify loaders directly in an `import` statement, or in any [equivalent "importing" method](#TODO[/api/module-methods]). Separate loaders from the resource with `!`. Each part is resolved relative to the current directory.
+You can specify loaders directly in an `import` statement, or in any equivalent "importing" method. Separate loaders from the resource with `!`. Each part is resolved relative to the current directory.
 
 > [!TIP]
 > The `loader1!loader2!./file` syntax is shown here only for illustration. In most projects, prefer configuring loaders via `module.rules` and importing styles for their side effects (for example, `import "./styles.css"`).
@@ -119,4 +119,4 @@ Loaders let you customize the output through their preprocessing functions. This
 
 Loaders follow the standard [module resolution](/guides/getting-started/concepts/module-resolution). In most cases they are loaded from the [module path](/guides/getting-started/concepts/module-resolution/#module-paths) (think `npm install` and `node_modules`).
 
-A loader module is expected to export a function and be written in Node.js-compatible JavaScript. Loaders are most commonly managed with npm, but you can also keep custom loaders as files within your application. By convention, loaders are usually named `xxx-loader` (for example, `json-loader`). See [Writing a Loader](#TODO[/contribute/writing-a-loader/]) for more information.
+A loader module is expected to export a function and be written in Node.js-compatible JavaScript. Loaders are most commonly managed with npm, but you can also keep custom loaders as files within your application. By convention, loaders are usually named `xxx-loader` (for example, `json-loader`).

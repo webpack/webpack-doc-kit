@@ -18,7 +18,7 @@ Use these capabilities whenever they make sense.
 
 The following practices, while technically possible, are best avoided:
 
-- Reading CLI arguments directly when using the webpack CLI. Doing so makes your configuration less portable and harder to maintain. Instead, write your own CLI or [use `--env`](#TODO[/api/cli/#env]) to pass environment variables.
+- Reading CLI arguments directly when using the webpack CLI. Doing so makes your configuration less portable and harder to maintain. Instead, write your own CLI or [use `--env`](/guides/core-workflows/environment-variables) to pass environment variables.
 - Exporting non-deterministic values. Running webpack twice should always produce the same output files.
 - Writing long configurations. Split a large configuration into multiple files instead.
 

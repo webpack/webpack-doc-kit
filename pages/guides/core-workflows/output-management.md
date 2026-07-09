@@ -216,7 +216,7 @@ Run `npm run build` again and inspect the `/dist` folder. If everything went wel
 
 You might wonder how webpack and its plugins seem to "know" which files are being generated. The answer lies in the manifest that webpack keeps to track how all the modules map to the output bundles. If you're interested in managing webpack's [`output`](#TODO[/configuration/output]) in other ways, the manifest is a good place to start.
 
-The manifest data can be extracted into a JSON file for consumption using the [`ManifestPlugin`](#TODO[/plugins/manifest-plugin/]).
+The manifest data can be extracted into a JSON file for consumption using the [`ManifestPlugin`](/docs/api/plugins/ManifestPlugin).
 
 We won't walk through a full example of using this plugin in your project, but you can read the [concept page](/guides/getting-started/concepts/manifest) and the [caching guide](/guides/optimization/caching) to learn how this ties into long-term caching.
 

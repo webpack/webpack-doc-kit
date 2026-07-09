@@ -20,7 +20,7 @@ The installation guide is available [here](/guides/getting-started/installing-we
 
 ## Update plugins
 
-Many third-party plugins need to be updated to their latest versions to be compatible with webpack 4. Links to popular plugins can be found [here](#TODO[/awesome-webpack/#webpack-plugins]).
+Many third-party plugins need to be updated to their latest versions to be compatible with webpack 4.
 
 ## `mode`
 

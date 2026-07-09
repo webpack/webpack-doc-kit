@@ -322,7 +322,7 @@ module.exports = function (env) {
 };
 ```
 
-See [CLI](#TODO[/api/cli]).
+See [CLI](https://github.com/webpack/webpack-cli).
 
 ## `require.ensure` and AMD `require` are asynchronous
 
@@ -421,7 +421,7 @@ For compatibility with older loaders, you can still switch them into debug mode 
 
 ## Code splitting with ES2015
 
-In webpack 1, you could use [`require.ensure()`](#TODO[/api/module-methods/#requireensure]) to lazily load chunks of your application:
+In webpack 1, you could use `require.ensure()` to lazily load chunks of your application:
 
 ```js
 require.ensure([], require => {

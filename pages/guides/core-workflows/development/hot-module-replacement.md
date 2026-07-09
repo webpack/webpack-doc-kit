@@ -203,7 +203,7 @@ try {
 }
 ```
 
-See the [full documentation of the `webpack-dev-server` Node.js API](#TODO[/api/webpack-dev-server/]).
+See the [full documentation of the `webpack-dev-server` Node.js API](https://github.com/webpack/webpack-dev-server#with-the-api).
 
 > [!TIP]
 > If you're [using `webpack-dev-middleware`](/guides/core-workflows/development/#using-webpack-dev-middleware), check out the [`webpack-hot-middleware`](https://github.com/webpack/webpack-hot-middleware) package to enable HMR on your custom dev server.
