@@ -1,6 +1,6 @@
 import { ReflectionKind } from 'typedoc';
 import { CATEGORY_RULES } from '../shared/categories.mjs';
-import { toPublicLink } from '../shared/urls.mjs';
+import { toPublicLink } from '../../utils/helpers/urls.mjs';
 
 const SIDEBAR_KINDS =
   ReflectionKind.Project | ReflectionKind.Namespace | ReflectionKind.Class;

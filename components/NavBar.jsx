@@ -7,7 +7,7 @@ import SearchBox from '@node-core/doc-kit/src/generators/web/ui/components/Searc
 import { useTheme } from '@node-core/doc-kit/src/generators/web/ui/hooks/useTheme.mjs';
 import { navbar } from '#theme/site';
 import { baseURL } from '#theme/config';
-import { toPublicLink } from '../plugins/shared/urls.mjs';
+import { toPublicLink } from '../utils/helpers/urls.mjs';
 import Logo from '#theme/Logo';
 
 const versionBase = new URL(baseURL).pathname;

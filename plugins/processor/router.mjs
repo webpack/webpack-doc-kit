@@ -5,7 +5,7 @@ import { categoryForReflection } from '../shared/categories.mjs';
 import { getConstructorTitle, getMemberTitle } from '../shared/titles.mjs';
 import { getSourceMetadata, isTypePage } from './metadata.mjs';
 import { createTypePages, TYPE_PAGE_HEADING_KINDS } from './synthetic.mjs';
-import { normalizeLink } from '../shared/urls.mjs';
+import { normalizeLink } from '../../utils/helpers/urls.mjs';
 
 /**
  * The router owns the public Markdown shape. It keeps one class per file,

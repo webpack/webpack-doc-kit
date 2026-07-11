@@ -1,6 +1,6 @@
 import { ReflectionKind } from 'typedoc';
 import { isTypePage } from './metadata.mjs';
-import { normalizeLink } from '../shared/urls.mjs';
+import { normalizeLink } from '../../utils/helpers/urls.mjs';
 
 const TYPE_MAP_KINDS =
   ReflectionKind.Class |
