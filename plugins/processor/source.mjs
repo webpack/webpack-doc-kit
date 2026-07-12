@@ -678,6 +678,11 @@ const attachSourceMetadata = (reflection, sourceEntry, exportEntry) => {
   });
 };
 
+const getWebpackPath = () => {
+  const versions = JSON.parse(readFileSync('./versions.json'));
+  return versions ? `./.cache/webpack/${versions[0]}/lib` : `./webpack/lib`;
+};
+
 /**
  * Enrich declaration reflections with comments and source locations recovered
  * from webpack/lib. The declaration file remains authoritative for public API
@@ -686,11 +691,8 @@ const attachSourceMetadata = (reflection, sourceEntry, exportEntry) => {
  * @param {import('typedoc').ProjectReflection} project
  * @param {{ libDir?: string }} [options]
  */
-export const applySourceMetadata = (
-  project,
-  { libDir = './webpack/lib' } = {}
-) => {
-  const absoluteLibDir = resolve(libDir);
+export const applySourceMetadata = project => {
+  const absoluteLibDir = resolve(getWebpackPath());
   if (!existsSync(absoluteLibDir) || !statSync(absoluteLibDir).isDirectory()) {
     return;
   }
