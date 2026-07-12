@@ -9,6 +9,7 @@ export const normalizeLink = url => {
 
 export const toPublicLink = (url, publicPath = '') => {
   const path = normalizeLink(url);
-  const prefix = publicPath.replace(/\/$/g, '');
-  return path ? `${prefix}/${path}` : prefix || '/';
+  const prefix = publicPath.replace(/^\/+|\/+$/g, '');
+  const combined = [prefix, path].filter(Boolean).join('/');
+  return `/${combined}`;
 };
