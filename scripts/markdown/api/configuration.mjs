@@ -1,7 +1,7 @@
 import { writeFile } from 'node:fs/promises';
 import { join } from 'node:path/posix';
 import { major } from 'semver';
-import { sources, getPackageFile } from './utils.mjs';
+import { sources, getPackageFile, outputDir } from './utils.mjs';
 
 const definitionName = ref =>
   ref?.startsWith('#/definitions/') ? ref.slice('#/definitions/'.length) : '';
@@ -149,8 +149,6 @@ const generate = async packageDir => {
     'schemas/WebpackOptions.json'
   );
 
-  const outputDir = join(outputDir, `v${major(version)}.x`);
-
   const lines = [
     '---',
     'source: https://github.com/webpack/webpack/edit/main/schemas/WebpackOptions.json',
@@ -172,7 +170,7 @@ const generate = async packageDir => {
   }
 
   await writeFile(
-    join(outputDir, 'configuration.md'),
+    join(outputDir, `v${major(version)}.x`, 'configuration.md'),
     lines.join('\n'),
     'utf8'
   );
