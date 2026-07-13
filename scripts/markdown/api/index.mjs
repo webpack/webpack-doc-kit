@@ -1,9 +1,8 @@
-import { readdir, readFile } from 'node:fs/promises';
+import { readFile } from 'node:fs/promises';
 import { join } from 'node:path/posix';
 import { Application } from 'typedoc';
 import { major } from 'semver';
-
-const CACHE_DIR = join('.', '.cache', 'webpack');
+import { sources } from './utils.mjs';
 
 const generate = async packageDir => {
   const { version } = JSON.parse(
@@ -41,14 +40,6 @@ const generate = async packageDir => {
   const project = await app.convert();
   await app.generateOutputs(project);
 };
-
-const [packageDir] = process.argv.slice(2);
-
-const sources = packageDir
-  ? [packageDir]
-  : (await readdir(CACHE_DIR, { withFileTypes: true }))
-      .filter(entry => entry.isDirectory())
-      .map(entry => join(CACHE_DIR, entry.name));
 
 for (const source of sources) {
   await generate(source);

@@ -5,7 +5,7 @@
     "build:data:blog": "node scripts/data/blog.mjs",
     "build:data:sponsors": "node scripts/data/sponsors.mjs",
     "build:md": "npm-run-all build:md:*",
-    "build:md:api": "node scripts/markdown/api.mjs",
+    "build:md:api": "node scripts/markdown/api/index.mjs && node scripts/markdown/api/configuration.mjs",
     "build:md:readmes": "node scripts/markdown/readmes.mjs",
     "build:md:governance": "node scripts/markdown/governance.mjs",
     "build:html": "node scripts/html/index.mjs",
