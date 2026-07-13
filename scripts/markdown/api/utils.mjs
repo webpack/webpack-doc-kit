@@ -10,7 +10,7 @@ export const sources = packageDir
       .filter(entry => entry.isDirectory())
       .map(entry => join(cacheDir, entry.name));
 
-export const outputDir = join('.', 'docs', 'api');
+export const outputDir = join('pages', 'docs', 'api');
 
 export const getPackageFile = async (packageDir, file = 'package.json') =>
   JSON.parse(await readFile(join(packageDir, file), 'utf8'));
