@@ -170,7 +170,7 @@ const generate = async packageDir => {
   }
 
   await writeFile(
-    join(outputDir, `v${major(version)}.x`, 'configuration.md'),
+    join(outputDir, `v${major(version)}.x`, 'options.md'),
     lines.join('\n'),
     'utf8'
   );

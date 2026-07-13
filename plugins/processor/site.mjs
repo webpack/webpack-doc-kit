@@ -64,7 +64,13 @@ export const sidebar = (router, basePath) => {
   return [
     {
       groupName: SIDEBAR_GROUP_NAME,
-      items: [...categories.values()].filter(category => category.items.length),
+      items: [
+        [...categories.values()].filter(category => category.items.length),
+        {
+          link: toPublicLink(`${basePath}/options.md`, basePath),
+          label: 'Options',
+        },
+      ],
     },
   ];
 };
