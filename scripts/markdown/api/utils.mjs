@@ -1,4 +1,4 @@
-import { readdir } from 'node:fs/promises';
+import { readdir, readFile } from 'node:fs/promises';
 import { join } from 'node:path/posix';
 
 const [packageDir] = process.argv.slice(2);
@@ -9,3 +9,8 @@ export const sources = packageDir
   : (await readdir(cacheDir, { withFileTypes: true }))
       .filter(entry => entry.isDirectory())
       .map(entry => join(cacheDir, entry.name));
+
+export const outputDir = join('.', 'docs', 'api');
+
+export const getPackageFile = async (packageDir, file = 'package.json') =>
+  JSON.parse(await readFile(join(packageDir, file), 'utf8'));

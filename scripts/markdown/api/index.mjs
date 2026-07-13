@@ -1,17 +1,14 @@
-import { readFile } from 'node:fs/promises';
 import { join } from 'node:path/posix';
 import { Application } from 'typedoc';
 import { major } from 'semver';
-import { sources } from './utils.mjs';
+import { sources, outputDir, getPackageFile } from './utils.mjs';
 
 const generate = async packageDir => {
-  const { version } = JSON.parse(
-    await readFile(join(packageDir, 'package.json'), 'utf8')
-  );
+  const { version } = await getPackageFile(packageDir);
 
   const app = await Application.bootstrapWithPlugins({
     entryPoints: [join(packageDir, 'types.d.ts')],
-    out: join('pages', 'docs', 'api', `v${major(version)}.x`),
+    out: join(outputDir, `v${major(version)}.x`),
     publicPath: `/docs/api/v${major(version)}.x/`,
 
     plugin: [

@@ -1,7 +1,7 @@
-import { readFile, writeFile } from 'node:fs/promises';
+import { writeFile } from 'node:fs/promises';
 import { join } from 'node:path/posix';
 import { major } from 'semver';
-import { sources } from './utils.mjs';
+import { sources, getPackageFile } from './utils.mjs';
 
 const definitionName = ref =>
   ref?.startsWith('#/definitions/') ? ref.slice('#/definitions/'.length) : '';
@@ -143,16 +143,13 @@ const renderOption = (path, schema, definitions, depth) => {
 };
 
 const generate = async packageDir => {
-  const { version } = JSON.parse(
-    await readFile(join(packageDir, 'package.json'), 'utf8')
-  );
-  const schema = JSON.parse(
-    await readFile(join(packageDir, 'schemas', 'WebpackOptions.json'), 'utf8')
+  const { version } = await getPackageFile(packageDir);
+  const schema = await getPackageFile(
+    packageDir,
+    'schemas/WebpackOptions.json'
   );
 
-  const outputDir = join('pages', 'docs', 'api', `v${major(version)}.x`);
-
-  const { definitions } = schema;
+  const outputDir = join(outputDir, `v${major(version)}.x`);
 
   const lines = [
     '---',
@@ -171,7 +168,7 @@ const generate = async packageDir => {
   ];
 
   for (const [name, child] of Object.entries(schema.properties)) {
-    lines.push(...renderOption(name, child, definitions, 0));
+    lines.push(...renderOption(name, child, schema.definitions, 0));
   }
 
   await writeFile(
