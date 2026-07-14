@@ -209,18 +209,25 @@ export default ctx => {
         );
       }
 
-      if (model.typeParameters?.length) {
-        md.push(
-          heading(
-            options.headingLevel,
-            ReflectionKind.pluralString(ReflectionKind.TypeParameter)
-          )
-        );
-        md.push(
-          ctx.partials.typeParametersList(model.typeParameters, {
+      const signatures = callableSignatures(model);
+      const isCallable = signatures.length > 0;
+
+      if (!isCallable && model.typeParameters?.length) {
+        const typeParametersContent = ctx.partials.typeParametersList(
+          model.typeParameters,
+          {
             headingLevel: options.headingLevel,
-          })
+          }
         );
+        if (typeParametersContent) {
+          md.push(
+            heading(
+              options.headingLevel,
+              ReflectionKind.pluralString(ReflectionKind.TypeParameter)
+            )
+          );
+          md.push(typeParametersContent);
+        }
       }
 
       if (model.implementedTypes?.length) {
