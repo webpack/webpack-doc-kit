@@ -1,4 +1,4 @@
-export const someType = model => (model ? `{${model}}` : 'unknown');
+export const someType = model => `{${model ?? 'unknown'}}`;
 
 export const arrayType = someType,
   conditionalType = someType,
@@ -17,5 +17,5 @@ export const arrayType = someType,
   unionType = someType,
   unknownType = someType;
 
-export const declarationType = () => '{object}';
-export const functionType = () => '{Function}';
+export const declarationType = () => someType('object');
+export const functionType = () => someType('Function');

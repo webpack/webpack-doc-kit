@@ -21,7 +21,7 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "@node-core/doc-kit": "^1.4.1",
+    "@node-core/doc-kit": "1.4.3",
     "@tailwindcss/node": "^4.3.0",
     "classnames": "^2.5.1",
     "gray-matter": "^4.0.3",
