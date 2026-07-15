@@ -24,7 +24,7 @@ Many third-party plugins need to be updated to their latest versions to be compa
 
 ## `mode`
 
-Add the new [`mode`](#TODO[/configuration/mode/]) option to your configuration, setting it to `'production'`, `'development'`, or `'none'` depending on your use case.
+Add the new [`mode`](/docs/api/options#mode) option to your configuration, setting it to `'production'`, `'development'`, or `'none'` depending on your use case.
 
 ```diff displayName="webpack.config.js"
 module.exports = {
@@ -77,9 +77,9 @@ module.exports = {
 
 ## `CommonsChunkPlugin`
 
-`CommonsChunkPlugin` has been removed. Use the [`optimization.splitChunks`](#TODO[/configuration/optimization/#optimizationsplitchunks]) options instead.
+`CommonsChunkPlugin` has been removed. Use the [`optimization.splitChunks`](/docs/api/options#optimizationsplitchunks) options instead.
 
-See the [`optimization.splitChunks`](#TODO[/configuration/optimization/#optimizationsplitchunks]) documentation for details. The default configuration may already meet your needs.
+See the [`optimization.splitChunks`](/docs/api/options#optimizationsplitchunks) documentation for details. The default configuration may already meet your needs.
 
 > [!TIP]
 > When generating HTML from the stats, you can set `optimization.splitChunks.chunks: "all"`, which is the optimal configuration in most cases.
@@ -138,7 +138,7 @@ module.exports = {
 
 ## `module.loaders`
 
-`module.loaders` was deprecated in webpack 2 and is now removed in favor of [`module.rules`](#TODO[/configuration/module/#rule]).
+`module.loaders` was deprecated in webpack 2 and is now removed in favor of [`module.rules`](/docs/api/options#modulerules).
 
 ## Further reading
 

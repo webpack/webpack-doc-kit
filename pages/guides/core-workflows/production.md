@@ -126,7 +126,7 @@ Feel free to run these scripts and watch how the output changes as we continue b
 
 ## Specify the mode
 
-Many libraries key off the `process.env.NODE_ENV` variable to decide what to include. For example, when `process.env.NODE_ENV` is not set to `'production'`, some libraries add extra logging and testing to ease debugging; when it is set to `'production'`, they may drop or add significant portions of code to optimize for your real users. Since webpack v4, specifying [`mode`](#TODO[/configuration/mode/]) automatically configures `process.env.NODE_ENV` for you via [`DefinePlugin`](https://github.com/webpack/webpack/blob/fcccd192ce550210186f84a7ca59ee4cd47a8b2d/lib/WebpackOptionsApply.js#L565):
+Many libraries key off the `process.env.NODE_ENV` variable to decide what to include. For example, when `process.env.NODE_ENV` is not set to `'production'`, some libraries add extra logging and testing to ease debugging; when it is set to `'production'`, they may drop or add significant portions of code to optimize for your real users. Since webpack v4, specifying [`mode`](/docs/api/options#mode) automatically configures `process.env.NODE_ENV` for you via [`DefinePlugin`](https://github.com/webpack/webpack/blob/fcccd192ce550210186f84a7ca59ee4cd47a8b2d/lib/WebpackOptionsApply.js#L565):
 
 ```diff displayName="webpack.prod.js"
   import { merge } from 'webpack-merge';
@@ -165,17 +165,17 @@ If you use a library like [`react`](https://reactjs.org/), you should see a sign
 
 ## Minification
 
-webpack v4+ minifies your code by default in [production mode](#TODO[/configuration/mode/#mode-production]).
+webpack v4+ minifies your code by default in [production mode](/docs/api/options#mode).
 
 While the [`MinimizerPlugin`](/docs/plugins/minimizer-webpack-plugin) is a great starting point and is used by default, other options exist:
 
 - [`ClosureWebpackPlugin`](https://github.com/webpack-contrib/closure-webpack-plugin)
 
-If you decide to try another minification plugin, make sure your choice also drops dead code as described in the [tree shaking](/guides/optimization/tree-shaking) guide, and provide it via [`optimization.minimizer`](#TODO[/configuration/optimization/#optimizationminimizer]).
+If you decide to try another minification plugin, make sure your choice also drops dead code as described in the [tree shaking](/guides/optimization/tree-shaking) guide, and provide it via [`optimization.minimizer`](/docs/api/options#optimizationminimizer).
 
 ## Source mapping
 
-We encourage you to enable source maps in production, as they're useful for debugging as well as for running benchmark tests. That said, choose one with a reasonably quick build speed that's recommended for production use (see [`devtool`](#TODO[/configuration/devtool])). For this guide, we'll use the `source-map` option in production, as opposed to the `inline-source-map` we used in development:
+We encourage you to enable source maps in production, as they're useful for debugging as well as for running benchmark tests. That said, choose one with a reasonably quick build speed that's recommended for production use (see [`devtool`](/docs/api/options#devtool)). For this guide, we'll use the `source-map` option in production, as opposed to the `inline-source-map` we used in development:
 
 ```diff displayName="webpack.prod.js"
   import { merge } from 'webpack-merge';
@@ -196,6 +196,6 @@ It's crucial to minimize your CSS for production. See the [Minimizing for Produc
 
 ## CLI alternatives
 
-Many of the options described above can be set as command-line arguments. For example, [`optimization.minimize`](#TODO[/configuration/optimization/#optimizationminimize]) can be set with `--optimization-minimize`, and [`mode`](#TODO[/configuration/mode/]) can be set with `--mode`. Run `npx webpack --help=verbose` for a full list of CLI arguments.
+Many of the options described above can be set as command-line arguments. For example, [`optimization.minimize`](/docs/api/options#optimizationminimize) can be set with `--optimization-minimize`, and [`mode`](/docs/api/options#mode) can be set with `--mode`. Run `npx webpack --help=verbose` for a full list of CLI arguments.
 
 While these shorthand methods are useful, we recommend setting these options in a webpack configuration file for greater configurability.

@@ -97,9 +97,9 @@ An object describing an entry point. You can specify the following properties:
 - `dependOn`: the entry points that this entry point depends on. They must be loaded before this entry point is loaded.
 - `filename`: the name of each output file on disk.
 - `import`: the module(s) loaded at startup.
-- `library`: specifies [library options](#TODO[/configuration/output/#outputlibrary]) to bundle a library from the current entry.
+- `library`: specifies [library options](/docs/api/options#outputlibrary) to bundle a library from the current entry.
 - `runtime`: the name of the runtime chunk. When set, a new runtime chunk is created. Since webpack 5.43.0, it can be set to `false` to avoid creating a new runtime chunk.
-- `publicPath`: a public URL for this entry's output files when they are referenced in a browser. See also [output.publicPath](#TODO[/configuration/output/#outputpublicpath]).
+- `publicPath`: a public URL for this entry's output files when they are referenced in a browser. See also [output.publicPath](/docs/api/options#outputpublicpath).
 
 ```js displayName="webpack.config.js"
 export default {
@@ -201,7 +201,7 @@ export default {
 > [!TIP]
 > In webpack versions earlier than 4, it was common to add vendors as a separate entry point so they would be compiled into a separate file (in combination with the `CommonsChunkPlugin`).
 >
-> This is discouraged in webpack 4 and later. Instead, the [`optimization.splitChunks`](#TODO[/configuration/optimization/#optimizationsplitchunks]) option takes care of separating vendor and app modules into a separate file. **Do not** create an entry for vendors or anything else that is not the starting point of execution.
+> This is discouraged in webpack 4 and later. Instead, the [`optimization.splitChunks`](/docs/api/options#optimizationsplitchunks) option takes care of separating vendor and app modules into a separate file. **Do not** create an entry for vendors or anything else that is not the starting point of execution.
 
 ### Multi-page application
 
@@ -217,7 +217,7 @@ export default {
 
 **What does this do?** It tells webpack that we want three separate dependency graphs, as in the example above.
 
-**Why?** In a multi-page application, the server fetches a new HTML document for each page. The page reloads that document and its assets are re-downloaded. This gives us a unique opportunity to use techniques like [`optimization.splitChunks`](#TODO[/configuration/optimization/#optimizationsplitchunks]) to create bundles of code shared across pages. Multi-page applications that reuse a lot of code between entry points benefit greatly from these techniques as the number of entry points grows.
+**Why?** In a multi-page application, the server fetches a new HTML document for each page. The page reloads that document and its assets are re-downloaded. This gives us a unique opportunity to use techniques like [`optimization.splitChunks`](/docs/api/options#optimizationsplitchunks) to create bundles of code shared across pages. Multi-page applications that reuse a lot of code between entry points benefit greatly from these techniques as the number of entry points grows.
 
 > [!TIP]
 > As a rule of thumb, use exactly one entry point per HTML document. See the issue [described here](https://bundlers.tooling.report/code-splitting/multi-entry/#webpack) for more details.

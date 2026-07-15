@@ -13,7 +13,7 @@ This guide covers the configuration you need so that files produced by a webpack
 
 ## Output filenames
 
-The `output.filename` [substitutions](#TODO[/configuration/output/#outputfilename]) setting lets us define the names of our output files. webpack supports templating filenames with bracketed strings called **substitutions**. The `[contenthash]` substitution adds a unique hash derived from an asset's content, so whenever that content changes the hash changes too.
+The `output.filename` [substitutions](/docs/api/options#outputfilename) setting lets us define the names of our output files. webpack supports templating filenames with bracketed strings called **substitutions**. The `[contenthash]` substitution adds a unique hash derived from an asset's content, so whenever that content changes the hash changes too.
 
 Let's set up the project using the example from [getting started](/guides/getting-started), along with the `plugins` from [output management](/guides/core-workflows/output-management), so we don't have to maintain `index.html` by hand:
 
@@ -80,7 +80,7 @@ This happens because webpack includes certain boilerplate, specifically the runt
 
 ## Extracting boilerplate
 
-As we saw in [code splitting](/guides/optimization/code-splitting), the [`SplitChunksPlugin`](/docs/api/optimize/SplitChunksPlugin) can split modules out into separate bundles. webpack also offers an optimization that splits the runtime code into its own chunk via the [`optimization.runtimeChunk`](#TODO[/configuration/optimization/#optimizationruntimechunk]) option. Set it to `single` to create a single runtime bundle shared across all chunks:
+As we saw in [code splitting](/guides/optimization/code-splitting), the [`SplitChunksPlugin`](/docs/api/optimize/SplitChunksPlugin) can split modules out into separate bundles. webpack also offers an optimization that splits the runtime code into its own chunk via the [`optimization.runtimeChunk`](/docs/api/options#optimizationruntimechunk) option. Set it to `single` to create a single runtime bundle shared across all chunks:
 
 ```diff displayName="webpack.config.js"
  import path from 'node:path';
@@ -232,7 +232,7 @@ All three hashes changed. This is because, by default, each `module.id` is assig
 - The `vendor` bundle changed because its `module.id` changed.
 - The `runtime` bundle changed because it now references a new module.
 
-The first and last changes are expected; it's the `vendor` hash we want to keep stable. Let's set [`optimization.moduleIds`](#TODO[/configuration/optimization/#optimizationmoduleids]) to `'deterministic'`:
+The first and last changes are expected; it's the `vendor` hash we want to keep stable. Let's set [`optimization.moduleIds`](/docs/api/options#optimizationmoduleids) to `'deterministic'`:
 
 ```diff displayName="webpack.config.js"
  import path from 'node:path';

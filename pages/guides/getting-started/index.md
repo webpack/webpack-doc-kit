@@ -6,7 +6,7 @@ authors: bebraw,varunjayaraman,cntanglijun,chrisVillanueva,johnstew,simon04,aaro
 
 webpack is a good fit when your application needs a customizable build pipeline: bundling JavaScript modules, processing assets, integrating loaders and plugins, and shaping output for different environments. For a very small page with one or two scripts, a bundler may be unnecessary at first; but for an application with shared dependencies, npm packages, assets, and production builds, webpack gives you explicit control over how everything is assembled.
 
-webpack is used to efficiently compile JavaScript modules. Once [installed](/guides/getting-started/installing-webpack), you can interact with webpack through either its [CLI](https://github.com/webpack/webpack-cli) or its [API](#TODO[/api/node]). If you're new to webpack, please read through the [core concepts](/guides/getting-started/concepts) to learn why you might choose it over the other tools available in the community.
+webpack is used to efficiently compile JavaScript modules. Once [installed](/guides/getting-started/installing-webpack), you can interact with webpack through either its [CLI](https://github.com/webpack/webpack-cli) or its [API](/docs/api/v5.x). If you're new to webpack, please read through the [core concepts](/guides/getting-started/concepts) to learn why you might choose it over the other tools available in the community.
 
 > [!WARNING]
 > The examples in this guide use `webpack-cli` 7, which requires Node.js 20.9.0 or later.
@@ -311,7 +311,7 @@ webpack 5.x.x compiled successfully in 1934 ms
 > [!TIP]
 > If a `webpack.config.js` is present, the `webpack` command picks it up by default. We use the `--config` option here only to show that you can pass a configuration of any name. This is useful for more complex configurations that need to be split into multiple files.
 
-A configuration file offers far more flexibility than CLI usage. We can specify loader rules, plugins, resolve options, and many other enhancements this way. See the [configuration documentation](#TODO[/configuration]) to learn more.
+A configuration file offers far more flexibility than CLI usage. We can specify loader rules, plugins, resolve options, and many other enhancements this way. See the [configuration documentation](/docs/api/options) to learn more.
 
 ## npm scripts
 
@@ -390,4 +390,4 @@ webpack-demo
 > [!WARNING]
 > Do not compile untrusted code with webpack. It could lead to execution of malicious code on your computer, on remote servers, or in the web browsers of your application's end users.
 
-If you want to learn more about webpack's design, you can check out the [basic concepts](/guides/getting-started/concepts) and [configuration](#TODO[/configuration]) pages. Furthermore, the [API](/docs/api/types) section digs into the various interfaces webpack offers.
+If you want to learn more about webpack's design, you can check out the [basic concepts](/guides/getting-started/concepts) and [configuration](/docs/api/options) pages. Furthermore, the [API](/docs/api/types) section digs into the various interfaces webpack offers.

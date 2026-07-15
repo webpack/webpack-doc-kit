@@ -124,13 +124,13 @@ import mainImage from './images/main.png';
 img.src = mainImage; // '/dist/151cfcfa1bd74779aadb.png'
 ```
 
-All `.png` files will be emitted to the output directory and their paths will be injected into the bundles. You can also customize [`outputPath`](#TODO[/configuration/module/#rulegeneratoroutputpath]) and [`publicPath`](#TODO[/configuration/module/#rulegeneratorpublicpath]) for them.
+All `.png` files will be emitted to the output directory and their paths will be injected into the bundles. You can also customize [`outputPath`](/docs/api/options#modulerules) and [`publicPath`](/docs/api/options#modulerules) for them.
 
 ### Custom output filename
 
 By default, `asset/resource` modules are emitted into the output directory using the `[hash][ext][query]` filename template.
 
-You can change this template by setting [`output.assetModuleFilename`](#TODO[/configuration/output/#outputassetmodulefilename]) in your webpack configuration:
+You can change this template by setting [`output.assetModuleFilename`](/docs/api/options#outputassetmodulefilename) in your webpack configuration:
 
 ```diff displayName="webpack.config.js"
 import path from "node:path";
@@ -189,7 +189,7 @@ export default {
 
 With this configuration, all `.html` files will be emitted into a `static` directory inside the output directory.
 
-`Rule.generator.filename` behaves the same as [`output.assetModuleFilename`](#TODO[/configuration/output/#outputassetmodulefilename]) and works only with the `asset` and `asset/resource` module types.
+`Rule.generator.filename` behaves the same as [`output.assetModuleFilename`](/docs/api/options#outputassetmodulefilename) and works only with the `asset` and `asset/resource` module types.
 
 ## Inlining assets
 
@@ -325,7 +325,7 @@ When you use `new URL('./path/to/asset', import.meta.url)`, webpack creates an a
 const logo = new URL('./logo.svg', import.meta.url);
 ```
 
-Depending on the [`target`](#TODO[/configuration/target/]) in your configuration, webpack compiles the code above into different output:
+Depending on the [`target`](/docs/api/options#target) in your configuration, webpack compiles the code above into different output:
 
 ```js
 // target: web
@@ -386,7 +386,7 @@ export default {
 
 Now webpack automatically chooses between `resource` and `inline` based on a default condition: a file smaller than 8kb is treated as an `inline` module type, and larger files use the `resource` module type.
 
-You can change this condition by setting the [`Rule.parser.dataUrlCondition.maxSize`](#TODO[/configuration/module/#ruleparserdataurlcondition]) option at the module rule level of your webpack configuration:
+You can change this condition by setting the [`Rule.parser.dataUrlCondition.maxSize`](/docs/api/options#modulerules) option at the module rule level of your webpack configuration:
 
 ```diff displayName="webpack.config.js"
 import path from "node:path";
@@ -417,7 +417,7 @@ export default {
 };
 ```
 
-You can also [specify a function](#TODO[/configuration/module/#ruleparserdataurlcondition]) to decide whether to inline a module.
+You can also [specify a function](/docs/api/options#modulerules) to decide whether to inline a module.
 
 ## Bytes type
 
@@ -542,7 +542,7 @@ module: {
 
 ## Disable emitting assets
 
-For use cases such as server-side rendering, you might want to disable emitting assets. This is possible with the [`emit`](#TODO[/configuration/module/#rulegeneratoremit]) option under `Rule.generator`:
+For use cases such as server-side rendering, you might want to disable emitting assets. This is possible with the [`emit`](/docs/api/options#modulerules) option under `Rule.generator`:
 
 ```js
 export default {

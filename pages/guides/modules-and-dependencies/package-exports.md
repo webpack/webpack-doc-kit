@@ -301,13 +301,13 @@ Unfortunately, there is no `node-js` condition for Node.js as a runtime. Such a 
 
 The following tools support custom conditions:
 
-| Tool      | Supported | Notes                                                                                                          |
-| --------- | --------- | -------------------------------------------------------------------------------------------------------------- |
-| Node.js   | yes       | Use the [`--conditions`](https://nodejs.org/api/cli.html#cli_c_condition_conditions_condition) CLI argument.   |
-| webpack   | yes       | Use the [`resolve.conditionNames`](#TODO[/configuration/resolve/#resolveconditionnames]) configuration option. |
-| rollup    | yes       | Use the `exportConditions` option for `@rollup/plugin-node-resolve`.                                           |
-| esinstall | no        |                                                                                                                |
-| wmr       | no        |                                                                                                                |
+| Tool      | Supported | Notes                                                                                                        |
+| --------- | --------- | ------------------------------------------------------------------------------------------------------------ |
+| Node.js   | yes       | Use the [`--conditions`](https://nodejs.org/api/cli.html#cli_c_condition_conditions_condition) CLI argument. |
+| webpack   | yes       | Use the [`resolve.conditionNames`](/docs/api/options#resolveconditionnames) configuration option.            |
+| rollup    | yes       | Use the `exportConditions` option for `@rollup/plugin-node-resolve`.                                         |
+| esinstall | no        |                                                                                                              |
+| wmr       | no        |                                                                                                              |
 
 For custom conditions, the following naming scheme is recommended:
 

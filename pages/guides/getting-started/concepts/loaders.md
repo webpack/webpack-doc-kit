@@ -41,7 +41,7 @@ Note that loaders could be used from the CLI in webpack v4, but that feature was
 
 ### Configuration
 
-[`module.rules`](#TODO[/configuration/module/#modulerules]) lets you specify several loaders within your webpack configuration. This is a concise way to declare loaders, helps keep your code clean, and gives you a full overview of each loader.
+[`module.rules`](/docs/api/options#modulerules) lets you specify several loaders within your webpack configuration. This is a concise way to declare loaders, helps keep your code clean, and gives you a full overview of each loader.
 
 Loaders are evaluated and executed from right to left (or from bottom to top). In the example below, execution starts with `sass-loader`, continues with `css-loader`, and finally ends with `style-loader`. See [Loader features](#loader-features) for more information about loader order.
 
@@ -78,7 +78,7 @@ You can specify loaders directly in an `import` statement, or in any equivalent 
 import * as styles from 'style-loader!css-loader?modules!./styles.css';
 ```
 
-You can override any loaders, preLoaders, and postLoaders from the [configuration](#TODO[/configuration]) by prefixing the inline `import` statement:
+You can override any loaders, preLoaders, and postLoaders from the [configuration](/docs/api/options) by prefixing the inline `import` statement:
 
 - Prefixing with `!` disables all configured normal loaders:
 

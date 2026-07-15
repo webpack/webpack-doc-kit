@@ -255,7 +255,7 @@ __webpack_public_path__ = `${document.currentScript.src}/../`;
 ```
 
 > [!TIP]
-> There is also an `'auto'` value available for [`output.publicPath`](#TODO[/configuration/output/#outputpublicpath]) that determines the public path for you automatically.
+> There is also an `'auto'` value available for [`output.publicPath`](/docs/api/options#outputpublicpath) that determines the public path for you automatically.
 
 ## Troubleshooting
 

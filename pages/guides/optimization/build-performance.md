@@ -94,7 +94,7 @@ The `thread-loader` lets you offload expensive loaders to a pool of workers.
 
 ### Persistent cache
 
-Enable the [`cache`](#TODO[/configuration/cache]) option in your webpack configuration. Clear the cache directory on `"postinstall"` in `package.json`.
+Enable the [`cache`](/docs/api/options#cache) option in your webpack configuration. Clear the cache directory on `"postinstall"` in `package.json`.
 
 > [!TIP]
 > Persistent caching supports Yarn PnP version 3 ([Yarn 2 Berry](https://yarnpkg.com/features/pnp)).

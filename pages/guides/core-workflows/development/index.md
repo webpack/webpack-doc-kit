@@ -12,7 +12,7 @@ If you've worked through the previous guides, you should now have a solid grasp 
 > [!WARNING]
 > The tools described in this guide are intended **only for development**. Do **not** use them in production.
 
-Start by setting [`mode` to `'development'`](#TODO[/configuration/mode/#mode-development]) and `title` to `'Development'`.
+Start by setting [`mode` to `'development'`](/docs/api/options#mode) and `title` to `'Development'`.
 
 ```diff displayName="webpack.config.js"
  import path from 'node:path';
@@ -48,7 +48,7 @@ When webpack bundles your source code, tracing errors and warnings back to their
 
 To make errors and warnings easier to track down, JavaScript supports [source maps](http://blog.teamtreehouse.com/introduction-source-maps), which map your compiled code back to the original source. If an error originates in `b.js`, the source map will tell you precisely that.
 
-webpack offers many [different options](#TODO[/configuration/devtool]) for source maps. It's worth reviewing them so you can pick the one that fits your needs.
+webpack offers many [different options](/docs/api/options#devtool) for source maps. It's worth reviewing them so you can pick the one that fits your needs.
 
 For this guide, we'll use the `inline-source-map` option. It's well suited for demonstration, though not for production:
 
@@ -123,7 +123,7 @@ Manually running `npm run build` every time you want to compile quickly becomes 
 
 webpack provides several options that recompile your code automatically whenever it changes:
 
-1. webpack's [Watch Mode](#TODO[/configuration/watch/#watch])
+1. webpack's [Watch Mode](/docs/api/options#watch)
 2. [webpack-dev-server](https://github.com/webpack/webpack-dev-server)
 3. [webpack-dev-middleware](https://github.com/webpack/webpack-dev-middleware)
 
@@ -225,10 +225,10 @@ This tells `webpack-dev-server` to serve the files from the `dist` directory on 
 > `optimization.runtimeChunk: 'single'` was added because this example uses more than one entry point on a single HTML page. Without it, we'd run into the problem described [here](https://bundlers.tooling.report/code-splitting/multi-entry/). See the [Code Splitting](/guides/optimization/code-splitting) chapter for more details.
 
 > [!TIP]
-> `webpack-dev-server` serves bundled files from the directory defined in [`output.path`](#TODO[/configuration/output/#outputpath]); that is, files are available under `http://[devServer.host]:[devServer.port]/[output.publicPath]/[output.filename]`.
+> `webpack-dev-server` serves bundled files from the directory defined in [`output.path`](/docs/api/options#outputpath); that is, files are available under `http://[devServer.host]:[devServer.port]/[output.publicPath]/[output.filename]`.
 
 > [!WARNING]
-> `webpack-dev-server` doesn't write any output files after compiling. Instead, it keeps the bundles in memory and serves them as if they were real files mounted at the server's root path. If your page expects the bundles at a different path, change it with the [`devMiddleware.publicPath`](#TODO[/configuration/dev-server/#devserverdevmiddleware]) option in the dev server's configuration.
+> `webpack-dev-server` doesn't write any output files after compiling. Instead, it keeps the bundles in memory and serves them as if they were real files mounted at the server's root path. If your page expects the bundles at a different path, change it with the [`devMiddleware.publicPath`](/docs/api/options#devserver) option in the dev server's configuration.
 
 Let's also add a script to make running the dev server easier:
 
@@ -261,7 +261,7 @@ Let's also add a script to make running the dev server easier:
 
 Now run `npm start` from the command line, and your browser will open the page automatically. Change and save any source file, and the server will reload once the code has recompiled. Give it a try!
 
-`webpack-dev-server` offers many configurable options. Head over to the [documentation](#TODO[/configuration/dev-server]) to learn more.
+`webpack-dev-server` offers many configurable options. Head over to the [documentation](/docs/api/options#devserver) to learn more.
 
 > [!TIP]
 > Now that your server is up and running, you might want to give [Hot Module Replacement](/guides/core-workflows/development/hot-module-replacement) a try!

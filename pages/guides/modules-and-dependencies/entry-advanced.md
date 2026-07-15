@@ -6,7 +6,7 @@ authors: EugeneHlushko,avivkeller
 
 ## Multiple file types per entry
 
-When you use an array of values for [entry](#TODO[/configuration/entry-context/#entry]), you can supply different types of files to produce separate bundles for CSS, JavaScript, and other assets. This is useful in applications that don't `import` styles from JavaScript, such as pre-Single-Page applications or projects structured for other reasons.
+When you use an array of values for [entry](/docs/api/options#entry), you can supply different types of files to produce separate bundles for CSS, JavaScript, and other assets. This is useful in applications that don't `import` styles from JavaScript, such as pre-Single-Page applications or projects structured for other reasons.
 
 Consider an example. We have a PHP application with two page types: home and account. The home page has a different layout and JavaScript that isn't shared with the rest of the application (the account page). From our application files, we want to produce `home.js` and `home.css` for the home page, and `account.js` and `account.css` for the account page.
 

@@ -114,7 +114,7 @@ webpack 5.x.x compiled successfully in 1996 ms
 
 webpack generates `print.bundle.js` and `index.bundle.js`, both of which we referenced in `index.html`. Open `index.html` in your browser and click the button to see what happens.
 
-But what if we renamed one of our entry points, or added a new one? The generated bundles would be renamed on the next build, yet `index.html` would still reference the old names. Let's fix that with [`HtmlWebpackPlugin`](#TODO[/plugins/html-webpack-plugin]).
+But what if we renamed one of our entry points, or added a new one? The generated bundles would be renamed on the next build, yet `index.html` would still reference the old names. Let's fix that with [`HtmlWebpackPlugin`](https://www.npmjs.com/package/html-webpack-plugin).
 
 > [!TIP]
 > If you inspected `print.bundle.js`, you might have noticed that it does not contain the `printMe` function. Instead, it contains only an [IIFE](/guides/getting-started/concepts/why-webpack/#iifes---immediately-invoked-function-expressions) with no observable side effects.
@@ -182,7 +182,7 @@ To learn more about the features and options that `HtmlWebpackPlugin` provides, 
 
 As you may have noticed over the previous guides and examples, our `/dist` folder has become cluttered. webpack generates files and places them in `/dist` for you, but it doesn't track which files are actually still in use.
 
-In general, it's good practice to clean the `/dist` folder before each build so that only the files in use are generated. The [`output.clean`](#TODO[/configuration/output/#outputclean]) option takes care of this:
+In general, it's good practice to clean the `/dist` folder before each build so that only the files in use are generated. The [`output.clean`](/docs/api/options#outputclean) option takes care of this:
 
 ```diff displayName="webpack.config.js"
  import path from 'node:path';
@@ -214,7 +214,7 @@ Run `npm run build` again and inspect the `/dist` folder. If everything went wel
 
 ## The manifest
 
-You might wonder how webpack and its plugins seem to "know" which files are being generated. The answer lies in the manifest that webpack keeps to track how all the modules map to the output bundles. If you're interested in managing webpack's [`output`](#TODO[/configuration/output]) in other ways, the manifest is a good place to start.
+You might wonder how webpack and its plugins seem to "know" which files are being generated. The answer lies in the manifest that webpack keeps to track how all the modules map to the output bundles. If you're interested in managing webpack's [`output`](/docs/api/options#output) in other ways, the manifest is a good place to start.
 
 The manifest data can be extracted into a JSON file for consumption using the [`ManifestPlugin`](/docs/api/plugins/ManifestPlugin).
 

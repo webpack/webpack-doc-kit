@@ -103,7 +103,7 @@ In this example, we tell webpack to bundle `src/index.js` into `dist/webpack-num
 
 ### Adding source maps
 
-When bundling a library, it's a good idea to generate source maps. They let consumers debug against your original source code instead of the minified bundle. You can enable them with the [`devtool`](#TODO[/configuration/devtool/]) option:
+When bundling a library, it's a good idea to generate source maps. They let consumers debug against your original source code instead of the minified bundle. You can enable them with the [`devtool`](/docs/api/options#devtool) option:
 
 ```diff displayName="webpack.config.js"
   import path from 'node:path';
@@ -127,7 +127,7 @@ When bundling a library, it's a good idea to generate source maps. They let cons
 
 ## Expose the library
 
-So far this matches how you'd bundle an application. Here's where things differ: we need to expose the entry point's exports through the [`output.library`](#TODO[/configuration/output/#outputlibrary]) option.
+So far this matches how you'd bundle an application. Here's where things differ: we need to expose the entry point's exports through the [`output.library`](/docs/api/options#outputlibrary) option.
 
 ```diff displayName="webpack.config.js"
   import path from 'node:path';
@@ -195,7 +195,7 @@ As library authors, we want our library to work across different environments. I
   </html>
   ```
 
-To support all of these, update the `output.library` option and set its `type` to [`'umd'`](#TODO[/configuration/output/#type-umd]):
+To support all of these, update the `output.library` option and set its `type` to [`'umd'`](/docs/api/options#outputlibrary):
 
 ```diff displayName="webpack.config.js"
  import path from 'node:path';
@@ -228,7 +228,7 @@ Now webpack produces a library that works with CommonJS, AMD, and a script tag.
 
 If you run `npx webpack` now, you'll notice the resulting bundle is fairly large. Inspecting the file reveals that lodash has been bundled along with your code. To avoid bundling `lodash` and bloating the library, we can configure webpack to treat it as an external module. Because we're no longer bundling it, the consumer is responsible for providing it, so you should move `lodash` from `devDependencies` to `dependencies` (or `peerDependencies`) so package managers install it automatically for your library's consumers.
 
-This is done with the [`externals`](#TODO[/configuration/externals/]) configuration:
+This is done with the [`externals`](/docs/api/options#externals) configuration:
 
 ```diff displayName="webpack.config.js"
   import path from 'node:path';

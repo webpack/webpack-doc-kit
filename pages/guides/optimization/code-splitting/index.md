@@ -11,8 +11,8 @@ Code splitting is one of webpack's most compelling features. It lets you split y
 
 There are three general approaches to code splitting:
 
-- **Entry points**: Manually split code using the [`entry`](#TODO[/configuration/entry-context]) configuration.
-- **Prevent duplication**: Use [entry dependencies](#TODO[/configuration/entry-context/#dependencies]) or the [`SplitChunksPlugin`](/docs/api/optimize/SplitChunksPlugin) to deduplicate and split chunks.
+- **Entry points**: Manually split code using the [`entry`](/docs/api/options#entry) configuration.
+- **Prevent duplication**: Use [entry dependencies](/docs/api/options#entry) or the [`SplitChunksPlugin`](/docs/api/optimize/SplitChunksPlugin) to deduplicate and split chunks.
 - **Dynamic imports**: Split code through inline function calls within modules.
 
 ## Entry Points
@@ -85,7 +85,7 @@ The first point is clearly a problem in our example: `lodash` is also imported i
 
 ### Entry dependencies
 
-The [`dependOn` option](#TODO[/configuration/entry-context/#dependencies]) lets you share modules between chunks:
+The [`dependOn` option](/docs/api/options#entry) lets you share modules between chunks:
 
 ```diff displayName="webpack.config.js"
  import path from 'node:path';
@@ -461,7 +461,7 @@ const lazyComp = () =>
   });
 ```
 
-If the script fails to load before webpack starts loading it on its own (webpack creates a script tag to load its code if that script isn't already on the page), the `catch` handler won't run until [chunkLoadTimeout](#TODO[/configuration/output/#outputchunkloadtimeout]) is reached. This behavior can be surprising, but it's explainable: webpack can't throw an error because it doesn't know the script failed. webpack adds an `onerror` handler to the script only after the error has already happened.
+If the script fails to load before webpack starts loading it on its own (webpack creates a script tag to load its code if that script isn't already on the page), the `catch` handler won't run until [chunkLoadTimeout](/docs/api/options#outputchunkloadtimeout) is reached. This behavior can be surprising, but it's explainable: webpack can't throw an error because it doesn't know the script failed. webpack adds an `onerror` handler to the script only after the error has already happened.
 
 To avoid this problem, add your own `onerror` handler that removes the script whenever an error occurs:
 

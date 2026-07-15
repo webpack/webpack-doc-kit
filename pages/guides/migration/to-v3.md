@@ -11,7 +11,7 @@ The sections below walk through the major changes between webpack 1 and webpack 
 
 ## `resolve.root`, `resolve.fallback`, `resolve.modulesDirectories`
 
-These three options were consolidated into a single `resolve.modules` option. See [resolving](#TODO[/configuration/resolve]) for usage.
+These three options were consolidated into a single `resolve.modules` option. See [resolving](/docs/api/options#resolve) for usage.
 
 ```diff
   resolve: {
@@ -25,11 +25,11 @@ These three options were consolidated into a single `resolve.modules` option. Se
 
 ## `resolve.extensions`
 
-You no longer need to pass an empty string in this option. That behavior moved to `resolve.enforceExtension`. See [resolving](#TODO[/configuration/resolve]) for usage.
+You no longer need to pass an empty string in this option. That behavior moved to `resolve.enforceExtension`. See [resolving](/docs/api/options#resolve) for usage.
 
 ## `resolve.*`
 
-Several APIs changed here. They are not documented in detail because they are rarely used. See [resolving](#TODO[/configuration/resolve]) for the specifics.
+Several APIs changed here. They are not documented in detail because they are rarely used. See [resolving](/docs/api/options#resolve) for the specifics.
 
 ## `module.loaders` is now `module.rules`
 
@@ -69,7 +69,7 @@ The old loader configuration has been superseded by a more capable rules system 
 
 ## Chaining loaders
 
-As in webpack 1, loaders can be chained so that the output of one is passed to the next. With the [`rule.use`](#TODO[/configuration/module/#ruleuse]) option, `use` accepts an array of loaders. In webpack 1, loaders were typically chained with `!`; that style is now only supported through the legacy `module.loaders` option.
+As in webpack 1, loaders can be chained so that the output of one is passed to the next. With the [`rule.use`](/docs/api/options#modulerules) option, `use` accepts an array of loaders. In webpack 1, loaders were typically chained with `!`; that style is now only supported through the legacy `module.loaders` option.
 
 ```diff
   module: {

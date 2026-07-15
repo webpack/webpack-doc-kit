@@ -96,7 +96,7 @@ The TC39 proposal [Deferring Module Evaluation](https://github.com/tc39/proposal
 >
 > _Only when accessing a property of this module, would the execution operations be performed (if needed)._
 
-This feature is available by enabling [experiments.deferImport](#TODO[/configuration/experiments/#experimentsdeferimport]).
+This feature is available by enabling [experiments.deferImport](/docs/api/options#experimentsdeferimport).
 
 > [!WARNING]
 > This feature is still in the experimental stage and may change in future versions of webpack.

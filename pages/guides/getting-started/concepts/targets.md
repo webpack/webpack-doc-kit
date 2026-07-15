@@ -4,7 +4,7 @@ authors: TheLarkInn,rouzbeh84,johnstew,srilman,byzyk,EugeneHlushko,avivkeller
 
 # Targets
 
-Because JavaScript can run on both the server and the browser, webpack offers several deployment _targets_ that you can set in your webpack [configuration](#TODO[/configuration]).
+Because JavaScript can run on both the server and the browser, webpack offers several deployment _targets_ that you can set in your webpack [configuration](/docs/api/options).
 
 > [!WARNING]
 > Do not confuse the webpack `target` property with the `output.libraryTarget` property. For more information, see our [guide](/guides/getting-started/concepts/output) on the `output` property.
@@ -21,14 +21,14 @@ export default {
 
 In the example above, `node` tells webpack to compile for a Node.js-like environment: chunks are loaded with Node.js's `require`, and built-in modules such as `fs` and `path` are left untouched.
 
-Each target comes with deployment- and environment-specific additions tailored to its needs. See which [targets are available](#TODO[/configuration/target/]).
+Each target comes with deployment- and environment-specific additions tailored to its needs. See which [targets are available](/docs/api/options#target).
 
 > [!NOTE]
 > Further expansion for other popular target values.
 
 ## Multiple targets
 
-webpack lets you pass an [array of strings](#TODO[/configuration/target/#string]) to the `target` property, in which case the common subset of those targets' features is used. This lets you build universal code that runs in multiple environments. For example, you can combine `web` and `node`:
+webpack lets you pass an [array of strings](/docs/api/options#target) to the `target` property, in which case the common subset of those targets' features is used. This lets you build universal code that runs in multiple environments. For example, you can combine `web` and `node`:
 
 ```js displayName="webpack.config.js"
 export default {

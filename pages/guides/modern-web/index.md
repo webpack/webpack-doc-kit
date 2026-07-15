@@ -17,7 +17,7 @@ If more than one JavaScript bundle calls `customElements.define()` for the same 
 
 ### Approach
 
-Use [`optimization.splitChunks`](#TODO[/configuration/optimization/#optimizationsplitchunks]) so the module that defines the element lives in a **single shared chunk** that loads once. Adjust `cacheGroups` so your element definitions (or a dedicated folder such as `src/elements/`) are forced into one chunk. See [Prevent Duplication](/guides/optimization/code-splitting/#prevent-duplication) for the general idea.
+Use [`optimization.splitChunks`](/docs/api/options#optimizationsplitchunks) so the module that defines the element lives in a **single shared chunk** that loads once. Adjust `cacheGroups` so your element definitions (or a dedicated folder such as `src/elements/`) are forced into one chunk. See [Prevent Duplication](/guides/optimization/code-splitting/#prevent-duplication) for the general idea.
 
 ```js displayName="webpack.config.js"
 import path from 'node:path';
@@ -63,11 +63,11 @@ Splitting alone does not change **browser** rules: the tag name must still be re
 
 ### Problem
 
-[Import maps](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/script/type/importmap) let the browser resolve **bare specifiers** (such as `import "lodash-es"`) from an `importmap.json` file or an inline `<script type="importmap">`. If webpack **bundles** those dependencies, you don't need an import map for them. If you want the **browser** to load a dependency from a URL (a CDN or `/vendor/`) while your application code keeps bare imports, mark those modules as [`externals`](#TODO[/configuration/externals/]) so webpack emits `import` statements that match your map.
+[Import maps](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/script/type/importmap) let the browser resolve **bare specifiers** (such as `import "lodash-es"`) from an `importmap.json` file or an inline `<script type="importmap">`. If webpack **bundles** those dependencies, you don't need an import map for them. If you want the **browser** to load a dependency from a URL (a CDN or `/vendor/`) while your application code keeps bare imports, mark those modules as [`externals`](/docs/api/options#externals) so webpack emits `import` statements that match your map.
 
 ### Approach
 
-Enable [ES module output](#TODO[/configuration/output/#outputmodule]) (`experiments.outputModule` and `output.module`), set [`externalsType: "module"`](#TODO[/configuration/externals/#externalstypemodule]) for static imports, and list each bare specifier in `externals` using the same string the browser will resolve via the import map.
+Enable [ES module output](/docs/api/options#outputmodule) (`experiments.outputModule` and `output.module`), set [`externalsType: "module"`](/docs/api/options#externalstype) for static imports, and list each bare specifier in `externals` using the same string the browser will resolve via the import map.
 
 ```js displayName="webpack.config.js"
 import path from 'node:path';
@@ -125,7 +125,7 @@ The order matters: the import map must come before your bundle.
 ```
 
 > [!WARNING]
-> [`experiments.outputModule`](#TODO[/configuration/experiments/#experimentsoutputmodule]) and [`output.module`](#TODO[/configuration/output/#outputmodule]) are still experimental. Check the latest [webpack release notes](https://github.com/webpack/webpack/releases) before relying on them in production.
+> [`experiments.outputModule`](/docs/api/options#experimentsoutputmodule) and [`output.module`](/docs/api/options#outputmodule) are still experimental. Check the latest [webpack release notes](https://github.com/webpack/webpack/releases) before relying on them in production.
 
 ### Limitations and future work
 

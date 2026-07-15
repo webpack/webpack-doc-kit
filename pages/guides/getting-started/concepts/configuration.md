@@ -4,7 +4,7 @@ authors: TheLarkInn,simon04,EugeneHlushko,byzyk,mr-baraiya,avivkeller
 
 # Configuration
 
-You may have noticed that very few webpack configurations look exactly alike. That's because a webpack configuration file is simply a JavaScript file that exports a webpack [configuration](#TODO[/configuration/]). webpack then processes that configuration according to the properties you define on it.
+You may have noticed that very few webpack configurations look exactly alike. That's because a webpack configuration file is simply a JavaScript file that exports a webpack [configuration](/docs/api/options). webpack then processes that configuration according to the properties you define on it.
 
 Since the configuration is a standard Node.js module, you can do all of the following:
 
@@ -46,7 +46,7 @@ export default {
 };
 ```
 
-See the [Configuration section](#TODO[/configuration/]) for every supported configuration option.
+See the [Configuration section](/docs/api/options) for every supported configuration option.
 
 ## Using multiple configurations
 
@@ -73,12 +73,8 @@ module.exports = [
 
 ## Multiple targets
 
-In addition to exporting a single configuration as an object, a [function](#TODO[/configuration/configuration-types/#exporting-a-function]), or a [Promise](#TODO[/configuration/configuration-types/#exporting-a-promise]), you can export multiple configurations.
-
-See [Exporting multiple configurations](#TODO[/configuration/configuration-types/#exporting-multiple-configurations]).
+In addition to exporting a single configuration as an object, a [function](/guides/core-workflows/environment-variables), or a Promise, you can export multiple configurations.
 
 ## Using other configuration languages
 
 webpack accepts configuration files written in several programming and data languages.
-
-See [Configuration Languages](#TODO[/configuration/configuration-languages/]).

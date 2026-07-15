@@ -442,13 +442,13 @@ See [the babel-preset-env documentation](https://babeljs.io/docs/en/babel-preset
 
 ## Node built-ins
 
-Node built-ins, such as `process`, can be polyfilled directly from your configuration file without any special loaders or plugins. See the [node configuration page](#TODO[/configuration/node]) for more information and examples.
+Node built-ins, such as `process`, can be polyfilled directly from your configuration file without any special loaders or plugins. See the [node configuration page](/docs/api/options#node) for more information and examples.
 
 ## Other utilities
 
 A few other tools can help when dealing with legacy modules.
 
-When a module has no AMD or CommonJS version and you want to include its `dist`, you can flag the module in [`noParse`](#TODO[/configuration/module/#modulenoparse]). This causes webpack to include the module without parsing it or resolving its `import` and `require()` statements. This practice can also improve build performance.
+When a module has no AMD or CommonJS version and you want to include its `dist`, you can flag the module in [`noParse`](/docs/api/options#modulenoparse). This causes webpack to include the module without parsing it or resolving its `import` and `require()` statements. This practice can also improve build performance.
 
 > [!WARNING]
 > Any feature requiring the AST, such as `ProvidePlugin`, will not work.

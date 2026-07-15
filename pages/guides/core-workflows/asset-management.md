@@ -48,7 +48,7 @@ First, make a small change to the project before we begin.
 
 ## Loading CSS
 
-To `import` a CSS file from within a JavaScript module, install the [style-loader](/docs/loaders/style-loader) and [css-loader](/docs/loaders/css-loader), then add them to your [`module` configuration](#TODO[/configuration/module]):
+To `import` a CSS file from within a JavaScript module, install the [style-loader](/docs/loaders/style-loader) and [css-loader](/docs/loaders/css-loader), then add them to your [`module` configuration](/docs/api/options#module):
 
 ```bash
 npm install --save-dev style-loader css-loader
@@ -510,7 +510,7 @@ import { foo } from './data.json';
 
 ### Customize parser of JSON modules
 
-You can import `toml`, `yaml`, or `json5` files as JSON modules by supplying a [custom parser](#TODO[/configuration/module/#ruleparserparse]) instead of a dedicated webpack loader.
+You can import `toml`, `yaml`, or `json5` files as JSON modules by supplying a [custom parser](/docs/api/options#modulerules) instead of a dedicated webpack loader.
 
 Suppose you have `data.toml`, `data.yaml`, and `data.json5` files in the `src` folder:
 
@@ -680,7 +680,7 @@ The best part of everything described above is that loading assets this way lets
 
 This makes your code far more portable, since everything tightly coupled now lives together. If you want to use `/my-component` in another project, just copy or move it into that project's `/components` directory. As long as you've installed any _external dependencies_ and your _configuration defines the same loaders_, it should work.
 
-That said, if you prefer your old habits or you have assets shared across multiple components (views, templates, modules, and so on), you can still keep them in a base directory and use [aliasing](#TODO[/configuration/resolve/#resolvealias]) to make them easier to `import`.
+That said, if you prefer your old habits or you have assets shared across multiple components (views, templates, modules, and so on), you can still keep them in a base directory and use [aliasing](/docs/api/options#resolvealias) to make them easier to `import`.
 
 ## Wrapping up
 

@@ -39,7 +39,7 @@ export function cube(x) {
 }
 ```
 
-Set the `mode` configuration option to [development](#TODO[/configuration/mode/#mode-development]) to make sure the bundle is not minified:
+Set the `mode` configuration option to [development](/docs/api/options#mode) to make sure the bundle is not minified:
 
 ```diff displayName="webpack.config.js"
 import path from 'node:path';
@@ -144,11 +144,11 @@ The array accepts simple glob patterns to the relevant files. It uses [glob-to-r
 }
 ```
 
-Finally, `"sideEffects"` can also be set from the [`module.rules` configuration option](#TODO[/configuration/module/#modulerules]).
+Finally, `"sideEffects"` can also be set from the [`module.rules` configuration option](/docs/api/options#modulerules).
 
 ## Clarifying tree shaking and `sideEffects`
 
-The [`sideEffects`](#TODO[/configuration/optimization/#optimizationsideeffects]) and [`usedExports`](#TODO[/configuration/optimization/#optimizationusedexports]) (better known as tree shaking) optimizations are two different things.
+The [`sideEffects`](/docs/api/options#optimizationsideeffects) and [`usedExports`](/docs/api/options#optimizationusedexports) (better known as tree shaking) optimizations are two different things.
 
 **`sideEffects` is much more effective**, because it allows webpack to skip whole modules/files and their complete subtree.
 
@@ -456,7 +456,7 @@ A good way to test whether your side-effects configuration is correct:
 
 ## Mark a function call as side-effect-free
 
-You can tell webpack that a function call is side-effect-free (pure) by using the `/*#__PURE__*/` annotation. Place it in front of a function call to mark it as side-effect-free. Arguments passed to the function are not marked by the annotation and may need to be marked individually. When the initial value in a variable declaration of an unused variable is considered side-effect-free (pure), it's marked as dead code, not executed, and dropped by the minimizer. This behavior is enabled when [`optimization.innerGraph`](#TODO[/configuration/optimization/#optimizationinnergraph]) is set to `true`.
+You can tell webpack that a function call is side-effect-free (pure) by using the `/*#__PURE__*/` annotation. Place it in front of a function call to mark it as side-effect-free. Arguments passed to the function are not marked by the annotation and may need to be marked individually. When the initial value in a variable declaration of an unused variable is considered side-effect-free (pure), it's marked as dead code, not executed, and dropped by the minimizer. This behavior is enabled when [`optimization.innerGraph`](/docs/api/options#optimizationinnergraph) is set to `true`.
 
 ```js displayName="file.js"
 /* #__PURE__ */ double(55);
@@ -487,7 +487,7 @@ const unused = createLogger('debug');
 
 ## Minify the output
 
-We've cued up our "dead code" to be dropped by using the `import` and `export` syntax, but we still need to actually remove it from the bundle. To do that, set the `mode` configuration option to [`production`](#TODO[/configuration/mode/#mode-production]).
+We've cued up our "dead code" to be dropped by using the `import` and `export` syntax, but we still need to actually remove it from the bundle. To do that, set the `mode` configuration option to [`production`](/docs/api/options#mode).
 
 ```diff displayName="webpack.config.js"
 import path from 'node:path';
@@ -563,8 +563,8 @@ What we've learned is that, to take advantage of _tree shaking_, you must:
 - Ensure no compiler transforms your ES2015 module syntax into CommonJS modules. (This is the default behavior of the popular Babel preset `@babel/preset-env` — see the [documentation](https://babeljs.io/docs/en/babel-preset-env#modules) for details.)
 - Add a `"sideEffects"` property to your project's `package.json` file.
 - Be careful to correctly mark files with side effects, especially CSS imports.
-- Use the [`production`](#TODO[/configuration/mode/#mode-production]) `mode` configuration option to enable [various optimizations](#TODO[/configuration/mode/#usage]), including minification and tree shaking. (Side-effects optimization is enabled in development mode using the flag value.)
-- Set a correct value for [`devtool`](#TODO[/configuration/devtool/#devtool]), as some of them can't be used in `production` mode.
+- Use the [`production`](/docs/api/options#mode) `mode` configuration option to enable [various optimizations](/docs/api/options#mode), including minification and tree shaking. (Side-effects optimization is enabled in development mode using the flag value.)
+- Set a correct value for [`devtool`](/docs/api/options#devtool), as some of them can't be used in `production` mode.
 
 You can imagine your application as a tree. The source code and libraries you actually use represent the green, living leaves of the tree. Dead code represents the brown, dead leaves consumed by autumn. To get rid of the dead leaves, you have to shake the tree, causing them to fall.
 

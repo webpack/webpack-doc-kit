@@ -95,9 +95,6 @@ const config: webpack.Configuration = {
 export default config;
 ```
 
-> [!NOTE]
-> For more on how to write configuration in a [TypeScript file](#TODO[https://webpack.js.org/configuration/configuration-languages/#typescript]).
-
 This directs webpack to _enter_ through `./index.ts`, _load_ all `.ts` and `.tsx` files through `ts-loader`, and _output_ a `bundle.js` file in our current directory.
 
 Next, we need to adjust how we import `lodash` in `./index.ts`. Since the lodash definitions don't include a default export, we'll need to update our import statement. First, make sure to install the [TypeScript definitions](#using-third-party-libraries):
@@ -163,7 +160,7 @@ There are three ways to use TypeScript in `webpack.config.ts`:
 
 Available in webpack 5.105.0+.
 
-If you use [`compilerOptions.paths`](https://www.typescriptlang.org/tsconfig#paths) or `compilerOptions.baseUrl` in your `tsconfig.json` to create import aliases, then starting with webpack 5.105, webpack can read these aliases directly via [`resolve.tsconfig`](#TODO[/configuration/resolve/#resolvetsconfig]). This replaces [`tsconfig-paths-webpack-plugin`](https://www.npmjs.com/package/tsconfig-paths-webpack-plugin), which should no longer be used.
+If you use [`compilerOptions.paths`](https://www.typescriptlang.org/tsconfig#paths) or `compilerOptions.baseUrl` in your `tsconfig.json` to create import aliases, then starting with webpack 5.105, webpack can read these aliases directly via [`resolve.tsconfig`](/docs/api/options#resolvetsconfig). This replaces [`tsconfig-paths-webpack-plugin`](https://www.npmjs.com/package/tsconfig-paths-webpack-plugin), which should no longer be used.
 
 `resolve.tsconfig` accepts `boolean | string | object`:
 
@@ -304,7 +301,7 @@ const __dirname = path.dirname(__filename);
   };
 ```
 
-See the [devtool documentation](#TODO[/configuration/devtool/]) for more information.
+See the [devtool documentation](/docs/api/options#devtool) for more information.
 
 ## Client types
 

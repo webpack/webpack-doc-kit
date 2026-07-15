@@ -8,7 +8,7 @@ The `output` configuration options tell webpack how to write the compiled files 
 
 ## Usage
 
-The minimum requirement for the `output` property is to set it to an object and provide an [`output.filename`](#TODO[/configuration/output/#outputfilename]) for the output file(s):
+The minimum requirement for the `output` property is to set it to an object and provide an [`output.filename`](/docs/api/options#outputfilename) for the output file(s):
 
 ```js displayName="webpack.config.js"
 export default {
@@ -22,7 +22,7 @@ This configuration writes a single `bundle.js` file into the `dist` directory.
 
 ## Multiple entry points
 
-If your configuration produces more than one "chunk", as happens with multiple entry points or with plugins like `CommonsChunkPlugin`, use [substitutions](#TODO[/configuration/output/#outputfilename]) to give each file a unique name:
+If your configuration produces more than one "chunk", as happens with multiple entry points or with plugins like `CommonsChunkPlugin`, use [substitutions](/docs/api/options#outputfilename) to give each file a unique name:
 
 ```js
 import path from 'node:path';

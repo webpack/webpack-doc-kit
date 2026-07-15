@@ -141,7 +141,7 @@ import { helper } from './utils.js';
 > [!TIP]
 > Requests to packages, such as `import "lodash"`, are still supported.
 
-To disable this check (which is useful when migrating a large CommonJS codebase), you can use [`fullySpecified=false`](#TODO[/configuration/module/#resolvefullyspecified]):
+To disable this check (which is useful when migrating a large CommonJS codebase), you can use [`fullySpecified=false`](/docs/api/options#resolvefullyspecified):
 
 ```js displayName="webpack.config.js"
 export default {
@@ -203,7 +203,7 @@ _Fix_: Add `"type": "module"` to your `package.json`, or rename the file to `.mj
 
 In ESM, relative imports must include the file extension. webpack follows the Node.js ESM convention here.
 
-_Fix_: Change `import { helper } from './utils'` to `import { helper } from './utils.js'`, or set [`fullySpecified: false`](#TODO[/configuration/module/#resolvefullyspecified]) in your webpack config to disable the check while migrating.
+_Fix_: Change `import { helper } from './utils'` to `import { helper } from './utils.js'`, or set [`fullySpecified: false`](/docs/api/options#resolvefullyspecified) in your webpack config to disable the check while migrating.
 
 ## Further reading
 

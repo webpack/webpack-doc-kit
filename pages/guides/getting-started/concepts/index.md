@@ -9,7 +9,7 @@ At its core, **webpack** is a _static module bundler_ for modern JavaScript appl
 > [!TIP]
 > Learn more about JavaScript modules and webpack modules [here](/guides/getting-started/concepts/modules).
 
-Since version 4.0.0, **webpack does not require a configuration file** to bundle your project. Even so, it is [incredibly configurable](#TODO[/configuration]) to better fit your needs.
+Since version 4.0.0, **webpack does not require a configuration file** to bundle your project. Even so, it is [incredibly configurable](/docs/api/options) to better fit your needs.
 
 To get started, you only need to understand its **core concepts**:
 
@@ -32,7 +32,7 @@ For a deeper understanding of the ideas behind module bundlers and how they work
 
 An **entry point** tells webpack which module to use to begin building its internal [dependency graph](/guides/getting-started/concepts/dependency-graph). From there, webpack determines which other modules and libraries that entry point depends on, both directly and indirectly.
 
-By default the entry is `./src/index.js`, but you can specify a different entry point — or multiple — by setting the [`entry` property in the webpack configuration](#TODO[/configuration/entry-context/#entry]). For example:
+By default the entry is `./src/index.js`, but you can specify a different entry point — or multiple — by setting the [`entry` property in the webpack configuration](/docs/api/options#entry). For example:
 
 ```js displayName="webpack.config.js"
 export default {
@@ -74,7 +74,7 @@ export default {
 In the example above, the `output.filename` and `output.path` properties tell webpack the name of our bundle and where to emit it. If you're wondering about the `path` module imported at the top, it is a core [Node.js module](https://nodejs.org/api/modules.html) used to manipulate file paths.
 
 > [!TIP]
-> The `output` property has [many more configurable features](#TODO[/configuration/output]). To learn about the concepts behind it, [read more in the output section](/guides/getting-started/concepts/output).
+> The `output` property has [many more configurable features](/docs/api/options#output). To learn about the concepts behind it, [read more in the output section](/guides/getting-started/concepts/output).
 
 ## Loaders
 
@@ -151,7 +151,7 @@ export default {
 };
 ```
 
-Learn more about the [mode configuration here](#TODO[/configuration/mode]) and which optimizations each value enables.
+Learn more about the [mode configuration here](/docs/api/options#mode) and which optimizations each value enables.
 
 ## Browser Compatibility
 

@@ -111,11 +111,11 @@ import(
 
 The names of the output files are controlled by two fields in the config:
 
-- [`output.filename`](#TODO[/configuration/output/#outputfilename]) — for `initial` chunk files
-- [`output.chunkFilename`](#TODO[/configuration/output/#outputchunkfilename]) — for `non-initial` chunk files
+- [`output.filename`](/docs/api/options#outputfilename) — for `initial` chunk files
+- [`output.chunkFilename`](/docs/api/options#outputchunkfilename) — for `non-initial` chunk files
 - In some cases a chunk is used as both `initial` and `non-initial`. In those cases, `output.filename` is used.
 
-A [few placeholders](#TODO[/configuration/output/#template-strings]) are available in these fields. The most common are:
+A [few placeholders](/docs/api/options#outputfilename) are available in these fields. The most common are:
 
 - `[id]` — the chunk id (e.g. `[id].js` → `485.js`)
 - `[name]` — the chunk name (e.g. `[name].js` → `app.js`); if a chunk has no name, its id is used instead

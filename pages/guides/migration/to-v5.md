@@ -56,7 +56,7 @@ Because webpack 5 removes all deprecated features, make sure there are no webpac
 
 ### Make sure to use `mode`
 
-Set `mode` to either [`production`](#TODO[/configuration/mode/#mode-production]) or [`development`](#TODO[/configuration/mode/#mode-development]) so that the corresponding defaults are applied.
+Set `mode` to either [`production`](/docs/api/options#mode) or [`development`](/docs/api/options#mode) so that the corresponding defaults are applied.
 
 ### Update outdated options
 
@@ -73,9 +73,9 @@ Update the following options to their new form (if you use them):
 - `optimization.splitChunks.cacheGroups.vendors` → `optimization.splitChunks.cacheGroups.defaultVendors`
 - `optimization.splitChunks.cacheGroups.test(module, chunks)` → `optimization.splitChunks.cacheGroups.test(module, { chunkGraph, moduleGraph })`
 - `Compilation.entries` → `Compilation.entryDependencies`
-- `serve` → removed in favor of [`DevServer`](#TODO[/configuration/dev-server/])
-- [`Rule.query`](#TODO[/configuration/module/#ruleoptions--rulequery]) (deprecated since v3) → `Rule.options` / `UseEntry.options`
-- `Rule.loaders` → [`Rule.use`](#TODO[/configuration/module/#ruleuse])
+- `serve` → removed in favor of [`DevServer`](/docs/api/options#devserver)
+- [`Rule.query`](/docs/api/options#modulerules) (deprecated since v3) → `Rule.options` / `UseEntry.options`
+- `Rule.loaders` → [`Rule.use`](/docs/api/options#modulerules)
 
 > [!TIP]
 > Review the detailed configuration changes [here](/blog/posts/2020-10-10-webpack-5-release/#changes-to-the-configuration).
@@ -111,7 +111,7 @@ If you were unable to upgrade some plugins or loaders to their latest versions i
 
 ### Clean up configuration
 
-- Consider removing `optimization.moduleIds` and `optimization.chunkIds` from your configuration. The defaults may be better, because they support long-term caching in [`production` mode](#TODO[/configuration/mode/#mode-production]) and easier debugging in [`development` mode](#TODO[/configuration/mode/#mode-development]).
+- Consider removing `optimization.moduleIds` and `optimization.chunkIds` from your configuration. The defaults may be better, because they support long-term caching in [`production` mode](/docs/api/options#mode) and easier debugging in [`development` mode](/docs/api/options#mode).
 - If you use the `[hash]` placeholder in your configuration, consider switching to `[contenthash]`. It is not identical, but has proven more effective.
 - If you use Yarn's PnP with the `pnp-webpack-plugin`, good news: it is now supported by default, so remove the plugin from your configuration.
 - If you use `IgnorePlugin` with a regular expression argument, it now takes an `options` object: `new IgnorePlugin({ resourceRegExp: /regExp/ })`.
@@ -195,7 +195,7 @@ Consider removing values that are now defaults:
 - If you have [browserslist](https://github.com/browserslist/browserslist) enabled for your project, webpack 5 will reuse your `browserslist` config to decide which code style to emit for the runtime code.
 
   Make sure to:
-  1. Set [`target`](#TODO[/configuration/target/#root]) to `browserslist`, or remove `target` and let webpack set `browserslist` automatically.
+  1. Set [`target`](/docs/api/options#target) to `browserslist`, or remove `target` and let webpack set `browserslist` automatically.
   2. Add `IE 11` to your browserslist configuration.
 
 - Without a `browserslist`, webpack's runtime code uses ES2015 syntax (for example, arrow functions) to produce smaller bundles. In that case, set `target: ['web', 'es5']` to emit ES5 syntax for browsers (such as IE 11) that do not support ES2015.
@@ -306,7 +306,7 @@ Repeat the following steps until you have at least reached level 3 or 4:
   - Full builds:
     - The backward-compatibility layer for deprecated features generally performs worse than the new features.
     - Generating many warnings can hurt build performance, even when those warnings are ignored.
-    - Source maps are expensive. Check the [`devtool`](#TODO[/configuration/devtool/]) option in the documentation for a comparison of the available choices.
+    - Source maps are expensive. Check the [`devtool`](/docs/api/options#devtool) option in the documentation for a comparison of the available choices.
     - Anti-virus protection can affect the performance of file system access.
     - Persistent caching can improve repeated full builds.
     - Module Federation lets you split the application into several smaller builds.

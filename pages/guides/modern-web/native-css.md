@@ -182,7 +182,7 @@ Notes:
 - `import` and `url` are native parser switches for CSS handling.
 - `namedExports` controls CSS Modules export behavior.
 - `exportsConvention` and `localIdentName` shape how class names are exported and named.
-- `localIdentName` supports hash placeholders (for example, `[hash:base64:6]`); you can tune hashing globally with [`output.hashFunction`](#TODO[/configuration/output/#outputhashfunction]), [`output.hashDigest`](#TODO[/configuration/output/#outputhashdigest]), [`output.hashDigestLength`](#TODO[/configuration/output/#outputhashdigestlength]), and [`output.hashSalt`](#TODO[/configuration/output/#outputhashsalt]).
+- `localIdentName` supports hash placeholders (for example, `[hash:base64:6]`); you can tune hashing globally with [`output.hashFunction`](/docs/api/options#outputhashfunction), [`output.hashDigest`](/docs/api/options#outputhashdigest), [`output.hashDigestLength`](/docs/api/options#outputhashdigestlength), and [`output.hashSalt`](/docs/api/options#outputhashsalt).
 - `css-loader` filter-style options have no direct equivalent; use webpack mechanisms such as `IgnorePlugin` when you need them.
 
 ### 4. Replace `mini-css-extract-plugin`

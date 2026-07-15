@@ -34,7 +34,7 @@ Beyond the usual assets, the compiler emits an "update" that allows moving from 
 
 The manifest contains the new compilation hash and a list of all updated chunks. Each chunk contains the new code for its updated modules, or a flag indicating that a module was removed.
 
-The compiler keeps module IDs and chunk IDs consistent between builds. It usually stores these IDs in memory (for example, with [webpack-dev-server](#TODO[/configuration/dev-server/])), but they can also be stored in a JSON file.
+The compiler keeps module IDs and chunk IDs consistent between builds. It usually stores these IDs in memory (for example, with [webpack-dev-server](/docs/api/options#devserver)), but they can also be stored in a JSON file.
 
 ### In a module
 
@@ -58,7 +58,7 @@ Afterward, all invalid modules are disposed (via their dispose handlers) and unl
 
 ## Get started
 
-HMR can be used in development as a replacement for LiveReload. [webpack-dev-server](#TODO[/configuration/dev-server/]) supports a `hot` mode in which it tries to update with HMR before falling back to reloading the whole page. See the [Hot Module Replacement guide](/guides/core-workflows/development/hot-module-replacement) for details.
+HMR can be used in development as a replacement for LiveReload. [webpack-dev-server](/docs/api/options#devserver) supports a `hot` mode in which it tries to update with HMR before falling back to reloading the whole page. See the [Hot Module Replacement guide](/guides/core-workflows/development/hot-module-replacement) for details.
 
 > [!TIP]
 > As with many other features, webpack's power lies in its customizability. There are _many_ ways to configure HMR depending on a project's needs. For most purposes, though, `webpack-dev-server` is a good fit and will get you started with HMR quickly.
