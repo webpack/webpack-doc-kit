@@ -1,6 +1,6 @@
 ---
-title: Typescript
-authors: morsdyce,kkamali,mtrivera,byzyk,EugeneHlushko,chenxsan,snitin315,tusharthakur04,ThierryRakotomanana,valentina-buoro,avivkeller
+title: TypeScript
+authors: 'morsdyce,kkamali,mtrivera,byzyk,EugeneHlushko,chenxsan,snitin315,tusharthakur04,ThierryRakotomanana,valentina-buoro,avivkeller'
 ---
 
 # TypeScript
