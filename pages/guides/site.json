@@ -204,6 +204,31 @@
         { "link": "/guides/migration/to-v4", "label": "To v4 from v3" },
         { "link": "/guides/migration/to-v5", "label": "To v5 from v4" }
       ]
+    },
+    {
+      "groupName": "Contributing",
+      "items": [
+        {
+          "link": "/guides/contributing/writers-guide",
+          "label": "Writer's Guide"
+        },
+        {
+          "link": "/guides/contributing/writing-a-loader",
+          "label": "Writing a Loader"
+        },
+        {
+          "link": "/guides/contributing/writing-a-plugin",
+          "label": "Writing a Plugin"
+        },
+        {
+          "link": "/guides/contributing/plugin-patterns",
+          "label": "Plugin Patterns"
+        },
+        {
+          "link": "/guides/contributing/debugging",
+          "label": "Debugging"
+        }
+      ]
     }
   ]
 }

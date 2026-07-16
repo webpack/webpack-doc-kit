@@ -1,0 +1,501 @@
+---
+title: Writing a Plugin
+authors: slavafomin,tbroadley,nveenjain,iamakulov,byzyk,franjohn21,EugeneHlushko,snitin315,rahul3v,jamesgeorge007
+---
+
+# Writing a Plugin
+
+Plugins expose the full potential of the webpack engine to third-party developers. Using staged build callbacks, developers can introduce their own behaviors into the webpack build process. Building plugins is a bit more advanced than building loaders, because you'll need to understand some of the webpack low-level internals to hook into them. Be prepared to read some source code!
+
+## Creating a Plugin
+
+A plugin for webpack consists of:
+
+- A named JavaScript function or a JavaScript class.
+- Defines `apply` method in its prototype.
+- Specifies a hook on the [`Compiler`](/docs/api/v5.x/compilation/Compiler) or [`Compilation`](/docs/api/v5.x/compilation/Compilation) to tap into.
+- Manipulates webpack internal instance specific data.
+- Invokes webpack provided callback after functionality is complete.
+
+```js
+// A JavaScript class.
+class MyExampleWebpackPlugin {
+  // Define `apply` as its prototype method which is supplied with compiler as its argument
+  apply(compiler) {
+    // Hook into the compilation
+    compiler.hooks.thisCompilation.tap(
+      'MyExampleWebpackPlugin',
+      compilation => {
+        // Specify the asset processing hook
+        compilation.hooks.processAssets.tap(
+          {
+            name: 'MyExampleWebpackPlugin',
+            stage: compiler.webpack.Compilation.PROCESS_ASSETS_STAGE_ADDITIONS,
+          },
+          assets => {
+            console.log('This is an example plugin!');
+            console.log(
+              'Here’s the `compilation` object which represents a single build of assets:',
+              compilation
+            );
+          }
+        );
+      }
+    );
+  }
+}
+```
+
+## Basic plugin architecture
+
+Plugins are instantiated objects with an `apply` method on their prototype. This `apply` method is called once by the webpack compiler while installing the plugin. The `apply` method is given a reference to the underlying webpack compiler, which grants access to compiler callbacks. A plugin is structured as follows:
+
+```js
+class HelloWorldPlugin {
+  apply(compiler) {
+    // This hook runs when the build process is fully completed
+    compiler.hooks.done.tap(
+      'Hello World Plugin',
+      (
+        stats /* stats is passed as an argument when done hook is tapped.  */
+      ) => {
+        console.log('Hello World!');
+      }
+    );
+  }
+}
+
+export default HelloWorldPlugin;
+```
+
+Then to use the plugin, include an instance in your webpack configuration `plugins` array:
+
+```js
+// webpack.config.js
+import HelloWorldPlugin from 'hello-world';
+
+export default {
+  // ... configuration settings here ...
+  plugins: [new HelloWorldPlugin({ options: true })],
+};
+```
+
+A familiar way to validate plugin options in webpack versions **before `5.106`** is to use [`schema-utils`](https://github.com/webpack/schema-utils) in the constructor:
+
+```js
+import { validate } from 'schema-utils';
+
+// schema for options object
+const schema = {
+  type: 'object',
+  properties: {
+    test: {
+      type: 'string',
+    },
+  },
+};
+
+export default class HelloWorldPlugin {
+  constructor(options = {}) {
+    validate(schema, options, {
+      name: 'Hello World Plugin',
+      baseDataPath: 'options',
+    });
+  }
+
+  apply(compiler) {}
+}
+```
+
+Starting in webpack `5.106`, you can move that validation into `apply()` by tapping `compiler.hooks.validate` and calling `compiler.validate(...)` instead:
+
+```js
+export default class HelloWorldPlugin {
+  constructor(options = {}) {
+    this.options = options;
+  }
+
+  apply(compiler) {
+    compiler.hooks.validate.tap('HelloWorldPlugin', () => {
+      compiler.validate(
+        () => require('./schema/hello-world-plugin.json'),
+        this.options
+      );
+    });
+  }
+}
+```
+
+> [!WARNING]
+> This validation flow is skipped when webpack is configured with `validate: false`. With `experiments.futureDefaults`, validation is enabled by default in development mode and disabled by default in production mode.
+
+## Compiler and Compilation
+
+The two most important resources when developing plugins are the [`Compiler`](/docs/api/v5.x/compilation/Compiler) and [`Compilation`](/docs/api/v5.x/compilation/Compilation) objects. Understanding their roles is an important first step in extending the webpack engine.
+
+```js
+class HelloCompilationPlugin {
+  apply(compiler) {
+    // Tap into compilation hook which gives compilation as argument to the callback function
+    compiler.hooks.compilation.tap('HelloCompilationPlugin', compilation => {
+      // Now we can tap into various hooks available through compilation
+      compilation.hooks.optimize.tap('HelloCompilationPlugin', () => {
+        console.log('Assets are being optimized.');
+      });
+    });
+  }
+}
+
+export default HelloCompilationPlugin;
+```
+
+For the public classes and types exposed by webpack, see the [webpack API reference](/docs/api/v5.x/).
+
+## Async event hooks
+
+Some plugin hooks are asynchronous. To tap into them, we can use `tap` method which will behave in synchronous manner or use one of `tapAsync` method or `tapPromise` method which are asynchronous methods.
+
+### tapAsync
+
+When we use `tapAsync` method to tap into plugins, we need to call the callback function which is supplied as the last argument to our function.
+
+```js
+class HelloAsyncPlugin {
+  apply(compiler) {
+    compiler.hooks.emit.tapAsync(
+      'HelloAsyncPlugin',
+      (compilation, callback) => {
+        // Do something async...
+        setTimeout(() => {
+          console.log('Done with async work...');
+          callback();
+        }, 1000);
+      }
+    );
+  }
+}
+
+export default HelloAsyncPlugin;
+```
+
+#### tapPromise
+
+When we use `tapPromise` method to tap into plugins, we need to return a promise which resolves when our asynchronous task is completed.
+
+```js
+class HelloAsyncPlugin {
+  apply(compiler) {
+    compiler.hooks.emit.tapPromise(
+      'HelloAsyncPlugin',
+      compilation =>
+        // return a Promise that resolves when we are done...
+        new Promise((resolve, reject) => {
+          setTimeout(() => {
+            console.log('Done with async work...');
+            resolve();
+          }, 1000);
+        })
+    );
+  }
+}
+
+export default HelloAsyncPlugin;
+```
+
+## Example
+
+Once we can latch onto the webpack compiler and each individual compilations, the possibilities become endless for what we can do with the engine itself. We can reformat existing files, create derivative files, or fabricate entirely new assets.
+
+Let's write an example plugin that generates a new build file called `assets.md`, the contents of which will list all of the asset files in our build. This plugin might look something like this:
+
+```js
+class FileListPlugin {
+  static defaultOptions = {
+    outputFile: 'assets.md',
+  };
+
+  // Any options should be passed in the constructor of your plugin,
+  // (this is a public API of your plugin).
+  constructor(options = {}) {
+    // Applying user-specified options over the default options
+    // and making merged options further available to the plugin methods.
+    // You should probably validate all the options here as well.
+    this.options = { ...FileListPlugin.defaultOptions, ...options };
+  }
+
+  apply(compiler) {
+    const pluginName = FileListPlugin.name;
+
+    // webpack module instance can be accessed from the compiler object,
+    // this ensures that correct version of the module is used
+    // (do not require/import the webpack or any symbols from it directly).
+    const { webpack } = compiler;
+
+    // Compilation object gives us reference to some useful constants.
+    const { Compilation } = webpack;
+
+    // RawSource is one of the "sources" classes that should be used
+    // to represent asset sources in compilation.
+    const { RawSource } = webpack.sources;
+
+    // Tapping to the "thisCompilation" hook in order to further tap
+    // to the compilation process on an earlier stage.
+    compiler.hooks.thisCompilation.tap(pluginName, compilation => {
+      // Tapping to the assets processing pipeline on a specific stage.
+      compilation.hooks.processAssets.tap(
+        {
+          name: pluginName,
+
+          // Using one of the later asset processing stages to ensure
+          // that all assets were already added to the compilation by other plugins.
+          stage: Compilation.PROCESS_ASSETS_STAGE_SUMMARIZE,
+        },
+        assets => {
+          // "assets" is an object that contains all assets
+          // in the compilation, the keys of the object are pathnames of the assets
+          // and the values are file sources.
+
+          // Iterating over all the assets and
+          // generating content for our Markdown file.
+          const content = `# In this build:\n\n${Object.keys(assets)
+            .map(filename => `- ${filename}`)
+            .join('\n')}`;
+
+          // Adding new asset to the compilation, so it would be automatically
+          // generated by the webpack in the output directory.
+          compilation.emitAsset(
+            this.options.outputFile,
+            new RawSource(content)
+          );
+        }
+      );
+    });
+  }
+}
+
+export default FileListPlugin;
+```
+
+**webpack.config.js**
+
+```js
+import FileListPlugin from './file-list-plugin.js';
+
+// Use the plugin in your webpack configuration:
+export default {
+  // …
+
+  plugins: [
+    // Adding the plugin with the default options
+    new FileListPlugin(),
+
+    // OR:
+
+    // You can choose to pass any supported options to it:
+    new FileListPlugin({
+      outputFile: 'my-assets.md',
+    }),
+  ],
+};
+```
+
+This will generate a markdown file with chosen name that looks like this:
+
+```markdown
+# In this build:
+
+- main.css
+- main.js
+- index.html
+```
+
+> [!TIP]
+> We are using synchronous `tap()` method to tap into the `processAssets` hook because we don't need to perform any asynchronous operations in the example above. However, the `processAssets` hook is an asynchronous one, so you can also use `tapPromise()` or `tapAsync()` if you actually need to.
+
+> [!TIP]
+> The `processAssets` hook on [`Compilation`](/docs/api/v5.x/compilation/Compilation) also supports the `additionalAssets` property. This lets a plugin intercept assets added both before and after its configured stage. In this example, the `SUMMARIZE` stage is sufficient to capture assets generated during earlier stages.
+
+## Watching for file changes
+
+When webpack runs in watch mode (`webpack --watch` or `webpack serve`),
+it creates a new compilation for each rebuild triggered by file changes.
+
+The `compiler.modifiedFiles` Set lets your plugin know **which specific
+files triggered the rebuild**, so you can skip expensive work for unrelated files.
+
+This is useful for plugins that need to react only to specific file changes
+(e.g., regenerating assets, reprocessing templates, or invalidating caches).
+
+```js
+class WatchNotifierPlugin {
+  apply(compiler) {
+    compiler.hooks.watchRun.tap('WatchNotifierPlugin', compiler => {
+      if (compiler.modifiedFiles) {
+        const changedFiles = [...compiler.modifiedFiles]
+          .map(file => `  • ${file}`)
+          .join('\n');
+
+        console.log(`\nFiles changed:\n${changedFiles}`);
+      }
+    });
+  }
+}
+
+export default WatchNotifierPlugin;
+```
+
+> **Note**:
+>
+> - `compiler.modifiedFiles` is a `Set`, not an array
+> - It is `undefined` on the first (cold) build
+> - It is only populated during watch rebuilds
+
+### Adding custom file dependencies
+
+If your plugin reads external files (config files, templates, etc.)
+that webpack does not track by default, you must tell webpack to watch them.
+
+You can tell webpack to watch different types of dependencies:
+
+- `compilation.fileDependencies` is used to track individual files that your plugin depends on, so webpack can trigger a rebuild when those files change
+
+- `compilation.contextDependencies` is used to watch directories, so any change inside them triggers a rebuild
+
+- `compilation.missingDependencies` is used to track files that are currently missing, so webpack can trigger a rebuild when they are created
+
+```js
+import path from 'node:path';
+
+class TemplateWatchPlugin {
+  apply(compiler) {
+    compiler.hooks.compilation.tap('TemplateWatchPlugin', compilation => {
+      const templatePath = path.resolve(__dirname, 'my-template.html');
+
+      // Ensure webpack watches this file
+      compilation.fileDependencies.add(templatePath);
+
+      // Watch a directory (context dependency)
+      const templatesDir = path.resolve(__dirname, 'templates');
+      compilation.contextDependencies.add(templatesDir);
+
+      // Example: mark a missing dependency
+      const missingFile = path.resolve(__dirname, 'missing-file.txt');
+      compilation.missingDependencies.add(missingFile);
+    });
+  }
+}
+
+export default TemplateWatchPlugin;
+```
+
+Without calling `fileDependencies.add()`, webpack will not trigger
+a rebuild when the file changes — even if your plugin depends on it.
+
+## Different Plugin Shapes
+
+A plugin can be classified into types based on the event hooks it taps into. Every event hook is pre-defined as synchronous or asynchronous or waterfall or parallel hook and hook is called internally using call/callAsync method. The list of hooks that are supported or can be tapped into is generally specified in `this.hooks` property.
+
+For example:
+
+```js
+this.hooks = {
+  shouldEmit: new SyncBailHook(['compilation']),
+};
+```
+
+It represents that the only hook supported is `shouldEmit` which is a hook of `SyncBailHook` type and the only parameter which will be passed to any plugin that taps into `shouldEmit` hook is `compilation`.
+
+Various types of hooks supported are :
+
+### Synchronous Hooks
+
+- **SyncHook**
+  - Defined as `new SyncHook([params])`
+  - Tapped into using `tap` method.
+  - Called using `call(...params)` method.
+
+- **Bail Hooks**
+  - Defined using `SyncBailHook[params]`
+  - Tapped into using `tap` method.
+  - Called using `call(...params)` method.
+
+  In these types of hooks, each of the plugin callbacks will be invoked one after the other with the specific `args`. If any value is returned except undefined by any plugin, then that value is returned by hook and no further plugin callback is invoked. Many useful events like `optimizeChunks`, `optimizeChunkModules` are SyncBailHooks.
+
+- **Waterfall Hooks**
+  - Defined using `SyncWaterfallHook[params]`
+  - Tapped into using `tap` method.
+  - Called using `call(...params)` method
+
+  Here each of the plugins is called one after the other with the arguments from the return value of the previous plugin. The plugin must take the order of its execution into account.
+  It must accept arguments from the previous plugin that was executed. The value for the first plugin is `init`. Hence at least 1 param must be supplied for waterfall hooks. This pattern is used in the Tapable instances which are related to the webpack templates like `ModuleTemplate`, `ChunkTemplate` etc.
+
+### Asynchronous Hooks
+
+- **Async Series Hook**
+  - Defined using `AsyncSeriesHook[params]`
+  - Tapped into using `tap`/`tapAsync`/`tapPromise` method.
+  - Called using `callAsync(...params)` method
+
+  The plugin handler functions are called with all arguments and a callback function with the signature `(err?: Error) -> void`. The handler functions are called in order of registration. `callback` is called after all the handlers are called.
+  This is also a commonly used pattern for events like `emit`, `run`.
+
+- **Async waterfall** The plugins will be applied asynchronously in the waterfall manner.
+  - Defined using `AsyncWaterfallHook[params]`
+  - Tapped into using `tap`/`tapAsync`/`tapPromise` method.
+  - Called using `callAsync(...params)` method
+
+  The plugin handler functions are called with the current value and a callback function with the signature `(err: Error, nextValue: any) -> void.` When called `nextValue` is the current value for the next handler. The current value for the first handler is `init`. After all handlers are applied, callback is called with the last value. If any handler passes a value for `err`, the callback is called with this error and no more handlers are called.
+  This plugin pattern is expected for events like `before-resolve` and `after-resolve`.
+
+- **Async Series Bail**
+  - Defined using `AsyncSeriesBailHook[params]`
+  - Tapped into using `tap`/`tapAsync`/`tapPromise` method.
+  - Called using `callAsync(...params)` method
+
+- **Async Parallel**
+  - Defined using `AsyncParallelHook[params]`
+  - Tapped into using `tap`/`tapAsync`/`tapPromise` method.
+  - Called using `callAsync(...params)` method
+
+### Configuration defaults
+
+Webpack applies configuration defaults after plugins defaults are applied. This allows plugins to feature their own defaults and provides a way to create configuration preset plugins.
+
+### Example: AssetLoggerPlugin
+
+The following example shows a minimal Webpack plugin that logs all generated assets using Webpack’s logger interface.
+
+```js
+class AssetLoggerPlugin {
+  apply(compiler) {
+    compiler.hooks.thisCompilation.tap('AssetLoggerPlugin', compilation => {
+      const logger = compilation.getLogger('AssetLoggerPlugin');
+      compilation.hooks.processAssets.tap(
+        {
+          name: 'AssetLoggerPlugin',
+          stage: compilation.constructor.PROCESS_ASSETS_STAGE_SUMMARIZE,
+        },
+        assets => {
+          logger.info('Generated assets:');
+          for (const assetName of Object.keys(assets)) {
+            logger.info(assetName);
+          }
+        }
+      );
+    });
+  }
+}
+
+export default AssetLoggerPlugin;
+```
+
+This plugin taps into the `emit` hook of the Webpack compiler and prints the names of all generated assets to the console. It demonstrates how plugins can interact with the compilation process using Webpack hooks.
+
+For example, when running a Webpack build, the output may look like:
+
+```text
+Generated assets:
+main.js
+vendor.js
+styles.css
+```

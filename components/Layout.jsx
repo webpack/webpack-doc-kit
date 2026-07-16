@@ -1,4 +1,6 @@
 import DefaultLayout from '@node-core/doc-kit/src/generators/web/ui/components/Layout/index.jsx';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import HomeLayout from '../layouts/Home/index.jsx';
 import SponsorsLayout from '../layouts/Sponsors/index.jsx';
 import BlogLayout from '../layouts/Blog/index.jsx';
@@ -17,5 +19,11 @@ const LAYOUTS = {
 export default function Layout(props) {
   const Component = LAYOUTS[props.metadata.layout] ?? DefaultLayout;
 
-  return <Component {...props} />;
+  return (
+    <>
+      <Analytics />
+      <SpeedInsights />
+      <Component {...props} />
+    </>
+  );
 }

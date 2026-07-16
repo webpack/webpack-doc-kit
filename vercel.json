@@ -12,6 +12,461 @@
       "permanent": true
     },
     {
+      "source": "/contribute",
+      "destination": "/guides/contributing",
+      "permanent": false
+    },
+    {
+      "source": "/contribute/:path*",
+      "destination": "/guides/contributing/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/concepts",
+      "destination": "/guides/getting-started/concepts",
+      "permanent": false
+    },
+    {
+      "source": "/concepts/:path*",
+      "destination": "/guides/getting-started/concepts/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/migrate",
+      "destination": "/guides/migration",
+      "permanent": false
+    },
+    {
+      "source": "/migrate/3",
+      "destination": "/guides/migration/to-v3",
+      "permanent": false
+    },
+    {
+      "source": "/migrate/4",
+      "destination": "/guides/migration/to-v4",
+      "permanent": false
+    },
+    {
+      "source": "/migrate/5",
+      "destination": "/guides/migration/to-v5",
+      "permanent": false
+    },
+    {
+      "source": "/guides/installation",
+      "destination": "/guides/getting-started/installing-webpack",
+      "permanent": false
+    },
+    {
+      "source": "/guides/asset-management",
+      "destination": "/guides/core-workflows/asset-management",
+      "permanent": false
+    },
+    {
+      "source": "/guides/asset-modules",
+      "destination": "/guides/core-workflows/asset-modules",
+      "permanent": false
+    },
+    {
+      "source": "/guides/development",
+      "destination": "/guides/core-workflows/development",
+      "permanent": false
+    },
+    {
+      "source": "/guides/development-vagrant",
+      "destination": "/guides/core-workflows/development/vagrant",
+      "permanent": false
+    },
+    {
+      "source": "/guides/hot-module-replacement",
+      "destination": "/guides/core-workflows/development/hot-module-replacement",
+      "permanent": false
+    },
+    {
+      "source": "/guides/environment-variables",
+      "destination": "/guides/core-workflows/environment-variables",
+      "permanent": false
+    },
+    {
+      "source": "/guides/output-management",
+      "destination": "/guides/core-workflows/output-management",
+      "permanent": false
+    },
+    {
+      "source": "/guides/production",
+      "destination": "/guides/core-workflows/production",
+      "permanent": false
+    },
+    {
+      "source": "/guides/build-performance",
+      "destination": "/guides/optimization/build-performance",
+      "permanent": false
+    },
+    {
+      "source": "/guides/caching",
+      "destination": "/guides/optimization/caching",
+      "permanent": false
+    },
+    {
+      "source": "/guides/code-splitting",
+      "destination": "/guides/optimization/code-splitting",
+      "permanent": false
+    },
+    {
+      "source": "/guides/lazy-loading",
+      "destination": "/guides/optimization/code-splitting/lazy-loading",
+      "permanent": false
+    },
+    {
+      "source": "/guides/tree-shaking",
+      "destination": "/guides/optimization/tree-shaking",
+      "permanent": false
+    },
+    {
+      "source": "/guides/modern-web-platform",
+      "destination": "/guides/modern-web",
+      "permanent": false
+    },
+    {
+      "source": "/guides/native-css",
+      "destination": "/guides/modern-web/native-css",
+      "permanent": false
+    },
+    {
+      "source": "/guides/progressive-web-application",
+      "destination": "/guides/modern-web/progressive-web-application",
+      "permanent": false
+    },
+    {
+      "source": "/guides/web-workers",
+      "destination": "/guides/modern-web/web-workers",
+      "permanent": false
+    },
+    {
+      "source": "/guides/dependency-management",
+      "destination": "/guides/modules-and-dependencies/dependency-management",
+      "permanent": false
+    },
+    {
+      "source": "/guides/ecma-script-modules",
+      "destination": "/guides/modules-and-dependencies/ecma-script-modules",
+      "permanent": false
+    },
+    {
+      "source": "/guides/entry-advanced",
+      "destination": "/guides/modules-and-dependencies/entry-advanced",
+      "permanent": false
+    },
+    {
+      "source": "/guides/package-exports",
+      "destination": "/guides/modules-and-dependencies/package-exports",
+      "permanent": false
+    },
+    {
+      "source": "/guides/shimming",
+      "destination": "/guides/modules-and-dependencies/shimming",
+      "permanent": false
+    },
+    {
+      "source": "/guides/author-libraries",
+      "destination": "/guides/tooling-and-integration/authoring-libraries",
+      "permanent": false
+    },
+    {
+      "source": "/guides/csp",
+      "destination": "/guides/tooling-and-integration/content-security-policy",
+      "permanent": false
+    },
+    {
+      "source": "/guides/integrations",
+      "destination": "/guides/tooling-and-integration/integrations",
+      "permanent": false
+    },
+    {
+      "source": "/guides/typescript",
+      "destination": "/guides/tooling-and-integration/typescript",
+      "permanent": false
+    },
+    {
+      "source": "/guides/public-path",
+      "destination": "/docs/api/v5.x/options#outputpublicpath",
+      "permanent": false
+    },
+    {
+      "source": "/loaders",
+      "destination": "/docs/loaders",
+      "permanent": false
+    },
+    {
+      "source": "/loaders/:path*",
+      "destination": "/docs/loaders/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/configuration",
+      "destination": "/docs/api/v5.x/options",
+      "permanent": false
+    },
+    {
+      "source": "/configuration/:path*",
+      "destination": "/docs/api/v5.x/options",
+      "permanent": false
+    },
+    {
+      "source": "/api",
+      "destination": "/docs/api/v5.x",
+      "permanent": false
+    },
+    {
+      "source": "/api/cli",
+      "destination": "/docs/api/v5.x/cli",
+      "permanent": false
+    },
+    {
+      "source": "/api/loaders",
+      "destination": "/docs/api/v5.x/loaders/types",
+      "permanent": false
+    },
+    {
+      "source": "/api/node",
+      "destination": "/docs/api/v5.x/compilation/Compiler",
+      "permanent": false
+    },
+    {
+      "source": "/api/stats",
+      "destination": "/docs/api/v5.x/stats/Stats",
+      "permanent": false
+    },
+    {
+      "source": "/api/compiler-hooks",
+      "destination": "/docs/api/v5.x/compilation/Compiler",
+      "permanent": false
+    },
+    {
+      "source": "/api/compilation-hooks",
+      "destination": "/docs/api/v5.x/compilation/Compilation",
+      "permanent": false
+    },
+    {
+      "source": "/api/compilation-object",
+      "destination": "/docs/api/v5.x/compilation/Compilation",
+      "permanent": false
+    },
+    {
+      "source": "/api/parser",
+      "destination": "/docs/api/v5.x/javascript/JavascriptParser",
+      "permanent": false
+    },
+    {
+      "source": "/api/resolvers",
+      "destination": "/docs/api/v5.x/resolvers/Resolver",
+      "permanent": false
+    },
+    {
+      "source": "/api/:path*",
+      "destination": "/docs/api/v5.x",
+      "permanent": false
+    },
+    {
+      "source": "/plugins/automatic-prefetch-plugin",
+      "destination": "/docs/api/v5.x/plugins/AutomaticPrefetchPlugin",
+      "permanent": false
+    },
+    {
+      "source": "/plugins/banner-plugin",
+      "destination": "/docs/api/v5.x/plugins/BannerPlugin",
+      "permanent": false
+    },
+    {
+      "source": "/plugins/context-exclusion-plugin",
+      "destination": "/docs/api/v5.x/plugins/ContextExclusionPlugin",
+      "permanent": false
+    },
+    {
+      "source": "/plugins/context-replacement-plugin",
+      "destination": "/docs/api/v5.x/plugins/ContextReplacementPlugin",
+      "permanent": false
+    },
+    {
+      "source": "/plugins/define-plugin",
+      "destination": "/docs/api/v5.x/plugins/DefinePlugin",
+      "permanent": false
+    },
+    {
+      "source": "/plugins/dll-plugin",
+      "destination": "/docs/api/v5.x/plugins/DllPlugin",
+      "permanent": false
+    },
+    {
+      "source": "/plugins/environment-plugin",
+      "destination": "/docs/api/v5.x/plugins/EnvironmentPlugin",
+      "permanent": false
+    },
+    {
+      "source": "/plugins/eval-source-map-dev-tool-plugin",
+      "destination": "/docs/api/v5.x/plugins/EvalSourceMapDevToolPlugin",
+      "permanent": false
+    },
+    {
+      "source": "/plugins/hashed-module-ids-plugin",
+      "destination": "/docs/api/v5.x/ids/HashedModuleIdsPlugin",
+      "permanent": false
+    },
+    {
+      "source": "/plugins/hot-module-replacement-plugin",
+      "destination": "/docs/api/v5.x/plugins/HotModuleReplacementPlugin",
+      "permanent": false
+    },
+    {
+      "source": "/plugins/ignore-plugin",
+      "destination": "/docs/api/v5.x/plugins/IgnorePlugin",
+      "permanent": false
+    },
+    {
+      "source": "/plugins/limit-chunk-count-plugin",
+      "destination": "/docs/api/v5.x/optimize/LimitChunkCountPlugin",
+      "permanent": false
+    },
+    {
+      "source": "/plugins/manifest-plugin",
+      "destination": "/docs/api/v5.x/plugins/ManifestPlugin",
+      "permanent": false
+    },
+    {
+      "source": "/plugins/merge-duplicate-chunks-plugin",
+      "destination": "/docs/api/v5.x/optimize/MergeDuplicateChunksPlugin",
+      "permanent": false
+    },
+    {
+      "source": "/plugins/min-chunk-size-plugin",
+      "destination": "/docs/api/v5.x/optimize/MinChunkSizePlugin",
+      "permanent": false
+    },
+    {
+      "source": "/plugins/module-concatenation-plugin",
+      "destination": "/docs/api/v5.x/optimize/ModuleConcatenationPlugin",
+      "permanent": false
+    },
+    {
+      "source": "/plugins/module-federation-plugin",
+      "destination": "/docs/api/v5.x/container/ModuleFederationPlugin",
+      "permanent": false
+    },
+    {
+      "source": "/plugins/normal-module-replacement-plugin",
+      "destination": "/docs/api/v5.x/plugins/NormalModuleReplacementPlugin",
+      "permanent": false
+    },
+    {
+      "source": "/plugins/no-emit-on-errors-plugin",
+      "destination": "/docs/api/v5.x/plugins/NoEmitOnErrorsPlugin",
+      "permanent": false
+    },
+    {
+      "source": "/plugins/prefetch-plugin",
+      "destination": "/docs/api/v5.x/plugins/PrefetchPlugin",
+      "permanent": false
+    },
+    {
+      "source": "/plugins/profiling-plugin",
+      "destination": "/docs/api/v5.x/debug/ProfilingPlugin",
+      "permanent": false
+    },
+    {
+      "source": "/plugins/progress-plugin",
+      "destination": "/docs/api/v5.x/plugins/ProgressPlugin",
+      "permanent": false
+    },
+    {
+      "source": "/plugins/provide-plugin",
+      "destination": "/docs/api/v5.x/plugins/ProvidePlugin",
+      "permanent": false
+    },
+    {
+      "source": "/plugins/source-map-dev-tool-plugin",
+      "destination": "/docs/api/v5.x/plugins/SourceMapDevToolPlugin",
+      "permanent": false
+    },
+    {
+      "source": "/plugins/split-chunks-plugin",
+      "destination": "/docs/api/v5.x/optimize/SplitChunksPlugin",
+      "permanent": false
+    },
+    {
+      "source": "/plugins/virtual-url-plugin",
+      "destination": "/docs/api/v5.x/experiments/schemes/VirtualUrlPlugin",
+      "permanent": false
+    },
+    {
+      "source": "/plugins/watch-ignore-plugin",
+      "destination": "/docs/api/v5.x/plugins/WatchIgnorePlugin",
+      "permanent": false
+    },
+    {
+      "source": "/plugins",
+      "destination": "/docs/api/v5.x",
+      "permanent": false
+    },
+    {
+      "source": "/plugins/:path*",
+      "destination": "/docs/api/v5.x",
+      "permanent": false
+    },
+    {
+      "source": "/blog/2020-10-10-webpack-5-release",
+      "destination": "/blog/posts/2020-10-10-webpack-5-release",
+      "permanent": false
+    },
+    {
+      "source": "/blog/2020-12-08-roadmap-2021",
+      "destination": "/blog/posts/2020-12-08-roadmap-2021",
+      "permanent": false
+    },
+    {
+      "source": "/blog/2026-02-03-webpack-5-105",
+      "destination": "/blog/posts/2026-02-03-webpack-5-105",
+      "permanent": false
+    },
+    {
+      "source": "/blog/2026-02-04-roadmap-2026",
+      "destination": "/blog/posts/2026-02-04-roadmap-2026",
+      "permanent": false
+    },
+    {
+      "source": "/blog/2026-04-08-webpack-5-106",
+      "destination": "/blog/posts/2026-04-08-webpack-5-106",
+      "permanent": false
+    },
+    {
+      "source": "/blog/2026-05-19-webpack-5-107",
+      "destination": "/blog/posts/2026-05-19-webpack-5-107",
+      "permanent": false
+    },
+    {
+      "source": "/blog/2026-06-25-webpack-5-108",
+      "destination": "/blog",
+      "permanent": false
+    },
+    {
+      "source": "/awesome-webpack",
+      "destination": "/docs",
+      "permanent": false
+    },
+    {
+      "source": "/comparison",
+      "destination": "/guides/getting-started/concepts/why-webpack",
+      "permanent": false
+    },
+    {
+      "source": "/glossary",
+      "destination": "/guides/getting-started/concepts",
+      "permanent": false
+    },
+    {
+      "source": "/license",
+      "destination": "https://github.com/webpack/webpack/blob/main/LICENSE",
+      "permanent": false
+    },
+    {
       "source": "/docs/api/:path((?!v\\d+\\.x).*)",
       "destination": "/docs/api/v5.x/:path",
       "permanent": false

@@ -1,4 +1,5 @@
 {
+  "name": "webpack.js.org",
   "scripts": {
     "build:prepare": "node scripts/prepare/index.mjs",
     "build:data": "npm-run-all build:data:*",
@@ -24,6 +25,8 @@
   "dependencies": {
     "@node-core/doc-kit": "1.4.3",
     "@tailwindcss/node": "^4.3.0",
+    "@vercel/analytics": "^2.0.1",
+    "@vercel/speed-insights": "^2.0.0",
     "classnames": "^2.5.1",
     "gray-matter": "^4.0.3",
     "npm-run-all": "^4.1.5",

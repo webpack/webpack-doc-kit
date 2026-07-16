@@ -1,0 +1,4 @@
+Contact: https://github.com/webpack/webpack/security/advisories/new
+Expires: 2027-07-16T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://webpack.js.org/.well-known/security.txt

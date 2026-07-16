@@ -18,4 +18,4 @@ The guides increase in complexity as you progress. Each one serves as a starting
 - [Migration](/guides/migration) — Step-by-step guides for upgrading smoothly to the latest major releases
 
 > [!TIP]
-> The output shown in these guides may differ slightly from what you see with newer versions of webpack. As long as your bundles look similar and run correctly, there's no cause for concern. If you find an example that seems broken by a newer release, please [open an issue](https://github.com/webpack/webpack-doc-kit/issues/new/choose) and we'll do our best to resolve the discrepancy.
+> The output shown in these guides may differ slightly from what you see with newer versions of webpack. As long as your bundles look similar and run correctly, there's no cause for concern. If you find an example that seems broken by a newer release, please [open an issue](https://github.com/webpack/webpack.js.org/issues/new/choose) and we'll do our best to resolve the discrepancy.

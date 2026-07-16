@@ -48,7 +48,7 @@ export default {
     remoteConfigUrl: '/assets/banners.json',
     title: VERSION ? `Webpack ${MAJOR_VERSION} Documentation` : 'Webpack',
     editURL:
-      'https://github.com/webpack/webpack-doc-kit/blob/main/pages/{path}.md',
+      'https://github.com/webpack/webpack.js.org/blob/main/pages/{path}.md',
     head: {
       meta: [
         {
@@ -104,5 +104,12 @@ export default {
       },
     },
   },
-  pathsToCopy: ['assets'],
+  ...(!VERSION && {
+    pathsToCopy: [
+      {
+        src: 'public',
+        dest: '.',
+      },
+    ],
+  }),
 };

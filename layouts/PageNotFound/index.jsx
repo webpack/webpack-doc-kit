@@ -21,7 +21,7 @@ export default ({ metadata }) => {
               Go to Home
             </BaseButton>
             <BaseButton
-              href="https://github.com/webpack/webpack-doc-kit/issues/new/choose"
+              href="https://github.com/webpack/webpack.js.org/issues/new/choose"
               kind="neutral"
             >
               Report an issue
