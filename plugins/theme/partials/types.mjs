@@ -7,6 +7,8 @@ export const arrayType = someType,
   intersectionType = someType,
   intrinsicType = someType,
   literalType = someType,
+  declarationType = someType,
+  functionType = someType,
   namedTupleType = someType,
   optionalType = someType,
   queryType = someType,
@@ -16,6 +18,3 @@ export const arrayType = someType,
   typeOperatorType = someType,
   unionType = someType,
   unknownType = someType;
-
-export const declarationType = () => someType('object');
-export const functionType = () => someType('Function');
