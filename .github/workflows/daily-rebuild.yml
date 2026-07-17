@@ -1,0 +1,24 @@
+name: Daily Vercel Redeploy
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  redeploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Trigger Vercel redeploy
+        env:
+          VERCEL_REDEPLOY_HOOK: ${{ secrets.VERCEL_REDEPLOY_HOOK }}
+        run: |
+          curl \
+            --fail-with-body \
+            --silent \
+            --show-error \
+            --location \
+            "$VERCEL_REDEPLOY_HOOK"
