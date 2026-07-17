@@ -1,4 +1,5 @@
 import { join, dirname } from 'node:path';
+import { cp } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { major } from 'semver';
 
@@ -104,12 +105,8 @@ export default {
       },
     },
   },
-  ...(!VERSION && {
-    pathsToCopy: [
-      {
-        src: 'public',
-        dest: '.',
-      },
-    ],
-  }),
 };
+
+if (!VERSION) {
+  cp('public', 'out', { recursive: true, force: true });
+}
