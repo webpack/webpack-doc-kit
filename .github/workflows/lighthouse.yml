@@ -1,0 +1,84 @@
+name: Lighthouse
+
+on:
+  pull_request:
+    branches: [main]
+    types: [labeled]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  lighthouse:
+    name: Lighthouse Report
+    if: >-
+      github.event.label.name == 'lighthouse' &&
+      startsWith(github.event.pull_request.head.ref, 'dependabot/') == false
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@9af89fc71515a100421586dfdb3dc9c984fbf411 # v2.19.4
+        with:
+          egress-policy: audit
+
+      - name: Checkout code
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+
+      - name: Wait for Vercel preview deployment
+        id: preview
+        uses: patrickedqvist/wait-for-vercel-preview@06c79330064b0e6ef7a2574603b62d3c98789125 # v1.3.2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          max_timeout: 300
+          check_interval: 10
+
+      - name: Audit preview URLs with Lighthouse
+        id: lighthouse
+        uses: treosh/lighthouse-ci-action@3e7e23fb74242897f95c0ba9cabad3d0227b9b18 # v12.6.2
+        with:
+          configPath: ./.lighthouserc.json
+          uploadArtifacts: true
+          temporaryPublicStorage: true
+          urls: |
+            ${{ steps.preview.outputs.url }}/
+            ${{ steps.preview.outputs.url }}/about
+            ${{ steps.preview.outputs.url }}/about/sponsors
+            ${{ steps.preview.outputs.url }}/docs
+            ${{ steps.preview.outputs.url }}/guides
+            ${{ steps.preview.outputs.url }}/blog
+
+      - name: Format Lighthouse report
+        id: format
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        env:
+          LIGHTHOUSE_RESULT: ${{ steps.lighthouse.outputs.manifest }}
+          LIGHTHOUSE_LINKS: ${{ steps.lighthouse.outputs.links }}
+          VERCEL_PREVIEW_URL: ${{ steps.preview.outputs.url }}
+        with:
+          script: |
+            const { formatLighthouseResults } = await import(
+              '${{ github.workspace }}/scripts/lighthouse/index.mjs'
+            );
+            await formatLighthouseResults({ core });
+
+      - name: Prepare PR comment
+        env:
+          COMMENT: ${{ steps.format.outputs.comment }}
+        run: |
+          set -euo pipefail
+          mkdir -p pr-comment
+          printf '%s' "$COMMENT" > pr-comment/comment.md
+
+      - name: Upload PR comment
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: pr-comment
+          path: pr-comment/
+          retention-days: 1
