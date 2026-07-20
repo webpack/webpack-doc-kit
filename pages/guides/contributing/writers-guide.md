@@ -1,6 +1,6 @@
 ---
 title: Writer's Guide
-authors: pranshuchittora,EugeneHlushko,shivxmsharma
+authors: avivkeller
 ---
 
 # Writer's Guide
