@@ -1,9 +1,9 @@
+# Adapted from https://github.com/nodejs/nodejs.org/blob/main/.github/workflows/lighthouse.yml
 name: Lighthouse
 
 on:
   pull_request:
     branches: [main]
-    types: [labeled]
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
@@ -15,17 +15,10 @@ permissions:
 jobs:
   lighthouse:
     name: Lighthouse Report
-    if: >-
-      github.event.label.name == 'lighthouse' &&
-      startsWith(github.event.pull_request.head.ref, 'dependabot/') == false
+    if: startsWith(github.event.pull_request.head.ref, 'dependabot/') == false
     runs-on: ubuntu-latest
 
     steps:
-      - name: Harden Runner
-        uses: step-security/harden-runner@9af89fc71515a100421586dfdb3dc9c984fbf411 # v2.19.4
-        with:
-          egress-policy: audit
-
       - name: Checkout code
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
@@ -41,7 +34,7 @@ jobs:
 
       - name: Audit preview URLs with Lighthouse
         id: lighthouse
-        uses: treosh/lighthouse-ci-action@3e7e23fb74242897f95c0ba9cabad3d0227b9b18 # v12.6.2
+        uses: treosh/lighthouse-ci-action@3e7e23fb74242897f95c0ba9cabad3d0227b9b18 # v12
         with:
           configPath: ./.lighthouserc.json
           uploadArtifacts: true

@@ -1,3 +1,5 @@
+// Adapted from https://github.com/nodejs/nodejs.org/blob/main/apps/site/scripts/lighthouse/index.mjs
+
 const CATEGORIES = [
   ['performance', 'Performance'],
   ['accessibility', 'Accessibility'],

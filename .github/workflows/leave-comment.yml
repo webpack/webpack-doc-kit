@@ -1,3 +1,4 @@
+# Adapted from https://github.com/nodejs/nodejs.org/blob/main/.github/workflows/leave-comment.yml
 name: Leave Comment
 
 on:
@@ -22,11 +23,6 @@ jobs:
       pull-requests: write
 
     steps:
-      - name: Harden Runner
-        uses: step-security/harden-runner@9af89fc71515a100421586dfdb3dc9c984fbf411 # v2.19.4
-        with:
-          egress-policy: audit
-
       - name: Download Comment Artifact
         id: download
         continue-on-error: true
