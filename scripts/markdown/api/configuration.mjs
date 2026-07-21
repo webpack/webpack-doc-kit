@@ -98,18 +98,19 @@ const expandableObjects = (schema, definitions, stack = new Set()) => {
 };
 
 /**
- * Find the object-with-properties schema an option resolves to, so its
- * sub-options can be documented in place. Options offering several object
- * shapes (for example `cache`) expand the richest one; the alternatives stay
- * reachable through their linked type pages.
+ * Property whose single-value enum distinguishes every shape of a multi-shape
+ * option — for example `cache`'s `type`: "memory" vs "filesystem".
  */
-const expandableObject = (schema, definitions) => {
-  const objects = expandableObjects(schema, definitions);
-  if (!objects.length) return null;
-  return objects.reduce((best, object) =>
-    Object.keys(object.properties).length > Object.keys(best.properties).length
-      ? object
-      : best
+const discriminatorOf = shapes => {
+  if (shapes.length < 2) return null;
+  return (
+    Object.keys(shapes[0].properties).find(name => {
+      const values = shapes.map(shape => shape.properties[name]?.enum);
+      return (
+        values.every(value => value?.length === 1) &&
+        new Set(values.map(value => literal(value[0]))).size === shapes.length
+      );
+    }) ?? null
   );
 };
 
@@ -214,14 +215,19 @@ const exampleValue = (schema, definitions, stack = new Set()) => {
 
 /**
  * Render a minimal config snippet placing the option at its nesting path.
+ * `extras` are sibling entries required for the option to apply — typically
+ * the discriminator of its shape, like `type: "filesystem"`.
  */
-const renderExample = (path, schema, definitions) => {
+const renderExample = (path, schema, definitions, extras = []) => {
   const segments = path.split('.');
   const indent = depth => '  '.repeat(depth + 1);
   const lines = ['```js', 'export default {'];
 
   segments.forEach((segment, index) => {
     const last = index === segments.length - 1;
+    if (last) {
+      for (const extra of extras) lines.push(`${indent(index)}${extra},`);
+    }
     lines.push(
       last
         ? `${indent(index)}${segment}: ${exampleValue(schema, definitions)},`
@@ -261,7 +267,7 @@ const propertyBullet = (name, schema, definitions) => {
   return `  * \`${name}\` {${type}}${notes ? ` - ${notes}` : ''}`;
 };
 
-const renderOption = (path, schema, definitions, depth) => {
+const renderOption = (path, schema, definitions, depth, exampleExtras = []) => {
   const lines = [`${'#'.repeat(depth + 2)} \`${path}\``, ''];
 
   if (isDeprecated(schema, definitions)) {
@@ -273,38 +279,65 @@ const renderOption = (path, schema, definitions, depth) => {
 
   lines.push(`* Type: {${summarize(schema, definitions)}}`);
 
-  const objectSchema = expandableObject(schema, definitions);
   const shapes = expandableObjects(schema, definitions);
+  const discriminator = discriminatorOf(shapes);
 
-  // A property shared by several shapes (a discriminator like `cache.type`)
-  // documents the union of its variants, with the expanded shape's one first.
-  const mergedChild = (name, child) => {
-    const variants = shapes
-      .map(shape => shape.properties?.[name])
-      .filter(variant => variant && variant !== child);
-    if (!variants.length) return child;
-    return {
-      description: descriptionOf(child, definitions),
-      deprecated: isDeprecated(child, definitions),
-      anyOf: [child, ...variants],
-    };
-  };
+  // Union of every shape's properties. A property shared by several shapes (a
+  // discriminator like `cache.type`) documents the union of its variants;
+  // shape-specific ones are labelled with their discriminator value and their
+  // example carries it (for example `type: "filesystem"`).
+  const entries = new Map();
+  for (const shape of shapes) {
+    for (const [name, child] of Object.entries(shape.properties)) {
+      if (!entries.has(name)) entries.set(name, { children: [], owners: [] });
+      const entry = entries.get(name);
+      entry.children.push(child);
+      entry.owners.push(shape);
+    }
+  }
 
-  const properties = Object.entries(objectSchema?.properties ?? {}).map(
-    ([name, child]) => [name, mergedChild(name, child)]
-  );
+  const properties = [...entries].map(([name, { children, owners }]) => {
+    const [child, ...variants] = children;
+    const ownValues = owners.map(owner =>
+      literal(owner.properties[discriminator]?.enum?.[0])
+    );
+    const partial =
+      discriminator && name !== discriminator && owners.length < shapes.length;
+
+    const note = partial
+      ? `Only used when \`${discriminator}\` is set to ${ownValues
+          .map(value => `\`${value}\``)
+          .join(' or ')}.`
+      : '';
+    const merged =
+      variants.length || note
+        ? {
+            description: [descriptionOf(child, definitions), note]
+              .filter(Boolean)
+              .join(' '),
+            deprecated: isDeprecated(child, definitions),
+            anyOf: [child, ...variants],
+          }
+        : child;
+    const extras = partial ? [`${discriminator}: ${ownValues[0]}`] : [];
+
+    return [name, merged, extras];
+  });
 
   if (depth === 0) {
     lines.push('', ...renderExample(path, schema, definitions), '');
-    for (const [name, child] of properties) {
-      lines.push(...renderOption(`${path}.${name}`, child, definitions, 1));
+    for (const [name, child, extras] of properties) {
+      lines.push(
+        ...renderOption(`${path}.${name}`, child, definitions, 1, extras)
+      );
     }
   } else {
     // Sub-option details nest under the type annotation.
     for (const [name, child] of properties) {
       lines.push(propertyBullet(name, child, definitions));
     }
-    lines.push('', ...renderExample(path, schema, definitions), '');
+    lines.push('', ...renderExample(path, schema, definitions, exampleExtras));
+    lines.push('');
   }
 
   return lines;
