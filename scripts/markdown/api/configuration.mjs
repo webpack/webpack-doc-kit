@@ -268,10 +268,16 @@ const isDeprecated = (schema, definitions) =>
     schema.deprecated ?? definitions[definitionName(schema.$ref)]?.deprecated
   );
 
+const addedInVersion = (schema, definitions) =>
+  schema.added ?? definitions[definitionName(schema.$ref)]?.added;
+
 const propertyBullet = (name, schema, definitions) => {
   const description = descriptionOf(schema, definitions);
   const type = summarize(schema, definitions);
   const notes = [
+    addedInVersion(schema, definitions)
+      ? `**Added in: v${addedInVersion(schema, definitions)}**`
+      : '',
     isDeprecated(schema, definitions) ? '**Deprecated.**' : '',
     description ?? '',
   ]
@@ -282,6 +288,11 @@ const propertyBullet = (name, schema, definitions) => {
 
 const renderOption = (path, schema, definitions, depth, exampleExtras = []) => {
   const lines = [`${'#'.repeat(depth + 2)} \`${formatPath(path)}\``, ''];
+
+  const added = addedInVersion(schema, definitions);
+  if (added) {
+    lines.push('<!-- YAML', `added: v${added}`, '-->', '');
+  }
 
   if (isDeprecated(schema, definitions)) {
     lines.push('> Stability: 0 - Deprecated', '');
