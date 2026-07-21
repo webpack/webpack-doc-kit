@@ -1,6 +1,6 @@
 ---
 title: Writer's Guide
-authors: avivkeller
+authors: avivkeller,alexander-akait
 ---
 
 # Writer's Guide

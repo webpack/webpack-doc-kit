@@ -1,6 +1,6 @@
 ---
 title: Writing a Plugin
-authors: slavafomin,tbroadley,nveenjain,iamakulov,byzyk,franjohn21,EugeneHlushko,snitin315,rahul3v,jamesgeorge007
+authors: slavafomin,tbroadley,nveenjain,iamakulov,byzyk,franjohn21,EugeneHlushko,snitin315,rahul3v,jamesgeorge007,bjohansebas
 ---
 
 # Writing a Plugin

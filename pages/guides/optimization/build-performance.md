@@ -1,6 +1,6 @@
 ---
 title: Build Performance
-authors: sokra,tbroadley,byzyk,madhavarshney,wizardofhogwarts,anikethsaha,Brennvo,avivkeller
+authors: sokra,tbroadley,byzyk,madhavarshney,wizardofhogwarts,anikethsaha,Brennvo,avivkeller,alexander-akait
 ---
 
 # Build Performance

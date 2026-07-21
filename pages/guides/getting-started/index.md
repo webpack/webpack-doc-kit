@@ -1,6 +1,6 @@
 ---
 title: Getting Started
-authors: bebraw,varunjayaraman,cntanglijun,chrisVillanueva,johnstew,simon04,aaronang,TheDutchCoder,sudarsangp,Vanguard90,chenxsan,EugeneHlushko,ATGardner,ayvarot,bjarki,ztomasze,Spiral90210,byzyk,wizardofhogwarts,myshov,anshumanv,d3lm,snitin315,Etheryen,zowiebeha,avivkeller
+authors: bebraw,varunjayaraman,cntanglijun,chrisVillanueva,johnstew,simon04,aaronang,TheDutchCoder,sudarsangp,Vanguard90,chenxsan,EugeneHlushko,ATGardner,ayvarot,bjarki,ztomasze,Spiral90210,byzyk,wizardofhogwarts,myshov,anshumanv,d3lm,snitin315,Etheryen,zowiebeha,avivkeller,alexander-akait
 ---
 
 # Getting Started

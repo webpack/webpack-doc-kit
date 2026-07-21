@@ -1,6 +1,6 @@
 ---
 title: Targets
-authors: TheLarkInn,rouzbeh84,johnstew,srilman,byzyk,EugeneHlushko,avivkeller
+authors: TheLarkInn,rouzbeh84,johnstew,srilman,byzyk,EugeneHlushko,avivkeller,alexander-akait
 ---
 
 # Targets

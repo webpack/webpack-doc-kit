@@ -1,6 +1,6 @@
 ---
 title: Integrations
-authors: pksjce,bebraw,tashian,skipjack,AnayaDesign,avivkeller
+authors: pksjce,bebraw,tashian,skipjack,AnayaDesign,avivkeller,alexander-akait
 ---
 
 # Integrations

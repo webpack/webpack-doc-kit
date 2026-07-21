@@ -1,6 +1,6 @@
 ---
 title: Tree Shaking
-authors: simon04,zacanger,alexjoverm,avant1,MijaelWatts,dmitriid,probablyup,gish,lumo10,byzyk,pnevares,EugeneHlushko,AnayaDesign,torifat,rahul3v,snitin315,vansh5632,Brennvo,ThierryRakotomanana,avivkeller
+authors: simon04,zacanger,alexjoverm,avant1,MijaelWatts,dmitriid,probablyup,gish,lumo10,byzyk,pnevares,EugeneHlushko,AnayaDesign,torifat,rahul3v,snitin315,vansh5632,Brennvo,ThierryRakotomanana,avivkeller,bjohansebas
 ---
 
 # Tree Shaking
@@ -483,8 +483,11 @@ import { createLogger } from './utils';
 const unused = createLogger('debug');
 ```
 
-> [!WARNING]
-> The annotation currently only takes effect within the module where it is declared. Cross-module propagation is planned for a future release.
+> [!NOTE]
+> Since webpack 5.108.0 the annotation propagates across module boundaries, so an unused call in an importing module is tree-shaken too. (Before 5.108.0 it only took effect within the module where it was declared.)
+
+> [!NOTE]
+> If you can't edit the source to add the annotation (for example, a function coming from a dependency), you can mark names as side-effect-free from your config with [`module.parser.javascript.pureFunctions`](/docs/api/options#moduleparserjavascriptpurefunctions) (5.108.0+).
 
 ## Minify the output
 
