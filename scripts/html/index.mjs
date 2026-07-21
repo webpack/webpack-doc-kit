@@ -5,6 +5,7 @@ import { promisify } from 'node:util';
 
 const execFileAsync = promisify(execFile);
 
+// TODO: Have doc-kit understand that some pages don't have meaningful information
 // The llms-txt generator lists every page with a depth-1 heading. JSX-driven
 // pages like the homepage produce entries with no title or description — drop
 // them, they carry no information for LLMs.
