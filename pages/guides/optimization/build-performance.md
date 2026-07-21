@@ -128,7 +128,7 @@ These utilities improve performance by compiling and serving assets from memory 
 
 ### stats.toJson speed
 
-By default, webpack 4 emits a large amount of data through `stats.toJson()`. Avoid reading parts of the `stats` object unless you need them in the incremental step. Starting with v3.1.3, `webpack-dev-server` included a significant fix that minimizes how much data it pulls from the `stats` object on each incremental build.
+By default, webpack emits a large amount of data through `stats.toJson()`. Avoid reading parts of the `stats` object unless you need them in the incremental step.
 
 ### Devtool
 

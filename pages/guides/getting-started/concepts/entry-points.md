@@ -200,9 +200,7 @@ export default {
 **Why?** With this setup, you can import libraries or files that rarely change (such as Bootstrap, jQuery, or images) inside `vendor.js`, and they will be bundled together into their own chunk. Because the content hash stays the same, the browser can cache them separately, reducing load time.
 
 > [!TIP]
-> In webpack versions earlier than 4, it was common to add vendors as a separate entry point so they would be compiled into a separate file (in combination with the `CommonsChunkPlugin`).
->
-> This is discouraged in webpack 4 and later. Instead, the [`optimization.splitChunks`](/docs/api/options#optimizationsplitchunks) option takes care of separating vendor and app modules into a separate file. **Do not** create an entry for vendors or anything else that is not the starting point of execution.
+> Avoid adding vendors as a separate entry point. Instead, the [`optimization.splitChunks`](/docs/api/options#optimizationsplitchunks) option takes care of separating vendor and app modules into a separate file. **Do not** create an entry for vendors or anything else that is not the starting point of execution.
 
 ### Multi-page application
 

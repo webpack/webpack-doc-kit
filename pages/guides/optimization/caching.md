@@ -113,7 +113,7 @@ Run another build to see the extracted `runtime` bundle:
 
 ```bash
 Hash: 82c9c385607b2150fab2
-Version: webpack 4.12.0
+Version: webpack 5.107.2
 Time: 3027ms
                           Asset       Size  Chunks             Chunk Names
 runtime.cc17ae2a94ec771e9221.js   1.42 KiB       0  [emitted]  runtime

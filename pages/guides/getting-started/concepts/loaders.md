@@ -38,8 +38,6 @@ There are two ways to use loaders in your application:
 - [Configuration](#configuration) (recommended): specify them in your `webpack.config.js` file.
 - [Inline](#inline): specify them explicitly in each `import` statement.
 
-Note that loaders could be used from the CLI in webpack v4, but that feature was deprecated in webpack v5.
-
 ### Configuration
 
 [`module.rules`](/docs/api/options#modulerules) lets you specify several loaders within your webpack configuration. This is a concise way to declare loaders, helps keep your code clean, and gives you a full overview of each loader.

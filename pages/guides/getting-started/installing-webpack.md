@@ -28,7 +28,7 @@ npm install --save-dev webpack@<version>
 > [!TIP]
 > Whether to use `--save-dev` depends on your use case. If you use webpack only for bundling, installing it with `--save-dev` is recommended, since you won't include webpack in your production build. Otherwise, you can omit `--save-dev`.
 
-If you're using webpack v4 or later and want to call `webpack` from the command line, you'll also need to install the [CLI](https://github.com/webpack/webpack-cli#how-to-install):
+To call `webpack` from the command line, you'll also need to install the [CLI](https://github.com/webpack/webpack-cli#how-to-install):
 
 ```bash
 npm install --save-dev webpack-cli
@@ -43,7 +43,7 @@ Installing locally is what we recommend for most projects. It makes it easier to
 ```
 
 > [!TIP]
-> To run a local installation of webpack, you can access its binary at `node_modules/.bin/webpack`. Alternatively, if you are using npm v5.2.0 or greater, you can run `npx webpack`.
+> To run a local installation of webpack, you can access its binary at `node_modules/.bin/webpack`. Alternatively, you can run `npx webpack`.
 
 ## Global installation
 
