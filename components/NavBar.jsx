@@ -29,10 +29,12 @@ export default ({ metadata }) => {
       <ThemeToggle
         onChange={setThemePreference}
         currentTheme={themePreference}
+        ariaLabel="Toggle color theme"
       />
       <a
         href="https://github.com/webpack/webpack"
         className={styles.ghIconWrapper}
+        aria-label="webpack on GitHub"
       >
         <GitHubIcon />
       </a>

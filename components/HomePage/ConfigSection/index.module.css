@@ -34,7 +34,7 @@
     font-normal
     uppercase
     tracking-wider
-    text-blue-600
+    text-blue-700
     dark:text-blue-500
     lg:justify-start;
 }
@@ -80,7 +80,7 @@
   @apply mb-4
     text-base
     leading-relaxed
-    text-neutral-600
+    text-neutral-800
     dark:text-neutral-400;
 }
 
@@ -96,7 +96,7 @@
     gap-3
     text-sm
     font-medium
-    text-neutral-700
+    text-neutral-800
     dark:text-neutral-300;
 }
 

@@ -64,7 +64,7 @@
 
 .amount {
   @apply text-xs
-    text-neutral-500
+    text-neutral-800
     dark:text-neutral-400;
 }
 
@@ -72,7 +72,7 @@
   @apply m-0
     text-sm
     leading-relaxed
-    text-neutral-600
+    text-neutral-800
     dark:text-neutral-300;
 }
 
