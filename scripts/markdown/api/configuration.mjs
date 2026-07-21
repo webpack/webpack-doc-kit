@@ -76,30 +76,165 @@ const summarize = (schema, definitions, stack = new Set()) => {
   return 'unknown';
 };
 
-/**
- * Find the single object-with-properties schema an option resolves to, so its
- * sub-options can be documented in place. Options offering several object
- * shapes (for example `cache`) are left to their linked type pages.
- */
-const expandableObject = (schema, definitions, stack = new Set()) => {
+/** Collect every object-with-properties shape an option can resolve to. */
+const expandableObjects = (schema, definitions, stack = new Set()) => {
   const ref = definitionName(schema.$ref);
   if (ref) {
     const target = definitions[ref];
-    if (!target || stack.has(ref)) return null;
-    return expandableObject(target, definitions, new Set(stack).add(ref));
+    if (!target || stack.has(ref)) return [];
+    return expandableObjects(target, definitions, new Set(stack).add(ref));
   }
 
-  if (schema.properties) return schema;
+  if (schema.properties) return [schema];
 
   const alternatives = schema.anyOf ?? schema.oneOf;
   if (alternatives) {
-    const objects = alternatives
-      .map(alternative => expandableObject(alternative, definitions, stack))
-      .filter(Boolean);
-    return objects.length === 1 ? objects[0] : null;
+    return alternatives.flatMap(alternative =>
+      expandableObjects(alternative, definitions, stack)
+    );
   }
 
-  return null;
+  return [];
+};
+
+/**
+ * Find the object-with-properties schema an option resolves to, so its
+ * sub-options can be documented in place. Options offering several object
+ * shapes (for example `cache`) expand the richest one; the alternatives stay
+ * reachable through their linked type pages.
+ */
+const expandableObject = (schema, definitions) => {
+  const objects = expandableObjects(schema, definitions);
+  if (!objects.length) return null;
+  return objects.reduce((best, object) =>
+    Object.keys(object.properties).length > Object.keys(best.properties).length
+      ? object
+      : best
+  );
+};
+
+const resolveSchema = (schema, definitions, stack = new Set()) => {
+  const ref = definitionName(schema?.$ref);
+  if (!ref || !definitions[ref] || stack.has(ref)) return schema;
+  return resolveSchema(definitions[ref], definitions, new Set(stack).add(ref));
+};
+
+/**
+ * Rank how illustrative an example built from this schema would be — lower is
+ * better. Objects with required properties and string enums carry real values,
+ * free strings still read naturally, and bare objects or arrays teach the
+ * least.
+ */
+const concreteness = (schema, definitions, stack = new Set()) => {
+  if (!schema) return 7;
+
+  const ref = definitionName(schema.$ref);
+  if (ref) {
+    if (!definitions[ref] || stack.has(ref)) return 7;
+    return concreteness(definitions[ref], definitions, new Set(stack).add(ref));
+  }
+
+  const alternatives = schema.anyOf ?? schema.oneOf;
+  if (alternatives) {
+    return Math.min(
+      ...alternatives.map(alternative =>
+        concreteness(alternative, definitions, stack)
+      )
+    );
+  }
+
+  if (isStructural(schema) && schema.required?.length) return 0;
+  if (schema.enum?.some(value => typeof value === 'string')) return 0;
+  if (schema.type === 'string') return 1;
+  if (schema.enum) return 2;
+  if (schema.type === 'boolean') return 3;
+  if (schema.type === 'number' || schema.type === 'integer') return 4;
+  if (schema.type === 'array') return 5;
+  return 6;
+};
+
+/** Tie-breaker between equally illustrative shapes: prefer the richer one. */
+const propertyCount = (schema, definitions) =>
+  Object.keys(resolveSchema(schema, definitions)?.properties ?? {}).length;
+
+/**
+ * Derive a placeholder value for an option from its schema: real literals for
+ * enums, neutral placeholders per type otherwise. Multi-shape options use the
+ * alternative whose example is most illustrative (see `concreteness`).
+ */
+const exampleValue = (schema, definitions, stack = new Set()) => {
+  if (!schema) return 'undefined';
+
+  const ref = definitionName(schema.$ref);
+  if (ref) {
+    const target = definitions[ref];
+    if (!target || stack.has(ref)) return '{}';
+    return exampleValue(target, definitions, new Set(stack).add(ref));
+  }
+
+  if (schema.enum) {
+    return literal(
+      schema.enum.find(value => typeof value === 'string') ?? schema.enum[0]
+    );
+  }
+  if (schema.instanceof === 'Function' || schema.tsType?.includes('=>')) {
+    return '() => {}';
+  }
+
+  const alternatives = schema.anyOf ?? schema.oneOf;
+  if (alternatives) {
+    const preferred = alternatives.reduce((best, alternative) => {
+      const rank = concreteness(alternative, definitions, stack);
+      const bestRank = concreteness(best, definitions, stack);
+      if (rank !== bestRank) return rank < bestRank ? alternative : best;
+      return propertyCount(alternative, definitions) >
+        propertyCount(best, definitions)
+        ? alternative
+        : best;
+    });
+    return exampleValue(preferred, definitions, stack);
+  }
+
+  if (schema.type === 'array') return '[]';
+  if (isStructural(schema) || schema.additionalProperties) {
+    const entries = (schema.required ?? [])
+      .filter(name => schema.properties?.[name])
+      .map(
+        name =>
+          `${name}: ${exampleValue(schema.properties[name], definitions, stack)}`
+      );
+    return entries.length ? `{ ${entries.join(', ')} }` : '{}';
+  }
+  if (schema.type === 'boolean') return 'true';
+  if (schema.type === 'number' || schema.type === 'integer') return '0';
+  if (schema.type === 'string') return "'...'";
+
+  return 'undefined';
+};
+
+/**
+ * Render a minimal config snippet placing the option at its nesting path.
+ */
+const renderExample = (path, schema, definitions) => {
+  const segments = path.split('.');
+  const indent = depth => '  '.repeat(depth + 1);
+  const lines = ['```js', 'export default {'];
+
+  segments.forEach((segment, index) => {
+    const last = index === segments.length - 1;
+    lines.push(
+      last
+        ? `${indent(index)}${segment}: ${exampleValue(schema, definitions)},`
+        : `${indent(index)}${segment}: {`
+    );
+  });
+
+  for (let index = segments.length - 2; index >= 0; index--) {
+    lines.push(`${indent(index)}},`);
+  }
+
+  lines.push('};', '```');
+  return lines;
 };
 
 const descriptionOf = (schema, definitions) => {
@@ -109,14 +244,29 @@ const descriptionOf = (schema, definitions) => {
   return ref ? collapse(definitions[ref]?.description) : undefined;
 };
 
+const isDeprecated = (schema, definitions) =>
+  Boolean(
+    schema.deprecated ?? definitions[definitionName(schema.$ref)]?.deprecated
+  );
+
 const propertyBullet = (name, schema, definitions) => {
   const description = descriptionOf(schema, definitions);
   const type = summarize(schema, definitions);
-  return `  * \`${name}\` {${type}}${description ? ` - ${description}` : ''}`;
+  const notes = [
+    isDeprecated(schema, definitions) ? '**Deprecated.**' : '',
+    description ?? '',
+  ]
+    .filter(Boolean)
+    .join(' ');
+  return `  * \`${name}\` {${type}}${notes ? ` - ${notes}` : ''}`;
 };
 
 const renderOption = (path, schema, definitions, depth) => {
   const lines = [`${'#'.repeat(depth + 2)} \`${path}\``, ''];
+
+  if (isDeprecated(schema, definitions)) {
+    lines.push('> Stability: 0 - Deprecated', '');
+  }
 
   const description = descriptionOf(schema, definitions);
   if (description) lines.push(description, '');
@@ -124,10 +274,28 @@ const renderOption = (path, schema, definitions, depth) => {
   lines.push(`* Type: {${summarize(schema, definitions)}}`);
 
   const objectSchema = expandableObject(schema, definitions);
-  const properties = Object.entries(objectSchema?.properties ?? {});
+  const shapes = expandableObjects(schema, definitions);
+
+  // A property shared by several shapes (a discriminator like `cache.type`)
+  // documents the union of its variants, with the expanded shape's one first.
+  const mergedChild = (name, child) => {
+    const variants = shapes
+      .map(shape => shape.properties?.[name])
+      .filter(variant => variant && variant !== child);
+    if (!variants.length) return child;
+    return {
+      description: descriptionOf(child, definitions),
+      deprecated: isDeprecated(child, definitions),
+      anyOf: [child, ...variants],
+    };
+  };
+
+  const properties = Object.entries(objectSchema?.properties ?? {}).map(
+    ([name, child]) => [name, mergedChild(name, child)]
+  );
 
   if (depth === 0) {
-    lines.push('');
+    lines.push('', ...renderExample(path, schema, definitions), '');
     for (const [name, child] of properties) {
       lines.push(...renderOption(`${path}.${name}`, child, definitions, 1));
     }
@@ -136,7 +304,7 @@ const renderOption = (path, schema, definitions, depth) => {
     for (const [name, child] of properties) {
       lines.push(propertyBullet(name, child, definitions));
     }
-    lines.push('');
+    lines.push('', ...renderExample(path, schema, definitions), '');
   }
 
   return lines;
