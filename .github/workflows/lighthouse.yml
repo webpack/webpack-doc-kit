@@ -39,13 +39,16 @@ jobs:
           configPath: ./.lighthouserc.json
           uploadArtifacts: true
           temporaryPublicStorage: true
+          # One page per render path.
           urls: |
             ${{ steps.preview.outputs.url }}/
             ${{ steps.preview.outputs.url }}/about
             ${{ steps.preview.outputs.url }}/about/sponsors
-            ${{ steps.preview.outputs.url }}/docs
-            ${{ steps.preview.outputs.url }}/guides
             ${{ steps.preview.outputs.url }}/blog
+            ${{ steps.preview.outputs.url }}/blog/posts/2026-02-04-roadmap-2026
+            ${{ steps.preview.outputs.url }}/guides/getting-started
+            ${{ steps.preview.outputs.url }}/docs/api/v5.x/options
+            ${{ steps.preview.outputs.url }}/docs/loaders/css-loader
 
       - name: Format Lighthouse report
         id: format
