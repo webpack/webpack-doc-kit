@@ -14,6 +14,20 @@ const trimImports = text =>
 const literal = value =>
   typeof value === 'string' ? JSON.stringify(value) : String(value);
 
+const IDENTIFIER = /^[A-Za-z_$][\w$]*$/;
+
+/** Quote object keys that are not valid identifiers (e.g. `asset/inline`). */
+const propertyKey = name => (IDENTIFIER.test(name) ? name : `'${name}'`);
+
+/** Option path in JS access notation: `module.generator['asset/inline']`. */
+const formatPath = segments =>
+  segments
+    .map((segment, index) => {
+      if (!IDENTIFIER.test(segment)) return `['${segment}']`;
+      return index ? `.${segment}` : segment;
+    })
+    .join('');
+
 const isStructural = schema =>
   schema.type === 'object' || Boolean(schema.properties);
 
@@ -202,7 +216,7 @@ const exampleValue = (schema, definitions, stack = new Set()) => {
       .filter(name => schema.properties?.[name])
       .map(
         name =>
-          `${name}: ${exampleValue(schema.properties[name], definitions, stack)}`
+          `${propertyKey(name)}: ${exampleValue(schema.properties[name], definitions, stack)}`
       );
     return entries.length ? `{ ${entries.join(', ')} }` : '{}';
   }
@@ -218,8 +232,7 @@ const exampleValue = (schema, definitions, stack = new Set()) => {
  * `extras` are sibling entries required for the option to apply — typically
  * the discriminator of its shape, like `type: "filesystem"`.
  */
-const renderExample = (path, schema, definitions, extras = []) => {
-  const segments = path.split('.');
+const renderExample = (segments, schema, definitions, extras = []) => {
   const indent = depth => '  '.repeat(depth + 1);
   const lines = ['```js', 'export default {'];
 
@@ -230,8 +243,8 @@ const renderExample = (path, schema, definitions, extras = []) => {
     }
     lines.push(
       last
-        ? `${indent(index)}${segment}: ${exampleValue(schema, definitions)},`
-        : `${indent(index)}${segment}: {`
+        ? `${indent(index)}${propertyKey(segment)}: ${exampleValue(schema, definitions)},`
+        : `${indent(index)}${propertyKey(segment)}: {`
     );
   });
 
@@ -268,7 +281,7 @@ const propertyBullet = (name, schema, definitions) => {
 };
 
 const renderOption = (path, schema, definitions, depth, exampleExtras = []) => {
-  const lines = [`${'#'.repeat(depth + 2)} \`${path}\``, ''];
+  const lines = [`${'#'.repeat(depth + 2)} \`${formatPath(path)}\``, ''];
 
   if (isDeprecated(schema, definitions)) {
     lines.push('> Stability: 0 - Deprecated', '');
@@ -324,11 +337,12 @@ const renderOption = (path, schema, definitions, depth, exampleExtras = []) => {
     return [name, merged, extras];
   });
 
-  if (depth === 0) {
-    lines.push('', ...renderExample(path, schema, definitions), '');
+  if (depth < 2) {
+    lines.push('', ...renderExample(path, schema, definitions, exampleExtras));
+    lines.push('');
     for (const [name, child, extras] of properties) {
       lines.push(
-        ...renderOption(`${path}.${name}`, child, definitions, 1, extras)
+        ...renderOption([...path, name], child, definitions, depth + 1, extras)
       );
     }
   } else {
@@ -367,7 +381,7 @@ const generate = async packageDir => {
   ];
 
   for (const [name, child] of Object.entries(schema.properties)) {
-    lines.push(...renderOption(name, child, schema.definitions, 0));
+    lines.push(...renderOption([name], child, schema.definitions, 0));
   }
 
   await writeFile(
