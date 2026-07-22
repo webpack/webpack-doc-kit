@@ -271,15 +271,21 @@ const isDeprecated = (schema, definitions) =>
 const addedInVersion = (schema, definitions) =>
   schema.added ?? definitions[definitionName(schema.$ref)]?.added;
 
+const defaultOf = (schema, definitions) =>
+  schema.default ?? definitions[definitionName(schema.$ref)]?.default;
+
 const propertyBullet = (name, schema, definitions) => {
   const description = descriptionOf(schema, definitions);
   const type = summarize(schema, definitions);
+  const added = addedInVersion(schema, definitions);
+  const defaultValue = defaultOf(schema, definitions);
   const notes = [
-    addedInVersion(schema, definitions)
-      ? `**Added in: v${addedInVersion(schema, definitions)}**`
-      : '',
+    added ? `**Added in: v${added}**` : '',
     isDeprecated(schema, definitions) ? '**Deprecated.**' : '',
     description ?? '',
+    defaultValue !== undefined
+      ? `**Default:** \`${JSON.stringify(defaultValue)}\``
+      : '',
   ]
     .filter(Boolean)
     .join(' ');
@@ -302,6 +308,11 @@ const renderOption = (path, schema, definitions, depth, exampleExtras = []) => {
   if (description) lines.push(description, '');
 
   lines.push(`* Type: {${summarize(schema, definitions)}}`);
+
+  const defaultValue = defaultOf(schema, definitions);
+  if (defaultValue !== undefined) {
+    lines.push(`* Default: \`${JSON.stringify(defaultValue)}\``);
+  }
 
   const shapes = expandableObjects(schema, definitions);
   const discriminator = discriminatorOf(shapes);
