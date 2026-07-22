@@ -39,7 +39,6 @@ const versions = JSON.parse(await readFile('./versions.json'));
 
 for (const version of versions) {
   await runDocKit(version);
-  await cleanLlmsTxt(`./out/docs/api/v${version.match(/\d+/)[0]}.x/llms.txt`);
 }
 await runDocKit();
 
