@@ -1,0 +1,13 @@
+contact_links:
+  - name: 🔧 Bug in the doc-kit rendering engine
+    url: https://github.com/nodejs/doc-kit/issues
+    about: Problems with the Markdown-to-HTML engine itself (parsing, core rendering) belong in nodejs/doc-kit. Site-specific theme and content issues belong here.
+  - name: 📦 Bug or feature request for webpack itself
+    url: https://github.com/webpack/webpack/issues/new/choose
+    about: Issues with webpack's behavior — not its documentation — belong in webpack/webpack.
+  - name: 💬 Questions and help
+    url: https://github.com/orgs/webpack/discussions
+    about: Ask questions and get help from the webpack community.
+  - name: 🔒 Report a security vulnerability
+    url: https://github.com/webpack/.github/blob/main/.github/SECURITY.md
+    about: Please report security issues privately following our security policy — never in a public issue.

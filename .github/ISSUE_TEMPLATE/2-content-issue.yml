@@ -1,0 +1,46 @@
+name: 📝 Documentation Content Issue
+description: Report incorrect, outdated, or missing documentation content
+labels: [documentation]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for helping improve the webpack docs! A few notes on where content comes from:
+
+        - Guides, concepts, and blog posts live in `pages/` in this repository — report (or fix!) them here.
+        - **API docs** (`/docs/api/`) are generated from webpack's `types.d.ts` — inaccuracies in type descriptions may need fixing in [webpack/webpack](https://github.com/webpack/webpack), while formatting/generation problems belong here.
+        - **Loader and plugin pages** are generated from the READMEs of their respective repositories.
+
+  - type: input
+    id: page
+    attributes:
+      label: Affected page
+      description: URL or file path of the page with the problem.
+      placeholder: https://webpack.js.org/docs/... or pages/guides/...
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is wrong?
+      description: Describe what is incorrect, outdated, unclear, or missing.
+    validations:
+      required: true
+
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Suggested fix
+      description: If you know what the content should say, tell us — or consider opening a pull request!
+
+  - type: dropdown
+    id: ai
+    attributes:
+      label: Have you used AI?
+      description: If you used AI tooling to generate this issue, please state so per webpack's [AI policy](https://github.com/webpack/governance/blob/main/AI_POLICY.md).
+      options:
+        - 'No'
+        - 'Yes'
+    validations:
+      required: true

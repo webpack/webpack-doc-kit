@@ -1,0 +1,76 @@
+name: 🐛 Bug Report
+description: Report a problem with the documentation site or its build tooling
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for reporting a bug! Before submitting, make sure this is the right repository:
+
+        - **This repository** — documentation content, generated API docs, build scripts, TypeDoc plugins, and the site theme.
+        - **[nodejs/doc-kit](https://github.com/nodejs/doc-kit/issues)** — bugs in the underlying Markdown-to-HTML engine (parsing, core rendering). This site uses doc-kit with a custom theme, so visual issues usually belong *here*; engine issues belong there.
+        - **[webpack/webpack](https://github.com/webpack/webpack/issues)** — bugs in webpack itself.
+
+        When in doubt, file it here and we'll move it. Also search existing issues to avoid duplicates.
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Which area is affected?
+      options:
+        - Documentation content (pages/)
+        - Generated API docs (TypeDoc output)
+        - Build tooling (scripts, plugins)
+        - Theme / visual appearance
+        - Not sure
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug description
+      description: A clear and concise description of what the bug is.
+      placeholder: When I do X, Y happens instead of Z.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      description: For site issues, include the affected page URL. For build issues, include the command you ran and its output.
+      placeholder: |
+        1. Go to https://webpack.js.org/...
+        2. ...
+
+        OR
+
+        1. Run `npm run build`
+        2. See error
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: What did you expect to happen instead?
+
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: For build issues — your Node.js version, npm version, and OS.
+      placeholder: Node.js 24.x, npm 11.x, macOS 15
+
+  - type: dropdown
+    id: ai
+    attributes:
+      label: Have you used AI?
+      description: If you used AI tooling to generate this issue, please state so per webpack's [AI policy](https://github.com/webpack/governance/blob/main/AI_POLICY.md).
+      options:
+        - 'No'
+        - 'Yes'
+    validations:
+      required: true
