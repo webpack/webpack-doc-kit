@@ -1,5 +1,5 @@
 import { execFile } from 'node:child_process';
-import { cp, readFile, writeFile } from 'node:fs/promises';
+import { cp, readFile } from 'node:fs/promises';
 import { statSync } from 'node:fs';
 import { promisify } from 'node:util';
 
