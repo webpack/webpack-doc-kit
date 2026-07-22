@@ -1,36 +1,66 @@
 # Adapted from https://github.com/nodejs/nodejs.org/blob/main/.github/workflows/lighthouse.yml
 name: Lighthouse
 
+# Run after the preview is live instead of on pull_request.
 on:
-  pull_request:
-    branches: [main]
+  deployment_status:
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
+  group: ${{ github.workflow }}-${{ github.event.deployment.ref }}
   cancel-in-progress: true
 
 permissions:
   contents: read
+  # for listPullRequestsAssociatedWithCommit below
+  pull-requests: read
 
 jobs:
   lighthouse:
     name: Lighthouse Report
-    if: startsWith(github.event.pull_request.head.ref, 'dependabot/') == false
+    # successful preview deploys only, skip dependabot
+    if: |
+      github.event.deployment_status.state == 'success' &&
+      startsWith(github.event.deployment_status.environment, 'Preview') &&
+      startsWith(github.event.deployment.ref, 'dependabot/') == false
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
+          ref: ${{ github.event.repository.default_branch }}
           persist-credentials: false
 
-      - name: Wait for Vercel preview deployment
+      - name: Resolve preview URL and PR number
         id: preview
-        uses: patrickedqvist/wait-for-vercel-preview@06c79330064b0e6ef7a2574603b62d3c98789125 # v1.3.2
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          max_timeout: 300
-          check_interval: 10
+          script: |
+            const url = context.payload.deployment_status.environment_url;
+
+            // drop trailing slash before appending paths
+            core.setOutput('url', url.replace(/\/+$/, ''));
+
+            // map the deployed commit to its PR (works for forks). best-effort,
+            // don't fail the audit if it doesn't resolve.
+            const sha = context.payload.deployment.sha;
+            try {
+              const { data: prs } =
+                await github.rest.repos.listPullRequestsAssociatedWithCommit({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  commit_sha: sha,
+                });
+
+              const pr = prs.find(p => p.state === 'open') ?? prs[0];
+              if (pr) {
+                core.setOutput('pr_number', String(pr.number));
+              } else {
+                core.info(`No pull request found for ${sha}`);
+              }
+            } catch (error) {
+              core.warning(`Could not resolve PR for ${sha}: ${error.message}`);
+            }
 
       - name: Audit preview URLs with Lighthouse
         id: lighthouse
@@ -67,10 +97,12 @@ jobs:
       - name: Prepare PR comment
         env:
           COMMENT: ${{ steps.format.outputs.comment }}
+          PR_NUMBER: ${{ steps.preview.outputs.pr_number }}
         run: |
           set -euo pipefail
           mkdir -p pr-comment
           printf '%s' "$COMMENT" > pr-comment/comment.md
+          printf '%s' "$PR_NUMBER" > pr-comment/pr-number.txt
 
       - name: Upload PR comment
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
