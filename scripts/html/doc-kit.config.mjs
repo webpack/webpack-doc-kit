@@ -10,7 +10,7 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 
 const VERSION = process.env.VERSION;
 const MAJOR_VERSION = VERSION ? `v${major(VERSION)}.x` : undefined;
-const URL_PATH = VERSION ? `/docs/api/${MAJOR_VERSION}` : '/';
+const URL_PATH = VERSION ? `/docs/api/${MAJOR_VERSION}` : '';
 
 const ORIGIN = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -109,6 +109,10 @@ export default {
         read: createTailwindReader(),
       },
     },
+  },
+  sitemap: {
+    indexURL: '{baseURL}/',
+    pageURL: '{baseURL}{path}.html',
   },
 };
 

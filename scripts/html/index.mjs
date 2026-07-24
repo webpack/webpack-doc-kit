@@ -31,6 +31,7 @@ const runDocKit = version =>
       '-t',
       'orama-db',
       '-t',
+      'sitemap',
       'llms-txt',
       '--config-file',
       './scripts/html/doc-kit.config.mjs',
