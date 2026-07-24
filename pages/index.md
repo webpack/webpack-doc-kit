@@ -33,7 +33,6 @@ deno add npm:webpack npm:webpack-cli
 ```javascript displayName="webpack.config.js"
 const path = require('node:path');
 
-
 module.exports = {
   entry: './src/index.cjs',
   output: {
@@ -46,7 +45,6 @@ module.exports = {
 
 ```javascript displayName="webpack.config.mjs"
 import path from 'node:path';
-
 
 export default {
   entry: './src/index.mjs',
