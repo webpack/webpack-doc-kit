@@ -34,7 +34,7 @@ deno add npm:webpack npm:webpack-cli
 const path = require('node:path');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: './src/index.cjs',
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
@@ -48,7 +48,7 @@ module.exports = {
 import path from 'node:path';
 
 export default {
-  entry: './src/index.js',
+  entry: './src/index.mjs',
   output: {
     filename: 'bundle.js',
     path: path.resolve(import.meta.dirname, 'dist'),
@@ -63,7 +63,7 @@ import path from 'node:path';
 import { Configuration } from 'webpack';
 
 export default {
-  entry: './src/index.js',
+  entry: './src/index.ts',
   output: {
     filename: 'bundle.js',
     path: path.resolve(import.meta.dirname, 'dist'),
