@@ -7,7 +7,7 @@ authors: simon04,zacanger,alexjoverm,avant1,MijaelWatts,dmitriid,probablyup,gish
 
 _Tree shaking_ is a term commonly used in JavaScript for dead-code elimination. It relies on the [static structure](http://exploringjs.com/es6/ch_modules.html#static-module-structure) of ES2015 module syntax — that is, [`import`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) and [`export`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export). The name and concept were popularized by the ES2015 module bundler [rollup](https://github.com/rollup/rollup).
 
-webpack 2 introduced built-in support for ES2015 modules (also known as _harmony modules_) along with detection of unused module exports. webpack 4 expanded on this by letting you hint to the compiler, via the `"sideEffects"` property in `package.json`, which files in your project are "pure" and therefore safe to prune if unused.
+webpack has built-in support for ES2015 modules (also known as _harmony modules_) along with detection of unused module exports, and lets you hint to the compiler, via the `"sideEffects"` property in `package.json`, which files in your project are "pure" and therefore safe to prune if unused.
 
 > [!TIP]
 > The rest of this guide builds on [Getting Started](/guides/getting-started). If you haven't read through that guide yet, please do so now.

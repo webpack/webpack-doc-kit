@@ -169,7 +169,7 @@ pnpm add lodash
 ```
 
 > [!TIP]
-> With npm 5 and later, packages installed with `npm install <package>` are saved to `dependencies` by default. If you're installing a package for development purposes (such as a linter or testing library), use `npm install --save-dev`. More information can be found in the [npm documentation](https://docs.npmjs.com/cli/install).
+> Packages installed with `npm install <package>` are saved to `dependencies` by default. If you're installing a package for development purposes (such as a linter or testing library), use `npm install --save-dev`. More information can be found in the [npm documentation](https://docs.npmjs.com/cli/install).
 
 Now let's import `lodash` in our script:
 

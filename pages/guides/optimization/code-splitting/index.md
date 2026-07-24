@@ -303,7 +303,7 @@ Now, instead of statically importing `lodash`, we'll use a dynamic import to spl
 +});
 ```
 
-We need `default` here because, since webpack 4, importing a CommonJS module no longer resolves to the value of `module.exports`. Instead, webpack creates an artificial namespace object for the CommonJS module. For more background, read [webpack 4: import() and CommonJs](https://medium.com/webpack/webpack-4-import-and-commonjs-d619d626b655).
+We need `default` here because importing a CommonJS module with `import()` doesn't resolve to the value of `module.exports`; instead, webpack creates an artificial namespace object for the CommonJS module.
 
 Run webpack to see `lodash` split out into a separate bundle:
 
@@ -412,7 +412,7 @@ The following comments are supported:
 
 ## Prefetching/Preloading modules
 
-webpack 4.6.0+ adds support for prefetching and preloading.
+webpack supports prefetching and preloading of modules.
 
 Using these inline directives when declaring your imports lets webpack output a "Resource Hint" that tells the browser:
 

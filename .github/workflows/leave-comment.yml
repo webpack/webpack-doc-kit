@@ -17,6 +17,8 @@ concurrency:
 jobs:
   leave-comment:
     name: Leave Comment
+    # only successful audits produce an artifact to post
+    if: github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     permissions:
       actions: read
@@ -39,6 +41,18 @@ jobs:
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         with:
           script: |
+            const fs = require('fs');
+
+            // PR number written by the lighthouse job (works for forks)
+            const numberFile = 'pr-comment/pr-number.txt';
+            if (fs.existsSync(numberFile)) {
+              const number = fs.readFileSync(numberFile, 'utf8').trim();
+              if (number) {
+                core.setOutput('number', number);
+                return;
+              }
+            }
+
             const run = context.payload.workflow_run;
 
             if (run.pull_requests && run.pull_requests.length) {

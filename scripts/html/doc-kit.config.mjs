@@ -43,6 +43,11 @@ export default {
     generateIndexPage: false,
     generateAllPage: false,
   },
+  'llms-txt': {
+    templatePath: join(ROOT, 'scripts/html/llms-template.txt'),
+    pageURL: `${BASE_URL.replace(/\/$/, '')}{path}.md`,
+    output: VERSION ? `./out/docs/api/${MAJOR_VERSION}` : './out',
+  },
   web: {
     project: 'webpack',
     useAbsoluteURLs: true,

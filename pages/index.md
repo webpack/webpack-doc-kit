@@ -31,10 +31,10 @@ deno add npm:webpack npm:webpack-cli
 <ConfigSection>
 
 ```javascript displayName="webpack.config.js"
-const path = require('path');
+const path = require('node:path');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: './src/index.cjs',
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
@@ -44,10 +44,10 @@ module.exports = {
 ```
 
 ```javascript displayName="webpack.config.mjs"
-import path from 'path';
+import path from 'node:path';
 
 export default {
-  entry: './src/index.js',
+  entry: './src/index.mjs',
   output: {
     filename: 'bundle.js',
     path: path.resolve(import.meta.dirname, 'dist'),
@@ -57,19 +57,17 @@ export default {
 ```
 
 ```typescript displayName="webpack.config.ts"
-import path from 'path';
+import path from 'node:path';
 import { Configuration } from 'webpack';
 
-const config: Configuration = {
+export default {
   entry: './src/index.ts',
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(import.meta.dirname, 'dist'),
   },
   mode: 'production',
-};
-
-export default config;
+} satisfies Configuration;
 ```
 
 </ConfigSection>

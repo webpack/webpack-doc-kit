@@ -1,0 +1,8 @@
+# webpack Documentation
+
+> webpack is a static module bundler for modern JavaScript applications. It builds a dependency graph from one or more entry points and combines every module your project needs into one or more bundles, and it can transform, bundle, or package just about any resource or asset.
+
+Below are the sections of the webpack documentation. Look out especially towards the links that point towards guidance/introduction to the structure of this documentation.
+
+## Documentation
+
