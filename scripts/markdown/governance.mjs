@@ -1,13 +1,7 @@
 import { mkdir, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
-import { fetchWithRetry } from '../utils/fetch.mjs';
+import { fetchWithAuth } from '../utils/fetch.mjs';
 import { rewriteRelativeLinks } from './sanitize.mjs';
-
-const { GH_TOKEN } = process.env;
-
-const BASE_HEADERS = {
-  ...(GH_TOKEN && { Authorization: `Bearer ${GH_TOKEN}` }),
-};
 
 // Maps source filenames in webpack/governance repo to their output slug and sidebar label.
 // Insertion order determines sidebar order, this could be changed as per need.
@@ -50,7 +44,7 @@ await mkdir(outputDir, { recursive: true });
 const results = await Promise.all(
   Object.entries(FILE_MAP).map(async ([source, { output, label }]) => {
     const url = `https://raw.githubusercontent.com/webpack/governance/HEAD/${source}`;
-    const res = await fetchWithRetry(url, { headers: BASE_HEADERS });
+    const res = await fetchWithAuth(url);
 
     if (!res.ok) {
       console.error(`Failed: ${source} -> ${res.status} ${res.statusText}`);

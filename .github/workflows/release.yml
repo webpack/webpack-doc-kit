@@ -36,7 +36,9 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          node scripts/update-versions.mjs "$TAG"
+          node scripts/release/update-versions.mjs "$TAG"
+          node scripts/release/create-post.mjs "$TAG"
+          node --run format
 
       - name: Open pull request
         uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
