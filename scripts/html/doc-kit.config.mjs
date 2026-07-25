@@ -88,7 +88,6 @@ export default {
 
       '#theme/Sidebar': join(ROOT, 'components/SideBar.jsx'),
       '#theme/Metabar': join(ROOT, 'components/MetaBar/index.jsx'),
-      '#theme/sponsors': join(ROOT, 'generated/sponsors.json'),
       '#theme/blog': join(ROOT, 'generated/blog.json'),
       '#theme/Layout': join(ROOT, 'components/Layout.jsx'),
       '#theme/Navigation': join(ROOT, 'components/NavBar.jsx'),

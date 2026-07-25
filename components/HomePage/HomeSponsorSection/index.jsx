@@ -4,10 +4,10 @@ import BaseButton from '@node-core/ui-components/Common/BaseButton';
 
 import SectionHeader from '../../SectionHeader/index.jsx';
 import SponsorTier from '../../Sponsors/Tier/index.jsx';
-import data from '#theme/sponsors' with { type: 'json' };
 
 import styles from './index.module.css';
 import BackerWall from '../../Sponsors/BackerWall/index.jsx';
+import useSponsors from '../../../hooks/useSponsors.mjs';
 
 import {
   TIERS as BASE_TIERS,
@@ -44,7 +44,11 @@ function SeeMore({ count, href, className }) {
 }
 
 export default () => {
-  const buckets = useMemo(() => bucketSponsors(data.sponsors, METRIC), []);
+  const data = useSponsors();
+  const buckets = useMemo(
+    () => bucketSponsors(data.sponsors, METRIC),
+    [data.sponsors]
+  );
   const hasAnySponsor = TIERS.some(({ tier }) => buckets[tier].length > 0);
 
   if (!hasAnySponsor) return null;

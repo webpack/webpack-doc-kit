@@ -262,7 +262,7 @@
       "permanent": false
     },
     {
-      "source": "/api/:path*",
+      "source": "/api/:path((?!sponsors$).*)",
       "destination": "/docs/api/v5.x",
       "permanent": false
     },
