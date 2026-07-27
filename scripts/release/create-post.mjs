@@ -23,22 +23,33 @@ const getLatestVersion = async () => {
   return tag_name;
 };
 
-const getRemovedChangesets = async version => {
-  const { files = [] } = await fetchJSON(`${API_BASE}/commits/${version}`);
+const getChangesets = async version => {
+  try {
+    const { files = [] } = await fetchJSON(`${API_BASE}/commits/${version}`);
 
-  return files.filter(
-    file =>
-      file.status === 'removed' &&
-      file.filename.startsWith('.changeset/') &&
-      file.patch
-  );
+    return files
+      .filter(
+        file =>
+          file.status === 'removed' &&
+          file.filename.startsWith('.changeset/') &&
+          file.patch
+      )
+      .map(({ patch }) => stripPatchMarkers(patch));
+  } catch {
+    const changesets = await fetchJSON(`${API_BASE}/contents/.changeset`);
+    return Promise.all(
+      changesets.map(({ download_url }) =>
+        fetch(download_url).then(d => d.text())
+      )
+    );
+  }
 };
 
 const stripPatchMarkers = patch => patch.replace(/^@@.*\n|^[- ]/gm, '');
 const capitalize = value => value.charAt(0).toUpperCase() + value.slice(1);
 
 const parseChangeset = file => {
-  const { data, content } = matter(stripPatchMarkers(file.patch));
+  const { data, content } = matter(file);
   const [title, ...paragraphs] = content.trim().split(/\n{2,}/);
 
   return {
@@ -71,7 +82,7 @@ async function renderReleaseNotes(version, changes, date) {
 
 const date = new Date().toISOString().slice(0, 10);
 const version = await getLatestVersion();
-const changesets = await getRemovedChangesets(version);
+const changesets = await getChangesets(version);
 const changes = changesets.map(parseChangeset);
 const post = await renderReleaseNotes(version, changes, date);
 writeFile(
