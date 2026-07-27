@@ -7,7 +7,7 @@ authors: bebraw,varunjayaraman,cntanglijun,chrisVillanueva,johnstew,simon04,aaro
 
 webpack is a good fit when your application needs a customizable build pipeline: bundling JavaScript modules, processing assets, integrating loaders and plugins, and shaping output for different environments. For a very small page with one or two scripts, a bundler may be unnecessary at first; but for an application with shared dependencies, npm packages, assets, and production builds, webpack gives you explicit control over how everything is assembled.
 
-webpack is used to efficiently compile JavaScript modules. Once [installed](/guides/getting-started/installing-webpack), you can interact with webpack through either its [CLI](https://github.com/webpack/webpack-cli) or its [API](/docs/api/v5.x). If you're new to webpack, please read through the [core concepts](/guides/getting-started/concepts) to learn why you might choose it over the other tools available in the community.
+webpack is used to efficiently compile JavaScript modules. Once [installed](/guides/getting-started/installing-webpack), you can interact with webpack through either its [CLI](https://github.com/webpack/webpack-cli) or its [API](/docs/api). If you're new to webpack, please read through the [core concepts](/guides/getting-started/concepts) to learn why you might choose it over the other tools available in the community.
 
 > [!WARNING]
 > The examples in this guide use `webpack-cli` 7, which requires Node.js 20.9.0 or later.

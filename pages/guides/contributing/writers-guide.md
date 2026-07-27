@@ -83,7 +83,7 @@ Use root-relative links for pages on this site and full `https://` URLs for exte
 [Node.js](https://nodejs.org/)
 ```
 
-Check links against the generated output, not the old webpack site. Current webpack API links include their version, for example `/docs/api/v5.x/options#mode`.
+Check links against the generated output, not the old webpack site. Current webpack API links include their version, for example `/docs/api/options#mode`.
 
 Do not add a trailing slash to a normal page route. Directory index pages, such as `/guides/contributing/`, are the exception.
 

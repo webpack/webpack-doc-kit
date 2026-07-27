@@ -13,7 +13,7 @@ A plugin for webpack consists of:
 
 - A named JavaScript function or a JavaScript class.
 - Defines `apply` method in its prototype.
-- Specifies a hook on the [`Compiler`](/docs/api/v5.x/compilation/Compiler) or [`Compilation`](/docs/api/v5.x/compilation/Compilation) to tap into.
+- Specifies a hook on the [`Compiler`](/docs/api/compilation/Compiler) or [`Compilation`](/docs/api/compilation/Compilation) to tap into.
 - Manipulates webpack internal instance specific data.
 - Invokes webpack provided callback after functionality is complete.
 
@@ -131,7 +131,7 @@ export default class HelloWorldPlugin {
 
 ## Compiler and Compilation
 
-The two most important resources when developing plugins are the [`Compiler`](/docs/api/v5.x/compilation/Compiler) and [`Compilation`](/docs/api/v5.x/compilation/Compilation) objects. Understanding their roles is an important first step in extending the webpack engine.
+The two most important resources when developing plugins are the [`Compiler`](/docs/api/compilation/Compiler) and [`Compilation`](/docs/api/compilation/Compilation) objects. Understanding their roles is an important first step in extending the webpack engine.
 
 ```js
 class HelloCompilationPlugin {
@@ -149,7 +149,7 @@ class HelloCompilationPlugin {
 export default HelloCompilationPlugin;
 ```
 
-For the public classes and types exposed by webpack, see the [webpack API reference](/docs/api/v5.x/).
+For the public classes and types exposed by webpack, see the [webpack API reference](/docs/api/).
 
 ## Async event hooks
 
@@ -313,7 +313,7 @@ This will generate a markdown file with chosen name that looks like this:
 > We are using synchronous `tap()` method to tap into the `processAssets` hook because we don't need to perform any asynchronous operations in the example above. However, the `processAssets` hook is an asynchronous one, so you can also use `tapPromise()` or `tapAsync()` if you actually need to.
 
 > [!TIP]
-> The `processAssets` hook on [`Compilation`](/docs/api/v5.x/compilation/Compilation) also supports the `additionalAssets` property. This lets a plugin intercept assets added both before and after its configured stage. In this example, the `SUMMARIZE` stage is sufficient to capture assets generated during earlier stages.
+> The `processAssets` hook on [`Compilation`](/docs/api/compilation/Compilation) also supports the `additionalAssets` property. This lets a plugin intercept assets added both before and after its configured stage. In this example, the `SUMMARIZE` stage is sufficient to capture assets generated during earlier stages.
 
 ## Watching for file changes
 

@@ -5,7 +5,7 @@ authors: asulaiman,michael-ciniawsky,byzyk,anikethsaha,jamesgeorge007,chenxsan,d
 
 # Writing a Loader
 
-A loader is a Node.js module that exports a function. webpack calls this function when a resource needs to be transformed. The function receives the [loader context API](/docs/api/v5.x/loaders/types#interface-loaderrunnerloadercontext) through `this`.
+A loader is a Node.js module that exports a function. webpack calls this function when a resource needs to be transformed. The function receives the [loader context API](/docs/api/loaders/types#interface-loaderrunnerloadercontext) through `this`.
 
 ## Setup
 
@@ -378,7 +378,7 @@ We'll use this loader to process the following file:
 Hey [name]!
 ```
 
-Pay close attention to this next step: we'll use webpack's [`Compiler` API](/docs/api/v5.x/compilation/Compiler) and [`memfs`](https://github.com/streamich/memfs) to execute webpack. This avoids writing output to disk and gives us access to the [`Stats` object](/docs/api/v5.x/stats/Stats), which we can use to inspect the transformed module:
+Pay close attention to this next step: we'll use webpack's [`Compiler` API](/docs/api/compilation/Compiler) and [`memfs`](https://github.com/streamich/memfs) to execute webpack. This avoids writing output to disk and gives us access to the [`Stats` object](/docs/api/stats/Stats), which we can use to inspect the transformed module:
 
 ```bash
 npm install --save-dev webpack memfs
