@@ -14,6 +14,7 @@ export const sidebar = {
       items: [
         { link: '/about/branding', label: 'Branding' },
         { link: '/about/sponsors', label: 'Sponsors' },
+        { link: '/about/versioning', label: 'Version Support' },
         {
           link: 'https://github.com/webpack/webpack/blob/main/CONTRIBUTING.md',
           label: 'Contribute',

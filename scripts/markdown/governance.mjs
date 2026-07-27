@@ -60,7 +60,7 @@ const results = await Promise.all(
     // site derives the page title from — fall back to the sidebar label.
     if (!/^# /m.test(body)) body = `# ${label}\n\n${body}`;
 
-    const content = `---\nsource: ${url}\n---\n\n${body}`;
+    const content = `---\nsource: https://github.com/webpack/webpack/edit/main/${source}\n---\n\n${body}`;
     await writeFile(join(outputDir, `${output}.md`), content, 'utf8');
     console.log(`Fetched: ${source} -> ${output}.md`);
     return { output, label };
