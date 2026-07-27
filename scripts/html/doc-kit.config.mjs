@@ -10,7 +10,7 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 
 const VERSION = process.env.VERSION;
 const MAJOR_VERSION = VERSION ? `v${major(VERSION)}.x` : undefined;
-const URL_PATH = VERSION ? `/docs/api/${MAJOR_VERSION}` : '/';
+const URL_PATH = VERSION ? `/docs/api/${MAJOR_VERSION}` : '';
 
 const ORIGIN = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -88,7 +88,6 @@ export default {
 
       '#theme/Sidebar': join(ROOT, 'components/SideBar.jsx'),
       '#theme/Metabar': join(ROOT, 'components/MetaBar/index.jsx'),
-      '#theme/sponsors': join(ROOT, 'generated/sponsors.json'),
       '#theme/blog': join(ROOT, 'generated/blog.json'),
       '#theme/Layout': join(ROOT, 'components/Layout.jsx'),
       '#theme/Navigation': join(ROOT, 'components/NavBar.jsx'),
@@ -109,6 +108,10 @@ export default {
         read: createTailwindReader(),
       },
     },
+  },
+  sitemap: {
+    indexURL: '{baseURL}/',
+    pageURL: '{baseURL}{path}.html',
   },
 };
 

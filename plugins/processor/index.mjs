@@ -1,5 +1,6 @@
 import { Converter, ReflectionKind, Renderer } from 'typedoc';
 import { MarkdownPageEvent } from 'typedoc-plugin-markdown';
+import { extractHooksGroup } from './extractHooksGroup.mjs';
 import { getSourceMetadata } from './metadata.mjs';
 import { writeFileSync } from 'node:fs';
 import { join } from 'node:path';
@@ -72,6 +73,10 @@ export function load(app) {
     if (internalModule) {
       project.mergeReflections(internalModule, project);
     }
+  });
+
+  app.renderer.on(MarkdownPageEvent.BEGIN, page => {
+    extractHooksGroup(page.model);
   });
 
   app.renderer.on(MarkdownPageEvent.END, page => {

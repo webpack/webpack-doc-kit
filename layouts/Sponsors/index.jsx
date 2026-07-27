@@ -7,7 +7,7 @@ import SectionHeader from '../../components/SectionHeader/index.jsx';
 import SponsorTier from '../../components/Sponsors/Tier/index.jsx';
 import BackerWall from '../../components/Sponsors/BackerWall/index.jsx';
 import SortToggle from '../../components/Sponsors/SortToggle/index.jsx';
-import data from '#theme/sponsors' with { type: 'json' };
+import useSponsors from '../../hooks/useSponsors.mjs';
 
 import styles from './index.module.css';
 
@@ -65,6 +65,7 @@ export const bucketSponsors = (sponsors, metric) => {
  */
 export default function SponsorsLayout({ metadata }) {
   const [metric, setMetric] = useState('monthly');
+  const data = useSponsors();
 
   const buckets = bucketSponsors(data.sponsors, metric);
 

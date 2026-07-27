@@ -1,12 +1,5 @@
-// Builds the data file consumed by the Sponsors layout (`#theme/sponsors`)
-
-import { mkdir, writeFile } from 'node:fs/promises';
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
-import { fetchWithRetry } from '../utils/fetch.mjs';
-
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
-const OUTPUT = join(ROOT, 'generated', 'sponsors.json');
+import { getCache } from '@vercel/functions';
+import { fetchWithRetry } from '../scripts/utils/fetch.mjs';
 
 const COLLECTIVE = 'webpack';
 const API = 'https://api.opencollective.com/graphql/v2';
@@ -102,7 +95,7 @@ const fetchAllOrders = async () => {
   return all;
 };
 
-const fromApi = async () => {
+export const getOpenCollectiveSponsors = async () => {
   const nodes = await fetchAllOrders();
   if (!nodes.length) throw new Error('No orders returned');
 
@@ -169,7 +162,18 @@ const fromApi = async () => {
   return { sponsors, backers };
 };
 
-const data = await fromApi();
-await mkdir(dirname(OUTPUT), { recursive: true });
-await writeFile(OUTPUT, `${JSON.stringify(data, null, 2)}\n`);
-console.log(`[sponsors] wrote ${OUTPUT}`);
+export async function GET() {
+  const cache = getCache();
+
+  // https://vercel.com/docs/caching/runtime-cache?framework=other#using-runtime-cache
+  let value = await cache.get('sponsors');
+
+  if (!value) {
+    value = await getOpenCollectiveSponsors();
+    await cache.set('sponsors', value, {
+      ttl: 3600, // 1 hour in seconds
+    });
+  }
+
+  return Response.json(value);
+}

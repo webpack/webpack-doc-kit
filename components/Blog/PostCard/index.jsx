@@ -18,9 +18,6 @@ export default function PostCard({ post }) {
         tag={post.category}
         alt={post.title}
       />
-      {post.category && (
-        <span className={styles.category}>{post.category}</span>
-      )}
       <h3 className={styles.title}>{post.title}</h3>
       {post.description && <p className={styles.excerpt}>{post.description}</p>}
       <Byline

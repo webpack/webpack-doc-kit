@@ -262,8 +262,8 @@
       "permanent": false
     },
     {
-      "source": "/api/:path*",
-      "destination": "/docs/api",
+      "source": "/api/:path((?!sponsors$).*)",
+      "destination": "/docs/api/:path",
       "permanent": false
     },
     {
