@@ -64,6 +64,10 @@
           {
             "text": "API",
             "link": "/docs/api/v5.x"
+          },
+          {
+            "text": "Security Policy",
+            "link": "https://github.com/webpack/webpack/security/policy"
           }
         ]
       },
