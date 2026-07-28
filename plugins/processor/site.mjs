@@ -67,7 +67,7 @@ export const sidebar = (router, basePath) => {
       items: [
         ...[...categories.values()].filter(category => category.items.length),
         {
-          link: `${basePath}/options`,
+          link: toPublicLink('options', basePath),
           label: 'Options',
         },
       ],
