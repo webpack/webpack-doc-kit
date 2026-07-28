@@ -1,18 +1,7 @@
 import { mkdir, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
-import { fetchWithRetry } from '../utils/fetch.mjs';
+import { fetchWithAuth } from '../utils/fetch.mjs';
 import { rewriteRelativeLinks } from './sanitize.mjs';
-
-const REPO = 'webpack/governance';
-const RAW_URL = `https://raw.githubusercontent.com/${REPO}/HEAD`;
-// GitHub's editor needs a real branch name, HEAD only works for reading.
-const EDIT_URL = `https://github.com/${REPO}/edit/main`;
-
-const { GH_TOKEN } = process.env;
-
-const BASE_HEADERS = {
-  ...(GH_TOKEN && { Authorization: `Bearer ${GH_TOKEN}` }),
-};
 
 // Maps source filenames in webpack/governance repo to their output slug and sidebar label.
 // Insertion order determines sidebar order, this could be changed as per need.
@@ -54,9 +43,8 @@ await mkdir(outputDir, { recursive: true });
 
 const results = await Promise.all(
   Object.entries(FILE_MAP).map(async ([source, { output, label }]) => {
-    const res = await fetchWithRetry(`${RAW_URL}/${source}`, {
-      headers: BASE_HEADERS,
-    });
+    const url = `https://raw.githubusercontent.com/webpack/governance/HEAD/${source}`;
+    const res = await fetchWithAuth(url);
 
     if (!res.ok) {
       console.error(`Failed: ${source} -> ${res.status} ${res.statusText}`);
@@ -72,7 +60,7 @@ const results = await Promise.all(
     // site derives the page title from — fall back to the sidebar label.
     if (!/^# /m.test(body)) body = `# ${label}\n\n${body}`;
 
-    const content = `---\nsource: ${EDIT_URL}/${source}\n---\n\n${body}`;
+    const content = `---\nsource: https://github.com/webpack/governance/edit/main/${source}\n---\n\n${body}`;
     await writeFile(join(outputDir, `${output}.md`), content, 'utf8');
     console.log(`Fetched: ${source} -> ${output}.md`);
     return { output, label };

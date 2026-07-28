@@ -1,14 +1,7 @@
 import { mkdir, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
-import { fetchWithRetry } from '../utils/fetch.mjs';
+import { fetchWithAuth, fetchWithRetry } from '../utils/fetch.mjs';
 import cleanupMarkdown from './sanitize.mjs';
-
-const { GH_TOKEN } = process.env;
-
-const BASE_HEADERS = {
-  ...(GH_TOKEN && { Authorization: `Bearer ${GH_TOKEN}` }),
-  'X-GitHub-Api-Version': '2022-11-28',
-};
 
 const parseNextLink = linkHeader =>
   linkHeader?.match(/<([^>]+)>;\s*rel="next"/)?.[1] ?? null;
@@ -20,7 +13,7 @@ const discoverRepos = async () => {
     'https://api.github.com/orgs/webpack/repos?per_page=100&type=public';
 
   while (url) {
-    const res = await fetchWithRetry(url, { headers: BASE_HEADERS });
+    const res = await fetchWithAuth(url);
 
     for (const repo of await res.json()) {
       if (repo.archived) continue;

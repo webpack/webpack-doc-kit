@@ -1,6 +1,12 @@
-name: Release
+name: Create Blog Post
 
 on:
+  workflow_call:
+    inputs:
+      tag:
+        description: 'Release tag (e.g. v5.99.0)'
+        required: true
+        type: string
   workflow_dispatch:
     inputs:
       tag:
@@ -12,10 +18,11 @@ permissions:
   pull-requests: write
 
 jobs:
-  sync:
+  create-post:
     runs-on: ubuntu-latest
     env:
       TAG: ${{ inputs.tag }}
+      AUTHOR: ${{ github.actor }}
 
     steps:
       - name: Checkout
@@ -32,29 +39,22 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Update files
+      - name: Create post
         shell: bash
         run: |
           set -euo pipefail
-          node scripts/release/update-versions.mjs "$TAG"
+          node scripts/release/create-post.mjs "$TAG" --author="$AUTHOR"
+          node --run format
 
       - name: Open pull request
         uses: gr2m/create-or-update-pull-request-action@b65137ca591da0b9f43bad7b24df13050ea45d1b # v1.10.1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          commit-message: 'chore: sync to webpack@${{ env.TAG }}'
-          title: 'chore: sync to webpack@${{ env.TAG }}'
+          commit-message: 'chore: blog post for webpack@${{ env.TAG }}'
+          title: 'chore: blog post for webpack@${{ env.TAG }}'
           body: |
-            Automated version sync triggered by the `${{ env.TAG }}` webpack release.
-          branch: 'update-versions'
+            Automated blog post by the `${{ env.TAG }}` webpack release.
+          branch: 'chore/blog-${{ env.TAG }}'
           author: 'github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>'
           draft: true
-
-  blog-post:
-    uses: ./.github/workflows/create-blog-post.yml
-    permissions:
-      contents: write
-      pull-requests: write
-    with:
-      tag: ${{ inputs.tag }}
