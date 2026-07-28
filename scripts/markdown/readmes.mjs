@@ -2,6 +2,7 @@ import { mkdir, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { fetchWithRetry } from '../utils/fetch.mjs';
 import cleanupMarkdown from './sanitize.mjs';
+import { toPublicLink } from '../../utils/helpers/urls.mjs';
 
 const { GH_TOKEN } = process.env;
 
@@ -77,7 +78,7 @@ const processRepos = async (repos, { label, basePath, outputDir }) => {
             label: 'Overview',
           },
           ...fetched.map(name => ({
-            link: `${basePath}/${name}`,
+            link: toPublicLink(name, basePath),
             label: name.replace(/-(?:webpack-)?(?:loader|plugin)$/, ''),
           })),
         ],
