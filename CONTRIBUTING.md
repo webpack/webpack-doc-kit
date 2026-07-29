@@ -72,4 +72,4 @@ This project follows the [OpenJS Foundation Code of Conduct](https://code-of-con
 
 ## Licensing
 
-Code in this repository is licensed under [MIT](LICENSE). Documentation content in `pages/` is available under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), consistent with webpack.js.org. By contributing, you agree that your contributions are licensed under these terms.
+Code in this repository is licensed under [MIT](LICENSE). Documentation content in `pages/` is available under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). By contributing, you agree that your contributions are licensed under these terms.

@@ -63,4 +63,4 @@ When making changes to documentation generation (plugins, `scripts/markdown/inde
 
 ## License
 
-Code in this repository is licensed under [MIT](LICENSE). Documentation content in `pages/` is available under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), consistent with webpack.js.org.
+Code in this repository is licensed under [MIT](LICENSE). Documentation content in `pages/` is available under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
