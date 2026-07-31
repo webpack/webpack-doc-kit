@@ -59,7 +59,7 @@ output. webpack 5 introduced persistent caching, improved tree shaking, module
 federation, and the removal of automatic Node.js core polyfills.
 
 webpack being a bundler doesn't mean you give up a fast feedback loop during
-development. The [`webpack-dev-server`](/docs/webpack-dev-server/)
+development. The [`webpack-dev-server`](https://github.com/webpack/webpack-dev-server)
 provides live reloading and Hot Module Replacement, swapping updated modules into
 a running application without a full page refresh. Built on the same foundation,
 code splitting lets you break bundles into chunks that load on demand, keeping
@@ -97,7 +97,7 @@ organization:
 
 webpack communicates through various official and community-supported channels.
 You can find details on how to get involved on the
-[Get Involved](/contribute/) page, and you can support the
+[Contributing guide](https://github.com/webpack/webpack/blob/main/CONTRIBUTING.md), and you can support the
 project through its [Open Collective](https://opencollective.com/webpack).
 
 ### Reporting Issues

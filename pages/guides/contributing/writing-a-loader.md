@@ -1,6 +1,6 @@
 ---
 title: Writing a Loader
-authors: asulaiman,michael-ciniawsky,byzyk,anikethsaha,jamesgeorge007,chenxsan,dev-itsheng,evenstensberg,hagemaruwu,raj-sapalya
+authors: asulaiman,michael-ciniawsky,byzyk,anikethsaha,jamesgeorge007,chenxsan,dev-itsheng,evenstensberg,hagemaruwu,raj-sapalya,avivkeller
 ---
 
 # Writing a Loader
@@ -321,15 +321,31 @@ JSON.stringify(
 
 If the loader you're working on is a simple wrapper around another package, then you should include the package as a `peerDependency`. This approach allows the application's developer to specify the exact version in the `package.json` if desired.
 
-For instance, the `sass-loader` [specifies `node-sass`](https://github.com/webpack/sass-loader/blob/main/package.json) as peer dependency like so:
+For instance, the `sass-loader` [declares the Sass implementations it wraps](https://github.com/webpack/sass-loader/blob/main/package.json) as peer dependencies, and marks them optional so that a project only has to install the one it actually uses:
 
 ```json
 {
   "peerDependencies": {
-    "node-sass": "^4.0.0"
+    "sass": "^1.3.0",
+    "sass-embedded": "*",
+    "webpack": "^5.0.0"
+  },
+  "peerDependenciesMeta": {
+    "sass": {
+      "optional": true
+    },
+    "sass-embedded": {
+      "optional": true
+    },
+    "webpack": {
+      "optional": true
+    }
   }
 }
 ```
+
+> [!TIP]
+> Declare `webpack` itself as an optional peer dependency rather than a hard one. That keeps the loader usable from webpack-compatible bundlers without producing peer-dependency warnings.
 
 ## Testing
 

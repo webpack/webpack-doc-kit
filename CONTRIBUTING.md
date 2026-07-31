@@ -12,14 +12,15 @@ We hope this guide helps you find the right kind of contribution and get product
 
 The website assembles content from several sources, so the first step is confirming you are in the right place:
 
-| You want to change…                                        | Go to…                                                       |
-| ---------------------------------------------------------- | ------------------------------------------------------------ |
-| Guides, blog posts, or other hand-written pages (`pages/`) | **This repository**                                          |
-| The build tooling, API doc generation, or site theme       | **This repository**                                          |
-| Generated API reference pages (`/docs/api/`)               | [webpack/webpack](https://github.com/webpack/webpack)        |
-| Loader or plugin reference pages                           | The README of that loader or plugin's repository             |
-| The Markdown-to-HTML engine itself                         | [nodejs/doc-kit](https://github.com/nodejs/doc-kit)          |
-| webpack's actual behavior                                  | [webpack/webpack](https://github.com/webpack/webpack/issues) |
+| You want to change…                                        | Go to…                                                               |
+| ---------------------------------------------------------- | -------------------------------------------------------------------- |
+| Guides, blog posts, or other hand-written pages (`pages/`) | **This repository**                                                  |
+| The build tooling, API doc generation, or site theme       | **This repository**                                                  |
+| Generated API reference pages (`/docs/api/`)               | [webpack/webpack](https://github.com/webpack/webpack)                |
+| Loader or plugin reference pages                           | The README of that loader or plugin's repository                     |
+| The Markdown-to-HTML engine itself                         | [nodejs/doc-kit](https://github.com/nodejs/doc-kit)                  |
+| webpack's actual behavior                                  | [webpack/webpack](https://github.com/webpack/webpack/issues)         |
+| The CLI's actual behavior (flags, commands, scaffolding)   | [webpack/webpack-cli](https://github.com/webpack/webpack-cli/issues) |
 
 When in doubt, [ask in the webpack Discord](https://discord.com/invite/webpack) and we will point you in the right direction.
 

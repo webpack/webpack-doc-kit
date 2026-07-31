@@ -69,7 +69,8 @@
               "label": "Under the Hood"
             }
           ]
-        }
+        },
+        { "link": "/guides/glossary", "label": "Glossary" }
       ]
     },
     {
@@ -108,6 +109,29 @@
         {
           "link": "/guides/core-workflows/environment-variables",
           "label": "Environment Variables"
+        },
+        {
+          "link": "/guides/core-workflows/public-path",
+          "label": "Public Path"
+        }
+      ]
+    },
+    {
+      "groupName": "Command Line",
+      "items": [
+        { "link": "/guides/cli", "label": "Using the Command Line" },
+        { "link": "/guides/cli/running-builds", "label": "Running Builds" },
+        {
+          "link": "/guides/cli/environments",
+          "label": "Environments and Modes"
+        },
+        {
+          "link": "/guides/cli/scaffolding",
+          "label": "Scaffolding Projects"
+        },
+        {
+          "link": "/guides/cli/inspecting-builds",
+          "label": "Inspecting Builds"
         }
       ]
     },

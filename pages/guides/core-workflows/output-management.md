@@ -118,7 +118,7 @@ webpack generates `print.bundle.js` and `index.bundle.js`, both of which we refe
 But what if we renamed one of our entry points, or added a new one? The generated bundles would be renamed on the next build, yet `index.html` would still reference the old names. Let's fix that with [`HtmlWebpackPlugin`](https://www.npmjs.com/package/html-webpack-plugin).
 
 > [!TIP]
-> If you inspected `print.bundle.js`, you might have noticed that it does not contain the `printMe` function. Instead, it contains only an [IIFE](/guides/getting-started/concepts/why-webpack/#iifes---immediately-invoked-function-expressions) with no observable side effects.
+> If you inspected `print.bundle.js`, you might have noticed that it does not contain the `printMe` function. Instead, it contains only an [IIFE](/guides/getting-started/concepts/why-webpack#iifes--immediately-invoked-function-expressions) with no observable side effects.
 >
 > This is because, in our current setup, webpack treats each entry point as a standalone program that runs when the bundle is loaded. Since `print.js` only exports a function and never calls `printMe()`, running it as its own entry requires no executable runtime code. As a result, [webpack can omit that code as an optimization](/guides/optimization/tree-shaking) because it would have no observable effect.
 >

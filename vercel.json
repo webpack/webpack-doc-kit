@@ -188,7 +188,7 @@
     },
     {
       "source": "/guides/public-path",
-      "destination": "/docs/api/options#outputpublicpath",
+      "destination": "/guides/core-workflows/public-path",
       "permanent": false
     },
     {
@@ -218,7 +218,7 @@
     },
     {
       "source": "/api/cli",
-      "destination": "/docs/api/cli",
+      "destination": "/guides/cli",
       "permanent": false
     },
     {
@@ -443,7 +443,12 @@
     },
     {
       "source": "/blog/2026-06-25-webpack-5-108",
-      "destination": "/blog",
+      "destination": "/blog/posts/2026-06-25-webpack-5-108",
+      "permanent": false
+    },
+    {
+      "source": "/blog/2026-07-24-webpack-5-109",
+      "destination": "/blog/posts/2026-07-24-webpack-5-109",
       "permanent": false
     },
     {
@@ -458,12 +463,12 @@
     },
     {
       "source": "/glossary",
-      "destination": "/guides/getting-started/concepts",
+      "destination": "/guides/glossary",
       "permanent": false
     },
     {
       "source": "/license",
-      "destination": "https://github.com/webpack/webpack/blob/main/LICENSE",
+      "destination": "/about/license",
       "permanent": false
     },
     {
