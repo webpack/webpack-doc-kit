@@ -59,7 +59,18 @@
     items-start
     gap-12
     lg:flex-row
-    lg:items-center;
+    lg:items-start;
+}
+
+.configGrid > * {
+  @apply w-full
+    min-w-0
+    lg:flex-1;
+}
+
+.configGrid code {
+  align-content: start;
+  min-height: 11lh;
 }
 
 .features {
