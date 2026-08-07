@@ -3,7 +3,9 @@
   "compilerOptions": {
     "allowJs": true,
     "esModuleInterop": true,
-    "noEmit": true,
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "outDir": "../.temp/types",
     "skipLibCheck": true
   }
 }
