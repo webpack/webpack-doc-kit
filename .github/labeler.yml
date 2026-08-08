@@ -40,8 +40,11 @@ tooling:
           - 'tsconfig.json'
           - 'eslint.config.mjs'
           - '.stylelintrc.mjs'
+          - '.stylelintignore'
           - '.prettierrc.json'
+          - '.prettierignore'
           - '.lintstagedrc'
+          - '.gitignore'
           - '.husky/**'
 
 tests:
