@@ -37,6 +37,10 @@
         "link": "https://x.com/webpack"
       },
       {
+        "label": "Bluesky",
+        "link": "https://bsky.app/profile/webpack.js.org"
+      },
+      {
         "label": "Discord",
         "link": "https://discord.com/invite/webpack"
       },

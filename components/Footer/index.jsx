@@ -2,6 +2,7 @@ import GitHubIcon from '@node-core/ui-components/Icons/Social/GitHub';
 import LinkedInIcon from '@node-core/ui-components/Icons/Social/LinkedIn';
 import DiscordIcon from '@node-core/ui-components/Icons/Social/Discord';
 import XIcon from '@node-core/ui-components/Icons/Social/X';
+import BlueskyIcon from '@node-core/ui-components/Icons/Social/Bluesky';
 import { footer } from '#theme/site';
 
 import Logo from '#theme/Logo';
@@ -10,6 +11,7 @@ import styles from './index.module.css';
 const SOCIAL_ICONS = {
   GitHub: GitHubIcon,
   X: XIcon,
+  Bluesky: BlueskyIcon,
   Discord: DiscordIcon,
   LinkedIn: LinkedInIcon,
 };
@@ -31,6 +33,28 @@ export default () => (
             A static module bundler for modern JavaScript applications.
             Maintained by the open-source community since 2012.
           </p>
+          <nav className={styles.socialGroup} aria-label="webpack on social">
+            <h2 className={styles.heading}>webpack on social</h2>
+            <ul className={styles.social}>
+              {footer.socialLinks.map(({ label, link }) => {
+                const Icon = SOCIAL_ICONS[label];
+
+                return (
+                  <li key={label}>
+                    <a
+                      href={link}
+                      className={styles.socialLink}
+                      aria-label={label}
+                      target="_blank"
+                      rel="noreferrer noopener"
+                    >
+                      <Icon width={20} height={20} />
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          </nav>
         </div>
 
         {footer.groups.map(section => (
@@ -70,25 +94,6 @@ export default () => (
           respective holders. Use of them does not imply any affiliation with or
           endorsement by them.
         </p>
-        <ul className={styles.social}>
-          {footer.socialLinks.map(({ label, link }) => {
-            const Icon = SOCIAL_ICONS[label];
-
-            return (
-              <li key={label}>
-                <a
-                  href={link}
-                  className={styles.socialLink}
-                  aria-label={label}
-                  target="_blank"
-                  rel="noreferrer noopener"
-                >
-                  <Icon width={20} height={20} />
-                </a>
-              </li>
-            );
-          })}
-        </ul>
       </div>
     </div>
   </footer>

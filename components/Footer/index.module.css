@@ -86,16 +86,10 @@
 }
 
 .bottom {
-  @apply flex
-    flex-col
-    gap-4
-    items-center
-    mt-10
+  @apply mt-10
     pt-6
     border-t
-    border-neutral-900
-    sm:flex-row
-    sm:justify-between;
+    border-neutral-900;
 }
 
 .legal {
@@ -104,8 +98,27 @@
     text-neutral-600;
 }
 
+.legal a {
+  @apply text-neutral-400
+    underline
+    underline-offset-2
+    decoration-neutral-700
+    transition-colors
+    duration-150
+    hover:text-blue-300
+    hover:decoration-blue-300;
+}
+
+.socialGroup {
+  @apply flex
+    flex-col
+    gap-3.5
+    mt-2;
+}
+
 .social {
   @apply flex
+    flex-wrap
     items-center
     gap-4
     m-0
@@ -119,4 +132,8 @@
     transition-colors
     duration-150
     hover:text-neutral-50;
+}
+
+.socialLink svg path {
+  @apply fill-current;
 }
