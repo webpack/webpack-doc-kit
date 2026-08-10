@@ -13,7 +13,10 @@ import {
   TIERS as BASE_TIERS,
   bucketSponsors,
   OC_URL,
-} from '../../../layouts/Sponsors/index.jsx';
+} from '../../Sponsors/tiers.mjs';
+
+// TODO(avivkeller): Give these components proper exports
+import withIsland from '../../../node_modules/@doc-kit/generator-react/src/html/ui/islands/withIsland.jsx';
 
 const SPONSORS_URL = '/about/sponsors';
 
@@ -43,7 +46,12 @@ function SeeMore({ count, href, className }) {
   );
 }
 
-export default () => {
+/**
+ * Sponsor teaser for the home page. Server-rendered with empty data — which renders
+ * nothing at all — so it has to be an island: the section only ever appears once
+ * {@link useSponsors} has run in the browser.
+ */
+function HomeSponsorSection() {
   const data = useSponsors();
   const buckets = useMemo(
     () => bucketSponsors(data.sponsors, METRIC),
@@ -123,4 +131,9 @@ export default () => {
       </div>
     </section>
   );
-};
+}
+
+export default withIsland(HomeSponsorSection, {
+  name: 'HomeSponsorSection',
+  on: { idle: true },
+});

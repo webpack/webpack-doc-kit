@@ -107,10 +107,18 @@ export default {
         ROOT,
         'components/HomePage/ConfigSection/index.jsx'
       ),
+      '#theme/Home/SponsorSection': join(
+        ROOT,
+        'components/HomePage/HomeSponsorSection/index.jsx'
+      ),
+      '#theme/Sponsors/Board': join(ROOT, 'layouts/Sponsors/Board.jsx'),
     },
+
     components: {
       Hero: '#theme/Home/Hero',
       ConfigSection: '#theme/Home/ConfigSection',
+      HomeSponsorSection: '#theme/Home/SponsorSection',
+      SponsorBoard: '#theme/Sponsors/Board',
     },
     bundler: createViteBundler({
       plugins: [tailwindcss()],
