@@ -23,7 +23,7 @@ import styles from './index.module.css';
  * walking the listing order (newest-first, so "previous" is the newer post).
  *
  * @param {{
- *   metadata: import('@node-core/doc-kit/src/generators/web/ui/types').SerializedMetadata
+ *   metadata: import('@doc-kit/generator-react/html/ui/types').SerializedMetadata
  *     & { authors?: string[], date?: string, category?: string },
  *   headings: Array<object>,
  *   readingTime: string,

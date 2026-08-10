@@ -27,18 +27,17 @@ const shuffle = arr => [...arr].sort(() => Math.random() - 0.5);
 export default ({ backers, limit = 100, showLink = true, ...props }) => (
   <div {...props}>
     <div className={classNames(styles.wall)}>
-      {CLIENT &&
-        shuffle(backers)
-          .slice(0, limit)
-          .map(backer => (
-            <Avatar
-              image={backer.imageUrl}
-              name={backer.name}
-              nickname={backer.slug}
-              fallback={initialsOf(backer.name)}
-              url={`${OC_BASE}/${backer.slug}`}
-            />
-          ))}
+      {shuffle(backers)
+        .slice(0, limit)
+        .map(backer => (
+          <Avatar
+            image={backer.imageUrl}
+            name={backer.name}
+            nickname={backer.slug}
+            fallback={initialsOf(backer.name)}
+            url={`${OC_BASE}/${backer.slug}`}
+          />
+        ))}
     </div>
     {showLink && (
       <a

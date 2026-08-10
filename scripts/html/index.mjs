@@ -22,9 +22,7 @@ const runDocKit = version =>
   execFileAsync(
     'npx',
     [
-      '-p',
-      '@node-core/doc-kit',
-      'doc-kit',
+      '@doc-kit/cli',
       'generate',
       '-t',
       'web',

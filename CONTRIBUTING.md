@@ -34,7 +34,7 @@ If you want to write something but don't know what, look through [open issues](h
 
 The generator code lives in `scripts/` (pipeline stages) and `plugins/` (TypeDoc processing and the doc-kit theme). Start with the [README](README.md) — it explains the three-stage pipeline (prepare → Markdown → HTML) and what each script does.
 
-The site is built on [@node-core/doc-kit](https://github.com/nodejs/doc-kit). Improvements to the engine itself (Markdown parsing, core rendering) belong upstream; the theme and plugins in this repository customize it for webpack.
+The site is built on [doc-kit](https://github.com/nodejs/doc-kit). Improvements to the engine itself (Markdown parsing, core rendering) belong upstream; the theme and plugins in this repository customize it for webpack.
 
 ## Local development
 

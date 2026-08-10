@@ -23,8 +23,10 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "@node-core/doc-kit": "1.4.3",
+    "@doc-kit/cli": "^1.0.0",
+    "@doc-kit/generator-react": "^0.1.0",
     "@tailwindcss/node": "^4.3.3",
+    "@tailwindcss/vite": "^4.3.3",
     "@vercel/analytics": "^2.0.1",
     "@vercel/functions": "^3.7.6",
     "@vercel/speed-insights": "^2.0.0",

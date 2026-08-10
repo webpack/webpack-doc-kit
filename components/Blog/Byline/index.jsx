@@ -56,7 +56,7 @@ export default function Byline({ authors, date, size = 'sm', className }) {
 
   return (
     <div className={classNames(styles.byline, styles[size], className)}>
-      {CLIENT && authors.length > 0 && (
+      {authors.length > 0 && (
         <span className={styles.avatars}>
           {authors.length === 1 ? (
             <Avatar {...toAvatar(authors[0])} size={avatarSize} />

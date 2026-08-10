@@ -30,7 +30,7 @@ export default ({ metadata, headings = [], readingTime }) => {
       headings={{ items: headings }}
       items={{
         'Reading Time': readingTime,
-        ...(CLIENT && authors?.length
+        ...(authors?.length
           ? {
               Authors: <AvatarGroup avatars={authors} as="a" limit={5} />,
             }
