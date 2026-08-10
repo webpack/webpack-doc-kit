@@ -41,5 +41,5 @@ test('TypeDoc Theme - Edge Cases Fixture', async t => {
 
   rmSync(outputDir, { recursive: true, force: true });
 
-  t.assert.snapshot(actualMarkdown);
+  t.assert.snapshot(actualMarkdown, { serializers: [val => val] });
 });
