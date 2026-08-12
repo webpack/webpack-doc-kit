@@ -1,4 +1,36 @@
 exports[`TypeDoc Theme - Edge Cases Fixture 1`] = `
+# Class: \`webpack.js.org.AccessorTest\`
+
+Class demonstrating Getters and Setters (Accessors).
+
+## Constructors
+
+### \`new AccessorTest()\`
+
+* Returns: {AccessorTest}
+
+## Properties
+
+* \`configName\` {string} Gets the current configuration name.
+
+
+---
+
+# \`webpack.js.org.EnumTest\`
+
+## \`ONE\`
+
+* Type: {number}
+
+***
+
+## \`TWO\`
+
+* Type: {number}
+
+
+---
+
 # Class: \`webpack.js.org.ExamplesTest\`
 
 Class demonstrating the formatting of JSDoc example blocks.
@@ -209,6 +241,56 @@ Class demonstrating Webpack as a parent class.
 
 ---
 
+# \`webpack.js.org.WebpackUtils\`
+
+## \`merge(a, b)\`
+
+* \`a\` {object} First config
+* \`b\` {object} Second config
+* Returns: {object} Merged config
+
+Merges two configurations.
+
+
+---
+
+# \`webpack.js.org\`
+
+## Namespaces
+
+- [EnumTest](/EnumTest.md)
+- [WebpackUtils](/WebpackUtils.md)
+
+## Classes
+
+- [AccessorTest](/AccessorTest.md)
+- [ExamplesTest](/ExamplesTest.md)
+- [IndexSignatureTest](/IndexSignatureTest.md)
+- [MemberGroupsTest](/MemberGroupsTest.md)
+- [OverloadTest](/OverloadTest.md)
+- [StabilityTest](/StabilityTest.md)
+- [TypedListTest](/TypedListTest.md)
+- [WebpackInterface](/WebpackInterface.md)
+- [WebpackTest](/WebpackTest.md)
+
+## \`webpack.js.org.CONSTANT_AND_DECLARATION_TITLE_TEST\`
+
+* Type: {string}
+
+A standalone constant demonstrating declarationTitle formatting and variable rendering.
+
+***
+
+## \`webpack.js.org.standAloneWithGenericsTest(value)\`
+
+* \`value\` {T} The input value
+* Returns: {T} The same value
+
+A standalone function demonstrating generics outside a class.
+
+
+---
+
 # \`webpack\` Types
 
 These types are not exported by webpack, but they are available to TypeScript consumers.
@@ -247,6 +329,14 @@ Complex intersection type.
 * Type: {string | { advanced: boolean; timeout: number }}
 
 Complex union type.
+
+***
+
+## Type: \`EnumTest\`
+
+* Type: {number}
+
+A simple enum demonstrating enum rendering.
 
 ***
 

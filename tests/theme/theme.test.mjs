@@ -27,8 +27,8 @@ test('TypeDoc Theme - Edge Cases Fixture', async t => {
   const project = await app.convert();
   await app.generateOutputs(project);
 
-  const mdFiles = readdirSync(outputDir, { recursive: true }).filter(
-    f => f.endsWith('.md') && !f.endsWith('index.md')
+  const mdFiles = readdirSync(outputDir, { recursive: true }).filter(f =>
+    f.endsWith('.md')
   );
 
   if (mdFiles.length === 0) throw new Error('No markdown file generated');

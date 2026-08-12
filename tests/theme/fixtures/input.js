@@ -127,10 +127,10 @@ export class TypedListTest extends WebpackTest {
  */
 
 /**
- * Variable demonstrating declarationTitle formatting.
+ * A standalone constant demonstrating declarationTitle formatting and variable rendering.
  * @type {string}
  */
-export const declarationTitleTest = 'pass me';
+export const CONSTANT_AND_DECLARATION_TITLE_TEST = 'pass me';
 
 /**
  * Class demonstrating indexSignature rendering.
@@ -160,3 +160,59 @@ export class MemberGroupsTest {
    */
   init() {}
 }
+
+/**
+ * A simple enum demonstrating enum rendering.
+ * @enum {number}
+ */
+export const EnumTest = {
+  /** The first option */
+  ONE: 1,
+  /** The second option */
+  TWO: 2,
+};
+
+/**
+ * A standalone function demonstrating generics outside a class.
+ * @template T
+ * @param {T} value The input value
+ * @returns {T} The same value
+ */
+export function standAloneWithGenericsTest(value) {
+  return value;
+}
+
+/**
+ * Class demonstrating Getters and Setters (Accessors).
+ */
+export class AccessorTest {
+  /**
+   * Gets the current configuration name.
+   * @returns {string}
+   */
+  get configName() {
+    return '';
+  }
+
+  /**
+   * Sets the configuration name.
+   * @param {string} val The new name
+   */
+  set configName(val) {}
+}
+
+/**
+ * A namespace demonstrating nested members.
+ * @namespace
+ */
+export const WebpackUtils = {
+  /**
+   * Merges two configurations.
+   * @param {object} a First config
+   * @param {object} b Second config
+   * @returns {object} Merged config
+   */
+  merge(a, b) {
+    return Object.assign({}, a, b);
+  },
+};
