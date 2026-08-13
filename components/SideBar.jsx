@@ -5,6 +5,7 @@ import { sidebar } from '#theme/local/site';
 import { version } from '#theme/config';
 import { toPublicLink } from '../utils/helpers/urls.mjs';
 import versions from '../versions.json' with { type: 'json' };
+import withIsland from '../node_modules/@doc-kit/generator-react/src/html/ui/islands/withIsland.jsx';
 
 /** @param {string} url */
 const redirect = url => (window.location.href = url);
@@ -33,7 +34,7 @@ const versionItems = versions.map(version => ({
 const currentVersion = isVersioned ? versionBase : undefined;
 
 /** Docs sidebar, plus a webpack version picker on the versioned API docs. */
-export default ({ metadata }) => (
+const Sidebar = ({ metadata }) => (
   <SideBar
     pathname={toPublicLink(metadata.path, versionBase)}
     groups={groupsFor(metadata.path)}
@@ -54,3 +55,5 @@ export default ({ metadata }) => (
     )}
   </SideBar>
 );
+
+export default withIsland(Sidebar, { name: 'SideBar', on: { idle: true } });
