@@ -99,6 +99,8 @@ export default {
       '#theme/Metabar': join(ROOT, 'components/MetaBar/index.jsx'),
       '#theme/blog': join(ROOT, 'generated/blog.json'),
       '#theme/Layout': join(ROOT, 'components/Layout.jsx'),
+      '#theme/BlogLayout': join(ROOT, 'layouts/Blog/index.jsx'),
+      '#theme/Blog/Byline': join(ROOT, 'components/Blog/Byline/index.jsx'),
       '#theme/Navigation': join(ROOT, 'components/NavBar.jsx'),
       '#theme/Footer': join(ROOT, 'components/Footer/index.jsx'),
       '#theme/Logo': join(ROOT, 'components/Icons/Webpack.jsx'),
@@ -119,6 +121,9 @@ export default {
       ConfigSection: '#theme/Home/ConfigSection',
       HomeSponsorSection: '#theme/Home/SponsorSection',
       SponsorBoard: '#theme/Sponsors/Board',
+      BlogLayout: '#theme/BlogLayout',
+      Byline: '#theme/Blog/Byline',
+      MetaBar: '#theme/Metabar',
     },
     bundler: createViteBundler({
       plugins: [tailwindcss()],

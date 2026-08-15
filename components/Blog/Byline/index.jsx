@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import AvatarGroup from '@node-core/ui-components/Common/AvatarGroup';
 import Avatar from '@node-core/ui-components/Common/AvatarGroup/Avatar';
+import withIsland from '../../../node_modules/@doc-kit/generator-react/src/html/ui/islands/withIsland.jsx';
 
 import styles from './index.module.css';
 
@@ -50,7 +51,7 @@ const authorLabel = authors => {
  *   className?: string,
  * }} props
  */
-export default function Byline({ authors, date, size = 'sm', className }) {
+function Byline({ authors, date, size = 'sm', className }) {
   const format = size === 'md' ? fullDate : shortDate;
   const avatarSize = size === 'md' ? 'medium' : 'small';
 
@@ -81,3 +82,5 @@ export default function Byline({ authors, date, size = 'sm', className }) {
     </div>
   );
 }
+
+export default withIsland(Byline, { name: 'Byline', on: { idle: true } });

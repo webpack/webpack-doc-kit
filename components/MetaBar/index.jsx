@@ -5,12 +5,13 @@ import GitHubIcon from '@node-core/ui-components/Icons/Social/GitHub';
 import useSponsors from '../../hooks/useSponsors.mjs';
 import { editURL } from '#theme/config';
 import SponsorCard from '../Sponsors/Card/index.jsx';
+import withIsland from '../../node_modules/@doc-kit/generator-react/src/html/ui/islands/withIsland.jsx';
 
 import styles from './index.module.css';
 
 const OC_URL = 'https://opencollective.com/webpack';
 
-export default ({ metadata, headings = [], readingTime }) => {
+function MetaBarComponent({ metadata, headings = [], readingTime }) {
   const { sponsors } = useSponsors();
   const platinumSponsors = sponsors
     .filter(sponsor => sponsor.monthly.tier === 'platinum')
@@ -71,4 +72,9 @@ export default ({ metadata, headings = [], readingTime }) => {
       }}
     />
   );
-};
+}
+
+export default withIsland(MetaBarComponent, {
+  name: 'MetaBar',
+  on: { idle: true },
+});
