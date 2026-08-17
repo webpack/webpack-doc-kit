@@ -29,6 +29,7 @@ export default [
       'out/',
       '.cache/',
       'webpack/',
+      'examples/',
       'pages/api',
       'pages/docs/api',
       'pages/docs/loaders',
