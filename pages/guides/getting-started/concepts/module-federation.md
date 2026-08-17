@@ -1,6 +1,7 @@
 ---
 title: Module Federation
 authors: sokra,chenxsan,EugeneHlushko,jamesgeorge007,ScriptedAlchemy,snitin315,XiaofengXie16,KyleBastien,Alevale,burhanuday,RexSkz,avivkeller
+mdx: true
 ---
 
 # Module Federation
@@ -11,7 +12,7 @@ Multiple separate builds should be able to form a single application. These sepa
 
 This is often called Micro-Frontends, but it is not limited to that pattern.
 
-<!-- TODO: StackBlitzPreview example="module-federation?terminal=start&terminal=" -->
+<StackBlitzPreview example="module-federation?terminal=start&terminal=" description="Check out this live module federation example on StackBlitz."/>
 
 ## Low-level concepts
 

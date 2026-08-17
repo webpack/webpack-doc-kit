@@ -114,6 +114,10 @@ export default {
         'components/HomePage/HomeSponsorSection/index.jsx'
       ),
       '#theme/Sponsors/Board': join(ROOT, 'layouts/Sponsors/Board.jsx'),
+      '#theme/StackBlitzPreview': join(
+        ROOT,
+        'components/StackBlitzPreview/index.jsx'
+      ),
     },
 
     components: {
@@ -124,6 +128,7 @@ export default {
       BlogLayout: '#theme/BlogLayout',
       Byline: '#theme/Blog/Byline',
       MetaBar: '#theme/Metabar',
+      StackBlitzPreview: '#theme/StackBlitzPreview',
     },
     bundler: createViteBundler({
       plugins: [tailwindcss()],

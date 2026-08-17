@@ -1,0 +1,43 @@
+@reference "../../styles/index.css";
+
+.preview {
+  @apply px-6
+    py-5
+    my-6
+    bg-neutral-100
+    dark:bg-neutral-900
+    border-l-[3px]
+    border-blue-600
+    dark:border-blue-500
+    text-neutral-900
+    dark:text-neutral-50
+    rounded-r-md;
+}
+
+.previewPrefix {
+  @apply capitalize
+    font-semibold
+    block
+    text-base
+    mt-0
+    mb-2
+    text-neutral-700
+    dark:text-neutral-400;
+}
+
+.preview p {
+  @apply mt-0
+    mb-5;
+}
+
+.preview a {
+  @apply inline-block
+    transition-opacity
+    hover:opacity-80;
+}
+
+.preview img {
+  @apply block
+    w-auto
+    h-auto;
+}

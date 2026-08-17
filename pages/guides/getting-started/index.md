@@ -1,6 +1,7 @@
 ---
 title: Getting Started
 authors: bebraw,varunjayaraman,cntanglijun,chrisVillanueva,johnstew,simon04,aaronang,TheDutchCoder,sudarsangp,Vanguard90,chenxsan,EugeneHlushko,ATGardner,ayvarot,bjarki,ztomasze,Spiral90210,byzyk,wizardofhogwarts,myshov,anshumanv,d3lm,snitin315,Etheryen,zowiebeha,avivkeller,alexander-akait
+mdx: true
 ---
 
 # Getting Started
@@ -12,7 +13,7 @@ webpack is used to efficiently compile JavaScript modules. Once [installed](/gui
 > [!WARNING]
 > The examples in this guide use `webpack-cli` 7, which requires Node.js 20.9.0 or later.
 
-<!-- TODO: StackBlitzPreview example="getting-started?terminal=" -->
+<StackBlitzPreview example="getting-started?terminal=" />
 
 ## Quick start (minimal working example)
 
