@@ -51,7 +51,7 @@ export const fetchWithAuth = (url, fetchOptions = {}, retryOptions) =>
       ...fetchOptions,
       headers: {
         ...fetchOptions?.headers,
-        githubHeaders,
+        ...githubHeaders,
       },
     },
     retryOptions

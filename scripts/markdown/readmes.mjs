@@ -15,6 +15,9 @@ const discoverRepos = async () => {
 
   while (url) {
     const res = await fetchWithAuth(url);
+    if (!res.ok) {
+      throw new Error(`GitHub API returned ${res.status}: ${await res.text()}`);
+    }
 
     for (const repo of await res.json()) {
       if (repo.archived) continue;
