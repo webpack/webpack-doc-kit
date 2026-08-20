@@ -14,13 +14,14 @@ const execOptions = {
 const fetchWebpack = version => {
   console.log(`Fetching webpack ${version}`);
 
-  const [{ filename }] = JSON.parse(
+  const result = JSON.parse(
     execFileSync(
       'npm',
       ['pack', `webpack@${version}`, '--json', '--pack-destination', CACHE_DIR],
       execOptions
     )
   );
+  const { filename } = Array.isArray(result) ? result[0] : result;
   const archive = join(CACHE_DIR, filename);
   const destination = join(CACHE_DIR, version);
 
