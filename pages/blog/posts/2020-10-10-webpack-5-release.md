@@ -1066,7 +1066,7 @@ That means the following information about modules has been moved:
 
 - Module connections -> ModuleGraph
 - Module issuer -> ModuleGraph
-- Module optimization bailout -> ModuleGraph (TODO: check if it should ChunkGraph instead)
+- Module optimization bailout -> ModuleGraph
 - Module usedExports -> ModuleGraph
 - Module providedExports -> ModuleGraph
 - Module pre order index -> ModuleGraph
@@ -1257,8 +1257,8 @@ These dependencies are cheaper to process and webpack uses them when possible
 - `Chunk.getChunkModuleMaps` is deprecated
 - `Chunk.hasModuleInGraph` is deprecated
 - `Chunk.updateHash` signature changed
-- `Chunk.getChildIdsByOrders` signature changed (TODO: consider moving to `ChunkGraph`)
-- `Chunk.getChildIdsByOrdersMap` signature changed (TODO: consider moving to `ChunkGraph`)
+- `Chunk.getChildIdsByOrders` signature changed
+- `Chunk.getChildIdsByOrdersMap` signature changed
 - `Chunk.getChunkModuleMaps` removed
 - `Chunk.setModules` removed
 - deprecated Chunk methods removed
