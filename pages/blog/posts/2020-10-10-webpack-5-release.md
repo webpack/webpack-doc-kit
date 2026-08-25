@@ -74,7 +74,7 @@ This release focus on the following:
 
 ## **Migration** Guide
 
-[See here for a **migration** guide](/migrate/5)
+[See here for a **migration** guide](/guides/migration/to-v5)
 
 ## Major Changes: Removals
 
@@ -159,7 +159,7 @@ Webpack 5 adds a new feature called "Module Federation", which allows multiple w
 From runtime perspective modules from multiple builds will behave like a huge connected module graph.
 From developer perspective modules can be imported from specified remote builds and used with minimal restrictions.
 
-For more details see [this separate guide](/concepts/module-federation).
+For more details see [this separate guide](/guides/getting-started/concepts/module-federation).
 
 ## Major Changes: New Web Platform Features
 
@@ -247,7 +247,7 @@ The `exports` and `imports` field in package.json is now supported.
 
 Yarn PnP is supported natively.
 
-See more details in [package exports](/guides/package-exports/).
+See more details in [package exports](/guides/modules-and-dependencies/package-exports).
 
 ## Major Changes: Development Experience
 
@@ -1066,7 +1066,7 @@ That means the following information about modules has been moved:
 
 - Module connections -> ModuleGraph
 - Module issuer -> ModuleGraph
-- Module optimization bailout -> ModuleGraph (TODO: check if it should ChunkGraph instead)
+- Module optimization bailout -> ModuleGraph
 - Module usedExports -> ModuleGraph
 - Module providedExports -> ModuleGraph
 - Module pre order index -> ModuleGraph
@@ -1257,8 +1257,8 @@ These dependencies are cheaper to process and webpack uses them when possible
 - `Chunk.getChunkModuleMaps` is deprecated
 - `Chunk.hasModuleInGraph` is deprecated
 - `Chunk.updateHash` signature changed
-- `Chunk.getChildIdsByOrders` signature changed (TODO: consider moving to `ChunkGraph`)
-- `Chunk.getChildIdsByOrdersMap` signature changed (TODO: consider moving to `ChunkGraph`)
+- `Chunk.getChildIdsByOrders` signature changed
+- `Chunk.getChildIdsByOrdersMap` signature changed
 - `Chunk.getChunkModuleMaps` removed
 - `Chunk.setModules` removed
 - deprecated Chunk methods removed

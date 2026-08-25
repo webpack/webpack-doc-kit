@@ -10,7 +10,7 @@ as optimizing output and managing assets. See
 [Concepts: Plugins](/guides/getting-started/concepts/plugins) for how they fit
 into a build.
 
-Plugins built into webpack are documented in the [API reference](/docs/api/v5.x).
+Plugins built into webpack are documented in the [API reference](/docs/api).
 The plugins below are separate packages maintained by the webpack organization.
 
 | Plugin                                                                           | Description                                                         |

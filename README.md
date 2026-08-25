@@ -6,7 +6,7 @@ Automated TypeScript API documentation generator for [webpack](https://github.co
 
 1. **TypeDoc** reads webpack's TypeScript type definitions
 2. Custom plugins process the output (namespace merging, type mapping, themed rendering)
-3. **@node-core/doc-kit** converts Markdown to HTML
+3. **doc-kit** converts Markdown to HTML
 4. GitHub Actions deploys the result to GitHub Pages
 
 ### Webpack Versions
@@ -57,8 +57,10 @@ node scripts/markdown/index.mjs .cache/webpack/v5.107.1
 
 ## Contributing
 
+See the [contributing guide](CONTRIBUTING.md) for setup instructions, project conventions, and guidance on where issues belong (this repository, [doc-kit](https://github.com/nodejs/doc-kit), or [webpack](https://github.com/webpack/webpack)).
+
 When making changes to documentation generation (plugins, `scripts/markdown/index.mjs`, `tsconfig.json`), ensure the docs can still be generated successfully. CI will verify this on every pull request.
 
 ## License
 
-See the [webpack project](https://github.com/webpack/webpack) for license details.
+Code in this repository is licensed under [MIT](LICENSE). Documentation content in `pages/` is available under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).

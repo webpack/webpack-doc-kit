@@ -247,4 +247,5 @@ The tools below have known issues that can hurt build performance.
 
 ### Sass
 
-- `node-sass` has a bug that blocks threads in the Node.js thread pool. When pairing it with `thread-loader`, set `workerParallelJobs: 2`.
+- Prefer [`sass-embedded`](https://www.npmjs.com/package/sass-embedded) over the pure-JavaScript `sass` package. It runs the Dart compiler natively and is considerably faster on large stylesheets. `sass-loader` picks it up automatically when it is installed, or you can select it explicitly with the `implementation` option.
+- `node-sass` reached end of life and is no longer supported by current `sass-loader` releases. If you are still on it, migrate before tuning anything else; it also has a bug that blocks threads in the Node.js thread pool, which requires `workerParallelJobs: 2` when pairing it with `thread-loader`.

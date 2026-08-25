@@ -1,0 +1,38 @@
+---
+date: '{{date}}'
+category: release
+title: 'webpack {{version}}'
+layout: blog-post
+author: '{{author}}'
+---
+
+# webpack {{version}}
+
+<!-- Hey Releaser! Add your super awesome description here. -->
+
+{{#with (filter changes "notable" true) as |notableChanges|}}
+{{#if notableChanges.length}}
+## Notable Changes
+
+{{#each notableChanges}}
+### _({{semver}})_ {{title}}
+
+{{description}}
+
+{{/each}}
+{{/if}}
+{{/with}}
+{{#with (filter changes "notable" false) as |otherChanges|}}
+{{#if otherChanges.length}}
+## Other Changes
+
+{{#each (groupBy otherChanges "semver")}}
+### {{@key}}
+
+{{#each this}}
+- {{title}}
+{{/each}}
+
+{{/each}}
+{{/if}}
+{{/with}}

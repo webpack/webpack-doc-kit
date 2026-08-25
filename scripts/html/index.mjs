@@ -1,30 +1,15 @@
 import { execFile } from 'node:child_process';
-import { cp, readFile, writeFile } from 'node:fs/promises';
+import { cp, readFile } from 'node:fs/promises';
 import { statSync } from 'node:fs';
 import { promisify } from 'node:util';
 
 const execFileAsync = promisify(execFile);
 
-// TODO: Have doc-kit understand that some pages don't have meaningful information
-// The llms-txt generator lists every page with a depth-1 heading. JSX-driven
-// pages like the homepage produce entries with no title or description — drop
-// them, they carry no information for LLMs.
-const cleanLlmsTxt = async path => {
-  const content = await readFile(path, 'utf8');
-  const cleaned = content
-    .split('\n')
-    .filter(line => !line.startsWith('- []('))
-    .join('\n');
-  await writeFile(path, cleaned);
-};
-
 const runDocKit = version =>
   execFileAsync(
     'npx',
     [
-      '-p',
-      '@node-core/doc-kit',
-      'doc-kit',
+      '@doc-kit/cli',
       'generate',
       '-t',
       'web',
@@ -52,10 +37,8 @@ const versions = JSON.parse(await readFile('./versions.json'));
 
 for (const version of versions) {
   await runDocKit(version);
-  await cleanLlmsTxt(`./out/docs/api/v${version.match(/\d+/)[0]}.x/llms.txt`);
 }
 await runDocKit();
-await cleanLlmsTxt('./out/llms.txt');
 
 // Publish the markdown sources next to the rendered pages so the llms.txt
 // links (`{path}.md`) resolve to LLM-friendly raw markdown.

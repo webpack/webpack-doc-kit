@@ -9,6 +9,26 @@ export const CATEGORY_RULES = [
     match: reflection => /^optimize\./i.test(reflection.getFullName()),
   },
   {
+    category: 'container',
+    label: 'Container',
+  },
+  {
+    category: 'debug',
+    label: 'Debug',
+  },
+  {
+    category: 'experiments',
+    label: 'Experiments',
+  },
+  {
+    category: 'ids',
+    label: 'IDs',
+  },
+  {
+    category: 'javascript',
+    label: 'JavaScript',
+  },
+  {
     category: 'plugins',
     label: 'Plugins',
     match: reflection =>

@@ -1,7 +1,7 @@
 import { writeFile } from 'node:fs/promises';
 import { join } from 'node:path/posix';
 import { major } from 'semver';
-import { sources, getPackageFile, outputDir } from './utils.mjs';
+import { getSources, getPackageFile, outputDir } from './utils.mjs';
 
 const definitionName = ref =>
   ref?.startsWith('#/definitions/') ? ref.slice('#/definitions/'.length) : '';
@@ -413,6 +413,7 @@ const generate = async packageDir => {
   );
 };
 
+const sources = await getSources();
 for (const source of sources) {
   await generate(source);
 }

@@ -1,0 +1,41 @@
+name: 🚀 Feature Request
+description: Suggest an improvement to the documentation site or its tooling
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the suggestion! Note that feature requests for the underlying Markdown-to-HTML engine belong in [nodejs/doc-kit](https://github.com/nodejs/doc-kit/issues), and feature requests for webpack itself belong in [webpack/webpack](https://github.com/webpack/webpack/issues).
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does this solve?
+      description: Describe the problem or limitation you are running into.
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed solution
+      description: Describe what you would like to happen.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Any alternative solutions or workarounds you have considered.
+
+  - type: dropdown
+    id: ai
+    attributes:
+      label: Have you used AI?
+      description: If you used AI tooling to generate this issue, please state so per webpack's [AI policy](https://github.com/webpack/governance/blob/main/AI_POLICY.md).
+      options:
+        - 'No'
+        - 'Yes'
+    validations:
+      required: true

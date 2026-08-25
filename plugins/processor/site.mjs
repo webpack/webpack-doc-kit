@@ -9,10 +9,16 @@ const SIDEBAR_GROUP_NAME = 'API';
 
 const getFirstAtxHeading = text => text.match(/^#\s+(.+)$/m)?.[1]?.trim();
 
-const getFirstPathSegment = url => url.replace(/^\//, '').split('/')[0];
+const getPathSegments = url => url.replace(/^\//, '').split('/');
+
+const getFirstPathSegment = url => getPathSegments(url)[0];
+
+const getPathDepth = url => getPathSegments(url).length;
 
 const defaultLabelFor = (target, url) => {
-  if (url.endsWith('/index.md')) return 'Overview';
+  if (url.endsWith('/index.md')) {
+    return getPathDepth(url) === 2 ? 'Overview' : target.name;
+  }
   if (url.endsWith('/types.md')) return 'Types';
   return target.name;
 };
@@ -67,7 +73,7 @@ export const sidebar = (router, basePath) => {
       items: [
         ...[...categories.values()].filter(category => category.items.length),
         {
-          link: `${basePath}/options`,
+          link: toPublicLink('options', basePath),
           label: 'Options',
         },
       ],

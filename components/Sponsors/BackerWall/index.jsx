@@ -1,3 +1,5 @@
+import { useMemo } from 'react';
+
 import Avatar from '@node-core/ui-components/Common/AvatarGroup/Avatar';
 import classNames from 'classnames';
 
@@ -24,31 +26,36 @@ const shuffle = arr => [...arr].sort(() => Math.random() - 0.5);
  *   limit?: number,
  * }} props
  */
-export default ({ backers, limit = 100, showLink = true, ...props }) => (
-  <div {...props}>
-    <div className={classNames(styles.wall)}>
-      {CLIENT &&
-        shuffle(backers)
-          .slice(0, limit)
-          .map(backer => (
-            <Avatar
-              image={backer.imageUrl}
-              name={backer.name}
-              nickname={backer.slug}
-              fallback={initialsOf(backer.name)}
-              url={`${OC_BASE}/${backer.slug}`}
-            />
-          ))}
+export default ({ backers, limit = 100, showLink = true, ...props }) => {
+  const shown = useMemo(
+    () => shuffle(backers).slice(0, limit),
+    [backers, limit]
+  );
+
+  return (
+    <div {...props}>
+      <div className={classNames(styles.wall)}>
+        {shown.map(backer => (
+          <Avatar
+            key={backer.slug}
+            image={backer.imageUrl}
+            name={backer.name}
+            nickname={backer.slug}
+            fallback={initialsOf(backer.name)}
+            url={`${OC_BASE}/${backer.slug}`}
+          />
+        ))}
+      </div>
+      {showLink && (
+        <a
+          href={`${OC_BASE}/webpack/contributors`}
+          target="_blank"
+          rel="noreferrer noopener"
+          className={styles.link}
+        >
+          See all backers on Open Collective &rarr;
+        </a>
+      )}
     </div>
-    {showLink && (
-      <a
-        href={`${OC_BASE}/webpack/contributors`}
-        target="_blank"
-        rel="noreferrer noopener"
-        className={styles.link}
-      >
-        See all backers on Open Collective &rarr;
-      </a>
-    )}
-  </div>
-);
+  );
+};

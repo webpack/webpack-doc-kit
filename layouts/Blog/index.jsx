@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import BasePagination from '@node-core/ui-components/Common/BasePagination';
+import withIsland from '../../node_modules/@doc-kit/generator-react/src/html/ui/islands/withIsland.jsx';
 
 import NavBar from '../../components/NavBar.jsx';
 import Footer from '../../components/Footer/index.jsx';
@@ -38,7 +39,7 @@ const hrefFor = ({ category, page }) => {
 /**
  * @param {{ metadata: object }} props
  */
-export default function BlogLayout({ metadata }) {
+function BlogLayout({ metadata }) {
   const [{ category, page }, setView] = useState({ category: ALL, page: 1 });
 
   useEffect(() => {
@@ -116,3 +117,8 @@ export default function BlogLayout({ metadata }) {
     </>
   );
 }
+
+export default withIsland(BlogLayout, {
+  name: 'BlogLayout',
+  on: { idle: true },
+});

@@ -37,6 +37,10 @@
         "link": "https://x.com/webpack"
       },
       {
+        "label": "Bluesky",
+        "link": "https://bsky.app/profile/webpack.js.org"
+      },
+      {
         "label": "Discord",
         "link": "https://discord.com/invite/webpack"
       },
@@ -63,7 +67,11 @@
           },
           {
             "text": "API",
-            "link": "/docs/api/v5.x"
+            "link": "/docs/api"
+          },
+          {
+            "text": "Security Policy",
+            "link": "https://github.com/webpack/webpack/security/policy"
           }
         ]
       },

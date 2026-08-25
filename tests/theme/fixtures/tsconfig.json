@@ -1,0 +1,11 @@
+{
+  "include": ["**/*.js"],
+  "compilerOptions": {
+    "allowJs": true,
+    "esModuleInterop": true,
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "outDir": "../.temp/types",
+    "skipLibCheck": true
+  }
+}

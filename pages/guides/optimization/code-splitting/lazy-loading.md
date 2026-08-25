@@ -198,7 +198,7 @@ This is similar to the CommonJS style of lazy loading:
 
 ### Using `import.defer()` with context modules
 
-<!-- TODO: Badge text="5.105.0+" -->
+Available in webpack 5.105.0+.
 
 `import.defer()` also works with context modules: the import path can be a dynamic expression. webpack includes all matching modules in the module graph, but evaluation of the selected module is deferred until a property on the namespace object is first accessed.
 

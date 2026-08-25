@@ -1,9 +1,7 @@
-// fetch()  wrapper that retries flakey responses like the  GitHub and Open Collective
-// occasionally 503 midbuild,so one blip doesn't fail the whole deploy.
+import { setTimeout as sleep } from 'node:timers/promises';
 
+const { GH_TOKEN } = process.env;
 const RETRYABLE = new Set([429, 502, 503, 504]);
-
-const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
 // Use the server's Retry After when it sends one, otherwise back off.
 const delayFor = (attempt, baseDelay, response) => {
@@ -40,3 +38,21 @@ export const fetchWithRetry = async (
     await sleep(delayFor(attempt, baseDelay, response));
   }
 };
+
+const githubHeaders = {
+  ...(GH_TOKEN && { Authorization: `Bearer ${GH_TOKEN}` }),
+  'X-GitHub-Api-Version': '2022-11-28',
+};
+
+export const fetchWithAuth = (url, fetchOptions = {}, retryOptions) =>
+  fetchWithRetry(
+    url,
+    {
+      ...fetchOptions,
+      headers: {
+        ...fetchOptions?.headers,
+        ...githubHeaders,
+      },
+    },
+    retryOptions
+  );

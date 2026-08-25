@@ -19,12 +19,12 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
 
       - name: Setup Node.js
-        uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6.2.0
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           node-version: lts/*
           cache: 'npm'
@@ -36,15 +36,25 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          node scripts/update-versions.mjs "$TAG"
+          node scripts/release/update-versions.mjs "$TAG"
 
       - name: Open pull request
-        uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
+        uses: gr2m/create-or-update-pull-request-action@b65137ca591da0b9f43bad7b24df13050ea45d1b # v1.10.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: 'chore: sync to webpack@${{ env.TAG }}'
           title: 'chore: sync to webpack@${{ env.TAG }}'
           body: |
             Automated version sync triggered by the `${{ env.TAG }}` webpack release.
           branch: 'update-versions'
+          author: 'github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>'
           draft: true
+
+  blog-post:
+    uses: ./.github/workflows/create-blog-post.yml
+    permissions:
+      contents: write
+      pull-requests: write
+    with:
+      tag: ${{ inputs.tag }}

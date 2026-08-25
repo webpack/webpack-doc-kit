@@ -21,3 +21,24 @@
   --color-brand-900: var(--color-blue-900);
   --color-brand-950: var(--color-blue-950);
 }
+
+.darkBg {
+  background-color: var(--color-neutral-950);
+  display: inline-block;
+  padding: 20px;
+}
+
+.halfWidthTable table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+.halfWidthTable td,
+.halfWidthTable th {
+  width: 50%;
+}
+
+.centerItem img {
+  display: block;
+  margin: 0 auto;
+}

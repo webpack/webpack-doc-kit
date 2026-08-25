@@ -1,16 +1,15 @@
-// Builds the data file consumed by the Sponsors layout (`#theme/sponsors`)
-
-import { mkdir, writeFile } from 'node:fs/promises';
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
-import { fetchWithRetry } from '../utils/fetch.mjs';
-
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
-const OUTPUT = join(ROOT, 'generated', 'sponsors.json');
+import { getCache } from '@vercel/functions';
+import { fetchWithRetry } from '../scripts/utils/fetch.mjs';
 
 const COLLECTIVE = 'webpack';
 const API = 'https://api.opencollective.com/graphql/v2';
 const PAGE_SIZE = 1000; // Open Collective's maximum page size
+
+// Accounts to merge into another account, keyed by the slug a contribution comes
+// from. Used when a company pays through an employee's personal account.
+const ALIASES = {
+  'ag-grid-226': 'ag-grid', // John Masterson → AG Grid
+};
 
 // ACTIVE covers live recurring subscriptions; PAID covers one-time contributions;
 // CANCELLED keeps lapsed sponsors' all-time totals in the dataset.
@@ -102,7 +101,7 @@ const fetchAllOrders = async () => {
   return all;
 };
 
-const fromApi = async () => {
+export const getOpenCollectiveSponsors = async () => {
   const nodes = await fetchAllOrders();
   if (!nodes.length) throw new Error('No orders returned');
 
@@ -113,20 +112,27 @@ const fromApi = async () => {
     const account = node.fromAccount;
     if (!account?.slug) continue; // guest/incognito contributions
 
-    const existing = bySlug.get(account.slug) ?? {
+    const slug = ALIASES[account.slug] ?? account.slug;
+    const profile = {
       name: account.name ?? account.slug,
-      slug: account.slug,
       imageUrl: account.imageUrl ?? null,
-      url: account.website ?? `https://opencollective.com/${account.slug}`,
+      url: account.website ?? `https://opencollective.com/${slug}`,
+    };
+
+    const existing = bySlug.get(slug) ?? {
+      ...profile,
+      slug,
       monthly: 0,
       allTime: 0,
     };
+    // The canonical account's own profile wins over an alias's.
+    if (slug === account.slug) Object.assign(existing, profile);
 
     if (node.status === 'ACTIVE') {
       existing.monthly += monthlyAmount(node);
     }
     existing.allTime += node.totalDonations?.value ?? 0;
-    bySlug.set(account.slug, existing);
+    bySlug.set(slug, existing);
   }
 
   const sponsors = [];
@@ -169,7 +175,18 @@ const fromApi = async () => {
   return { sponsors, backers };
 };
 
-const data = await fromApi();
-await mkdir(dirname(OUTPUT), { recursive: true });
-await writeFile(OUTPUT, `${JSON.stringify(data, null, 2)}\n`);
-console.log(`[sponsors] wrote ${OUTPUT}`);
+export async function GET() {
+  const cache = getCache();
+
+  // https://vercel.com/docs/caching/runtime-cache?framework=other#using-runtime-cache
+  let value = await cache.get('sponsors');
+
+  if (!value) {
+    value = await getOpenCollectiveSponsors();
+    await cache.set('sponsors', value, {
+      ttl: 3600, // 1 hour in seconds
+    });
+  }
+
+  return Response.json(value);
+}

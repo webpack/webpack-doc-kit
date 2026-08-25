@@ -73,6 +73,37 @@ export default ctx => {
         .join('\n');
     },
 
+    signatures(model, options) {
+      const md = [];
+      const multipleSignatures =
+        model.signatures && model.signatures?.length > 1;
+
+      model.signatures?.forEach(signature => {
+        if (multipleSignatures) {
+          md.push(
+            heading(
+              options.headingLevel,
+              getMemberTitle(
+                model,
+                { local: isTypePage(ctx.page.model) },
+                signature
+              )
+            )
+          );
+        }
+        md.push(
+          ctx.partials.signature(signature, {
+            headingLevel: multipleSignatures
+              ? options.headingLevel + 1
+              : options.headingLevel,
+            nested: options.nested,
+            multipleSignatures: false,
+          })
+        );
+      });
+      return md.join('\n\n');
+    },
+
     declaration(model, options) {
       const opts = { headingLevel: 2, nested: false, ...options };
       const signatures = callableSignatures(model);
@@ -181,6 +212,31 @@ export default ctx => {
       });
     },
 
+    memberContainer(model, options) {
+      const md = [];
+
+      const isOverloadedMethod =
+        model.signatures &&
+        model.signatures.length > 1 &&
+        [ReflectionKind.Function, ReflectionKind.Method].includes(model.kind);
+
+      if (
+        !isOverloadedMethod &&
+        !ctx.router.hasOwnDocument(model) &&
+        model.kind !== ReflectionKind.Constructor
+      ) {
+        md.push(heading(options.headingLevel, ctx.partials.memberTitle(model)));
+      }
+
+      md.push(
+        ctx.partials.member(model, {
+          headingLevel: options.headingLevel,
+          nested: options.nested,
+        })
+      );
+      return md.join('\n\n');
+    },
+
     memberWithGroups(model, options) {
       const md = [];
       const stability = ctx.helpers.stabilityBlockquote(model.comment);
@@ -260,7 +316,16 @@ export default ctx => {
         const multipleSignatures = model.signatures.length > 1;
         model.signatures.forEach(signature => {
           if (multipleSignatures) {
-            md.push(heading(options.headingLevel, i18n.kind_call_signature()));
+            md.push(
+              heading(
+                options.headingLevel,
+                getMemberTitle(
+                  model,
+                  { local: isTypePage(ctx.page.model) },
+                  signature
+                )
+              )
+            );
           }
           md.push(
             ctx.partials.signature(signature, {

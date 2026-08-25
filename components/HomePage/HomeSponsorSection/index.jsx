@@ -4,16 +4,19 @@ import BaseButton from '@node-core/ui-components/Common/BaseButton';
 
 import SectionHeader from '../../SectionHeader/index.jsx';
 import SponsorTier from '../../Sponsors/Tier/index.jsx';
-import data from '#theme/sponsors' with { type: 'json' };
 
 import styles from './index.module.css';
 import BackerWall from '../../Sponsors/BackerWall/index.jsx';
+import useSponsors from '../../../hooks/useSponsors.mjs';
 
 import {
   TIERS as BASE_TIERS,
   bucketSponsors,
   OC_URL,
-} from '../../../layouts/Sponsors/index.jsx';
+} from '../../Sponsors/tiers.mjs';
+
+// TODO(avivkeller): Give these components proper exports
+import withIsland from '../../../node_modules/@doc-kit/generator-react/src/html/ui/islands/withIsland.jsx';
 
 const SPONSORS_URL = '/about/sponsors';
 
@@ -43,8 +46,17 @@ function SeeMore({ count, href, className }) {
   );
 }
 
-export default () => {
-  const buckets = useMemo(() => bucketSponsors(data.sponsors, METRIC), []);
+/**
+ * Sponsor teaser for the home page. Server-rendered with empty data — which renders
+ * nothing at all — so it has to be an island: the section only ever appears once
+ * {@link useSponsors} has run in the browser.
+ */
+function HomeSponsorSection() {
+  const data = useSponsors();
+  const buckets = useMemo(
+    () => bucketSponsors(data.sponsors, METRIC),
+    [data.sponsors]
+  );
   const hasAnySponsor = TIERS.some(({ tier }) => buckets[tier].length > 0);
 
   if (!hasAnySponsor) return null;
@@ -119,4 +131,9 @@ export default () => {
       </div>
     </section>
   );
-};
+}
+
+export default withIsland(HomeSponsorSection, {
+  name: 'HomeSponsorSection',
+  on: { idle: true },
+});

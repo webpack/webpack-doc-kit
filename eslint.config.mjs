@@ -20,8 +20,7 @@ export default [
     files: ['**/*.jsx'],
     languageOptions: {
       parserOptions: { ecmaFeatures: { jsx: true } },
-      // SERVER/CLIENT are compile-time defines from doc-kit, not real globals.
-      globals: { ...globals.browser, SERVER: 'readonly', CLIENT: 'readonly' },
+      globals: globals.browser,
     },
   },
   {
@@ -30,6 +29,7 @@ export default [
       'out/',
       '.cache/',
       'webpack/',
+      'examples/',
       'pages/api',
       'pages/docs/api',
       'pages/docs/loaders',

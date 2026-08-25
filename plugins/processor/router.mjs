@@ -1,4 +1,4 @@
-import createNodeSlugger from '@node-core/doc-kit/src/generators/metadata/utils/slugger.mjs';
+import createNodeSlugger from '@doc-kit/core/src/generators/metadata/utils/slugger.mjs';
 import { PageKind, Reflection, ReflectionKind } from 'typedoc';
 import { MemberRouter } from 'typedoc-plugin-markdown';
 import { categoryForReflection } from '../shared/categories.mjs';

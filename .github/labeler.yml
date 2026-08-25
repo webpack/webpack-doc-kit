@@ -1,0 +1,66 @@
+# Path -> label rules for .github/workflows/pull-request-label.yml
+
+documentation:
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'pages/**/*.md'
+          - '*.md'
+
+blog:
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'pages/blog/**'
+          - 'layouts/Blog/**'
+          - 'layouts/Post/**'
+          - 'scripts/data/blog.mjs'
+          - 'scripts/rss-feed/**'
+          - '.github/workflows/create-blog-post.yml'
+
+theme:
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'components/**'
+          - 'layouts/**'
+          - 'styles/**'
+          - 'hooks/**'
+          - 'plugins/theme/**'
+          - 'public/**'
+
+tooling:
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'scripts/**'
+          - 'plugins/processor/**'
+          - 'plugins/shared/**'
+          - 'utils/**'
+          - 'api/**'
+          - 'eslint-local-rules/**'
+          - 'versions.json'
+          - 'vercel.json'
+          - 'tsconfig.json'
+          - 'eslint.config.mjs'
+          - '.stylelintrc.mjs'
+          - '.stylelintignore'
+          - '.prettierrc.json'
+          - '.prettierignore'
+          - '.lintstagedrc'
+          - '.gitignore'
+          - '.husky/**'
+
+tests:
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'tests/**'
+
+dependencies:
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'package.json'
+          - 'package-lock.json'
+
+github_actions:
+  - changed-files:
+      - any-glob-to-any-file:
+          - '.github/workflows/**'
+          - '.github/dependabot.yml'
+          - '.github/labeler.yml'

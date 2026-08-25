@@ -13,7 +13,9 @@ export const sidebar = {
       groupName: 'Get Involved',
       items: [
         { link: '/about/branding', label: 'Branding' },
+        { link: '/about/license', label: 'License' },
         { link: '/about/sponsors', label: 'Sponsors' },
+        { link: '/about/versioning', label: 'Version Support' },
         {
           link: 'https://github.com/webpack/webpack/blob/main/CONTRIBUTING.md',
           label: 'Contribute',

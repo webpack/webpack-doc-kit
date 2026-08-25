@@ -1,9 +1,11 @@
 import { join, dirname } from 'node:path';
 import { cp } from 'node:fs/promises';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { major } from 'semver';
 
-import createTailwindReader from './tailwind.mjs';
+import { createViteBundler } from '@doc-kit/generator-react/html/bundlers/vite';
+import tailwindcss from '@tailwindcss/vite';
+
 import allVersions from '../../versions.json' with { type: 'json' };
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
@@ -20,36 +22,43 @@ const BASE_URL = `${ORIGIN}${URL_PATH}`;
 
 const INPUT_DIR = `./pages/${URL_PATH}`;
 const SITE_MODULE = join(ROOT, 'pages/site.mjs');
+const OUTPUT_DIR = VERSION ? `./out/docs/api/${MAJOR_VERSION}` : './out';
 
 /**
- * Configuration for @node-core/doc-kit when generating webpack API docs.
+ * Configuration for doc-kit when generating webpack API docs.
  *
- * @type {import('@node-core/doc-kit/src/utils/configuration/types').Configuration}
+ * @type {import('@doc-kit/core/src/configuration/types').Configuration}
  */
 export default {
   global: {
+    project: 'webpack',
     repository: 'webpack/webpack',
     version: VERSION ?? allVersions[0],
     input: [`${INPUT_DIR}/**/*.md`],
     ignore: VERSION ? [] : ['./pages/docs/api/**/*.md'],
-    output: VERSION ? `./out/docs/api/${MAJOR_VERSION}` : './out',
+    output: OUTPUT_DIR,
     baseURL: BASE_URL,
   },
+
   threads: 1,
+
   metadata: {
-    typeMap: VERSION ? `${INPUT_DIR}/type-map.json` : undefined,
+    typeMap: VERSION
+      ? pathToFileURL(`${INPUT_DIR}/type-map.json`).href
+      : undefined,
   },
+
   'jsx-ast': {
     generateIndexPage: false,
     generateAllPage: false,
   },
+
   'llms-txt': {
     templatePath: join(ROOT, 'scripts/html/llms-template.txt'),
     pageURL: `${BASE_URL.replace(/\/$/, '')}{path}.md`,
-    output: VERSION ? `./out/docs/api/${MAJOR_VERSION}` : './out',
   },
-  web: {
-    project: 'webpack',
+
+  html: {
     useAbsoluteURLs: true,
     remoteConfigUrl: '/assets/banners.json',
     title: VERSION ? `Webpack ${MAJOR_VERSION} Documentation` : 'Webpack',
@@ -88,9 +97,10 @@ export default {
 
       '#theme/Sidebar': join(ROOT, 'components/SideBar.jsx'),
       '#theme/Metabar': join(ROOT, 'components/MetaBar/index.jsx'),
-      '#theme/sponsors': join(ROOT, 'generated/sponsors.json'),
       '#theme/blog': join(ROOT, 'generated/blog.json'),
       '#theme/Layout': join(ROOT, 'components/Layout.jsx'),
+      '#theme/BlogLayout': join(ROOT, 'layouts/Blog/index.jsx'),
+      '#theme/Blog/Byline': join(ROOT, 'components/Blog/Byline/index.jsx'),
       '#theme/Navigation': join(ROOT, 'components/NavBar.jsx'),
       '#theme/Footer': join(ROOT, 'components/Footer/index.jsx'),
       '#theme/Logo': join(ROOT, 'components/Icons/Webpack.jsx'),
@@ -99,17 +109,32 @@ export default {
         ROOT,
         'components/HomePage/ConfigSection/index.jsx'
       ),
+      '#theme/Home/SponsorSection': join(
+        ROOT,
+        'components/HomePage/HomeSponsorSection/index.jsx'
+      ),
+      '#theme/Sponsors/Board': join(ROOT, 'layouts/Sponsors/Board.jsx'),
+      '#theme/StackBlitzPreview': join(
+        ROOT,
+        'components/StackBlitzPreview/index.jsx'
+      ),
     },
+
     components: {
       Hero: '#theme/Home/Hero',
       ConfigSection: '#theme/Home/ConfigSection',
+      HomeSponsorSection: '#theme/Home/SponsorSection',
+      SponsorBoard: '#theme/Sponsors/Board',
+      BlogLayout: '#theme/BlogLayout',
+      Byline: '#theme/Blog/Byline',
+      MetaBar: '#theme/Metabar',
+      StackBlitzPreview: '#theme/StackBlitzPreview',
     },
-    lightningcss: {
-      resolver: {
-        read: createTailwindReader(),
-      },
-    },
+    bundler: createViteBundler({
+      plugins: [tailwindcss()],
+    }),
   },
+
   sitemap: {
     indexURL: '{baseURL}/',
     pageURL: '{baseURL}{path}.html',

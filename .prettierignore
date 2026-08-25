@@ -9,3 +9,4 @@ out
 !/pages/docs/plugins/index.md
 versions.json
 /generated
+*.hbs

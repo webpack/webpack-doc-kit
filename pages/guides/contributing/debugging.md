@@ -7,12 +7,12 @@ authors: skipjack,tbroadley,madhavarshney,bhavya9107,akaustav
 
 When contributing to the core repo, writing a loader/plugin, or even working on a complex project, debugging tools can be central to your workflow. Whether the problem is slow performance on a large project or an unhelpful traceback, the following utilities can make figuring it out less painful.
 
-- The [`Stats` API](/docs/api/v5.x/stats/Stats) available through webpack's Node.js API and the [CLI](/docs/api/v5.x/cli).
+- The [`Stats` API](/docs/api/stats/Stats) available through webpack's Node.js API and the [CLI](/docs/api/cli).
 - Chrome **DevTools** and the latest Node.js version.
 
 ## Stats
 
-Whether you inspect it manually or pass it to another tool, webpack's [`Stats` object](/docs/api/v5.x/stats/Stats) can be extremely useful when debugging build issues. It can provide the following information:
+Whether you inspect it manually or pass it to another tool, webpack's [`Stats` object](/docs/api/stats/Stats) can be extremely useful when debugging build issues. It can provide the following information:
 
 - The contents of every module.
 - The modules contained within every chunk.

@@ -188,7 +188,7 @@
     },
     {
       "source": "/guides/public-path",
-      "destination": "/docs/api/v5.x/options#outputpublicpath",
+      "destination": "/guides/core-workflows/public-path",
       "permanent": false
     },
     {
@@ -203,212 +203,212 @@
     },
     {
       "source": "/configuration",
-      "destination": "/docs/api/v5.x/options",
+      "destination": "/docs/api/options",
       "permanent": false
     },
     {
       "source": "/configuration/:path*",
-      "destination": "/docs/api/v5.x/options",
+      "destination": "/docs/api/options",
       "permanent": false
     },
     {
       "source": "/api",
-      "destination": "/docs/api/v5.x",
+      "destination": "/docs/api",
       "permanent": false
     },
     {
       "source": "/api/cli",
-      "destination": "/docs/api/v5.x/cli",
+      "destination": "/guides/cli",
       "permanent": false
     },
     {
       "source": "/api/loaders",
-      "destination": "/docs/api/v5.x/loaders/types",
+      "destination": "/docs/api/loaders/types",
       "permanent": false
     },
     {
       "source": "/api/node",
-      "destination": "/docs/api/v5.x/compilation/Compiler",
+      "destination": "/docs/api/compilation/Compiler",
       "permanent": false
     },
     {
       "source": "/api/stats",
-      "destination": "/docs/api/v5.x/stats/Stats",
+      "destination": "/docs/api/stats/Stats",
       "permanent": false
     },
     {
       "source": "/api/compiler-hooks",
-      "destination": "/docs/api/v5.x/compilation/Compiler",
+      "destination": "/docs/api/compilation/Compiler",
       "permanent": false
     },
     {
       "source": "/api/compilation-hooks",
-      "destination": "/docs/api/v5.x/compilation/Compilation",
+      "destination": "/docs/api/compilation/Compilation",
       "permanent": false
     },
     {
       "source": "/api/compilation-object",
-      "destination": "/docs/api/v5.x/compilation/Compilation",
+      "destination": "/docs/api/compilation/Compilation",
       "permanent": false
     },
     {
       "source": "/api/parser",
-      "destination": "/docs/api/v5.x/javascript/JavascriptParser",
+      "destination": "/docs/api/javascript/JavascriptParser",
       "permanent": false
     },
     {
       "source": "/api/resolvers",
-      "destination": "/docs/api/v5.x/resolvers/Resolver",
+      "destination": "/docs/api/resolvers/Resolver",
       "permanent": false
     },
     {
-      "source": "/api/:path*",
-      "destination": "/docs/api/v5.x",
+      "source": "/api/:path((?!sponsors$).*)",
+      "destination": "/docs/api/:path",
       "permanent": false
     },
     {
       "source": "/plugins/automatic-prefetch-plugin",
-      "destination": "/docs/api/v5.x/plugins/AutomaticPrefetchPlugin",
+      "destination": "/docs/api/plugins/AutomaticPrefetchPlugin",
       "permanent": false
     },
     {
       "source": "/plugins/banner-plugin",
-      "destination": "/docs/api/v5.x/plugins/BannerPlugin",
+      "destination": "/docs/api/plugins/BannerPlugin",
       "permanent": false
     },
     {
       "source": "/plugins/context-exclusion-plugin",
-      "destination": "/docs/api/v5.x/plugins/ContextExclusionPlugin",
+      "destination": "/docs/api/plugins/ContextExclusionPlugin",
       "permanent": false
     },
     {
       "source": "/plugins/context-replacement-plugin",
-      "destination": "/docs/api/v5.x/plugins/ContextReplacementPlugin",
+      "destination": "/docs/api/plugins/ContextReplacementPlugin",
       "permanent": false
     },
     {
       "source": "/plugins/define-plugin",
-      "destination": "/docs/api/v5.x/plugins/DefinePlugin",
+      "destination": "/docs/api/plugins/DefinePlugin",
       "permanent": false
     },
     {
       "source": "/plugins/dll-plugin",
-      "destination": "/docs/api/v5.x/plugins/DllPlugin",
+      "destination": "/docs/api/plugins/DllPlugin",
       "permanent": false
     },
     {
       "source": "/plugins/environment-plugin",
-      "destination": "/docs/api/v5.x/plugins/EnvironmentPlugin",
+      "destination": "/docs/api/plugins/EnvironmentPlugin",
       "permanent": false
     },
     {
       "source": "/plugins/eval-source-map-dev-tool-plugin",
-      "destination": "/docs/api/v5.x/plugins/EvalSourceMapDevToolPlugin",
+      "destination": "/docs/api/plugins/EvalSourceMapDevToolPlugin",
       "permanent": false
     },
     {
       "source": "/plugins/hashed-module-ids-plugin",
-      "destination": "/docs/api/v5.x/ids/HashedModuleIdsPlugin",
+      "destination": "/docs/api/ids/HashedModuleIdsPlugin",
       "permanent": false
     },
     {
       "source": "/plugins/hot-module-replacement-plugin",
-      "destination": "/docs/api/v5.x/plugins/HotModuleReplacementPlugin",
+      "destination": "/docs/api/plugins/HotModuleReplacementPlugin",
       "permanent": false
     },
     {
       "source": "/plugins/ignore-plugin",
-      "destination": "/docs/api/v5.x/plugins/IgnorePlugin",
+      "destination": "/docs/api/plugins/IgnorePlugin",
       "permanent": false
     },
     {
       "source": "/plugins/limit-chunk-count-plugin",
-      "destination": "/docs/api/v5.x/optimize/LimitChunkCountPlugin",
+      "destination": "/docs/api/optimize/LimitChunkCountPlugin",
       "permanent": false
     },
     {
       "source": "/plugins/manifest-plugin",
-      "destination": "/docs/api/v5.x/plugins/ManifestPlugin",
+      "destination": "/docs/api/plugins/ManifestPlugin",
       "permanent": false
     },
     {
       "source": "/plugins/merge-duplicate-chunks-plugin",
-      "destination": "/docs/api/v5.x/optimize/MergeDuplicateChunksPlugin",
+      "destination": "/docs/api/optimize/MergeDuplicateChunksPlugin",
       "permanent": false
     },
     {
       "source": "/plugins/min-chunk-size-plugin",
-      "destination": "/docs/api/v5.x/optimize/MinChunkSizePlugin",
+      "destination": "/docs/api/optimize/MinChunkSizePlugin",
       "permanent": false
     },
     {
       "source": "/plugins/module-concatenation-plugin",
-      "destination": "/docs/api/v5.x/optimize/ModuleConcatenationPlugin",
+      "destination": "/docs/api/optimize/ModuleConcatenationPlugin",
       "permanent": false
     },
     {
       "source": "/plugins/module-federation-plugin",
-      "destination": "/docs/api/v5.x/container/ModuleFederationPlugin",
+      "destination": "/docs/api/container/ModuleFederationPlugin",
       "permanent": false
     },
     {
       "source": "/plugins/normal-module-replacement-plugin",
-      "destination": "/docs/api/v5.x/plugins/NormalModuleReplacementPlugin",
+      "destination": "/docs/api/plugins/NormalModuleReplacementPlugin",
       "permanent": false
     },
     {
       "source": "/plugins/no-emit-on-errors-plugin",
-      "destination": "/docs/api/v5.x/plugins/NoEmitOnErrorsPlugin",
+      "destination": "/docs/api/plugins/NoEmitOnErrorsPlugin",
       "permanent": false
     },
     {
       "source": "/plugins/prefetch-plugin",
-      "destination": "/docs/api/v5.x/plugins/PrefetchPlugin",
+      "destination": "/docs/api/plugins/PrefetchPlugin",
       "permanent": false
     },
     {
       "source": "/plugins/profiling-plugin",
-      "destination": "/docs/api/v5.x/debug/ProfilingPlugin",
+      "destination": "/docs/api/debug/ProfilingPlugin",
       "permanent": false
     },
     {
       "source": "/plugins/progress-plugin",
-      "destination": "/docs/api/v5.x/plugins/ProgressPlugin",
+      "destination": "/docs/api/plugins/ProgressPlugin",
       "permanent": false
     },
     {
       "source": "/plugins/provide-plugin",
-      "destination": "/docs/api/v5.x/plugins/ProvidePlugin",
+      "destination": "/docs/api/plugins/ProvidePlugin",
       "permanent": false
     },
     {
       "source": "/plugins/source-map-dev-tool-plugin",
-      "destination": "/docs/api/v5.x/plugins/SourceMapDevToolPlugin",
+      "destination": "/docs/api/plugins/SourceMapDevToolPlugin",
       "permanent": false
     },
     {
       "source": "/plugins/split-chunks-plugin",
-      "destination": "/docs/api/v5.x/optimize/SplitChunksPlugin",
+      "destination": "/docs/api/optimize/SplitChunksPlugin",
       "permanent": false
     },
     {
       "source": "/plugins/virtual-url-plugin",
-      "destination": "/docs/api/v5.x/experiments/schemes/VirtualUrlPlugin",
+      "destination": "/docs/api/experiments/schemes/VirtualUrlPlugin",
       "permanent": false
     },
     {
       "source": "/plugins/watch-ignore-plugin",
-      "destination": "/docs/api/v5.x/plugins/WatchIgnorePlugin",
+      "destination": "/docs/api/plugins/WatchIgnorePlugin",
       "permanent": false
     },
     {
       "source": "/plugins",
-      "destination": "/docs/api/v5.x",
+      "destination": "/docs/api",
       "permanent": false
     },
     {
       "source": "/plugins/:path*",
-      "destination": "/docs/api/v5.x",
+      "destination": "/docs/api",
       "permanent": false
     },
     {
@@ -443,7 +443,12 @@
     },
     {
       "source": "/blog/2026-06-25-webpack-5-108",
-      "destination": "/blog",
+      "destination": "/blog/posts/2026-06-25-webpack-5-108",
+      "permanent": false
+    },
+    {
+      "source": "/blog/2026-07-24-webpack-5-109",
+      "destination": "/blog/posts/2026-07-24-webpack-5-109",
       "permanent": false
     },
     {
@@ -458,12 +463,12 @@
     },
     {
       "source": "/glossary",
-      "destination": "/guides/getting-started/concepts",
+      "destination": "/guides/glossary",
       "permanent": false
     },
     {
       "source": "/license",
-      "destination": "https://github.com/webpack/webpack/blob/main/LICENSE",
+      "destination": "/about/license",
       "permanent": false
     },
     {

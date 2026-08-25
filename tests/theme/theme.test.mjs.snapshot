@@ -1,0 +1,363 @@
+exports[`TypeDoc Theme - Edge Cases Fixture 1`] = `
+# Class: \`webpack.js.org.AccessorTest\`
+
+Class demonstrating Getters and Setters (Accessors).
+
+## Constructors
+
+### \`new AccessorTest()\`
+
+* Returns: {AccessorTest}
+
+## Properties
+
+* \`configName\` {string} Gets the current configuration name.
+
+
+---
+
+# \`webpack.js.org.EnumTest\`
+
+## \`ONE\`
+
+* Type: {number}
+
+***
+
+## \`TWO\`
+
+* Type: {number}
+
+
+---
+
+# Class: \`webpack.js.org.ExamplesTest\`
+
+Class demonstrating the formatting of JSDoc example blocks.
+
+## Constructors
+
+### \`new ExamplesTest()\`
+
+* Returns: {ExamplesTest}
+
+## Methods
+
+### \`exampleMethod(name)\`
+
+* \`name\` {string} A simple string parameter
+* Returns: {void} 
+
+A sample method for the ExamplesTest class.
+\`\`\`ts
+exampleMethod('example-1');
+\`\`\`
+
+\`\`\`ts
+exampleMethod('example-2');
+\`\`\`
+
+
+---
+
+# Class: \`webpack.js.org.IndexSignatureTest\`
+
+Class demonstrating indexSignature rendering.
+
+## Constructors
+
+### \`new IndexSignatureTest()\`
+
+* Returns: {IndexSignatureTest}
+
+## Properties
+
+* \`dictionaryProperty\` {{ [key: string]: number }} An object property to trigger indexSignature.
+
+
+---
+
+# Class: \`webpack.js.org.MemberGroupsTest\`
+
+Class demonstrating Implements and Constructor grouping.
+
+## Implements
+
+* {WebpackInterface}
+
+## Constructors
+
+### \`new MemberGroupsTest(data)\`
+
+* \`data\` {any} 
+* Returns: {MemberGroupsTest}
+
+The constructor for MemberGroupsTest.
+
+## Lifecycle
+
+### \`init()\`
+
+* Returns: {void}
+
+A categorized method.
+
+
+---
+
+# Class: \`webpack.js.org.OverloadTest\`
+
+Class demonstrating overload signatures.
+
+## Constructors
+
+### \`new OverloadTest()\`
+
+* Returns: {OverloadTest}
+
+## Methods
+
+### \`overloadMethod(name, count)\`
+
+* \`name\` {string} A simple string parameter
+* \`count\` {number} A simple number parameter
+* Returns: {void} 
+
+First overload signature.
+
+### \`overloadMethod(isEnabled)\`
+
+* \`isEnabled\` {boolean} A simple boolean parameter
+* Returns: {string} 
+
+Second overload signature.
+
+### \`overloadMethod(id, isEnabled)\`
+
+* \`id\` {number} A simple string parameter
+* \`isEnabled\` {boolean} A simple boolean parameter
+* Returns: {void} 
+
+Third overload signature.
+
+
+---
+
+# Class: \`webpack.js.org.StabilityTest\`
+
+Class demonstrating stability for deprecated, experimental, and legacy APIs.
+
+## Constructors
+
+### \`new StabilityTest()\`
+
+* Returns: {StabilityTest}
+
+## Methods
+
+### \`deprecatedMethod()\`
+
+> Stability: 0 - Deprecated: Use the new API instead.
+
+* Returns: {void}
+
+***
+
+### \`experimentalMethod()\`
+
+> Stability: 1 - Experimental
+
+* Returns: {void}
+
+**\`Experimental\`**
+
+***
+
+### \`legacyMethod()\`
+
+> Stability: 3 - Legacy: This is a legacy Webpack v4 API.
+
+* Returns: {void}
+
+
+---
+
+# Class: \`webpack.js.org.TypedListTest\`
+
+Class demonstrating properties and typed lists.
+
+* Extends: {WebpackTest}
+
+## Constructors
+
+### \`new TypedListTest()\`
+
+* Returns: {TypedListTest}
+
+## Properties
+
+* \`typedListProperty\` {string} A sample property for the TypedListTest class.
+
+## Methods
+
+### \`typedListMethod(name, count)\`
+
+* \`name\` {string} The name of the instance
+* \`count\` {number} The count of items
+* Returns: {boolean} A boolean indicating success
+
+A sample method for the TypedListTest class.
+
+
+---
+
+# Class: \`webpack.js.org.WebpackInterface\`
+
+**\`Interface\`**
+
+Interface demonstrating Webpack as an interface.
+
+## Constructors
+
+### \`new WebpackInterface()\`
+
+* Returns: {WebpackInterface}
+
+
+---
+
+# Class: \`webpack.js.org.WebpackTest\`
+
+Class demonstrating Webpack as a parent class.
+
+## Constructors
+
+### \`new WebpackTest()\`
+
+* Returns: {WebpackTest}
+
+
+---
+
+# \`webpack.js.org.WebpackUtils\`
+
+## \`merge(a, b)\`
+
+* \`a\` {object} First config
+* \`b\` {object} Second config
+* Returns: {object} Merged config
+
+Merges two configurations.
+
+
+---
+
+# \`webpack.js.org\`
+
+## Namespaces
+
+- [EnumTest](/EnumTest.md)
+- [WebpackUtils](/WebpackUtils.md)
+
+## Classes
+
+- [AccessorTest](/AccessorTest.md)
+- [ExamplesTest](/ExamplesTest.md)
+- [IndexSignatureTest](/IndexSignatureTest.md)
+- [MemberGroupsTest](/MemberGroupsTest.md)
+- [OverloadTest](/OverloadTest.md)
+- [StabilityTest](/StabilityTest.md)
+- [TypedListTest](/TypedListTest.md)
+- [WebpackInterface](/WebpackInterface.md)
+- [WebpackTest](/WebpackTest.md)
+
+## \`webpack.js.org.CONSTANT_AND_DECLARATION_TITLE_TEST\`
+
+* Type: {string}
+
+A standalone constant demonstrating declarationTitle formatting and variable rendering.
+
+***
+
+## \`webpack.js.org.standAloneWithGenericsTest(value)\`
+
+* \`value\` {T} The input value
+* Returns: {T} The same value
+
+A standalone function demonstrating generics outside a class.
+
+
+---
+
+# \`webpack\` Types
+
+These types are not exported by webpack, but they are available to TypeScript consumers.
+
+## Type: \`ComplexArrayType\`
+
+* Type: {{ age: number; name: string }[]}
+
+Complex array type.
+
+### Type Declaration
+
+* \`age\` {number}
+* \`name\` {string}
+
+***
+
+## Type: \`ComplexIntersectionType\`
+
+* Type: {{ id: string } & { metadata: object }}
+
+Complex intersection type.
+
+### Type Declaration
+
+* \`id\` {string}
+
+### Type Declaration
+
+* \`metadata\` {object}
+
+***
+
+## Type: \`ComplexUnionType\`
+
+* Type: {string | { advanced: boolean; timeout: number }}
+
+Complex union type.
+
+***
+
+## Type: \`EnumTest\`
+
+* Type: {number}
+
+A simple enum demonstrating enum rendering.
+
+***
+
+## Type: \`SimpleArrayType\`
+
+* Type: {string[]}
+
+Simple array type.
+
+***
+
+## Type: \`SimpleIntersectionType\`
+
+* Type: {number & string}
+
+Simple intersection type.
+
+***
+
+## Type: \`SimpleUnionType\`
+
+* Type: {string | number}
+
+Simple union type.
+
+`;

@@ -43,13 +43,7 @@ export default function SponsorCard({
         {...linkProps}
         className={classNames(styles.card, styles.lg, className)}
       >
-        {CLIENT && (
-          <Avatar
-            name={sponsor.name}
-            image={sponsor.imageUrl}
-            size={'medium'}
-          />
-        )}
+        <Avatar name={sponsor.name} image={sponsor.imageUrl} size={'medium'} />
         <span className={styles.name}>{sponsor.name}</span>
         {sponsor.description && (
           <p className={styles.description}>{sponsor.description}</p>
@@ -72,9 +66,7 @@ export default function SponsorCard({
       className={classNames(styles.card, styles[size], className)}
     >
       <div>
-        {CLIENT && (
-          <Avatar name={sponsor.name} image={sponsor.imageUrl} size={'small'} />
-        )}
+        <Avatar name={sponsor.name} image={sponsor.imageUrl} size={'small'} />
       </div>
       <span className={styles.body}>
         <span className={styles.name}>{sponsor.name}</span>
