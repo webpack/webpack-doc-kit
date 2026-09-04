@@ -78,7 +78,7 @@ jobs:
             ${{ steps.preview.outputs.url }}/blog/posts/2026-02-04-roadmap-2026
             ${{ steps.preview.outputs.url }}/guides/getting-started
             ${{ steps.preview.outputs.url }}/docs/api/options
-            ${{ steps.preview.outputs.url }}/docs/loaders/css-loader
+            ${{ steps.preview.outputs.url }}/docs/loaders/sass-loader
 
       - name: Format Lighthouse report
         id: format
