@@ -7,9 +7,8 @@ import { baseURL } from '#theme/config';
 import { toPublicLink } from '../utils/helpers/urls.mjs';
 import Logo from '#theme/Logo';
 
-// TODO(avivkeller): Give these components proper exports
-import SearchBox from '../node_modules/@doc-kit/generator-react/src/html/ui/components/SearchBox';
-import ThemeToggle from '../node_modules/@doc-kit/generator-react/src/html/ui/components/ThemeToggle.jsx';
+import SearchBox from '@doc-kit/generator-react/html/ui/components/SearchBox/index.jsx';
+import ThemeToggle from '@doc-kit/generator-react/html/ui/components/ThemeToggle.jsx';
 
 const versionBase = new URL(baseURL).pathname;
 

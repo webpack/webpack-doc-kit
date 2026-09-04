@@ -15,8 +15,7 @@ import useSponsors from '../../hooks/useSponsors.mjs';
 
 import styles from './index.module.css';
 
-// TODO(avivkeller): Give these components proper exports
-import withIsland from '../../node_modules/@doc-kit/generator-react/src/html/ui/islands/withIsland.jsx';
+import withIsland from '@doc-kit/generator-react/html/ui/islands/withIsland.jsx';
 
 /**
  * Everything on the Sponsors page

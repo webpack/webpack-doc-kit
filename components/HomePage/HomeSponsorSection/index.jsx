@@ -15,8 +15,7 @@ import {
   OC_URL,
 } from '../../Sponsors/tiers.mjs';
 
-// TODO(avivkeller): Give these components proper exports
-import withIsland from '../../../node_modules/@doc-kit/generator-react/src/html/ui/islands/withIsland.jsx';
+import withIsland from '@doc-kit/generator-react/html/ui/islands/withIsland.jsx';
 
 const SPONSORS_URL = '/about/sponsors';
 

@@ -7,8 +7,7 @@ import PostLayout from '../layouts/Post/index.jsx';
 import PageNotFoundLayout from '../layouts/PageNotFound/index.jsx';
 import '../styles/index.css';
 
-// TODO(avivkeller): Give these components proper exports
-import DefaultLayout from '../node_modules/@doc-kit/generator-react/src/html/ui/components/Layout/index.jsx';
+import DefaultLayout from '@doc-kit/generator-react/html/ui/components/Layout/index.jsx';
 
 const LAYOUTS = {
   home: HomeLayout,
