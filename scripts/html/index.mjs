@@ -17,10 +17,12 @@ const runDocKit = version =>
       'orama-db',
       '-t',
       'sitemap',
+      '-t',
       'llms-txt',
       '--config-file',
       './scripts/html/doc-kit.config.mjs',
     ],
+
     {
       env: {
         ...process.env,
