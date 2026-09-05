@@ -4,7 +4,7 @@ import { parseArgs } from 'node:util';
 import Handlebars from 'handlebars';
 import matter from 'gray-matter';
 
-import { fetchWithAuth } from '../../utils/fetch.mjs';
+import { fetchWithAuth } from '../utils/fetch.mjs';
 
 const { values } = parseArgs({
   options: {
@@ -87,7 +87,7 @@ const changes = changesets.map(parseChangeset);
 const post = await renderReleaseNotes(version, changes, date);
 writeFile(
   new URL(
-    import.meta.resolve(`../../../pages/blog/${date}-webpack-${version}.md`)
+    import.meta.resolve(`../../pages/blog/posts/${date}-webpack-${version}.md`)
   ),
   post
 );
