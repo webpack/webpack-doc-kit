@@ -11,9 +11,9 @@ export default ({ children }) => {
               <span className={styles.dot}></span> STATIC MODULE BUNDLER
             </p>
 
-            <h2 className={styles.title}>
+            <h1 className={styles.title}>
               Bundle the <span className={styles.highlight}>web</span>.
-            </h2>
+            </h1>
 
             <p className={styles.subtext}>
               webpack packs many modules into a few bundled assets. Code
