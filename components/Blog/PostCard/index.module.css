@@ -40,7 +40,8 @@
     text-sm
     leading-relaxed
     text-neutral-600
-    dark:text-neutral-300;
+    dark:text-neutral-300
+    line-clamp-3;
 }
 
 .foot {
