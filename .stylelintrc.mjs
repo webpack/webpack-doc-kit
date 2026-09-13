@@ -50,6 +50,8 @@ export default {
     'import-notation': 'string',
     // Allow the `@apply` at rule as its part of Tailwind
     'at-rule-no-deprecated': [true, { ignoreAtRules: CUSTOM_AT_RULES }],
+    // Disables this rule for `@apply` as Tailwind uses it for utility classes
+    'at-rule-prelude-no-invalid': [true, { ignoreAtRules: ['apply'] }],
     'nodejs/one-utility-class-per-line': true,
   },
 };
