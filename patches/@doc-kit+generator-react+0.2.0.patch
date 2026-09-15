@@ -1,0 +1,26 @@
+diff --git a/node_modules/@doc-kit/generator-react/src/html/ui/components/ThemeToggle.jsx b/node_modules/@doc-kit/generator-react/src/html/ui/components/ThemeToggle.jsx
+index 2e97375..b7ce987 100644
+--- a/node_modules/@doc-kit/generator-react/src/html/ui/components/ThemeToggle.jsx
++++ b/node_modules/@doc-kit/generator-react/src/html/ui/components/ThemeToggle.jsx
+@@ -1,4 +1,5 @@
+ import ThemeToggle from '@node-core/ui-components/Common/ThemeToggle';
++import { useState, useEffect } from 'react';
+ 
+ import { useTheme } from '../hooks/useTheme.mjs';
+ import withIsland from '../islands/withIsland.jsx';
+@@ -8,9 +9,14 @@ import withIsland from '../islands/withIsland.jsx';
+  */
+ const Toggle = () => {
+   const [themePreference, setThemePreference] = useTheme();
++  const [hydrated, setHydrated] = useState(false);
++
++  useEffect(() => {
++    setHydrated(true);
++  }, []);
+ 
+   return (
+-    <ThemeToggle onChange={setThemePreference} currentTheme={themePreference} />
++    <ThemeToggle onChange={setThemePreference} currentTheme={hydrated ? themePreference : 'system'} />
+   );
+ };
+ 

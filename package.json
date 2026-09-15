@@ -20,7 +20,8 @@
     "lint:css:fix": "node --run lint:css -- --fix",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "prepare": "husky"
+    "prepare": "husky",
+    "postinstall": "patch-package"
   },
   "dependencies": {
     "@doc-kit/cli": "^1.0.1",
@@ -47,6 +48,7 @@
     "handlebars": "^4.7.9",
     "husky": "^9.1.7",
     "lint-staged": "^17.5.0",
+    "patch-package": "^8.0.1",
     "prettier": "^3.9.6",
     "stylelint": "^17.15.0",
     "stylelint-config-standard": "^40.0.0",
