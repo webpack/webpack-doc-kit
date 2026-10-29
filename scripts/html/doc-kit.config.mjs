@@ -48,10 +48,9 @@ export default {
       : undefined,
   },
 
-  'jsx-ast': {
-    generateIndexPage: false,
-    generateAllPage: false,
-  },
+  // Source links point at the published version's tag, whose line numbers
+  // the API reference was generated from.
+  'jsx-ast': VERSION ? { ref: `v${VERSION}` } : {},
 
   'llms-txt': {
     templatePath: join(ROOT, 'scripts/html/llms-template.txt'),
@@ -59,11 +58,14 @@ export default {
   },
 
   html: {
+    generateAllPage: false,
     useAbsoluteURLs: true,
     remoteConfigUrl: '/assets/banners.json',
     title: VERSION ? `Webpack ${MAJOR_VERSION} Documentation` : 'Webpack',
-    editURL:
-      'https://github.com/webpack/webpack.js.org/blob/main/pages/{path}.md',
+    // The versioned API reference is generated, so it has nothing to edit.
+    editURL: VERSION
+      ? undefined
+      : 'https://github.com/webpack/webpack.js.org/blob/main/pages/{path}.md',
     head: {
       meta: [
         {
