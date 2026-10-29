@@ -50,7 +50,7 @@ export default {
 
   // Source links point at the published version's tag, whose line numbers
   // the API reference was generated from.
-  'jsx-ast': VERSION ? { ref: `v${VERSION}` } : {},
+  'jsx-ast': VERSION ? { ref: VERSION } : {},
 
   'llms-txt': {
     templatePath: join(ROOT, 'scripts/html/llms-template.txt'),
