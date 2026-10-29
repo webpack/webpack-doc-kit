@@ -5,7 +5,7 @@
     "build:data": "npm-run-all build:data:*",
     "build:data:blog": "node scripts/data/blog.mjs",
     "build:md": "npm-run-all build:md:*",
-    "build:md:api": "node --import ./scripts/markdown/api/typedoc-hooks.mjs scripts/markdown/api/index.mjs && node scripts/markdown/api/configuration.mjs",
+    "build:md:api": "node scripts/markdown/api/index.mjs && node scripts/markdown/api/configuration.mjs",
     "build:md:readmes": "node scripts/markdown/readmes.mjs",
     "build:md:governance": "node scripts/markdown/governance.mjs",
     "build:html": "node scripts/html/index.mjs && node scripts/html/sitemap-index.mjs",
@@ -25,7 +25,7 @@
   "dependencies": {
     "@doc-kit/cli": "^1.0.5",
     "@doc-kit/generator-react": "^0.5.0",
-    "@doc-kit/typedoc": "file:../../nodejs/doc-kit/packages/typedoc",
+    "@doc-kit/typedoc": "^0.0.0",
     "@tailwindcss/vite": "^4.3.3",
     "@vercel/analytics": "^2.0.1",
     "@vercel/functions": "^3.10.1",
