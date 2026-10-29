@@ -1,6 +1,6 @@
 ---
 title: Plugins
-authors: ryzrr
+authors: ryzrr, samc4e
 ---
 
 # Plugins
@@ -13,12 +13,24 @@ into a build.
 Plugins built into webpack are documented in the [API reference](/docs/api).
 The plugins below are separate packages maintained by the webpack organization.
 
-| Plugin                                                                           | Description                                                         |
-| -------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| [`mini-css-extract-plugin`](/docs/plugins/mini-css-extract-plugin)               | Extract CSS into separate files, one per JS file that imports CSS   |
-| [`copy-webpack-plugin`](/docs/plugins/copy-webpack-plugin)                       | Copy individual files or whole directories into the build output    |
-| [`compression-webpack-plugin`](/docs/plugins/compression-webpack-plugin)         | Emit compressed versions of assets to serve with `Content-Encoding` |
-| [`image-minimizer-webpack-plugin`](/docs/plugins/image-minimizer-webpack-plugin) | Compress images during the build                                    |
-| [`eslint-webpack-plugin`](/docs/plugins/eslint-webpack-plugin)                   | Run ESLint on your modules during the build                         |
-| [`stylelint-webpack-plugin`](/docs/plugins/stylelint-webpack-plugin)             | Run Stylelint on your styles during the build                       |
-| [`minimizer-webpack-plugin`](/docs/plugins/minimizer-webpack-plugin)             | Minify assets, with support for several minifiers                   |
+| Plugin                                                                   | Description                                                            |
+| ------------------------------------------------------------------------ | ---------------------------------------------------------------------- |
+| [`minimizer-webpack-plugin`](/docs/plugins/minimizer-webpack-plugin)     | Minify and compress assets, with support for several minifiers         |
+| [`diagnostics-webpack-plugin`](/docs/plugins/diagnostics-webpack-plugin) | Run ESLint, Stylelint, TypeScript, and other checkers during the build |
+
+## Deprecated plugins
+
+webpack or the plugins above now cover what these plugins did, so these
+packages are deprecated and no longer documented here.
+
+| Plugin                                                                                        | Use instead                                                                   |
+| --------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| [`mini-css-extract-plugin`](https://github.com/webpack/mini-css-extract-plugin)               | [Native CSS](/guides/modern-web/native-css#3-replace-mini-css-extract-plugin) |
+| [`copy-webpack-plugin`](https://github.com/webpack/copy-webpack-plugin)                       | The `output.copy` option, from webpack 5.111.0                                |
+| [`compression-webpack-plugin`](https://github.com/webpack/compression-webpack-plugin)         | [`minimizer-webpack-plugin`](/docs/plugins/minimizer-webpack-plugin)          |
+| [`css-minimizer-webpack-plugin`](https://github.com/webpack/css-minimizer-webpack-plugin)     | [`minimizer-webpack-plugin`](/docs/plugins/minimizer-webpack-plugin)          |
+| [`html-minimizer-webpack-plugin`](https://github.com/webpack/html-minimizer-webpack-plugin)   | [`minimizer-webpack-plugin`](/docs/plugins/minimizer-webpack-plugin)          |
+| [`image-minimizer-webpack-plugin`](https://github.com/webpack/image-minimizer-webpack-plugin) | [`minimizer-webpack-plugin`](/docs/plugins/minimizer-webpack-plugin)          |
+| [`json-minimizer-webpack-plugin`](https://github.com/webpack/json-minimizer-webpack-plugin)   | [`minimizer-webpack-plugin`](/docs/plugins/minimizer-webpack-plugin)          |
+| `eslint-webpack-plugin`                                                                       | [`diagnostics-webpack-plugin`](/docs/plugins/diagnostics-webpack-plugin)      |
+| [`stylelint-webpack-plugin`](https://github.com/webpack/stylelint-webpack-plugin)             | [`diagnostics-webpack-plugin`](/docs/plugins/diagnostics-webpack-plugin)      |
