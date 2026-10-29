@@ -17,8 +17,9 @@ function MetaBarComponent({ metadata, headings = [], readingTime }) {
     .filter(sponsor => sponsor.monthly.tier === 'platinum')
     .sort((a, b) => b.monthly.value - a.monthly.value);
 
+  // Generated API pages have no editable source, unless they name one.
   const editThisPage =
-    metadata.source ?? editURL.replace('{path}', metadata.path);
+    metadata.source ?? editURL?.replace('{path}', metadata.path);
   const authors = metadata.authors?.split(',').map(id => ({
     image: `https://avatars.githubusercontent.com/${id.trim()}`,
     url: `https://github.com/${id.trim()}`,
@@ -36,12 +37,16 @@ function MetaBarComponent({ metadata, headings = [], readingTime }) {
               Authors: <AvatarGroup avatars={authors} as="a" limit={5} />,
             }
           : {}),
-        Contribute: (
-          <>
-            <GitHubIcon className="fill-neutral-700 dark:fill-neutral-100" />
-            <a href={editThisPage}>Edit this page</a>
-          </>
-        ),
+        ...(editThisPage
+          ? {
+              Contribute: (
+                <>
+                  <GitHubIcon className="fill-neutral-700 dark:fill-neutral-100" />
+                  <a href={editThisPage}>Edit this page</a>
+                </>
+              ),
+            }
+          : {}),
         ...(platinumSponsors.length
           ? {
               [platinumSponsors.length > 1
