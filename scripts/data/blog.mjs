@@ -22,11 +22,17 @@ const readPosts = async () => {
         await readFile(join(POSTS_DIR, file), 'utf8')
       );
 
+      // Only unquoted YAML dates are accepted; other values become wrong dates
+      const { date } = data;
+      if (!(date instanceof Date) || Number.isNaN(date.getTime())) {
+        throw new Error(`Invalid or missing date in ${file}: ${date}`);
+      }
+
       return {
         slug,
         title: titleFromBody(content) ?? slug,
         authors: data.authors?.split(',').map(s => s.trim()),
-        date: new Date(data.date).toISOString(),
+        date: date.toISOString(),
         category: data.category ?? null,
         image: data.image ?? null,
         ...(data.description && { description: data.description }),
