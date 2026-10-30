@@ -9,29 +9,34 @@ import Logo from '#theme/Logo';
 
 import SearchBox from '@doc-kit/generator-react/html/ui/components/SearchBox/index.jsx';
 import ThemeToggle from '@doc-kit/generator-react/html/ui/components/ThemeToggle.jsx';
+import TopBarAd from '#theme/TopBarAd';
 
 const versionBase = new URL(baseURL).pathname;
 
 /**
- * NavBar component that displays the headings, search, etc.
+ * NavBar component that displays the headings, search, etc., followed by the
+ * top bar ad.
  */
 export default ({ metadata }) => {
   return (
-    <NavBar
-      Logo={Logo}
-      sidebarItemTogglerAriaLabel="Toggle navigation menu"
-      navItems={navbar}
-      pathname={toPublicLink(metadata.path, versionBase)}
-    >
-      <SearchBox pathname={metadata.path} />
-      <ThemeToggle />
-      <a
-        href="https://github.com/webpack/webpack"
-        className={styles.ghIconWrapper}
-        aria-label="webpack on GitHub"
+    <>
+      <NavBar
+        Logo={Logo}
+        sidebarItemTogglerAriaLabel="Toggle navigation menu"
+        navItems={navbar}
+        pathname={toPublicLink(metadata.path, versionBase)}
       >
-        <GitHubIcon />
-      </a>
-    </NavBar>
+        <SearchBox pathname={metadata.path} />
+        <ThemeToggle />
+        <a
+          href="https://github.com/webpack/webpack"
+          className={styles.ghIconWrapper}
+          aria-label="webpack on GitHub"
+        >
+          <GitHubIcon />
+        </a>
+      </NavBar>
+      <TopBarAd />
+    </>
   );
 };

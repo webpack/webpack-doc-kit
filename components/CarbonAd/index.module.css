@@ -1,0 +1,144 @@
+@reference "../../styles/index.css";
+
+/* Colors, copy and images are the advertiser's, as approved, and must not be
+   changed: each creative sets its palette through `adColors`. */
+.topBar,
+.sideBar {
+  @apply relative
+    bg-(--ad-bg)
+    text-(--ad-text)
+    dark:bg-(--ad-bg-dark)
+    dark:text-(--ad-text-dark);
+
+  & a {
+    @apply text-inherit
+      no-underline!;
+  }
+}
+
+.badge {
+  @apply shrink-0
+    rounded-md
+    border
+    border-current
+    px-2
+    py-0.5
+    text-sm
+    opacity-70
+    hover:opacity-100;
+}
+
+/* A slim, single-line bar: the creative centred, the label and close button
+   tucked away at the end */
+.topBar {
+  @apply flex
+    items-center
+    gap-2
+    px-4
+    py-1.5
+    text-sm
+    md:px-8;
+
+  & .badge {
+    @apply rounded
+      px-1
+      py-0
+      text-[0.625rem]
+      leading-4
+      tracking-wide
+      uppercase;
+  }
+}
+
+.topBarLink {
+  @apply flex
+    flex-1
+    items-center
+    justify-center
+    gap-3;
+}
+
+.logo {
+  @apply size-6
+    shrink-0;
+}
+
+.cta {
+  @apply hidden
+    shrink-0
+    rounded-full
+    bg-(--ad-cta-bg)
+    px-3
+    py-0.5
+    text-xs
+    font-semibold
+    text-(--ad-cta-text)
+    transition-opacity
+    hover:opacity-90
+    sm:block
+    dark:bg-(--ad-cta-bg-dark)
+    dark:text-(--ad-cta-text-dark);
+}
+
+.close {
+  @apply flex
+    shrink-0
+    cursor-pointer
+    rounded-full
+    p-0.5
+    opacity-60
+    transition-opacity
+    hover:opacity-100;
+}
+
+.sideBar {
+  /* Sits under the navigation groups rather than above them */
+  @apply order-last
+    overflow-hidden
+    rounded-xl;
+}
+
+.sideBarLink {
+  @apply flex
+    flex-col;
+}
+
+.image {
+  @apply aspect-square
+    w-full
+    object-cover;
+}
+
+.sideBarBody {
+  @apply flex
+    flex-col
+    items-start
+    gap-2
+    p-4
+    text-sm;
+}
+
+.title {
+  @apply text-base
+    font-semibold;
+}
+
+.sideBarCta {
+  @apply mt-2
+    font-semibold
+    rounded-full
+    border-2
+    border-current
+    px-4
+    py-1.5;
+}
+
+.overlay {
+  @apply absolute
+    top-3
+    right-3
+    border-transparent
+    bg-black/60
+    text-white
+    opacity-100;
+}
