@@ -5,6 +5,7 @@ import { sidebar } from '#theme/local/site';
 import { version } from '#theme/config';
 import { toPublicLink } from '../utils/helpers/urls.mjs';
 import versions from '../versions.json' with { type: 'json' };
+import SideBarAd from './CarbonAd/SideBar.jsx';
 import withIsland from '../node_modules/@doc-kit/generator-react/src/html/ui/islands/withIsland.jsx';
 
 /** @param {string} url */
@@ -53,6 +54,7 @@ const Sidebar = ({ metadata }) => (
         />
       </div>
     )}
+    <SideBarAd />
   </SideBar>
 );
 

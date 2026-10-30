@@ -24,6 +24,10 @@ export default [
     },
   },
   {
+    files: ['hooks/**/*.mjs'],
+    languageOptions: { globals: globals.browser },
+  },
+  {
     ignores: [
       'node_modules/',
       'out/',
