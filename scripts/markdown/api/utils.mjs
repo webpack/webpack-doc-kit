@@ -1,5 +1,6 @@
 import { readdir, readFile } from 'node:fs/promises';
 import { join } from 'node:path/posix';
+import { load } from '@doc-kit/typedoc';
 
 const [packageDir] = process.argv.slice(2);
 const cacheDir = join('.', '.cache', 'webpack');
@@ -19,24 +20,13 @@ export const getPackageFile = async (packageDir, file = 'package.json') =>
 
 export const typeDocConfig = {
   plugin: [
-    'typedoc-plugin-markdown',
+    load,
     'typedoc-plugin-missing-exports',
-    './plugins/processor/index.mjs',
-    './plugins/theme/index.mjs',
+    './plugins/webpack.mjs',
+    './plugins/sources.mjs',
   ],
-  theme: 'doc-kit',
-  router: 'doc-kit',
 
-  hideGroupHeadings: true,
-  hideBreadcrumbs: true,
-  hidePageHeader: true,
   readme: 'none',
-  disableSources: true,
-  propertiesFormat: 'table',
-  membersWithOwnFile: ['Class'],
-
-  modulesFileName: 'index',
-  entryFileName: 'index',
   tsconfig: 'tsconfig.json',
   excludeExternals: true,
 };
