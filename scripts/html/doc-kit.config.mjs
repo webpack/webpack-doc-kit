@@ -104,6 +104,7 @@ export default {
       '#theme/BlogLayout': join(ROOT, 'layouts/Blog/index.jsx'),
       '#theme/Blog/Byline': join(ROOT, 'components/Blog/Byline/index.jsx'),
       '#theme/Navigation': join(ROOT, 'components/NavBar.jsx'),
+      '#theme/TopBarAd': join(ROOT, 'components/CarbonAd/TopBar.jsx'),
       '#theme/Footer': join(ROOT, 'components/Footer/index.jsx'),
       '#theme/Logo': join(ROOT, 'components/Icons/Webpack.jsx'),
       '#theme/Home/Hero': join(ROOT, 'components/HomePage/Hero/index.jsx'),
@@ -130,6 +131,7 @@ export default {
       BlogLayout: '#theme/BlogLayout',
       Byline: '#theme/Blog/Byline',
       MetaBar: '#theme/Metabar',
+      TopBarAd: '#theme/TopBarAd',
       StackBlitzPreview: '#theme/StackBlitzPreview',
     },
     bundler: createViteBundler({
