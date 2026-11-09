@@ -1,6 +1,6 @@
 ---
 title: Plugins
-authors: ryzrr
+authors: ryzrr, samc4e
 ---
 
 # Plugins
@@ -13,12 +13,7 @@ into a build.
 Plugins built into webpack are documented in the [API reference](/docs/api).
 The plugins below are separate packages maintained by the webpack organization.
 
-| Plugin                                                                           | Description                                                         |
-| -------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| [`mini-css-extract-plugin`](/docs/plugins/mini-css-extract-plugin)               | Extract CSS into separate files, one per JS file that imports CSS   |
-| [`copy-webpack-plugin`](/docs/plugins/copy-webpack-plugin)                       | Copy individual files or whole directories into the build output    |
-| [`compression-webpack-plugin`](/docs/plugins/compression-webpack-plugin)         | Emit compressed versions of assets to serve with `Content-Encoding` |
-| [`image-minimizer-webpack-plugin`](/docs/plugins/image-minimizer-webpack-plugin) | Compress images during the build                                    |
-| [`eslint-webpack-plugin`](/docs/plugins/eslint-webpack-plugin)                   | Run ESLint on your modules during the build                         |
-| [`stylelint-webpack-plugin`](/docs/plugins/stylelint-webpack-plugin)             | Run Stylelint on your styles during the build                       |
-| [`minimizer-webpack-plugin`](/docs/plugins/minimizer-webpack-plugin)             | Minify assets, with support for several minifiers                   |
+| Plugin                                                                   | Description                                                            |
+| ------------------------------------------------------------------------ | ---------------------------------------------------------------------- |
+| [`minimizer-webpack-plugin`](/docs/plugins/minimizer-webpack-plugin)     | Minify and compress assets, with support for several minifiers         |
+| [`diagnostics-webpack-plugin`](/docs/plugins/diagnostics-webpack-plugin) | Run ESLint, Stylelint, TypeScript, and other checkers during the build |
